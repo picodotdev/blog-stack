@@ -1,0 +1,182 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Guía instalación Minix | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2010/11/guia-instalacion-minix">Guía instalación Minix</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/11/guia-instalacion-minix.html">Entrada original</a></span></div><div><span>Publicado el viernes, 05 de noviembre de 2010 a las 20:16 UTC</span></div><div><span>Actualizado el jueves, 22 de noviembre de 2012 a las 07:52 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/minix">minix</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_via="blogstack" st_title="Guía instalación Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <br />
+ <img alt="Minix" height="155" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TM1S9jnBVcI/AAAAAAAAAg8/Ni1Fn3hj53U/s200/minix.jpg" title="Minix" width="200" />
+</div>El proceso de instalaci&oacute;n de 
+<a href="http://www.minix3.org/">Minix</a> no es muy complicado, en unos pocos pasos se completa, y se realiza bastante r&aacute;pido debido a que su tama&ntilde;o es bastante menor que muchas de las distribuciones GNU/Linux. Lo recomendable es hacerlo en una m&aacute;quina virtual ya que Minix no va a ser el sistema que usemos para cualquiera de las tareas que hagamos habitualmente, adem&aacute;s de esta manera podremos hacer y deshacer a nuestro gusto sin peligro de romper nuestro sistema.
+<br />
+<br />Lo primero que haremos ser&aacute; 
+<a href="http://www.minix3.org/download/">descargar la imagen de CD</a> de la &uacute;ltima versi&oacute;n de Minix (en el momento de escribir esta entrada la 3.1.8).
+<br />
+<br />Una vez descargada configuraremos una nueva m&aacute;quina virtual. Utilizando virtualbox al crear la m&aacute;quina virtual configuraremos la opciones t&iacute;picas como sistema operativo done utilizaremos &laquo;Other&raquo; y versi&oacute;n &laquo;Other\Unknown&raquo;, le asignaremos una cantidad de memoria aceptable (128 MiB o m&aacute;s), el tama&ntilde;o de disco duro (2 GiB ser&aacute; m&aacute;s que suficiente) y en orden de arranque pondremos primero CD/DVD-ROM y luego disco duro y en almacenamiento asignaremos a la unidad CD virtual la imagen de instalaci&oacute;n de Minix que hemos descargado. Al final en el resumen de la maquina virtual que hemos creado veremos algo como en la siguiente imagen.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRTplFdnVI/AAAAAAAAAhM/DJbBz5VCueY/s1600/virtualbox-minix.png"><img height="190" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRTplFdnVI/AAAAAAAAAhM/DJbBz5VCueY/s200/virtualbox-minix.png" width="200" /></a>
+</div>
+<br />Iniciamos ahora la m&aacute;quina virtual. Primeramente veremos una pantalla con un mensaje de bienvenida y al cabo de un tiempo si no hacemos nada se iniciar&aacute; la carga de Minix. Al final llegaremos a una pantalla de inicio de sesi&oacute;n donde introduciremos &laquo;root&raquo; y sin contrase&ntilde;a accederemos a la linea de comandos desde donde procederemos a instalar Minix en el disco duro (de la m&aacute;quina virtual). Para ello y tal como se nos indica en el mensaje de bienvenida antes de iniciar sesi&oacute;n tecleamos &laquo;setup&raquo; y un proceso nos guiar&aacute; en el proceso de instalaci&oacute;n. Si todo va correctamente pulsaremos la tecla Retorno (Enter).
+<br />
+<br />El primer paso ser&aacute; seleccionar la distribuci&oacute;n de teclado, introduciremos spanish. El segundo paso ser&aacute; establecer las particiones. Para no complicarnos y como estamos utilizando una m&aacute;quina virtual dejaremos a Minix que realice el particionado de forma autom&aacute;tica, pulsamos Retorno. Despu&eacute;s de un peque&ntilde;o momento en el que Minix detecta los discos duros seleccionaremos el que nos ofrece, introducimos 0 o pulsamos Return para utilizar la opci&oacute;n por defecto (0). Despu&eacute;s Minix nos pedir&aacute; una confirmaci&oacute;n antes del copiado de archivos al disco duro, introducimos &laquo;yes&raquo;. A continuaci&oacute;n nos preguntar&aacute; cuanto tama&ntilde;o queremos reservar para la partici&oacute;n home, dejaremos el valor que nos ofrece Minix, 376 MiB para un disco duro de 2 GiB. Ahora nos pregunta por el tama&ntilde;o de bloque del disco duro, dejaremos el valor por defecto 4 KiB pulsando la tecla Retorno.
+<br />
+<br />Y ahora empieza el copiado de archivos al disco duro donde veremos los archivos restantes y el progeso de la operaci&oacute;n. Una vez finalizado Minix nos pregunta por el modelo de tarjeta de red que poseemos (en la m&aacute;quina virtual), selecionaremos la opci&oacute;n por defecto AMD LANCE. Ahora seleccionamos que Minix use DHCP para configurar la tarjeta de red. Y ya hemos terminado de instalar Minix. En las siguientes im&aacute;genes pod&eacute;is ver el proceso de instalaci&oacute;n de forma gr&aacute;fica.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRT0oNRHoI/AAAAAAAAAhQ/lYPs-5BA_d0/s1600/instalaci%C3%B3n-minix-1.png"><img height="130" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRT0oNRHoI/AAAAAAAAAhQ/lYPs-5BA_d0/s200/instalaci%C3%B3n-minix-1.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRT2J9eTyI/AAAAAAAAAhU/M7gEmWxlw8c/s1600/instalaci%C3%B3n-minix-2.png"><img height="130" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRT2J9eTyI/AAAAAAAAAhU/M7gEmWxlw8c/s200/instalaci%C3%B3n-minix-2.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRT3st54MI/AAAAAAAAAhY/AjRsY7QBZTs/s1600/instalaci%C3%B3n-minix-3.png"><img height="130" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRT3st54MI/AAAAAAAAAhY/AjRsY7QBZTs/s200/instalaci%C3%B3n-minix-3.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRT5gPOOjI/AAAAAAAAAhc/4wPGUoWLffY/s1600/instalaci%C3%B3n-minix-4.png"><img height="130" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRT5gPOOjI/AAAAAAAAAhc/4wPGUoWLffY/s200/instalaci%C3%B3n-minix-4.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRUx2ByZHI/AAAAAAAAAhg/XZGfAp-gelQ/s1600/instalaci%C3%B3n-minix-5.png"><img height="130" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TNRUx2ByZHI/AAAAAAAAAhg/XZGfAp-gelQ/s200/instalaci%C3%B3n-minix-5.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU1-7hBuI/AAAAAAAAAhk/HUOvv_dC1-c/s1600/instalaci%C3%B3n-minix-6.png"><img height="130" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU1-7hBuI/AAAAAAAAAhk/HUOvv_dC1-c/s200/instalaci%C3%B3n-minix-6.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRU5NFH2NI/AAAAAAAAAho/CWVWhx8nU0E/s1600/instalaci%C3%B3n-minix-7.png"><img height="130" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRU5NFH2NI/AAAAAAAAAho/CWVWhx8nU0E/s200/instalaci%C3%B3n-minix-7.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU8gbRXuI/AAAAAAAAAhs/uv9YigFDp2s/s1600/instalaci%C3%B3n-minix-8.png"><img height="130" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU8gbRXuI/AAAAAAAAAhs/uv9YigFDp2s/s200/instalaci%C3%B3n-minix-8.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/_9zOwWD_PYL8/TNRU-C8CcWI/AAAAAAAAAhw/FCYo8_jsVRc/s1600/instalaci%C3%B3n-minix-9.png"><img height="130" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/TNRU-C8CcWI/AAAAAAAAAhw/FCYo8_jsVRc/s200/instalaci%C3%B3n-minix-9.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU_yW8s2I/AAAAAAAAAh0/pVtDgAty8Lg/s1600/instalaci%C3%B3n-minix-10.png"><img height="130" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRU_yW8s2I/AAAAAAAAAh0/pVtDgAty8Lg/s200/instalaci%C3%B3n-minix-10.png" width="200" /></a>
+</div>
+<br />Finalmente, tecleamos shutdown y desmontamos la imagen del medio de instalaci&oacute;n de Minix. Se nos mostrar&aacute; la linea de comandos del monitor de Minix y ya podremos cerrar la ventana para volver iniciar Minix ahora desde el disco duro.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRVhlj6lfI/AAAAAAAAAh4/fyNFZLRCy3c/s1600/minix.png"><img height="130" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRVhlj6lfI/AAAAAAAAAh4/fyNFZLRCy3c/s200/minix.png" width="200" /></a>
+</div>
+<br />Ahora instalaremos algunos paquetes para poder hacer algo con Minix. Los paquetes que instalaremos ser&aacute;n nano, la colecci&oacute;n de compiladores GNU (gcc) y el entorno gŕafico b&aacute;sico X. Para ello utilizamos la siguiente linea de comandos.
+<br />
+<br />
+<pre>$ pkgin install nano gcc x11</pre>
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRVm7Y7swI/AAAAAAAAAh8/E2V_gZeMhHM/s1600/minix-instalaci%C3%B3n-paquetes.png"><img height="130" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TNRVm7Y7swI/AAAAAAAAAh8/E2V_gZeMhHM/s200/minix-instalaci%C3%B3n-paquetes.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRcFkS6HoI/AAAAAAAAAiA/zNVSDmB7hKA/s1600/minix-x11.png"><img height="135" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TNRcFkS6HoI/AAAAAAAAAiA/zNVSDmB7hKA/s200/minix-x11.png" width="200" /></a>
+</div>
+<br />Otros comandos &uacute;tiles de pkgin son:
+<br />
+<pre>$ pkgin help</pre>(para obtener las opciones disponibles)
+<br />
+<br />
+<pre>$ pkgin update</pre>(para actualizar la lista de paquetes)
+<br />
+<br />
+<pre>$ pgkin available | more</pre>(para ver los paquetes disponibles, que no son muchos)
+<br />
+<br />Una vez se hayan descargado e instalado los paquetes podremos hacer algo dentro de Minix pero eso ser&aacute; 
+<a href="http://elblogdepicodev.blogspot.com/2012/03/guia-post-instalacion-minix.html">cuesti&oacute;n para otra entrada</a>.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2010/10/el-sistema-operativo-minix.html">El sistema operativo Minix</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2012/03/guia-post-instalacion-minix.html">Gu&iacute;a post instalaci&oacute;n Minix</a>
+<br />
+<a href="http://www.minix3.org/install">Installation guide</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_via="blogstack" st_title="Guía instalación Minix | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_title="Guía instalación Minix | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_title="Guía instalación Minix | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_title="Guía instalación Minix | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_title="Guía instalación Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Guía instalación Minix";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2010/11/guia-instalacion-minix.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li><li><a href="/label/minix/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta minix</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 170,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

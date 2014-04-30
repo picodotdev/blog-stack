@@ -1,0 +1,208 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/05/ejemplo-de-pruebas-unitarias-en.html">Entrada original</a></span></div><div><span>Publicado el viernes, 03 de mayo de 2013 a las 19:27 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:32 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_via="blogstack" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Jasmine" height="63" src="http://2.bp.blogspot.com/-CI-bmJ97HgE/UYP7rdVA0KI/AAAAAAAACf0/dGYUu61qUwg/s200/jasmine.png" title="Jasmine" width="200" />
+</div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Backbone.js" height="35" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s200/backbone.png" title="Backbone.js" width="200" />
+</div>Tener un conjunto de pruebas unitarias sobre el c&oacute;digo de la aplicaci&oacute;n que desarrollamos es importante para tener m&aacute;s seguridad de que lo que hacemos funciona como se espera y no introducimos errores en funcionalidades que ya exist&iacute;an al hacer modificaciones, adem&aacute;s de que en el caso de que haya errores estos ser&aacute;n m&aacute;s f&aacute;cilmente descubiertos y resueltos en menos tiempo lo que har&aacute; que seamos m&aacute;s productivos. Si en una aplicaci&oacute;n web es posible que ya hagamos pruebas unitarias sobre el c&oacute;digo del lado del servidor, &iquest;por que no hacerlo tambi&eacute;n en el lado del cliente? Si la aplicaci&oacute;n tiene un peso importante de javascript en el lado del cliente, y esa es la tendencia, es recomendable tener tambi&eacute;n teses unitarios de esta parte del c&oacute;digo.
+<br />
+<br />Aprovechando el ejemplo que hice de una 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">aplicaci&oacute;n bastante completa de una lista de tareas</a> que utilizaba 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Backbone</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a> en el lado cliente y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html">Tapestry y RESTEasy</a> en el lado del servidor ahora le a&ntilde;adir&eacute; al c&oacute;digo javascript el conjunto de pruebas unitarias con 
+<a href="http://pivotal.github.io/jasmine/">Jasmine</a> y 
+<a href="http://sinonjs.org/">Sinon</a>.
+<br />
+<br />Jasmine es una herramienta para realizar pruebas basadas en BDD (behavior-driven development). BDD es parte de las metododolog&iacute;as TDD (test-driven development) haciendo &eacute;nfasis en que la gente del dominio pueda trabajar con la gente t&eacute;cnica. Jasmine nos servir&aacute; para hacer las pruebas unitarias, Sinon nos permitir&aacute; usar spies, stubs y mocks en esas pruebas:
+<br />
+<ul>
+ <li>Spy: Un spy es una funci&oacute;n que se env&iacute;a como par&aacute;metro al sujeto bajo prueba para que recolecte datos sobre lo que sucede dentro de esa funci&oacute;n y objeto, se llama esp&iacute;a porque se env&iacute;a tras la lineas enemigas para que recolecte informaci&oacute;n. La informaci&oacute;n que puede recolectar es el n&uacute;mero de veces que se llama una funci&oacute;n, con que par&aacute;metros y cuales, los valores de retorno o si lanz&oacute; excepciones.</li>
+ <li>Stub: ofrecen un comportamiento parcial preprogramado del objeto real, se puede utilizar para que proporcione los datos que queramos al sujeto bajo prueba. Los stubs tambi&eacute;n pueden ejercer de esp&iacute;as.</li>
+ <li>Mock: que tambi&eacute;n son esp&iacute;as (funciones falsas) y stubs (ofrecen comportmiento preprogramado) conocen las expectativas de como han de ser usados, requiriendo que se llamen con ciertos par&aacute;metros, un n&uacute;mero de veces, en cierto orden, .... Conocen cual es el comportamiento esperado del sujeto bajo prueba y una vez hecha la prueba se puede comprobar.</li>
+</ul>A continuaci&oacute;n veremos el c&oacute;digo de las pruebas para la aplicaci&oacute;n, las pruebas se centrar&aacute;n en el c&oacute;digo en el c&oacute;digo de la lista de tareas y de probar las diferentes partes por separado, el modelo, vista y controlador. Veamos primeramente las pruebas para los modelos Tarea y Tareas, las pruebas se centrar&aacute;n en las funciones adicionales que hemos asociado a los modelos, es decir, probaran lo que hemos hecho no Backbone.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5512335.js?file=tareas-specs-1.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5512335/raw/tareas-specs-1.js">tareas-specs-1.js</a>
+ <br />
+</noscript>
+<script src="https://gist.github.com/picodotdev/5512335.js?file=tareas-specs-2.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5512335/raw/tareas-specs-2.js">tareas-specs-2.js</a>
+ <br />
+</noscript> En la parte del controlador de la vista nos centraremos en probar los m&eacute;todos y eventos como onChangeCompletada en TareaView y addTarea, resetTareas, onClickLimpiar y onKeypressNuevaTarea en TareasView. Dado que la lista de tareas hace uso de un servicio REST utilizaremos Sinon para atrapar esas peticiones AJAX que se har&iacute;an en la realidad.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5512335.js?file=tareas-specs-3.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5512335/raw/tareas-specs-3.js">tareas-specs-3.js</a>
+ <br />
+</noscript> En la vista probaremos que dado un modelo el resultado del html contiene los elementos que esperamos:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5512335.js?file=tareas-specs-4.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5512335/raw/tareas-specs-4.js">tareas-specs-4.js</a>
+ <br />
+</noscript> Las pruebas se lanzan abriendo la p&aacute;gina html SpecRunner.html en el navegador. Esa p&aacute;gina html tiene la dependencia sobre RequireJS y este carga en el navegador el resto de dependencias que necesiten los diferentes m&oacute;dulos incluido el m&oacute;dulo bajo prueba de la lista de tareas. Las pruebas de Jasmine se definen en otro m&oacute;dulo de RequireJS que tiene como dependencia la librer&iacute;a de Jasmine, Sinon y por supuesto el m&oacute;dulo tareas que probar&aacute;. El resultado es el siguiente: 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-Keuu1mQpLns/UYQMj600ntI/AAAAAAAACgE/1brxRIrSwSw/s1600/todo-test.png"><img height="320" src="http://1.bp.blogspot.com/-Keuu1mQpLns/UYQMj600ntI/AAAAAAAACgE/1brxRIrSwSw/s320/todo-test.png" width="269" /></a>
+</div>
+<script src="https://gist.github.com/picodotdev/5512335.js?file=SpecRunner.html"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5512335/raw/SpecRunner.html">SpecRunner.html</a>
+ <br />
+</noscript> Backbone se presta muy bien a las pruebas unitarias. Una gran caracter&iacute;stica es que para realizarlas no es necesario que las vistas se asocien a un DOM real, funcionan en memoria, de modo que no hace falta insertar ni quitar contenido de la p&aacute;gina mientras se van ejecutando los teses, no hay necesidad de limpiar el DOM para los siguiente teses y as&iacute; funciona m&aacute;s r&aacute;pido. Como usa el patr&oacute;n MVC cada una de las partes del modelo, vista y controlador pueden probarse por separado. Este ejemplo no muestra todas la posibilidades de Jasmine y Sinon pero da una idea de como son las pruebas con ellas.
+<br />
+<br />En mi repositorio de GitHub puedes encontrar el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/BackboneREST">c&oacute;digo fuente completo del ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a>.
+<br />
+<br />Y con esta es por el momento la &uacute;ltima entrada sobre javascript que escriba de esta serie, no descarto escribir alguna m&aacute;s sobre javascript en el futuro porque alrededor de este lenguaje de programaci&oacute;n est&aacute;n surgiendo muchas utilidades y librer&iacute;as.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo de RequireJS</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Introducci&oacute;n y ejemplo de Mustache</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Logging en Javascript con log4javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">Capturar errores de Javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/optimizar-modulos-de-requirejs.html">Optimizar m&oacute;dulos de RequireJS y archivos Javascript</a>
+<br />
+<a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Patr&oacute;n de dise&ntilde;o MVC del lado cliente con Backbone.js</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Introducci&oacute;n y ejemplo de Backbone.js</a>
+<br />
+<div>
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a>
+ <br />
+ <div>
+  <br />
+  <a href="http://tinnedfruit.com/2011/03/03/testing-backbone-apps-with-jasmine-sinon.html">http://tinnedfruit.com/2011/03/03/testing-backbone-apps-with-jasmine-sinon.html </a>
+  <br />
+  <a href="http://blog.involver.com/2012/01/26/testing-backbone-js-best-practices-2/">http://blog.involver.com/2012/01/26/testing-backbone-js-best-practices-2/</a>
+  <br />
+  <a href="http://kilon.org/blog/2012/08/testing-backbone-requirejs-applications-with-jasmine/">http://kilon.org/blog/2012/08/testing-backbone-requirejs-applications-with-jasmine/</a>
+  <br />
+  <a href="http://backbone.js/">Backbone.js</a>
+  <br />
+  <a href="http://requirejs.org/">RequireJS</a>
+  <br />
+  <a href="http://mustache.github.io/">Mustache</a>
+  <br />
+  <a href="http://pivotal.github.io/jasmine/">Jasmine</a>
+  <br />
+  <a href="http://sinonjs.org/">Sinon</a>
+  <br />
+  <a href="http://www.jboss.org/resteasy/">RESTEasy</a>
+  <br />
+  <a href="http://tapestry.apache.org/">Apache Tapestry</a>
+ </div>
+</div></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_via="blogstack" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/05/ejemplo-de-pruebas-unitarias-en.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 54,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

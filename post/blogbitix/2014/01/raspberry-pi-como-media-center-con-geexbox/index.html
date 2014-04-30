@@ -1,0 +1,144 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Raspberry Pi como Media Center con GeeXboX | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox">Raspberry Pi como Media Center con GeeXboX</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/">Entrada original</a></span></div><div><span>Actualizado el viernes, 03 de enero de 2014 a las 19:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_via="blogstack" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/geexbox.png" alt="GeeXboX" title="GeeXboX" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/raspberrypi.jpg" alt="Raspberry Pi" title="Raspberry Pi" /> 
+</div> 
+<p>La Raspberry Pi es un computador del tama&ntilde;o de una tarjeta de cr&eacute;dito que se puede usar para diferentes prop&oacute;sitos. Hasta hace no mucho a mi me serv&iacute;a para descargar pel&iacute;culas mediante torrent, sin embargo, puede usarse perfectamente para otros prop&oacute;sitos muy interesantes como usarla como Media Center en una televisi&oacute;n que no es una Smart TV o como Media Center con m&aacute;s opciones.</p> 
+<p>Dada la popularidad que tiene la Raspberry Pi disponemos de varias distribuciones con soporte para usar la Raspberry Pi como centro multimedia de nuestro sal&oacute;n. Las principales son:</p> 
+<ul> 
+ <li><a href="http://www.geexbox.org/">GeeXboX</a></li> 
+ <li><a href="http://www.raspbmc.com/">RaspBMC</a></li> 
+ <li><a href="http://openelec.tv/">OpenELEC</a></li> 
+</ul> 
+<p>Las tres opciones tienen la similitud que son muy f&aacute;cilmente instalables (tambi&eacute;n para alguien sin muchos conocimientos t&eacute;cnicos) y que se basan en el programa <a href="http://xbmc.org/">XBMC</a> para ofrecer la funcionalidad de Media Center. La mayor diferencia entre las tres opciones est&aacute;n en los dispositivos soportados, Raspberry Pi al ser muy popular es soportada perfectamente en las tres opciones, RaspMBC est&aacute; destinada especificamente para la Pi y GeeXboX y OpenELEC soportan algunos otros dispositivos como sistemas i386, x64_86, Cubox 1 / 2 / Pro, Utilite, Cubiboard o incluso Apple TV. Otras diferencias es que RaspBMC est&aacute; basado en la distribuci&oacute;n <a href="http://www.debian.org/">Debian</a> mientras que OpenELEC y GeeXboX no se basan en ninguna y est&aacute;n desarrolladas espec&iacute;ficamente para actuar como Media Center. GeeXboX tiene algunas caracter&iacute;sticas adicionales como un servidor HTTP, un servidor FTP, SSH, un cliente torrent con una interfaz accesible con el navegador, compatible con NFS, Samba, UPnP y DLNA.</p> 
+<p>XBMC permite reproducir m&uacute;sica, v&iacute;deo, pel&iacute;culas, ofrece soporte para subt&iacute;tulos, series, fotos incluso ver y grabar en directo la televisi&oacute;n con <a href="http://www.mythtv.org/">MythTV</a> adem&aacute;s puede ser controlado conect&aacute;ndonos v&iacute;a HTTP o <a href="http://www.geexbox.org/geexbox-daily-usage-iphone-and-android-remote-control/">con nuestro tel&eacute;fono inteligente</a> ya sea <a href="http://www.android.com/">Android</a> o iPhone aunque la Raspberry Pi al no disponer de WiFi de por s&iacute; deberemos tenerla conectada a la red de nuestra casa con un cable ethernet.</p> 
+<p>En esta entrada explicar&eacute; como instalar GeeXboX en la Raspberry Pi y de esta manera dotar a nuestra televisi&oacute;n de caracter&iacute;sticas que quiz&aacute; no tenga. El proceso no es nada complicado y en muy poco tiempo podremos empezar a usar la Raspberry Pi como centro multimedia si nuestra televisi&oacute;n dispone de una entrada para cable HDMI. El material que necesitaremos para esta gu&iacute;a es:</p> 
+<ul> 
+ <li>Una Rasbpberry Pi y su adaptador de energ&iacute;a.</li> 
+ <li>Una tarjeta SD de unos 8 GiB o m&aacute;s.</li> 
+ <li>Un cable HDMI (por el se transmitir&aacute; el sonido y la imagen).</li> 
+ <li>Una televisi&oacute;n con entrada HDMI.</li> 
+</ul> 
+<p>Lo primero que haremos es <a href="http://www.geexbox.org/download/">descargar la &uacute;ltima versi&oacute;n de GeeXboX</a> para la Raspberry Pi y el <a href="http://www.geexbox.org/geexbox-for-embedded-devices-creating-a-bootable-sd-card/">script para nuestro dispositivo</a> que har&aacute; todo el proceso de instalaci&oacute;n, en este caso para la Pi. Antes de grabar la imagen en la tarjeta SD deberemos conocer el nombre del dispositivo de la tarjeta SD, para ello ejecutamos los comandos lsblk y blkid en modo superusuario antes y despu&eacute;s de introducir la tarjeta SD. Anotamos el nombre y lo usamos para ejecutar el siguiente comando sustituyendo el dispositivo anotado por el de este comando si es distinto que copiar&aacute; la imagen del sistema a la tarjeta SD.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8242390.js?file=instalacion-geexbox.sh"></script> 
+ <noscript>
+  <pre><code>sudo ./make-sdcard /dev/mmcblk0 geexbox-3.1.raspberrypi.tar.bz2</code></pre>
+ </noscript>
+</div> 
+<p>Este comando tardar&aacute; un poco de tiempo dada la lentitud de las tarjetas SD. Una vez termine quiz&aacute; debamos expandir la partici&oacute;n del sistema para aprovechar todo el espacio de la tarjeta SD. Para expandir la partici&oacute;n del sistema podemos usar <a href="http://gparted.org/">GParted</a>. Y esto es lo m&iacute;nimo imprescindible para instalar GeeXboX en una tarjeta SD para la Pi. GeeXboX tiene el siguiente aspecto.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-inicio.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-inicio-thumb.jpg" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-ajustes.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-ajustes-thumb.jpg" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-ajustes-video.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-ajustes-video-thumb.jpg" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-apariencia-ajustes.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-apariencia-ajustes-thumb.jpg" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-servicios.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-servicios-thumb.jpg" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-reproduccion.jpg"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/5/geexbox-reproduccion-thumb.jpg" /></a> 
+</div> 
+<p>Como apunte a tener en cuenta es que para reproducir pel&iacute;culas en formato imagen de DVD (iso) <em>intuyo</em> que se necesita adquirir la licencia MPEG-2 en la <a href="http://www.raspberrypi.com/license-keys/">tienda de la propia p&aacute;gina de Raspberry Pi</a>. Para otros formatos como DivX (avi) o Matroska (mkv) no tendremos ning&uacute;n problema en reproducir las pel&iacute;culas y van totalmente flu&iacute;das. Otras opciones son bastante m&aacute;s potentes pero Pi ya tiene capacidad suficiente para reproducir pel&iacute;culas a 1080p.</p> 
+<p>A pesar de lo interesante de la Raspberry Pi esta tiene algunas incomodidades. Una incomodidad es que la tarjeta SD es muy lenta comparada con un disco duro conectado por el puerto USB. La tasa de transferrencia de la tarjeta SD es suficiente para reproducir pel&iacute;culas sin ning&uacute;n problema pero al navegar entre los men&uacute;s de XBMC notaremos ciertos atascos mientas se accede a la tarjeta SD. Una tarjeta SD de 32 GB tiene espacio suficiente para almacenar varias pel&iacute;culas y los archivos de GeeXboX.</p> 
+<p>Usando la <a href="http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/">Raspberry Pi con un disco duro externo o memoria USB</a> har&aacute; que GeeXboX se inicie mucho m&aacute;s r&aacute;pido, evitaremos los atascos en la navegaci&oacute;n de los men&uacute;s y el copiar las pel&iacute;culas al disco USB nos llevar&aacute; menos tiempo que copiarlas a la tarjeta SD. Pero tampoco es una soluci&oacute;n exenta de sus peque&ntilde;os inconvenientes ya que los puertos USB de la Raspberry Pi son incapaces de proporcionar suficiente energ&iacute;a a un disco duro externo de 2.5” para hacerlo funcionar por lo que necesitaremos un concentrador de puertos USB alimentado, son unos cuantos cables m&aacute;s que necesitaremos si pretendemos tener las pel&iacute;culas almacenadas de esta forma. Si queremos usar la Raspberry Pi usando un disco duro externo USB podemos seguir las instrucciones de otra entrada que escribir&eacute; sobre como Usar la Raspberry Pi con un disco duro externo USB.</p> 
+<p>Otro inconveniente de la Raspberry Pi es que no dispone de WiFi y algunas funcionalidades de GeeXboX se proporcionan cuando la Pi est&aacute; conectada a internet con lo que perderemos esas funcionalidades o deberemos tener la suerte de tener el router cerca para conectar el cable ethernet, tambi&eacute;n &uacute;til si pretendemos controlar XMBC con nuestro tel&eacute;fono en vez de con un rat&oacute;n. Aunque esas opciones proporcionadas al estar conectados a internet tampoco son indispensables. &iexcl;A disfrutar!</p> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch.html">Gu&iacute;a instalaci&oacute;n Raspberry Pi con Arch Linux</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/">Iniciar la Raspberry Pi desde un disco o memoria USB</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_via="blogstack" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Raspberry Pi como Media Center con GeeXboX";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 42,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

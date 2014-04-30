@@ -1,0 +1,138 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry">Conversiones de datos entre el cliente y servidor en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/03/conversiones-de-datos-entre-el-cliente.html">Entrada original</a></span></div><div><span>Publicado el viernes, 02 de marzo de 2012 a las 21:00 UTC</span></div><div><span>Actualizado el sábado, 25 de mayo de 2013 a las 03:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_via="blogstack" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="131" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>Las clases que implementan la interfaz 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html">Translator</a> en Tapestry permiten convertir el valor de un campo de texto a un objeto (a trav&eacute;s del m&eacute;todo 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html#parseClient(org.apache.tapestry5.Field, java.lang.String, java.lang.String)">parseClient</a>) y de un objeto a un texto que ser&aacute; incluido en un elemento de formulario en el cliente (a trav&eacute;s del m&eacute;todo 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html#toClient(T)">toClient</a>). Esta conversi&oacute;n es necesaria ya que lo que enviamos al cliente y lo que recibimos de &eacute;l es un String. Al recibir los datos desde cliente en el servidor necesitaremos alguna forma de convertir esos datos representados en formato texto a su representaci&oacute;n en objeto que hagamos en el el servidor. Estas dos tareas que en un principio no son muy complejas son tremendamente necesarias y b&aacute;sicas en cualquier aplicaci&oacute;n web, siendo algo b&aacute;sico es el framework que usemos el que deber&iacute;a dar un buen soporte para estas tareas. Con los translators podremos evitar repetirnos en diferentes puntos de la aplicaci&oacute;n.
+<br />
+<br />Una vez que tengamos definido el translator, Tapestry buscar&aacute; el adecuado seg&uacute;n el tipo de objeto a traducir y lo usar&aacute; seg&uacute;n sea necesario sin necesidad de que tengamos que hacer nada m&aacute;s. Vamos a ver un ejemplo, supongamos que en un campo de un formulario necesitamos mostrar una fecha con un determinado formato. En nuestras clases trabajaremos con objetos de tipo 
+<a href="http://download.oracle.com/javase/6/docs/api/java/util/Date.html">Date</a>.&nbsp;El usuario deber&aacute; introducir la fecha con formato &laquo;dd/MM/yyyy&raquo;.
+<br />
+<br />
+<div>
+ <pre>...<br />import org.apache.tapestry5.internal.translator.AbstractTranslator;<br />import org.apache.tapestry5.services.FormSupport;<br /><br />import com.evandti.ticketbis.domain.CodigoDescuento;<br />import com.evandti.ticketbis.misc.Utilidades;<br />import com.evandti.ticketbis.tapestry.services.TicketbisService;<br /><br />public class DateTranslator extends AbstractTranslator&lt;Date&gt; {<br /><br /> private String patron;<br /><br /> public DateTranslator(String patron) {<br />  super(&quot;date&quot;, Date.class, &quot;date-format-exception&quot;);<br />  this.patron = patron;<br /> }<br /><br /> @Override<br /> public String toClient(Date value) {<br />  if (value == null) {<br />   return null;<br />  }<br />  <br />  return new SimpleDateFormat(patron).format(value);<br /> }<br /><br /> @Override<br /> public Date parseClient(Field field, String clientValue, String message) throws ValidationException {<br />  if (clientValue == null) {<br />   return null;<br />  }<br /><br />  try {<br />   return new SimpleDateFormat(patron).parse(clientValue);<br />  } catch (ParseException e) {<br />   throw new ValidationException(message);<br />  }<br /> }<br /><br /> @Override<br /> public void render(Field field, String message, MarkupWriter writer, FormSupport formSupport) {<br /> }<br />}</pre>
+</div>
+<br />Estamos extendiendo una clase del paquete org.apache.tapestry5.internal que es algo no recomendado pero la utilizamos por sencillez y para no tener que implementar nosotros lo que hace el propio AbstractTranslator. Para que Tapestry lo utilice deberemos hacer una contribuci&oacute;n en el m&oacute;dulo de nuestra aplicaci&oacute;n donde b&aacute;sicamente decimos que para una determinada clase se utilice un determinado Translator.
+<br />
+<br />
+<div>
+ <pre>/* AppModule.java */<br /> public static void contributeTranslatorSource(MappedConfiguration configuration) {<br />  configuration.add(Date.class, new DateTranslator(&quot;dd/MM/yyyy&quot;));<br /> }</pre>
+</div>
+<br />A partir de este momento podr&iacute;amos tener en archivo .tml de una p&aacute;gina o componente lo siguiente y en la propiedad fecha del componente o p&aacute;gina tendr&iacute;amos un objeto de tipo Date olvid&aacute;ndonos por completo de la traducci&oacute;n.
+<br />
+<br />
+<div>
+ <pre>&lt;t:label for=&quot;fecha&quot;/&gt;: &lt;t:textfield t:id=&quot;fecha&quot; value=&quot;fecha&quot; size=&quot;12&quot; label=&quot;Fecha&quot;/&gt;</pre>
+</div>
+<br />Hay otra interfaz que hacen algo similar a los Translators, es la interfaz 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/ValueEncoder.html">ValueEncoder</a> pero la diferencia entre las dos est&aacute; en que en los translators puede ser necesaria alg&uacute;n tipo de validaci&oacute;n por nuestra parte ya que son datos que introduce el usuario y en los encoders no ya que no son datos que introduce el usuario. Esto se ve claramente en los par&aacute;metros de los componentes 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/TextField.html">TextField</a>, 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Hidden.html">Hidden</a> y 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Select.html">Select</a>, el primero utiliza un Translator y los dos &uacute;ltimos un ValueEndoder.
+<br />
+<br />Tapestry ya proporciona un ValueEncoder para las entidades de nuestro dominio si utilizamos Hibernate, la clase es 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/internal/hibernate/HibernateEntityValueEncoder.html">HibernateEntityValueEncoder</a>. Para terminar, indicar Tapestry tambi&eacute;n proporciona un ValueEncoder por defecto para los tipos Enum.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapesty</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_via="blogstack" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" st_title="Conversiones de datos entre el cliente y servidor en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Conversiones de datos entre el cliente y servidor en Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/03/conversiones-de-datos-entre-el-cliente.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 114,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

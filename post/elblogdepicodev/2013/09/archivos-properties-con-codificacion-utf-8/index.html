@@ -1,0 +1,148 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Archivos properties con codificación UTF-8 | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8">Archivos properties con codificación UTF-8</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/archivos-properties-con-codificacion-utf8.html">Entrada original</a></span></div><div><span>Publicado el viernes, 20 de septiembre de 2013 a las 18:15 UTC</span></div><div><span>Actualizado el sábado, 21 de septiembre de 2013 a las 21:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_via="blogstack" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
+</div>En Java los archivos 
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html">Properties</a> que se cargan con la clase 
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/ResourceBundle.html">ResourceBundle</a>&nbsp;utilizados com&uacute;nmente para realizar la internacionalizaci&oacute;n y la localizaci&oacute;n a varios idiomas en una aplicaci&oacute;n Java por defecto usan la codificaci&oacute;n de caracteres ISO-8859-1 (salvo que usemos un framework o una librer&iacute;a lo haga de otra forma). Los caracteres que no pertenezcan al ISO-8859-1 deben ser escapados, por ejemplo \u20AC para el s&iacute;mbolo del euro (€). Esto hace que si tenemos una aplicaci&oacute;n que trabaja con caracteres en varios idiomas tengamos unos ficheros properties con un mont&oacute;n de caracteres de escape que impide su legibilidad al momento de escribirlos o nos obliga a usar el comando 
+<a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/native2ascii.html">native2ascii</a> lo que nos produce tambi&eacute;n archivos poco legibles.
+<br />
+<br />La clase ResourceBundle permite cargar archivos properties seg&uacute;n un Locale pero como digo los carga con la codificaci&oacute;n ISO-8859-1 y esto es un problema para los locales como el chino donde casi todos los caracteres deben ser escapados. Si queremos tener archivos m&aacute;s legibles y sin necesidad de escapar los caracteres debemos extender la clase ResourceBundle.Control y redefinirla un poco para que cargue los properties en UTF-8. La implementaci&oacute;n ser&iacute;a la siguiente:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6641302.js?file=EncodingControl.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6641302.js?file=EncodingControl.java">EncodingControl.java</a>
+ <br />
+</noscript> El c&oacute;digo anterior es parte de la clase EncodingControl donde est&aacute; redefinido el m&eacute;todo newBundle. La magia est&aacute; en la siguiente linea, donde al InputStreamReader se le indica la codificaci&oacute;n de caracteres:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6641302.js?file=EncodingControl-1.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6641302.js?file=EncodingControl-1.java">EncodingControl-1.java</a>
+ <br />
+</noscript> Su uso para cargar los ResourceBundle ser&iacute;a:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6641302.js?file=Main-1.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6641302.js?file=Main-1.java">Main-1.java</a>
+ <br />
+</noscript> Y el programa completo en el que puede verse una carga de un archivo properties con codificaci&oacute;n ISO-8859-1 y otro con codificaci&oacute;n UTF-8:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6641302.js?file=Main.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6641302.js?file=Main.java">Main-1.java</a>
+ <br />
+</noscript> El resultado ser&iacute;a el siguiente:
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-ZegoUzHwWJM/UjyPC7JpXFI/AAAAAAAACn4/LZPClgmMLCs/s1600/main.png"><img height="170" src="http://1.bp.blogspot.com/-ZegoUzHwWJM/UjyPC7JpXFI/AAAAAAAACn4/LZPClgmMLCs/s320/main.png" width="320" /></a>
+</div>
+<br />El c&oacute;digo fuente del ejemplo completo lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/JavaProperties">mi repositorio de GitHub</a>.
+<br />
+<br />Referencia:
+<br />
+<a href="http://stackoverflow.com/questions/4659929/how-to-use-utf-8-in-resource-properties-with-resourcebundle">http://stackoverflow.com/questions/4659929/how-to-use-utf-8-in-resource-properties-with-resourcebundle</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_via="blogstack" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Archivos properties con codificación UTF-8";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/09/archivos-properties-con-codificacion-utf8.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 13,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

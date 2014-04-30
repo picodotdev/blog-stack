@@ -1,0 +1,176 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Integración de Apache Tapestry con RESTEasy | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy">Integración de Apache Tapestry con RESTEasy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/integracion-tapestry-con-resteasy.htm.html">Entrada original</a></span></div><div><span>Publicado el viernes, 01 de marzo de 2013 a las 19:23 UTC</span></div><div><span>Actualizado el viernes, 01 de marzo de 2013 a las 22:15 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_via="blogstack" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="RESTEasy" height="141" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s200/resteasy.png" title="RESTEasy" width="200" />
+</div>Ahora que hemos visto en art&iacute;culos anteriores como son los servicios web 
+<a href="http://es.wikipedia.org/wiki/Representational_State_Transfer">REST</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">como realizar uno empleando la librer&iacute;a RESTeasy</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">como crear un cliente para consumirlo desde el lenguaje de programaci&oacute;n java o mediante javascript desde un navegador web</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/devolver-xml-json-o-html-con-resteasy.html">como devolver datos en formato json, xml u otro</a> se nos plantean algunas ideas de como definir la arquitectura de una aplicaci&oacute;n.
+<br />
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry 5" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry 5" width="320" />
+</div>
+<br />Las aplicaciones web normalmente se organizan en tres capas, la del cliente, la que contiene la l&oacute;gica de negocio y la capa de base de datos. La capa del cliente est&aacute; formada por el navegador, la de negocio donde se emplea alg&uacute;n framework y variar&aacute; seg&uacute;n lenguaje de programaci&oacute;n que empleemos e incluye a menudo la responsabilidad de presentaci&oacute;n transformando los datos de la capa de base de datos en html para el cliente. La capa de base de datos contiene los datos que trata la aplicaci&oacute;n ya sea en forma relacional o no relacionan (no-sql).
+<br />
+<br />En algunas aplicaciones es requisito ofrecer una interfaz de la aplicaci&oacute;n para que otras aplicaciones se integren con ella, aqui es donde surgen los servicios web y se nos platea la posibilidad de extraer de la capa donde esta la l&oacute;gica de negocio a una entidad independiente o integrar los servicios web como una parte m&aacute;s de la aplicaci&oacute;n web.
+<br />
+<br />En los ejemplos que hemos visto hasta ahora estos los he puesto como una entidad independiente, es decir, que solo ofrece los servicios web. Esta forma tiene la ventaja de que las partes de la aplicaci&oacute;n son independientes pero tiene la desventaja de que la complejidad de la aplicaci&oacute;n aumenta ya que los servicios web necesitar&aacute;n de funcionalidades como acceder a la base de datos, inyecci&oacute;n de dependencias o de la recarga autom&aacute;tica de clases para ver las modificaciones en caliente mientras estamos desarrollando. Todas estas funcionalidades es probable que tengamos ya en la capa de l&oacute;gica de negocio, con lo que podr&iacute;amos ponerlo todo junto y aprovecharnos de las funcionadades que ya tenemos en vez de proporcionalas de nuevo en otra entidad independiente. Sin embargo, para tenerlo todo junto deberemos integrar el framework que usermos con la librer&iacute;a o framework que usemos para la aplicaci&oacute;n web. En el siguiente ejemplo veremos como hacerlo para el caso de 
+<a href="http://www.jboss.org/resteasy/">RESTEasy</a> como librer&iacute;a que proporciona la funcionalidad de servicios web y 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a>&nbsp;como framework para la aplicaci&oacute;n web desarrollada en Java.
+<br />
+<br />En Tapestry ya hay una 
+<a href="http://tynamo.org/tapestry-resteasy+guide">librer&iacute;a desarollada que permite integrarse con RESTEasy</a>, sin embargo, por lo que he visto en 
+<a href="http://svn.codehaus.org/tynamo/trunk/tapestry-resteasy/">su c&oacute;digo fuente</a> no permite obtener el cliente javascript como explique en el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">segundo ejemplo</a> de esta serie de entradas sobre RESTEasy. Con lo que partiendo de su c&oacute;digo fuente lo he modificado para que si se permita obtenerlo.
+<br />
+<br />La parte importante de esta integraci&oacute;n est&aacute; en las clases que definene el m&oacute;dulo de la aplicaci&oacute;n (AppModule.java) y el filtro de RESTEasy (ResteasyRequestFilter.java) que ser&aacute; el que atrape las peticiones REST. El c&oacute;digo est&aacute; comentado con notas explicativas.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5066888.js?file=AppModule.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5066888/raw/AppModule.java">AppModule.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5066888.js?file=ResteasyRequestFilter.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5066888/raw/ResteasyRequestFilter.java">ResteasyRequestFilter.java</a>
+ <br />
+</noscript> Con el c&oacute;digo de AppModule.java y ResteasyRequestFilter.java conseguimos la integraci&oacute;n de Tapestry con RESTEasy y con ella conseguimos varias caracter&iacute;sticas que proporciona el 
+<a href="http://tapestry.apache.org/ioc.html">contenedor IoC</a> (
+<a href="http://en.wikipedia.org/wiki/Inversion_of_control">Inversion of Control</a>), el mero hecho de definir los servicios REST como servicios de Tapestry obtenemos inyecci&oacute;n de dependencias y recarga de clases en vivo (&laquo;
+<a href="http://tapestry.apache.org/class-reloading.html">live class reloading</a>&raquo;) que evitar&aacute; que durante el desarrollo tengamos que estar constantemente parando y arrancando el servidor de aplicaciones para ver los cambios que hagamos con nuestro editor a la clase del servicio, ambas cosas sin que tengamos que hacer nada m&aacute;s. En cuanto a la inyecci&oacute;n de dependencias si nos fijamos en el c&oacute;digo de servicio REST&nbsp;HelloWorldResourceImpl vemos que tiene un constructor con una referencia a un objeto de la interfaz&nbsp;
+<a href="https://github.com/picodotdev/elblogdepicodev/blob/master/TapestryRESTEasy/src/main/java/es/com/blogspot/elblogdepicodev/tapestry/resteasy/services/ContadorService.java">ContadorService</a>, sin esta referencia el objeto no puede ser construido. El contenedor de dependencias de Tapestry es capaz de inyectar las dependencias necesarias en el constructor para satisfacer sus necesidades sin que tengamos que darle ninguna indicaci&oacute;n, &eacute;l se encargar&aacute; de buscar en el registro un servicio que implemente esa interfaz, de construirlo (y de construir las dependencias de este servicio si a su vez las tuviese) y de pasarlo como referencia al constructor, encontrar&aacute; que la clase ContadorServiceImpl lo implementa ya que as&iacute; lo hemos indicado en el m&eacute;todo AppModule.bind. De esta misma forma en los servicios REST podemos hacer uso de cualquier otro servicio, como pudiera ser el 
+<a href="http://tapestry.apache.org/integrating-with-jpa.html">servicio persistencia</a> proporcionado por Hibernate o JPA.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5066888.js?file=HelloWorldResourceImpl.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5066888/raw/HelloWorldResourceImpl.java">HelloWorldResourceImpl.java</a>
+ <br />
+</noscript> La p&aacute;gina que genera el html (Index.tml) para el navegador con varias llamadas al servicio REST (Index.tml) es pr&aacute;cticamente html normal excepto por un ejemplo de como se usa un componente en Tapestry (). La etiqueta script solicita el javascript con el cliente del servicio web.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5066888.js?file=Index.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5066888/raw/Index.tml">Index.tml</a>
+ <br />
+</noscript> Y las peticiones que ver&iacute;amos en el navegador ser&iacute;an:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-nTZHAW6xPLQ/UTD8HiEad6I/AAAAAAAACag/S5BPSAogxZ0/s1600/apache-tapestry-resteasy-1.png"><img height="125" src="http://2.bp.blogspot.com/-nTZHAW6xPLQ/UTD8HiEad6I/AAAAAAAACag/S5BPSAogxZ0/s200/apache-tapestry-resteasy-1.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-wYn2-0kC7Vw/UTD8Hh3scCI/AAAAAAAACac/fi9vxhgSZPU/s1600/apache-tapestry-resteasy-2.png"><img height="125" src="http://1.bp.blogspot.com/-wYn2-0kC7Vw/UTD8Hh3scCI/AAAAAAAACac/fi9vxhgSZPU/s200/apache-tapestry-resteasy-2.png" width="200" /></a>
+</div>
+<div>
+ <br />
+</div>Puedes ver, descargar y probar el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestryRESTEasy">c&oacute;digo fuente del ejemplo</a> desde mi repositorio de GitHub.
+<br />
+<br />Referencia:
+<br />
+<a href="http://es.wikipedia.org/wiki/Representational_State_Transfer">http://es.wikipedia.org/wiki/Representational_State_Transfer</a>
+<br />
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestryRESTEasy">C&oacute;digo fuente ejemplo&nbsp;Integraci&oacute;n de Apache Tapestry con RESTEasy</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_via="blogstack" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" st_title="Integración de Apache Tapestry con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Integración de Apache Tapestry con RESTEasy";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/03/integracion-tapestry-con-resteasy.htm.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 63,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry">Seguridad en aplicación web con Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/05/seguridad-en-aplicacion-web-con-apache.html">Entrada original</a></span></div><div><span>Publicado el viernes, 24 de mayo de 2013 a las 17:09 UTC</span></div><div><span>Actualizado el viernes, 31 de mayo de 2013 a las 16:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_via="blogstack" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Shiro" src="http://3.bp.blogspot.com/-0rj1VvDX_Nw/UZ9_nqEtnwI/AAAAAAAAChM/bBsxBV2MBNk/s1600/shiro.png" title="Apache Shiro" />
+</div>Adem&aacute;s de la persistencia en una base de datos, otra de las funcionalidades comunes que suele necesitar una aplicaci&oacute;n es la seguridad. En la seguridad hay varios aspectos a tratar que son:
+<br />
+<ul>
+ <li>Autenticaci&oacute;n: que consiste en identificar al usuario en el sistema y comprobar que el usuario es quien dice ser. Normalmente la autenticaci&oacute;n se suele realizar pidi&eacute;ndole al usuario su identificativo, nombre de usuario o correo electr&oacute;nico y una contrase&ntilde;a que solo &eacute;l conoce. Aunque hay otras formas de realizarlo entre ellas los certificados.</li>
+ <li>Autorizaci&oacute;n: que consiste en determinar si el usuario autenticado tienen permisos para realizar una determinada operaci&oacute;n. La autorizaci&oacute;n puede realizarse mediante roles, permisos o una combinaci&oacute;n de ambos dependiendo de lo adecuado para la operaci&oacute;n. Pero en ocasiones no solo hay que validar si un usuario tiene permisos para para realizar una acci&oacute;n, tambi&eacute;n puede ser necesario restringir la operaci&oacute;n sobre ciertos datos, los que se determinen que &eacute;l est&aacute; autorizado a modificar, si no se hiciese esto un usuario podr&iacute;a alterar los datos de otro y el sistema tener una brecha de seguridad.</li>
+</ul>La autenticaci&oacute;n y la autorizaci&oacute;n son solo dos aspectos a considerar pero no son suficientes para considerar una aplicaci&oacute;n segura. 
+<a href="http://elblogdepicodev.blogspot.com/2013/05/seguridad-en-aplicacion-web-con-apache-II.html">Otros aspectos a tener en cuenta son XSS&nbsp;(Cross Site Scripting), la inyecci&oacute;n de Sql</a>&nbsp;o las conexiones cifradas SSL/TLS pero estos ser&aacute;n tema para otras entradas.
+<br />
+<br />La informaci&oacute;n de autenticaci&oacute;n y autorizaci&oacute;n puede guardarse en diferentes formas en lo que se conocen como Realms comunmente en Java. Algunos Realms puede ser simples archivos de texto plano aunque por su dificultad de mantenimiento al a&ntilde;adir nuevos usuarios, permisos o roles y que puede requerir un reinicio de la aplicaci&oacute;n se suele optar por opciones como una base de datos relacional, un sistema LDAP o una base de datos nosql.
+<br />
+<br />Para tener un sistema seguro no basta con ocultar las opciones que un usuario no puede realizar. Ocultar las opciones est&aacute; bien pero tambi&eacute;n hay que realizar las comprobaciones de autorizaci&oacute;n en el caso de una aplicaci&oacute;n web en el servidor, al igual que no basta con realizar las comprobaciones de validaci&oacute;n de datos en el cliente con javascript, en ambos casos las comprobaciones hay que hacerlas en el lado del servidor tambi&eacute;n, de lo contrario nada impedir&iacute;a a un usuario conociendo la URL y datos adecuados a enviar realizar algo que no deber&iacute;a (advertido est&aacute;s si no quieres que te llamen un s&aacute;bado de madrugada).
+<br />
+<br />La seguridad puede aplicarse de dos formas o una combinaci&oacute;n de ambas:
+<br />
+<ul>
+ <li>De forma declarativa: ya sea mediante anotaciones o en un archivo independiente del c&oacute;digo. Esta es la opci&oacute;n preferida ya que de esta manera el c&oacute;digo de la aplicaci&oacute;n no est&aacute; mezclado con el aspecto de la seguridad.</li>
+ <li>De forma program&aacute;tica: si la opci&oacute;n declarativa no no es suficiente para alg&uacute;n caso podemos optar por hacerlo de forma program&aacute;tica, mediante c&oacute;digo, con la que tendremos total flexibilidad para hacer cosas m&aacute;s espec&iacute;ficas si necesitamos aunque mezclaremos el c&oacute;digo de la aplicaci&oacute;n con el c&oacute;digo de seguridad.</li>
+</ul>Para aplicar seguridad en una aplicaci&oacute;n Java disponemos de varias librer&iacute;as, entre las m&aacute;s conocidas est&aacute;n:
+<br />
+<ul>
+ <li><a href="http://static.springsource.org/spring-security/site/index.html">Spring Security</a></li>
+ <li><a href="http://shiro.apache.org/">Apache Shiro</a></li>
+</ul>Las dos librer&iacute;as son similares aunque se comenta que Apache Shiro es m&aacute;s f&aacute;cil de aprender. Adem&aacute;s de integraciones con estas librer&iacute;as 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> dispone de m&oacute;dulos para realizar 
+<a href="http://tynamo.org/tynamo-federatedaccounts+guide">autenticaci&oacute;n con servicios de terceros como Facebook, Twitter o sistemas OpenID</a>.
+<br />
+<br />Pero veamos como aplicar seguridad a una aplicaci&oacute;n web que use el framework Apache Tapestry. En el ejemplo usar&eacute; el m&oacute;dulo 
+<a href="http://tynamo.org/tapestry-security+guide">tapestry-security</a> que a su vez usa Apache Shiro. El ejemplo consiste un una p&aacute;gina a la que solo los usuarios autenticados pueden acceder, en ella los usuarios podr&aacute;n realizar varias operaciones: sumar a una cuenta uno, dos, tres, restar uno o poner la cuenta a cero en funci&oacute;n de los permisos y roles que tengan. Para autenticase se usa un formulario aunque perfectamente podr&iacute;a usarse una 
+<a href="http://en.wikipedia.org/wiki/Basic_access_authentication">autenticaci&oacute;n BASIC</a>.
+<br />
+<br />Por simplicidad en el ejemplo los usuarios, passwords, roles y permisos los definir&eacute; en un archivo de texto, aunque en un proyecto real probablemente usar&iacute;amos una base de datos accediendo con hibernate para lo cual deber&iacute;amos implementar unos pocos m&eacute;todos de la interfaz 
+<a href="http://shiro.apache.org/static/1.2.1/apidocs/org/apache/shiro/realm/Realm.html">Realm</a> o si necesitamos autorizaci&oacute;n la interfaz 
+<a href="http://shiro.apache.org/static/1.2.1/apidocs/org/apache/shiro/realm/AuthorizingRealm.html">AuthorizingRealm</a> de Shiro. El archivo shiro-users.properties ser&iacute;a el siguiente:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=shiro-users.properties"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/shiro-users.properties">shiro-users.properties</a>
+ <br />
+</noscript> Por una parte se definen los usuarios con su password y roles que posee y por otro se definen los roles y los permisos que tiene cada uno.
+<br />
+<br />La &uacute;nica configuraci&oacute;n que deberemos indicarle a Tapestry es la URL de la p&aacute;gina que autenticar&aacute; a los usuarios y la p&aacute;gina a mostrar en caso de que el usuario no est&eacute; autorizado para realizar alguna operaci&oacute;n y el Realm a usar, lo hacemos a&ntilde;adiendo el siguiente c&oacute;digo al m&oacute;dulo de la aplicaci&oacute;n:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=AppModule.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/AppModule.java">AppModule.java</a>
+ <br />
+</noscript> La p&aacute;gina que realiza la autenticaci&oacute;n es muy simple, poco m&aacute;s se encarga de recoger el usuario y password introducidos en el formulario de autenticaci&oacute;n y a trav&eacute;s del 
+<a href="http://shiro.apache.org/static/1.2.1/apidocs/org/apache/shiro/subject/Subject.html">Subject</a> realiza el inicio de sesi&oacute;n.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=Login.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/Login.java">Login.java</a>
+ <br />
+</noscript> Una vez configurado el m&oacute;dulo y hecha la p&aacute;gina que realiza la autenticaci&oacute;n solo debemos usar de forma declarativa las anotaciones que proporciona Shiro, en el caso de la p&aacute;gina Index @RequiresUser para permitir solo a los usuarios autenticados entrar a esa p&aacute;gina y sobre las operaciones @RequiresPermissions para requerir ciertos permisos para ejecutar las acciones o @RequiresRoles para requerir ciertos roles. Estas anotaciones podemos usarlas no solo en las p&aacute;ginas y componentes de Tapestry que forman parte de la capa de presentaci&oacute;n sino tambi&eacute;n en los servicios que desarrollemos y que forman la capa de l&oacute;gica de negocio.
+<br />
+<br />Si las anotaciones no son suficientes podemos hacerlo de forma program&aacute;tica, este es el probable caso de que un usuario solo deber&iacute;a modificar los datos relativos a &eacute;l &nbsp;sin poder modificar los de otros usuarios. El c&oacute;digo variar&aacute; en funci&oacute;n de la forma de determinar si el usuario tiene permisos para un dato. Para comprobar si un usuario tiene ciertos permisos de forma program&aacute;tica debemos usar el objeto Subject que tiene muchos m&eacute;todos para realizar comprobaciones, como para &nbsp;reinicializar la cuenta se ha de tener el permiso &laquo;cuenta:reset&raquo; se debe hacer lo codificado en el m&eacute;todo onActionFromReset:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=Index.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/Index.java">Index.java</a>
+ <br />
+</noscript> En la plantilla de presentaci&oacute;n que genera el html tambi&eacute;n deberemos hacer algunas comprobaciones de seguridad, b&aacute;sicamente para mostrar los enlaces a los que un usuario tenga permisos.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=Index.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/Index.tml">Index.tml</a>
+ <br />
+</noscript> A continuaci&oacute;n unas capturas de pantalla de la aplicaci&oacute;n de la p&aacute;gina de inicio autenticaci&oacute;n, de la p&aacute;gina con el &iacute;ndice de acciones y de la p&aacute;gina de acci&oacute;n no autorizada:
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-FocvGGuZOk0/UZ-UbxmKz2I/AAAAAAAAChg/H3oBuunrvt0/s1600/tapestry-security-login.png"><img height="140" src="http://3.bp.blogspot.com/-FocvGGuZOk0/UZ-UbxmKz2I/AAAAAAAAChg/H3oBuunrvt0/s200/tapestry-security-login.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-cafuHg9tPe8/UZ-UbyUB9UI/AAAAAAAAChk/dX1M8pR7Cvw/s1600/tapestry-security-index.png"><img height="140" src="http://1.bp.blogspot.com/-cafuHg9tPe8/UZ-UbyUB9UI/AAAAAAAAChk/dX1M8pR7Cvw/s200/tapestry-security-index.png" width="200" /></a>
+</div>
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-imKMQIMbM9c/UZ-UbxPGwOI/AAAAAAAAChc/KQoQht7CSb0/s1600/tapestry-security-unauthorized.png"><img height="140" src="http://1.bp.blogspot.com/-imKMQIMbM9c/UZ-UbxPGwOI/AAAAAAAAChc/KQoQht7CSb0/s200/tapestry-security-unauthorized.png" width="200" /></a>
+</div>
+<br />Para hacer uso de tapestry-security deberemos incluir la librer&iacute;a como dependencia en el archivo build.gradle del proyecto:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=build.gradle"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/build.gradle">build.gradle</a>
+ <br />
+</noscript> Como en el resto de entradas el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestrySecurity">c&oacute;digo fuente completo</a> lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/BackboneREST">mi repositorio de GitHub</a>. Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada previamente (salvo java y git). Si no dispones de git para clonar mi repositorio de GitHub puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a> con el anterior enlace.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5644455.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5644455/raw/git.sh">git.sh</a>
+ <br />
+</noscript> Para finalizar, a pesar de lo simple del ejemplo pero suficientemente representativo de lo que podr&iacute;a requerir una aplicaci&oacute;n real comentar lo sencillo y limpio que ha sido aplicar la seguridad, por una parte gracias al uso de anotaciones y por otra gracias a Tapestry de por si.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a>
+<br />
+<a href="http://tapestry.apache.org/security.html">http://tapestry.apache.org/security.html</a>
+<br />
+<a href="http://tapestry.apache.org/">http://tapestry.apache.org/</a>
+<br />
+<a href="http://shiro.apache.org/">http://shiro.apache.org/</a>
+<br />
+<a href="http://static.springsource.org/spring-security/site/index.html">http://static.springsource.org/spring-security/site/index.html</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_via="blogstack" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" st_title="Seguridad en aplicación web con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Seguridad en aplicación web con Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/05/seguridad-en-aplicacion-web-con-apache.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 51,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

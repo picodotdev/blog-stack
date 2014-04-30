@@ -1,0 +1,401 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2013/02/reproductor-de-radios-jamendo-con-python">Reproductor de radios Jamendo con Python</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/02/reproductor-de-radios-jamendo-con-python.html">Entrada original</a></span></div><div><span>Publicado el viernes, 01 de febrero de 2013 a las 18:28 UTC</span></div><div><span>Actualizado el miércoles, 13 de febrero de 2013 a las 15:06 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/reproductor-de-radios-jamendo-con-python" st_via="blogstack" st_title="Reproductor de radios Jamendo con Python | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Jamendo" height="75" src="http://3.bp.blogspot.com/-MkfiikeXCJU/UQwBjMDcBdI/AAAAAAAACRo/Kmik51OGxUI/s200/jamendo.png" title="Jamendo" width="200" /> 
+</div> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Python" src="http://1.bp.blogspot.com/-vocIJ5QRxuY/UQwBjEIhvEI/AAAAAAAACRs/W46jlcfomvM/s1600/python.png" title="Python" /> 
+</div>Si sigues este blog desde hace un tiempo sabr&aacute;s que de vez en cuando comento alguna cosa relacionada aunque sea de forma indirecta con la Raspberry Pi ya que es el computador que uso para realizar las descargas via torrent y para reproducir m&uacute;sica principalmente con cmus. Dado que la uso sin ning&uacute;n entorno de interfaz gr&aacute;fica sino simplemente conect&aacute;ndome via SSH desde mi port&aacute;til y trabajando a trav&eacute;s de comandos desde la terminal casi todo lo que quiera hacer con ella lo tengo que hacer a trav&eacute;s de la terminal. 
+<br /> 
+<br />Para escuchar m&uacute;sica suelo hacerlo de 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/4-formas-de-escuchar-musica-internet.html">varias maneras</a>: escuchar mi propia m&uacute;sica en mp3 con cmus, escuchar radios que emitan por internet v&iacute;a streaming o tambi&eacute;n las radios de Jamendo a trav&eacute;s del reproductor de su p&aacute;gina web.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/02/reproductor-de-radios-jamendo-con-python">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/06/hojas-de-estilo-css-con-less">Hojas de estilo CSS con less</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/06/hojas-de-estilo-css-con-less.html">Entrada original</a></span></div><div><span>Publicado el viernes, 01 de junio de 2012 a las 18:51 UTC</span></div><div><span>Actualizado el domingo, 27 de enero de 2013 a las 02:26 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/hojas-de-estilo-css-con-less" st_via="blogstack" st_title="Hojas de estilo CSS con less | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="less" height="81" src="http://4.bp.blogspot.com/-WCFWngb2GNA/T8kLN-_IiDI/AAAAAAAABLw/edcLKZjOmaU/s200/less.png" title="less" width="200" /> 
+</div>Hay herrmientas que surgen con el paso del tiempo y uno se pregunta como podr&iacute;a haber vivido antes sin ella o como no ha existido desde un principio. Una de ellas podr&iacute;a ser perfectamente 
+<a href="http://lesscss.org/">less</a>. Esta herramienta permite generar archivos css utilizando una notaci&oacute;n m&aacute;s legible, &nbsp;mantenible y compacta que se agradece cuando estamos desarrollando un proyecto con gran cantidad de trabajo de dise&ntilde;o adem&aacute;s de poder usar variables y operaciones que la propia notaci&oacute;n de las hojas de estilo css no soportan. En la propia p&aacute;gina de 
+<a href="http://lesscss.org/">less</a> puede verse como es el lenguaje, no es muy complicado y en unas pocas horas ya estamos capacitados para utilizarlo de forma b&aacute;sica. 
+<br /> 
+<br />Los archivos less se compilan con 
+<a href="http://nodejs.org/">nodejs</a> generando archivos css tradicionales. Esta compilaci&oacute;n no hace falta que la hagamos nosotros a trav&eacute;s de nodejs ya que se puede delegar en el navegador del usuario si no nos importa cargar un archivo js m&aacute;s en nuestra p&aacute;gina y vemos que la carga no se ralentiza en demas&iacute;a. En la propia p&aacute;gina de inicio de&nbsp;<p class="continue-reading"><a href="/post/elblogdepicodev/2012/06/hojas-de-estilo-css-con-less">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/07/por-que-elegir-la-distribucion-arch-linux">Por qué elegir la distribución Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/07/motivos-para-elegir-la-distribucion.html">Entrada original</a></span></div><div><span>Publicado el viernes, 01 de julio de 2011 a las 18:38 UTC</span></div><div><span>Actualizado el domingo, 27 de enero de 2013 a las 01:03 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/07/por-que-elegir-la-distribucion-arch-linux" st_via="blogstack" st_title="Por qué elegir la distribución Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Arch Linux" height="66" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s200/archlinux-official-dark.png" title="Arch Linux" width="200" /> 
+</div>En el viaje 
+<a href="http://elblogdepicodev.blogspot.com/2010/03/de-windows-arch-linux.html">de Windows a Arch Linux</a> que he realizado si me preguntar&aacute;n cuales son los principales motivos de por que eleg&iacute; Arch Linux como mi distribuci&oacute;n dir&iacute;a que son en mi caso el tener todo sistema actualizado con las &uacute;ltimas versiones de cada programa, no tener que esperar 6 meses para tener la &uacute;ltima versi&oacute;n, no tener que hacer una reinstalaci&oacute;n cada 6 meses y no tener instalados programas que no uso y que alguien eligi&oacute; por m&iacute;. 
+<br /> 
+<br />En las distribuciones que no son rolling release seg&uacute;n avanza el tiempo el sistema deja cada vez m&aacute;s de tener las &uacute;ltimas versiones con el objetivo de tener un sistema estable, sin embargo, Arch Linux siempre tiene todos los programas actualizados, disponibles para ser actualizados unos pocos d&iacute;as despu&eacute;s de ser lanzada su nueva versi&oacute;n y por si alguien cree que esto es una fuente de problemas dir&eacute; que en todo el tiempo que llevo utiliz&aacute;ndolo nunca he tenido un problema en la actualizaci&oacute;n del sistema aunque eso no quiera decir que no pueda ocurrir.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/07/por-que-elegir-la-distribucion-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/05/raspberry-pi-desempaquetado-$003c$003cunboxing$003e$003e">Raspberry Pi, desempaquetado («unboxing»)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/05/raspberry-pi-desempaquetado-unboxing.html">Entrada original</a></span></div><div><span>Publicado el viernes, 18 de mayo de 2012 a las 21:26 UTC</span></div><div><span>Actualizado el sábado, 26 de enero de 2013 a las 22:12 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/05/raspberry-pi-desempaquetado-$003c$003cunboxing$003e$003e" st_via="blogstack" st_title="Raspberry Pi, desempaquetado («unboxing») | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Raspberry Pi" src="http://2.bp.blogspot.com/-xGGLQL8UfII/T7azF5bgY2I/AAAAAAAABHg/CEVqX-iC4-g/s1600/raspberrypi.jpg" title="Raspberry Pi" /> 
+</div>Despu&eacute;s de una charla a la que asist&iacute; y se explic&oacute; las posibilidades que ofrecen algunos aparatos como la 
+<a href="http://en.wikipedia.org/wiki/Pandaboard">Pandaboard</a>, 
+<a href="http://en.wikipedia.org/wiki/SheevaPlug">SheevaPlug</a> u otros que estaban por llegar como la 
+<a href="http://es.wikipedia.org/wiki/Raspberry_Pi">Raspberry Pi</a> me entraron las ganas de hacerme con uno. En mi caso lo principal ha sido el poder tener un aparato dedicado a las descargas en vez del port&aacute;til y que su consumo de electricidad es muy reducido, entre 2 y 9 vatios (si usas un ordenador de escritorio para dejarlo descargando que tiene un consumo de entre 100w y 200w merece la pena usar un aparato de este tipo ya que su precio se amortiza en unos pocos meses) adem&aacute;s de poder aprender algunas cosas. Aunque tiene unos recursos m&aacute;s reducidos que por ejemplo la Pandaboard me decant&eacute; por una Raspberry Pi por su precio, por la amplia comunidad que se ha formado alrededor de ella, lo que garantiza el soporte, y porque<p class="continue-reading"><a href="/post/elblogdepicodev/2012/05/raspberry-pi-desempaquetado-$003c$003cunboxing$003e$003e">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen">Dejar procesos vivos de conexión SSH con screen</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">Entrada original</a></span></div><div><span>Publicado el viernes, 04 de enero de 2013 a las 19:22 UTC</span></div><div><span>Actualizado el viernes, 11 de enero de 2013 a las 12:47 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/bash">bash</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen" st_via="blogstack" st_title="Dejar procesos vivos de conexión SSH con screen | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="OpenSSH" height="105" src="http://2.bp.blogspot.com/-xA1fbdip4ik/UOcpr317aSI/AAAAAAAACI8/ERcKs9Fm7IA/s320/openssh.gif" title="OpenSSH" width="320" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="GNU/Linux" height="200" src="http://4.bp.blogspot.com/-gf0CBdHQ0EI/TQJrCzG9OZI/AAAAAAAAAiY/NcJAFNmleAw/s200/tux.png" title="GNU/Linux" width="169" /> 
+</div>El software libre y Linux es sorprendente, a veces nos surge una necesidad que no sabemos como resolver pero en el mundo del software es muy probable que el mismo problema se lo haya encontrado otra persona antes as&iacute; que lo primero es buscar en internet, foros y ver cuales son las respuestas que obtiene esa persona que pregunta con el mismo o un problema parecido al nuestro para ver si alguien ha dado con la soluci&oacute;n. Dependiendo del problema quiz&aacute; descubramos un programa espec&iacute;fico para resolver el problema. 
+<br /> 
+<br />Este es el caso que me ha surgido recientemente con la 
+<a href="http://www.raspberrypi.org/">Raspberry Pi</a>. Lo explico, a la RPi me conecto por SSH y dado que si se cierra esa conexi&oacute;n SSH se terminan todos los procesos lanzados en esa conexi&oacute;n SSH tengo que tener encendido el ordenador y la conexi&oacute;n SSH abierta hasta que termine de hacer lo que estaba haciendo. En la mayor&iacute;a de los casos esto no es un problema pero para dejar la RPi reproduciendo m&uacute;sica con<p class="continue-reading"><a href="/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/12/calendario-arch-linux-2013">Calendario Arch Linux 2013</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/01/calendario-arch-linux-2013.html">Entrada original</a></span></div><div><span>Publicado el lunes, 31 de diciembre de 2012 a las 23:10 UTC</span></div><div><span>Actualizado el miércoles, 09 de enero de 2013 a las 11:44 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/personalizacion">personalizacion</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/calendario-arch-linux-2013" st_via="blogstack" st_title="Calendario Arch Linux 2013 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Arch Linux" height="66" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s200/archlinux-official-dark.png" title="Arch Linux" width="200" /> 
+</div>El a&ntilde;o pasado realice el calendario tematizado de Arch Linux y este en un poco de tiempo lo he 
+<a href="https://docs.google.com/open?id=0B4yquUFv3csral9EclZ5U29sMXc">modificado y adaptado al a&ntilde;o 2013</a>. Se trata de un modelo que despu&eacute;s de varias dobleces y partes que hay que pegar se convierte en un dodecaedro que podemos tener encima de la mesa adem&aacute;s para consultarlo alguna vez para decorar. Si eres usuario de otra distribuci&oacute;n que no sea Arch Linux puedes descargarte el archivo svg contenido en el archivo zip del enlace anterior y modificarlo para adaptar los colores y el logotipo ya uses Fedora, OpenSUSE, Ubuntu, Mint, Debian, ... 
+<br /> 
+<table> 
+ <tbody> 
+  <tr> 
+   <td><a href="http://1.bp.blogspot.com/-F1UX2h_STHA/UOLZFRCplbI/AAAAAAAACHg/bP18tTle928/s1600/arch+linux+calendar+(2013).png"><img height="320" src="http://1.bp.blogspot.com/-F1UX2h_STHA/UOLZFRCplbI/AAAAAAAACHg/bP18tTle928/s320/arch+linux+calendar+(2013).png" width="247" /></a></td> 
+  </tr> 
+  <tr> 
+   <td>Calendario Arch Linux 2013</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div style="text-align: center;"> 
+ <div style="text-align: left;">
+   El 2012 al final se me pas&oacute; y no lo constru&iacute; ya que no dispongo de impresora, este 2013 espero poder imprimirlo en alguna fotocopister&iacute;a y colocarlo junto a Tux y el 
+ </div>
+</div><p class="continue-reading"><a href="/post/elblogdepicodev/2012/12/calendario-arch-linux-2013">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/12/el-blog-de-picodev-te-desea-un-2013">El blog de pico.dev te desea un 2013...</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/12/el-blog-de-picodev-te-desea-un-2013.html">Entrada original</a></span></div><div><span>Publicado el lunes, 24 de diciembre de 2012 a las 11:32 UTC</span></div><div><span>Actualizado el lunes, 24 de diciembre de 2012 a las 11:35 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/hemeroteca">hemeroteca</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/el-blog-de-picodev-te-desea-un-2013" st_via="blogstack" st_title="El blog de pico.dev te desea un 2013... | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img height="45" src="http://1.bp.blogspot.com/-cK1PH5pzXNc/TdKfToeduKI/AAAAAAAAApw/axtoypLaDfU/s320/El+blog+de+picodev+%2528watermark%2529.png" width="320" /> 
+</div>Otro a&ntilde;o m&aacute;s que pasa para 
+<a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a> y ya son casi tres a&ntilde;os desde que empec&eacute; a escribir en &eacute;l. Este a&ntilde;o han sido 50 entradas las que he escrito un poco menos de una por semana, meta que me fij&eacute; como la adecuada para mi, que he ido haciendo con constancia y regularidad. Me gustar&iacute;a poder dedicarle m&aacute;s tiempo al blog ya que ideas para entradas no me faltan a medida que voy curioseando sobre como se hacen o funcionan algunas cosas, ya tengo una buena cantidad&nbsp;de ellas&nbsp;acumuladas que durante el 2013 ir&eacute; desarrollando. Aunque pueda parecer que no cada entrada requiere bastante tiempo de dedicaci&oacute;n para aprender, investigar, programar alg&uacute;n ejemplo y luego escribir la entrada aunque luego se ve recompensado por los visitantes que las le&eacute;is, la satisfacci&oacute;n de escribir sobre lo que en cada momento m&aacute;s me interesa con total libertad y aunque pocos pero tambi&eacute;n con los comentarios de la gente que veo algunas cosas les han resultado &uacute;tiles.<p class="continue-reading"><a href="/post/elblogdepicodev/2012/12/el-blog-de-picodev-te-desea-un-2013">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/12/arte-usando-texto-ascii-con-figlet">Arte usando texto ASCII con FIGlet</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/12/arte-usando-texto-ascii-con-figlet.html">Entrada original</a></span></div><div><span>Publicado el sábado, 17 de diciembre de 2011 a las 19:08 UTC</span></div><div><span>Actualizado el viernes, 21 de diciembre de 2012 a las 21:19 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/otros">otros</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/arte-usando-texto-ascii-con-figlet" st_via="blogstack" st_title="Arte usando texto ASCII con FIGlet | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Seguramente hayas visto en algunos sitios una figura o texto formado por caracteres ASCII, probablemente no hayan sido creadas a mano con la inspiraci&oacute;n de un artista, hay herramientas incluso usables desde la web que permiten generarlas. 
+<a href="http://www.figlet.org/">FIGlet</a> es una de ellas que permite crear una figura ASCII a partir de un texto. Su instalci&oacute;n en Arch Linux es tan simple como instalar el paquete figlet con: 
+<br /> 
+<br /> 
+<div> 
+ <pre>$ yaourt -S figlet</pre> 
+</div> 
+<br />En la propia p&aacute;gina de figlet podemos encontrar enlaces a varios conjuntos de fuentes a aplicar al texto que queramos generar. Tambi&eacute;n podemos ver 
+<a href="http://www.figlet.org/fontdb.cgi">algunos ejemplos</a>. 
+<br /> 
+<br />FIGlet tiene 
+<a href="http://www.figlet.org/figlet-man.html">m&aacute;s opciones</a> pero la m&aacute;s habitual tal vez sea indicar la fuente a usar y el mensaje del que queremos su representaci&oacute;n en arte ASCII. 
+<br /> 
+<br /> 
+<div> 
+ <pre>$ figlet -w 200 &quot;El blog de pico.dev&quot;</pre>
+</div><p class="continue-reading"><a href="/post/elblogdepicodev/2011/12/arte-usando-texto-ascii-con-figlet">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/05/guias-de-instalacion-arch-linux-actualizadas">Guías de instalación Arch Linux actualizadas</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/05/guias-de-instalacion-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 20 de mayo de 2011 a las 20:19 UTC</span></div><div><span>Actualizado el viernes, 23 de noviembre de 2012 a las 22:17 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/gnome">gnome</a>
+,
+<a href="/label/gdm">gdm</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/grub2">grub2</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/guias-de-instalacion-arch-linux-actualizadas" st_via="blogstack" st_title="Guías de instalación Arch Linux actualizadas | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img height="66" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s200/archlinux-official-dark.png" width="200" /> 
+</div>&nbsp; 
+<a href="http://www.archlinux.org/">Arch Linux</a> es una distribuci&oacute;n 
+<a href="http://en.wikipedia.org/wiki/Rolling_release">rolling release</a> y como tal en constante actualizaci&oacute;n de sus paquetes. Por ello los manuales o gu&iacute;as de instalaci&oacute;n de Arch Linux pueden quedar desactaulizadas en alguna de sus secciones si no son actualizadas cada cierto tiempo. A la hora de instalarlo es recomendable adem&aacute;s leer las gu&iacute;as de la propia 
+<a href="https://wiki.archlinux.org/">wiki de Arch Linux</a> ya que en ella la informaci&oacute;n suele estar actualizada. 
+<br /> 
+<br />Ya hacia un tiempo que no actualizaba las gu&iacute;as de instalaci&oacute;n que tengo en 
+<a href="http://elblogdepicodev.blogspot.com/">mi blog</a> y a pesar de que he ido modific&aacute;ndolas algunas im&aacute;genes se hab&iacute;an quedado obsoletas. Hoy les he dado un repaso m&aacute;s a fondo siendo estos los puntos que he modificado: 
+<br /> 
+<ul> 
+ <li>Como de grabar la imagen USB de instalaci&oacute;n (dd o UNetbootin y desde Windows).</li> 
+ <li>Particiones a crear en el disco durante la instalaci&oacute;n base.</li>
+</ul><p class="continue-reading"><a href="/post/elblogdepicodev/2011/05/guias-de-instalacion-arch-linux-actualizadas">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/11/guia-instalacion-minix">Guía instalación Minix</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/11/guia-instalacion-minix.html">Entrada original</a></span></div><div><span>Publicado el viernes, 05 de noviembre de 2010 a las 20:16 UTC</span></div><div><span>Actualizado el jueves, 22 de noviembre de 2012 a las 07:52 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/minix">minix</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/11/guia-instalacion-minix" st_via="blogstack" st_title="Guía instalación Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <br /> 
+ <img alt="Minix" height="155" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TM1S9jnBVcI/AAAAAAAAAg8/Ni1Fn3hj53U/s200/minix.jpg" title="Minix" width="200" /> 
+</div>El proceso de instalaci&oacute;n de 
+<a href="http://www.minix3.org/">Minix</a> no es muy complicado, en unos pocos pasos se completa, y se realiza bastante r&aacute;pido debido a que su tama&ntilde;o es bastante menor que muchas de las distribuciones GNU/Linux. Lo recomendable es hacerlo en una m&aacute;quina virtual ya que Minix no va a ser el sistema que usemos para cualquiera de las tareas que hagamos habitualmente, adem&aacute;s de esta manera podremos hacer y deshacer a nuestro gusto sin peligro de romper nuestro sistema. 
+<br /> 
+<br />Lo primero que haremos ser&aacute; 
+<a href="http://www.minix3.org/download/">descargar la imagen de CD</a> de la &uacute;ltima versi&oacute;n de Minix (en el momento de escribir esta entrada la 3.1.8). 
+<br /> 
+<br />Una vez descargada configuraremos una nueva m&aacute;quina virtual. Utilizando virtualbox al crear la m&aacute;quina virtual configuraremos la opciones t&iacute;picas como sistema operativo done utilizaremos &laquo;Other&raquo; y versi&oacute;n &laquo;Other\Unknown&raquo;, le asignaremos una cantidad de memoria aceptable (128 MiB o m&aacute;s), el tama&ntilde;o de disco duro (2 GiB ser&aacute; m&aacute;s que suficiente) y en orden de arranque pondremos primero CD/DVD-ROM y luego disco duro y en almacenamiento asignaremos a la unidad CD virtual la imagen de instalaci&oacute;n de Minix que hemos descargado. Al final en el resumen de la maquina virtual que hemos creado veremos algo como en la siguiente imagen.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/11/guia-instalacion-minix">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/11/convertir-imagenes-entre-formatos-y-cambiar-tamano-con-imagemagick">Convertir imágenes entre formatos y cambiar tamaño con ImageMagick</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/11/convertir-imagenes-entre-formatos-y.html">Entrada original</a></span></div><div><span>Publicado el sábado, 03 de noviembre de 2012 a las 12:46 UTC</span></div><div><span>Actualizado el domingo, 04 de noviembre de 2012 a las 11:09 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/otros">otros</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/11/convertir-imagenes-entre-formatos-y-cambiar-tamano-con-imagemagick" st_via="blogstack" st_title="Convertir imágenes entre formatos y cambiar tamaño con ImageMagick | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="ImageMagick" src="http://2.bp.blogspot.com/-oBOYIuNQ8Ag/TdKe2PmTVaI/AAAAAAAAApo/IMhGLxDGhww/s1600/imagemagick.png" title="ImageMagick" /> 
+</div>Algunas personas que trabajan con muchas im&aacute;genes seguramente se han encontrado en la situaci&oacute;n de querer convertir im&aacute;genes de un formato a otros o cambiarles de tama&ntilde;o de forma masiva. Hacerlo de forma manual es un trabajo aburrido y repetitivo adem&aacute;s de consumir mucho tiempo que ser&aacute; mayor o menor dependiendo de la cantidad de im&aacute;genes a tratar. En esta situaci&oacute;n 
+<a href="http://www.imagemagick.org/">ImageMagick</a>&nbsp;y unos pocos comandos en la terminal de Linux nos pueden ahorrar una buena cantidad de tiempo adem&aacute;s de evitar posibles errores al hacer las cosas manualmente. Para convertir im&aacute;genes de un formato a otro podremos hacerlo con: 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/4007119.js?file=convert1.sh"></script> Esto convierte todas las im&aacute;genes de extensi&oacute;n png del directorio actual a im&aacute;genes en formato jpg cambi&aacute;ndoles adem&aacute;s a los nombres de los archivos la extensi&oacute;n de &laquo;.png&raquo; a &laquo;*.jpg&raquo;. Tambi&eacute;n podr&iacute;amos cambiar el tama&ntilde;o de las imagenes a una determinada anchura m&aacute;xima o a una altura m&aacute;xima de forma masiva con:<p class="continue-reading"><a href="/post/elblogdepicodev/2012/11/convertir-imagenes-entre-formatos-y-cambiar-tamano-con-imagemagick">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/05/anadir-marcas-de-agua-a-imagenes-con-imagemagick">Añadir marcas de agua a imágenes con ImageMagick</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/05/anadir-marcas-de-agua-con-imagemagick.html">Entrada original</a></span></div><div><span>Publicado el martes, 17 de mayo de 2011 a las 17:09 UTC</span></div><div><span>Actualizado el sábado, 03 de noviembre de 2012 a las 22:23 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/anadir-marcas-de-agua-a-imagenes-con-imagemagick" st_via="blogstack" st_title="Añadir marcas de agua a imágenes con ImageMagick | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: right;"> 
+ <img height="155" src="http://4.bp.blogspot.com/-oBOYIuNQ8Ag/TdKe2PmTVaI/AAAAAAAAApo/IMhGLxDGhww/s200/imagemagick.png" width="150" /> 
+</div> 
+<a href="http://www.imagemagick.org/">ImageMagick</a> es una librer&iacute;a con un conjunto de utilidades que permiten manipular im&aacute;genes a trav&eacute;s de la linea de comandos aunque&nbsp;tambi&eacute;n tiene librer&iacute;as para usarlo desde los lenguajes de programaci&oacute;n m&aacute;s conocidos (Java, .NET, Python, C, C++, PHP, ...) y tiene binarios para Windows, Linux y Mac. Mediante estas utilidades se pueden a&ntilde;adir marcas de agua a las im&aacute;genes entre otras muchas cosas, a decir verdad, pr&aacute;cticamente se puede hacer muchas de las cosas que una herramienta de retoque fotogr&aacute;fico puede pero a trav&eacute;s de la linea de comandos o como dec&iacute;a desde alguno de los lenguajes para el que tenga &laquo;bindings&raquo; y con la posibilidad de automatizar el proceso. Las 
+<a href="http://es.wikipedia.org/wiki/Marca_de_agua_digital">marcas de agua</a> consisten en aplicar un patr&oacute;n o estampado a una imagen, pueden ser muy visibles, pasar pr&aacute;cticamente desapercibidas o estar ocultas sirviendo para:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/05/anadir-marcas-de-agua-a-imagenes-con-imagemagick">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/12/como-seria-si-microsoft-apple-y-linux">Como sería si Microsoft, Apple y Linux...</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/12/como-seria-si-microsoft-apple-y-linux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 09 de diciembre de 2011 a las 18:41 UTC</span></div><div><span>Actualizado el martes, 02 de octubre de 2012 a las 21:23 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/como-seria-si-microsoft-apple-y-linux" st_via="blogstack" st_title="Como sería si Microsoft, Apple y Linux... | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>&iquest;Como ser&iacute;a si Microsoft, Apple y Linux se decicasen a la industria automovil&iacute;stica y vendiesen motores y coches conociendo sus pol&iacute;ticas y formas de comercializar su software y productos? 
+<br /> 
+<br />set small_troll_mode=on 
+<br /> 
+<br />Empecemos por 
+<b>Microsoft</b> 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Microsoft" height="75" src="http://1.bp.blogspot.com/-XdqPJUzoXGQ/TuJcYIW8UkI/AAAAAAAABB8/nw_ryoLf4NY/s320/microsoft.png" title="Microsoft" width="320" /> 
+</div>Algunos modelos de sus motores son conocidos y recordados por provocar fallos en el coche que son instalados [1], algunos no m&aacute;s molestos como que las ruedas se desinchan de vez en cuando o el aire acondicionado no funciona a veces si a la vez tienes puesta la radio y algunos graves como que el motor se apaga de repente o deja de frenar cuando lo necesitas que provocan peque&ntilde;os accidentes y peque&ntilde;as perdidas de memoria en el conductor a los que se les queda la cara de un tono azulado despu&eacute;s de los hechos por el susto.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/12/como-seria-si-microsoft-apple-y-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/05/github-repositorio-git-para-proyectos">GitHub, repositorio Git para proyectos</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/05/github-repositorio-git-para-proyectos.html">Entrada original</a></span></div><div><span>Publicado el viernes, 11 de mayo de 2012 a las 18:14 UTC</span></div><div><span>Actualizado el viernes, 21 de septiembre de 2012 a las 20:28 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/05/github-repositorio-git-para-proyectos" st_via="blogstack" st_title="GitHub, repositorio Git para proyectos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="GitHub" src="http://2.bp.blogspot.com/-2dTNKEa5Fmo/T61RikcdlGI/AAAAAAAABG0/eJHR-RAwLhw/s1600/github.png" title="GitHub" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Git" src="http://1.bp.blogspot.com/-yLvqsRu7ELU/T61Uz2bYZCI/AAAAAAAABHU/Wv2IN_QKxMI/s1600/git.png" title="Git" /> 
+</div> 
+<a href="http://elblogdepicodev.blogspot.com.es/2010/06/sistema-de-control-de-versiones.html">El sistema de control de versiones Git</a> tiene varias ventajas sobre los tradicionales herrramientas de control de versiones como puede ser Subversion y en est&aacute; &eacute;poca muchos servicios est&aacute;n ya ofreci&eacute;ndose a trav&eacute;s de internet, las herramientas de control de versiones tambi&eacute;n.&nbsp; 
+<a href="https://github.com/">GitHub</a> es un repositorio para hospedar proyectos de software que se basa en 
+<a href="http://git-scm.com/">Git</a> como herramienta de control de versiones todo ello a trav&eacute;s de internet. A parte del repositorio Git para el c&oacute;digo fuente 
+<a href="https://github.com/features/projects">otras caracter&iacute;sticas que ofrece</a> son un gestor de peticiones, wikis y revisi&oacute;n de c&oacute;digo. Adem&aacute;s de poder trabajar de forma colaborativa 
+<a href="http://help.github.com/fork-a-repo/">haciendo forks</a> de los proyectos de otras personas y envi&aacute;ndoles peticiones pull para los cambios que hagamos en sus proyectos. 
+<br /><p class="continue-reading"><a href="/post/elblogdepicodev/2012/05/github-repositorio-git-para-proyectos">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit">systemd, reemplazo de sysvinit</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/09/systemd-reemplazo-de-sysvinit.html">Entrada original</a></span></div><div><span>Publicado el viernes, 07 de septiembre de 2012 a las 12:01 UTC</span></div><div><span>Actualizado el viernes, 21 de septiembre de 2012 a las 18:28 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/grub2">grub2</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_via="blogstack" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>En los sistemas UNIX el primer proceso que se crea y se encarga de inicializar el resto de procesos se le conoce como init. Desde 1980 esta tarea era llevada a cabo por &laquo;System V init&raquo; (sysvinit). Sin embargo, dado que en sysvinit los servicios se lanzan en un orden determinado y los dispositivos actuales son muy diversos y din&aacute;micos est&aacute; dejando de ser adecuado para estos tiempos. En el 2006 
+<a href="http://www.canonical.com/">Canonical</a> desarrollo 
+<a href="http://upstart.ubuntu.com/">Upstart</a> con el objetivo de crear un reeemplazo para sysvinit. Upstart es sistema dirigido por eventos de tal forma que cuando ocurre cierta circunstancia se hace alguna acci&oacute;n, como &laquo;el dispositivo de red se ha montado&raquo;, soportando mejor de esta forma la dinamicidad del los sistemas. Upstart parec&iacute;a el sucesor de sysvinit, sin embargo, la migraci&oacute;n de sysvinit a un sistema dirigido por eventos como upstart no es sencilla.<p class="continue-reading"><a href="/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/3"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"><a href="/label/page/1">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux">Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 29 de noviembre de 2013 a las 17:34 UTC</span></div><div><span>Actualizado el sábado, 14 de diciembre de 2013 a las 09:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_via="blogstack" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Arch Linux" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s1600/archlinux-official-dark.png" height="106" title="Arch Linux" width="320" />
+</div>Ya desde hace un tiempo los documentos nacionales de indentidad que emite la administraci&oacute;n p&uacute;blica espa&ntilde;ola son en el formato de tarjeta inteligente (SmartCard), conocido como DNI electr&oacute;nico o DNIe. Estas tarjetas inteligentes tienen la ventaja de que incluyen un certificado digital que nos permiten identificarnos en sitios que lo soporten y realizar diversos tr&aacute;mites y acciones.
+<br />
+<br />El DNI electr&oacute;nico nos puede servir para identificarnos en varias p&aacute;ginas de la administraci&oacute;n p&uacute;blica, en las p&aacute;ginas de varios bancos y realizar diferentes tr&aacute;mites electr&oacute;nicos. El DNIe como medio de identificaci&oacute;n en una p&aacute;gina tiene la ventaja de que no necesitamos tener un usuario y una contrase&ntilde;a espec&iacute;fica para ese sitio sino que con el DNI f&iacute;sico y el PIN nos ser&aacute; suficiente. Para identificarnos necesitamos algo que poseemos (el DNI) y algo que conocemos (PIN) con lo que las posibilidades que de alguien que quiera realizar alguna acci&oacute;n en nuestro nombre suplantando nuestra identidad ser&aacute; m&aacute;s complicado, la seguridad es mayor ya que no basta con conocer &uacute;nicamente el usuario y clave sino que se necesita algo f&iacute;sico. Conseguir ambas cosas es m&aacute;s dif&iacute;cil que solo la clave. Realizar tramites administrativos de forma electr&oacute;nica tiene la ventaja que no necesitamos desplazarnos hasta la correspondiente ventanilla para realizar el tr&aacute;mite. Algunos bancos que permiten identificarnos con el DNIe son el 
+<a href="https://www.bancosantander.es/">Santander</a>, 
+<a href="https://www.bbk.es/">BBK</a>, el infame 
+<a href="http://www.bankia.com/">Bankia</a>&nbsp; y posiblemente muchos otros, tambi&eacute;n podemos consultar los 
+<a href="http://www.dgt.es/">puntos que poseemos en el carn&eacute;t de conducir</a>, seguro que hay muchas m&aacute;s cosas &uacute;tiles en las que podemos dar uso al DNIe.
+<br />
+<br />En esta entrada voy a explicar como instalar el DNI electr&oacute;nico en Linux m&aacute;s concr&eacute;tamente en 
+<a href="https://www.archlinux.org/">Arch Linux</a>. La primera cosas que necesitaremos ser&aacute; disponer de un lector de tarjetas inteligentes como el siguiente que yo adquir&iacute; por unos 12€:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-9xRL0oxO0TE/UpjNVeSUT5I/AAAAAAAACvU/ZXtsdZB8w9M/s1600/lector-tarjetas-inteligentes.jpg"><img src="http://4.bp.blogspot.com/-9xRL0oxO0TE/UpjNVeSUT5I/AAAAAAAACvU/ZXtsdZB8w9M/s1600/lector-tarjetas-inteligentes.jpg" height="320" width="239" /></a>
+</div>Despu&eacute;s en Arch Linux deberemos instalar los siguientes paquetes:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7708855.js?file=yaourt.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7708855/raw/yaourt.sh">yaourt.sh</a>
+ <br />
+</noscript> 
+<a href="https://aur.archlinux.org/packages/opensc-opendnie/">opensc-dnie</a> (AUR) y 
+<a href="https://www.archlinux.org/packages/community/x86_64/ccid/">ccid</a> nos dar&aacute;n el soporte para acceder al DNIe, 
+<a href="https://www.archlinux.org/packages/community/x86_64/pcsc-tools/">pcsc-tools</a> nos proporcionar&aacute; una herramienta (pcsc_scan) con la que podremos comprobar si el lector funciona correctamente y detecta la tarjeta o DNI. Una vez instalados los programas debemos modificar el archivo de configuraci&oacute;n &laquo;/etc/opensc.conf&raquo; aplicando los siguientes cambios y valores en cada apartado y propiedad:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7708855.js?file=opensc.conf"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7708855/raw/opensc.conf">opensc.conf</a>
+ <br />
+</noscript> Despu&eacute;s debemos iniciar el servicio de opensc, podemos hacer que se inicie con el sistema (enable) o cuando deseemos de forma manual (start):
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7708855.js?file=service.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7708855/raw/service.sh">service.sh</a>
+ <br />
+</noscript> Una vez hecho todo esto podemos comprobar el funcionamiento de nuestro lector con el DNIe, para ello utilizamos pcsc_scan que nos indicar&aacute; si ha detectado un lector de tarjetas y si este tiene o no una tarjeta introducida:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-ApUqoVOlu6E/UpjLqkJxcII/AAAAAAAACu0/_BA6_Tm0qWI/s1600/lector-tarjetas-no-insertado.png"><img src="http://2.bp.blogspot.com/-ApUqoVOlu6E/UpjLqkJxcII/AAAAAAAACu0/_BA6_Tm0qWI/s1600/lector-tarjetas-no-insertado.png" height="135" width="200" /></a>
+ <a href="http://4.bp.blogspot.com/-iQ6DHEC_MmQ/UpjLqs5tpvI/AAAAAAAACuw/0J1irWEddoY/s1600/lector-tarjetas-insertado.png"><img src="http://4.bp.blogspot.com/-iQ6DHEC_MmQ/UpjLqs5tpvI/AAAAAAAACuw/0J1irWEddoY/s1600/lector-tarjetas-insertado.png" height="135" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-6w0496gihK8/UpjLqoOkcKI/AAAAAAAACu4/zUR7f8m8tsY/s1600/lector-tarjetas-dni-insertado.png"><img src="http://1.bp.blogspot.com/-6w0496gihK8/UpjLqoOkcKI/AAAAAAAACu4/zUR7f8m8tsY/s1600/lector-tarjetas-dni-insertado.png" height="165" width="200" /></a>
+</div>Con el siguiente comando podemos ver los certificados del DNIe:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7708855.js?file=certificados.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7708855/raw/certificados.sh">certificados.sh</a>
+ <br />
+</noscript> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-wGyZywFQF34/UpjMMm5RhmI/AAAAAAAACvI/huFn6Q4YNWA/s1600/certificados+tarjeta.png"><img src="http://1.bp.blogspot.com/-wGyZywFQF34/UpjMMm5RhmI/AAAAAAAACvI/huFn6Q4YNWA/s1600/certificados+tarjeta.png" height="141" width="200" /></a>
+</div>
+<br />Y con el siguiente comando podemos exportar el certificado del DNI, se nos solicitar&aacute; el PIN del DNI:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7708855.js?file=exportar-certificado.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7708855/raw/exportar-certificado.sh">exportar-certificado.sh</a>
+ <br />
+</noscript> Si examinamos el certificado podemos darnos cuenta de una cosa curiosa y es que aunque el DNI f&iacute;sico se emite con una validez de 10 a&ntilde;os el certificado incluido en &eacute;l solo tiene una validez de 2 a&ntilde;os y medio, con lo que pasado este tiempo deberemos acudir a la oficina de expedici&oacute;n para ampliar el peri&oacute;do l&iacute;mite de uso.
+<br />
+<br />Y esto deber&iacute;a ser parecido para otras distribuciones como 
+<a href="http://www.ubuntu.com/">Ubuntu</a>, 
+<a href="http://www.debian.org/">Debian</a>, 
+<a href="http://www.linuxmint.com/">Mint</a>, 
+<a href="http://www.opensuse.org/">openSUSE</a>, 
+<a href="https://fedoraproject.org/">Fedora</a>. Los paquetes pueden ser diferentes pero el proceso de instalaci&oacute;n ser&aacute; similar a este 
+<br />
+<br />Cone esta entrada de momento solo hemos instalado el lector de tarjetas inteligentes en posteriores entradas explicar&eacute; como 
+<a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">usar el DNIe para autenticarnos en una p&aacute;gina usando Firefox</a>, firmar documentos PDF con 
+<a href="http://www.sinadura.net/">Sinadura</a> o enviar correos electr&oacute;nicos firmados digitalmente usando el cliente de correo Evolution. Tambi&eacute;n puedes consultar 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">como crear un parde claves GPG</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">usarlas para enviar correos firmados digitalmente</a>.
+<br />
+<br />Referencia:
+<br />
+<a href="http://picodotdev.github.io/blog-bitix/2013/12/06/usar-el-dni-electronico-con-firefox-en-linux/">Usar el DNI electr&oacute;nico con Firefox en Linux</a> 
+<br />
+<a href="https://wiki.archlinux.org/index.php/Common_Access_Card">https://wiki.archlinux.org/index.php/Common_Access_Card</a>
+<br />
+<a href="http://www.banot.net/?q=node/15">http://www.banot.net/?q=node/15</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_via="blogstack" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 3,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb">Iniciar la Raspberry Pi desde un disco o memoria USB</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/">Entrada original</a></span></div><div><span>Actualizado el viernes, 10 de enero de 2014 a las 11:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_via="blogstack" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/raspberrypi.jpg" alt="Raspberry Pi" title="Raspberry Pi" /> 
+</div> 
+<p>Por defecto la Raspberry Pi se instala en una tarjeta SD y se inicia desde ella, sin embargo, la tarjeta SD es muy lenta tanto en la lectura como en la escritura de datos y cuando tiene que hacerlo de forma intensiva el sistema queda sin responder y aparentemente atascado. Para aumentar muy notablemente el rendimiento de la Raspberry Pi podemos instalar la partici&oacute;n del sistema en una memoria USB o disco duro externo.</p> 
+<p>En la gu&iacute;a de <a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch.html">Instalaci&oacute;n de la Raspberry Pi</a> expliqu&eacute; como instalar la distribuci&oacute;n <a href="http://archlinuxarm.org/">Arch Linux ARM</a> en una tarjeta SD, esa gu&iacute;a ser&aacute; el punto de partida para esta entrada. La Raspberry Pi inicia el sistema desde la tarjeta SD por lo que aunque instalemos el sistema en un dispositivo USB seguiremos necesitando la tarjeta SD para que contenga al menos la partici&oacute;n de arranque (boot).</p> 
+<p>Teniendo instalado en la tarjeta SD tanto la partici&oacute;n de arranque como la partici&oacute;n del sistema donde est&aacute; realmente la distribuci&oacute;n que hayamos instalado necesitaremos mover la partici&oacute;n del sistema a una dispositivo USB. Para ello podemos utilizar el comando dd, deberemos conocer el dispositivo asignado a la tarjeta SD cuando la introduzcamos en el ordenador, para ello podemos usar el comando lsblk:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/6/lsbk.png" title="Dispositivos del sistema"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/6/lsbk-thumb.png" /></a> 
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8350659.js?file=leer-particion.sh"></script> 
+ <noscript>
+  <pre><code># dd if=/dev/mmcblk0p2 of=mmcblk0p2.img bs=4096 conv=notrunc
+</code></pre>
+ </noscript>
+</div> 
+<p>El comando dd crear&aacute; un archivo en nuestro ordenador con la imagen de la partici&oacute;n del sistema de la Raspberry Pi. A continuaci&oacute;n deberemos escribir esa imagen de la partici&oacute;n en el dispositivo USB tambi&eacute;n usando el comando dd. Hay que tener en cuenta que al escribir la imagen perderemos todos los datos que tengamos en el dispositivo destino. En el ejemplo, el dispositivo /dev/sdb1 se corresponde con la partici&oacute;n del dispositivo USB en el que copiaremos la partici&oacute;n del sistema de la Raspberry Pi.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8350659.js?file=escribir-particion.sh"></script> 
+ <noscript>
+  <pre><code># dd if=mmcblk0p2.img of=/dev/sdb1 bs=4096 conv=notrunc
+</code></pre>
+ </noscript>
+</div> 
+<p>Una vez escrita la imagen muy probablemente deberemos redimensionar la partici&oacute;n para aprovechar todo el espacio de almacenamiento del dispositivo. Con <a href="http://gparted.org/">GParted</a> podemos hacerlo de forma muy sencilla. Seleccionamos /dev/sdb1, desmontamos la partici&oacute;n y redimensionamos el espacio para la partici&oacute;n, finalmente pulsamos en la opci&oacute;n &laquo;Editar &gt; Aplicar operaciones&raquo;.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/6/gparted.png" title="Redimiensionado de patici&oacute;n con GParted"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/6/gparted-thumb.png" /></a> 
+</div> 
+<p>El paso final que deberemos hacer es cambiar en la partici&oacute;n de arranque que sigue estando en la tarjeta SD un archivo para indicar que la partici&oacute;n del sistema ahora est&aacute; en un dispositivo USB. Probablemente la partici&oacute;n del sistema que deberemos indicar sea /dev/sda1, con este valor modificamos el archivo cmdline.txt y lo asignamos al par&aacute;metro root, deberemos tener algo como como lo siguiente:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8350659.js?file=cmdline.txt"></script> 
+ <noscript>
+  <pre><code>smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/sda1 rootfstype=ext4 elevator=noop rootwait</code></pre>
+ </noscript>
+</div> 
+<p>A partir de este punto con la tarjeta SD insertada en la Raspberry Pi y el dispositivo USB conectado a uno de los puertos se iniciar&aacute; la Pi desde la partici&oacute;n del sistema del dispositivo USB en vez de la tarjeta SD. Enseguida se nota un aumento de rendimiento considerable en el tiempo de inicio y las perdidas de respuesta porque se est&aacute; leyendo o escribiendo ser&aacute;n mucho menores o nulos con la mayor tasa de transferencia de los dispositivos USB.</p> 
+<p>Aunque la tarjeta SD es suficiente para usarla como <a href="http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/">Media Center en la Raspberry Pi</a> al navegar por los men&uacute;s notaremos que se atasca y el tiempo de arranque es notable. Con la partici&oacute;n del sistema instalada en una memoria o disco duro externo siguiendo el m&eacute;todo descrito en esta entrada notaremos un menor tiempo de arranque de <a href="http://www.geexbox.org/">GeeXboX</a> y evitaremos los atascos en los menus de <a href="http://xbmc.org/">XBMC</a>.</p> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch.html">Gu&iacute;a instalaci&oacute;n Raspberry Pi con Arch Linux ARM (Parte I, instalaci&oacute;n base)</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch_22.html">Gu&iacute;a instalaci&oacute;n Raspberry Pi con Arch Linux ARM (Parte II, programas) </a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/">Raspberry Pi como Media Center con GeeXboX</a><br /> <a href="http://www.diverteka.com/?p=580">RaspBerry en USB</a><br /> <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=29&amp;t=44177">HOWTO: Move the filesystem to a USB stick</a><br /> <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=91&amp;t=9117">Using usb hard drive as default boot and storage?</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_via="blogstack" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Iniciar la Raspberry Pi desde un disco o memoria USB";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 41,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

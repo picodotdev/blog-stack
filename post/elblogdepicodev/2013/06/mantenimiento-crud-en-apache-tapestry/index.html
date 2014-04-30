@@ -1,0 +1,185 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry">Mantenimiento CRUD en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/06/mantenimiento-crud-en-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el viernes, 14 de junio de 2013 a las 16:10 UTC</span></div><div><span>Actualizado el viernes, 14 de junio de 2013 a las 16:22 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_via="blogstack" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>El scaffolding es una ayuda que permite a partir de una descripci&oacute;n disponer de una funcionalidad sin escribir una l&iacute;nea de c&oacute;digo o muy pocas exceptuando las necesarias para la descripci&oacute;n. En funcionalidades que se repiten mucho en una aplicaci&oacute;n, no aportan mucho valor y son aburridas de programar puede llegar ahorrar una cantidad considerable de tiempo y disponer de un prototipo funcional muy r&aacute;pidamente. Es utilizada por varios frameworks web en diferentes lenguajes para hacer los mantenimientos CRUD (Create, Read, Update, Delete) de las tablas de una base de datos relacional: 
+<br />
+<ul>
+ <li>Ruby on Rails</li>
+ <li>Symfony</li>
+ <li>Grails</li>
+ <li>Y quiz&aacute; algunos otros menos conocidos</li>
+</ul>El problema de los scaffoldings viene cuando la funcionalidad que proporcionan no es suficiente, no se adapta a lo que necesitamos o no nos gusta lo que se genera y nos vemos en la obligaci&oacute;n de personalizarlo, los scaffolding son tan b&aacute;sicos que si tenemos una aplicaci&oacute;n un poco compleja probablemente deberemos adaptarlos. En ese caso no nos quedar&aacute; m&aacute;s remedio que programar lo que necesitemos. Algunos frameworks permiten generar un c&oacute;digo inicial a partir del que comenzar la programaci&oacute;n. Esto es el caso de Grails y el c&oacute;digo generado deja bastante que desear (en mi humilde opini&oacute;n), el CRUD de una tabla tiene cinco gsp, entre ellas una para el alta y otra para la modificaci&oacute;n que son pr&aacute;cticamente iguales con lo que contiene bastante c&oacute;digo repetido tambi&eacute;n en el controlador para las acciones save y update que para luego mantenerlo supone problemas. Una vez que el c&oacute;digo est&aacute; generado y lo hemos personalizado con alguna modificaci&oacute;n al salir una nueva versi&oacute;n del framework (y tarde o temprano saldr&aacute;) tendremos la duda de si el c&oacute;digo que se nos gener&oacute; con una versi&oacute;n anterior se ha quedado obsoleto en la nueva versi&oacute;n, dudaremos si partir del c&oacute;digo inicial que genera la nueva versi&oacute;n e incorporar las cambios que hicimos o si adaptamos el c&oacute;digo que tenemos con los nuevos cambios.
+<br />
+<br />Como resultado al final disponer de un framework que tenga scaffolding con el tiempo puede no suponer tanto ahorro de tiempo como puede parecer en un principio. Tapestry no proporciona un scaffolding para hacer estos CRUD aunque si proporciona varios componentes avanzados que ayudan mucho a realizarlos (
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Grid.html">Grid</a>, 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/BeanEditor.html">BeanEditor</a>). A continuaci&oacute;n pondr&eacute; un ejemplo de una funcionalidad similar a un CRUD realizada con el framework Apache Tapestry. En el ejemplo se podr&aacute; mantener una tabla de una base de datos pudiendo dar de alta una nuevos registros, eliminarlos, modificarlos y ver sus datos en una tabla con paginaci&oacute;n Ajax. En el se ver&aacute; que todo esto no supone m&aacute;s de 200 l&iacute;neas de c&oacute;digo Java y 80 l&iacute;neas de c&oacute;digo de presentaci&oacute;n en tml. Necesitar&aacute; solo dos archivos, uno para c&oacute;digo Java, otro para el de presentaci&oacute;n tml e increiblemente ninguno para c&oacute;digo Javascript a pesar de hacer la paginaci&oacute;n via Ajax. En estos n&uacute;meros no estoy incluyendo varias clases de apoyo como la entidad a persistir o su DAO (Data Access Object) ya que no son propios de un &uacute;nico scaffolding sino que se podr&iacute;a utilizar para todos los que tengamos en la aplicaci&oacute;n.
+<br />
+<br />En la entrada sobre 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/06/persistencia-con-jpa-y-apache-tapestry.html">persistencia JPA usando Tapestry</a> ya expliqu&eacute; como construir el servicio y la transaccionalidad. En el siguiente c&oacute;digo utilizar&eacute; ese servicio DAO para el acceso a la base de datos, no cambia nada. Me centrar&eacute; en poner el c&oacute;digo necesario para la p&aacute;gina que necesita proporcionar la funcionalidad del scaffolding.
+<br />
+<br />A continuaci&oacute;n el c&oacute;digo Java en la que principalmente Tapestry se encarga de llamar al m&eacute;todo que act&uacute;a de escuchador para cada evento que se produzca en la p&aacute;gina, en funci&oacute;n del evento se llamar&aacute; a la operaci&oacute;n DAO adecuada y actualizar el estado del controlador.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5782703.js?file=ProductoAdmin.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/ProductoAdmin.java">ProductoAdmin.java</a>
+ <br />
+</noscript> Ahora el archivo tml que se encarga de generar el html que se enviar&aacute; al navegador. En el mismo archivo est&aacute; el c&oacute;digo para mostrar el listado y para realizar la edici&oacute;n tanto en el alta como en la modificaci&oacute;n. En funci&oacute;n del estado de la p&aacute;gina se mostrar&aacute; uno u otro haciendo uso del 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Delegate.html">componente Delegate</a>. Para ver la paginaci&oacute;n en funcionamiento sin necesidad de crear muchos objetos solo ser&aacute; necesario crear dos, esto es, las p&aacute;ginas solo contendr&aacute;n dos elementos.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5782703.js?file=ProductoAdmin.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/ProductoAdmin.tml">ProductoAdmin.tml</a>
+ <br />
+</noscript> Eso es todo lo propio que necesita el scaffolding y ser&iacute;a lo &uacute;nico necesario para realizar otros similares. Sin embargo, este hace uso de unas cuantas clases de utilidad. Entre ellas la clase que proporciona la funcionalidad de paginaci&oacute;n al acceder a la lista de entidades. A partir de los datos de paginaci&oacute;n que el data source indica (elemento de inicio, de fin y orden) se construye el objeto que contendr&aacute; esta informaci&oacute;n y se le enviar&aacute; al DAO para que haga la consulta adecuada.
+<br />
+<br />Finalmente, como coment&eacute; un una 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/05/seguridad-en-aplicacion-web-con-apache-II.html">entrada anterior sobre seguridad sobre XSS</a> (Cross Site Scripting) el mantenimiento est&aacute; protegido ante este tipo de ataques (puedes probar crear un producto con &lt;script&gt;alert(1);&lt;/script&gt;), para ello no hemos hecho nada especial.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5782703.js?file=JPAGridDataSource.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/JPAGridDataSource.java">JPAGridDataSource.java</a>
+ <br />
+</noscript> Y otro par de clases muy sencillitas que continenen los datos para que el DAO sepa como se quiere la ordenaci&oacute;n y que elementos paginados se quieren.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5782703.js?file=Pagination.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/Pagination.java">Pagination.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5782703.js?file=Sort.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/Sort.java">Sort.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5782703.js?file=JPAGridDataSource.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/JPAGridDataSource.java">JPAGridDataSource.java</a>
+ <br />
+</noscript> El resultado de la lista, la modificaci&oacute;n de un producto y el alta habiendo errores de validaci&oacute;n es este:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-_ACF7tvPFU0/UbtCTp7zCkI/AAAAAAAACjY/KkI_ykDcqt8/s1600/tapestry-crud-1.png"><img height="115" src="http://3.bp.blogspot.com/-_ACF7tvPFU0/UbtCTp7zCkI/AAAAAAAACjY/KkI_ykDcqt8/s200/tapestry-crud-1.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/-TukV1EqPfl8/UbtCThoddAI/AAAAAAAACjQ/9yyw2vYCdDs/s1600/tapestry-crud-2.png"><img height="150" src="http://2.bp.blogspot.com/-TukV1EqPfl8/UbtCThoddAI/AAAAAAAACjQ/9yyw2vYCdDs/s200/tapestry-crud-2.png" width="200" /></a>
+</div>
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-nmeMujOANiw/UbtCTgCFngI/AAAAAAAACjU/-ZV20u6dEqY/s1600/tapestry-crud-3.png"><img height="176" src="http://3.bp.blogspot.com/-nmeMujOANiw/UbtCTgCFngI/AAAAAAAACjU/-ZV20u6dEqY/s200/tapestry-crud-3.png" width="200" /></a>
+</div>
+<br />Como en el resto de entradas el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestryJPA">c&oacute;digo fuente completo</a> lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master">mi repositorio de GitHub</a>. Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada previamente (salvo java y git). Si no dispones de git para clonar mi repositorio de GitHub puedes 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">obtener el c&oacute;digo fuente del repositorio en un archivo zip</a> con el anterior enlace.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5782703.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5782703/raw/git.sh">git.sh</a>
+ <br />
+</noscript> 
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_via="blogstack" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" st_title="Mantenimiento CRUD en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Mantenimiento CRUD en Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/06/mantenimiento-crud-en-apache-tapestry.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 48,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

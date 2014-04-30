@@ -1,0 +1,230 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo del patrón de diseño No Operation | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation">Ejemplo del patrón de diseño No Operation</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation/">Entrada original</a></span></div><div><span>Actualizado el viernes, 24 de enero de 2014 a las 15:48 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_via="blogstack" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>Hasta el momento ya he escrito alguna entrada sobre los <a href="http://elblogdepicodev.blogspot.com.es/2012/03/patrones-de-diseno-en-la-programacion.html">patrones de dise&ntilde;o</a> en general, sobre algunos casos particulares como el <a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">patr&oacute;n de dise&ntilde;o Command</a> relacionado con la programaci&oacute;n concurrente y sobre el <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-del-patron-de-diseno-state.html">patr&oacute;n de dise&ntilde;o State</a> para hacer m&aacute;quinas de estados. En esta entrada hablar&eacute; sobre otro patr&oacute;n de dise&ntilde;o, el patr&oacute;n No Operation y de que forma podemos aprovecharlo para resolver alg&uacute;n problema y hacer nuestro c&oacute;digo m&aacute;s simple.</p> 
+<p>En un programa que emplea un lenguaje de programaci&oacute;n orientado a objetos estos est&aacute;n constantemente relacion&aacute;ndose entre si a trav&eacute;s de llamadas a m&eacute;todos y a trav&eacute;s de las referencias que un objeto posee de otros. Sin embargo, es habitual que un determinado m&eacute;todo devuelva un null en vez de una referencia a un objeto. Esta referencia null puede ser un problema ya que nos obliga en el c&oacute;digo hacer una comprobaci&oacute;n antes de poder llamarlo. Si un m&eacute;todo devuelve un null puede dar como resultado un <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html">NullPointerException</a> en otra parte de la aplicaci&oacute;n en donde se intente usar esa referencia y no se haga la comprobaci&oacute;n.</p> 
+<p>Para tratar de evitar llenar nuestro c&oacute;digo java de sentencias if con la comprobaci&oacute;n de null podemos utilizar el patr&oacute;n de dise&ntilde;o No Operation. La idea de este patr&oacute;n es que en vez de devolver un null como resultado de la llamada a un m&eacute;todo devolvamos un objeto que no haga nada en las llamadas a los m&eacute;todos en los que se use. Por ejemplo, supongamos que tenemos un m&eacute;todo que en base a un enum se encarga de devolver un objeto que sigue el <a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">patr&oacute;n Command</a>. Y ahora supongamos que para cierto valor del enum no hay objeto command que se pueda devolver, podr&iacute;amos devolver null en cuyo caso nos ver&iacute;amos obligados a realizar la comprobaci&oacute;n por null o empleando la idea del patr&oacute;n No Operation devolver un objeto que implemente la interfaz command en cuesti&oacute;n pero que no haga nada o haga una operaci&oacute;n inocua. Si vemos que en un programa estamos llen&aacute;ndolo de sentencias if (objeto == null) tal vez podamos aplicar este patr&oacute;n. Lo importante para poder eliminar esos if es determinar que es una operaci&oacute;n inocua, si se trata de un objeto puede ser que el m&eacute;todo no haga nada, si se trata de un n&uacute;mero que se utiliza para sumar o multiplicar se puede devolver 0 o 1 respectivamente en vez de null, depende del caso y la operaci&oacute;n a simular.</p> 
+<p>Esta patr&oacute;n puede usarse tambi&eacute;n para evitar la excepci&oacute;n NullPointerException pero no es tanto la misi&oacute;n del patr&oacute;n la misi&oacute;n como evitar preocuparnos por si las referencias son null o no y eliminar ifs, es cierto que emple&aacute;ndolo no dar&aacute; la excepci&oacute;n pero si la aplicaci&oacute;n continua puede producir otra excepci&oacute;n o un comportamiento no deseado m&aacute;s complicado de resolver y de averiguar su causa en otra parte del c&oacute;digo.</p> 
+<p>Ve&aacute;moslo con el ejemplo de una factor&iacute;a que para determinados enumerados se devuelve un objeto que sigue el patr&oacute;n command pero para ciertos valores del enumerado no hay command v&aacute;lido y en vez de devolver null devolvemos un command no operation, este es el caso de llamar a la factor&iacute;a con un enumerado null. Para el enumerado Operacion.MENSAJE se develve un command que emite un mensaje, para Operacion.NO_MENSAJE y null se devuelve un command que no hace nada.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8600530.js?file=OperacionCommandFactory.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.pattern.nooperation;
+
+public class OperacionCommandFactory {
+
+    public enum Operacion {
+        MENSAJE, NO_MENSAJE
+    }
+    
+    public OperacionCommand buildCommand(Operacion operacion) {
+        if (operacion == null) {
+            return new NoOperacionCommand();
+        }
+        switch (operacion) {
+            case MENSAJE:
+                return new MensajeCommand();
+            case NO_MENSAJE:
+                return new NoOperacionCommand();
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8600530.js?file=OperacionCommand.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.pattern.nooperation;
+
+public interface OperacionCommand {
+
+    void operacion();
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8600530.js?file=NoOperacionCommand.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.pattern.nooperation;
+
+public class NoOperacionCommand implements OperacionCommand {
+
+    @Override
+    public void operacion() {
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8600530.js?file=MensajeCommand.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.pattern.nooperation;
+
+public class MensajeCommand implements OperacionCommand {
+
+    @Override
+    public void operacion() {
+        System.out.println(&quot;Hola mundo!&quot;);
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<p>Y finalmente el caso de prueba donde puede verse que no hay ning&uacute;n if ya que no se devuelve en ning&uacute;n caso un null:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8600530.js?file=OperacionCommandFactorySpec.groovy"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.pattern.nooperation
+
+import io.github.picodotdev.pattern.nooperation.OperacionCommand
+import io.github.picodotdev.pattern.nooperation.OperacionCommandFactory
+import io.github.picodotdev.pattern.nooperation.OperacionCommandFactory.Operacion
+
+import spock.lang.Specification
+
+public class OperacionCommandFactorySpec extends Specification {
+
+    private OperacionCommandFactory factory = null
+    
+    void setup() {
+        factory = new OperacionCommandFactory()
+    }
+    
+    void test1() {
+        setup:
+        OperacionCommand operacion = factory.buildCommand(Operacion.MENSAJE)
+    
+        when:
+        operacion.operacion()
+        
+        then:
+        1 == 1
+    }
+    
+    void test2() {
+        setup:
+        OperacionCommand operacion = factory.buildCommand(Operacion.NO_MENSAJE)
+    
+        when:
+        operacion.operacion()
+        
+        then:
+        1 == 1
+    }
+    
+    void test3() {
+        setup:
+        OperacionCommand operacion = factory.buildCommand(null)
+    
+        when:
+        operacion.operacion()
+        
+        then:
+        1 == 1
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<p>Puedes obtener el <a href="https://github.com/picodotdev/blog-ejemplos/tree/master/PatronNoOperation">c&oacute;digo fuente completo del ejemplo</a> de su repositorio de GitHub.</p> 
+<p>Referencia:<br /> <a href="https://github.com/picodotdev/blog-ejemplos/tree/master/PatronNoOperation">C&oacute;digo fuente del ejemplo del patr&oacute;n de dise&ntilde;o No Operation</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/03/patrones-de-diseno-en-la-programacion.html">Patrones de dise&ntilde;o en la programaci&oacute;n orientada a objetos</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">Ejemplo del patr&oacute;n de dise&ntilde;o Command y programaci&oacute;n concurrente en Java</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-del-patron-de-diseno-state.html">Ejemplo del patr&oacute;n de dise&ntilde;o State</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_via="blogstack" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Ejemplo del patrón de diseño No Operation";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 39,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

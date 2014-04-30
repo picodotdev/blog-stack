@@ -1,0 +1,175 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii">Seguridad en aplicación web con Apache Tapestry (II)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/05/seguridad-en-aplicacion-web-con-apache-II.html">Entrada original</a></span></div><div><span>Publicado el viernes, 31 de mayo de 2013 a las 16:15 UTC</span></div><div><span>Actualizado el viernes, 07 de junio de 2013 a las 19:48 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_via="blogstack" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></div>Si en la anterior entrada hablaba de la seguridad sobre los aspectos de la&nbsp;
+<a href="http://elblogdepicodev.blogspot.com.es/2013/05/seguridad-en-aplicacion-web-con-apache.html">autenticaci&oacute;n y autorizaci&oacute;n de las acciones que puede realizar los usuarios</a>&nbsp;en una aplicaci&oacute;n web en esta hablar&eacute; como protegerse de otro tipo de fallos de seguridad, XSS e inyecci&oacute;n de Sql.
+<br />
+<br />Otros dos aspectos muy a tener en cuenta desde el inicio y durante el desarrollo de una aplicaci&oacute;n web son los siguientes:
+<br />
+<ul>
+ <li>XSS (<a href="http://es.wikipedia.org/wiki/Cross-site_scripting">Cross site scripting</a>): es una vulnerabilidad que pueden sufrir las aplicaciones por b&aacute;sicamente no controlar los datos que un usuario env&iacute;a a trav&eacute;s de formularios o como par&aacute;metros en las URL. Por ejemplo, supongamos una aplicaci&oacute;n recibe un formulario con un nombre que se escupe tal cual se envi&oacute; en otra p&aacute;gina de la aplicaci&oacute;n y que otros usuarios pueden visualizar en sus navegadores posteriormente cuando accedan a las p&aacute;ginas que los muestran. Una posible situaci&oacute;n puede darse cuando los datos enviados se guardan en una base de datos, un usuario los env&iacute;a se guardan en la base de datos y otro usuario los ve. Ese dato puede ser una cadena inofensiva como el nombre que se pide pero un usuario malicioso puede enviar c&oacute;digo javascript o una imagen con una URL que puede recolectar&nbsp;con cualquier prop&oacute;sito la informaci&oacute;n de los usuario que la ven en su navegador. Un usuario enviando los datos adecuados puede explotar esta vulnerabilidad y conseguir desde obtener la sesi&oacute;n de otro usuario y hacer cualquier tipo de acci&oacute;n como si fuera ese otro usuario, hasta obtener datos y distribuir virus a los usuarios a trav&eacute;s de nuestra propia p&aacute;gina web.&nbsp; </li>
+ <li><a href="http://en.wikipedia.org/wiki/SQL_injection">Inyecci&oacute;n Sql</a>: esta vulnerabilidad puede ser explotada tambi&eacute;n por confiar en los valores que env&iacute;a el usuario pero en vez afectar al html que genera la aplicaci&oacute;n web afecta a las base de datos que utilice la aplicaci&oacute;n. Si usamos los par&aacute;metros enviados por una fuente no confiable para construir las sql de forma din&aacute;mica concatenando trozos de sentencia con los par&aacute;metros, un par&aacute;metro con el valor adecuado puede modificar completamente la sentencia. Concatenando elementos se puede terminar una Sql y hacer cualquier otra a continuaci&oacute;n. Las posibilidades de esto es que se podr&iacute;a extraer cualquier dato o borrar completamente la base de datos con sentencias delete o drop. Por ejemplo, hacer esto tiene el problema de la inyecci&oacute;n de Sql: &quot;select * from producto where id = &quot; + id. Si el par&aacute;metro id tuviese el valor &quot;1; delete from producto;&quot; podr&iacute;amos borrar todos los datos de la tabla.</li>
+</ul>Por tanto, tanto para evitar fallos de seguridad por XSS y de inyecci&oacute;n Sql no se debe confiar en ning&uacute;n dato enviado por el usuario o de un sistema externo. En realidad en ambos problemas de seguridad la situaci&oacute;n es el misma pero que afecta a distintas partes de la aplicaci&oacute;n, en un caso a la base de datos (inyecci&oacute;n Sql) y en otro a la capa de presentaci&oacute;n de la aplicaci&oacute;n (XSS).
+<br />
+<br />&iquest;Que hay que hacer para evitar estos problemas? Depende del caso. Para evitar XSS todo lo que se emita en el html de la p&aacute;gina y se env&iacute;e al navegador del usuario ha de ser codificado como html haciendo que si hay un dato malicioso sea inofensivo ya que el navegador no lo interpretar&aacute; como parte del lenguaje de marcas html sino como texto. Para evitar la inyecci&oacute;n de Sql si construimos alguna din&ntilde;amicamente los par&aacute;metros no se han de a&ntilde;adir concaten&aacute;ndolos. En Java con PreparedStatement, y seguro que en cualesquiera otros lenguajes, por un lado va la sql y por otro los par&aacute;metros, la clase o API que utilicemos se encargar&aacute; de ejecutar la sentencia con los par&aacute;metros adecuados sin el problema de la inyecci&oacute;n Sql (adem&aacute;s tiene la ventaja de que el c&oacute;digo ser&aacute; m&aacute;s legible al no estar mezclada con los par&aacute;metros concatenados).
+<br />
+<br />A continuaci&oacute;n explicar&eacute; que funcionalidades proporciona Tapestry para que las aplicaciones desarrolladas con &eacute;l sean m&aacute;s seguras en cuanto a XSS.
+<br />
+<br />Para evitar XSS todo lo que se genere como html a partir de datos recuperados de la base de datos y enviados por un usuario hay que escaparlo. Y Tapestry hace eso por defecto por lo que salvo que de forma expresa no hagamos el escapado no tendremos problemas de XSS. La generaci&oacute;n de html se puede hacer de dos formas: en los archivos de plantilla tml o en c&oacute;digo Java si se trata de un componente que no tiene plantilla tml asociada.
+<br />
+<br />Con una plantilla tml haremos lo siguiente y el nombre se mostrar&aacute; escapado en el html:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5685908.js?file=Xss-1.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5685908/raw/Xss-1.tml">Xss-1.tml</a>
+ <br />
+</noscript> Para evitar escapado hay que usar la opci&oacute;n:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5685908.js?file=Xss-2.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5685908/raw/Xss-2.tml">Xss-2.tml</a>
+ <br />
+</noscript> En el componente Java usaremos la clase MarkupWriter y su m&eacute;todo write para escapar los valores y el m&eacute;todo writeRaw para evitar el escapado si estamos seguros de que no implica un problema de seguridad:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5685908.js?file=Xss.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5685908/raw/Xss.java">Xss.java</a>
+ <br />
+</noscript> Para evitar inyecci&oacute;n de Sql usando Hibernate, JPA o la clase PreparedStatement y separando los par&aacute;metros de la sql o hql estaremos protegidos. Las buenas pr&aacute;cticas y un ejemplo de mala pr&aacute;ctica usando la API de Hibernate, hql y sql para hacer las b&uacute;squedas son las siguientes:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5685908.js?file=InyeccionSql.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5685908/raw/InyeccionSql.java">InyeccionSql.java</a>
+ <br />
+</noscript> En la siguiente imagen puede verse como se puede inyectar javascript enviando un formulario con dato que no es escapado correctamente al mostrar su valor de nuevo.
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-QiY0xo5lrKg/UajNb0loTDI/AAAAAAAACiI/RDg65GRNUFM/s1600/tapestry-xss.png"><img height="231" src="http://4.bp.blogspot.com/-QiY0xo5lrKg/UajNb0loTDI/AAAAAAAACiI/RDg65GRNUFM/s320/tapestry-xss.png" width="320" /></a>
+</div>
+<br />Como en el resto de entradas el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestrySecurity">c&oacute;digo fuente completo</a> lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master">mi repositorio de GitHub</a>. Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada previamente (salvo java y git). Si no dispones de git para clonar mi repositorio de GitHub puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a> con el anterior enlace.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5685908.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5685908/raw/git.sh">git.sh</a>
+ <br />
+</noscript> Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a>
+<br />
+<a href="http://es.wikipedia.org/wiki/Cross-site_scripting">Cross site scripting</a>
+<br />
+<a href="http://es.wikipedia.org/wiki/Inyecci%C3%B3n_SQL">Inyecci&oacute;n SQL</a>
+<br />
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/MarkupWriter.html">MarkupWriter</a>
+<br />
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Output.html">Output</a>
+<br />
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/OutputRaw.html">OutputRaw</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_via="blogstack" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" st_title="Seguridad en aplicación web con Apache Tapestry (II) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Seguridad en aplicación web con Apache Tapestry (II)";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/05/seguridad-en-aplicacion-web-con-apache-II.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 50,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

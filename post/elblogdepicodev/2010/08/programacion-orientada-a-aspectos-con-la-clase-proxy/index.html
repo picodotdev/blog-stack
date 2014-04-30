@@ -1,0 +1,119 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Programación orientada a aspectos con la clase Proxy | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy">Programación orientada a aspectos con la clase Proxy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/08/programacion-orientada-aspectos-con-la.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 18 de agosto de 2010 a las 07:34 UTC</span></div><div><span>Actualizado el viernes, 18 de febrero de 2011 a las 18:56 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_via="blogstack" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;">
+ <img alt="Java" height="150" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TBeztET3lAI/AAAAAAAAAZ8/BP4VHrwEXTY/s200/java.png" title="Java" />
+</div>
+<br />La 
+<a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">programaci&oacute;n orientada aspectos</a> (AOP) es uno de los conceptos que en estos d&iacute;as se usa muy habitualmente en el desarrollo de aplicaciones Java. B&aacute;sicamente, nos permite separar cierta l&oacute;gica de soporte de la l&oacute;gica propia de la aplicaci&oacute;n, por ejemplo, se puede utilizar si necesitamos medir el tiempo que tarda en ejecutarse un determinado m&eacute;todo, cuantas veces se llama, sacar trazas, aplicar seguridad, obtener conexiones a base de datos, gestionar la transaccionalidad, etc... En vez de a&ntilde;adir el c&oacute;digo de estas funcionalidades a las clases de nuesta aplicaci&oacute;n lo podemos a&ntilde;adir a una clase que se encarge de implementar el aspecto.
+<br />
+<br />La 
+<a href="http://www.springsource.org/">librer&iacute;a Spring</a> proporciona un amplio soporte para la programaci&oacute;n orientada a aspectos, sin embargo, hay veces en el que no tenemos control sobre las librer&iacute;as que podemos utilizar en nuestro proyecto. En este caso nos tenemos que limitar a lo que nos proporciona el propio JDK.
+<br />
+<br />A pesar de que hoy el concepto es muy conocido se puede venir haciendo desde el JDK 1.3 (desde el a&ntilde;o 2000) a trav&eacute;s de la clase Proxy y su uso es realmente sencillo para las ventajas que aporta al c&oacute;digo de una aplicaci&oacute;n. 
+<br />
+<br />Supongamos que necesitamos medir cuanto tiempo tardan en ejecutarse los m&eacute;todos de un determinado objeto (en realidad de una interfaz). En vez de calcular el tiempo dentro de la propia clase que queremos medir podemos implementarlo mediante un aspecto con la clase Proxy de la siguiente forma (el m&eacute;todo main no es realmente necesario solo est&aacute; incluido para hacer simple el probar el ejemplo):
+<br />
+<br />
+<div>
+ <pre>import java.lang.reflect.InvocationHandler;<br />import java.lang.reflect.Method;<br />import java.lang.reflect.Proxy;<br />import java.util.Date;<br />import java.util.HashSet;<br />import java.util.Set;<br />import java.util.TreeSet;<br /><br />public class ProfileProxy implements InvocationHandler {<br /><br />    protected Object object;<br />    protected Proxy proxy;<br /><br />    public ProfileProxy(Object object) {<br />        this.object = object;<br />        // Creaci&oacute;n del proxy que intercepta las llamadas a los m&eacute;todos del objeto<br />        proxy = (Proxy) roxy.newProxyInstance(object.getClass().getClassLoader(), object.getClass().getInterfaces(), this);<br />    }<br /><br />    public Proxy getProxy() {<br />        return proxy;<br />    }<br /><br />    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {<br />        long start = new Date().getTime();<br />            <br />        // Invocar al servicio<br />        Object o = method.invoke(object, args);<br />            <br />        long end = new Date().getTime();<br />        System.out.println(&quot;Tiempo: &quot; + (end - start) + &quot;ms&quot;);<br />        <br />        return o;<br />    }<br />    <br />    public static void main(String[] args) throws Exception {<br />        Set data = new HashSet(); <br />        for (int i = 0; i &lt; 100000; ++i) {<br />            data.add(new Integer((int) (Math.random() * 100000)));<br />        }<br />        <br />        HashSet hashSet  = new HashSet();<br />        TreeSet treeSet  = new TreeSet();<br />        <br />        Set proxyHashSet  = (Set) new ProfileProxy(hashSet).getProxy();<br />        Set proxyTreeSet  = (Set) new ProfileProxy(treeSet).getProxy();<br />        <br />        proxyHashSet.addAll(data);<br />        proxyTreeSet.addAll(data);<br />    }<br />}</pre>
+</div>
+<br />
+<br />El m&eacute;todo main del ejempo trata de medir cuanto tiempo se tarda en a&ntilde;adir los elementos de un Set a otro para un HashSet y para un TreeSet. Dado que la clase TreeSet mantiene los elementos ordenados seg&uacute;n su orden natural es de esperar que tarde m&aacute;s tiempo.
+<br />
+<br />En mi equipo a&ntilde;adir cien mil elementos de un Set a un HashSet tarda 62ms y a&ntilde;adir el mismo n&uacute;mero de elementos a un TreeSet 110ms.
+<br />
+<br />Pero todo no son cosas buenas, una peque&ntilde;a limitaci&oacute;n de utilizar la clase Proxy es que la interceptaci&oacute;n de las lamadas se tienen que hacer sobre los m&eacute;todos de una interfaz que implemente el objeto.</div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_via="blogstack" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy" st_title="Programación orientada a aspectos con la clase Proxy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Programación orientada a aspectos con la clase Proxy";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2010/08/programacion-orientada-aspectos-con-la.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 177,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/08/programacion-orientada-a-aspectos-con-la-clase-proxy"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

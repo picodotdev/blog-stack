@@ -1,0 +1,280 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Novedades y nuevas características de Java 8 | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8">Novedades y nuevas características de Java 8</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/">Entrada original</a></span></div><div><span>Actualizado el viernes, 28 de marzo de 2014 a las 20:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_via="blogstack" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>El 18 de marzo de 2014 se public&oacute; la nueva versi&oacute;n de la plataforma <a href="http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html">Java 8</a>, Java 7 fue liberada el en julio de 2011. Java 8 incorporar&aacute; varias novedades siguiendo la tendencia de otros lenguajes como la incorporaci&oacute;n de lambdas o closures o una demandada nueva API para el manejo de fechas entre otras muchas caracter&iacute;sticas m&aacute;s. La <a href="http://openjdk.java.net/projects/jdk8/features">lista completa de novedades</a> es bastante amplia, a continuaci&oacute;n pondr&eacute; lo que me ha parecido m&aacute;s destacable:</p> 
+<ul> 
+ <li>Se a&ntilde;aden las expresiones lambda o closures y se adapta la API para usarlas en los sitios que se pueda.</li> 
+ <li>Se definen nuevos perfiles compactos para dispositivos que no necesitan toda la API Java, esto es una alternativa a la modularizaci&oacute;n. Inicialmente la modularizaci&oacute;n era una caracter&iacute;stica que estaba planificada para Java 8 pero finalmente se ha aplazado a posteriores versiones.</li> 
+ <li>Incluido nuevo <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/scripting/nashorn/index.html">motor de Javascript Nashorn</a> que implementa ECMAscript 5.1 y es m&aacute;s r&aacute;pido que su predecesor Rhino.</li> 
+ <li>Eliminaci&oacute;n de espacio de memoria Permanent Generation (PermGen) que pasa a llamarse Metaspace. Su tama&ntilde;o ser&aacute; din&aacute;mico pero no evitar&aacute; fugas de memoria.</li> 
+ <li>Soporte para la creaci&oacute;n de una m&aacute;quina virtual menor a 3 MB.</li> 
+ <li>Acceso mediante reflection a los nombres de los par&aacute;metros. Mejorar&aacute; la legibilidad del c&oacute;digo que use reflection y permitir&aacute; mejorar el soporte en los IDE.</li> 
+ <li>Ordenaci&oacute;n en java.util.Arrays de forma paralela.</li> 
+ <li>Operaciones masivas sobre colecciones tales como filter/map/reduce (streams) de forma serializada o paralela.</li> 
+ <li>Soporte de forma est&aacute;ndar para la codificaci&oacute;n y decodificaci&oacute;n Base64.</li> 
+ <li>Nueva API para Date y Time.</li> 
+ <li>Varias mejoras de seguridad.</li> 
+ <li>Se incorporan en la m&aacute;quina virtual Java HotSpot caracter&iacute;sticas que estaban en JRockit, convergiendo ambas m&aacute;quinas virtuales. Se incorpora Mission Control.</li> 
+ <li>Mejoras en JDBC la base para el acceso en bases de datos en Java.</li> 
+ <li><a href="http://openjdk.java.net/projects/jdk8/features">Otras novedades</a>.</li> 
+</ul> 
+<h3>Streams</h3> 
+<p>Los streams no son un nuevo tipo de colecci&oacute;n son una nueva forma de recorrer las colecciones distinta a los <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a>. La ventaja de los streams es que pueden procesarse de forma serializada o paralela y proporcionan un estilo de operaciones m&aacute;s funcionales. Un flujo consiste un una fuente (una colecci&oacute;n), varias operaciones intermedias (de filtrado o transformaci&oacute;n) y una operaci&oacute;n final que produce un resultado (suma, cuenta…). Los streams son lazy de modo que las operaciones solo se realizan cuando se llama a la operaci&oacute;n final, tambi&eacute;n son eficientes no necesitando en algunos casos procesar todos los elementos del stream para devolver el resultado final.</p> 
+<p>Tradicionalmente en la API de colecciones la iteraci&oacute;n sobre los elementos deb&iacute;amos proporcionarla de forma externa. Con Java 8 podemos expresarla de la siguiente forma.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=Stream.java"></script> 
+ <noscript>
+  <pre><code>int alturaMedia = personas.stream()
+    .mapToInt((Persona p) –&gt; { return p.getAltura(); })
+    .average();</code></pre>
+ </noscript>
+</div> 
+<h3>Lambda</h3> 
+<p>Esta es una de las principales novedades y que m&aacute;s se estaba echando de menos en Java de otros lenguajes como <a href="http://groovy.codehaus.org/">Groovy</a> o <a href="https://www.python.org/">Python</a>. Las expresiones lambda son funciones que no est&aacute; asociadas a un determinado nombre y que pueden pasarse como argumento a otras funciones. Tienen el siguiente aspecto:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=Lambda.java"></script> 
+ <noscript>
+  <pre><code>(Persona persona) –&gt; { return persona.getAltura(); }</code></pre>
+ </noscript>
+</div> 
+<p>El uso de expresiones lambdas junto con el stream API proporciona a Java 8 caracter&iacute;sticas de programaci&oacute;n funcional, pero sobre todo hace el c&oacute;digo m&aacute;s sencillo, menos extenso, m&aacute;s expresivo y m&aacute;s legible. En las expresiones lambda de Java podemos seguir aprovech&aacute;ndonos de la compilaci&oacute;n est&aacute;tica y del tipado fuerte.</p> 
+<h3>Referencias de m&eacute;todos</h3> 
+<p>Todo el c&oacute;digo desarrollado previamente a Java 8 no hace uso de las lambdas, pero con las <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">referencias a m&eacute;todos</a> podemos usar esos m&eacute;todos ya implementados como si se tratasen de funciones lambdas. Hay diferentes formas de hacer referencias a m&eacute;todos:</p> 
+<ul> 
+ <li>A m&eacute;todos est&aacute;ticos</li> 
+ <li>A un m&eacute;todo de una instancia concreta</li> 
+ <li>A un m&eacute;todo de instancia de una instancia arbitraria de un tipo</li> 
+ <li>A un constructor</li> 
+</ul> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=ReferenciaMetodos.java"></script> 
+ <noscript>
+  <pre><code>// M&eacute;todo est&aacute;tico
+Persona::compareAltura
+
+// M&eacute;todo de una instancia concreta
+persona::getAltura
+
+// M&eacute;todo de instancia de una instancia arbitraria de un tipo
+Persona::getAltura
+
+// Constructor
+Persona::new
+
+</code></pre>
+ </noscript>
+</div> 
+<h3>Interfaces funcionales</h3> 
+<p>Una interfaz funcional es aquella que solo tiene un m&eacute;todo abstracto (sin implementaci&oacute;n). Algunos ejemplos de interfaces funcionales son <a href="http://download.java.net/jdk8/docs/api/java/lang/Runnable.html">Runnable</a>, <a href="http://download.java.net/jdk8/docs/api/java/awt/event/ActionListener.html">ActionListener</a>, <a href="http://download.java.net/jdk8/docs/api/java/util/Comparator.html">Comparator</a> y <a href="http://download.java.net/jdk8/docs/api/java/util/concurrent/Callable.html">Callable</a>. Para definir una interfaz funcional se puede usar la anotaci&oacute;n <a href="http://download.java.net/jdk8/docs/api/java/lang/FunctionalInterface.html">@FunctionalInterface</a> y pueden representarse con una expresi&oacute;n lambda. En el siguiente ejemplo puede apreciarse que con las interfaces funcionales y las lambdas podemos hacer lo mismo de forma m&aacute;s clara, menos verbosa y con c&oacute;digo m&aacute;s legible.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=InterfazFuncional-1.java"></script> 
+ <noscript>
+  <pre><code>Collections.sort(personas, new Comparator&lt;User&gt;() {
+    public int compare(Persona p1, Persona p2) {
+        return p1.getAltura().compareTo(p2.getAltura());
+    }
+});</code></pre>
+ </noscript>
+</div> 
+<p>En Java 8 podemos hacer:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=InterfazFuncional-2.java"></script> 
+ <noscript>
+  <pre><code>Collections.sort(personas, (Persona u1, Persona u2) -&gt; { 
+    p2.getAltura().compareTo(p2.getAltura())
+});</code></pre>
+ </noscript>
+</div> 
+<p>Java 8 icorpora varias interfaces funcionales que puede ser usadas en expresiones lambda, entre ellas est&aacute;n:</p> 
+<ul> 
+ <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html">Predicate</a>: funci&oacute;n que retorna un booleano dado un argumento.</li> 
+ <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html">Function</a>: funci&oacute;n que retorna un valor dado un argumento.</li> 
+ <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/Supplier.html">Supplier</a>: producen un tipo, al contrario que las funciones no tienen argumento</li> 
+ <li><a href="http://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a>: representa una operaci&oacute;n a realizarse en un argumento.</li> 
+</ul> 
+<h3>M&eacute;todos por defecto en interfaces</h3> 
+<p>Hasta ahora las interfaces en Java solo pod&iacute;an definir m&eacute;todos pero no sus implementaciones. El problema con las interfaces es que cuando se modifican se rompen todas las clases que las usan. Esto se ha resuelto de tal forma que se puedan a&ntilde;adir nuevos m&eacute;todos con implementaci&oacute;n a las interfaces y ha sido necesario para incorporar las lambdas a interfaces existentes como List. En Java 8 las interfaces podr&aacute;n incorporar implementaciones para algunos de sus m&eacute;todos, teniendo as&iacute; algo parecido a herencia m&uacute;ltiple.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=MetodosDefault.java"></script> 
+ <noscript>
+  <pre><code>public interface Math { 
+    int add(int a, int b);
+ 
+    default int multiply(int a, int b) {
+        return a * b;
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<h3>M&eacute;todos est&aacute;ticos en interfaces</h3> 
+<p>Adem&aacute;s de definir m&eacute;todos por defecto en las interfaces a partir de ahora podemos definir m&eacute;todos est&aacute;ticos. Definiendo m&eacute;todos est&aacute;ticos en las interfaces evitaremos tener que crear clases de utilidad. Podremos incluir en un mismo tipo (la interfaz) todos los m&eacute;todos relacionados.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9689477.js?file=MetodosStatic.java"></script> 
+ <noscript>
+  <pre><code>public interface Persona {
+
+    String getNombre();
+    int getAltura();
+
+    static String toStringDatos() {
+        return getNombre() + &quot; &quot; + getAltura();
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<h3>Anotaciones en cualquier uso de tipos</h3> 
+<p>Con la introducci&oacute;n de anotaciones en Java 5 podemos usar anotaciones en la declaraci&oacute;n de los tipos (definici&oacute;n de clases, interfaces, propiedades, m&eacute;todos, …). Desde ahora podremos usar las anotaciones en el uso de cualquier tipo como por ejemplo expresiones new, casts, cl&aacute;usulas implements y cl&aacute;usulas throws.</p> 
+<h3>Java Time</h3> 
+<p>Trabajar con fechas, horas y diferentes zonas horarias en Java tradicionalmente ha sido molesto, para tratar de mejorar la situaci&oacute;n pod&iacute;amos usar la librer&iacute;a JodaTime. Finalmente, despu&eacute;s de mucho tiempo esperando a que se hiciera se va a proporcionar una mejor <a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html">API en el JDK 8 para trabajar con fechas, horas y zonas horarias</a>.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/17/componentes-jpse8.png" title="Componentes Java Platform Standard Edition 8"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/17/componentes-jpse8-thumb.png" /></a> 
+</div> 
+<h3>Futuro Java 9</h3> 
+<p>Viendo el pasado reciente de Java hablar del futuro puede ser precipitado, quiz&aacute; la caracter&iacute;stica m&aacute;s comentada sea la modularizaci&oacute;n con el proyecto conocido como <a href="http://openjdk.java.net/projects/jigsaw/">Jigsaw</a>, pero ha sido abandonada para Java 8 seg&uacute;n tengo entendido por ser dif&iacute;cil incorporarla manteniendo la compatibilidad hacia atr&aacute;s, por el momento dispondremos de una soluci&oacute;n intermedia con los compact profiles.</p> 
+<p>Otro de los puntos donde parece que se pondr&aacute; &eacute;nfasis es en el soporte para entornos en la nube que son en estos momentos la tendencia hacia la que evolucionan las aplicaciones.</p> 
+<h3>Pasado en Java 5, 6 y 7</h3> 
+<p>Las versiones de Java 5, 6 y 7 tambi&eacute;n incluyeron varias novedades y dado que en el &aacute;mbito empresarial la tecnolog&iacute;a se adopta de forma lenta es posible que mucha gente (incluido yo mismo) a&uacute;n desconozca cuales eran algunas de las principales novedades y caracter&iacute;sticas de versiones anteriores.</p> 
+<h4>Java 7</h4> 
+<ul> 
+ <li>Project coin</li> 
+ <li>Strings en switchs</li> 
+ <li>Gesti&oacute;n autom&aacute;tica de recursos en sentencias try-catch</li> 
+ <li>Multicatch</li> 
+ <li>Rethrow de excepciones m&aacute;s precisos</li> 
+ <li>Operador diamante &lt;&gt;</li> 
+ <li>Literales binarios</li> 
+ <li>Guiones bajos en literales num&eacute;ricos</li> 
+ <li>Fork/Join y utilidades de concurrencia</li> 
+ <li>Mejoras en trabajo con archivos y carpetas</li> 
+</ul> 
+<p>M&aacute;s en <a href="http://www.oracle.com/technetwork/java/javase/jdk7-relnotes-418459.html">Java 7 New Features and Enhancements</a> y <a href="http://www.javacodegeeks.com/2013/10/java7-a-look-back.html">Java 7 a look back</a></p> 
+<h4>Java 6</h4> 
+<ul> 
+ <li>Lenguajes de scripting</li> 
+ <li>API para el compilador</li> 
+ <li>Nuevas anotaciones</li> 
+ <li>Nueva API para XML (StaX)</li> 
+</ul> 
+<p>M&aacute;s en <a href="http://www.oracle.com/technetwork/java/javase/features-141434.html">Java 6 New Features and Enhancements</a> y <a href="http://www.javabeat.net/introduction-to-java-6-0-new-features-part-i/">Introduction to java 6 newfeatures</a></p> 
+<h4>Java 5</h4> 
+<ul> 
+ <li>Generics</li> 
+ <li>Bucle for mejorado</li> 
+ <li>Autoboxing/unboxing</li> 
+ <li>Enums</li> 
+ <li>Varargs</li> 
+ <li>Static import</li> 
+ <li>Anotaciones</li> 
+</ul> 
+<p>M&aacute;s en <a href="http://docs.oracle.com/javase/1.5.0/docs/relnotes/features.html">Java 5 New Features and Enhancements</a></p> 
+<h3>Presentaci&oacute;n</h3> 
+<p>Finalmente, una presentaci&oacute;n muy interesante en forma de <a href="https://www.youtube.com/watch?v=FTfAP29TjUk">v&iacute;deo de Youtube</a> en espa&ntilde;ol y la <a href="http://www.javahispano.org/storage/documentacion/2013-JUG-Madrid.pdf">presentaci&oacute;n de la que se habla en formato pdf</a> que fue publicada en <a href="http://www.javahispano.org/portada/2014/3/10/video-y-presentacion-de-la-charla-sobre-java-8.html">JavaHispano</a>, en &eacute;l se habla de muchas de las novedades y de algunas futuras en Java 9.</p> 
+<div style="text-align: center;"> 
+ <iframe width="640" height="360" src="http://www.youtube.com/embed/FTfAP29TjUk?rel=0" frameborder="0" allowfullscreen=""></iframe> 
+</div>  
+<p>En los <a href="http://docs.oracle.com/javase/tutorial/">tutoriales de Java</a> hay algunos de estos puntos m&aacute;s ampliados y algunos apartados no comentados en esta entrada. Otros art&iacute;culos muy completos son <a href="http://winterbe.com/posts/2014/03/16/java-8-tutorial/">Java 8 Tutorial</a> y <a href="http://www.techempower.com/blog/2013/03/26/everything-about-java-8/">Everything about Java 8</a>, en el apartado de referencia al final de la entrada hay alg&uacute;n enlace m&aacute;s digno de lectura.</p> 
+<p>Referencia:<br /> <a href="http://openjdk.java.net/projects/jdk8/">JDK 8</a><br /> <a href="http://www.javacodegeeks.com/2013/10/java8.html">Java 8</a><br /> <a href="http://winterbe.com/posts/2014/03/16/java-8-tutorial/">Java 8 Tutorial</a><br /> <a href="http://zeroturnaround.com/rebellabs/java-8-explained-default-methods/">Java 8 Explained Default Methods</a><br /> <a href="http://www.javacodegeeks.com/2013/10/introduction-to-java-lambdas.html">Introduction to Java lambdas</a><br /> <a href="http://zeroturnaround.com/rebellabs/java-8-revealed-lambdas-default-methods-and-bulk-data-operations/">Java 8 revealed, lambdas, default methods and bulk data operations</a><br /> <a href="http://www.javacodegeeks.com/2013/07/lambdas-coming-to-a-java-8-near-you.html">Lambdas coming to a Java 8 near you</a><br /> <a href="http://viralpatel.net/blogs/java-8-default-methods-tutorial/">Java 8 default methods</a> <a href="http://unpocodejava.wordpress.com/2014/01/22/novedades-relevantes-java-8/">Novedades relevantes Java 8</a><br /> <a href="http://www.javacodegeeks.com/2014/03/the-optional-type-api.html">The optional type API</a><br /> <a href="http://www.techempower.com/blog/2013/03/26/everything-about-java-8/">Everything about Java 8</a><br /> <a href="http://www.javacodegeeks.com/2014/03/8-new-features-for-java-8.html">8 new features for java 8</a><br /> <a href="http://www.javacodegeeks.com/2014/03/happy-8th-birthday-java.html">Happy 8th birthday Java</a><br /> <a href="http://www.javacodegeeks.com/2014/01/compiling-lambda-expressions-scala-vs-java-8.html">Compiling lambda expressions scala vs Java 8</a><br /> <a href="http://java.dzone.com/articles/java-8-permgen-metaspace">Java 8 PermGen to metaspace</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_via="blogstack" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Novedades y nuevas características de Java 8";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 30,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

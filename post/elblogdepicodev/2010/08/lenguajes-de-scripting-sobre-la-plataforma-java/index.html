@@ -1,0 +1,170 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java">Lenguajes de scripting sobre la plataforma Java</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/08/lenguajes-de-scripting-sobre-la.html">Entrada original</a></span></div><div><span>Publicado el viernes, 13 de agosto de 2010 a las 14:53 UTC</span></div><div><span>Actualizado el viernes, 25 de febrero de 2011 a las 18:14 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_via="blogstack" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;">
+ <img alt="Java" height="100" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TBeztET3lAI/AAAAAAAAAZ8/BP4VHrwEXTY/s200/java.png" title="Java" /> 
+ <img alt="Groovy" height="100" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TGUMtyhkvpI/AAAAAAAAAdI/d0C5TlFGbG8/s200/groovy.png" title="Groovy" /> 
+ <img alt="Jython" height="100" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TGUMut2YduI/AAAAAAAAAdQ/IGpdSfP3XfM/s200/jython.png" title="Jython" />
+ <img alt="Clojure" height="100" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TGUMtPlhq7I/AAAAAAAAAdE/YDQFeyTz1Gk/s200/clojure.gif" title="Clojure" /> 
+ <img alt="JRuby" height="100" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TGUMuFXfbEI/AAAAAAAAAdM/JZkn87qQzVU/s200/jruby.png" title="JRuby" />
+</div>
+<br />Desde la versi&oacute;n del JDK 6 es posible utilizar lenguajes de scripting dentro de la m&aacute;quina vitual Java. Con lo que a adem&aacute;s de Java podemos utilizar otros lenguajes como 
+<a href="http://www.eclipse.org/aspectj/">AspectJ</a>, ColdFusion, 
+<a href="http://clojure.org/">Clojure</a>, 
+<a href="http://groovy.codehaus.org/">Groovy</a>, 
+<a href="http://javafx.com/">JavaFX</a>, 
+<a href="http://jruby.org/">JRuby</a>, 
+<a href="http://www.jython.org/">Jython</a>, 
+<a href="http://www.mozilla.org/rhino/">Rhino</a> o 
+<a href="http://www.scala-lang.org/">Scala</a> y algunos otros m&aacute;s.&nbsp;Por defecto, solo Rhino viene incluido en el JDK. La ventaja de estos lenguajes de scripting es que pueden ser m&aacute;s adecuados para ciertas tareas que el propio Java.
+<br />
+<br />De entre estos lenguajes destaca Groovy al tener una sintaxis similar a Java (que lo hace la opci&oacute;n natural para los propios programadores Java), ser completamente orientado a objetos (los tipos primitivos de Java se tratan como objetos), tener una sintaxis m&aacute;s compacta que Java (los punto y coma de final de sentencia son opcionales y en algunos casos los par&eacute;ntesis), tener una sintaxis nativa para listas, mapas y expresiones regulares (que es muy &uacute;til ya que son tipos de datos que se utilizan mucho en todos los programas), integraci&oacute;n bidireccional con Java (las clases de Java se pueden utilizar en clases Groovy y las clases de Groovy se pueden utilizar desde Java), soportar closures, propiedades y sobrecarga de operadores.
+<br />
+<br />Podemos ver los lenguajes de scripting que soporta nuestro JDK con:
+<br />
+<br />
+<br />
+<div>
+ <pre>$JAVA_HOME/bin/jrunscript -q</pre>
+</div>
+<br />
+<br />Para evaluar una expresi&oacute;n de un lenguage de scripting podemos utilizar el comando jrunscript del JDK, en el caso de ejemplo se ejecuta una expresi&oacute;n Groovy que imprime una cuenta de 1 a 10.
+<br />
+<br />
+<br />
+<div>
+ <pre>$JAVA_HOME/bin/jrunscript -cp<br />$GROOVY_HOME/embeddable/groovy-all-1.7.4.jar -l groovy -e &quot;10.times {<br />println it }&quot;</pre>
+</div>
+<br />
+<br />Si queremos evaluar expresiones Groovy desde un programa Java lo podemos hacer con la clase GroovyShell proporcionada por la librer&iacute;a groovy-all-1.7.4.jar:
+<br />
+<br />
+<br />
+<div>
+ <pre>import groovy.lang.GroovyShell;<br /><br />public class GroovyTest {<br />&nbsp;&nbsp; &nbsp;public static void main(String[] args) {<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;GroovyShell shell = new GroovyShell();<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;shell.evaluate(&quot;10.times { println it }&quot;);<br />&nbsp;&nbsp; &nbsp;}<br />}</pre>
+</div>
+<br />
+<br />Sin embargo no es la &uacute;nica forma de evaluar un expresi&oacute;n de un lenguaje de scripting desde Java tambi&eacute;n podemos hacerlo de una forma m&aacute;s estandar con las clases del JDK 6:
+<br />
+<br />
+<br />
+<div>
+ <pre>import javax.script.ScriptEngine;<br />import javax.script.ScriptEngineManager;<br /><br />public class GroovyTest {<br />&nbsp;&nbsp; &nbsp;public static void main(String[] args) throws Exception {<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;ScriptEngineManager manager = new ScriptEngineManager();<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;ScriptEngine engine = manager.getEngineByName(&quot;groovy&quot;);<br />&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;engine.eval(&quot;10.times { println it }&quot;);<br />&nbsp;&nbsp; &nbsp;}<br />}</pre>
+</div>
+<br />
+<br />Hay alguna forma m&aacute;s de evaluar expresiones y scripts, sin embargo, cada una tiene ciertas ventajas y desventajas sobre las otras, por lo que deberemos decidir cual es la m&aacute;s adecuada para nuestro caso.
+<br />
+<br />Pero... &iquest;Como se a&ntilde;aden nuevos lenguajes de scripting al JDK? Pues es bastante simple, en el caso de Groovy basta con copiar la libreria groovy-all-1.7.4.jar al directorio $JAVA_HOME/jre/lib/ext o a&ntilde;adirla al classpath cuando ejecutemos una aplicaci&oacute;n. &nbsp;Si ejecutamos ahora el comando jrunscript para ver que lenguajes de scripting soporta nuestra JVM veremos que se devuelven dos lenguages, Rhino que viene por defecto en el JDK y Groovy que lo acabamos de a&ntilde;adir. Para otros lenguages de scripting el proceso es parecido.
+<br />
+<div style="clear: both; text-align: auto;">
+ <br />
+</div>
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/_9zOwWD_PYL8/TGVYXqCTfsI/AAAAAAAAAeA/xE7CfL9AiQA/s1600/jrunscript.png"><img height="107" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TGVYXqCTfsI/AAAAAAAAAeA/xE7CfL9AiQA/s320/jrunscript.png" width="320" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: auto;">
+ Para ciertas tareas utlizar alguno de estos lenguajes puede ser m&aacute;s adecuado, se me ocurre el caso de tener que hacer un determinado c&aacute;lculo que previsiblemente puede variar en un futuro. En vez de implementarlo en Java lo que nos obligar&iacute;a a tener que volver a compilar el programa y volverlo a arrancar se puede realizar con uno de estos lenguajes y guardarlo en base de datos o en un fichero, con lo que podr&iacute;a ser muy f&aacute;cilmente actualizable y sin necesidad de tener que compilar ni parar la aplicaci&oacute;n lo que proporciona agilidad a la hora de implementar cambios. En definitiva los lenguajes de scripting a&ntilde;aden nuevas posibilidades a la plataforma Java.
+</div>
+<div style="clear: both; text-align: auto;">
+ <br />
+</div>
+<div style="clear: both; text-align: auto;">
+ Referncia:
+</div>
+<div style="clear: both; text-align: auto;">
+ <a href="http://elblogdepicodev.blogspot.com/2011/02/implementacion-de-un-comparator.html">Implementaci&oacute;n de un Comparator gen&eacute;rico en Java con ayuda de Groovy</a>&nbsp;(Ejemplo pr&aacute;ctivo)
+</div></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_via="blogstack" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java" st_title="Lenguajes de scripting sobre la plataforma Java | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Lenguajes de scripting sobre la plataforma Java";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2010/08/lenguajes-de-scripting-sobre-la.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 178,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/08/lenguajes-de-scripting-sobre-la-plataforma-java"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Reglas de negocio con Drools y Activiti | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti">Reglas de negocio con Drools y Activiti</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/10/reglas-de-negocio-con-drools-y-activiti.html">Entrada original</a></span></div><div><span>Publicado el sábado, 20 de octubre de 2012 a las 09:24 UTC</span></div><div><span>Actualizado el domingo, 21 de octubre de 2012 a las 11:40 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_via="blogstack" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img height="63" src="http://2.bp.blogspot.com/-ynlQBBlw8ts/UIJyvOlW4zI/AAAAAAAABjE/PKdDXyq8y8s/s200/drools.png" width="200" alt="Drools" title="Drools" />
+</div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Activiti" height="51" src="http://3.bp.blogspot.com/-DXJP21kWGMM/UGawTPCKXmI/AAAAAAAABdQ/pb7HAoJHumc/s200/activiti.png" title="Activiti" width="200" />
+</div>Los procesos de negocio pueden tener varios caminos de ejecuci&oacute;n distintos. En algunos casos la decisi&oacute;n que determina el camino de ejecuci&oacute;n del proceso de negocio puede estar determinado por una decisi&oacute;n de negocio. Por ejemplo, si se determina que un cliente es VIP se puede querer dirigir el flujo del proceso de negocio por un camino alternativo para tratarle de forma especial por su condici&oacute;n de cliente VIP, esta decisi&oacute;n se puede realizar mediante una regla de negocio (&laquo;business rule&raquo;). Tambi&eacute;n, el propio hecho de determinar si el cliente es VIP puede ser realizado por otra regla de negocio. Con lo que podemos aplicar las reglas de negocio al menos a dos escenarios:
+<br />
+<ul>
+ <li>Para dirigir el flujo de un proceso de negocio. A este tipo de reglas de negocio se les denomina reglas con l&oacute;gica de decisi&oacute;n (&laquo;Decision logic rules&raquo;).</li>
+ <li>Para tratar informaci&oacute;n en base a definiciones, operaciones y restricciones. A este tipo de reglas se les denomina reglas con l&oacute;gica de negocio (&laquo;Business logic rules&raquo;).</li>
+</ul>Una regla de negocio con l&oacute;gica de decisi&oacute;n que podr&iacute;a dirigir el flujo de un proceso de negocio podr&iacute;a ser:
+<br />
+<ul>
+ <li>Si el cliente es VIP enviar paquete por transporte urgente.</li>
+</ul>La regla de negocio que determina si el cliente es VIP y una regla con l&oacute;gica de negocio podr&iacute;an ser: 
+<br />
+<ul>
+ <li>Si el cliente ha realizado una compra por importe superior a 100€ el cliente es VIP.</li>
+ <li>Si el cliente es VIP aplicar un descuento de 10€.</li>
+</ul>Estos son unas pocas reglas de negocio y bastante sencillas, en un sistema real podr&iacute;a haber muchas m&aacute;s y m&aacute;s complicadas. Por ejemplo, se podr&iacute;a querer aplicar descuentos a ciertos tipos de productos como libros o DVDs o descuentos cuando se compren varios productos relacionados a la vez. Esto se puede complicar suficientemente para que si se realizan las reglas de negocio mediante c&oacute;digo de un lenguaje de programaci&oacute;n tradicional como Java o C#, el c&oacute;digo se convierta en poco mantenible y que pondr&iacute;a dificultades para adaptar una aplicaci&oacute;n suficientemente r&aacute;pido a los cambios que se producen en negocio.
+<br />
+<br />Algunas ventajas de las reglas de negocio son:
+<br />
+<ul>
+ <li>Est&aacute;n documentadas y puede ser gestionadas, no es un conocimiento que posean las personas en sus cabezas.</li>
+ <li>Las reglas de negocio puede estar escritas en un lenguaje entendible por las personas de negocio.&nbsp;La gente de negocio puede verificar la l&oacute;gica y cambiarla.</li>
+ <li>No se utiliza c&oacute;digo de programa en alg&uacute;n lenguaje de programaci&oacute;n que probablemente con el tiempo se convierta en <a href="http://en.wikipedia.org/wiki/Spaghetti_code">c&oacute;digo spaghetti</a> y que no es entendible por las personas de negocio.</li>
+ <li>Es m&aacute;s f&aacute;cil, flexible y r&aacute;pido modificar las reglas de negocio que el c&oacute;digo de programa equivalente en Java o C#. Se pueden modificar independientemente del c&oacute;digo ya que las reglas no se encuentran en la aplicaci&oacute;n.</li>
+</ul>En el siguiente enlace puedes encontrar otros motivos y ventajas, 
+<a href="http://docs.jboss.org/drools/release/5.4.0.Final/drools-expert-docs/html_single/index.html#d0e384">&iquest;Por qu&eacute; usar reaglas de negocio?</a>. Las reglas en definitiva contienen parte del conocimiento del negocio, los sistemas que se encargan de aplicarlas son denominados BRMS (&laquo;Business Rule Management Systems&raquo;). Un ejemplo de BRMS es 
+<a href="http://www.jboss.org/drools/">Drools</a> y este puede ser usado en combinaci&oacute;n con Activiti encarg&aacute;ndose de esta forma cada unos de ellos del &aacute;rea especifica para el que est&aacute;n destinados, Drools para las reglas y Activiti para los procesos.
+<br />
+<br />Veamos ahora un ejemplo similar al realizado en 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/10/usar-variables-en-un-proceso-de-negocio.html">Usar variables en un proceso de negocio con Activiti</a> pero usando reglas de negocio. El diagrama del proceso de negocio es el siguiente:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-axf4u5rh140/UIJrxPy_M9I/AAAAAAAABg4/SereVA8EjKA/s1600/proceso-reglas-de-negocio.png"><img height="102" src="http://4.bp.blogspot.com/-axf4u5rh140/UIJrxPy_M9I/AAAAAAAABg4/SereVA8EjKA/s400/proceso-reglas-de-negocio.png" width="400" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;"></div>Mediante la tarea &laquo;Determinar Tipo Cliente&raquo; se determina el tipo de cliente en funci&oacute;n del importe de la compra de un cliente valor que se toma de una variable del proceso de negocio del mismo nombre. En la tarea &laquo;Determinar Descuento&raquo; se determina el descuento a aplicar en funci&oacute;n del tipo de cliente asignado en la tarea anterior. Estas dos tareas son ejemplos de reglas con l&oacute;gica de negocio. Finalmente, el env&iacute;o se realiza tambi&eacute;n en funci&oacute;n del tipo de cliente dirigiendo el flujo del proceso mediante un gateway exclusivo, &laquo;Env&iacute;o Normal&raquo; si el cliente es normal o &laquo;Env&iacute;o Urgente&raquo; si el cliente es VIP. Este es un ejemplo de regla de negocio con l&oacute;gica de decisi&oacute;n.
+<br />
+<br />Veamos ahora el proceso de negocio en notaci&oacute;n BPMN:
+<br />
+<br />
+<script src="https://gist.github.com/3922725.js?file=ReglasDeNegocio.bpmn20.xml"></script> En esta definici&oacute;n la etiqueta &laquo;businessRuleTask&raquo; se encarga de ejecutar las reglas de negocio indicadas en el atributo &laquo;activiti:rules&raquo; con los siguientes hechos (denominados facts en la jerga de los sistemas de reglas) o variables &laquo;${cliente},${importe}&raquo; indicados en &laquo;activiti:ruleVariablesInput&raquo;. Tambien se ve como es un gateway exclusivo en el xml, de &eacute;l parten dos &laquo;sequenceFlow&raquo;, se tomar&aacute; el camino para el que se cumpla su &laquo;conditionExpression&raquo;.
+<br />
+<br />Ahora el c&oacute;digo de las reglas de negocio para determinar el tipo de cliente, las reglas para determinar el descuento y el tipo de env&iacute;o son muy parecidas y pueden verse en el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/HelloWorldActiviti">c&oacute;digo fuente del ejemplo</a>:
+<br />
+<br />
+<script src="https://gist.github.com/3922725.js?file=TipoCliente.drl"></script> Una regla de negocio es b&aacute;sicamente una condici&oacute;n que se eval&uacute;a para los hechos insertados en la base de conocimiento y en caso de cumplirse se ejecuta su parte then. Veamos ahora los teses unitarios para probar este proceso de negocio.
+<br />
+<br />
+<script src="https://gist.github.com/3922725.js?file=ReglasDeNegocioTest.java"></script> Las reglas de negocio para los teses se a&ntilde;aden a activiti como deployments de la misma forma que se hace para los procesos de negocio. Para que los deployments de las reglas de negocio de drools sean detectados correctamente hay que asignar un &laquo;customPostDeployer&raquo; al bean &laquo;processEngineConfiguration&raquo;. Tambi&eacute;n hay que a&ntilde;adir las siguientes dependencias al proyecto &laquo;org.drools:drools-core:5.4.0.Final&raquo;, &laquo;org.drools:drools-compiler:5.4.0.Final&raquo; tal y como se puede ver en el archivo build.gradle del c&oacute;digo fuente del proyecto.
+<br />
+<br />
+<script src="https://gist.github.com/3922725.js?file=activiti-h2.cfg.xml"></script> Finalmente, el programa para ejecutar este proceso de negocio y su salida:
+<br />
+<br />
+<script src="https://gist.github.com/3922725.js?file=ReglasDeNegocio.java"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-WfKIrZoM13k/UIJvAnnPm_I/AAAAAAAABiA/AT7e5hmxpvc/s1600/activiti-reglas-de-negocio.png"><img height="101" src="http://1.bp.blogspot.com/-WfKIrZoM13k/UIJvAnnPm_I/AAAAAAAABiA/AT7e5hmxpvc/s400/activiti-reglas-de-negocio.png" width="400" /></a>
+</div>
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/09/conceptos-sobre-procesos-de-negocio-bp.html">Conceptos sobre procesos de negocio (BP, BPM, BPMS, ...)</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/09/procesos-de-negocio-con-activiti.html">Procesos de negocio con Activiti</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/10/usar-variables-en-un-proceso-de-negocio.html">Usar variables en un proceso de negocio con Activiti</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/10/tratamiento-de-errores-en-procesos-de.html">Tratamiento de errores en procesos de negocio con Activiti</a>
+<br />
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/HelloWorldActiviti">C&oacute;digo fuente del ejemplo Reglas de Negocio con Activiti</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_via="blogstack" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti" st_title="Reglas de negocio con Drools y Activiti | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Reglas de negocio con Drools y Activiti";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/10/reglas-de-negocio-con-drools-y-activiti.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 82,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/10/reglas-de-negocio-con-drools-y-activiti"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

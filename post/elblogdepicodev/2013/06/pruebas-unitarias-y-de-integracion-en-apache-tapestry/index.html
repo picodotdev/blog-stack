@@ -1,0 +1,241 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry">Pruebas unitarias y de integración en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el viernes, 21 de junio de 2013 a las 17:40 UTC</span></div><div><span>Actualizado el viernes, 21 de junio de 2013 a las 17:40 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_via="blogstack" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>Realizar teses unitarios, de integraci&oacute;n y funcionales del c&oacute;digo de la aplicaci&oacute;n que desarrollamos es necesario para tener cierta seguridad de que lo codificado funciona como se espera al menos bajo las circunstancias de las pruebas. Una vez que tenemos un conjunto de pruebas y necesitamos hacer cambios a c&oacute;digo existente las pruebas nos sirven para evitar introducir nuevos defectos, tendremos seguridad de que lo modificado sigue funcionando como antes y no dejaremos de hacer algo por miedo a introducir nuevos errores.
+<br />
+<br />A estas alturas supongo que todos estaremos de acuerdo en que las pruebas son de gran utilidad y necesarias. Adem&aacute;s, de lo anterior los teses nos sirven como documentaci&oacute;n en forma de c&oacute;digo de como se puede usar los objetos bajo prueba. Y por otra parte si usamos un lenguaje din&aacute;mico, que tan de moda est&aacute;n en estos momentos, en el que el compilador no suele ayudar en tiempo de desarrollo y solo nos encontramos con los errores en tiempo de ejecuci&oacute;n porque hemos puesto mal el nombre de un variable, de m&eacute;todo o el n&uacute;mero de par&aacute;metros son incorrectos las pruebas nos ayudar&aacute;n a detectarlos al menos en el entorno de integraci&oacute;n continua y no en producci&oacute;n, aunque muy posiblemente no siempre porque es raro que tengamos el 100% del c&oacute;digo cubierto con teses. Si en Java es necesario tener teses en un lenguaje din&aacute;mico como Groovy es vital si no queremos tener errores en producci&oacute;n por temas de &laquo;compilaci&oacute;n&raquo;.
+<br />
+<br />Si desarrollamos c&oacute;digo de pruebas debemos tratarlo como un ciudadano de primera clase, esto es, con la misma importancia que el resto del c&oacute;digo de la aplicaci&oacute;n en el que deber&iacute;amos aplicar muchas de las ideas explicadas en el libro 
+<a href="http://www.amazon.es/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code</a>&nbsp;de forma que el c&oacute;digo sea legible y m&aacute;s f&aacute;cilmente mantenible. No hacerlo puede que haga que las pruebas con el tiempo dejen de tener utilidad y peor a&uacute;n supongan un problema m&aacute;s.
+<br />
+<br />Para realizar pruebas en Apache Tapestry hay algo de documentaci&oacute;n en la propia p&aacute;gina del proyecto y en algunas librer&iacute;as relacionadas pero est&aacute; esparcida por varias p&aacute;ginas y para alguien que est&aacute; empezando no es sencillo documentarse e iniciar un proyecto haciendo pruebas desde un inicio de forma r&aacute;pida. En esta entrada explicar&eacute; varias formas de hacer pruebas unitarias, de integraci&oacute;n y funcionales y como ejecutarlas de forma c&oacute;moda haciendo uso de 
+<a href="http://www.gradle.org/">Gradle</a>, 
+<a href="http://www.gebish.org/">Geb</a>, 
+<a href="https://code.google.com/p/spock/">Spock</a> entre otras herramientas.
+<br />
+<br />
+<h3>Pruebas unitarias</h3>En Tapestry realizar pruebas unitarias consiste en probar las p&aacute;ginas y componentes (las p&aacute;ginas en realidad son tambi&eacute;n componentes y se pueden probar de la misma forma). Dado que las clases de los componentes y p&aacute;ginas son simples POJO (Plain Old Java Object) que no heredan de ninguna clase, no tienen necesidad de implementar ninguna interfaz y no son abstractas una forma de probarlas es tan simple como crear una una instancia, inyectar las dependencias de las que haga uso el SUT (Sujeto bajo prueba, Subject Under Test) y comprobar los resultados. Este es el caso de la prueba realizada en HolaMundoTest, en la que se prueba el m&eacute;todo beginRender. Si el componente tuviese otros m&eacute;todos podr&iacute;an probarse de forma similar. En este ejemplo se realizan las siguientes cosas: 
+<br />
+<ul>
+ <li>Se crean las dependencias de las que haga el sujeto bajo prueba, en este caso un mock del servicio MensajeService que devolver&aacute; el mensaje que emitir&aacute; el componente. En un ejemplo real podr&iacute;a tratarse de un servicio que accediese a base de datos o se conectase con un servicio externo. El mock se crea haciendo uso de la librer&iacute;a <a href="https://code.google.com/p/mockito/">Mockito</a>.</li>
+ <li>Se crea la instancia del componente, como la clase del componente no es abstracta es tan sencillo como hacer un new.</li>
+ <li>Se inyectan las dependencias. El nombre al que saludar&aacute; el componente y el mock que devolver&aacute; el mensaje que deseamos en la prueba. Para poder inyectar las propiedades estas est&aacute;n definidas en el &aacute;mbito package, las propiedades de un componente pueden definirse en el &aacute;mbito private pero entonces necesitar&iacute;amos definir al menos m&eacute;todos set para asignar valores a esas propiedades.</li>
+ <li>Se crea una instancia de un objeto que necesita como par&aacute;metro el m&eacute;todo bajo prueba beginRender y se le pasa como par&aacute;metro.</li>
+ <li>El m&eacute;todo bajo prueba se ejecuta.</li>
+</ul>Finalmente, se comprueba el resultado de la ejecuci&oacute;n con un Assert. Como conocemos los datos que ha usado el objeto (los inyectados en las dependencias) bajo prueba conocemos el resultado que deber&iacute;a producir y es lo que comprobamos. Un ejemplo de este tipo de test es HolaMundoTest que prueba el componente HolaMundo.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5832605.js?file=HolaMundoTest.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/HolaMundoTest.java">HolaMundoTest.java</a>
+ <br />
+</noscript>
+<br />
+<h3>Pruebas unitarias incluyendo c&oacute;digo HTML</h3>En un framework web aparte el comprobar el funcionamiento del c&oacute;digo java (u otro lenguaje) es solo una parte de lo que nos puede interesar probar. Un framework web nos puede interesar tener pruebas del c&oacute;digo html que se genera, en el caso de Tapestry los componentes o p&aacute;ginas que generan su html con las plantillas .tml o como en el caso anterior en el m&eacute;todo beginRender. Las p&aacute;ginas pueden probarse de forma sencilla haciendo uso de la clase 
+<a href="http://tapestrytestify.sourceforge.net/apidocs/com/formos/tapestry/testify/junit4/TapestryTest.html">TapestryTester</a>, aunque como las p&aacute;ginas puede incluir muchos componentes (y tendr&iacute;amos que inyectar muchas dependencias y mocks) no es lo mejor para hacer pruebas unitarias, las pruebas de las p&aacute;ginas enteras es mejor dejarlo para pruebas funcionales y realizar pruebas unitarias sobre los componentes individuales.
+<br />
+<br />Dado que en Tapestry un componente no puede ser usado sino no es dentro de una p&aacute;gina, para probar el html de un componente generado con plantillas .tml de forma unitaria debemos crear un p&aacute;gina de pruebas en la que incluimos &uacute;nicamente ese componente. El componente HolaMundo no tiene una plantilla .tml que genera el html pero esto es indiferente para las pruebas, independientemente de si el componente genera el html con el m&eacute;todo beginRender o con un .tml podemos hacer la prueba de la misma forma.
+<br />
+<br />Las cosas que tendr&iacute;amos que hacer son:
+<br />
+<ul>
+ <li>Crear una p&aacute;gina de pruebas en la que insertaremos el componente que queramos probar. Para el ejemplo la p&aacute;gina de pruebas es HolaMundoTest.</li>
+ <li>En la prueba unitaria, HolaMundoTesterTest, disponemos una instancia de TapestryTester. Dado que la creaci&oacute;n del TapestryTester va a ser igual para todos los teses que tuvi&eacute;semos creamos una clase abstracta de la que heredar&aacute;n todos, AbstractTest. Para crear el TapestryTester necesitaremos indicar el paquete de la aplicaci&oacute;n, el nombre de la aplicaci&oacute;n, el directorio del contextRoot y los m&oacute;dulos adicionales a cargar. El m&oacute;dulo adicional de pruebas TestModule a&ntilde;adir&aacute; las p&aacute;ginas que se usar&aacute;n para hacer las pruebas como si se tratase de una librer&iacute;a adicional de componentes, esto se hace en el m&eacute;todo contributeComponentClassResolver.</li>
+ <li>Crear los mocks y dependencias que use el componente. En el m&eacute;todo before de la prueba se crea el mock del servicio que usa el componente. Con la anotaci&oacute;n @ForComponents de la librer&iacute;a Tapestry Testify sobre la propiedad mensajeService del test hacemos que los componentes de la prueba que usen un servicio de interfaz MensajesService se les inyecte la referencia del mock que hemos creado. En el caso de que el componente tenga par&aacute;metros la forma de pasarle el valor que deseamos se consigue inyectando el objeto primeramente en la p&aacute;gina de prueba que hace uso del componente y posteriormente hacemos que la p&aacute;gina le pase el valor en el momento que lo usa. Dado que se trata de un String, y Tapestry hace las inyecciones de los servicios en funci&oacute;n del tipo, debemos darle un nombre &uacute;nico para que el contenedor de dependencias de Tapestry distinga que String queremos inyectar.</li>
+ <li>Ejecutar la prueba consistir&aacute; en renderizar la p&aacute;gina con renderPage.</li>
+</ul>Finalmente, la comprobaci&oacute;n la realizaremos mediante asserts sobre valores devueltos por objeto 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/dom/class-use/Document.html">Document</a>&nbsp;que representa al DOM de la p&aacute;gina. Un ejemplo de este tipo de test es HolaMundoTesterTest.
+<br />
+<script src="https://gist.github.com/picodotdev/5832605.js?file=HolaMundoTest-P.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/HolaMundoTest-P.java">HolaMundoTest-P.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5832605.js?file=HolaMundoTest.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/HolaMundoTest.tml">HolaMundoTest.tml</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5832605.js?file=AbstractTest.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/AbstractTest.java">AbstractTest.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5832605.js?file=TestModule.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/TestModule.java">TestModule.java</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5832605.js?file=HolaMundoTesterTest.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/HolaMundoTesterTest.java">HolaMundoTesterTest.java</a>
+ <br />
+</noscript> Para probar el componente con un par&aacute;metro y sin par&aacute;metro en la p&aacute;gina de prueba el componente se usa dos veces. Seg&uacute;n la prueba se obtiene el elemento id que lo conten&iacute;a (componenteSinNombre, componenteConNombre) para comprobar el resultado.
+<br />
+<br />
+<h3>Pruebas unitarias incluyendo c&oacute;digo HTML con XPath</h3>En el caso anterior para hacer las comprobaciones se hace uso del objeto Document el cual se va navegando con su API. Obtener la informaci&oacute;n necesaria para realizar las comprobaciones no es tarea simple si el html es complejo, el c&oacute;digo Java necesario para ello puede complicarse y ser de varias lineas para obtener un simple dato. Con el objetivo de tratar de aliviar este problema se puede hacer uso de la librer&iacute;a 
+<a href="http://tapestryxpath.sourceforge.net/">Tapestry XPath</a>&nbsp;mediante la cual podremos hacer uso de expresiones 
+<a href="http://es.wikipedia.org/wiki/XPath">XPath</a> sobre el objeto Document que obtenemos como resultado.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5832605.js?file=HolaMundoXPathTesterTest.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/HolaMundoXPathTesterTest.java">HolaMundoXPathTesterTest.java</a>
+ <br />
+</noscript>
+<br />
+<h3>Pruebas de integraci&oacute;n</h3>Si es posible es mejor realizar pruebas unitarias utilizando alguno de los casos anteriores principalmente porque son m&aacute;s sencillas, peque&ntilde;as y menos fr&aacute;giles (menos propensas a empezar a fallar ante cambios) pero sobre todo porque se ejecutan mucho m&aacute;s r&aacute;pido y de esta manera podemos lanzarlas muy a menudo en nuestro entorno local seg&uacute;n desarrollamos. Si tardasen en ejecutarse mucho al final por no estar parados esperando a que se ejecutasen las pruebas acabar&iacute;amos por no ejecutarlas, si este es el caso es recomendable hacer que se ejecuten al menos en un entorno de integraci&oacute;n continua (usar 
+<a href="http://jenkins-ci.org/">Jenkins</a>&nbsp;es una buena opci&oacute;n).
+<br />
+<br />Sin embargo, tambi&eacute;n hay casos en los que nos puede interesar hacer pruebas funcionales sobre la aplicaci&oacute;n probando no peque&ntilde;as partes de forma individual sino todas en conjunto. Si vemos necesario realizar este tipo de pruebas funcionales o de aceptaci&oacute;n conviene realizarlas sobre las partes importantes o vitales de la aplicaci&oacute;n sin querer volver a probar lo ya probado de modo unitario con este tipo de pruebas. Como dec&iacute;a son lentas y fr&aacute;giles ante cambios y si tenemos muchas nos veremos obligados a dedicar mucho esfuerzo a mantenerlas que puede que no compense.
+<br />
+<br />Para realizar este tipo de pruebas en Tapestry en el siguiente ejemplo haremos uso de 
+<a href="http://www.gradle.org/">Gradle</a>, el 
+<a href="https://github.com/bmuschko/gradle-tomcat-plugin">plugin de tomcat</a>&nbsp;y el framework de pruebas 
+<a href="http://www.gebish.org/testing">Geb</a>&nbsp;junto con 
+<a href="https://code.google.com/p/spock/">Spock</a>. Para hacer las pruebas con Geb usaremos el lenguaje 
+<a href="http://groovy.codehaus.org/">Groovy</a>. Tradicionalmente hacer pruebas funcionales o de aceptaci&oacute;n era una tarea no sencilla comparada con las pruebas unitarias, con la ayuda de Geb y Spock realizaremos pruebas funcionales de una forma bastante simple y manejable.
+<br />
+<br />Con Geb los teses de denominan especificaciones. Haremos una prueba de la p&aacute;gina Index de la aplicaci&oacute;n que contiene poco m&aacute;s que el componente HolaMundo. Para ello:
+<br />
+<ul>
+ <li>Crearemos las especificaci&oacute;n. Una especificaci&oacute;n es una clase que hereda de GebSpec. Combinando Geb con Spock y su DSL (Lenguaje espec&iacute;fico de dominio, Domain Specific Language) el test del ejemplo se divide en varias partes.</li>
+ <li>La parte when se encargar&aacute; de ejercitar el sujeto bajo prueba, en este caso la p&aacute;gina Index.</li>
+ <li>En la parte then realizaremos las comprobaciones que determinar&aacute;n si el test se ejecut&oacute; de forma correcta.</li>
+</ul>Junto con la especificaci&oacute;n del test podemos definir como es la p&aacute;gina que va a probar el test, esto simplificar&aacute; enormemente el c&oacute;digo del test y es lo que hace que Geb simplifique mucho las pruebas funcionales. Si tuvi&eacute;semos varios test estos pueden compartir todos ellos las definiciones de las p&aacute;ginas. La p&aacute;gina se define creando una clase que extiende de Page. En el caso del ejemplo:
+<br />
+<ul>
+ <li>La propiedad est&aacute;tica url, indica la URL de la p&aacute;gina a probar. La aplicaci&oacute;n debe estar arrancada previamente a pasar las pruebas de integraci&oacute;n o funcionales.</li>
+ <li>La propiedad est&aacute;tica at, es una comprobaci&oacute;n que realizar&aacute; Geb para determinar si la p&aacute;gina que se obtiene con la URL es la que se espera.</li>
+ <li>Y ahora viene lo mejor, en la propiedad est&aacute;tica content, podemos definir los elementos relevantes de la p&aacute;gina para la prueba que luego en la especificaci&oacute;n del test Geb podremos usar para realizar las comprobaciones. La notaci&oacute;n para referirse a los elementos es similar a la utilizada en los selectores de jQuery.</li>
+</ul>Un ejemplo de este tipo de test es IndexSpec. Otros ejemplos un poco m&aacute;s complejos pueden verse en GoogleSpec y GoogleSearchSpec.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5832605.js?file=IndexPage.groovy"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/IndexPage.groovy">IndexPage.groovy</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5832605.js?file=GoogleHomePage.groovy"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/GoogleHomePage.groovy">GoogleHomePage.groovy</a>
+ <br />
+</noscript> Como en el resto de entradas el 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/TapestryTest">c&oacute;digo fuente completo</a> lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master">mi repositorio de GitHub</a>. Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada previamente (salvo java y git). Si no dispones de git para clonar mi repositorio de GitHub puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a> con el anterior enlace.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5832605.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5832605/raw/git.sh">git.sh</a>
+ <br />
+</noscript> Referencia:
+<br />
+<a href="http://junit.org/">JUnit&nbsp;</a>
+<br />
+<a href="https://code.google.com/p/spock/">Spock</a>
+<br />
+<a href="http://www.gebish.org/">Geb</a>
+<br />
+<a href="http://tapestrytestify.sourceforge.net/">Testify</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_via="blogstack" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Pruebas unitarias y de integración en Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 26,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

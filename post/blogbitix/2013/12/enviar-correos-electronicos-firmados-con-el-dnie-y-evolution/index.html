@@ -1,0 +1,131 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution">Enviar correos electrónicos firmados con el DNIe y Evolution</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/">Entrada original</a></span></div><div><span>Actualizado el sábado, 21 de diciembre de 2013 a las 11:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_via="blogstack" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/archlinux.png" alt="Arch Linux" title="Arch Linux" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/evolution.png" alt="Evolution" title="Evolution" /> 
+</div> 
+<p>Otra forma de la que podemos sacar partido al DNI electr&oacute;nico adem&aacute;s de para <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">identificarnos en sitios web</a> que lo soporten como medio de autenticaci&oacute;n es usarlo para firmar digitalmente los correos electr&oacute;nicos que enviamos. Ya he comentado <a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">como firmar correos electr&oacute;nicos con GPG</a> pero hacerlo con el DNI electr&oacute;nico tiene la ventaja de que no necesitaremos <a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">crear una par de claves GPG</a> sino que con tener el DNI e <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">instalar un lector de tarjetas inteligentes</a> ser&aacute; suficiente.</p> 
+<p>En esta entrada explicar&eacute; como usar el DNI electr&oacute;nico para firmar digitalmente correos usando el cliente de correo <a href="https://projects.gnome.org/evolution/">Evolution</a>. Primeramente necesitaremos hacer una configuraci&oacute;n adicional a la que hemos necesitado para poder usar el lector de tarjetas inteligentes y el DNIe en Linux. Y es usar el siguiente comando tal y como est&aacute; comentado en <a href="https://forja.cenatic.es/plugins/mediawiki/wiki/opendnie/index.php/Documentacion_Aplicaciones_Evolution#Configuraci.C3.B3n_del_DNIe_en_el_cliente_de_correo_Evolution">esta p&aacute;gina</a> cambiando el directorio home del usuario por el que corresponda:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/7946347.js?file=comando-opensc-dnie.sh"></script> 
+ <noscript>
+  <pre><code>modutil -add &quot;OpenSC-OpenDNIe&quot; -libfile /usr/lib/opensc-pkcs11.so -dbdir sql:/home/picodotdev/.pki/nssdb</code></pre>
+ </noscript>
+</div> 
+<p>A continuaci&oacute;n, el proceso es similar a como se configura la firma con claves GPG, con el lector de tarjetas inteligentes conectado al equipo y el DNI electr&oacute;nico introducido accedemos a las propiedades de la cuenta, a la secci&oacute;n seguridad y en el apartado MIME seguro (S/MIME) seleccionamos nuestro certificado. Si queremos que nuestros mensajes se firmen automaticamente debemos marcar la opci&oacute;n &laquo;Firmar siempre los mensajes salientes cuando se use esta cuenta&raquo;. Habiendo ejecutado el comando modutil cuando pulsemos el bot&oacute;n seleccionar en el apartado S/MIME se nos solicitar&aacute; el PIN secreto de nuestro DNIe.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/pin.png" title="Di&aacute;logo de solicitud de PIN con el DNIe"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/pin-thumb.png" alt="Di&aacute;logo de solicitud de PIN con el DNIe" title="Di&aacute;logo de solicitud de PIN con el DNIe" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/seleccion-certificado.png" title="Selecci&oacute;n de certificado digital con el DNIe"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/seleccion-certificado-thumb.png" alt="Selecci&oacute;n de certificado digital con el DNIe" title="Selecci&oacute;n de certificado digital con el DNIe" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/seguridad-evolution.png" title="Di&aacute;logo de preferencias de seguridad de Evolution para el DNIe"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/seguridad-evolution-thumb.png" alt="Di&aacute;logo de preferencias de seguridad de Evolution para el DNIe" title="Di&aacute;logo de preferencias de seguridad de Evolution para el DNIe" /></a> 
+</div> 
+<p>Una vez con las propiedades de la cuenta configurada para que Evolution use nuestro DNI electr&oacute;nico, si no hemos marcado la opci&oacute;n &laquo;Firmar siempre los mensajes…&raquo; podemos realizarlo al escribir el propio correo marcando la opci&oacute;n &laquo;Opciones &gt; Firmar con S/MIME&raquo;. Al enviar un correo electr&oacute;nico firmado se a&ntilde;adir&aacute; autom&aacute;ticamente un adjunto con la firma de nombre &laquo;smime.sp7&raquo;. Al contrario que GPG la firma est&aacute; en un formato binario y es dificilmente legible con un lector de texto plano.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/confimacion-firma.png" title="Confirmaci&oacute;n de firma digital con el DNIe"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/confimacion-firma-thumb.png" alt="Confirmaci&oacute;n de firma digital con el DNIe" title="Confirmaci&oacute;n de firma digital con el DNIe" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/mensaje-firmado-dnie.png" title="Mensaje firmado con el DNIe"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/2/mensaje-firmado-dnie-thumb.png" alt="Mensaje firmado con el DNIe" title="Mensaje firmado con el DNIe" /></a> 
+</div> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">Crear una par de claves GPG</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">Como firmar correos electr&oacute;nicos con GPG</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux </a><br /> <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">Usar el DNI electr&oacute;nico con Firefox en Linux</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura/">Firmar digitalmente documentos con el DNIe y Sinadura</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_via="blogstack" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Enviar correos electrónicos firmados con el DNIe y Evolution";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 45,
+      "url" : "http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

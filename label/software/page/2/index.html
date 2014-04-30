@@ -1,0 +1,344 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2013/10/archivo-de-log-de-sentencias-sql-en-mysql-o-mariadb">Archivo de log de sentencias SQL en MySQL o MariaDB</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/archivo-de-log-de-sentencias-sql-en-mysql-mariadb.html">Entrada original</a></span></div><div><span>Publicado el viernes, 04 de octubre de 2013 a las 16:59 UTC</span></div><div><span>Actualizado el viernes, 04 de octubre de 2013 a las 16:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/archivo-de-log-de-sentencias-sql-en-mysql-o-mariadb" st_via="blogstack" st_title="Archivo de log de sentencias SQL en MySQL o MariaDB | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="MySQL" src="http://1.bp.blogspot.com/-ydHo_TjkCWE/Uk7y3xDZ87I/AAAAAAAACog/7BiVkqaD4-I/s1600/mysql.png" title="MySQL" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="MariaDB" height="150" src="http://1.bp.blogspot.com/-nRVJt74-IbE/Uk7y3zWE5OI/AAAAAAAACok/4ntaGFLkh0s/s200/mariadb.png" title="MariaDB" width="200" /> 
+</div>Muchas aplicaciones utilizan para su 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/08/acceso-base-de-datos-con-hibernate-y-jpa.html">capa de persistencia un framework ORM</a> que abstraen al programador de la base de datos, de las peculiaridades de cada una ellas y de las sentencias SQL que se env&iacute;an a la base de datos para realizar las operaciones de recuperaci&oacute;n, actualizaci&oacute;n, borrado y b&uacute;squeda. En Java el ORM suele ser 
+<a href="http://www.hibernate.org/">Hibernate</a>, en Symphony es 
+<a href="http://symfony.com/doc/current/book/doctrine.html">Doctrine</a>, en Ruby on Rails es 
+<a href="http://guides.rubyonrails.org/active_record_basics.html">ActiveRecord</a>, en Django es 
+<a href="https://docs.djangoproject.com/en/dev/topics/db/models/">Models</a> pero en definitiva todas sirven para el mismo prop&oacute;sito que es darnos un marco de trabajo m&aacute;s similar a un lenguaje orientado a objetos y hacernos olvidar el lenguaje SQL que hay que utilizar para comunicarse con cualquier base de datos relacional. 
+<br /> 
+<br />Sin embargo, esa facilidad que dan los ORM puede hacer que las SQL que realmente se env&iacute;an a la base de datos no sean eficientes o no sepamos el n&uacute;mero exacto de las que se est&aacute;n enviando (problema N+1) lo que puede hacer que ciertas funcionalidades de una aplicaci&oacute;n sean lentas y poco eficientes con un volumen de datos grande.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/10/archivo-de-log-de-sentencias-sql-en-mysql-o-mariadb">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/09/trazas-en-un-gsp-de-grails">Trazas en un gsp de Grails</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/trazas-en-un-gsp-de-grails.html">Entrada original</a></span></div><div><span>Publicado el viernes, 27 de septiembre de 2013 a las 20:46 UTC</span></div><div><span>Actualizado el viernes, 27 de septiembre de 2013 a las 23:45 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/trazas-en-un-gsp-de-grails" st_via="blogstack" st_title="Trazas en un gsp de Grails | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Grails" height="53" src="http://3.bp.blogspot.com/-F75DVOP_w64/UkXa3io-i6I/AAAAAAAACoI/y1SAPaMxglY/s200/grails.jpg" title="Grails" width="200" /> 
+</div>Disponer de informaci&oacute;n para tratar de averiguar la causa de un problema es vital para poder resolverlo r&aacute;pidamente. Para ello existen los sistemas y librer&iacute;as de trazas que permiten a la aplicaci&oacute;n sacar mensajes a un archivo para su consulta posterior ya sea en 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/04/librerias-de-logging-para-java-slf4j.html">Java</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Javascript</a> o seguro que otros lenguajes. 
+<br /> 
+<br />En el caso de 
+<a href="http://grails.org/">Grails</a> inyecta en varias entidades como controladores, servicios y clases de dominio el objeto log con el que se pueden emitir las trazas con el nivel que deseemos. 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/picodotdev/6733758.js?file=Ejemplo.groovy"></script> 
+<noscript> 
+ <a href="https://gist.github.com/picodotdev/6733758.js?file=Ejemplo.groovy">Ejemplo.groovy</a> 
+ <br /> 
+</noscript> Sin embargo, a veces nos puede resultar interesante tambi&eacute;n sacar alguna traza en los gsp para conocer que es lo que se ha emitido, especialmente si se trantan de gsp que contienen l&oacute;gica de negocio con etiquetas g:if especialmente complejas. Tener mucha l&oacute;gica en las vistas es una pr&aacute;ctica no recomendada para evitar el c&oacute;digo espagueti en los gsp que en el mantenimiento puede causarnos problemas al posiblemente tener esa l&oacute;gica duplicada en varias zonas diferentes de la aplicaci&oacute;n. Los frameworks que usan un sistema de plantillas donde por un lado est&aacute;n los datos y por otro la plantilla sin una posibilidad propia (&laquo;built-in&raquo;) de extraer esa l&oacute;gica a una entidad externa suele ser habitual. Esto nos puede obligar a precalcular todas esas condiciones y pasarlas a la visa como datos lo que nos exige conocer previamente en el controlador exactamente que datos necesita la vista y mantener el c&oacute;digo de dos archivos sincronizados o crear m&eacute;todos con esa l&oacute;gica en los objetos que le pasamos a la vista como podr&iacute;an ser en las entidades persistentes de dominio.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/09/trazas-en-un-gsp-de-grails">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8">Archivos properties con codificación UTF-8</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/archivos-properties-con-codificacion-utf8.html">Entrada original</a></span></div><div><span>Publicado el viernes, 20 de septiembre de 2013 a las 18:15 UTC</span></div><div><span>Actualizado el sábado, 21 de septiembre de 2013 a las 21:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8" st_via="blogstack" st_title="Archivos properties con codificación UTF-8 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>En Java los archivos 
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html">Properties</a> que se cargan con la clase 
+<a href="http://docs.oracle.com/javase/7/docs/api/java/util/ResourceBundle.html">ResourceBundle</a>&nbsp;utilizados com&uacute;nmente para realizar la internacionalizaci&oacute;n y la localizaci&oacute;n a varios idiomas en una aplicaci&oacute;n Java por defecto usan la codificaci&oacute;n de caracteres ISO-8859-1 (salvo que usemos un framework o una librer&iacute;a lo haga de otra forma). Los caracteres que no pertenezcan al ISO-8859-1 deben ser escapados, por ejemplo \u20AC para el s&iacute;mbolo del euro (€). Esto hace que si tenemos una aplicaci&oacute;n que trabaja con caracteres en varios idiomas tengamos unos ficheros properties con un mont&oacute;n de caracteres de escape que impide su legibilidad al momento de escribirlos o nos obliga a usar el comando 
+<a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/native2ascii.html">native2ascii</a> lo que nos produce tambi&eacute;n archivos poco legibles. 
+<br /> 
+<br />La clase ResourceBundle permite cargar archivos properties seg&uacute;n un Locale pero como digo los carga con la codificaci&oacute;n ISO-8859-1 y esto es un problema para los locales como el chino donde casi todos los caracteres deben ser escapados. Si queremos tener archivos m&aacute;s legibles y sin necesidad de escapar los caracteres debemos extender la clase ResourceBundle.Control y redefinirla un poco para que cargue los properties en UTF-8. La implementaci&oacute;n ser&iacute;a la siguiente:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus">Guía básica del reproductor de música cmus</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/guia-basica-del-reproductor-de-musica-cmus.html">Entrada original</a></span></div><div><span>Publicado el viernes, 13 de septiembre de 2013 a las 15:39 UTC</span></div><div><span>Actualizado el viernes, 13 de septiembre de 2013 a las 15:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_via="blogstack" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="cmus" src="http://3.bp.blogspot.com/--mbV1Ag1sV0/UjMupL-Aw8I/AAAAAAAACng/tF15es6zi68/s1600/cmus.png" title="cmus" /> 
+</div>A medida que paso m&aacute;s tiempo usando Linux cada vez m&aacute;s estoy usando y aprendiendo herramientas que funcionan desde la terminal. Por ejemplo, usando 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/09/guia-para-aprender-usar-vim.html">vim como editor de textos</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/11/convertir-imagenes-entre-formatos-y.html">algunas utilidades de ImageMagick para tratar im&aacute;genes de forma masiva</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/autenticacion-ssh-con-clave-privada-y.html">algunas otras utilidades como ssh</a>, tail, grep, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">screen</a>, cal, .... A veces usar estas herramientas es m&aacute;s c&oacute;modo, r&aacute;pido y directo que usar un programa con interfaz gr&aacute;fica como en el caso de ImageMagick pero otras es una necesidad como el uso que le doy a la Raspberry Pi. 
+<br /> 
+<br />Como la RPi la uso por SSH y sin interfaz gr&aacute;fica necesitaba buscar un reproductor de m&uacute;sica basado en una interfaz de texto, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">que permaneciese ejecutandose a pesar de terminar la sesi&oacute;n ssh</a> y usable desde la terminal para reproducir m&uacute;sica adem&aacute;s de que consuma pocos recursos (rid&iacute;culos comparados con cualquier programa gr&aacute;fico). Despu&eacute;s de una b&uacute;squeda en google y en la wiki de Arch Linux encontr&eacute;<p class="continue-reading"><a href="/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii">Como optimizar módulos de RequireJS y archivos Javascript (II)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-II.html">Entrada original</a></span></div><div><span>Publicado el viernes, 06 de septiembre de 2013 a las 13:05 UTC</span></div><div><span>Actualizado el viernes, 06 de septiembre de 2013 a las 20:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii" st_via="blogstack" st_title="Como optimizar módulos de RequireJS y archivos Javascript (II) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Require.js" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcY/mNZLmYzWnsU/s1600/requirejs.png" title="Require.js" /> 
+</div>Aunque pueda parecer que no y en muchos casos no se tenga en cuenta la diferencia que puede haber entre una aplicaci&oacute;n web no optimizada y optimizada puede ser significativa en varios aspectos. 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Marionette" height="200" src="http://4.bp.blogspot.com/-ODdQesCGeKg/UiCFBR7_Z_I/AAAAAAAACmk/69p6qg8WZ-E/s200/marionette.png" title="Marionette" width="146" /> 
+</div>&iquest;Por que en algunos casos es importante optimizar la aplicaci&oacute;n? Uno de los motivos es conseguir una mejor experiencia de usuario haciendo que la p&aacute;gina le cargue m&aacute;s r&aacute;pido. Una p&aacute;gina que tarde en cargar demasiado puede significar p&eacute;rdida de visitas y si se trata de una p&aacute;gina de comercio electr&oacute;nico de clientes y compras. Si un flujo importante de usuarios de una p&aacute;gina procede de las b&uacute;squedas la velocidad de carga de la p&aacute;gina es importante ya que es una de las variables que tiene muy en cuenta el algoritmo de Google para establecer el ranking de los resultados, reducir el tiempo de carga puede significar aparecer antes en los resultados de la b&uacute;squeda y esto significa m&aacute;s clics en nuestro resultado, m&aacute;s visitas y nuevamente m&aacute;s potenciales clientes y compras. Y en caso de que no estemos desarrollando una aplicaci&oacute;n accesible desde internet sino una aplicaci&oacute;n para una empresa o administraci&oacute;n publica hacer que cargue m&aacute;s r&aacute;pido puede suponer una mayor satisfacci&oacute;n de los usuarios y una aplicaci&oacute;n m&aacute;s eficiente (con una menor carga para el servidor, con la posibilidad de soportar m&aacute;s usuarios o con menor necesidad de hardware).<p class="continue-reading"><a href="/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/08/pruebas-unitarias-de-codigo-que-accede-a-base-de-datos">Pruebas unitarias de código que accede a base de datos</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/pruebas-unitarias-de-codigo-que-accede-a-base-de-datos.html">Entrada original</a></span></div><div><span>Publicado el viernes, 16 de agosto de 2013 a las 19:17 UTC</span></div><div><span>Actualizado el viernes, 16 de agosto de 2013 a las 19:25 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/pruebas-unitarias-de-codigo-que-accede-a-base-de-datos" st_via="blogstack" st_title="Pruebas unitarias de código que accede a base de datos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Hibernate" src="http://4.bp.blogspot.com/-NW8tZ9bOLc0/Tr1-LwGV1KI/AAAAAAAAA_E/Ix83vOC01Nk/s1600/hibernate.png" title="Hibernate" /> 
+</div>Una de las dificultades que nos solemos encontrar a la hora de hacer pruebas unitarias es como probar el c&oacute;digo que accede a la base de datos. El problema es que ese c&oacute;digo necesita de una base de datos para ejecutarse, si se usa una base de datos como 
+<a href="http://www.mysql.com/">MySQL</a> o 
+<a href="http://www.postgresql.org/">PosgreSQL</a> m&aacute;s que una prueba unitaria puede considerarse una prueba de integraci&oacute;n y las pruebas pasan a depender de ese sistema externo con lo que las pruebas no son aut&oacute;nomas. 
+<br /> 
+<br />La base de datos 
+<a href="http://www.h2database.com/html/main.html">H2</a> es una base de datos que puede ser embebida en una aplicaci&oacute;n. Esta caracter&iacute;stica hace que pueda servir como base de datos contra la que lanzar los teses sin necesidad de una base de datos externa, adem&aacute;s puede ejecutarse en memoria y sin comunicaci&oacute;n de red lo que hace que sea muy r&aacute;pida y los teses tambi&eacute;n. Tampoco es una soluci&oacute;n perfecta ya que H2 puede tener un comportamiento diferente de la base de datos real pero en la mayor&iacute;a de los casos nos servir&aacute; perfectamente.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/pruebas-unitarias-de-codigo-que-accede-a-base-de-datos">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/08/acceso-a-base-de-datos-con-hibernate-y-jpa">Acceso a base de datos con Hibernate y JPA</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/acceso-base-de-datos-con-hibernate-y-jpa.html">Entrada original</a></span></div><div><span>Publicado el viernes, 02 de agosto de 2013 a las 18:33 UTC</span></div><div><span>Actualizado el viernes, 09 de agosto de 2013 a las 18:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/acceso-a-base-de-datos-con-hibernate-y-jpa" st_via="blogstack" st_title="Acceso a base de datos con Hibernate y JPA | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Hibernate" src="http://4.bp.blogspot.com/-NW8tZ9bOLc0/Tr1-LwGV1KI/AAAAAAAAA_E/Ix83vOC01Nk/s1600/hibernate.png" title="Hibernate" /> 
+</div>Si usamos Hibernate como la capa de persistencia de nuestra aplicaci&oacute;n es muy probable que lo usemos a trav&eacute;s de una aplicaci&oacute;n web. Sin embargo, en alg&uacute;n caso como una migraci&oacute;n de datos, la generaci&oacute;n de alg&uacute;n informe o extracci&oacute;n de datos que no queramos o no nos sea posible hacerla en la aplicaci&oacute;n web por el tiempo que tarda o la carga que supone para la aplicaci&oacute;n web nos puede interesar usar Hibernate desde una aplicaci&oacute;n Java normal lanzada desde linea de comandos. 
+<br /> 
+<br />Para ello deberemos obtener el objeto Session si usamos hibernate directamente o el EntityManager si usamos hibernate a trav&eacute;s de JPA. La API de JPA es una capa de abstracci&oacute;n para varias librer&iacute;as de persistencia, ORM, similares a Hibernate. Si Hibernate nos abstrae de la base de datos, JPA nos abstrae del framework de persistencia que vayamos a usar de forma que podamos reemplazarlo por otro sin realizar ninguna modificaci&oacute;n al c&oacute;digo JPA. Si ya sabemos usar Hibernate usar JPA no nos supondr&aacute; mucha dificultad ya que JPA se basa en gran medida en Hibernate.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/acceso-a-base-de-datos-con-hibernate-y-jpa">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/07/dao-generico-para-jpa-orm">DAO genérico para JPA (ORM)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/07/dao-generico-para-jpa-orm.html">Entrada original</a></span></div><div><span>Publicado el viernes, 19 de julio de 2013 a las 15:17 UTC</span></div><div><span>Actualizado el viernes, 19 de julio de 2013 a las 18:17 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/07/dao-generico-para-jpa-orm" st_via="blogstack" st_title="DAO genérico para JPA (ORM) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Si usamos un ORM (Object-Relational Mapping) para la capa de persistencia en una base de datos relacional de nuestra aplicaci&oacute;n ya sea Hibernate o JPA probablemente despu&eacute;s de desarrollar unos cuantos servicios DAO nos daremos cuenta que tenemos unas cuantas operaciones b&aacute;sicas muy similares en todos. 
+<br /> 
+<br />Si queremos evitar tener duplicado ese c&oacute;digo y ahorrarnos la codificaci&oacute;n de esas operaciones b&aacute;sicas podemos desarrollar un DAO gen&eacute;rico que nos sirva para todas las entidades persistentes de nuestra aplicaci&oacute;n usando los generics del lenguaje Java. Las operaciones candidatas a incluir en este DAO son: b&uacute;squeda por id, persistencia de un objeto, borrado, actualizaci&oacute;n, b&uacute;squeda paginada de todos los objetos y n&uacute;mero de entidades persistidas de un tipo.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/07/dao-generico-para-jpa-orm">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/07/personalizar-la-pagina-de-informe-de-error-en-apache-tapestry">Personalizar la página de informe de error en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/07/personalizar-la-pagina-de-informe-de-error.html">Entrada original</a></span></div><div><span>Publicado el viernes, 12 de julio de 2013 a las 18:05 UTC</span></div><div><span>Actualizado el miércoles, 17 de julio de 2013 a las 10:49 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-la-pagina-de-informe-de-error-en-apache-tapestry" st_via="blogstack" st_title="Personalizar la página de informe de error en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Si en otra entrada explicaba 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/07/redefinicion-de-paginas-de-error-404.html">como redefinir las p&aacute;ginas de los c&oacute;digos de error HTTP en Apache Tapestry</a> para personalizarlas y que tuviesen el mismo estilo que las p&aacute;ginas del resto de la aplicaci&oacute;n. En esta entrada explicar&eacute; como redefinir la p&aacute;gina de informe de error que se muestra cuando se produce una excepci&oacute;n y no es controlada. 
+<br /> 
+<br />En Tapestry se distingue entre la p&aacute;gina de c&oacute;digo de error HTTP 500 y la p&aacute;gina del informe de excepci&oacute;n, aunque esta &uacute;ltimo tambi&eacute;n devuelve un c&oacute;digo de error 500 se trata de otra p&aacute;gina diferente. Esta p&aacute;gina de informe de error tambi&eacute;n se muestra cuando se produce una excepci&oacute;n en una petici&oacute;n Ajax pero dentro de una ventana emergente dentro de la propia p&aacute;gina. 
+<br /> 
+<br />La p&aacute;gina de informe de error tienen el siguiente aspecto por defecto.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/07/personalizar-la-pagina-de-informe-de-error-en-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/07/personalizar-las-paginas-de-error-404-500-en-apache-tapestry">Personalizar las páginas de error (404, 500, ...) en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/07/redefinicion-de-paginas-de-error-404.html">Entrada original</a></span></div><div><span>Publicado el viernes, 05 de julio de 2013 a las 18:42 UTC</span></div><div><span>Actualizado el viernes, 05 de julio de 2013 a las 18:43 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-las-paginas-de-error-404-500-en-apache-tapestry" st_via="blogstack" st_title="Personalizar las páginas de error (404, 500, ...) en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"> 
+ <a href="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s1600/tapestry.png"><img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /></a> 
+</div>Al desarrollar una aplicaci&oacute;n y sobre todo si se trata de una p&aacute;gina web p&uacute;blica a la que puede acceder cualquier usuario de internet es casi obligatorio hacer que las p&aacute;ginas de los diferentes c&oacute;digos de error HTTP tenga el mismo estilo que el resto de las p&aacute;ginas de la aplicaci&oacute;n y con el contenido que queramos indicar al usuario para que sepa porque se ha producido ese error y que puede hacer. 
+<br /> 
+<br />En Tapestry se puede redefinir la p&aacute;gina de cualquier error HTTP, los m&aacute;s habituales son la del c&oacute;digo de error 404 que es la de una p&aacute;gina no encontrada o la del c&oacute;digo de error 500 que es la p&aacute;gina que se mostrar&aacute; cuando se haya producido un error en el servidor. 
+<br /> 
+<br />Lo que hay que a&ntilde;adir para tener estas p&aacute;ginas personalizadas es un poco de xml en el archivo descriptor de la aplicaci&oacute;n web (web.xml) y crear las propias p&aacute;ginas con el contenido que deseemos.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/07/personalizar-las-paginas-de-error-404-500-en-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry">Pruebas unitarias y de integración en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el viernes, 21 de junio de 2013 a las 17:40 UTC</span></div><div><span>Actualizado el viernes, 21 de junio de 2013 a las 17:40 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" st_via="blogstack" st_title="Pruebas unitarias y de integración en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Realizar teses unitarios, de integraci&oacute;n y funcionales del c&oacute;digo de la aplicaci&oacute;n que desarrollamos es necesario para tener cierta seguridad de que lo codificado funciona como se espera al menos bajo las circunstancias de las pruebas. Una vez que tenemos un conjunto de pruebas y necesitamos hacer cambios a c&oacute;digo existente las pruebas nos sirven para evitar introducir nuevos defectos, tendremos seguridad de que lo modificado sigue funcionando como antes y no dejaremos de hacer algo por miedo a introducir nuevos errores. 
+<br /> 
+<br />A estas alturas supongo que todos estaremos de acuerdo en que las pruebas son de gran utilidad y necesarias. Adem&aacute;s, de lo anterior los teses nos sirven como documentaci&oacute;n en forma de c&oacute;digo de como se puede usar los objetos bajo prueba. Y por otra parte si usamos un lenguaje din&aacute;mico, que tan de moda est&aacute;n en estos momentos, en el que el compilador no suele ayudar en tiempo de desarrollo y solo nos encontramos con los errores en tiempo de ejecuci&oacute;n porque hemos puesto mal el nombre de un variable, de m&eacute;todo o el n&uacute;mero de par&aacute;metros son incorrectos las pruebas nos ayudar&aacute;n a detectarlos al menos en el entorno de integraci&oacute;n continua y no en producci&oacute;n, aunque muy posiblemente no siempre porque es raro que tengamos el 100% del c&oacute;digo cubierto con teses. Si en Java es necesario tener teses en un lenguaje din&aacute;mico como Groovy es vital si no queremos tener errores en producci&oacute;n por temas de &laquo;compilaci&oacute;n&raquo;.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache">Introducción y ejemplo de Mustache</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-mustache.html">Entrada original</a></span></div><div><span>Publicado el viernes, 22 de marzo de 2013 a las 18:04 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache" st_via="blogstack" st_title="Introducción y ejemplo de Mustache | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <br /> 
+ <img alt="Mustache" height="96" src="http://3.bp.blogspot.com/-c5az8LIB6ko/UUyJKk-lvYI/AAAAAAAACc0/B46DEgkNjh0/s200/mustache.png" title="Mustache" width="200" /> 
+</div>Como comentaba en la 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo sobre RequireJS</a> el lado cliente est&aacute;n tomando cada vez m&aacute;s responsabilidad y peso en las aplicaciones. El lado cliente con los navegadores ya no se limitan a mostrar el html que se genera en el servidor de forma din&aacute;mica sino que son ellos mismos que obteniendo los datos en formato JSON probablemente mediante un servicio REST se encarga de transformar esos datos en el html que finalmente se ha de mostrar en la p&aacute;gina. Generar el html en el cliente en vez de en el servidor tiene las siguientes ventajas: 
+<br /> 
+<ul> 
+ <li>Se reduce la carga del servidor.</li> 
+ <li>La cantidad de datos devueltos es menor ya que el tama&ntilde;o de la plantilla y los datos podr&aacute;n ser menor que el html final generado por la combinaci&oacute;n de ambos si una plantilla puede aplicarse varias veces sobre alguna lista de los datos.</li>
+</ul><p class="continue-reading"><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy">Ejemplo sencillo de servicio web con RESTEasy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">Entrada original</a></span></div><div><span>Publicado el viernes, 08 de febrero de 2013 a las 23:54 UTC</span></div><div><span>Actualizado el jueves, 11 de abril de 2013 a las 18:04 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_via="blogstack" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RESTEasy" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s1600/resteasy.png" title="RESTEasy" /> 
+</div>Las 
+<a href="http://en.wikipedia.org/wiki/Service-oriented_architecture">arquitecturas orientadas a servicios</a> (SOA) no son nuevas y existen desde hace ya bastante tiempo. Surgen por la necesidad de las aplicaciones de comunicarse entre ellas para intercambiar informaci&oacute;n y colaborar. Dada la heterogeneidad de las mismas aplicaciones en el lenguaje de programaci&oacute;n o de representaci&oacute;n de datos requieren un lenguaje com&uacute;n con el que intercambiar informaci&oacute;n, para ello se puede emplear un lenguaje de marcas como 
+<a href="http://es.wikipedia.org/wiki/Extensible_Markup_Language">XML</a> y para el intercambio de mensajes 
+<a href="http://es.wikipedia.org/wiki/Simple_Object_Access_Protocol">SOAP</a> (Simple Object Access Protocol) sobre el protocolo HTTP. Otras opciones como 
+<a href="http://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture">CORBA</a>&nbsp;los mensajes se transmit&iacute;an de forma binaria. Pero los servicios web basados en XML y SOAP no est&aacute;n exentos de problemas, los mensajes SOAP son bastante complejos y para algunas necesidades no son f&aacute;ciles de construir o c&oacute;modas de usar, por ejemplo desde un navegador o un dispositivo m&oacute;vil empleando javascript.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy">Cliente javascript y java de servicio web REST con RESTEasy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">Entrada original</a></span></div><div><span>Publicado el sábado, 16 de febrero de 2013 a las 01:57 UTC</span></div><div><span>Actualizado el miércoles, 20 de marzo de 2013 a las 15:48 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy" st_via="blogstack" st_title="Cliente javascript y java de servicio web REST con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RESTEasy" height="142" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s200/resteasy.png" title="RESTEasy" width="200" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></div>Una vez que hemos desarrollado un 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">servicio web REST</a> tendremos que obtener un cliente para consumirlo ya sea con javascript, Java u otro lenguaje. En cualquier caso los clientes son mucho m&aacute;s sencillos de obtener en RESTeasy que en los servicios web basados en mensajes SOAP y XML haciendo uso de otras librer&iacute;as a partir de la definici&oacute;n contenida en el WSDL como vamos a ver. Adem&aacute;s, de poder ser consumidos desde un navegador a trav&eacute;s de javascript. 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></div>Para el cliente Java deberemos tener la interfaz de ese web service con los m&eacute;todos ofrecidos en el servicio, con las anotaciones adecuadas y que deberemos implementar en una clase. La interfaz del ejemplo 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">Ejemplo sencillo de web service con RESTEasy</a> ser&iacute;a: 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/picodotdev/4965023.js?file=HelloWorldResource.java"></script> 
+<noscript> 
+ <a href="https://gist.github.com/picodotdev/4965023/raw/HelloWorldResource.java">HelloWorldResource.java</a> 
+ <br /> 
+</noscript> Y la implementaci&oacute;n:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/02/devolver-xml-json-o-html-con-resteasy">Devolver xml, json o html con RESTEasy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/02/devolver-xml-json-o-html-con-resteasy.html">Entrada original</a></span></div><div><span>Publicado el viernes, 22 de febrero de 2013 a las 17:36 UTC</span></div><div><span>Actualizado el viernes, 01 de marzo de 2013 a las 22:30 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/devolver-xml-json-o-html-con-resteasy" st_via="blogstack" st_title="Devolver xml, json o html con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RESTEasy" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s1600/resteasy.png" title="RESTEasy" /> 
+</div>En esta serie de art&iacute;culos sobre los 
+<a href="http://es.wikipedia.org/wiki/Representational_State_Transfer">servicios web REST</a> hemos visto hasta el momento como hacer un 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">programa sencillo Hola Mundo con RESTEasy</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">como crear un cliente Java y Javascript de ese servicio web</a> para consumirlo desde javascript en una aplicaci&oacute;n web y desde un programa java usando la librer&iacute;a 
+<a href="http://www.jboss.org/resteasy/">RESTEasy</a>. En un servicio web REST podemos devolver datos en varios formatos, ya sea texto plano, html, json o xml, en esta entrada veremos como devolver datos en los dos &uacute;ltimos y que anotaciones usar para que las cabeceras devueltas en la petici&oacute;n sean las correctas, que ventajas nos puede aporta y que problemas nos puede resolver. 
+<br /> 
+<br />Antes unos peque&ntilde;os apuntes de porque nos puede interesar devolver json o xml. Unos de los motivos es que a medida que las aplicaciones web est&aacute;n ganando en complejidad estas est&aacute;n tendiendo a delegar en el cliente la parte de visualizaci&oacute;n en vez de ser el servidor el que devuelva html formateado directamente. Adem&aacute;s de evitar cierta carga de proceso en el servidor y delegarla en los clientes ofreciendo una interfaz REST de la apliccaci&oacute;n permitimos que terceros desarrollen sus propias aplicaciones y se integren consumiendo los servicios que ofrecemos.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/02/devolver-xml-json-o-html-con-resteasy">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/3"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"><a href="/label/page/1">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">Ejemplo lista de tareas con Marionette</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Entrada original</a></span></div><div><span>Publicado el viernes, 30 de agosto de 2013 a las 12:28 UTC</span></div><div><span>Actualizado el viernes, 25 de abril de 2014 a las 22:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette" st_via="blogstack" st_title="Ejemplo lista de tareas con Marionette | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Marionette" src="http://2.bp.blogspot.com/-ODdQesCGeKg/UiCFBR7_Z_I/AAAAAAAACmg/an6e-SJv-jA/s200/marionette.png" height="200" title="Marionette" width="146" /> 
+</div>Como comentaba en el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">ejemplo de una aplicaci&oacute;n de una lista de tareas en una aplicaci&oacute;n javascript</a>&nbsp;Backbone es una herramienta que nos puede ayudar mucho a evitar que el c&oacute;digo se nos convierta en dif&iacute;cil de manejar facilit&aacute;ndonos como estructurarlo con los modelos, colecciones y vistas y permiti&eacute;ndonos separar el modelo de la vista actualizando estas &uacute;ltimas a trav&eacute;s de los eventos que produce el modelo y escuchados en las vistas. 
+<br /> 
+<br /> 
+<a href="http://backbonejs.org/">Backbone</a> es una herramienta que nos da bastante libertad en cuanto a como queremos hacer las cosas y de lo que ofrece podemos usar solo lo que queramos. En algunos casos podemos considerar que Backbone ya es de por si una soluci&oacute;n suficiente pero pero en otros podemos necesitar algo que nos facilite la tarea un poco m&aacute;s, de hecho hay muchas<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react">Ejemplo lista de tareas con Backbone y React</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react/">Entrada original</a></span></div><div><span>Actualizado el viernes, 11 de abril de 2014 a las 14:33 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone y React | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/backbone.png" alt="Backbone" title="Backbone" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/react.png" alt="React" title="React" /> 
+</div> 
+<p>En anteriores entradas explicaba como hacer el t&iacute;pico ejemplo que se suele usar como demostraci&oacute;n en los framework MVC de Javascript que consiste en una lista de tareas en la que se pueden a&ntilde;adir nuevas, marcarlas como completadas y eliminarlas. Realice este ejemplo en uno de ellos <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">usando solo Backbone</a> y posteriormente <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">usando Marionette</a>. Estos ejemplos eran parte de una serie de art&iacute;culos sobre Javascript que la que mostaba como usar muchas otras herramientas como <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Require JS</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">logging con javscript</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">capturar errores en javascript</a>, <a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">introducci&oacute;n a Backbone</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">lista de tarea con Backbone, RESTEasy y Tapestry</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">pruebas unitarias con Jasmine y Sinon</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/">Usar Grunt para ejecutar teses unitarios de c&oacute;digo Javascript</a> y que constituyen parte del actual &laquo;estado del arte&raquo; en cuanto a desarrollo con Javascript.</p><p class="continue-reading"><a href="/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Entrada original</a></span></div><div><span>Publicado el viernes, 26 de abril de 2013 a las 19:38 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 16:11 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /> 
+</div>Normalmente escribo art&iacute;culos con ejemplos que tratan sobre una &uacute;nica tecnolog&iacute;a, al tratar cada tecnolog&iacute;a por separado entender que puede ofrecer es m&aacute;s sencillo pero en una aplicaci&oacute;n real normalmente se usan varias tecnolog&iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&aacute;s parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real que lo que he explicado durante las &uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&oacute;n de cosas por separado entre ellas 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Backbone</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html">servicios rest con Tapestry</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">RESTEasy</a>. En esta entrada har&eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&aacute;s adicional como 
+<a href="http://twitter.github.io/bootstrap/">twitter bootstrap</a>. 
+<br /> 
+<br />El ejemplo consiste en una lista de tareas, pudi&eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&eacute;n se podr&aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&uacute;mero de tareas completadas y de tareas totales.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs">Introducción y ejemplo de RequireJS</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-requirejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de marzo de 2013 a las 22:18 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_via="blogstack" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RequireJS" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcU/OYXvsfWUBbQ/s1600/requirejs.png" title="RequireJS" /> 
+</div>Las p&aacute;ginas web ha evolucionado mucho desde sus inicios en los que eran simples p&aacute;ginas est&aacute;ticas hechas con el lenguaje de marcas html, pod&iacute;an contener enlaces e im&aacute;genes. Posteriormente adquirieron capacidad de cambiar a trav&eacute;s un lenguaje de programaci&oacute;n que en el servidor genera el c&oacute;digo html de forma din&aacute;mica bas&aacute;ndose en la informaci&oacute;n que el usuario pod&iacute;a enviar en un formulario, tambi&eacute;n se incorpora cierta programaci&oacute;n en el cliente con javascript. Con las nuevas versiones del est&aacute;ndar html, los avances de los navegadores y una explosi&oacute;n de dispositivos m&oacute;viles de gran capacidad las aplicaciones est&aacute;n evolucionando hacia el cliente, haci&eacute;ndose cada vez m&aacute;s complejas en el lado del navegador del usuario y adquiriendo resposabilidades que antes ten&iacute;a la aplicaci&oacute;n en el lado del servidor. Cada vez hay m&aacute;s librer&iacute;as y frameworks javascript que tratan de resolver problemas espec&iacute;ficos de las aplicaciones de internet. Entre estas librer&iacute;as algunas de las m&aacute;s conocidas son, muy resumidamente:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript">Usar Grunt para ejecutar teses unitarios de código Javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/">Entrada original</a></span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:43 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_via="blogstack" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grunt.png" alt="Grunt" title="Grunt" /> 
+</div> 
+<p>En la <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">serie de art&iacute;culos que escrib&iacute; sobre javascript</a> hice un ejemplo m&aacute;s o menos complejo y parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real usando muchas de las herramientas que ahora se consideran una buena opci&oacute;n para desarrollar aplicaciones javascript como <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>, <a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Backbone</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Marionette</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Jasmine y Sinon</a>. En el <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">ejemplo de la lista de tareas con estas herramientas</a> hice unas cuantas pruebas unitarias para mostrar en un ejemplo como son y la forma de usar <a href="http://jasmine.github.io/">Jasmine</a>.</p> 
+<p>Sin embargo, para ejecutar las pruebas unitarias se necesitaba un navegador y hacerlo de forma manual cuando quisi&eacute;ramos comprobar el estado de las pruebas. Lo ideal tal y como se comenta en el libro <a href="http://www.amazon.es/gp/product/B000SEGEKI/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=B000SEGEKI&amp;linkCode=as2&amp;tag=blobit-21">The Pragmatic Programmer</a><img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=B000SEGEKI" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" /> es que las pruebas unitarias se ejecuten de forma automatizada con la herramienta de construcci&oacute;n que usemos, esto evitar&aacute; que se nos olvide ejecutarlas en cada cambio y as&iacute; descubriremos los errores pronto, tambi&eacute;n podremos hacer que se ejecuten en un entorno de integraci&oacute;n continua como podr&iacute;a ser </p><p class="continue-reading"><a href="/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web">Solución al doble envío de peticiones en aplicaciones web</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/solucion-al-doble-envio-de-peticiones.html">Entrada original</a></span></div><div><span>Publicado el viernes, 11 de octubre de 2013 a las 17:25 UTC</span></div><div><span>Actualizado el viernes, 01 de noviembre de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_via="blogstack" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Las aplicaciones web pueden recibir informaci&oacute;n del usuario a trav&eacute;s de formularios o en los par&aacute;metros de los enlaces. Los formularios o enlaces pueden desencadenar en la aplicaci&oacute;n diversas acciones. Dada la naturaleza de las aplicaciones web en ciertas ocasiones la latencia de la red o el tiempo que toma procesar la petici&oacute;n un usuario puede tener la oportunidad de hacer clic varias veces en un bot&oacute;n o enlace tambi&eacute;n cuando ve que tarda mucho en obtener la respuesta o simplemente por su desconocimiento al estar acostumbrado a hacer doble clic al trabajar con otras aplicaciones o la interfaz de su sistema operativo. En ocasiones el problema puede producirse tambi&eacute;n haciendo un refrescar con el bot&oacute;n del navegador si no se hace un redirect despu&eacute;s del env&iacute;o del formulario (<p class="continue-reading"><a href="/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii">Como optimizar módulos de RequireJS y archivos Javascript (II)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-II.html">Entrada original</a></span></div><div><span>Publicado el viernes, 06 de septiembre de 2013 a las 13:05 UTC</span></div><div><span>Actualizado el viernes, 06 de septiembre de 2013 a las 20:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii" st_via="blogstack" st_title="Como optimizar módulos de RequireJS y archivos Javascript (II) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Require.js" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcY/mNZLmYzWnsU/s1600/requirejs.png" title="Require.js" /> 
+</div>Aunque pueda parecer que no y en muchos casos no se tenga en cuenta la diferencia que puede haber entre una aplicaci&oacute;n web no optimizada y optimizada puede ser significativa en varios aspectos. 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Marionette" height="200" src="http://4.bp.blogspot.com/-ODdQesCGeKg/UiCFBR7_Z_I/AAAAAAAACmk/69p6qg8WZ-E/s200/marionette.png" title="Marionette" width="146" /> 
+</div>&iquest;Por que en algunos casos es importante optimizar la aplicaci&oacute;n? Uno de los motivos es conseguir una mejor experiencia de usuario haciendo que la p&aacute;gina le cargue m&aacute;s r&aacute;pido. Una p&aacute;gina que tarde en cargar demasiado puede significar p&eacute;rdida de visitas y si se trata de una p&aacute;gina de comercio electr&oacute;nico de clientes y compras. Si un flujo importante de usuarios de una p&aacute;gina procede de las b&uacute;squedas la velocidad de carga de la p&aacute;gina es importante ya que es una de las variables que tiene muy en cuenta el algoritmo de Google para establecer el ranking de los resultados, reducir el tiempo de carga puede significar aparecer antes en los resultados de la b&uacute;squeda y esto significa m&aacute;s clics en nuestro resultado, m&aacute;s visitas y nuevamente m&aacute;s potenciales clientes y compras. Y en caso de que no estemos desarrollando una aplicaci&oacute;n accesible desde internet sino una aplicaci&oacute;n para una empresa o administraci&oacute;n publica hacer que cargue m&aacute;s r&aacute;pido puede suponer una mayor satisfacci&oacute;n de los usuarios y una aplicaci&oacute;n m&aacute;s eficiente (con una menor carga para el servidor, con la posibilidad de soportar m&aacute;s usuarios o con menor necesidad de hardware).<p class="continue-reading"><a href="/post/elblogdepicodev/2013/09/como-optimizar-modulos-de-requirejs-y-archivos-javascript-ii">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/optimizar-modulos-de-requirejs-y-archivos-javascript">Optimizar módulos de RequireJS y archivos Javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/optimizar-modulos-de-requirejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 12 de abril de 2013 a las 15:35 UTC</span></div><div><span>Actualizado el viernes, 06 de septiembre de 2013 a las 16:44 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/optimizar-modulos-de-requirejs-y-archivos-javascript" st_via="blogstack" st_title="Optimizar módulos de RequireJS y archivos Javascript | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcY/mNZLmYzWnsU/s1600/requirejs.png" /> 
+</div>Una vez que tenemos desarrollada una 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">aplicaci&oacute;n que hace uso de RequireJS</a> como herramienta para gestionar las dependencias y archivos de javascript podemos realizar una optimizaci&oacute;n para conseguir que haya menos archivos y tengan menor tama&ntilde;o. Esta optimizaci&oacute;n har&aacute; que la aplicaci&oacute;n web realice menos peticiones al servidor y necesite transferir menos bytes dando como resultado una aplicaci&oacute;n m&aacute;s r&aacute;pida. 
+<br /> 
+<br />Para conseguir esta optimizaci&oacute;n necesitamos tener instalado la herramienta node.js y descargar el javascript que realizar&aacute; la optimizaci&oacute;n, 
+<a href="http://r.js/">r.js</a>. En Arch Linux instalar 
+<a href="http://nodejs.org/">node.js</a> consiste en instalar su paquete con: 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/picodotdev/5372631.js?file=script-1.sh"></script> 
+<noscript> 
+ <a href="https://gist.github.com/picodotdev/5372631/raw/script-1.sh">script-1.sh</a> 
+ <br /> 
+</noscript> Teniendo instalado node.js y habiendo descargado r.js el proceso consiste en ejecutar un comando desde la terminal. Este es:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/optimizar-modulos-de-requirejs-y-archivos-javascript">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs">Introducción y ejemplo de Backbone.js</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 19 de abril de 2013 a las 18:22 UTC</span></div><div><span>Actualizado el lunes, 26 de agosto de 2013 a las 23:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_via="blogstack" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Backbone.js" height="56" src="http://3.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACeY/uGQRcCderAg/s320/backbone.png" title="Backbone.js" width="320" /> 
+</div>Las aplicaciones y p&aacute;ginas web est&aacute;n haciendo uso de c&oacute;digo javascript cada vez en mayor cantidad para proporcionar aplicaciones con funcionalidades m&aacute;s complejas. En estos momentos las librer&iacute;as para utilizarse en javascript son muchas y una aplicaci&oacute;n puede hacer uso de varias de ellas. 
+<br /> 
+<br />A pesar de las facilidades que proporcionan librer&iacute;as como jQuery para manipular los elementos de una p&aacute;gina web de forma din&aacute;mica, mucho c&oacute;digo mal estructurado puede llegar a convertirse en un perfecto c&oacute;digo espagueti, aunque jQuery facilita y simplifica muchas tareas en el manejo de los elementos de una p&aacute;gina no es suficiente, a pesar de jQuery se puede llegar a tener un c&oacute;digo con un mar de selectores, mantener sincronizados con la interfaz con el estado de la aplicaci&oacute;n y la base de datos puede convertirse en una tarea complicada dar como resultado c&oacute;digo con el que apetece poco trabajar.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/05/ejemplo-de-pruebas-unitarias-en.html">Entrada original</a></span></div><div><span>Publicado el viernes, 03 de mayo de 2013 a las 19:27 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:32 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" st_via="blogstack" st_title="Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Jasmine" height="63" src="http://2.bp.blogspot.com/-CI-bmJ97HgE/UYP7rdVA0KI/AAAAAAAACf0/dGYUu61qUwg/s200/jasmine.png" title="Jasmine" width="200" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Backbone.js" height="35" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s200/backbone.png" title="Backbone.js" width="200" /> 
+</div>Tener un conjunto de pruebas unitarias sobre el c&oacute;digo de la aplicaci&oacute;n que desarrollamos es importante para tener m&aacute;s seguridad de que lo que hacemos funciona como se espera y no introducimos errores en funcionalidades que ya exist&iacute;an al hacer modificaciones, adem&aacute;s de que en el caso de que haya errores estos ser&aacute;n m&aacute;s f&aacute;cilmente descubiertos y resueltos en menos tiempo lo que har&aacute; que seamos m&aacute;s productivos. Si en una aplicaci&oacute;n web es posible que ya hagamos pruebas unitarias sobre el c&oacute;digo del lado del servidor, &iquest;por que no hacerlo tambi&eacute;n en el lado del cliente? Si la aplicaci&oacute;n tiene un peso importante de javascript en el lado del cliente, y esa es la tendencia, es recomendable tener tambi&eacute;n teses unitarios de esta parte del c&oacute;digo.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache">Introducción y ejemplo de Mustache</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-mustache.html">Entrada original</a></span></div><div><span>Publicado el viernes, 22 de marzo de 2013 a las 18:04 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache" st_via="blogstack" st_title="Introducción y ejemplo de Mustache | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <br /> 
+ <img alt="Mustache" height="96" src="http://3.bp.blogspot.com/-c5az8LIB6ko/UUyJKk-lvYI/AAAAAAAACc0/B46DEgkNjh0/s200/mustache.png" title="Mustache" width="200" /> 
+</div>Como comentaba en la 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo sobre RequireJS</a> el lado cliente est&aacute;n tomando cada vez m&aacute;s responsabilidad y peso en las aplicaciones. El lado cliente con los navegadores ya no se limitan a mostrar el html que se genera en el servidor de forma din&aacute;mica sino que son ellos mismos que obteniendo los datos en formato JSON probablemente mediante un servicio REST se encarga de transformar esos datos en el html que finalmente se ha de mostrar en la p&aacute;gina. Generar el html en el cliente en vez de en el servidor tiene las siguientes ventajas: 
+<br /> 
+<ul> 
+ <li>Se reduce la carga del servidor.</li> 
+ <li>La cantidad de datos devueltos es menor ya que el tama&ntilde;o de la plantilla y los datos podr&aacute;n ser menor que el html final generado por la combinaci&oacute;n de ambos si una plantilla puede aplicarse varias veces sobre alguna lista de los datos.</li>
+</ul><p class="continue-reading"><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/03/logging-en-javascript-con-log4javascript">Logging en Javascript con log4javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/logging-en-javascript-con-log4javascript.html">Entrada original</a></span></div><div><span>Publicado el jueves, 28 de marzo de 2013 a las 12:38 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/logging-en-javascript-con-log4javascript" st_via="blogstack" st_title="Logging en Javascript con log4javascript | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="log4javascript" src="http://1.bp.blogspot.com/-lHJfQZVRCUg/UVQmPlNDywI/AAAAAAAACdQ/vqyWfQ-UWfA/s1600/log4javascript.png" title="log4javascript" /> 
+</div>En esta serie de art&iacute;culos que estoy escribiendo sobre varias librer&iacute;as y herramientas relacionadas con el lenguaje de programaci&oacute;n Javascript como 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a> y Backbone en esta ocasi&oacute;n voy a hablar de una librer&iacute;a de logging para javascript que tambi&eacute;n puede hacernos la vida m&aacute;s sencilla como programadores. 
+<br /> 
+<br />Sistemas de trazas hay muchos para Java y otros muchos lenguajes pero en el entorno de las aplicaciones web estos suelen usarse en la parte del servidor de las aplicaciones. Sin embargo, en el cliente tambi&eacute;n puede producirse errores y nos puede interesar tener informaci&oacute;n para averiguar la causa de forma que podamos solucionarlos m&aacute;s r&aacute;pidamente o simplemente para tener un registro de lo que se ha ido haciendo en este caso en el cliente. Una librer&iacute;a de logging en el cliente tambi&eacute;n nos puede servir para tener informaci&oacute;n de errores en el navegador que de otra forma nos pasar&iacute;an desapercibidos si solo tenemos trazas en el servidor, con la librer&iacute;a de trazas que explicar&eacute; en esta entrada podemos enviar las trazas de error al servidor de forma muy sencilla. Adem&aacute;s, nos puede servir de utilidad en el momento de desarrollo del c&oacute;digo javascript.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/03/logging-en-javascript-con-log4javascript">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/capturar-errores-de-javascript">Capturar errores de Javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/capturar-errores-de-javascript.html">Entrada original</a></span></div><div><span>Publicado el viernes, 05 de abril de 2013 a las 15:44 UTC</span></div><div><span>Actualizado el viernes, 03 de mayo de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/capturar-errores-de-javascript" st_via="blogstack" st_title="Capturar errores de Javascript | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Tener un 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">sistema de logging para el c&oacute;digo Javascript</a> de una p&aacute;gina est&aacute; muy bien para depurar el c&oacute;digo cuando las cosas van mal en el sentido de que no hacen o no se comportan como se espera. Pero a veces las cosas pueden ir peor que mal, esto es, si hay alg&uacute;n error de &laquo;compilaci&oacute;n&raquo; en en c&oacute;digo de javascript el navegador detiene la ejecuci&oacute;n y por tanto dejan de emitirse las trazas. Si el error nos sucede en el entorno de desarrollo o pruebas en nuestro propio navegador nos daremos cuenta del error pero en un entorno de producci&oacute;n no ya que el c&oacute;digo se ejecuta en el navegador del usuario. 
+<br /> 
+<br />Sin embargo, no todo est&aacute; perdido, los navegadores proporcionan como &uacute;ltimo recurso la funci&oacute;n &laquo;window.onerror&raquo; que ser&aacute; llamada cuando se detecte un error de compilaci&oacute;n o ejecuci&oacute;n que impida continuar ejecutando el c&oacute;digo javascript. Lo que podremos hacer para tratar el error ser&aacute; limitado pero al menos con log4javascript podremos enviar al servidor ese mensaje para que podamos primeramente conocer que se est&aacute; produciendo y luego resolverlo, de otra manera nos ser&iacute;a desconocido ya que el c&oacute;digo javascript se ejecuta en un entorno al que no tenemos acceso, en el navegador del usuario.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/capturar-errores-de-javascript">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy">Cliente javascript y java de servicio web REST con RESTEasy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">Entrada original</a></span></div><div><span>Publicado el sábado, 16 de febrero de 2013 a las 01:57 UTC</span></div><div><span>Actualizado el miércoles, 20 de marzo de 2013 a las 15:48 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy" st_via="blogstack" st_title="Cliente javascript y java de servicio web REST con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RESTEasy" height="142" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s200/resteasy.png" title="RESTEasy" width="200" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></div>Una vez que hemos desarrollado un 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">servicio web REST</a> tendremos que obtener un cliente para consumirlo ya sea con javascript, Java u otro lenguaje. En cualquier caso los clientes son mucho m&aacute;s sencillos de obtener en RESTeasy que en los servicios web basados en mensajes SOAP y XML haciendo uso de otras librer&iacute;as a partir de la definici&oacute;n contenida en el WSDL como vamos a ver. Adem&aacute;s, de poder ser consumidos desde un navegador a trav&eacute;s de javascript. 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"></div>Para el cliente Java deberemos tener la interfaz de ese web service con los m&eacute;todos ofrecidos en el servicio, con las anotaciones adecuadas y que deberemos implementar en una clase. La interfaz del ejemplo 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">Ejemplo sencillo de web service con RESTEasy</a> ser&iacute;a: 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/picodotdev/4965023.js?file=HelloWorldResource.java"></script> 
+<noscript> 
+ <a href="https://gist.github.com/picodotdev/4965023/raw/HelloWorldResource.java">HelloWorldResource.java</a> 
+ <br /> 
+</noscript> Y la implementaci&oacute;n:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/1"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

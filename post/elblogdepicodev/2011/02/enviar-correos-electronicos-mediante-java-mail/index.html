@@ -1,0 +1,136 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Enviar correos electrónicos mediante Java Mail | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail">Enviar correos electrónicos mediante Java Mail</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/02/enviar-correos-mediante-java-mail.html">Entrada original</a></span></div><div><span>Publicado el viernes, 18 de febrero de 2011 a las 18:13 UTC</span></div><div><span>Actualizado el sábado, 25 de febrero de 2012 a las 12:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_via="blogstack" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;">
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
+ <img alt="Tomcat" height="141" src="http://1.bp.blogspot.com/-TUqUInA8Y9A/S7cRPuP2gKI/AAAAAAAAANs/Fac3C7tNKJE/s200/tomcat-logo.gif" title="Tomcat" width="200" />
+</div>En alg&uacute;n caso puede que necesitemos enviar correos electr&oacute;nicos desde una aplicaci&oacute;n java. En esta entrada vamos a ver como realizarlo desde una aplicaci&oacute;n web desplegada en un servidor 
+<a href="http://tomcat.apache.org/">tomcat</a> y a trav&eacute;s de una cuenta de correo de gmail.
+<br />
+<br />Con estas premisas, sin m&aacute;s, el c&oacute;digo java para enviar un correo elctr&oacute;nico es el siguiente, que no ser&iacute;a muy distinto si utiliz&aacute;semos otro servidor de aplicaciones e incluso no fuese una aplicaci&oacute;n web:
+<br />
+<br />
+<div>
+ <pre>...<br /><br />import javax.mail.Message;<br />import javax.mail.MessagingException;<br />import javax.mail.NoSuchProviderException;<br />import javax.mail.Session;<br />import javax.mail.Transport;<br />import javax.mail.internet.InternetAddress;<br />import javax.mail.internet.MimeMessage;<br />import javax.naming.Context;<br />import javax.naming.InitialContext;<br />import javax.naming.NamingException;<br /><br />...<br />try {<br />    // Obtener la sesi&oacute;n para enviar correos electr&oacute;nicos del directorio JNDI<br />    Context ic = new InitialContext();<br />    Session session = (Session) ic.lookup(&quot;java:comp/env/mail/gmail&quot;);<br />   <br />    // Crear el mensaje a enviar<br />    MimeMessage mm = new MimeMessage(session);<br />  <br />    // Establecer las direcciones a las que ser&aacute; enviado <br />    // el mensaje (test2@gmail.com y test3@gmail.com en copia oculta)<br />    mm.setFrom(new InternetAddress(&quot;test1@gmail.com&quot;));<br />    mm.addRecipient(Message.RecipientType.TO, new InternetAddress(&quot;test2@gmail.com&quot;));<br />    mm.addRecipient(Message.RecipientType.BCC, new InternetAddress(&quot;test3@gmail.com&quot;));<br /><br />    // Establecer el contenido del mensaje<br />    mm.setSubject(&quot;Hola mundo!&quot;);<br />    mm.setText(&quot;Hola mundo!&quot;);<br /><br />    // Enviar el correo electr&oacute;nico<br />    Transport.send(mm);<br />} catch (Exception e) {<br />    e.printStackTrace();<br />}<br /><br />...</pre>
+</div>
+<br />&iquest;Pero donde se configura como nos conectamos al servidor de gmail para enviar los correos electr&oacute;nicos? Pues bien, esto lo podemos hacer en la configuraci&oacute;n de contexto para la aplicaci&oacute;n. Estos &nbsp;recursos se definen normalmente en un archivo &laquo;$TOMCAT_HOME/conf/Catalina/localhost/[contexto app].xml&raquo; y b&aacute;sicamente se asocia a un nombre del &aacute;rbol&nbsp;
+<a href="http://es.wikipedia.org/wiki/JNDI">JNDI</a>&nbsp;un objeto de interfaz javax.mail.Session que ser&aacute; el que obtengamos en la aplicaci&oacute;n y utilicemos para enviar los correos electr&oacute;nicos. Esto es lo que hace la etiqueta Resource del ejemplo. JNDI es b&aacute;sicamente un registro donde se asocian nombres con servicios, en este caso el nombre &laquo;java:comp/env/mail/gmail&raquo; con objeto de interfaz javax.mail.Session que utilizaremos para enviar los correos electr&oacute;nicos. La configuraci&oacute;n para el tomcat ser&iacute;a:
+<br />
+<br />
+<div>
+ <pre>&lt;Context docBase=&quot;/home/tomcat/web&quot;&gt;<br />    &lt;Resource type=&quot;javax.sql.DataSource&quot;<br />            auth=&quot;Container&quot;<br />            maxActive=&quot;30&quot; <br />            maxIdle=&quot;10&quot;<br />            maxWait=&quot;10000&quot; <br />            name=&quot;jdbc/db&quot;<br />            driverClassName=&quot;com.mysql.jdbc.Driver&quot;<br />            url=&quot;jdbc:mysql://localhost/db?autoReconnect=true&quot;<br />            username=&quot;root&quot;<br />            password=&quot;&quot;/&gt;<br />    &lt;Resource type=&quot;javax.mail.Session&quot;<br />            auth=&quot;Container&quot;<br />            name=&quot;mail/gmail&quot;<br />            mail.transport.protocol=&quot;smtp&quot;<br />            mail.smtp.host=&quot;smtp.googlemail.com&quot;<br />            mail.smtp.port=&quot;465&quot;<br />            mail.smtp.auth=&quot;true&quot;<br />            mail.smtp.user=&quot;test1@gmail.com&quot;<br />            password=&quot;&quot;<br />            mail.smtp.starttls.enable=&quot;true&quot;<br />            mail.smtp.socketFactory.port=&quot;465&quot;<br />            mail.smtp.socketFactory.class=&quot;javax.net.ssl.SSLSocketFactory&quot;<br />            mail.smtp.socketFactory.fallback=&quot;false&quot;<br />            mail.smtp.debug=&quot;true&quot;/&gt;<br />&lt;/Context&gt;</pre>
+</div>
+<br />Al igual que podemos configurar un recurso de tipo javax.sql.DataSource en el mismo archivo de configuraci&oacute;n de la aplicaci&oacute;n &nbsp;para obtener conexiones a bases de datos configuramos un recurso de tipo javax.mail.Session, lo que logicamente cambiar&aacute; ser&aacute;n los parametros para configurar uno y otro. En ambos casos el par&aacute;metro name indica en que punto del &aacute;rbol JNDI donde se deja disponible el recurso. En el ejemplo los par&aacute;metros indicados son los necesarios para conectarse al servidor smtp con una cuenta de gmail.
+<br />
+<br />&iquest;Y porque configuramos el DataSource y la Sesion en el tomcat? Podr&iacute;amos evitarnos esta configuraci&oacute;n y meterla en el c&oacute;digo de la aplicaci&oacute;n pero esto tiene la desventaja de que para utilizar una nueva configuraci&oacute;n necesitar&iacute;amos recompilar la aplicaci&oacute;n, en el caso de tener la configuraci&oacute;n externalizada en un archivo&nbsp;&laquo;$TOMCAT_HOME/conf/Catalina/localhost/[contexto app].xml&raquo;&nbsp;&uacute;nicamente ser&iacute;a necesario un redespliegue de la aplicaci&oacute;n lo que es m&aacute;s r&aacute;pido y sencillo.
+<br />
+<br />Para hacer uso de las clases java del paquete javax.mail.* necesitaremos la librerias de java mail (
+<a href="http://www.oracle.com/technetwork/java/javamail/index.html">http://www.oracle.com/technetwork/java/javamail/index.html</a>) pero tambi&eacute;n necesitaremos las clases de JAF (JavaBeans Activation Framework) (
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-135046.html">http://www.oracle.com/technetwork/java/javase/downloads/index-135046.html</a>). Ambas librerias activation.jar y mail.jar deberemos colocarlas en el directorio lib de tomcat (en la versi&oacute;n 7.x). El lugar donde ponerlas es importante ya que si las colocamos en el directorio WEB-INF/lib de la aplicaci&oacute;n java mail no va a funcionar.
+<br />
+<br />Desde luego este es un ejemplo b&aacute;sico de como enviar un mensaje de correo electr&oacute;nico de un texto plano desde java y si tenemos necesidad de enviar correos electr&oacute;nicos puede que tambi&eacute;n necesitemos enviarlos en formato html para lo cual quiz&aacute; nos convenga hacer uso de motores de plantillas como 
+<a href="http://freemarker.sourceforge.net/">freemarker</a> o 
+<a href="http://velocity.apache.org/">velocity</a>.
+<br />
+<br />Referencia:
+<br />
+<a href="http://es.wikipedia.org/wiki/JNDI">http://es.wikipedia.org/wiki/JNDI</a>
+<br />
+<a href="http://tomcat.apache.org/tomcat-7.0-doc/config/context.html">http://tomcat.apache.org/tomcat-7.0-doc/config/context.html</a>
+<br />
+<a href="http://tomcat.apache.org/tomcat-7.0-doc/config/resources.html">http://tomcat.apache.org/tomcat-7.0-doc/config/resources.html</a>
+<br />
+<a href="http://tomcat.apache.org/tomcat-7.0-doc/jndi-resources-howto.html">http://tomcat.apache.org/tomcat-7.0-doc/jndi-resources-howto.html</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_via="blogstack" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail" st_title="Enviar correos electrónicos mediante Java Mail | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Enviar correos electrónicos mediante Java Mail";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/02/enviar-correos-mediante-java-mail.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 159,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/02/enviar-correos-electronicos-mediante-java-mail"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción y ejemplo de RequireJS | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs">Introducción y ejemplo de RequireJS</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-requirejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de marzo de 2013 a las 22:18 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_via="blogstack" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="RequireJS" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcU/OYXvsfWUBbQ/s1600/requirejs.png" title="RequireJS" />
+</div>Las p&aacute;ginas web ha evolucionado mucho desde sus inicios en los que eran simples p&aacute;ginas est&aacute;ticas hechas con el lenguaje de marcas html, pod&iacute;an contener enlaces e im&aacute;genes. Posteriormente adquirieron capacidad de cambiar a trav&eacute;s un lenguaje de programaci&oacute;n que en el servidor genera el c&oacute;digo html de forma din&aacute;mica bas&aacute;ndose en la informaci&oacute;n que el usuario pod&iacute;a enviar en un formulario, tambi&eacute;n se incorpora cierta programaci&oacute;n en el cliente con javascript. Con las nuevas versiones del est&aacute;ndar html, los avances de los navegadores y una explosi&oacute;n de dispositivos m&oacute;viles de gran capacidad las aplicaciones est&aacute;n evolucionando hacia el cliente, haci&eacute;ndose cada vez m&aacute;s complejas en el lado del navegador del usuario y adquiriendo resposabilidades que antes ten&iacute;a la aplicaci&oacute;n en el lado del servidor. Cada vez hay m&aacute;s librer&iacute;as y frameworks javascript que tratan de resolver problemas espec&iacute;ficos de las aplicaciones de internet. Entre estas librer&iacute;as algunas de las m&aacute;s conocidas son, muy resumidamente:
+<br />
+<ul>
+ <li><a href="http://jquery.com/">jQuery</a>: para manejar los elementos de la p&aacute;gina.</li>
+ <li><a href="https://github.com/janl/mustache.js">mustache</a>: a partir de una plantilla y unos datos genera un resultado.</li>
+ <li><a href="http://underscorejs.org/">underscore</a>: proporciona ciertas utilidades bastante comunes que el lenguaje javascript no proporciona.</li>
+ <li><a href="http://backbonejs.org/">Backbone</a>: da un modelo MVC para el desarollo de las aplicaciones.</li>
+</ul>Por supuesto, para cada &aacute;rea hay varias opciones entre las que se puede elegir, estas no son las &uacute;nicas librer&iacute;as hay muchas m&aacute;s alternativas (
+<a href="http://handlebarsjs.com/">hadlebars</a>, 
+<a href="http://prototypejs.org/">prototype</a>, 
+<a href="http://angularjs.org/">agularjs</a>, 
+<a href="http://mootools.net/">mootools</a>, ...) que en esencia proporcionan la misma funcionalidad que las anteriores. A medida que vamos haciendo uso de m&aacute;s librer&iacute;as, archivos javascript y que estas pueden tener dependencias unas sobre otras se hace necesario algo que permita gestionar esas relaciones entre las librer&iacute;as para que el c&oacute;digo javascript se cargue en el orden adecuado y funcione correctamente. Aqu&iacute; surge 
+<a href="http://requirejs.org/">RequireJS</a>, que adem&aacute;s de gestionar esas dependencias tambi&eacute;n nos proporciona otras ventajas: 
+<br />
+<ul>
+ <li>La carga de los archivos javascript se hace de forma as&iacute;ncrona evitando el resto del contenido de la p&aacute;gina se bloque hasta que los js de la p&aacute;gina se carguen.</li>
+ <li>Permitirnos optimizar los archivos javascript junt&aacute;ndolos en uno solo de forma que sean necesarias menos peticiones al servidor y a la vez minific&aacute;ndolos para hacer que ocupen menos y la transferencia sea m&aacute;s r&aacute;pida.</li>
+ <li>Se evita contaminar el &aacute;mbito global de javascript evitando posibles conflictos entre archivos javascript.</li>
+</ul>Algunas de estas ventajas hacen que la p&aacute;gina cargue m&aacute;s r&aacute;pido que es algo que el buscador de Google tiene muy en cuenta para el posicionamiento en los resultados de b&uacute;squeda.
+<br />
+<br />Con RequireJS los archivos javascript se organizan en m&oacute;dulos y estos pueden tener dependencias sobre otros, todos los archivos javascript necesarios son cargados por RequireJS de forma as&iacute;ncrona. Haciendo uso de RequireJS en la p&aacute;gina web solo ser&aacute; necesario incluir un &uacute;nico javascript, que ser&aacute; el de RequireJS, en la propia etiqueta script y con el atributo data-main le indicaremos el m&oacute;dulo del que va a hacer uso la p&aacute;gina. El resto de m&oacute;dulos se cargar&aacute;n como dependencias del m&oacute;dulo que especifiquemos en el atributo data-main.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5172996.js?file=HelloWorldRequireJS.html"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5172996/raw/HelloWorldRequireJS.html">HelloWorldRequireJS.html</a>
+ <br />
+</noscript> En el m&oacute;dulo inicial que carga la p&aacute;gina, main.js, hacemos uso de la funci&oacute;n require cuyos par&aacute;metros son un array con la lista de dependencias sobre otros m&oacute;dulos y una funci&oacute;n que ser&aacute; llamada cuando RequireJS haya cargado todos los m&oacute;dulos indicados en la lista, en este caso solo uno. Por cada dependencia la funci&oacute;n que se llama cuando todos los m&oacute;dulos se han cargado recibe un objeto como par&aacute;metro, de esta manera RequireJS es como evita contaminar el &aacute;mbito global ya que no son necesarias definiciones en el &aacute;mbito global.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5172996.js?file=main.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5172996/raw/main.js">main.js</a>
+ <br />
+</noscript> En el ejemplo del m&oacute;dulo main.js en la funci&oacute;n require se indica una dependencia sobre el m&oacute;dulo figuras. El m&oacute;dulo de las figuras contiene la l&oacute;gica de esta simple aplicaci&oacute;n que es calcular el &aacute;rea de un cuadrado y un tri&aacute;ngulo y mostrar el resultado en un di&aacute;logo emergente. Una vez que todas las dependencias del m&oacute;dulo de la aplicaci&oacute;n, en este caso solo una, han sido cargadas por RequireJS se llama a la funci&oacute;n callback del m&oacute;dulo de la aplicaci&oacute;n con la referencia del m&oacute;dulo de figuras.
+<br />
+<br />El m&oacute;dulo figuras no tiene ninguna dependencia con lo que el array de dependencias no es necesario y solo se indica la funci&oacute;n de inicializaci&oacute;n del m&oacute;dulo en la funci&oacute;n define. Este m&oacute;dulo define los prototipos de dos objetos, un cuadrado y un tri&aacute;ngulo, con un m&eacute;todo cada una de ellas que permiten calcular su respectiva &aacute;rea. El retorno de la funci&oacute;n de inicializaci&oacute;n del m&oacute;dulo es importante ya que lo devuelto por esta funci&oacute;n es lo que recibir&aacute;n como referencia los m&oacute;dulos que dependan sobre el m&oacute;dulo de figuras.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5172996.js?file=figuras.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5172996/raw/figuras.js">figuras.js</a>
+ <br />
+</noscript> El resultado es este:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-pZVw16xEz8o/UUOLde7g6KI/AAAAAAAACcc/f2GVpba2lDc/s1600/requirejs-2.png"><img src="http://4.bp.blogspot.com/-pZVw16xEz8o/UUOLde7g6KI/AAAAAAAACcc/f2GVpba2lDc/s200/requirejs-2.png" height="138" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-J5Dxevmlkfs/UUOLdXPk_nI/AAAAAAAACck/1qADmcHKDQw/s1600/requirejs-1.png"><img src="http://1.bp.blogspot.com/-J5Dxevmlkfs/UUOLdXPk_nI/AAAAAAAACck/1qADmcHKDQw/s200/requirejs-1.png" height="138" width="200" /></a>
+</div>
+<br />Las funciones require y define son similares pero si un m&oacute;dulo va a ser usado por otros se ha de usar la funci&oacute;n define, sino va a ser usado por otros se puede usar la funci&oacute;n require.
+<br />
+<br />En posteriores entradas hablar&eacute; y pondr&eacute; un ejemplo de otros temas relacionados con javascript como mustache, backbone, REST, logging, optimizaci&oacute;n, ... que nos pueden ayudar mucho a hacer mejores aplicaciones, m&aacute;s complejas, de forma m&aacute;s sencilla, con menos errores y m&aacute;s r&aacute;pidamente. Este art&iacute;culo sobre RequireJS solo es el primero en el que se basar&aacute;n el resto que escribir&eacute; sobre javascript.
+<br />
+<br />El 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/HelloWorldRequireJS">c&oacute;digo fuente completo de este ejemplo de RequireJS</a> lo puedes encontrar en mi repositorio de GitHub.
+<br />
+<br />Referencia:
+<br />
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Introducci&oacute;n y ejemplo de Mustache</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Logging en Javascript con log4javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">Capturar errores de Javascript</a>
+<br />
+<div>
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/04/optimizar-modulos-de-requirejs.html">Optimizar m&oacute;dulos de RequireJS y archivos Javascript</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Introducci&oacute;n y ejemplo de Backbone.js</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a>
+</div></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_via="blogstack" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Introducción y ejemplo de RequireJS";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-requirejs.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 61,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

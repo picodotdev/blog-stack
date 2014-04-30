@@ -1,0 +1,260 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Entrada original</a></span></div><div><span>Publicado el viernes, 26 de abril de 2013 a las 19:38 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 16:11 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" />
+</div>Normalmente escribo art&iacute;culos con ejemplos que tratan sobre una &uacute;nica tecnolog&iacute;a, al tratar cada tecnolog&iacute;a por separado entender que puede ofrecer es m&aacute;s sencillo pero en una aplicaci&oacute;n real normalmente se usan varias tecnolog&iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&aacute;s parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real que lo que he explicado durante las &uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&oacute;n de cosas por separado entre ellas 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>,&nbsp;
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>,&nbsp;
+<a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Backbone</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html">servicios rest con Tapestry</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">RESTEasy</a>. En esta entrada har&eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&aacute;s adicional como 
+<a href="http://twitter.github.io/bootstrap/">twitter bootstrap</a>.
+<br />
+<br />El ejemplo consiste en una lista de tareas, pudi&eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&eacute;n se podr&aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&uacute;mero de tareas completadas y de tareas totales.
+<br />
+<br />En la parte cliente de la aplicaci&oacute;n se hace uso de 
+<a href="http://requirejs.org/">RequireJS</a> para manejar la carga de los archivos javascript necesarios, de 
+<a href="http://backbonejs.org/">backbone</a> para gestionar la lista de tareas y realizar la comunicaci&oacute;n con el servicio REST del servidor y de 
+<a href="http://mustache.github.io/">Mustache</a> como motor de plantillas para generar la vista (el html). En la parte del servidor usa 
+<a href="http://tapestry.apache.org/">Tapestry</a> como framework web y 
+<a href="http://www.jboss.org/resteasy">RESTEasy</a> como librer&iacute;a para implementar un servicio REST que proporcionar&aacute; la persistencia en memoria de la lista de tareas.
+<br />
+<br />Backbone permite organizar el c&oacute;digo aplicando el patr&oacute;n de dise&ntilde;o MVC (modelo-vista-controlador) ampliamente extendido en los frameworks web. Este patr&oacute;n de dise&ntilde;o tiene la ventaja que separa la aplicaci&oacute;n en tres partes diferenciadas:
+<br />
+<ul>
+ <li>El modelo: que contiene los datos del dominio que maneja la aplicaci&oacute;n que cuando es modificado lanza eventos para que el controlador y la vista act&uacute;en en consecuencia.</li>
+ <li>El controlador: que reacciona ante los eventos que se produzcan en el modelo o por el usuario y modifica adecuadamente el modelo o la vista seg&uacute;n el evento.</li>
+ <li>La vista: que a partir del modelo produce la interfaz que se ofrece al usuario para que pueda manipularlos, los eventos producidos en la vista son manejados por el controlador.</li>
+</ul>Como se ve las tres partes se relacionan entre si pero est&aacute;n separadas de forma que cada una se encargue de una tarea. El c&oacute;digo queda bien organizado y se evita el c&oacute;digo espagueti que podr&iacute;amos obtener de otra forma.
+<br />
+<br />En una aplicaci&oacute;n con la combinaci&oacute;n de Backbone, Mustache y un servicio REST el servidor devuelve el html de la p&aacute;gina inicial, las plantillas y los datos del servidor y se delega en el navegador del usuario la tarea de renderizar el html final. Esto tiene la ventaja de que entre el navegador y el servidor viajan menos datos (los datos y las plantillas tendr&aacute;n menos tama&ntilde;o que los datos formateados a html) y la parte del servidor se simplifica (no es necesaria la l&oacute;gica para formatear a html los datos que dependiendo del framework hacen los jsp, tml de tapestry o gsp de grails). Aunque el c&oacute;digo de la parte cliente crecer&aacute;, el c&oacute;digo de la parte del servidor se har&aacute; m&aacute;s simple. Una vez cargada la p&aacute;gina inicial entre el servidor y el cliente solo viajan los datos en formato json.
+<br />
+<br />Veamos el ejemplo a continuaci&oacute;n empezando por el modelo. El modelo con Backbone se define con 
+<a href="http://backbonejs.org/#Model-extend">Backbone.Model.extend</a>, donde podremos indicar las propiedades de los objetos, tambi&eacute;n podemos definir funciones de utilidad. En este caso el modelo estar&aacute; formado por los objetos Tarea que tendr&aacute;n las siguientes propiedades:
+<br />
+<ul>
+ <li>Un id que identificar&aacute; la tarea.</li>
+ <li>La descripci&oacute;n de la misma.</li>
+ <li>Y un indicador de si est&aacute; completada.</li>
+</ul>Pero en la lista de tareas no solo tendremos un objeto Tarea, tendremos una colecci&oacute;n de ellas. Esta colecci&oacute;n tambi&eacute;n forma parte del modelo y se define con 
+<a href="http://backbonejs.org/#Collection-extend">Backbone.Collection.extend</a>, los elementos de esta colecci&oacute;n ser&aacute;n objetos del modelo Tarea y lo indicamos en la propiedad model, tambi&eacute;n podemos definir funciones de utilidad como una funci&oacute;n para obtener un array con las tareas completadas y otra para eliminar las tareas completadas que nos interesar&aacute;n para ofrecer la funcionalidad de la lista de tareas. Las propiedades urlRoot y url son importantes para que backbone sepa localizar el servicio REST que proporcionar&aacute; la persistencia.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=tareas-1.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/tareas-1.js">tareas-1.js</a>
+ <br />
+</noscript> 
+<script src="https://gist.github.com/picodotdev/5469220.js?file=tareas-2.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/tareas-2.js">tareas-2.js</a>
+ <br />
+</noscript> La interfaz del servicio web REST es:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=TareasResource.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/TareasResource.java">TareasResource.java</a>
+ <br />
+</noscript> En Backbone la vista y el controlador de define en una misma entidad con 
+<a href="http://backbonejs.org/#View-extend">Backbone.View extend</a>. Aunque se definen ambas cosas a la vez la vista principalmente est&aacute; formada por el m&eacute;todo render, el resto ser&aacute; parte del controlador. Otra secci&oacute;n importante de la vista es la propiedad events donde indicaremos que eventos manejar&aacute; el controlador y sobre que elementos de la vista, b&aacute;sicamente se define como clave el evento (click, change, ...) y un selector similar a los usados en jquery y como valor el nombre de la funci&oacute;n que manejar&aacute; el evento. En la vista tambi&eacute;n podremos definir m&eacute;todos de utilidad. Tendremos dos vistas: una para para una tarea y otra para la aplicaci&oacute;n de la lista de tareas.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=tareas-3.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/tareas-3.js">tareas-3.js</a>
+ <br />
+</noscript> En el m&eacute;todo render se hace uso de Mustache para generar la vista a partir de una plantilla que contiene el c&oacute;digo html, la plantilla combinado con los datos del modelo genera un resultado que ser&aacute; incluido en el html de la p&aacute;gina. En las funciones initialize se inicializa la vista principalmente para definir que eventos que produzca el modelo ser&aacute;n tratados por el controlador, estos son las funciones on sobre el modelo, por ejemplo, nos interesar&aacute; saber que se a&ntilde;ade, modifica o elimina una tarea de la colecci&oacute;n de tareas para actualizar la vista adecuadamente.
+<br />
+<br />En el caso de TareasApp en el m&eacute;todo initialize adem&aacute;s se inserta en el elemento &laquo;el&raquo; que se le pasa en el constructor la vista inicial de la aplicaci&oacute;n. De esta forma podr&iacute;amos crear varias instancias de TareasApp.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=tareas-4.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/tareas-4.js">tareas-4.js</a>
+ <br />
+</noscript> Las plantillas de Mustache las he definido entre elementos &lt;![CDATA[ ... ]]&gt; ya que las plantillas de Tapestry han de ser xhtml v&aacute;lido, algunas expansiones de Mustache como {{attrs.checked}} de la plantilla tarea-template Tapestry no las entiende como v&aacute;lidas ya que realmente la plantilla Mustache en este caso no es html v&aacute;lido.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=Index.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/Index.tml">Index.tml</a>
+ <br />
+</noscript> Una vez desarrollada la parte del servicio REST en el servidor con RESTEasy integrarlo con Backbone es muy sencillo, &uacute;nicamente deberemos llamar en los puntos adecuados a las funciones save y destroy de los modelos. Al m&eacute;todo save se le llama cuando se a&ntilde;ade una nueva tarea en TareasApp.addTarea y cuando se modifica en TareaView.onChangeCompletada. Cuando se hace clic en el bot&oacute;n para limpiar las tareas completadas se llama a la funci&oacute;n destroy de cada uno de los modelos. Estos m&eacute;todos lanzar&aacute;n las peticiones AJAX al servicio REST de forma autom&aacute;tica variando su m&eacute;todo y con su correspondiente url seg&uacute;n hemos definido con las anotaciones del servicio REST: POST (crear), PUT (actualizar) y DELETE (eliminar).
+<br />
+<br />
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://2.bp.blogspot.com/-TN2wrXMI31A/UXrMi6g0xAI/AAAAAAAACfQ/Zxij57ZAIuQ/s1600/backbone-rest-2.png"><img src="http://2.bp.blogspot.com/-TN2wrXMI31A/UXrMi6g0xAI/AAAAAAAACfQ/Zxij57ZAIuQ/s200/backbone-rest-2.png" height="108" width="200" /></a></td>
+  </tr>
+  <tr>
+   <td>Petici&oacute;n al crear una nueva tarea</td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://1.bp.blogspot.com/-9ZzBJVBBtiw/UXrMjI0LewI/AAAAAAAACfI/uG7mymO0hDg/s1600/backbone-rest-3.png"><img src="http://1.bp.blogspot.com/-9ZzBJVBBtiw/UXrMjI0LewI/AAAAAAAACfI/uG7mymO0hDg/s200/backbone-rest-3.png" height="108" width="200" /></a></td>
+  </tr>
+  <tr>
+   <td>Petici&oacute;n al marcar como completada una tarea</td>
+  </tr>
+ </tbody>
+</table>
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://4.bp.blogspot.com/-XTVBCwVCLL0/UXraEU7NGZI/AAAAAAAACfg/ZzkNqVDWhbE/s1600/backbone-rest-4.png"><img src="http://4.bp.blogspot.com/-XTVBCwVCLL0/UXraEU7NGZI/AAAAAAAACfg/ZzkNqVDWhbE/s200/backbone-rest-4.png" height="108" width="200" /></a></td>
+  </tr>
+  <tr>
+   <td>Petici&oacute;n al limpiar tareas completadas</td>
+  </tr>
+ </tbody>
+</table>La carga de inicial de la lista de tareas puede hacerse de dos formas: devolviendo los datos de las tareas cuando se pide la p&aacute;gina o una vez cargada la p&aacute;gina mediante una petici&oacute;n AJAX adicional. En Backbone recomiendan la primera ya que as&iacute; se evitan peticiones al servidor innecesarias. Adem&aacute;s aunque hagamos que las peticiones AJAX sean r&aacute;pidas probablemente sean lo suficientemente lentas para que el usuario vea como se va rellenando el contenido de la p&aacute;gina y dependiendo del html ver&aacute; como los elementos van cambiando de posici&oacute;n lo cual puede ser molesto. Aunque hay que decir que incluir los datos en la propia p&aacute;gina impedir&iacute;a cachear la p&aacute;gina. Al final de la p&aacute;gina Index.tml, est&aacute; la secci&oacute;n para cargar la lista inicial de tareas que se pasar&aacute; a TareasApp despu&eacute;s de su constructor en el m&eacute;todo resetTareas.
+<br />
+<br />Esta es una captura del ejemplo:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-ViuHMfwgVd8/UXrIAr1mYrI/AAAAAAAACe4/ZSez4LTyuCQ/s1600/backbone-rest-1.png"><img src="http://1.bp.blogspot.com/-ViuHMfwgVd8/UXrIAr1mYrI/AAAAAAAACe4/ZSez4LTyuCQ/s320/backbone-rest-1.png" height="216" width="320" /></a>
+</div>Despu&eacute;s de haber usado Backbone en este ejemplo simplemente tengo que decir que es una gran herramienta y que facilita y ayuda a organizar el c&oacute;digo javascript en gran medida. Permite separar los datos de la aplicaci&oacute;n que forman el modelo del controlador y la vista que reaccionan mediante los eventos producidos en el modelo. Tambi&eacute;n permite desarrollar aplicaciones con un gran peso de javascript en la parte cliente sin que el c&oacute;digo se convierta posteriormente en un infierno de mantenimiento a&uacute;n con la ayuda de jQuery. Es una ayuda tan grande para hacer algunas cosas de la interfaz del cliente como lo es jQuery para manipular los elementos html.
+<br />
+<br />Algunas partes no las he explicado como las plantillas de Mustache, el uso de RequireJS o la parte del servidor del servicio RESTEasy ya que ya lo que he hecho en entradas anteriores que puedes visitarlas mediante sus enlaces.
+<br />
+<br />Como en el resto de entradas el c&oacute;digo fuente completo lo puedes encontrar en 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/BackboneREST">mi repositorio de GitHub</a>. Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada. Si no dispones de git para clonar mi repositorio de GitHub puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio&nbsp;en un archivo zip</a>&nbsp;con el anterior enlace.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5469220.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5469220/raw/git.sh">git.sh</a>
+ <br />
+</noscript> En la siguiente entrada puedes ver el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">mismo ejemplo pero implementado con Marionette</a> que simplifica algunas cosas respecto a Backbone. Adem&aacute;s en el ejemplo de Marionette puedes ver como conseguir internacionalizaci&oacute;n y como externalizar las plantillas de Mustache del html.
+<br />
+<br />Referencia: 
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo de RequireJS</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Introducci&oacute;n y ejemplo de Mustache</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Logging en Javascript con log4javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">Capturar errores de Javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/optimizar-modulos-de-requirejs.html">Optimizar m&oacute;dulos de RequireJS y archivos Javascript</a>
+<br />
+<a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Patr&oacute;n de dise&ntilde;o MVC del lado cliente con Backbone.js</a>
+<br />
+<div>
+ <a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Introducci&oacute;n y ejemplo de Backbone.js</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Ejemplo lista de tareas con Marionette</a> 
+</div></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/04/ejemplo-lista-de-tareas-con-backbone.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 55,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

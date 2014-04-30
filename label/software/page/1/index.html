@@ -1,0 +1,358 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback">Logging usando marcadores con slf4j y logback</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback/">Entrada original</a></span></div><div><span>Actualizado el viernes, 31 de enero de 2014 a las 16:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_via="blogstack" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>Un sistema de logging en una aplicaci&oacute;n es indispensable para saber lo que est&aacute; sucediendo en la aplicaci&oacute;n en el mismo momento o pasado un tiempo. Es de gran utilidad tanto para en el momento de desarrollar la aplicaci&oacute;n como para una vez puesta en producci&oacute;n. Con el registro de las trazas podemos obtener informaci&oacute;n que nos permitir&aacute; descubrir un error o averiguar m&aacute;s f&aacute;cilmente y r&aacute;pidamente porque sucede alg&uacute;n comportamiento que no es como se espera.</p> 
+<p>En Java hay varios sistemas de logging entre los m&aacute;s utilizados est&aacute;n <a href="http://logging.apache.org/log4j/1.2/">log4j</a>, <a href="http://logback.qos.ch/">logback</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html">java.util.logging</a> y la capa de abstracci&oacute;n <a href="http://www.slf4j.org/">slf4j</a> sobre varios de estas librer&iacute;as. En estas librer&iacute;as de logging las trazas se emiten a trav&eacute;s de un logger que normalmente se corresponde con el nombre de la clase en la que se emite la traza. De esta forma las trazas se pueden filtrar por el nivel de importancia de la traza (debug, info, warn, …) y por el nombre del logger de forma que podemos obtener un registro de las trazas emitidas por los loggers que deseamos.</p><p class="continue-reading"><a href="/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/08/ejemplo-del-patron-de-diseno-state">Ejemplo del patrón de diseño State</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/ejemplo-del-patron-de-diseno-state.html">Entrada original</a></span></div><div><span>Publicado el sábado, 24 de agosto de 2013 a las 20:17 UTC</span></div><div><span>Actualizado el viernes, 24 de enero de 2014 a las 21:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/ejemplo-del-patron-de-diseno-state" st_via="blogstack" st_title="Ejemplo del patrón de diseño State | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>Un patr&oacute;n de dise&ntilde;o aplicado adecuadamente para resolver un problema puede ayudar enormemente a simplificar el c&oacute;digo y facilitar el mantenimiento. Si tenemos un c&oacute;digo que es dif&iacute;cil de mantener y entender, hay c&oacute;digo duplicado y no tiene ninguna organizaci&oacute;n puede que aplicar un patr&oacute;n de dise&ntilde;o nos resuelva el problema en gran parte. 
+<br /> 
+<br />Hace ya un tiempo comente 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/03/patrones-de-diseno-en-la-programacion.html">cuales son los principales patrones de dise&ntilde;o</a> y hice una entrada con un 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">ejemplo del patr&oacute;n de dise&ntilde;o Command</a>. En esta entrada pondr&eacute; un ejemplo del patr&oacute;n de dise&ntilde;o State. 
+<br /> 
+<br />El patr&oacute;n de dise&ntilde;o State nos puede ser de mucha utilidad en los casos que por ejemplo una entidad tenga asociado un grafo de estados con transiciones permitidas y no permitidas entre algunos estados. En funci&oacute;n del estado, sus datos y la transici&oacute;n la entidad puede comportarse de forma diferente. Por ejemplo, supongamos que tenemos una entidad Compra que a lo largo de su vida en la aplicaci&oacute;n pasa por diferentes estados:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/ejemplo-del-patron-de-diseno-state">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation">Ejemplo del patrón de diseño No Operation</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation/">Entrada original</a></span></div><div><span>Actualizado el viernes, 24 de enero de 2014 a las 15:48 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation" st_via="blogstack" st_title="Ejemplo del patrón de diseño No Operation | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>Hasta el momento ya he escrito alguna entrada sobre los <a href="http://elblogdepicodev.blogspot.com.es/2012/03/patrones-de-diseno-en-la-programacion.html">patrones de dise&ntilde;o</a> en general, sobre algunos casos particulares como el <a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">patr&oacute;n de dise&ntilde;o Command</a> relacionado con la programaci&oacute;n concurrente y sobre el <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-del-patron-de-diseno-state.html">patr&oacute;n de dise&ntilde;o State</a> para hacer m&aacute;quinas de estados. En esta entrada hablar&eacute; sobre otro patr&oacute;n de dise&ntilde;o, el patr&oacute;n No Operation y de que forma podemos aprovecharlo para resolver alg&uacute;n problema y hacer nuestro c&oacute;digo m&aacute;s simple.</p> 
+<p>En un programa que emplea un lenguaje de programaci&oacute;n orientado a objetos estos est&aacute;n constantemente relacion&aacute;ndose entre si a trav&eacute;s de llamadas a m&eacute;todos y a trav&eacute;s de las referencias que un objeto posee de otros. Sin embargo, es habitual que un determinado m&eacute;todo devuelva un null en vez de una referencia a un objeto. Esta referencia null puede ser un problema ya que nos obliga en el c&oacute;digo hacer una comprobaci&oacute;n antes de poder llamarlo. Si un m&eacute;todo devuelve un null puede dar como resultado un </p><p class="continue-reading"><a href="/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb">Iniciar la Raspberry Pi desde un disco o memoria USB</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/">Entrada original</a></span></div><div><span>Actualizado el viernes, 10 de enero de 2014 a las 11:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb" st_via="blogstack" st_title="Iniciar la Raspberry Pi desde un disco o memoria USB | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/raspberrypi.jpg" alt="Raspberry Pi" title="Raspberry Pi" /> 
+</div> 
+<p>Por defecto la Raspberry Pi se instala en una tarjeta SD y se inicia desde ella, sin embargo, la tarjeta SD es muy lenta tanto en la lectura como en la escritura de datos y cuando tiene que hacerlo de forma intensiva el sistema queda sin responder y aparentemente atascado. Para aumentar muy notablemente el rendimiento de la Raspberry Pi podemos instalar la partici&oacute;n del sistema en una memoria USB o disco duro externo.</p> 
+<p>En la gu&iacute;a de <a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch.html">Instalaci&oacute;n de la Raspberry Pi</a> expliqu&eacute; como instalar la distribuci&oacute;n <a href="http://archlinuxarm.org/">Arch Linux ARM</a> en una tarjeta SD, esa gu&iacute;a ser&aacute; el punto de partida para esta entrada. La Raspberry Pi inicia el sistema desde la tarjeta SD por lo que aunque instalemos el sistema en un dispositivo USB seguiremos necesitando la tarjeta SD para que contenga al menos la partici&oacute;n de arranque (boot).</p><p class="continue-reading"><a href="/post/blogbitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox">Raspberry Pi como Media Center con GeeXboX</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/">Entrada original</a></span></div><div><span>Actualizado el viernes, 03 de enero de 2014 a las 19:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox" st_via="blogstack" st_title="Raspberry Pi como Media Center con GeeXboX | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/geexbox.png" alt="GeeXboX" title="GeeXboX" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/raspberrypi.jpg" alt="Raspberry Pi" title="Raspberry Pi" /> 
+</div> 
+<p>La Raspberry Pi es un computador del tama&ntilde;o de una tarjeta de cr&eacute;dito que se puede usar para diferentes prop&oacute;sitos. Hasta hace no mucho a mi me serv&iacute;a para descargar pel&iacute;culas mediante torrent, sin embargo, puede usarse perfectamente para otros prop&oacute;sitos muy interesantes como usarla como Media Center en una televisi&oacute;n que no es una Smart TV o como Media Center con m&aacute;s opciones.</p> 
+<p>Dada la popularidad que tiene la Raspberry Pi disponemos de varias distribuciones con soporte para usar la Raspberry Pi como centro multimedia de nuestro sal&oacute;n. Las principales son:</p> 
+<ul> 
+ <li><a href="http://www.geexbox.org/">GeeXboX</a></li> 
+ <li><a href="http://www.raspbmc.com/">RaspBMC</a></li> 
+ <li><a href="http://openelec.tv/">OpenELEC</a></li> 
+</ul> 
+<p>Las tres opciones tienen la similitud que son muy f&aacute;cilmente instalables (tambi&eacute;n para alguien sin muchos conocimientos t&eacute;cnicos) y que se basan en el programa </p><p class="continue-reading"><a href="/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution">Enviar correos electrónicos firmados con el DNIe y Evolution</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/">Entrada original</a></span></div><div><span>Actualizado el sábado, 21 de diciembre de 2013 a las 11:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution" st_via="blogstack" st_title="Enviar correos electrónicos firmados con el DNIe y Evolution | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/archlinux.png" alt="Arch Linux" title="Arch Linux" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/evolution.png" alt="Evolution" title="Evolution" /> 
+</div> 
+<p>Otra forma de la que podemos sacar partido al DNI electr&oacute;nico adem&aacute;s de para <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">identificarnos en sitios web</a> que lo soporten como medio de autenticaci&oacute;n es usarlo para firmar digitalmente los correos electr&oacute;nicos que enviamos. Ya he comentado <a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">como firmar correos electr&oacute;nicos con GPG</a> pero hacerlo con el DNI electr&oacute;nico tiene la ventaja de que no necesitaremos <a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">crear una par de claves GPG</a> sino que con tener el DNI e <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">instalar un lector de tarjetas inteligentes</a> ser&aacute; suficiente.</p> 
+<p>En esta entrada explicar&eacute; como usar el DNI electr&oacute;nico para firmar digitalmente correos usando el cliente de correo <a href="https://projects.gnome.org/evolution/">Evolution</a>. Primeramente necesitaremos hacer una configuraci&oacute;n adicional a la que hemos necesitado para poder usar el lector de tarjetas inteligentes y el DNIe en Linux. Y es usar el siguiente comando tal y como est&aacute; comentado en </p><p class="continue-reading"><a href="/post/blogbitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux">Usar el DNI electrónico con Firefox en Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">Entrada original</a></span></div><div><span>Actualizado el sábado, 21 de diciembre de 2013 a las 11:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux" st_via="blogstack" st_title="Usar el DNI electrónico con Firefox en Linux | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/archlinux.png" alt="Arch Linux" title="Arch Linux" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/firefox.png" alt="Firefox" title="Firefox" /> 
+</div> 
+<p>Una vez hemos conseguido <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">instalar el DNIe en Linux</a> correctamente podemos empezar a darle alguna utilidad m&aacute;s all&aacute; de cuando se nos require para acreditar nuestra identidad. Como veremos en esta entrada podemos usar el DNI electr&oacute;nico para hacer varios tr&aacute;mites administrativos y consultas con la administraci&oacute;n p&uacute;blica, empresas o entidades que en su web soporten el DNIe como medio de autenticaci&oacute;n.</p> 
+<p>En esta entrada explicar&eacute; como usar el DNIe electr&oacute;nico con la combinaci&oacute;n del navegador <a href="http://www.mozilla.org/es-ES/">Firefox</a> y <a href="http://www.linux.com/">Linux</a>. Para ello primeramente debemos hacer que Firefox detecte el lector de tarjetas inteligentes, desde el men&uacute; de Firefox vamos a &laquo;Preferencias &gt; Avanzado &gt; Certificados &gt; Dispositivos de seguridad&raquo;.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/preferencias-firefox.png" title="Preferencias de Firefox"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/preferencias-firefox-thumb.png" alt="Preferencias de Firefox" title="Preferencias de Firefox" /> </a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-1.png" title="Administrador de dispositivos (1)"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-1-thumb.png" alt="Administrador de dispositivos (1)" title="Administrador de dispositivos (1)" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-2.png" title="Administrador de dispositivos (2)"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-2-thumb.png" alt="Administrador de dispositivos (2)" title="Administrador de dispositivos (2)" /></a> 
+</div> 
+<p>En esta pantalla pulsamos el bot&oacute;n &laquo;Cargar&raquo; e introducimos los siguientes datos:</p><p class="continue-reading"><a href="/post/blogbitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura">Firmar digitalmente documentos con el DNIe y Sinadura</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura/">Entrada original</a></span></div><div><span>Actualizado el sábado, 21 de diciembre de 2013 a las 10:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_via="blogstack" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/sinadura.png" alt="Sinadura" title="Sinadura" /> 
+</div> 
+<p>Ya he comentado <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">como instalar un lector de tarjetas inteligentes en linux para usar el DNI electr&oacute;nico</a> y que una vez instalado como podemos darle alg&uacute;n uso &uacute;til como por ejemplo <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">autenticarnos con en DNI</a> en las p&aacute;ginas que lo soporten como medio de autenticaci&oacute;n y el navegador Firefox. Tambi&eacute;n he comentado <a href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/">como usar el DNI con el cliente de correo Evolution para enviar correos firmados digitalmente</a>.</p> 
+<p>En esta entrada voy a comentar como firmar digitalmente documentos en cualquier formato electr&oacute;nico con la aplicaci&oacute;n de software libre <a href="http://www.sinadura.net/es/">Sinadura</a>. La firma que hagamos con el DNIe sobre estos documentos puede tener la misma validez legal que la firma manuscrita.</p> 
+<p>Primeramente deberemos descargar la &uacute;ltima versi&oacute;n de <a href="http://www.sinadura.net/es/">Sinadura</a> seg&uacute;n la arquitectura de nuestro procesador, de 32 bits o de 64 bits y la plataforma linux o windows. El archivo descargado es un instalador que deberemos ejecutarlo, como es un programa Java deberemos tener instalado previamente un entorno de ejecuci&oacute;n de Java como el </p><p class="continue-reading"><a href="/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux">Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 29 de noviembre de 2013 a las 17:34 UTC</span></div><div><span>Actualizado el sábado, 14 de diciembre de 2013 a las 09:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux" st_via="blogstack" st_title="Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Arch Linux" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s1600/archlinux-official-dark.png" height="106" title="Arch Linux" width="320" /> 
+</div>Ya desde hace un tiempo los documentos nacionales de indentidad que emite la administraci&oacute;n p&uacute;blica espa&ntilde;ola son en el formato de tarjeta inteligente (SmartCard), conocido como DNI electr&oacute;nico o DNIe. Estas tarjetas inteligentes tienen la ventaja de que incluyen un certificado digital que nos permiten identificarnos en sitios que lo soporten y realizar diversos tr&aacute;mites y acciones. 
+<br /> 
+<br />El DNI electr&oacute;nico nos puede servir para identificarnos en varias p&aacute;ginas de la administraci&oacute;n p&uacute;blica, en las p&aacute;ginas de varios bancos y realizar diferentes tr&aacute;mites electr&oacute;nicos. El DNIe como medio de identificaci&oacute;n en una p&aacute;gina tiene la ventaja de que no necesitamos tener un usuario y una contrase&ntilde;a espec&iacute;fica para ese sitio sino que con el DNI f&iacute;sico y el PIN nos ser&aacute; suficiente. Para identificarnos necesitamos algo que poseemos (el DNI) y algo que conocemos (PIN) con lo que las posibilidades que de alguien que quiera realizar alguna acci&oacute;n en nuestro nombre suplantando nuestra identidad ser&aacute; m&aacute;s complicado, la seguridad es mayor ya que no basta con conocer &uacute;nicamente el usuario y clave sino que se necesita algo f&iacute;sico. Conseguir ambas cosas es m&aacute;s dif&iacute;cil que solo la clave. Realizar tramites administrativos de forma electr&oacute;nica tiene la ventaja que no necesitamos desplazarnos hasta la correspondiente ventanilla para realizar el tr&aacute;mite. Algunos bancos que permiten identificarnos con el DNIe son el<p class="continue-reading"><a href="/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/11/como-usar-gpg-con-evolution">Como usar GPG con Evolution</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/como-usar-gpg-con-evolution.html">Entrada original</a></span></div><div><span>Publicado el viernes, 22 de noviembre de 2013 a las 20:42 UTC</span></div><div><span>Actualizado el viernes, 29 de noviembre de 2013 a las 18:05 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/como-usar-gpg-con-evolution" st_via="blogstack" st_title="Como usar GPG con Evolution | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="GnuPG" src="http://2.bp.blogspot.com/-wnNsw8HqDxE/UoZZ15a-ZOI/AAAAAAAACrg/PTAsi1g0Imw/s1600/gnupg.png" height="107" title="GnuPG" width="320" /> 
+</div> 
+<div style="background-color: #dddddd; clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Evolution" src="http://3.bp.blogspot.com/-6ffS27mB8Lc/Uo-5N40RfbI/AAAAAAAACuc/5MO4GXbgPbM/s1600/evolution.png" title="Evolution" /> 
+</div>Despu&eacute;s de la 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">introducci&oacute;n a la criptograf&iacute;a y crear una clave GPG</a> ya sea a trav&eacute;s de la linea de comandos en la terminal o con la herramienta Contrase&ntilde;as y claves de GNOME adem&aacute;s de usarla para cifrar y firmar documentos desde la terminal podemos usarla para firmar y cifrar los correos electr&oacute;nicos que enviemos usando nuestro cliente de correo. La firma de los correos electr&oacute;nicos permitir&aacute; conocer al receptor si el correo ha sido modificado por una tercera parte, comprobar la autenticidad del mensaje y si tenemos la clave p&uacute;blica del destinatario podremos enviarle el correo cifrado evitando que pueda ser le&iacute;do salvo por el destinatario. 
+<br /> 
+<br />En esta entrada explicar&eacute; como firmar y cifrar el correo electr&oacute;nico que enviemos usando nuestra clave GPG y el cliente de correo por defecto de GNOME,<p class="continue-reading"><a href="/post/elblogdepicodev/2013/11/como-usar-gpg-con-evolution">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry-">Integración y transacciones con Spring en Apache Tapestry </a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/integracion-y-transacciones-con-spring.html">Entrada original</a></span></div><div><span>Publicado el viernes, 08 de noviembre de 2013 a las 20:04 UTC</span></div><div><span>Actualizado el domingo, 10 de noviembre de 2013 a las 11:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry-" st_via="blogstack" st_title="Integración y transacciones con Spring en Apache Tapestry  | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Spring" src="http://1.bp.blogspot.com/-z3Uf7rZosVk/Un04HYeUy3I/AAAAAAAACq0/JxaGVTEux-E/s1600/spring.png" title="Spring" /> 
+</div>En otra entrada comentaba como hacer transacciones en una base de datos relacional con Apache Tapestry y como mejorar el soporte que ofrece de por si con la anotaci&oacute;n CommitAfter mediante con una 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/transacciones-en-apache-tapestry.html">soluci&oacute;n propia que proporciona la anotaci&oacute;n Transactional</a>. La soluci&oacute;n propia mejora la anotaci&oacute;n CommitAfter y es usable en m&aacute;s casos como cuando dos servicios distintos necesitan colaborar en una transaccion y compartirla. Sin embargo, si el correcto funcionamiento de las transacciones es una parte importante de la aplicaci&oacute;n (y en una aplicaci&oacute;n grande lo ser&aacute;) podemos evaluar si optar por Spring o los EJB en vez de la soluci&oacute;n propia o la anotaci&oacute;n CommitAfter. 
+<br /> 
+<br />Unos buenos motivos para optar tanto por Spring como por los EJB es que son soluciones ya desarrolladas con lo que solo tendremos que integrarlo en nuestros proyectos y no tendremos que preocuparnos de mantener nuestra soluci&oacute;n en caso de que tenga errores, adem&aacute;s ambas son ampliamente usadas incluso en proyectos grandes y complejos y est&aacute;n ya probadas lo que es una garant&iacute;a. Entre optar por Spring o los EJB depende de varios factores como puede ser si la aplicaci&oacute;n va ha ser desplegada en un servidor de aplicaciones con soporte para EJB (como<p class="continue-reading"><a href="/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry-">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry">Transacciones en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/transacciones-en-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el viernes, 01 de noviembre de 2013 a las 22:14 UTC</span></div><div><span>Actualizado el sábado, 09 de noviembre de 2013 a las 16:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_via="blogstack" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Tapestry no proporciona de por s&iacute; un soporte completo a las aplicaciones que necesitan realizar operaciones en una base de datos relacional de forma transaccional. La dependencia tapestry-hibernate provee la anotaci&oacute;n 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/hibernate/annotations/CommitAfter.html">@CommitAfter para Hibernate</a> y la dependencia tapestry-jpa otra del mismo nombre para JPA pero esta anotaci&oacute;n en ambos casos proporciona una funcionalidad muy b&aacute;sica y probablemente no no sirva en casos de uso complejos. Esto ha sido objeto de discusi&oacute;n varias veces en la lista de distribuci&oacute;n de los usuarios 
+<a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Transactions-and-AfterCommit-td5722996.html">[1]</a> 
+<a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Re-Transactions-and-AfterCommit-td5723025.html">[2]</a> y el JIRA de Tapestry&nbsp; 
+<a href="https://issues.apache.org/jira/browse/TAP5-2159">[3]</a>. 
+<br /> 
+<br />Con la anotaci&oacute;n CommitAfter si se produce una excepci&oacute;n no controlada (&laquo;unchecked&raquo;) se har&aacute; un rollback de la transacci&oacute;n y, esto es importante, a&uacute;n produciendose una excepci&oacute;n controlada (&laquo;checked&raquo;) se har&aacute; el commit de la transacci&oacute;n y es responsabilidad del programador tratar la excepci&oacute;n adecuadamente. Se puede usar en los m&eacute;todos de los servicios y en los m&eacute;todos manejadores de eventos de los componentes.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web">Solución al doble envío de peticiones en aplicaciones web</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/solucion-al-doble-envio-de-peticiones.html">Entrada original</a></span></div><div><span>Publicado el viernes, 11 de octubre de 2013 a las 17:25 UTC</span></div><div><span>Actualizado el viernes, 01 de noviembre de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_via="blogstack" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Las aplicaciones web pueden recibir informaci&oacute;n del usuario a trav&eacute;s de formularios o en los par&aacute;metros de los enlaces. Los formularios o enlaces pueden desencadenar en la aplicaci&oacute;n diversas acciones. Dada la naturaleza de las aplicaciones web en ciertas ocasiones la latencia de la red o el tiempo que toma procesar la petici&oacute;n un usuario puede tener la oportunidad de hacer clic varias veces en un bot&oacute;n o enlace tambi&eacute;n cuando ve que tarda mucho en obtener la respuesta o simplemente por su desconocimiento al estar acostumbrado a hacer doble clic al trabajar con otras aplicaciones o la interfaz de su sistema operativo. En ocasiones el problema puede producirse tambi&eacute;n haciendo un refrescar con el bot&oacute;n del navegador si no se hace un redirect despu&eacute;s del env&iacute;o del formulario (<p class="continue-reading"><a href="/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry">Solución al problema de seguridad CSRF en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/solucion-al-problema-de-seguridad-csrf.html">Entrada original</a></span></div><div><span>Publicado el viernes, 18 de octubre de 2013 a las 18:20 UTC</span></div><div><span>Actualizado el viernes, 01 de noviembre de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_via="blogstack" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div>Al desarrollar una aplicaci&oacute;n el problema de seguridad 
+<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a> (Cross-site scripting) puede afectar a los usuarios de nuestra aplicaci&oacute;n. XSS consiste en que la aplicaci&oacute;n permite la inyecci&oacute;n de c&oacute;digo malicioso que posteriormente otros usuarios obtienen al acceder a nuestra aplicaci&oacute;n. Se produce porque nuestra aplicaci&oacute;n no realiza el escapado correctamente de lo que env&iacute;a al usuario y porque el usuario conf&iacute;a en lo que obtiene del servidor. Para evitar este problema 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> por defecto realiza un escapado de lo que emite al cliente con lo que si no hacemos lo contrario la aplicaci&oacute;n estar&aacute; a salvo de este problema. 
+<br /> 
+<br />Otro problema de seguridad es 
+<a href="https://owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29">CSRF</a> (Cross-site request forgery) en el que b&aacute;sicamente un sitio al que se accede devuelve un enlace malicioso que provoca una acci&oacute;n en otro, el atacado. El enlace devuelto puede producir cualquier acci&oacute;n que el sitio atacado permita, el ejemplo que se suele poner es el de un sitio bancario y el intento de hacer una transferencia de la cuenta del usuario que tiene iniciada una sesi&oacute;n en la p&aacute;gina de su banco a la cuenta del atacante pero podr&iacute;a ser la realizaci&oacute;n de un cambio de contrase&ntilde;a a una que conozca el atacante y de esta forma posteriormente este pueda autenticarse con la cuenta de ese usuario en el sitio atacado. En la<p class="continue-reading"><a href="/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/10/relaciones-jerarquicas-en-bases-de-datos-relacionales">Relaciones jerárquicas en bases de datos relacionales</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/relaciones-jerarquicas-en-bases-de-datos-relacionales.html">Entrada original</a></span></div><div><span>Publicado el viernes, 25 de octubre de 2013 a las 16:23 UTC</span></div><div><span>Actualizado el sábado, 26 de octubre de 2013 a las 21:51 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/relaciones-jerarquicas-en-bases-de-datos-relacionales" st_via="blogstack" st_title="Relaciones jerárquicas en bases de datos relacionales | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Otro de los problemas que se suele presentar al trabajar con bases de datos relacionales adem&aacute;s de 
+<a href="http://elblogdepicodev.blogspot.com.es/2011/11/internacionalizacion-i18n-de-campos-con.html">como internacionalizar las entidades del dominio</a> o 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">como hacer b&uacute;squedas de texto completo</a> es como modelar las relaciones jer&aacute;rquicas. Para resolver el problema de las b&uacute;squedas en las bases de datos relacionales con datos jer&aacute;rquicos hay varias soluciones posibles cada una con sus ventajas y desventajas y una m&aacute;s ideal si la base de datos lo soporta, son: 
+<br /> 
+<ul> 
+ <li>Listas adjacentes</li> 
+ <li>Nested Sets</li> 
+ <li><a href="http://stackoverflow.com/questions/4048151/what-are-the-options-for-storing-hierarchical-data-in-a-relational-database">Variaciones de las anteriores</a> </li> 
+ <li>Queries recursivas (necesita soporte de la base de datos)</li> 
+</ul> 
+<h3>Listas adjacentes</h3>En este modelo se crea una campo adicional que indicar&aacute; el nodo padre de la relaci&oacute;n jer&aacute;rquica, los nodos ra&iacute;z tendr&aacute;n este campo a null al no tener padre.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/10/relaciones-jerarquicas-en-bases-de-datos-relacionales">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/2"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"><a href="/label">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

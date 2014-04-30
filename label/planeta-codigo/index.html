@@ -1,0 +1,317 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">Ejemplo lista de tareas con Marionette</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Entrada original</a></span></div><div><span>Publicado el viernes, 30 de agosto de 2013 a las 12:28 UTC</span></div><div><span>Actualizado el viernes, 25 de abril de 2014 a las 22:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette" st_via="blogstack" st_title="Ejemplo lista de tareas con Marionette | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Marionette" src="http://2.bp.blogspot.com/-ODdQesCGeKg/UiCFBR7_Z_I/AAAAAAAACmg/an6e-SJv-jA/s200/marionette.png" height="200" title="Marionette" width="146" /> 
+</div>Como comentaba en el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">ejemplo de una aplicaci&oacute;n de una lista de tareas en una aplicaci&oacute;n javascript</a>&nbsp;Backbone es una herramienta que nos puede ayudar mucho a evitar que el c&oacute;digo se nos convierta en dif&iacute;cil de manejar facilit&aacute;ndonos como estructurarlo con los modelos, colecciones y vistas y permiti&eacute;ndonos separar el modelo de la vista actualizando estas &uacute;ltimas a trav&eacute;s de los eventos que produce el modelo y escuchados en las vistas. 
+<br /> 
+<br /> 
+<a href="http://backbonejs.org/">Backbone</a> es una herramienta que nos da bastante libertad en cuanto a como queremos hacer las cosas y de lo que ofrece podemos usar solo lo que queramos. En algunos casos podemos considerar que Backbone ya es de por si una soluci&oacute;n suficiente pero pero en otros podemos necesitar algo que nos facilite la tarea un poco m&aacute;s, de hecho hay muchas<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/04/introduccion-a-elasticsearch">Introducción a Elasticsearch</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/">Entrada original</a></span></div><div><span>Actualizado el viernes, 25 de abril de 2014 a las 15:15 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/blog-stack">blog-stack</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_via="blogstack" st_title="Introducción a Elasticsearch | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/elasticsearch.png" alt="Elasticsearch" title="Elasticsearch" /> 
+ <br /> 
+</div> 
+<p>Continuando con la forma de <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">como dar soluci&oacute;n a la b&uacute;squedas en las entidades de dominio</a> en esta entrada profundizar&eacute; en la soluci&oacute;n que comentaba de usar <a href="http://www.elasticsearch.org">Elasticsearch</a> (ES). ES se basa en <a href="http://lucene.apache.org/core/">Lucene</a> pero expone su funcionalidad a trav&eacute;s de una interfaz REST recibiendo y enviando datos en formato JSON y oculta mediante esta interfaz los detalles internos de lucene. Esta interfaz permite que pueda ser utilizada por cualquier plataforma no solo Java, puede usarse desde Python, .NET, PHP o incluso desde un navegador con Javascript. Es persistente, es decir, que lo que indexemos en ella sobrevivir&aacute; a un reinicio del servidor.</p> 
+<p>Como comentaba en <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">el art&iacute;culo anterior de b&uacute;squedas sobre entidades de dominio</a> ES nos puede servir para hacer b&uacute;squedas a texto completo pero tambi&eacute;n podemos hacer otra serie de cosas adicionales que no podemos con una base de datos relacional aunque soporte en su lenguaje SQL b&uacute;squeda a texto completo, por ejemplo, resaltado (highlight) y facetas (facets), tambi&eacute;n permite hacer b&uacute;squedas vagas (fuzzy) y soporta diferentes analizadores seg&uacute;n el idioma de la propiedad en que se busque. El indexar y desindexar los datos en elasticsearch para que luego puedan ser buscados es responsabilidad nuestra y adem&aacute;s de insertarlos o eliminarlos en la base de datos debemos hacer lo mismo en ES ya sea haci&eacute;ndolo en ambos sitios a la vez o mediante un proceso de fondo que se encargue de ello.</p><p class="continue-reading"><a href="/post/blogbitix/2014/04/introduccion-a-elasticsearch">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react">Ejemplo lista de tareas con Backbone y React</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react/">Entrada original</a></span></div><div><span>Actualizado el viernes, 11 de abril de 2014 a las 14:33 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone y React | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/backbone.png" alt="Backbone" title="Backbone" /> 
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/react.png" alt="React" title="React" /> 
+</div> 
+<p>En anteriores entradas explicaba como hacer el t&iacute;pico ejemplo que se suele usar como demostraci&oacute;n en los framework MVC de Javascript que consiste en una lista de tareas en la que se pueden a&ntilde;adir nuevas, marcarlas como completadas y eliminarlas. Realice este ejemplo en uno de ellos <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">usando solo Backbone</a> y posteriormente <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">usando Marionette</a>. Estos ejemplos eran parte de una serie de art&iacute;culos sobre Javascript que la que mostaba como usar muchas otras herramientas como <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Require JS</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">logging con javscript</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">capturar errores en javascript</a>, <a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">introducci&oacute;n a Backbone</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">lista de tarea con Backbone, RESTEasy y Tapestry</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">pruebas unitarias con Jasmine y Sinon</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/">Usar Grunt para ejecutar teses unitarios de c&oacute;digo Javascript</a> y que constituyen parte del actual &laquo;estado del arte&raquo; en cuanto a desarrollo con Javascript.</p><p class="continue-reading"><a href="/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Entrada original</a></span></div><div><span>Publicado el viernes, 26 de abril de 2013 a las 19:38 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 16:11 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /> 
+</div>Normalmente escribo art&iacute;culos con ejemplos que tratan sobre una &uacute;nica tecnolog&iacute;a, al tratar cada tecnolog&iacute;a por separado entender que puede ofrecer es m&aacute;s sencillo pero en una aplicaci&oacute;n real normalmente se usan varias tecnolog&iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&aacute;s parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real que lo que he explicado durante las &uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&oacute;n de cosas por separado entre ellas 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Backbone</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html">servicios rest con Tapestry</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">RESTEasy</a>. En esta entrada har&eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&aacute;s adicional como 
+<a href="http://twitter.github.io/bootstrap/">twitter bootstrap</a>. 
+<br /> 
+<br />El ejemplo consiste en una lista de tareas, pudi&eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&eacute;n se podr&aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&uacute;mero de tareas completadas y de tareas totales.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs">Introducción y ejemplo de RequireJS</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/03/introduccion-y-ejemplo-de-requirejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de marzo de 2013 a las 22:18 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" st_via="blogstack" st_title="Introducción y ejemplo de RequireJS | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="RequireJS" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcU/OYXvsfWUBbQ/s1600/requirejs.png" title="RequireJS" /> 
+</div>Las p&aacute;ginas web ha evolucionado mucho desde sus inicios en los que eran simples p&aacute;ginas est&aacute;ticas hechas con el lenguaje de marcas html, pod&iacute;an contener enlaces e im&aacute;genes. Posteriormente adquirieron capacidad de cambiar a trav&eacute;s un lenguaje de programaci&oacute;n que en el servidor genera el c&oacute;digo html de forma din&aacute;mica bas&aacute;ndose en la informaci&oacute;n que el usuario pod&iacute;a enviar en un formulario, tambi&eacute;n se incorpora cierta programaci&oacute;n en el cliente con javascript. Con las nuevas versiones del est&aacute;ndar html, los avances de los navegadores y una explosi&oacute;n de dispositivos m&oacute;viles de gran capacidad las aplicaciones est&aacute;n evolucionando hacia el cliente, haci&eacute;ndose cada vez m&aacute;s complejas en el lado del navegador del usuario y adquiriendo resposabilidades que antes ten&iacute;a la aplicaci&oacute;n en el lado del servidor. Cada vez hay m&aacute;s librer&iacute;as y frameworks javascript que tratan de resolver problemas espec&iacute;ficos de las aplicaciones de internet. Entre estas librer&iacute;as algunas de las m&aacute;s conocidas son, muy resumidamente:<p class="continue-reading"><a href="/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript">Usar Grunt para ejecutar teses unitarios de código Javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/">Entrada original</a></span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:43 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_via="blogstack" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grunt.png" alt="Grunt" title="Grunt" /> 
+</div> 
+<p>En la <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">serie de art&iacute;culos que escrib&iacute; sobre javascript</a> hice un ejemplo m&aacute;s o menos complejo y parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real usando muchas de las herramientas que ahora se consideran una buena opci&oacute;n para desarrollar aplicaciones javascript como <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>, <a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Backbone</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Marionette</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Jasmine y Sinon</a>. En el <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">ejemplo de la lista de tareas con estas herramientas</a> hice unas cuantas pruebas unitarias para mostrar en un ejemplo como son y la forma de usar <a href="http://jasmine.github.io/">Jasmine</a>.</p> 
+<p>Sin embargo, para ejecutar las pruebas unitarias se necesitaba un navegador y hacerlo de forma manual cuando quisi&eacute;ramos comprobar el estado de las pruebas. Lo ideal tal y como se comenta en el libro <a href="http://www.amazon.es/gp/product/B000SEGEKI/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=B000SEGEKI&amp;linkCode=as2&amp;tag=blobit-21">The Pragmatic Programmer</a><img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=B000SEGEKI" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" /> es que las pruebas unitarias se ejecuten de forma automatizada con la herramienta de construcci&oacute;n que usemos, esto evitar&aacute; que se nos olvide ejecutarlas en cada cambio y as&iacute; descubriremos los errores pronto, tambi&eacute;n podremos hacer que se ejecuten en un entorno de integraci&oacute;n continua como podr&iacute;a ser </p><p class="continue-reading"><a href="/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-840-evo-250-gb">Desempaquetado y análisis Samsung SSD 840 EVO 250 GB</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/desempaquetado-y-analisis-samsung-840-evo-ssd-250-gb/">Entrada original</a></span></div><div><span>Actualizado el sábado, 29 de marzo de 2014 a las 15:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-840-evo-250-gb" st_via="blogstack" st_title="Desempaquetado y análisis Samsung SSD 840 EVO 250 GB | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><p>En estos momentos sin lugar a dudas la actualizaci&oacute;n m&aacute;s provechosa para mejorar el rendimiento de un equipo es una unidad de estado s&oacute;lido o SSD (<a href="http://es.wikipedia.org/wiki/Unidad_de_estado_s%C3%B3lido">Solid State Drive</a>) una vez tengamos memoria RAM suficiente, unos 2 GiB suelen ser suficientes para tareas ofim&aacute;ticas y acceder a internet y los equipos que se est&aacute;n vendiendo ahora ya suelen venir con 4 GiB e incluso 8 GiB. El tiempo de acceso a un disco duro mec&aacute;nico es grande y la velocidad de transferencia es peque&ntilde;a, en los momentos que se require un uso intensivo del disco se nota que los disco mec&aacute;nicos son el cuello de botella del sistema. A veces una mejora en el software puede producir una notable aumento de rendimiento con el mismo hardware pero cuando ya no hay margen de mejora en el software con una mejora en el hardware podemos conseguir el aumento de rendimiento buscado, este es el caso de los SSD.</p><p class="continue-reading"><a href="/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-840-evo-250-gb">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8">Novedades y nuevas características de Java 8</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/">Entrada original</a></span></div><div><span>Actualizado el viernes, 28 de marzo de 2014 a las 20:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_via="blogstack" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>El 18 de marzo de 2014 se public&oacute; la nueva versi&oacute;n de la plataforma <a href="http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html">Java 8</a>, Java 7 fue liberada el en julio de 2011. Java 8 incorporar&aacute; varias novedades siguiendo la tendencia de otros lenguajes como la incorporaci&oacute;n de lambdas o closures o una demandada nueva API para el manejo de fechas entre otras muchas caracter&iacute;sticas m&aacute;s. La <a href="http://openjdk.java.net/projects/jdk8/features">lista completa de novedades</a> es bastante amplia, a continuaci&oacute;n pondr&eacute; lo que me ha parecido m&aacute;s destacable:</p> 
+<ul> 
+ <li>Se a&ntilde;aden las expresiones lambda o closures y se adapta la API para usarlas en los sitios que se pueda.</li> 
+ <li>Se definen nuevos perfiles compactos para dispositivos que no necesitan toda la API Java, esto es una alternativa a la modularizaci&oacute;n. Inicialmente la modularizaci&oacute;n era una caracter&iacute;stica que estaba planificada para Java 8 pero finalmente se ha aplazado a posteriores versiones.</li>
+</ul><p class="continue-reading"><a href="/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress">Guía para la creación de un blog con Octopress</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress/">Entrada original</a></span></div><div><span>Actualizado el viernes, 14 de marzo de 2014 a las 18:19 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/blog">blog</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress" st_via="blogstack" st_title="Guía para la creación de un blog con Octopress | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/octopress.png" alt="Octopress" title="Octopress" /> 
+</div> 
+<p>En la <a href="http://picodotdev.github.io/blog-bitix/2013/12/hola-nuevo-mundo/">primera entrada de este blog usando Octopress</a> ya comentaba las razones por las que he pasado de usar <a href="http://www.blogger.com">Blogger</a> a usar <a href="http://octopress.org/">Octopress</a>. Entre las razones del cambio estaban la posibilidad en Octopress de escribir en markdown, edici&oacute;n desconectado (para textos e im&aacute;genes), dise&ntilde;o adaptable y m&aacute;s personalizable, git y control de versiones, alojamiento en cualquier servidor web. A&uacute;n sin ser Octpress tambi&eacute;n tiene cosas mejorables pero desde luego me est&aacute; resultando mucho mejor que blogger.</p> 
+<p>En esta entrada quiero escribir una gu&iacute;a con los pasos necesarios para crear un blog en Octopress de forma r&aacute;pida y algunas funcionalidades a tener en cuenta o que deberemos realizar.</p> 
+<p>Antes de empezar supondr&eacute; que ya tenemos en nuestro sistema <a href="https://www.archlinux.org/packages/extra/x86_64/ruby/">ruby</a> y <a href="https://www.archlinux.org/packages/extra/x86_64/git/">git</a> instalados. En Linux basta con buscar el paquete correspondiente para nuestra distribuci&oacute;n e instalarlo con el gestor de paquetes. Con </p><p class="continue-reading"><a href="/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos">Patrones de diseño en la programación orientada a objetos</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html">Entrada original</a></span></div><div><span>Publicado el viernes, 16 de marzo de 2012 a las 20:46 UTC</span></div><div><span>Actualizado el sábado, 08 de marzo de 2014 a las 02:25 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_via="blogstack" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>La programaci&oacute;n orientada a objetos (POO) es un paradigma en la que los sistemas se dise&ntilde;an mediante clases y relaciones entre ellas. Se utilizan conceptos como la herencia, polimorfismo, abstraci&oacute;n, encapsulamiento y ocultaci&oacute;n. Resumidamente estas propiedades son: 
+<br /> 
+<ul> 
+ <li>Clase: Abstracci&oacute;n que recoge las propiedades y comportamiento de los objetos en el sistema. Una clase puede instanciarse en objetos tantas veces como se necesite.</li> 
+ <li>Objeto: instancia de una clase que se relaciona con el resto de objetos a trav&eacute;s de los m&eacute;todos definidos en sus clases.</li> 
+ <li>Herencia: las clases no est&aacute;n aisladas y se relacionan entre ellas, mediante esta propiedad forman una jerarqu&iacute;a en la que las clases heredan las propiedades y m&eacute;todos de las clases superiores.</li> 
+ <li>Polimorfismo: es la propiedad de las instancias de las clases, los objetos, por la que pueden responder de forma diferente a un mismo nombre de m&eacute;todo en funci&oacute;n de su tipo concreto.</li>
+</ul><p class="continue-reading"><a href="/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms">Introducción y ejemplo sencillo de Java Message Service (JMS)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms/">Entrada original</a></span></div><div><span>Actualizado el sábado, 08 de marzo de 2014 a las 00:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms" st_via="blogstack" st_title="Introducción y ejemplo sencillo de Java Message Service (JMS) | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p><a href="http://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition">La plataforma Java EE</a> (Java Enterprise Edition) pone a disposici&oacute;n de los desarrolladores varias especificaciones, estas especificaciones describen las funcionalidades y la API que deben proporcionar las implementaciones y proporcionan al desarrollador herramientas para facilitar, hacer mejor las aplicaciones y de forma est&aacute;ndar seg&uacute;n estas especificaciones. Haciendo uso de una de estas especificaciones es posible cambiar de una implementaci&oacute;n a otra de forma transparente y sin modificar ninguna l&iacute;nea de c&oacute;digo de la aplicaci&oacute;n (en teor&iacute;a). Hay especificaciones para persistencia en base de datos (JPA), para transaccionalidad (JTA), para servicios web (JAX-WS ) y REST (JAX-RS) entre otras. En el siguiente enlace puede encontrarse el <a href="https://glassfish.java.net/downloads/ri/">listado completo de especificaciones y sus versiones de JEE 7</a></p><p class="continue-reading"><a href="/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache">Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-apache/">Entrada original</a></span></div><div><span>Actualizado el viernes, 28 de febrero de 2014 a las 15:58 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache" st_via="blogstack" st_title="Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/openssl.png" alt="OpenSSL" title="OpenSSL" /> 
+</div> 
+<p>En entradas anteriores he explicado <a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">en que consiste la criptograf&iacute;a y GPG</a> y como podemos usarlo a nivel personal para firmar y cifrar archivos y <a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">firmar correos electr&oacute;nicos con el cliente de correo Evolution</a>. Tambi&eacute;n he comentado <a href="http://picodotdev.github.io/blog-bitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl/">como crer un certificado con OpenSSL y como convertirlo a diferentes formatos</a>. En esta entrada explicar&eacute; como usar un certificdo creado con OpenSSL para proporcionar acceso SSL al sevidor web o servidor de aplicaciones, explicar&eacute; cual es la configuraci&oacute;n necesaria para los servidores <a href="http://tomcat.apache.org/">Tomcat</a>, <a href="http://www.lighttpd.net/">Lighttpd</a>, <a href="http://www.jboss.org/jbossas">JBoss</a>/<a href="http://wildfly.org/">WildFly</a>, <a href="http://nginx.org/">nginx</a> y <a href="http://www.apache.org/">Apache</a>.</p> 
+<p>Usar una conexi&oacute;n SSL y un certificado de servidor evita que los datos entre el navegador del usuario y el servidor sean legibles para una tercera parte siendo mayor la seguridad en nuestras aplicaciones o dando mayor confianza al usuario y usando algunos certificados al aparecer en la barra de navegaci&oacute;n del navegador en verde el nombre de la entidad detr&aacute;s de la p&aacute;gina evitando problemas de suplantaci&oacute;n de identidad.</p><p class="continue-reading"><a href="/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg">Introducción a la criptografía e inicio con GPG</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de noviembre de 2013 a las 20:18 UTC</span></div><div><span>Actualizado el domingo, 23 de febrero de 2014 a las 01:13 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_via="blogstack" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <div style="clear: both; text-align: center;"> 
+  <img alt="GnuPG" src="http://4.bp.blogspot.com/-wnNsw8HqDxE/UoZZ15a-ZOI/AAAAAAAACrc/c4ZId2hHNqs/s320/gnupg.png" height="105" title="GnuPG" width="320" /> 
+ </div> 
+</div>Internet est&aacute; formado por una red de m&aacute;quinas interconectadas que en conjunto permiten que un par de m&aacute;quinas de esa red puedan comunicarse entre si aunque no est&eacute;n directamente conectadas, el 
+<a href="http://es.wikipedia.org/wiki/Transmission_Control_Protocol">protocolo TCP/IP</a> es el que posibilita esa comunicaci&oacute;n. En la comunicaci&oacute;n entre las m&aacute;quinas que no est&aacute;n directamente conectadas la informaci&oacute;n de la m&aacute;quina origen ha de ser transportada por un camino de varias m&aacute;quinas hasta llegar a a la m&aacute;quina destino y posteriormente de vuelta por el mismo camino u otro. En muchos casos la informaci&oacute;n que viaja a lo largo de ese camino de terceras m&aacute;quinas no es relevante ni sensible pero en otros casos podemos necesitar o queremos evitar que esas terceras m&aacute;quinas puedan acceder a la informaci&oacute;n que se est&aacute; transmitiendo. En este &uacute;ltimo caso es donde entra en acci&oacute;n la criptograf&iacute;a.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry">Documentación sobre Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/05/documentacion-sobre-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el lunes, 24 de mayo de 2010 a las 18:46 UTC</span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 23:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry" st_via="blogstack" st_title="Documentación sobre Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Apache Tapestry" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TOq7Y6w6wfI/AAAAAAAAAiU/DPBnmc4-2Sw/s320/tapestry.png" height="132" title="Apache Tapestry" width="320" /> 
+</div> 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> ha sido para mi, con diferencia sobre el resto &nbsp;(JSF, Struts 1 y &uacute;ltimamente Grails), el mejor framework para desarrollar aplicaciones web en Java que he probado, adem&aacute;s de ser un placer programar con &eacute;l siempre que he podido. Tambi&eacute;n he le&iacute;do bastantes buenas cr&iacute;ticas y argumentos en varios blogs y art&iacute;culos destacando varios de sus aspectos y compar&aacute;ndolo con otros frameworks similares ( 
+<a href="http://wicket.apache.org/">Wicket</a>, 
+<a href="http://struts.apache.org/">Struts</a>, JSF y alg&uacute;n otro). En esta entrada quiero ir recogiendo todos los enlaces de documentaci&oacute;n que vaya encontrando sobre este framework ya que a pesar de que el framework es excelente la documentaci&oacute;n a d&iacute;a de hoy no es tan abundante&nbsp;no toda est&aacute; centralizada en la web del proyecto, lo que puede ser un problema para alguien que este empezando. Por fortuna, la documentaci&oacute;n es suficiente para llegar a comprender como funciona y hay algunos buenos libros publicados. Este framework le hace la vida m&aacute;s f&aacute;cil al programador en varias de las tareas m&aacute;s comunes de toda aplicaci&oacute;n web. As&iacute; que si estas cansado de JSF, de Struts o de el framework [pon aqu&iacute; el que uses] que no te permite disfrutar mientras desarrollas o te complica las cosas m&aacute;s de lo necesario te animo a que pruebes Tapestry quiz&aacute; sea lo que est&aacute;s buscando. Puedes empezar por el<p class="continue-reading"><a href="/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">Libro sobre desarrollo de aplicaciones con Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 24 de julio de 2013 a las 17:06 UTC</span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 20:12 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" st_via="blogstack" st_title="Libro sobre desarrollo de aplicaciones con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Recientemente he publicado 
+<a href="http://goo.gl/Vx8icI">PlugIn Tapestry</a>, un libro acerca del desarrollo de aplicaciones web en el lenguaje Java y con el framework 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a>. 
+<br /> 
+<br /> 
+<div> 
+ <div style="clear: both; text-align: center;"> 
+  <a href="http://goo.gl/WFQgY"><img alt="PlugIn Tapestry" src="http://1.bp.blogspot.com/-CUcQ3fWr9Yw/Ue7FYGDd_SI/AAAAAAAACls/eLuRuVvRz7w/s320/PlugInTapestry.png" height="320" style="border-color: red; border-style: solid; border-width: 1px;" title="PlugIn Tapestry" width="226" /></a> 
+ </div>Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&aacute;pidas, din&aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como SpringMVC, Grails y Play! y tambi&eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como Django (Python), Symfony (PHP), .NET MVC (C#) o Ruby On Rails (Ruby). 
+ <br /> 
+ <br />Incluyendo la descripci&oacute;n de las caracter&iacute;sticas del framework el libro trata la mayor&iacute;a de aspectos que puede necesitar una aplicaci&oacute;n o p&aacute;gina web, entre ellos: 
+</div><p class="continue-reading"><a href="/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/1"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

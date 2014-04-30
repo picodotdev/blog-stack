@@ -1,0 +1,262 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a la criptografía e inicio con GPG | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg">Introducción a la criptografía e inicio con GPG</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de noviembre de 2013 a las 20:18 UTC</span></div><div><span>Actualizado el domingo, 23 de febrero de 2014 a las 01:13 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_via="blogstack" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <div style="clear: both; text-align: center;">
+  <img alt="GnuPG" src="http://4.bp.blogspot.com/-wnNsw8HqDxE/UoZZ15a-ZOI/AAAAAAAACrc/c4ZId2hHNqs/s320/gnupg.png" height="105" title="GnuPG" width="320" />
+ </div>
+</div>Internet est&aacute; formado por una red de m&aacute;quinas interconectadas que en conjunto permiten que un par de m&aacute;quinas de esa red puedan comunicarse entre si aunque no est&eacute;n directamente conectadas, el 
+<a href="http://es.wikipedia.org/wiki/Transmission_Control_Protocol">protocolo TCP/IP</a> es el que posibilita esa comunicaci&oacute;n. En la comunicaci&oacute;n entre las m&aacute;quinas que no est&aacute;n directamente conectadas la informaci&oacute;n de la m&aacute;quina origen ha de ser transportada por un camino de varias m&aacute;quinas hasta llegar a a la m&aacute;quina destino y posteriormente de vuelta por el mismo camino u otro. En muchos casos la informaci&oacute;n que viaja a lo largo de ese camino de terceras m&aacute;quinas no es relevante ni sensible pero en otros casos podemos necesitar o queremos evitar que esas terceras m&aacute;quinas puedan acceder a la informaci&oacute;n que se est&aacute; transmitiendo. En este &uacute;ltimo caso es donde entra en acci&oacute;n la criptograf&iacute;a.
+<br />
+<br />
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://4.bp.blogspot.com/-Fbpbk2u_Bn0/UoZcLJuc67I/AAAAAAAACro/tP21rbFfL5c/s1600/internet-routing.png"><img src="http://4.bp.blogspot.com/-Fbpbk2u_Bn0/UoZcLJuc67I/AAAAAAAACro/tP21rbFfL5c/s320/internet-routing.png" height="235" width="320" /></a></td>
+  </tr>
+  <tr>
+   <td>Diagrama de enrutadores en internet, cada elipse (roja) es un enrutador por el que pasa la informaci&oacute;n transmitida entre el cliente (verde) y el servidor (azul)</td>
+  </tr>
+ </tbody>
+</table>
+<br />La criptograf&iacute;a nos permite que el contenido de un mensaje solo sea legible para el emisor y receptor, aunque los datos sean transportados por terceras m&aacute;quinas solo ver&aacute;n datos ofuscados (o cifrados) a cuyo contenido no se les podr&aacute; dar ning&uacute;n sentido ni interpretaci&oacute;n. La criptograf&iacute;a proporciona las siguientes propiedades: 
+<br />
+<ul>
+ <li>Confidencialidad: garantiza que el mensaje solo pueda ser le&iacute;do por su destinatario.</li>
+ <li>Integridad: garantiza que el mensaje no ha sido modificado por un tercero.</li>
+ <li>Vinculaci&oacute;n: trata de asociar el emisor con una clave.</li>
+ <li>Autenticaci&oacute;n: consiste en garantizar que el mensaje ha sido emitido por un determinado agente.</li>
+</ul>Para conseguir estas propiedades la criptograf&iacute;a usa diversos elementos como algoritmos de cifrado sim&eacute;tricos, asim&eacute;tricos o h&iacute;bridos, claves privadas o claves p&uacute;blicas y privadas, certificados digitales, huellas y firmas digitales. Los algoritmos de cifrado son los que garantizan la propiedad de confidencialidad, tienen la propiedad de que una vez cifrado los datos es muy dif&iacute;cil o se necesita una cantidad de c&oacute;mputo y tiempo muy elevada para descifrar el mensaje. Hay varios tipos.
+<br />
+<br />
+<h4>Los algoritmos sim&eacute;tricos</h4>Estos algoritmos utilizan la misma clave tanto para cifrar la informaci&oacute;n como para descifrarla. Son r&aacute;pidos y a misma longitud de claves m&aacute;s seguros que los de clave asim&eacute;trica pero plantea el problema de como intercambiar la clave privada de forma segura a trav&eacute;s de la red, para ello se usan los algoritmos asim&eacute;tricos.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-gOA5-rVvTg0/UoZevq3MKjI/AAAAAAAACr0/mdFF1yHhyu8/s1600/clave-simetrica.png"><img src="http://2.bp.blogspot.com/-gOA5-rVvTg0/UoZevq3MKjI/AAAAAAAACr0/mdFF1yHhyu8/s320/clave-simetrica.png" height="121" width="320" /></a>
+</div>
+<br />
+<br />
+<h4>Los algoritmos asim&eacute;tricos o de clave p&uacute;blica y privada</h4>Este tipo de algoritmos usan dos claves para realizar el proceso de cifrado. Cada usuario posee dos claves, una p&uacute;blica y otra privada. La clave p&uacute;blica de cada par de claves se puede compartir a cualquier otra persona, el que quiera enviarle un mensaje cifrado al propietario de esa clave p&uacute;blica lo cifrar&aacute; con la clave p&uacute;blica, el mensaje solo puede ser descifrado con su clave privada asociada que solo conoce su propietario. De esta manera los algoritmos asim&eacute;tricos evitan el problema de como compartir la clave de los algoritmos sim&eacute;tricos ya que en este par de claves hay una p&uacute;blica que puede ser compartida.
+<br />
+<br />
+<br />
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-6p2pGowZIk0/UoZe_AaFiZI/AAAAAAAACsA/_gLseF_coR8/s1600/clave-asimetrica.png"><img src="http://3.bp.blogspot.com/-6p2pGowZIk0/UoZe_AaFiZI/AAAAAAAACsA/_gLseF_coR8/s320/clave-asimetrica.png" height="125" width="320" /></a>
+</div>
+<br />Sin embargo, los algoritmos de clave p&uacute;blica y privada no solucionan todos los problemas de seguridad por si solos, est&aacute; el problema de confianza en la clave p&uacute;blica, es decir, estar seguros de que la clave p&uacute;blica es realmente del destinatario al que pretendemos enviar un mensaje y no la de alguien que se ha colacado en medio del emisor y receptor con la intenci&oacute;n de realizar un ataque &laquo;
+<a href="http://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>&raquo;. Para ello podemos confiar en una tercera parte en la que confiamos, si nosotros confiamos en esa autoridad y esa autoridad certifica que la clave p&uacute;blica es de quien dice ser podemos confiar en que el mensaje ser&aacute; solo legible por destinatario y propietario de esa clave p&uacute;blica, aqu&iacute; es donde entran las 
+<a href="http://en.wikipedia.org/wiki/Certificate_authority">autoridades de certificados</a>. Para certificar las claves p&uacute;blicas se emplean 
+<a href="http://en.wikipedia.org/wiki/Public_key_certificate">certificados y firmas digitales</a>.
+<br />
+<br />
+<h4>Los algor&iacute;tmos h&iacute;bridos</h4>Este tipo de algoritmos aprovechan y combinan lo mejor de los algoritmos sim&eacute;tricos y asim&eacute;tricos. Para cifrar un mensaje se genera una clave sim&eacute;trica, se usa un algoritmo sim&eacute;trico para cifrar el mensaje con la clave generada y la clave usada para cifrar el mensaje se cifra a su vez con la clave p&uacute;blica (algoritmo asim&eacute;trico) del destinatario. Posteriormente cuando el destinatario recibe el mensaje descifra con su clave privada la clave con la que fue cifrada el mensaje y con la clave descifrada usando el algor&iacute;tmo sim&eacute;trico se descifra el mensaje. En el siguiente esquema se puede apreciar el proceso:
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-FqVk2uKInrI/UoaE4mWkXqI/AAAAAAAACtI/PFuNoAS6LcA/s1600/Diagrama+PGP.png"><img src="http://2.bp.blogspot.com/-FqVk2uKInrI/UoaE4mWkXqI/AAAAAAAACtI/PFuNoAS6LcA/s400/Diagrama+PGP.png" height="400" width="383" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;"></div>
+<h4>GPG (Gnu Privacy Guard)</h4>Esa es la teor&iacute;a b&aacute;sica, ahora veamos como utilizar 
+<a href="http://www.gnupg.org/">GnuPG</a> que es una implementaci&oacute;n libre de 
+<a href="http://es.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a> (Pretty Good Privacy) y sacar provecho de esta entrada y la criptograf&iacute;a. Crearemos una clave p&uacute;blica y privada, cifraremos y descifraremos un archivo y verificaremos su integridad. A continuaci&oacute;n los comandos en orden para generar el par de claves (se nos guiar&aacute; en el proceso), ver su huella digital, exportar la clave p&uacute;blica y exportar la clave privada para conservarla en un archivo.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-gen-key.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-gen-key.sh">gpg-gen-key.sh</a>
+ <br />
+</noscript> El par&aacute;metro --armor sirve para codificar la salida en formato texto, con cualquier editor de texto podremos ver su contenido (aunque lo que veamos sea una sopa de letras). Este comando es combinable con otros con similar resultado. Entre usar o no usar armor depende de nuestras necesidades, sin --armor el resultado ocupa menos pero es dificilmente legible por un editor de texto y con --armor el resultado ocupa m&aacute;s pero es legible por un editor de texto.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-6RBTlo3XEOU/UoZpzunD_eI/AAAAAAAACsY/El8uHJuHoqE/s1600/gen-key.png"><img src="http://4.bp.blogspot.com/-6RBTlo3XEOU/UoZpzunD_eI/AAAAAAAACsY/El8uHJuHoqE/s320/gen-key.png" height="320" width="268" /></a>
+</div>
+<br />Si enviamos la clave p&uacute;blica a un servidor de claves para que otros usuarios puedan descargarse nuestra clave y verificar los mensajes que enviamos es aconsejable generar un certificado de revocaci&oacute;n para poder revocar la validez de la clave en caso de que su seguridad haya sido comprometida.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-revoke.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-revoke.sh">gpg-revoke.sh</a>
+ <br />
+</noscript> 
+<b>Como cifrar un archivo con GPG</b>
+<br />Esto generar&aacute; un archivo del mismo nombre que el que firmamos pero con las extensi&oacute;n .gpg a&ntilde;adida al final, en este caso se generar&iacute;a un archivo de firma secret.zip.gpg (podemos usar el par&aacute;metro --armor y se crear&aacute; el archivo con extensi&oacute;n .asc). Con -r indicamos el destinatario del mensaje, necesitaremos su clave p&uacute;blica para cifrar el archivo y que solo el destinatario pueda descrifrarlo con su clave privada.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-encrypt.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-encrypt.sh">gpg-encrypt.sh</a>
+ <br />
+</noscript> 
+<b>Como firmar un archivo con GPG</b>
+<br />Con -u indicamos la clave que realizar&aacute; la firma. Si no necesitamos cifrar el archivo para garantizar su confidencialidad pero queremos garantizar que no es modificado hasta llegar al receptor y su origen, es decir queremos garantizar su integridad y autenticidad, podemos firmarlo digitalmente.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-sign.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-sign.sh">gpg-sign.sh</a>
+ <br />
+</noscript> 
+<b>Como descifrar y verificar un archivo con GPG</b>
+<br />Para descrifrar un archivo:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-decrypt.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-decrypt.sh">gpg-decrypt.sh</a>
+ <br />
+</noscript> Si hacemos alguna modificaci&oacute;n al archivo e intentamos descifrarlo veremos que el programa nos alerta de que el archivo ha sido modificado, tal como podr&iacute;a ocurrir si en la transmisi&oacute;n del mensaje hubiese sido interceptado y modificado. Para verificar la intergridad de un archivo hacemos:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7490710.js?file=gpg-verify.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7490710/raw/gpg-verify.sh">gpg-verify.sh</a>
+ <br />
+</noscript> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-C2Ts1d7FonQ/UoZwK7tZQHI/AAAAAAAACsk/zMuH0zSwAus/s1600/gpg-verify.png"><img src="http://2.bp.blogspot.com/-C2Ts1d7FonQ/UoZwK7tZQHI/AAAAAAAACsk/zMuH0zSwAus/s400/gpg-verify.png" height="85" width="400" /></a>
+</div>
+<br />Para crear la clave tambi&eacute;n podemos emplear la aplicaci&oacute;n Seahorse o Contrase&ntilde;as y claves de 
+<a href="http://www.gnome.org/">GNOME</a>. O si la hemos creado mediante comandos con GnuPG importarla en esta aplicaci&oacute;n adem&aacute;s de almacenarlas en un dep&oacute;sito seguro de claves. Usando Seahorse para generar una par de claves GnuPG no necesitamos usar la terminal y los comandos anteriores pero el proceso nos pide los mismos datos.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-UXBcHLAEnNE/UoZxaegkeeI/AAAAAAAACs0/voBND_UNXm8/s1600/seahorse-1.png"><img src="http://2.bp.blogspot.com/-UXBcHLAEnNE/UoZxaegkeeI/AAAAAAAACs0/voBND_UNXm8/s320/seahorse-1.png" height="282" width="320" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-n5KnC3_yphc/UoZxaUjdjGI/AAAAAAAACsw/7fTh4SnjArw/s1600/seahorse-2.png"><img src="http://4.bp.blogspot.com/-n5KnC3_yphc/UoZxaUjdjGI/AAAAAAAACsw/7fTh4SnjArw/s320/seahorse-2.png" height="184" width="320" /></a>
+</div>
+<br />Sehaorse tambi&eacute;n tiene opciones para importar y exportar las claves GnuPGP a y del anillo de claves.
+<br />
+<br />Aunque enviemos los datos cifrados y hagamos inaccesible el contenido no es sin&oacute;nimo de privacidad, a veces saber simplemente que un mensaje se env&iacute;o, a que hora, de que longitud, duraci&oacute;n, tama&ntilde;o, desde donde, a donde y a quien puede ser informaci&oacute;n suficiente para extraer conclusiones, patrones o sobre que trataba la informaci&oacute;n entre otras cosas, sino preguntarle a la 
+<a href="http://www.nsa.gov/">NSA/CSS</a> que de esto saben bastante por las recientes informaciones de espionaje realizadas impunemente y en secreto por el gobierno de los EEUU, esa recolecci&oacute;n ingente de datos son una muestra de ello.
+<br />
+<br />En siguientes entradas de esta serie sobre seguridad explicar&eacute; como configurar un gestor de correo electr&oacute;nico (
+<a href="https://projects.gnome.org/evolution/">evolution</a>) para 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">enviar mensajes de correo electr&oacute;nico firmados o cifrados con las claves GPG</a> creadas con los comandos de esta entrada, certificados, SSL, servidores, firma digital con 
+<a href="http://www.sinadura.net/es/">Sinadura</a>,&nbsp;
+<a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">smart cards en linux y DNIe</a>, ... y quiz&aacute; alguna cosa m&aacute;s.
+<br />
+<br />Referencia:
+<br />
+<a href="http://www.linux.com/learn/tutorials/760909-pgp-web-of-trust-core-concepts">PGP Web of Trust: Core Concepts Behind Trusted Communication </a> 
+<br />
+<a href="http://es.wikipedia.org/wiki/Criptograf%C3%ADa">Criptograf&iacute;a</a>
+<br />
+<a href="http://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura">Manual de GPG: cifra, firma y env&iacute;a datos de forma segura</a>
+<br />
+<a href="http://www.javacodegeeks.com/2013/10/getting-started-with-gnu-privacy-guard.html">Getting Started with GNU Privacy Guard</a>
+<br />
+<a href="http://www.gnupg.org/gph/es/manual.html">http://www.gnupg.org/gph/es/manual.html</a>
+<br />
+<a href="https://wiki.archlinux.org/index.php/GnuPG">https://wiki.archlinux.org/index.php/GnuPG</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_via="blogstack" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg" st_title="Introducción a la criptografía e inicio con GPG | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Introducción a la criptografía e inicio con GPG";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 5,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/11/introduccion-a-la-criptografia-e-inicio-con-gpg"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Autenticación SSH con clave privada y pública | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica">Autenticación SSH con clave privada y pública</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/01/autenticacion-ssh-con-clave-privada-y.html">Entrada original</a></span></div><div><span>Publicado el viernes, 11 de enero de 2013 a las 12:44 UTC</span></div><div><span>Actualizado el jueves, 19 de septiembre de 2013 a las 13:21 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/bash">bash</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_via="blogstack" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="OpenSSH" height="104" src="http://2.bp.blogspot.com/-xA1fbdip4ik/UOcpr317aSI/AAAAAAAACI8/ERcKs9Fm7IA/s320/openssh.gif" title="OpenSSH" width="320" />
+</div>Siguiendo el art&iacute;culo de la semana pasada sobre 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">como hacer que los programas no se terminasen al finalizar o perderse la conexi&oacute;n SSH</a>&nbsp;en esta entrada explicar&eacute; como conectarnos a un una m&aacute;quina de forma remota mediante SSH con una clave p&uacute;blica y privada en vez de con la contrase&ntilde;a del usuario.
+<br />
+<br />Normalmente mediante contrase&ntilde;a nos conectamos a la m&aacute;quina remota mediante el siguiente comando:
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-1.sh"></script> Esto nos pedir&aacute; la contrase&ntilde;a del usuario con el que trabajaremos en la m&aacute;quina remota, en este caso la contrase&ntilde;a del usuario raspberrypi, y la deberemos introducir cada vez que realicemos la conexi&oacute;n. Si nos conectamos varias veces, realizamos conexiones a diferentes m&aacute;quinas o nos conectamos con diferentes usuarios m&aacute;s pronto que tarde nos cansaremos de introducir la contrase&ntilde;a constantemente adem&aacute;s de tener que estar recordando cada una de ellas si trabajamos con diferentes usuarios y asignamos a cada uno de ellos una diferente.
+<br />
+<br />Todo esto se puede solucionar usando una clave privada y otra p&uacute;blica SSH con las que no necesitaremos proporcionar ninguna contrase&ntilde;a ya que ser&aacute; la clave privada la que nos autenticar&aacute;. No necesitaremos proporcionar ninguna contrase&ntilde;a siempre y cuando no protejamos la clave privada mendiante una contrase&ntilde;a para poder usarla.
+<br />
+<br />El par de claves SSH se generan con, se pueden utilizar otros algoritmos como RSA y DSA aunque ECDSA es el recomendado por OpenSSH por ofrecer la misma seguridad con un menor tama&ntilde;o en bits para las claves. Sin embargo, en el ejemplo usar&eacute; RSA por el 
+<a href="https://bugzilla.gnome.org/show_bug.cgi?id=641082">siguiente bug de GNOME</a>: 
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-keygen-1.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-O_tlDDaLSmc/UPAGZxoTteI/AAAAAAAACMU/c4Umve9bBw8/s1600/ssh-1.png"><img height="168" src="http://4.bp.blogspot.com/-O_tlDDaLSmc/UPAGZxoTteI/AAAAAAAACMU/c4Umve9bBw8/s320/ssh-1.png" width="320" /></a>
+</div>
+<br />Al final del proceso veremos la huella digital de la clave, si en alg&uacute;n otro momento deseasemos ver la huella alfanum&eacute;rica o visual podr&iacute;amos hacerlo con:
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-keygen-2.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-lTXTECXwR1s/UPAGauC6fDI/AAAAAAAACMg/5LHoZcejE3k/s1600/ssh-5.png"><img height="181" src="http://3.bp.blogspot.com/-lTXTECXwR1s/UPAGauC6fDI/AAAAAAAACMg/5LHoZcejE3k/s320/ssh-5.png" width="320" /></a>
+</div>Una vez que disponemos del par de claves deberemos subir la clave p&uacute;blica a la m&aacute;quina que posteriormente nos conectaremos identificandonos con la clave privada. Lo hacemos con:
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-copy-id.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-Nv3J2vvSSH4/UPAGaKgK9WI/AAAAAAAACMc/R39PjwcP3zE/s1600/ssh-2.png"><img height="168" src="http://2.bp.blogspot.com/-Nv3J2vvSSH4/UPAGaKgK9WI/AAAAAAAACMc/R39PjwcP3zE/s320/ssh-2.png" width="320" /></a>
+</div>Esta clave p&uacute;blica quedar&aacute; como autorizada para la m&aacute;quina y usuario indicados y ser&aacute; a&ntilde;adida al archivo ~/.ssh/autorihed_keys en la m&aacute;quina destino. Si posteriormente quisieramos desautorizar alguna clave solo deberemos borrar la linea de la clave de ese archivo. Posteriormente deberemos indicar en la m&aacute;quina origen las identidades que queremos que proporcione el comando SSH cuando nos conectemos a alguna m&aacute;quina con:
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-add.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-CcrteE7EJlg/UPAGZ2Cb0WI/AAAAAAAACMY/MnObYdaxukI/s1600/ssh-3.png"><img height="168" src="http://2.bp.blogspot.com/-CcrteE7EJlg/UPAGZ2Cb0WI/AAAAAAAACMY/MnObYdaxukI/s320/ssh-3.png" width="320" /></a>
+</div>Si no hemos protegido la clave privada con ninguna clave la identidad quedar&aacute; a&ntilde;adida con el comando SSH posterior, si hemos protegido la clave privada deberemos introducir la contrase&ntilde;a para poder a&ntilde;adir la identidad.
+<br />
+<br />Finalmente, nos conectaremos a la m&aacute;quina con el comando SSH y accederemos a la m&aacute;quina destino sin tener que proporcionar ninguna clave:
+<br />
+<br />
+<script src="https://gist.github.com/4510310.js?file=ssh-2.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-infrhmeD-ss/UPAGaxIFTaI/AAAAAAAACMo/SQjeewss1SA/s1600/ssh-4.png"><img height="168" src="http://2.bp.blogspot.com/-infrhmeD-ss/UPAGaxIFTaI/AAAAAAAACMo/SQjeewss1SA/s320/ssh-4.png" width="320" /></a>
+</div>Referencia:
+<br />
+<a href="https://wiki.archlinux.org/index.php/Secure_Shell#Client">https://wiki.archlinux.org/index.php/Secure_Shell#Client</a>
+<br />
+<a href="https://wiki.archlinux.org/index.php/SSH_Keys">https://wiki.archlinux.org/index.php/SSH_Keys</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch.html">Gu&iacute;a instalaci&oacute;n Raspberry Pi con Arch Linux ARM (Parte I, instalaci&oacute;n base)</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch_22.html">Gu&iacute;a instalaci&oacute;n Raspberry Pi con Arch Linux ARM (Parte II, programas)</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_via="blogstack" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Autenticación SSH con clave privada y pública";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/01/autenticacion-ssh-con-clave-privada-y.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/raspberrypi/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta raspberrypi</a></li><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/bash/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta bash</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 69,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

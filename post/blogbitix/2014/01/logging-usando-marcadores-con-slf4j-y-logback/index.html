@@ -1,0 +1,259 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Logging usando marcadores con slf4j y logback | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback">Logging usando marcadores con slf4j y logback</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback/">Entrada original</a></span></div><div><span>Actualizado el viernes, 31 de enero de 2014 a las 16:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_via="blogstack" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>Un sistema de logging en una aplicaci&oacute;n es indispensable para saber lo que est&aacute; sucediendo en la aplicaci&oacute;n en el mismo momento o pasado un tiempo. Es de gran utilidad tanto para en el momento de desarrollar la aplicaci&oacute;n como para una vez puesta en producci&oacute;n. Con el registro de las trazas podemos obtener informaci&oacute;n que nos permitir&aacute; descubrir un error o averiguar m&aacute;s f&aacute;cilmente y r&aacute;pidamente porque sucede alg&uacute;n comportamiento que no es como se espera.</p> 
+<p>En Java hay varios sistemas de logging entre los m&aacute;s utilizados est&aacute;n <a href="http://logging.apache.org/log4j/1.2/">log4j</a>, <a href="http://logback.qos.ch/">logback</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html">java.util.logging</a> y la capa de abstracci&oacute;n <a href="http://www.slf4j.org/">slf4j</a> sobre varios de estas librer&iacute;as. En estas librer&iacute;as de logging las trazas se emiten a trav&eacute;s de un logger que normalmente se corresponde con el nombre de la clase en la que se emite la traza. De esta forma las trazas se pueden filtrar por el nivel de importancia de la traza (debug, info, warn, …) y por el nombre del logger de forma que podemos obtener un registro de las trazas emitidas por los loggers que deseamos.</p> 
+<p>Sin embargo, el nivel de trazas y nombre de logger no son los m&aacute;s adecuados para determinadas necesidades. En alg&uacute;n caso nos puede interesar solo algunas trazas asociadas a determinada funcionalidad, el resto de trazas podr&iacute;amos querer filtrarlas, pero &uacute;nicamente con los filtros por nivel y nombre de logger no podr&iacute;amos. Adem&aacute;s, una funcionalidad puede estar dispersa entre varias clases con lo que si el nombre del logger es el nombre de la clase deber&iacute;amos especificar todos los logger que queremos individualmente y aunque los loggers tienen una relaci&oacute;n jer&aacute;rquica no es &uacute;til para obtener lo que queremos.</p> 
+<p>Para obtener las trazas espec&iacute;ficas que queremos y que pueden estar dispersas en varias clases podemos usar los <a href="http://logback.qos.ch/manual/filters.html">filtros de logback</a>, una posibilidad es usar los marcadores pero hay otra buena cantidad de posibilidades dependiendo de nuestras necesidades.</p> 
+<p>Por ejemplo, para la siguientes clases nos podr&iacute;a interesar obtener las trazas asociadas a la funcionalidad de importaci&oacute;n pero si indicamos que queremos la trazas del logger Importador y de nivel INFO obtendr&iacute;amos todas la trazas de la clase incluidas las trazas de persistencia.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8735932.js?file=Main.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.log.markers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+
+public class Main {
+
+    // Loggers
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
+    // Marcadores
+    public static Marker importacion = MarkerFactory.getMarker(&quot;IMP&quot;);
+    public static Marker importacionUtils = MarkerFactory.getMarker(&quot;UTL&quot;);
+    public static Marker persistencia = MarkerFactory.getMarker(&quot;PER&quot;);
+    
+    static {
+        // Incluir en un marcador las trazas de otro 
+        importacionUtils.add(importacion);
+    }
+
+    public static void main(String[] args) {
+        logger.info(&quot;Iniciando...&quot;);
+        
+        logger.info(Main.importacion, &quot;Comenzando importaci&oacute;n...&quot;);
+        new Importador().importar();
+        logger.info(Main.importacion, &quot;Importaci&oacute;n finalizada&quot;);
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8735932.js?file=Importador.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.log.markers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Importador {
+
+    private static final Logger logger = LoggerFactory.getLogger(Importador.class);
+    
+    public Importador() {       
+    }
+    
+    public void importar() {
+        logger.info(Main.importacion, &quot;Realizando importaci&oacute;n...&quot;);
+
+        Utils.importar();
+        
+        logger.info(Main.persistencia, &quot;Persistiendo algo...&quot;);
+        
+        Utils.save();
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8735932.js?file=Utils.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.log.markers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Utils {
+
+    private static final Logger logger = LoggerFactory.getLogger(Utils.class);
+    
+    public static void save() {
+        logger.info(&quot;Comenzando persistencia (utils)...&quot;);
+        
+        // ...
+        
+        logger.info(Main.persistencia, &quot;Persistido algo (utils)...&quot;);
+    }
+    
+    public static void importar() {
+        logger.info(&quot;Comenzando importaci&oacute;n (utils)...&quot;);
+        
+        // ...
+        
+        logger.info(Main.importacionUtils, &quot;Importado algo (utils)...&quot;);
+    }   
+}
+</code></pre>
+ </noscript>
+</div> 
+<p>Este ser&iacute;a el resultado:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/9/sin-filtro.png" title="Trazas sin usar filtros"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/9/sin-filtro-thumb.png" /></a> 
+</div> 
+<p>Para conseguir solo las trazas de una funcionalidad se pueden utilizar los marcadores (&laquo;markers&raquo;) de forma que adem&aacute;s de por el nivel del mensaje de traza y el logger podamos filtrar por el marcador asociado a la traza. El marcador de una traza es una etiqueta por la que posteriormente podemos filtrar. Si una funcionalidad estuviese repartida por varias clases podr&iacute;amos usar el mismo marcador en todas esas trazas de forma que podamos filtrar luego por &eacute;l. El resultado del ejemplo completo ser&iacute;a el siguiente:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/9/con-filtro.png" title="Trazas usando un filtro"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/9/con-filtro-thumb.png" /></a> 
+</div> 
+<p>En ambos resultados puede verse el nombre del marcador (IMP de importaci&oacute;n, PER de persistencia, UTL de utilidad) asociado a la traza, en el segundo solo se muestran las trazas con el marcador IMP de la funcionalidad de importaci&oacute;n.</p> 
+<p>Utilizando la combinaci&oacute;n slf4j y logback, la configuraci&oacute;n para de logback y usando un filtro para obtener las trazas con el marcador asociado que deseamos es la siguiente:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8735932.js?file=logback.xml"></script> 
+ <noscript>
+  <pre><code>&lt;configuration&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;filter class=&quot;io.github.picodotdev.log.markers.ImportacionFilter&quot;&gt;&lt;/filter&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;%-23d{ISO8601} %-5p %-17marker %-17t %40.40C %-15M %m%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+
+    &lt;logger name=&quot;io.github.picodotdev.log.markers&quot; level=&quot;INFO&quot;/&gt;
+
+    &lt;root level=&quot;debug&quot;&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
+    &lt;/root&gt;
+&lt;/configuration&gt;</code></pre>
+ </noscript>
+</div> 
+<p>Este ser&iacute;a el c&oacute;digo del filtro que nos permitir&iacute;a obtener las trazas de una determinada funcionalidad, en el caso del ejemplo las trazas relativas a la funcionalidad de importaci&oacute;n.</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8735932.js?file=ImportacionFilter.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.log.markers;
+
+import org.slf4j.Marker;
+
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.filter.Filter;
+import ch.qos.logback.core.spi.FilterReply;
+
+public class ImportacionFilter extends Filter&lt;ILoggingEvent&gt; {
+
+    @Override
+    public FilterReply decide(ILoggingEvent event) {
+        Marker marker = event.getMarker();
+        if (Main.importacion.equals(marker) || marker.contains(Main.importacion)) {
+            return FilterReply.ACCEPT;
+        } else {
+            return FilterReply.DENY;
+        }
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<p>Puedes obtener el <a href="https://github.com/picodotdev/blog-ejemplos/tree/master/MarcadoresSLF4J">c&oacute;digo fuente completo del ejemplo</a> de su repositorio de GitHub y probarlo en tu equipo.</p> 
+<p>&iquest;Conoc&iacute;as y has usado alguna vez esta funcionalidad?</p> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2012/04/librerias-de-logging-para-java-slf4j.html">Librer&iacute;as de logging para Java (slf4j, log4j, java.util.logging, logback, MentaLog</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_via="blogstack" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Logging usando marcadores con slf4j y logback";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 38,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

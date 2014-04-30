@@ -1,0 +1,169 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web">Solución al doble envío de peticiones en aplicaciones web</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/solucion-al-doble-envio-de-peticiones.html">Entrada original</a></span></div><div><span>Publicado el viernes, 11 de octubre de 2013 a las 17:25 UTC</span></div><div><span>Actualizado el viernes, 01 de noviembre de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_via="blogstack" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>Las aplicaciones web pueden recibir informaci&oacute;n del usuario a trav&eacute;s de formularios o en los par&aacute;metros de los enlaces. Los formularios o enlaces pueden desencadenar en la aplicaci&oacute;n diversas acciones. Dada la naturaleza de las aplicaciones web en ciertas ocasiones la latencia de la red o el tiempo que toma procesar la petici&oacute;n un usuario puede tener la oportunidad de hacer clic varias veces en un bot&oacute;n o enlace tambi&eacute;n cuando ve que tarda mucho en obtener la respuesta o simplemente por su desconocimiento al estar acostumbrado a hacer doble clic al trabajar con otras aplicaciones o la interfaz de su sistema operativo. En ocasiones el problema puede producirse tambi&eacute;n haciendo un refrescar con el bot&oacute;n del navegador si no se hace un redirect despu&eacute;s del env&iacute;o del formulario (
+<a href="http://tapestry.apache.org/">Tapestry</a> nos evita esto ya que hace un redirect despu&eacute;s de cada env&iacute;o de un formulario o acci&oacute;n, lo que se conoce como redirect after post o post/redirect/get).
+<br />
+<br />El caso del doble o N-clic puede ser un problema, imagina una aplicaci&oacute;n que borra un registro de la base de datos o una aplicaci&oacute;n que realiza el cobro de una tarjeta de cr&eacute;dito. Si el usuario tienen la oportunidad de hacer doble clic en el bot&oacute;n o enlace envi&aacute;ndo dos peticiones al servidor lo m&aacute;s probable es que solo una de ellas funcione, la segunda petici&oacute;n puede producir una excepci&oacute;n en el servidor o peor a&uacute;n dependiendo de la acci&oacute;n un efecto indeseado. &iquest;Eres consciente y tienes en cuenta que puede pasar en tu aplicaci&oacute;n si se da esta situaci&oacute;n?
+<br />
+<br />Una de las formas de evitar este problema en cierta medida es desactivando el bot&oacute;n o enlace una vez que se ha pulsado y el formulario se env&iacute;a o se realiza la petici&oacute;n. Podemos hacer uso de un c&oacute;digo javascript que en el momento de pulsar el bot&oacute;n o enlace impida que desencadene su acci&oacute;n por segunda vez, por ejemplo desactiv&aacute;ndolo.
+<br />
+<br />En Tapestry podemos usar un mixin para reutilizar este c&oacute;digo en todos los sitios que necesitemos de una forma muy sencilla. En el contexto de Tapestry un mixin es un componente que no se usa de forma individual sino que se usa junto a otro componente y que a&ntilde;ade cierta funcionalidad al componente asociado. En la aplicaci&oacute;n de demostraci&oacute;n JumpStart se puede ver el 
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/examples/javascript/creatingmixins1">c&oacute;digo del componente </a>
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/examples/javascript/creatingmixins1">mixin ClickOnce</a> que en ciertos escenarios puede evitar el problema del N-clic. Sin embargo, la soluci&oacute;n del mixin ClickOnce es v&aacute;lido solo para peticiones no ajax ya que una vez que el bot&oacute;n o enlace es pulsado se desactiva completamente, en una petici&oacute;n ajax el bot&oacute;n deber&iacute;a volverse a activar una vez que la petici&oacute;n Ajax termina.
+<br />
+<br />A continuaci&oacute;n mostrar&eacute; el c&oacute;digo de un mixin que mejora el ClickOnce resolviendo el problema N-clic tanto para peticiones ajax como no ajax. Por una parte tendremos el c&oacute;digo Java asociado al mixin.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6938225.js?file=SubmitOne.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6938225/raw/SubmitOne.java">SubmitOne.java</a>
+ <br />
+</noscript> Y el javascript como un m&oacute;dulo de RequireJS que produce la desactivaci&oacute;n del enlace o bot&oacute;n en el cliente una vez que es pulsado y monitoriza las peticiones Ajax para bloquear una segunda petici&oacute;n al servidor. 
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6938225.js?file=submitOne.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6938225/raw/submitOne.js">submitOne.js</a>
+ <br />
+</noscript> Este c&oacute;digo javascript podr&iacute;a ser aprovechado despu&eacute;s de haberlo modificado ligeramente para ser usado con otro framework de aplicaciones.
+<br />
+<br />Una vez desarrollado el mixin podemos usarlo en un bot&oacute;n o enlace de la siguiente forma, a partir de este momento dar soluci&oacute;n a este problema nos cuesta 20 caracteres en cada enlace o bot&oacute;n, los necesarios para aplicar el mixin con el atributo t:mixins, pero no solo eso, m&aacute;s importante a&uacute;n que el n&uacute;mero de caracteres, aplicarlos no nos ofusca el c&oacute;digo:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6938225.js?file=Index.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6938225/raw/Index.tml">Index.tml</a>
+ <br />
+</noscript> Esta soluci&oacute;n funciona en el lado del cliente, con javascript desactivado o un usuario malicioso podr&iacute;a producir el doble env&iacute;o del formularios de forma intencionada. Otra soluci&oacute;n en el lado del servidor que se suele utilizar es un token de un solo uso en la que solo se procesa el formulario con el token correcto, el token se env&iacute;a al cliente en un campo oculto y se guarda en sesi&oacute;n, una vez que el formulario se env&iacute;a al servidor se comprueba que el token sea el guardado en sesi&oacute;n, esta soluci&oacute;n realiza la comprobaci&oacute;n en el servidor pero requiere del uso de la sesi&oacute;n para guardar el token. La soluci&oacute;n mediante el token puede evitar el problema CSRF donde una petici&oacute;n maliciosa puede realizar una acci&oacute;n sin el consentimiento del usuario. En otra entrada explicar&eacute; como solucionar el problema CSRF con el framework Tapestry.
+<br />
+<br />Esta es la secci&oacute;n de la aplicaci&oacute;n del ejemplo funcionando donde puede probarse el mixin y ver la diferencia del comportamiento sin el mixin aplicado.
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-mV9CzP3AILQ/UlgrF-OE_nI/AAAAAAAACo8/MErNmkGjRJI/s1600/n-clic.png"><img src="http://4.bp.blogspot.com/-mV9CzP3AILQ/UlgrF-OE_nI/AAAAAAAACo8/MErNmkGjRJI/s1600/n-clic.png" /></a>
+</div>
+<br />En este ejemplo tambi&eacute;n puede verse como con tapestry se pueden actualizar varias zonas (la zona de la cuenta) de una p&aacute;gina de forma simult&aacute;nea de una p&aacute;gina web con una &uacute;nica petici&oacute;n Ajax.
+<br />
+<br />Si te ha parecido interesante esta entrada puedes descargar el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">libro PlugIn Tapestry</a> en el que explico m&aacute;s en detalle como desarrollar aplicaciones web en Tapestry y en el que descubrir&aacute;s como resolver problemas comunes como este en las aplicaciones web de una forma tan buena como esta.
+<br />
+<br />Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada. Si no dispones de git para clonar 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/PlugInTapestry">mi repositorio de GitHub</a> puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a>.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6938225.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6938225/raw/git.sh">git.sh</a>
+ <br />
+</noscript> Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">Libro PlugIn Tapestry</a>
+<br />
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/examples/javascript/creatingmixins1">http://jumpstart.doublenegative.com.au/jumpstart/examples/javascript/creatingmixins1</a>
+<br />
+<a href="http://stackoverflow.com/questions/17830171/mixins-in-tapestry5">http://stackoverflow.com/questions/17830171/mixins-in-tapestry5</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_via="blogstack" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" st_title="Solución al doble envío de peticiones en aplicaciones web | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Solución al doble envío de peticiones en aplicaciones web";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/10/solucion-al-doble-envio-de-peticiones.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 10,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2011/10/configuracion-de-entorno-en-java-con-ayuda-de-groovy">Configuración de entorno en Java con ayuda de Groovy</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/10/configuracion-de-entorno-en-java-con.html">Entrada original</a></span></div><div><span>Publicado el viernes, 07 de octubre de 2011 a las 15:46 UTC</span></div><div><span>Actualizado el viernes, 27 de julio de 2012 a las 19:39 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/configuracion-de-entorno-en-java-con-ayuda-de-groovy" st_via="blogstack" st_title="Configuración de entorno en Java con ayuda de Groovy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+ <img alt="Groovy" height="98" src="http://1.bp.blogspot.com/-8zEd2dMvhXs/TGUMtyhkvpI/AAAAAAAAAdI/j0-zeOq44o4/s200/groovy.png" title="Groovy" width="200" /> 
+</div>Una necesidad habitual en pr&aacute;cticamente todas las aplicaciones y proyectos es tener una forma de poder configurar una aplicaci&oacute;n en funci&oacute;n del entorno en el que se vaya a ejecutar. Cosas habituales que cambian dependiendo del entorno son la configuraci&oacute;n de logging, conexi&oacute;n a la base de datos, tal vez la configuraci&oacute;n de hibernate si lo usamos, par&aacute;metros, etc... Habitualmente necesitaremos un entorno con su configuraci&oacute;n para la m&aacute;quina en la que desarrolla cada programador del proyecto que ser&aacute; el entorno de desarrollo, tambi&eacute;n es habitual tener un entorno de pruebas independiente del entorno de cada desarrollador y el entorno de producci&oacute;n que es donde se ejecuta la aplicaci&oacute;n. 
+<br /> 
+<br />La configuraci&oacute;n del multientorno la podemos la podemos hacer de diferentes formas, mediante archivos de propiedades, con xml u otras formas. Aqui vamos a ver como hacerlo con la ayuda de groovy de una forma sencilla sin tener que pelearnos con procesar la forma del archivo, que con xml puede llegar a ser laborioso y con archivos .properties un tanto limitado en cuanto a posibilidades.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/10/configuracion-de-entorno-en-java-con-ayuda-de-groovy">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux">Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">Entrada original</a></span></div><div><span>Publicado el viernes, 27 de mayo de 2011 a las 16:55 UTC</span></div><div><span>Actualizado el viernes, 15 de junio de 2012 a las 21:55 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_via="blogstack" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Cherokee web server" height="124" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s320/cherokee2-mini.png" title="Cherokee web server" width="320" /> 
+</div>El 
+<a href="http://www.cherokee-project.com/">servidor web Cherokee</a> es uno de los servidores de nueva generaci&oacute;n llamados&nbsp;ligeros&nbsp;que mejora notablemente el rendimiento ofrecido por el m&aacute;s usado Apache HTTPD soportando m&aacute;s usuarios concurrentes, aceptando m&aacute;s peticiones por segundo y consumiendo menos memoria. Quiz&aacute; no tenga toda la versatilidad de un servidor Apache HTTPD pero para la mayor&iacute;a de los escenarios es m&aacute;s que suficiente. En el siguiente art&iacute;culo vamos a ver cuales son sus principales caracter&iacute;sticas y como instalarlo junto con PHP en la distribuci&oacute;n Arch Linux. Otros servidores similares a Cherokee son 
+<a href="http://wiki.nginx.org/">nginx</a> y 
+<a href="http://www.lighttpd.net/">lighttpd</a> que quiz&aacute; te interese tambi&eacute;n echarles un vistazo. Por supuesto cherokee es un servidor con licencia 
+<a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU GPL v2</a>&nbsp;y por tanto es software libre. 
+<br /> 
+<br />Comencemos poniendo algunas de las caracter&iacute;sticas que soporta: FastCGI, SCGI, PHP, CGI, SSI, TLS y conexiones cifradas SSL, host virtuales, autenticaci&oacute;n, codificaci&oacute;n al vuelo, balanceo de carga, archivos de log compatibles con apache, balanceador de base de datos, actualizaciones sin parada del servicio, proxy HTTP inverso y mucho m&aacute;s.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/05/obtener-la-clave-de-una-red-wifi-wep">Obtener la clave de una red WIFI WEP</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/05/obtener-la-clave-de-una-red-wifi-wep.html">Entrada original</a></span></div><div><span>Publicado el viernes, 04 de mayo de 2012 a las 19:28 UTC</span></div><div><span>Actualizado el lunes, 07 de mayo de 2012 a las 07:04 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/05/obtener-la-clave-de-una-red-wifi-wep" st_via="blogstack" st_title="Obtener la clave de una red WIFI WEP | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Obtener la clave con la que est&aacute; protegida una red WIFI con seguridad WEP no es excesivamente complicado para una persona que tiene unos pocos conocimientos sobre inform&aacute;tica, sabe buscar, leer y no le da miedo el terminal. A&uacute;n as&iacute; hay que tener en cuenta que acceder a una red WIFI que no conocemos y que no sabemos de quien es no es recomendable ya que podemos ser victimas de que accedan a los datos que transmitimos. 
+<br /> 
+<br />Si a&uacute;n sabiendo esto queremos acceder a una, para obtener la clave de las redes WIFI con seguridad WEP necesitamos una serie de programas que en la mayor&iacute;a de distribuciones Linux son muy f&aacute;ciles de instalar a trav&eacute;s de sus gestoresde paquetes, necesitaremos aircrack-ng y macchanger. En el momento que prob&eacute; a hacerlo con Arch Linux, parece que el el aircrack-ng ten&iacute;a un problema con los canales de las WIFI asi que tuve que optar por usar BackTrack. La<p class="continue-reading"><a href="/post/elblogdepicodev/2012/05/obtener-la-clave-de-una-red-wifi-wep">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/03/guia-post-instalacion-minix">Guía post instalación Minix</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/03/guia-post-instalacion-minix.html">Entrada original</a></span></div><div><span>Publicado el viernes, 09 de marzo de 2012 a las 18:57 UTC</span></div><div><span>Actualizado el lunes, 12 de marzo de 2012 a las 14:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/minix">minix</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/guia-post-instalacion-minix" st_via="blogstack" st_title="Guía post instalación Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Minix" height="155" src="http://1.bp.blogspot.com/-QXJjAaVBckc/TM1S9jnBVcI/AAAAAAAAAg8/vjqXbISkI1I/s200/minix.jpg" title="Minix" width="200" /> 
+</div>Hace ya un tiempo escrib&iacute; un par de entradas sobre el sistema Minix porque tiene algunas 
+<a href="http://www.minix3.org/other/reliability.html">caracter&iacute;sticas muy interesantes</a> que ya les gustar&iacute;a tener a otros sistemas operativos, 
+<a href="http://elblogdepicodev.blogspot.com/2010/10/el-sistema-operativo-minix.html">El sistema operativo Minix</a> donde daba una descripci&oacute;n de &eacute;l y una 
+<a href="http://elblogdepicodev.blogspot.com/2010/11/guia-instalacion-minix.html">Gu&iacute;a de instalaci&oacute;n Minix</a> donde explicaba como era su instalaci&oacute;n en una m&aacute;quina virtual con VirtualBox. Ahora con la reciente salida de la versi&oacute;n 3.2.0 de Minix y la adici&oacute;n de 
+<a href="http://wiki.minix3.org/en/MinixReleases">nuevas caracter&iacute;sticas</a> escribo esta entrada para saber que hacer despu&eacute;s de instalarlo con el objetivo de intentar hacer de Minix usable para algo y no quedarme con la sensaci&oacute;n de que es algo experimental (aunque a&uacute;n tengo la sensaci&oacute;n de ello). 
+<br /> 
+<br />Los paquetes disponibles para Minix no son muchos y por tanto las posibilidades est&aacute;n limitadas pero en esta entrada voy a explicar alg&uacute;n uso &uacute;til que le podr&iacute;amos dar a Minix.<p class="continue-reading"><a href="/post/elblogdepicodev/2012/03/guia-post-instalacion-minix">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/10/el-sistema-operativo-minix">El sistema operativo Minix</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/10/el-sistema-operativo-minix.html">Entrada original</a></span></div><div><span>Publicado el domingo, 31 de octubre de 2010 a las 12:59 UTC</span></div><div><span>Actualizado el viernes, 09 de marzo de 2012 a las 18:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/minix">minix</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/10/el-sistema-operativo-minix" st_via="blogstack" st_title="El sistema operativo Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Minix" height="155" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TM1S9jnBVcI/AAAAAAAAAg8/Ni1Fn3hj53U/s200/minix.jpg" title="Minix" width="200" /> 
+</div>Si eres lector habitual de blogs sobre GNU/Linux o software libre seguramente habr&aacute;s le&iacute;do alguna vez que GNU/Linux es m&aacute;s que Ubuntu. Sin embargo, tambi&eacute;n se puede decir que Unix es m&aacute;s que solo GNU/Linux. Hay varios sistemas operativos con la filosof&iacute;a Unix adem&aacute;s de GNU/Linux, si bien es cierto no tan extendidos como este &uacute;ltimo, por mencionar algunos los de la familia BSD ( 
+<a href="http://www.netbsd.org/">NetBSD</a>, 
+<a href="http://www.freebsd.org/">FreeBSD</a>, 
+<a href="http://www.openbsd.org/">OpenBSD</a>, ...), el en continuo estado de desarrollo 
+<a href="http://www.gnu.org/software/hurd/hurd.html">GNU/Hurd</a> (del que Arch tiene una versi&oacute;n con este n&uacute;cleo, 
+<a href="http://www.archhurd.org/">Arch Hurd</a>), 
+<a href="http://illumos.org/">Illumos</a>&nbsp;y Solaris, otros menos conocidos como 
+<a href="http://www.dragonflybsd.org/">DragonFly</a> y sobre el que trata esta entrada, 
+<a href="http://www.minix3.org/">Minix</a>. 
+<br /> 
+<br />Como muy posiblemente ya conocer&aacute;s Minix es el sistema desarrollado por 
+<a href="http://en.wikipedia.org/wiki/Andrew_S._Tanenbaum">Andrew Tanenbaum</a> (y colaboradores) con el objetivo inicialmente de ser un sistema operativo con el que sus alumnos pudiesen aprender de forma pr&aacute;ctica los principios te&oacute;ricos sobre los que se basan los sistemas operativos. Con la versi&oacute;n 3 tambi&eacute;n tiene como objetivo ser un sistema usable seg&uacute;n la propia p&aacute;gina del proyecto.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/10/el-sistema-operativo-minix">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19">Un día en la Euskal Encounter 19</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/07/un-dia-en-la-euskal-encounter-19.html">Entrada original</a></span></div><div><span>Publicado el domingo, 24 de julio de 2011 a las 09:46 UTC</span></div><div><span>Actualizado el sábado, 21 de enero de 2012 a las 16:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu">ubuntu</a>
+,
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/otros">otros</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19" st_via="blogstack" st_title="Un día en la Euskal Encounter 19 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Euskal encounter 19" src="http://1.bp.blogspot.com/-XcMwHk7AABo/TiqxFNgHm7I/AAAAAAAAA50/Ot6_eSvAkEA/s1600/euskal-encounter.png" title="Euskal encounter 19" /> 
+</div>En estos d&iacute;as se est&aacute; celebrando, del 22 al 25 de julio, la&nbsp; 
+<a href="http://www.euskal.org/">Euskal Encounter</a>, uno de los enventos inform&aacute;ticos m&aacute;s importantes de Euskadi, del estado de Espa&ntilde;a y seg&uacute;n algunos uno de los mejores de parte de Europa. As&iacute; desde hace ya 19 ediciones, con en estos d&iacute;as exactamente 4096 puestos para los asistentes que disponen de una conexi&oacute;n de 20 Gb por segundo ofrecida por la mano de Euskaltel y HP. 
+<br /> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://3.bp.blogspot.com/-l99Z53pT6aQ/Tiq05lW8FXI/AAAAAAAAA6E/Olu9LltUxY4/s1600/DSCN0130.JPG"><img height="150" src="http://3.bp.blogspot.com/-l99Z53pT6aQ/Tiq05lW8FXI/AAAAAAAAA6E/Olu9LltUxY4/s200/DSCN0130.JPG" width="200" /></a> 
+ <a href="http://1.bp.blogspot.com/-SKInSG7mKf8/Tiq6WvHVMhI/AAAAAAAAA8c/c0fNIcXlILE/s1600/DSCN0100.JPG"><img height="150" src="http://1.bp.blogspot.com/-SKInSG7mKf8/Tiq6WvHVMhI/AAAAAAAAA8c/c0fNIcXlILE/s200/DSCN0100.JPG" width="200" /></a> 
+</div> 
+<div style="clear: both; text-align: center;"> 
+ <br /> 
+</div>A pesar de que se organiza en Barakaldo, al alcance de metro de ciudad en la que vivo y escasos minutos, hasta este a&ntilde;o no hab&iacute;a asistido a ninguna. Ten&iacute;a muchas ganas de ir y vivir en primera persona lo que ah&iacute; acontec&iacute;a al menos por un d&iacute;a, este a&ntilde;o no lo quer&iacute;a dejar pasar y as&iacute; ha sido. Como repaso de lo que ha dado el d&iacute;a (y parte de la noche) os escribo esta entrada.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/05/el-impuesto-windows">El impuesto Windows</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/05/impuesto-windows.html">Entrada original</a></span></div><div><span>Publicado el viernes, 06 de mayo de 2011 a las 17:40 UTC</span></div><div><span>Actualizado el viernes, 09 de diciembre de 2011 a las 19:57 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/el-impuesto-windows" st_via="blogstack" st_title="El impuesto Windows | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img height="198" src="http://3.bp.blogspot.com/-jH1CDgwhky0/TcQlzRMGfUI/AAAAAAAAApM/GqnFKxYCUQg/s200/no-windows.jpg" width="200" /> 
+</div>Desde hace ya un tiempo estoy en buscando comprar un port&aacute;til (PC, no Mac). &iquest;Pero os hab&eacute;is fijado? Todos vienen con Windows, incluso los menos potentes y baratos netbooks, donde probablemente el coste de la licencia Windows a pesar de ser m&aacute;s barata que la retail supondr&aacute; un importante porcentaje del coste total del equipo. Por desgrac&iacute;a en las marcas m&aacute;s conocidas (Sony, HP, Dell, Acer, ...) no he encontrado ning&uacute;n modelo con alguna distribuci&oacute;n GNU/Linux o al menos sin sistema operativo. Hay alguna marca de port&aacute;tiles menos conocida como 
+<a href="http://www.ahtec.es/">Ahtec</a> que si ofrece esta posibilidad pero he leido algunas opiniones no muy buenas de su soporte. 
+<br /> 
+<br />Si hace ya un tiempo la comisi&oacute;n Europea oblig&oacute; a Microsoft a no incluir su Internet Explorer en su sistema operativo para no abusar de posici&oacute;n dominante y a incluir la ballot screen para que los usuarios pudiesen elegir su navegador. &iquest;Por qu&eacute; no hace algo parecido pero con el sistema operativo de los port&aacute;tiles? &iquest;Por qu&eacute; el consumidor pr&aacute;cticamente no puede comprar un equipo sin sistema operativo? &iquest;Por qu&eacute; si no es justo imponer un canon indiscriminado a todos los medios de almacenamiento y dispositivos electr&oacute;nicos se nos impone un &quot;Impuesto Windows&quot; en los port&aacute;tiles a todos los usuarios aunque no seamos usuarios de ese sistema operativo y lo primero que hacemos es eliminarlo del disco duro? &iquest;Por qu&eacute; ese impuesto se ha de pagar por cada equipo que se compra? &iquest;Si ya tengo una licencia porque tengo que comprar otra nueva OEM?<p class="continue-reading"><a href="/post/elblogdepicodev/2011/05/el-impuesto-windows">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/03/de-windows-a-arch-linux">De Windows a Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/03/de-windows-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el lunes, 08 de marzo de 2010 a las 19:50 UTC</span></div><div><span>Actualizado el viernes, 09 de diciembre de 2011 a las 19:54 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu">ubuntu</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/03/de-windows-a-arch-linux" st_via="blogstack" st_title="De Windows a Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Como mucha gente me inici&eacute; en la inform&aacute;tica all&aacute; por la &eacute;poca del MS-DOS y Windows 3.11 en la escuela e instituto pero no tuve mi primer ordenador hasta que sali&oacute; el Windows 95 con un Pentium a 120 Mhz y con tan s&oacute;lo &iexcl;8 megas! de RAM. Posteriormente, seg&uacute;n sal&iacute;an nuevas versiones de Windows fu&iacute; us&aacute;ndolas... Windows NT, Windows Me (epic fail!), Windows 2000, Windows XP... hasta que sustitu&iacute; mi anterior PC de escritorio, un Athlon XP 1800+ con 512 megas, en el 2008 por mi actual port&aacute;til, un Dell XPS M1530 y que venia con Windows Vista. 
+<br /> 
+<br />Anteriormente, ya hab&iacute;a probado varias distribuciones Linux... alguna versi&oacute;n de Mandrake cuando estaba en la Universidad y Fedora Core (cuando a&uacute;n se llamaba asi), sin embargo, no duraban mucho tiempo en el disco duro ni los llegu&eacute; a usar habitualmente debido a que no consegu&iacute;a configurar todo para que funcionase correctamente&nbsp;o simplemente por los juegos&nbsp;con lo que acababa volviendo al Windows del momento. Como dec&iacute;a, esto fu&eacute; asi hasta que compr&eacute; mi actual port&aacute;til.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/03/de-windows-a-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres">Alternativas a programas propietarios para sustituirlos por programas libres</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/02/alternativas-tus-programas-propietarios.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 17 de febrero de 2010 a las 18:24 UTC</span></div><div><span>Actualizado el viernes, 09 de diciembre de 2011 a las 19:51 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres" st_via="blogstack" st_title="Alternativas a programas propietarios para sustituirlos por programas libres | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>El 
+<a href="http://es.wikipedia.org/wiki/Software_libre">software libre</a> (SL) a veces es confundido como sin&oacute;nimo de 
+<a href="http://es.wikipedia.org/wiki/GNU/Linux">GNU/Linux</a> y no es cierto, quiz&aacute; sea debido a que en GNU/Linux el SL est&aacute; mucho m&aacute;s presente (tambi&eacute;n el SL se confunde con gratis, y aunque en muchos casos es as&iacute; tampoco es cierto pero esto es asunto para otra entrada). El SL es un concepto que no est&aacute; asociado a determinado sistema operativo, sea este libre o no. De hecho, hay un mont&oacute;n de SL disponible para 
+<a href="http://es.wikipedia.org/wiki/Software_propietario">sistemas operativos privativos</a>, como os supondr&eacute;is me estoy refiriendo a Windows y Mac OS X, tanto que para cada programa privativo que tengamos en nuestro ordenador podemos encontrar uno o varios equivalentes con una licencia de software libre, con una funcionalidad similar y tan capaces como los no libres. 
+<br /> 
+<br />De eso va esta entrada, de hacer una peque&ntilde;a lista de programas propietarios que quiz&aacute; tengamos en el sistema que usamos con sus equivalentes libres. Pulsa en el enlace de cada programa para ver sus alternativas libres.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/11/apache-tapestry-53-publicado-notas-de-publicacion">Apache Tapestry 5.3 publicado (Notas de publicación)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/11/apache-tapestry-53-publicado.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 23 de noviembre de 2011 a las 17:01 UTC</span></div><div><span>Actualizado el miércoles, 30 de noviembre de 2011 a las 09:20 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/11/apache-tapestry-53-publicado-notas-de-publicacion" st_via="blogstack" st_title="Apache Tapestry 5.3 publicado (Notas de publicación) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>La versi&oacute;n 5.3 de del framework 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> para el desarrollo de aplicaciones web din&aacute;micas en Java ha sido publicada y as&iacute; 
+<a href="http://mail-archives.apache.org/mod_mbox/tapestry-users/201111.mbox/%3CCACd-vsNnhX-zTTfM=-KNZCDsMeOgmzOE7TqeOC5-F44wpB-Mwg@mail.gmail.com%3E">ha sido anunciada en la lista de correo</a>. Contin&uacute;a con la l&iacute;nea de las series 5.x e incorpora muchas novedades, mejoras y correcciones de errores, casi 350 peticiones han sido resueltas. Varias de estas nuevas caracter&iacute;sticas se suman a algunos&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com/2011/08/motivos-para-elegir-apache-tapestry.html">Motivos para elegir el framework Apache Tapestry</a>. Las lista de novedades es la siguiente: 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /> 
+</div> 
+<br /> 
+<b>Documentaci&oacute;n</b> 
+<br />La ya buena documentaci&oacute;n que exist&iacute;a ha sido mejorada y ampliada con nuevas secciones. As&iacute; tenemos&nbsp; 
+<a href="http://tapestry.apache.org/tapestry-tutorial.html">un tutotial</a>&nbsp;con el que los usuarios que est&eacute;n empezando les resulte m&aacute;s f&aacute;cil la tarea, incluye las herramientas a utilizar, las dependencias, como emepezar una aplicaci&oacute;n r&aacute;pidamente utilizando el archetype de maven y un par de ejemplos sencillos para empezar a hacer algo asi como usar Tapestry con Hibernate. Tambi&eacute;n se ha a&ntilde;adido&nbsp;<p class="continue-reading"><a href="/post/elblogdepicodev/2011/11/apache-tapestry-53-publicado-notas-de-publicacion">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/10/$003fhola-planeta-codigo">¡Hola Planeta Código!</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/10/hola-planeta-codigo.html">Entrada original</a></span></div><div><span>Publicado el viernes, 28 de octubre de 2011 a las 18:06 UTC</span></div><div><span>Actualizado el viernes, 28 de octubre de 2011 a las 18:06 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/hola">hola</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/$003fhola-planeta-codigo" st_via="blogstack" st_title="¡Hola Planeta Código! | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Planeta C&oacute;digo" height="65" src="http://1.bp.blogspot.com/-PfdTL9bYtAI/Tqrt9xOhJSI/AAAAAAAAA-0/UpJfjQvnePU/s320/planeta-codigo.jpg" title="Planeta C&oacute;digo" width="320" /> 
+</div>&Uacute;ltimamente las entradas que estoy escribiendo en el blog est&aacute;n m&aacute;s orientadas a la programaci&oacute;n entorno a la plataforma Java que a GNU/Linux aunque siempre relacionadas con el software libre o c&oacute;digo abierto. Por ello he incluido mi blog en el agregador de 
+<a href="http://www.planetacodigo.com/">Planeta C&oacute;digo</a> m&aacute;s orientado a temas de programaci&oacute;n. 
+<br /> 
+<br />Al igual que cuando inclu&iacute; mi blog en 
+<a href="http://www.planetalinux.org/es">Planeta Linux</a>&nbsp;el objetivo es llegar a m&aacute;s lectores y si es posible recibir m&aacute;s visitas y comentarios en el blog. Para los que no conozcan mi blog pode&iacute;s visitarlo en 
+<a href="http://elblogdepicodev.blogspot.com/">http://elblogdepicodev.blogspot.com</a>. La tem&aacute;tica del mismo es el software libre, linux, la programaci&oacute;n y cualquier cosa que tenga que ver con la tecnolog&iacute;a o la inform&aacute;tica. 
+<br /> 
+<br />Algunas de las &uacute;ltimas entradas que he escrito en &eacute;l son:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/10/$003fhola-planeta-codigo">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico">Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/10/ejemplo-sencillo-con-javacc-de-un.html">Entrada original</a></span></div><div><span>Publicado el sábado, 15 de octubre de 2011 a las 10:34 UTC</span></div><div><span>Actualizado el sábado, 15 de octubre de 2011 a las 10:54 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_via="blogstack" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>Hay ocasiones en que necesitamos procesar una determinada expresi&oacute;n, por ejemplo para hacer una b&uacute;squeda por una serie de criterios obtenidos de la misma. La forma habitual es hacerlo creando un algoritmo espec&iacute;fico m&aacute;s o menos complejo seg&uacute;n lo sea la expresi&oacute;n con varios splits, expresiones regulares, condiciones, bucles, etc..., que normalmente resulta en c&oacute;digo ofuscado dif&iacute;cil de desarrollar, mantener, entender lo que hace y poco flexible ante cambios. Esta es la primera opci&oacute;n que se nos ocurre pero no es la mejor forma de hacerlo como veremos en esta entrada. 
+<br /> 
+<br />Cuando nos enfrentamos a un problema de procesar una expresi&oacute;n debemos tener en cuenta primeramente dos cosas: cual es su l&eacute;xico (las palabras que lo forman) y su sintaxis (las reglas que definen el orden del l&eacute;xico). M&aacute;s tarde por otra parte para procesar la expresi&oacute;n necesitaremos de acciones l&eacute;xicas y sint&aacute;cticas que es c&oacute;digo que se ejecutar&aacute; para realizar las tareas que necesitemos al procesar la expresi&oacute;n.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux">Vídeo promocional sobre Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/07/video-promocional-sobre-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el domingo, 17 de julio de 2011 a las 18:20 UTC</span></div><div><span>Actualizado el domingo, 17 de julio de 2011 a las 18:21 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux" st_via="blogstack" st_title="Vídeo promocional sobre Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Despu&eacute;s de los 
+<a href="http://elblogdepicodev.blogspot.com/2011/07/motivos-para-elegir-la-distribucion.html">motivos de por qu&eacute; elegir Arch Linux</a> he hecho un peque&ntilde;o v&iacute;deo que resume algunos aspectos de est&aacute; fant&aacute;stica distribuci&oacute;n, para aquellos que prefieran ver en vez de leer y tambi&eacute;n para poder hacerlo llegar no solo a los que visitan mi blog sino tambi&eacute;n para aquellos que visitan youtube. 
+<br /> 
+<br />Rolling Release, KISS, n&uacute;mero de paquetes disponibles, aplicaciones de usuario, aplicaciones para desarrollo, personalizaci&oacute;n, rapidez y ligereza, adaptaci&oacute;n a las preferencias del usuario y su gran comunidad son algunas caracter&iacute;sticas que destaco de esta distribuci&oacute;n. El v&iacute;deo es muy simple porque es mi primer v&iacute;deo, no tengo muchas capacidades gr&aacute;ficas, ni una gran creatividad y tampoco PiTiVI permite muchas opciones (esperemos que seg&uacute;n vayan saliendo nuevas versiones le a&ntilde;adan funcionalidades y corrijan errores ya que&nbsp;no ha juntado bien las diapositivas)&nbsp;pero espero que contenga los&nbsp;aspectos importantes de Arch Linux, si cree&iacute;s que falta o ten&eacute;is alguna aportaci&oacute;n solo ten&eacute;is que suger&iacute;rmelo y har&eacute; lo que pueda por a&ntilde;adirlo. El v&iacute;deo no es definitivo y a medida que se me ocurra o me coment&eacute;is alguna modificaci&oacute;n la ir&eacute; a&ntilde;adiendo.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee">Hola mundo con Symfony 2 y Cherokee</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/06/hola-mundo-con-symfony-2-y-cherokee.html">Entrada original</a></span></div><div><span>Publicado el viernes, 24 de junio de 2011 a las 17:10 UTC</span></div><div><span>Actualizado el sábado, 25 de junio de 2011 a las 01:36 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_via="blogstack" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Symfony" height="50" src="http://3.bp.blogspot.com/-EfsJMvWVKB8/Tfua8-JHx0I/AAAAAAAAA38/wEXePF8dCrk/s200/symfony.png" title="Symfony" width="200" /> 
+ <br /> 
+ <img alt="Cherokee" height="77" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s200/cherokee2-mini.png" title="Cherokee" width="200" /> 
+</div>Despu&eacute;s de las entradas de 
+<a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">Servidor web ligero Cherokee, instalaci&oacute;n e integraci&oacute;n con PHP en Arch Linux</a> y de como 
+<a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Instalar Symfony y Cherokee en Arch Linux</a> iba a ponerme a escribir una entrada con un Hola mundo para Symfony pero la verdad es que no creo que merezca la pena ya que la 
+<a href="http://symfony.com/doc/current/book/page_creation.html">documentaci&oacute;n de Symfony</a> me parece tan buena que pr&aacute;cticamente ser&iacute;a repetir lo que pone en ella. Me limitar&eacute; a explicar como configurar las reglas de Cherokee para que las rutas de la apliaci&oacute;n de Symfony sean m&aacute;s amigables de SEO, esto es, sin que incluyan la ruta al controlador frontal (/app_dev.php). Aunque esto tambi&eacute;n est&aacute; explicado para Symfony 1 en un 
+<a href="http://www.cherokee-project.com/doc/cookbook_symfony.html">Cookbook de Cherokee</a>. 
+<br /> 
+<br />Teniendo instalado el 
+<a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">soporte para PHP</a> y 
+<a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Symfony</a>&nbsp;en Cherokee de las dos entradas anteriores empezaremos modificando en la pesta&ntilde;a &laquo;B&aacute;sica&raquo; la propiedad Raiz de documentos de &laquo;/var/www&raquo; a &laquo;/var/www/Symfony/web&raquo; del servidor virtual.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux">Instalar Symfony y Cherokee en Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Entrada original</a></span></div><div><span>Publicado el viernes, 17 de junio de 2011 a las 18:38 UTC</span></div><div><span>Actualizado el sábado, 18 de junio de 2011 a las 11:42 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux" st_via="blogstack" st_title="Instalar Symfony y Cherokee en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Symfony" height="50" src="http://3.bp.blogspot.com/-EfsJMvWVKB8/Tfua8-JHx0I/AAAAAAAAA38/wEXePF8dCrk/s200/symfony.png" title="Symfony" width="200" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Cherokee" height="77" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s200/cherokee2-mini.png" title="Cherokee" width="200" /> 
+</div>El 
+<a href="http://www.php.net/">lenguaje de programaci&oacute;n PHP</a> es uno de los m&aacute;s usados para desarrollar sitios web de internet. Su popularidad se debe a su sencillez y su clara orientaci&oacute;n al mundo de las p&aacute;ginas web. Es un lenguaje de scripting que ha incoporado y mejorado el soporte para la orientaci&oacute;n a objetos en las &uacute;ltimas versiones, yendo de esta forma hacia la direcci&oacute;n que en estos tiempos han seguido la mayor&iacute;a de lenguajes. Para proyectos peque&ntilde;os y sencillos usar &uacute;nicamente scripts de PHP puede ser suficiente pero en cuanto la complejidad y tama&ntilde;o del proyecto aumenta es necesario buscar soluciones para que el desarrollo y mantenimiento posterior no se convierta en un infierno, en la web de Symfony tienen un excelente 
+<a href="http://symfony.com/doc/current/book/from_flat_php_to_symfony2.html">art&iacute;culo de por que son necesarios</a> y con estos motivos surgen los frameworks. En PHP en concreto hay varios disponibles, quiza los m&aacute;s conocidos sean:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/4"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"><a href="/label/page/2">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

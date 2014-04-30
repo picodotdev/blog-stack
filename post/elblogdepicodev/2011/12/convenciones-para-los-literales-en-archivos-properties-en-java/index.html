@@ -1,0 +1,125 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Convenciones para los literales en archivos .properties en Java | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java">Convenciones para los literales en archivos .properties en Java</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/12/convenciones-para-los-literales-en.html">Entrada original</a></span></div><div><span>Publicado el viernes, 02 de diciembre de 2011 a las 19:11 UTC</span></div><div><span>Actualizado el martes, 06 de diciembre de 2011 a las 03:47 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_via="blogstack" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <br />
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
+</div>La internacionalizaci&oacute;n (i18n) y la localizaci&oacute;n (i10n) en las aplicaciones Java ya sean de escritorio o aplicaciones web se suelen hacer a trav&eacute;s de archivos .properties obtenidos a partir de la clase 
+<a href="http://download.oracle.com/javase/7/docs/api/java/util/ResourceBundle.html">ResourceBundle</a> que contienen los literales para cada uno de los idiomas que soporta la aplicaci&oacute;n, a cada literal se le asocia una clave que ser&aacute; el medio por el cual se identificar&aacute; a la hora de recuperarlos.
+<br />
+<br />Un extracto de un archivo t&iacute;pico suele tener el siguiente aspecto:
+<br />
+<br />
+<div>
+ <pre>...<br />#Combos<br />comboDepartamentos=Todos los departamentos<br />comboAreas=Todas las &aacute;reas<br />comboRepositorios=Todos los repositorios<br />comboAplicaciones=Todas las aplicaciones<br />comboModulos=Todos los m&oacute;dulos<br />comboProgramas=Todos los programas<br />...<br />#Mantenimiento de Repositorios<br />mr.aceptar=Aceptar<br />mr.buscar=Buscar<br />mr.cancelar=Cancelar<br />mr.confirmarEliminar=Los repositorios seleccionados pueden tener informaci&oacute;n relacionada que ser&aacute; eliminada en cascada. &iquest;Desea eliminar los repositorios seleccionados y la informaci&oacute;n relacionada?<br />mr.registroEliminado=El registro ha sido eliminado por otro usuario.<br />mr.validacion.nombreExiste=Existe otro repositorio con el mismo nombre.<br />...<br />#Mantenimiento de Aplicaciones<br />ma.aceptar=Aceptar<br />ma.buscar=Buscar<br />ma.cancelar=Cancelar<br />...<br />#Mantenimiento de M&oacute;dulos<br />mm.aceptar=Aceptar<br />mm.buscar=Buscar<br />mm.confirmarEliminar=Los m&oacute;dulos seleccionados pueden tener informaci&oacute;n relacionada que ser&aacute; eliminada en cascada. &iquest;Desea eliminar los m&oacute;dulos seleccionados y la informaci&oacute;n relacionada?<br />...</pre>
+</div>
+<br />Como se puede observar las claves de los literales de cada pantalla est&aacute;n identificados por un prefijo (mr, ma, mm) con el objetivo de agrupar los de cada pantalla, algunos no tienen prefijo como los de la secci&oacute;n #Combos. A los literales muy largos como mr.confirmarEliminar y mm.confirmarEliminar se les asigna una clave m&aacute;s corta que el propio literal y que tendremos que asignar para identificarlo.
+<br />
+<br />Estas convenciones tienen algunos problemas. Uno de ellos es que hay literales que son muy comunes en la aplicaci&oacute;n y estar&aacute;n varias veces repetidos como Aceptar, Buscar, Cancelar lo que implica que los traductores tendr&aacute;n que tarducirlo varias veces y a los programadores mantener mayor n&uacute;mero de literales, adem&aacute;s de ralentizar el trabajo &iquest;tiene sentido pedir a los traductores traducir el mismo literal varias veces? No. Los literales largos como mr.confirmarEliminar y mm.confirmarEliminar tienen el problema de que sus claves son poco representativas de su literal siendo vistos en el archivo de c&oacute;digo fuente donde se use, lo que hace que leerlo sea poco significativo y representativo de los textos que luego se muestran.
+<br />
+<br />Para solventar estos problemas y despu&eacute;s de varios a&ntilde;os de experiencia trabajando con archivos de literales en Java prefiero seguir otras convenciones. Seg&uacute;n estas los archivos tendr&iacute;an el siguiente aspecto:
+<br />
+<br />
+<div>
+ <pre>...<br />Aceptar=Aceptar<br />Buscar=Buscar<br />Cancelar=Cancelar<br />...<br />El_registro_ha_sido_eliminado_por_=El registro ha sido eliminado por otro usuario.<br />Existe_otro_repositorio_con_=Existe otro repositorio con el mismo nombre.<br />Los_repositorios_seleccionados_pueden_tener_informaci&oacute;n_relacionada_=Los repositorios seleccionados pueden tener informaci&oacute;n relacionada que ser&aacute; eliminada en cascada. &iquest;Desea eliminar los repositorios seleccionados y la informaci&oacute;n relacionada?<br />...<br />Los_m&oacute;dulos_seleccionados_pueden_tener_informaci&oacute;n_relacionada_=Los m&oacute;dulos seleccionados pueden tener informaci&oacute;n relacionada que ser&aacute; eliminada en cascada. &iquest;Desea eliminar los m&oacute;dulos seleccionados y la informaci&oacute;n relacionada?<br />...<br />#Combos<br />Todas_las_aplicaciones=Todas las aplicaciones<br />Todas_las_areas=Todas las &aacute;reas<br />Todos_los_departamentos=Todos los departamentos<br />Todos_los_modulos=Todos los m&oacute;dulos<br />Todos_los_programas=Todos los programas<br />Todos_los_repositorios=Todos los repositorios<br />...</pre>
+</div>
+<br />Como se puede ver para los literales cortos la clave ser&aacute; el propio literal en nuestro idioma nativo sin &ntilde; o tildes, con esto al leer el archivo de c&oacute;digo fuente sabremos cual es el texto exacto que se mostrar&aacute; y no tendremos que estar invent&aacute;ndonos constantemente identificadores para los literales. Los literales cortos pero formados por varias palabras tendr&aacute;n un &laquo;_&raquo; para representar el espacio. Las claves de los literales largos son el literal acortado con suficientes palabras para que no se repitan, les a&ntilde;ado un &laquo;_&raquo; al final para saber que se ha acortado, el objetivo de acortarlo es que con unas cuantas palabras ya podemos hacernos una idea del texto que se muestra. Adem&aacute;s los literales est&aacute;n ordenados alfab&eacute;ticamente por la clave para encontrarlos m&aacute;s f&aacute;cilmente. No digo que estas reglas no puedan tener excepciones para algunos casos pero sigui&eacute;ndolas para la mayor&iacute;a evitaremos que seg&uacute;n vaya pasando el tiempo estos archivos se conviertan en un problema de mantenimiento, cuando en una aplicaci&oacute;n tenemos 2000 o m&aacute;s literales, cr&eacute;eme, puede llegar a serlo.</div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_via="blogstack" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java" st_title="Convenciones para los literales en archivos .properties en Java | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Convenciones para los literales en archivos .properties en Java";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/12/convenciones-para-los-literales-en.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 125,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/12/convenciones-para-los-literales-en-archivos-properties-en-java"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry">Solución al problema de seguridad CSRF en Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/10/solucion-al-problema-de-seguridad-csrf.html">Entrada original</a></span></div><div><span>Publicado el viernes, 18 de octubre de 2013 a las 18:20 UTC</span></div><div><span>Actualizado el viernes, 01 de noviembre de 2013 a las 19:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_via="blogstack" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: both; text-align: center;"></div>
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>Al desarrollar una aplicaci&oacute;n el problema de seguridad 
+<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a> (Cross-site scripting) puede afectar a los usuarios de nuestra aplicaci&oacute;n. XSS consiste en que la aplicaci&oacute;n permite la inyecci&oacute;n de c&oacute;digo malicioso que posteriormente otros usuarios obtienen al acceder a nuestra aplicaci&oacute;n. Se produce porque nuestra aplicaci&oacute;n no realiza el escapado correctamente de lo que env&iacute;a al usuario y porque el usuario conf&iacute;a en lo que obtiene del servidor. Para evitar este problema 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> por defecto realiza un escapado de lo que emite al cliente con lo que si no hacemos lo contrario la aplicaci&oacute;n estar&aacute; a salvo de este problema.
+<br />
+<br />Otro problema de seguridad es 
+<a href="https://owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29">CSRF</a> (Cross-site request forgery) en el que b&aacute;sicamente un sitio al que se accede devuelve un enlace malicioso que provoca una acci&oacute;n en otro, el atacado. El enlace devuelto puede producir cualquier acci&oacute;n que el sitio atacado permita, el ejemplo que se suele poner es el de un sitio bancario y el intento de hacer una transferencia de la cuenta del usuario que tiene iniciada una sesi&oacute;n en la p&aacute;gina de su banco a la cuenta del atacante pero podr&iacute;a ser la realizaci&oacute;n de un cambio de contrase&ntilde;a a una que conozca el atacante y de esta forma posteriormente este pueda autenticarse con la cuenta de ese usuario en el sitio atacado. En la 
+<a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">wikipedia</a> este problema de seguridad est&aacute; m&aacute;s ampliamente explicado con ejemplos, limitaciones y como prevenirlo. A diferencia de XSS donde el usuario confia en lo que obtiene del servidor en el caso de CSRF es al contrario, el servidor confia en las peticiones del cliente, aunque puedan provenir de un sitio malicioso.
+<br />
+<br />Una soluci&oacute;n que suele aplicarse para resolver el problema de CSRF es incluir en los enlaces y formularios un token de seguridad, si el token no se env&iacute;a o no se corresponde con el token del servidor la petici&oacute;n se considera inv&aacute;lida y no se procesa. Al acceder a una p&aacute;gina se genera el token de seguridad y se incluye en todos los enlaces y formularios, este token no ser&aacute; conocido por un a tercera parte y los enlaces maliciosos no ser&aacute;n procesados.
+<br />
+<br />En esta entrada mostrar&eacute; como solucionar este problema en Tapestry con una combinaci&oacute;n de mixin, anotaci&oacute;n, advice y objeto de estado de aplicaci&oacute;n (SSO), similar a lo explicado en 
+<a href="http://viennamarkus.blogspot.com.es/2011/05/to-get-in-touch-with-tapestry-internals.html">este blog</a> pero con la adici&oacute;n que no solo sirve para formularios sino tambi&eacute;n para enlaces y el componente 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/BeanEditForm.html">BeanEditForm</a>.
+<br />
+<br />Primero veamos el objeto estado de aplicaci&oacute;n que contendr&aacute; el token (sid) de seguridad, lo generar&aacute; y lo validar&aacute;, este objeto de estado de aplicaci&oacute;n se guardar&aacute; a nivel de sesi&oacute;n de modo que el token que se env&iacute;a en la petici&oacute;n pueda ser validado con el token guardado en este SSO.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=Sid.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/Sid.java">Sid.java</a>
+ <br />
+</noscript> El mixin CSRF har&aacute; que en los formularios se incluya un campo oculto con el token se seguridad del SSO y en los enlaces se incluya como un par&aacute;metro. El nombre del par&aacute;metro en ambos casos ser&aacute; t:sid. Este mixin puede ser aplicado a los componentes 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a>, 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a> y 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/BeanEditForm.html">BeanEditForm</a>.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=Csrf.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/Csrf.java">Csrf.java</a>
+ <br />
+</noscript> Creamos una anotaci&oacute;n para marcar los manejadores de evento y m&eacute;todos donde queremos que aplique la seguridad CSRF.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=annotation.Csrf.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/annotation.Csrf.java">annotation.Csrf.java</a>
+ <br />
+</noscript> Para aplicar la seguridad en los manejadores de evento y m&eacute;todos marcados con la anotaci&oacute;n lo haremos con cierta metaprogramaci&oacute;n, con ella comprobaremos que el token del SSO se corresponda con el token enviado por la petici&oacute;n. Esta forma de metaprogramaci&oacute;n es lo que en Tapestry se conoce como Advice, la funcionalidad consistir&aacute; en si el token de seguridad es correcto se permite la invocaci&oacute;n al m&eacute;todo protegido, si el token no es correcto se lanza una excepci&oacute;n impidiendo la llamada al m&eacute;todo protegido.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=CsrfWorker.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/CsrfWorker.java">CsrfWorker.java</a>
+ <br />
+</noscript> Finalmente, debemos modificar el m&oacute;dulo de nuestra aplicaci&oacute;n para dar a conocer a Tapestry el Advice para aplicar y comprobar la seguridad con el par&aacute;metro t:sid enviado y en el objeto SSO.
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=AppModule.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/AppModule.java">AppModule.java</a>
+ <br />
+</noscript> Para que en los componentes sea incluido del token de seguridad haremos uso del mixin, es tan simple a&ntilde;adir el atributo t:mixins y el mixin csrf en los elementos a incluir el par&aacute;metro t:sid:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=Index.tml"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/Index.tml">Index.tml</a>
+ <br />
+</noscript> Y para proteger los manejadores de evento con la anotaci&oacute;n Csrf de la siguiente manera:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=Index.java"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/Index.java">Index.java</a>
+ <br />
+</noscript> Con todo esto podemos resolver el problema de seguridad CSRF de forma muy simple y de forma declarativa con una combinaci&oacute;n de mixin y anotaciones, solo son necesarios &iexcl;20! caracteres entre ambos.
+<br />
+<br />Esta es la secci&oacute;n de la aplicaci&oacute;n del ejemplo funcionando donde puede probarse el mixin y ver la diferencia del comportamiento sin el mixin aplicado. 
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-UV9S-pwfgt0/UmF5hKEh4II/AAAAAAAACpM/zCmpXgL4syE/s1600/csrf.png"><img src="http://2.bp.blogspot.com/-UV9S-pwfgt0/UmF5hKEh4II/AAAAAAAACpM/zCmpXgL4syE/s1600/csrf.png" />&nbsp;</a>
+</div>
+<div style="clear: both; text-align: left;">
+ Cuando pulsamos en el enlace que env&iacute;a un t:sid inv&aacute;lido mediante un petici&oacute;n ajax provocar&aacute; el siguiente informe de error con un mensaje descriptivo de lo que ha ocurrido. 
+</div>
+<br />
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-2_cCJGV4nIE/UmF5yb9ijFI/AAAAAAAACpU/BhaYQfHeoh4/s1600/csrf-exception.png"><img height="255" src="http://1.bp.blogspot.com/-2_cCJGV4nIE/UmF5yb9ijFI/AAAAAAAACpU/BhaYQfHeoh4/s320/csrf-exception.png" width="320" /></a>
+</div>
+<br />En las siguientes im&aacute;genes puede verse el par&aacute;metro t:sid que se a&ntilde;ade tanto a un formulario como a un enlace cuando le aplicamos el mixin csrf.
+<br />
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;"></div>
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://4.bp.blogspot.com/-tmX096zCpy4/UmI9EYV2J_I/AAAAAAAACpo/pgWlzLc0LXg/s1600/csrf-sid-form.png"><img height="61" src="http://4.bp.blogspot.com/-tmX096zCpy4/UmI9EYV2J_I/AAAAAAAACpo/pgWlzLc0LXg/s400/csrf-sid-form.png" width="400" /></a></td>
+  </tr>
+  <tr>
+   <td>Par&aacute;metro t:sid en un formulario</td>
+  </tr>
+ </tbody>
+</table>
+<br />
+<table>
+ <tbody>
+  <tr>
+   <td><a href="http://2.bp.blogspot.com/-osNT1XlGB7w/UmI9EaLP22I/AAAAAAAACpk/qclxaYvSYYQ/s1600/csrf-sid-link.png"><img height="21" src="http://2.bp.blogspot.com/-osNT1XlGB7w/UmI9EaLP22I/AAAAAAAACpk/qclxaYvSYYQ/s400/csrf-sid-link.png" width="400" /></a></td>
+  </tr>
+  <tr>
+   <td>Par&aacute;metro t:sid en un enlace</td>
+  </tr>
+ </tbody>
+</table>
+<br />&iquest;Ya tienes en cuenta el problema de seguridad CSRF en tus aplicaciones web? &iquest;Con el framework que uses aplicar una soluci&oacute;n es tan simple como esta?
+<br />
+<br />De esta entrada aparte de resolver el problema de seguridad CSRF quiero destacar con se realiza la metaprogramaci&oacute;n en Apache Tapestry con las 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/plastic/package-summary.html">clases Plastic</a> de Tapestry en la clase CsrfWorker.
+<br />
+<br />Si te ha parecido interesante esta entrada puedes descargar el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">libro PlugIn Tapestry</a> en el que explico m&aacute;s en detalle como desarrollar aplicaciones web en Tapestry y en el que descubrir&aacute;s como resolver problemas comunes como este en las aplicaciones web de una forma tan buena como esta.
+<br />
+<br />Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada. Si no dispones de git para clonar 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/PlugInTapestry">mi repositorio de GitHub</a> puedes obtener el 
+<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a>.
+<br />
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/7044756.js?file=git.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/7044756/raw/git.sh">git.sh</a>
+ <br />
+</noscript> Referencia:
+<br />
+<a href="https://owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29">Cross-Site Request Forgery (CSRF)</a>
+<br />
+<a href="https://owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet">Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet</a> 
+<br />
+<a href="http://viennamarkus.blogspot.com.es/2011/05/to-get-in-touch-with-tapestry-internals.html">Apache Tapestry - CSRF Protection - First Prototype</a>
+<br />
+<a href="http://wiki.apache.org/tapestry/Tapestry5CSRF">http://wiki.apache.org/tapestry/Tapestry5CSRF</a>
+<br />
+<a href="https://code.google.com/p/gsoc2011-csrf-protection">https://code.google.com/p/gsoc2011-csrf-protection</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_via="blogstack" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" st_title="Solución al problema de seguridad CSRF en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Solución al problema de seguridad CSRF en Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/10/solucion-al-problema-de-seguridad-csrf.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 9,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

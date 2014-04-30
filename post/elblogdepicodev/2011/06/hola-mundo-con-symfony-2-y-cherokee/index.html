@@ -1,0 +1,143 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee">Hola mundo con Symfony 2 y Cherokee</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/06/hola-mundo-con-symfony-2-y-cherokee.html">Entrada original</a></span></div><div><span>Publicado el viernes, 24 de junio de 2011 a las 17:10 UTC</span></div><div><span>Actualizado el sábado, 25 de junio de 2011 a las 01:36 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_via="blogstack" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Symfony" height="50" src="http://3.bp.blogspot.com/-EfsJMvWVKB8/Tfua8-JHx0I/AAAAAAAAA38/wEXePF8dCrk/s200/symfony.png" title="Symfony" width="200" />
+ <br />
+ <img alt="Cherokee" height="77" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s200/cherokee2-mini.png" title="Cherokee" width="200" />
+</div>Despu&eacute;s de las entradas de 
+<a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">Servidor web ligero Cherokee, instalaci&oacute;n e integraci&oacute;n con PHP en Arch Linux</a> y de como 
+<a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Instalar Symfony y Cherokee en Arch Linux</a> iba a ponerme a escribir una entrada con un Hola mundo para Symfony pero la verdad es que no creo que merezca la pena ya que la 
+<a href="http://symfony.com/doc/current/book/page_creation.html">documentaci&oacute;n de Symfony</a> me parece tan buena que pr&aacute;cticamente ser&iacute;a repetir lo que pone en ella. Me limitar&eacute; a explicar como configurar las reglas de Cherokee para que las rutas de la apliaci&oacute;n de Symfony sean m&aacute;s amigables de SEO, esto es, sin que incluyan la ruta al controlador frontal (/app_dev.php). Aunque esto tambi&eacute;n est&aacute; explicado para Symfony 1 en un 
+<a href="http://www.cherokee-project.com/doc/cookbook_symfony.html">Cookbook de Cherokee</a>.
+<br />
+<br />Teniendo instalado el 
+<a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">soporte para PHP</a> y 
+<a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Symfony</a>&nbsp;en Cherokee de las dos entradas anteriores empezaremos modificando en la pesta&ntilde;a &laquo;B&aacute;sica&raquo; la propiedad Raiz de documentos de &laquo;/var/www&raquo; a &laquo;/var/www/Symfony/web&raquo; del servidor virtual.
+<br />
+<br />Inicialmente en la pesta&ntilde;a &laquo;Comportamiento&raquo;, donde veremos las acciones que realizar&aacute; Cherokee seg&uacute;n la URL recibida, tendremos dos reglas &laquo;Extensions PHP&raquo; y &laquo;Por defecto&raquo;, la primera se encargar&aacute; de capturar las URL que deban ser tratadas por el preprocesador de PHP y la segunda de devolver un listado en caso de que se pida un directorio o de devolver un archivo, por ejemplo una imagen o una hoja de estilo. Ahora en la pesta&ntilde;a &laquo;Comportamiento&raquo;, a&ntilde;adiremos una regla &laquo;Existe fichero&raquo; seleccionando en el asistente la opci&oacute;n &laquo;Coincide cualquier fichero&raquo;. Con esta regla se devolver&aacute; el contenido est&aacute;tico de nuestra aplicaci&oacute;n.
+<br />
+<br />Si queremos que en los listados de directorios aparezcan bien los estilos e im&aacute;genes tendremos que copiar las reglas &laquo;/cherokee_themes&raquo; y &laquo;/icons&raquo; del sevidor virtual default con el mismo contenido en las pesta&ntilde;as &laquo;Regla&raquo; y &laquo;Gestor&raquo;.
+<br />
+<br />Finalmente modificamos la regla &laquo;Por defecto&raquo; que ser&aacute; la que redirija las peticiones al controlador frontal para ello modificamos la regla en la pesta&ntilde;a &laquo;Gestor&raquo; indicando que ahora ser&aacute; de tipo &laquo;Redirecci&oacute;n&raquo;, en la lista de reglas a&ntilde;adiremos dos reglas de tipo Interna con el mismo contenido que se ve en la imagen (^(.*)$ -&gt; /app_dev.php, ^/$ -&gt; /app_dev.php).
+<br />
+<br />Las reglas tienen que estar en un orden concreto, ya que son procesadas por Cherokee en ese orden, para cambiarlo se puede utilizar arrastrar y soltar. El orden final ser&iacute;a Extensions php, Existe fichero, Directorio /cherokee_themes, /icons y Redirecci&oacute;n.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-hd6G9S1uDDA/TgTB_Ldze_I/AAAAAAAAA4k/5BzuKK_q8bM/s1600/symfony2-cherokee-2.png"><img height="168" src="http://3.bp.blogspot.com/-hd6G9S1uDDA/TgTB_Ldze_I/AAAAAAAAA4k/5BzuKK_q8bM/s200/symfony2-cherokee-2.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-6CRBv4-fYRY/TgTB9-qKJUI/AAAAAAAAA4g/_VdvgCOwMT4/s1600/symfony2-cherokee-1.png"><img height="167" src="http://1.bp.blogspot.com/-6CRBv4-fYRY/TgTB9-qKJUI/AAAAAAAAA4g/_VdvgCOwMT4/s200/symfony2-cherokee-1.png" width="200" /></a>
+</div>
+<br />A veces la aplicaci&oacute;n de administraci&oacute;n de Cherokee no hace correctamente los cambios en el archivo de configuraci&oacute;n /etc/cherokee/cherokee.conf y tal vez nos toque editarlo directamente en el archivo.
+<br />
+<br />Referencia:
+<br />
+<a href="http://symfony.com/">http://symfony.com/</a>
+<br />
+<a href="http://symfony.com/doc/current/book/page_creation.html#application-configuration">http://symfony.com/doc/current/book/page_creation.html#application-configuration</a>
+<br />
+<a href="http://www.cherokee-project.com/doc/cookbook_symfony.html">http://www.cherokee-project.com/doc/cookbook_symfony.html</a>
+<br />
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html">Servidor web ligero Cherokee, instalaci&oacute;n e integraci&oacute;n con PHP en Arch Linux</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Instalar Symfony y Cherokee en Arch Linux</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_via="blogstack" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee" st_title="Hola mundo con Symfony 2 y Cherokee | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Hola mundo con Symfony 2 y Cherokee";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/06/hola-mundo-con-symfony-2-y-cherokee.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/php/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta php</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 145,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/06/hola-mundo-con-symfony-2-y-cherokee"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

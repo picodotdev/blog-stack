@@ -1,0 +1,195 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura">Firmar digitalmente documentos con el DNIe y Sinadura</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura/">Entrada original</a></span></div><div><span>Actualizado el sábado, 21 de diciembre de 2013 a las 10:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/hardware">hardware</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_via="blogstack" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/sinadura.png" alt="Sinadura" title="Sinadura" /> 
+</div> 
+<p>Ya he comentado <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">como instalar un lector de tarjetas inteligentes en linux para usar el DNI electr&oacute;nico</a> y que una vez instalado como podemos darle alg&uacute;n uso &uacute;til como por ejemplo <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">autenticarnos con en DNI</a> en las p&aacute;ginas que lo soporten como medio de autenticaci&oacute;n y el navegador Firefox. Tambi&eacute;n he comentado <a href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/">como usar el DNI con el cliente de correo Evolution para enviar correos firmados digitalmente</a>.</p> 
+<p>En esta entrada voy a comentar como firmar digitalmente documentos en cualquier formato electr&oacute;nico con la aplicaci&oacute;n de software libre <a href="http://www.sinadura.net/es/">Sinadura</a>. La firma que hagamos con el DNIe sobre estos documentos puede tener la misma validez legal que la firma manuscrita.</p> 
+<p>Primeramente deberemos descargar la &uacute;ltima versi&oacute;n de <a href="http://www.sinadura.net/es/">Sinadura</a> seg&uacute;n la arquitectura de nuestro procesador, de 32 bits o de 64 bits y la plataforma linux o windows. El archivo descargado es un instalador que deberemos ejecutarlo, como es un programa Java deberemos tener instalado previamente un entorno de ejecuci&oacute;n de Java como el <a href="http://openjdk.java.net/">OpenJDK</a>. Lo ejecutamos con:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8067882.js?file=instalar-sunadura.sh"></script> 
+ <noscript>
+  <pre><code>$ java -jar sinaduraDesktop-3.3.3-unix64-installer.jar</code></pre>
+ </noscript>
+</div> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/instalador-sinadura.png" title="Instalador Sinadura"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/instalador-sinadura-thumb.png" alt="Instalador Sinadura" title="Instalador Sinadura" /></a> 
+</div> 
+<p>Una vez instalado sinadura y tambi&eacute;n teniendo instalado el lector de tarjetas inteligentes para el DNI y funcionando deberemos conectarlo al ordenador e introducir el DNI. Iniciaremos sinadura con que se encuentra dentro del directorio de instalaci&oacute;n de Sinadura:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8067882.js?file=iniciar-sinadura.sh"></script> 
+ <noscript>
+  <pre><code>$ ./sinadura.sh</code></pre>
+ </noscript>
+</div> 
+<p>Inicialmente veremos una pantalla como la siguiente con una lista de archivos vac&iacute;os y una serie de botones para realizar varias acciones.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/sinadura.png" title="Sinadura"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/sinadura-thumb.png" alt="Sinadura" title="Sinadura" /></a> 
+</div> 
+<p>Con Sinadura y el DNI podemos firmar digitalmente cualquier tipo de archivo pero entre los archivos de tipo pdf y el resto hay diferencias. En el caso de los pdf la firma se incrusta en el propio documento y en resto se crea un nuevo archivo con la firma y el documento original, el archivo nuevo creado tiene la extensi&oacute;n .sar. Para firmar un documento deberemos a&ntilde;adirlo a la vista con el bot&oacute;n &laquo;A&ntilde;adir documento&raquo; y posteriormente firmarlo con el bot&oacute;n &laquo;Firmar&raquo;. Para realizar la firma se nos pedir&aacute; que introduzcamos el PIN secreto que nos proporcionaron al emitirnos el DNI en la oficina de expedici&oacute;n.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/pin.png" title="Preferencias de Sinadura"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/pin-thumb.png" alt="Administrador de dispositivos (1)" title="Preferencias de Sinadura" /></a> 
+</div> 
+<p>En el caso de los archivos pdf Sinadura por defecto incrusta adem&aacute;s de la firma una marca de agua en la primera p&aacute;gina aunque se pueden cambiar algunas preferencias en &laquo;Archivo &gt; Preferencias&raquo;:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/preferencias-sinadura.png" title="Preferencias de Sinadura"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/preferencias-sinadura-thumb.png" alt="Preferencias de Sinadura" title="Preferencias de Sinadura" /></a> 
+</div> 
+<p>Los archivos .sar creados para archivos que no son pdf tienen el siguiente contenido, adem&aacute;s del archivo original una serie de archivos .xml que contendr&aacute;n la firma (son archivos zip con extensi&oacute;n .sar):</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/sinadura-documento-firmado.png" title="Documento firmado con Sinadura"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/3/sinadura-documento-firmado-thumb.png" alt="Documento firmado con Sinadura" title="Documento firmado con Sinadura" /></a> 
+</div> 
+<p>Una vez firmados los archivos podemos enviarlos por correo electr&oacute;nico y la persona que los reciba podr&aacute; validarlos tambi&eacute;n con Sinadura. Para ello se debe a&ntilde;adir el archivo y pulsar el bot&oacute;n &laquo;Validar&raquo;.</p> 
+<p>Si queremos firmar muchos archivos a la vez usar la interfaz gr&aacute;fica nos va a resultar lento y un trabajo repetitivo. En caso de querer hacer firmas masivas de archivos es mejor usar la linea de comandos o un proceso sh que nos haga la tarea. Sinadura tambi&eacute;n proporciona una utilidad basada en la linea de comandos que debemos usar de la siguiente forma:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8067882.js?file=sinadura-console-pdf.sh"></script> 
+ <noscript>
+  <pre><code>./sinadura-console.sh --sign --pdf
+  --input /home/picodotdev/Software/personal/PlugInTapestry/PlugInTapestry.pdf
+  --output /home/picodotdev/Software/personal/PlugInTapestry/PlugInTapestry-signed.pdf
+  --preferences /home/picodotdev/.sinadura/preferences/preferences-console.properties
+</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8067882.js?file=sinadura-console-xades.sh"></script> 
+ <noscript>
+  <pre><code>./sinadura-console.sh --sign --xades
+  --input /home/picodotdev/Software/personal/PlugInTapestry/PlugInTapestry.pdf.zip
+  --output /home/picodotdev/Software/personal/PlugInTapestry/PlugInTapestry-signed.zip
+  --preferences /home/picodotdev/.sinadura/preferences/preferences-console.properties</code></pre>
+ </noscript>
+</div> 
+<p>Con el siguiente archivo de preferencias:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/8067882.js?file=preferences-console.properties"></script> 
+ <noscript>
+  <pre><code>preferencias.radioCertType.active=1
+hardware.dispositive=/usr/lib64/opensc-pkcs11.so
+
+pdf.stamp.enable=false
+pdf.stamp.height=122
+pdf.stamp.path=/home/picodotdev/.sinadura/preferences/sinadura150.png
+pdf.stamp.y=17
+pdf.stamp.x=17
+pdf.stamp.width=122
+pdf.visible=false
+pdf.location=Bilbao
+pdf.reason=powered by zylk.net
+pdf.certified=1
+
+ks.cache=/home/picodotdev/.sinadura/preferences/cache.jks
+ks.trusted=/home/picodotdev/.sinadura/preferences/trusted.jks
+ks.cache.pass=sinadura
+ks.trusted.pass=sinadura
+
+callback.handler=net.esle.sinadura.core.password.ConsoleCallbackHandler
+certificate.password= </code></pre>
+ </noscript>
+</div> 
+<p>La linea de comandos producir&aacute; el mismo resultado que el uso con la interfaz gr&aacute;fica. Realmente los ejemplos de firma por consola no me han funcionado, en ambos casos me da una excepci&oacute;n NullPointerException que no es muy aclarativa de lo que est&aacute; sucediendo, probablemente sea que falta algo en el archivo de preferencias.</p> 
+<p>En definitiva, la firma digital de documentos es otro uso que le podemos dar al DNI electr&oacute;nico y con Sinadura realizarlo es bastante sencillo.</p> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html">Crear una par de claves GPG</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/como-usar-gpg-con-evolution.html">Como firmar correos electr&oacute;nicos con GPG</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html">Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux </a><br /> <a href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/">Usar el DNI electr&oacute;nico con Firefox en Linux</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/">Enviar correos electr&oacute;nicos firmados con el DNIe y Evolution</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_via="blogstack" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura" st_title="Firmar digitalmente documentos con el DNIe y Sinadura | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Firmar digitalmente documentos con el DNIe y Sinadura";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 44,
+      "url" : "http://www.blogstack.info/post/blogbitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

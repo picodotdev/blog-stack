@@ -1,0 +1,196 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción y ejemplo de Backbone.js | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs">Introducción y ejemplo de Backbone.js</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Entrada original</a></span></div><div><span>Publicado el viernes, 19 de abril de 2013 a las 18:22 UTC</span></div><div><span>Actualizado el lunes, 26 de agosto de 2013 a las 23:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_via="blogstack" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Backbone.js" height="56" src="http://3.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACeY/uGQRcCderAg/s320/backbone.png" title="Backbone.js" width="320" />
+</div>Las aplicaciones y p&aacute;ginas web est&aacute;n haciendo uso de c&oacute;digo javascript cada vez en mayor cantidad para proporcionar aplicaciones con funcionalidades m&aacute;s complejas. En estos momentos las librer&iacute;as para utilizarse en javascript son muchas y una aplicaci&oacute;n puede hacer uso de varias de ellas.
+<br />
+<br />A pesar de las facilidades que proporcionan librer&iacute;as como jQuery para manipular los elementos de una p&aacute;gina web de forma din&aacute;mica, mucho c&oacute;digo mal estructurado puede llegar a convertirse en un perfecto c&oacute;digo espagueti, aunque jQuery facilita y simplifica muchas tareas en el manejo de los elementos de una p&aacute;gina no es suficiente, a pesar de jQuery se puede llegar a tener un c&oacute;digo con un mar de selectores, mantener sincronizados con la interfaz con el estado de la aplicaci&oacute;n y la base de datos puede convertirse en una tarea complicada dar como resultado c&oacute;digo con el que apetece poco trabajar.
+<br />
+<br />
+<a href="http://backbonejs.org/">Backbone.js</a> trata de de resolver algunos de estos problemas proporcionando un marco sobre que el que organizar el c&oacute;digo. Backbone.js en esencia en una librer&iacute;a modelo-vista-controlador (MVC) para javascript. Bas&aacute;ndose en este patr&oacute;n de dise&ntilde;o cada parte es independiente del resto. El modelo conserva el estado de la aplicaci&oacute;n y produce eventos al ser modificado de forma que la vista se pueda actualizar de una forma independiente para ambos, la vista proporciona la interfaz del controlador a trav&eacute;s del que se modifica el modelo de forma adecuada, todos los elementos est&aacute;n relacionados pero cada uno se encarga de una parte.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <img alt="Patr&oacute;n de dise&ntilde;o Modelo Vista Controlador (MVC)" height="150" src="http://3.bp.blogspot.com/-_DCZpuhhtv4/UXFyrPebqCI/AAAAAAAACeg/1RIrrjzUpNk/s320/model-view-controller.png" title="Patr&oacute;n de dise&ntilde;o Modelo Vista Controlador (MVC)" width="320" />
+</div>
+<br />Backbone adem&aacute;s proporciona una forma para trabajar con servicios REST tanto para recuperar los datos de los modelos como para actualizarlos, guardarlos y eliminarlos en el servidor. A continuaci&oacute;n pondr&eacute; un peque&ntilde;o ejemplo usando backbone.js que calcula el &aacute;rea de un rect&aacute;ngulo dado su alto y ancho y que lo muestra en pantalla. Como backbone.js sigue el patr&oacute;n de dise&ntilde;o MVC por un lado tendremos el modelo, en nuestro caso el rect&aacute;ngulo con las propiedades alto y ancho que nos servir&aacute;n para calcular el &aacute;rea, por el otro la vista que se actualizar&aacute; seg&uacute;n los datos del modelo introducidos en dos campos de texto, finalmente el controlador que captura los eventos como los cambios en los campos de texto, modifica el modelo y el modelo notifica a la vista para que se actualice.
+<br />
+<br />Vemos un ejemplo simple y que muestra parte del potencial de backbone.js. El modelo se define con el siguiente c&oacute;digo, adem&aacute;s de las propiedades se puede definir funciones que nos puede ser de utilidad, como calcular el &aacute;rea o obtener un objeto para ser utilizado con Mustache:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5421633.js?file=main-1.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5421633/raw/main-1.js">main-1.js</a>
+ <br />
+</noscript>
+<br />La otra parte es la vista y el controlador, ambas cosas se definen con Backbone.View.extend:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5421633.js?file=main-2.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5421633/raw/main-2.js">main-2.js</a>
+ <br />
+</noscript>La inicializaci&oacute;n del ejemplo:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5421633.js?file=main-3.js"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5421633/raw/main-3.js">main-3.js</a>
+ <br />
+</noscript>
+<br />Las partes de esta vista-controlador son:
+<br />
+<ul>
+ <li>el: el elemento html sobre el que actuar&aacute; la vista.</li>
+ <li>events: los eventos que manejar&aacute; el controlador, es un mapa donde la clave es un selector muy parecido a jquery y el nombre de la funci&oacute;n a llamar cuando se produzca.</li>
+ <li>initialize: con la funci&oacute;n de underscore _.bindAll haremos que la referencia a this sea la vista en las funciones indicadas (render, onChangeAlto, onChangeAncho). A continuaci&oacute;n se crea el modelo y cuando se produzca alg&uacute;n cambio en &eacute;l (evento change) se actualice la vista. Finalmente, cuando se inicia la aplicaci&oacute;n se dibuja por primera vez la vista.</li>
+ <li>onChangeAlto y onChangeAncho: obtienen el alto o ancho de los campos de texto y modifican el modelo.</li>
+ <li>render: se encarga de actualizar la vista cuando haya alg&uacute;n cambio en el modelo tal y como hemos echo en la funci&oacute;n initialize con la funci&oacute;n on sobre el modelo. Actualiza los inputs de alto y ancho con los valores del modelo y mediante una plantilla de Mustache forma el mensaje que se visualiza en el &nbsp;elemento con id resultado.</li>
+</ul>Finalmente, queda el peque&ntilde;o c&oacute;digo html de la aplicaci&oacute;n que contiene los campos de texto para introducir el alto y ancho y el elemento div donde se mostrar&aacute; el &aacute;rea calculado del rect&aacute;ngulo:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/5421633.js?file=HelloWorldBackbone.html"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/5421633/raw/HelloWorldBackbone.html">HelloWorldBackbone.html</a>
+ <br />
+</noscript>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-okBxtRGOpAs/UXGHhhKIm1I/AAAAAAAACeo/zRjC-0Oo4aw/s1600/helloworldbackbone.png"><img height="105" src="http://3.bp.blogspot.com/-okBxtRGOpAs/UXGHhhKIm1I/AAAAAAAACeo/zRjC-0Oo4aw/s400/helloworldbackbone.png" width="400" /></a>
+</div>
+<br />Backbone.js no es la &uacute;nica librer&iacute;a que implementa el patr&oacute;n MVC en javascript otras alternativas son 
+<a href="http://knockoutjs.com/">knockout</a> y 
+<a href="http://angularjs.org/">AngularJS</a> aunque esta &uacute;ltimas tienen la notable diferencia de que se basan en a&ntilde;adir atributos especiales a las etiquetas html para definir el modelo y asociar los eventos. Backbone.js no necesita a&ntilde;adir esos atributos especiales a la etiquetas html&nbsp;o &laquo;instrumentalizarlo&raquo;, esto se hace a trav&eacute;s de javascript lo que da una mayor separaci&oacute;n entre el c&oacute;digo html y el c&oacute;digo javascript. Por ah&iacute; se dice que usando backbone.js para realizar lo mismo se necesitan m&aacute;s lineas de javascript pero hay que tener en cuenta que a cambio el html necesario es mucho m&aacute;s simple que en knockout o AngularJS lo que facilita que el trabajo con motores de plantillas como 
+<a href="http://mustache.github.io/">Mustache</a> o 
+<a href="http://handlebarsjs.com/">Handlebars</a> tambi&eacute;n sea m&aacute;s simple.
+<br />
+<br />Este 
+<a href="http://desarrolloweb.com/manuales/manual-backbonejs.html">peque&ntilde;o manual de backbone</a> explica muy bien que es. Y el siguiente v&iacute;deo es muy interesante.
+<br />
+<br />
+<div style="clear: both; text-align: center;"></div>
+<br />Como en el resto de entradas sobre esta serie de javascript el c&oacute;digo fuente del ejemplo completo lo puedes encontrar en mi 
+<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/HelloWorldBackbone">repositorio de GitHub</a>. Este ejemplo se basa en 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a> visto en anteriores entradas que puedes consultar en el apartado de referencia al final de la entrada.
+<br />
+<br />En la siguiente entrada mostrar&eacute; 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">un ejemplo m&aacute;s completo y usando muchas cosas al mismo tiempo</a> de las que he estado hablando individualmente en las &uacute;ltimas entradas (ver referencia), ser&aacute; un ejemplo de una aplicaci&oacute;n de lista de tareas por hacer que permite crearlas y completarlas, usar&aacute; RequireJS, Mustache y Backbone (us&aacute;ndolo de forma m&aacute;s avanzada y completa de lo visto en esta entrada) en la parte cliente y 
+<a href="http://tapestry.apache.org/">Tapestry</a> y 
+<a href="http://www.jboss.org/resteasy/">RESTEasy</a> en la parte servidor.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo de RequireJS</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Introducci&oacute;n y ejemplo de Mustache</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Logging en Javascript con log4javascript</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">Capturar errores de Javascript</a>
+<br />
+<div>
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/04/optimizar-modulos-de-requirejs.html">Optimizar m&oacute;dulos de RequireJS y archivos Javascript</a>
+ <br />
+ <a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Patr&oacute;n de dise&ntilde;o MVC del lado cliente con Backbone.js</a>
+ <br />
+ <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a>
+ <br />
+ <a href="http://ejemplo%20de%20pruebas%20unitarias%20en%20javascript%20con%20jasmine%20y%20sinon/">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a>
+</div></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_via="blogstack" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" st_title="Introducción y ejemplo de Backbone.js | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Introducción y ejemplo de Backbone.js";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 56,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

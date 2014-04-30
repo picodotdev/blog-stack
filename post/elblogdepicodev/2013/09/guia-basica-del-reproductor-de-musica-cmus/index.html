@@ -1,0 +1,181 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Guía básica del reproductor de música cmus | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus">Guía básica del reproductor de música cmus</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/09/guia-basica-del-reproductor-de-musica-cmus.html">Entrada original</a></span></div><div><span>Publicado el viernes, 13 de septiembre de 2013 a las 15:39 UTC</span></div><div><span>Actualizado el viernes, 13 de septiembre de 2013 a las 15:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi">raspberrypi</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_via="blogstack" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="cmus" src="http://3.bp.blogspot.com/--mbV1Ag1sV0/UjMupL-Aw8I/AAAAAAAACng/tF15es6zi68/s1600/cmus.png" title="cmus" />
+</div>A medida que paso m&aacute;s tiempo usando Linux cada vez m&aacute;s estoy usando y aprendiendo herramientas que funcionan desde la terminal. Por ejemplo, usando 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/09/guia-para-aprender-usar-vim.html">vim como editor de textos</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/11/convertir-imagenes-entre-formatos-y.html">algunas utilidades de ImageMagick para tratar im&aacute;genes de forma masiva</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/autenticacion-ssh-con-clave-privada-y.html">algunas otras utilidades como ssh</a>, tail, grep, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">screen</a>, cal, .... A veces usar estas herramientas es m&aacute;s c&oacute;modo, r&aacute;pido y directo que usar un programa con interfaz gr&aacute;fica como en el caso de ImageMagick pero otras es una necesidad como el uso que le doy a la Raspberry Pi. 
+<br />
+<br />Como la RPi la uso por SSH y sin interfaz gr&aacute;fica necesitaba buscar un reproductor de m&uacute;sica basado en una interfaz de texto, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">que permaneciese ejecutandose a pesar de terminar la sesi&oacute;n ssh</a> y usable desde la terminal para reproducir m&uacute;sica adem&aacute;s de que consuma pocos recursos (rid&iacute;culos comparados con cualquier programa gr&aacute;fico). Despu&eacute;s de una b&uacute;squeda en google y en la wiki de Arch Linux encontr&eacute; 
+<a href="http://cmus.sourceforge.net/">cmus</a> (C* Music Player). Y me ha parecido tan sencillo y bueno que se ha convertido en mi reproductor de m&uacute;sica incluso en el ordenador personal que uso con interfaz gr&aacute;fica, no necesito m&aacute;s que lo que ofrece, antes usaba 
+<a href="http://banshee.fm/">Banshee</a> y anteriormente 
+<a href="https://projects.gnome.org/rhythmbox/">Rhythmbox</a>.
+<br />
+<br />La dificultad de los programas o comandos basados en la consola es que suelen ser menos intuitivos que los que tienen interfaz gr&aacute;fica para los usuarios nuevos de esos programas. A continuaci&oacute;n explicar&eacute; el funcionamiento b&aacute;sico de cmus para que un usuario que est&eacute; buscando en este programa una alternativa al que usa ahora le sea m&aacute;s sencillo iniciarse y no abandone cmus por otra opci&oacute;n porque le cueste descubrir como conseguir con &eacute;l lo que uno quiere. Primeramente deberemos instalar su paquete, en Arch Linux con:
+<br />
+<br />
+<script src="https://gist.github.com/picodotdev/6552216.js?file=install.sh"></script>
+<noscript>
+ <a href="https://gist.github.com/picodotdev/6552216/raw/install.sh">install.sh</a>
+ <br />
+</noscript> Nada m&aacute;s iniciar cmus nos encontraremos con una lista vac&iacute;a de nuestra colecci&oacute;n de m&uacute;sica. Primeramente debemos conocer es que cmus se divide en varias pantallas (o tabuladores) que se acceden con las teclas:
+<br />
+<ul>
+ <li>1 para Colecci&oacute;n de m&uacute;sica</li>
+ <li>2 para Librer&iacute;a de m&uacute;sica</li>
+ <li>3 para Lista de reproducci&oacute;n</li>
+ <li>4 para Cola de reproducci&oacute;n</li>
+ <li>5 para Navegador de archivos</li>
+ <li>6 para Librer&iacute;a de filtros</li>
+ <li>7 para Configuraci&oacute;n y referencia de teclas</li>
+</ul>Para a&ntilde;adir nuestra colecci&oacute;n en m&uacute;sica mp3 u ogg iremos al navegador de archivos, una vez que estamos en el directorio que contiene la m&uacute;sica que queremos a&ntilde;adir pulsamos al tecla &laquo;
+<b>a</b>&raquo; sobre el directorio, cmus buscar&aacute; de forma recursiva los archivos de esa carpeta. En la pesta&ntilde;a de la Colecci&oacute;n de m&uacute;sica veremos que ya contiene los archivos organizados por artista y &aacute;lbum. Con las flechas &laquo;
+<b>arriba</b>&raquo; o &laquo;
+<b>k</b>&raquo; y &laquo;
+<b>abajo</b>&raquo; o &laquo;
+<b>j</b>&raquo; podemos cambiar de artista y con la tecla &laquo;
+<b>espacio</b>&raquo; podemos expandir un artista para ver cada unos de sus &aacute;lbumes, con la tecla &laquo;
+<b>tabulador</b>&raquo; cambiamos entre el panel artista/&aacute;lbum y track. Con la tecla &laquo;
+<b>retorno</b>&raquo; podemos reproducir un artista, &aacute;lbum o pista dependiendo de donde este la selecci&oacute;n o foco.
+<br />
+<br />Si queremos crear una lista de reproducci&oacute;n con m&uacute;sica de varios artistas, &aacute;lbumes o pistas estando en la Colecci&oacute;n de m&uacute;sica pulsaremos la tecla &laquo;
+<b>y</b>&raquo;, con esta tecla la m&uacute;sica se ir&aacute; a&ntilde;adiendo a la Lista de reproducci&oacute;n. Estando en la Lista de reproducci&oacute;n podemos hacer que se reproduzca de forma aleatoria con la tecla &laquo;
+<b>s</b>&raquo; o de forma repetida &laquo;
+<b>r</b>&raquo;, en la barra de estado en la parte inferior veremos las opciones que est&aacute;n activas (CRS). Con las tecla &laquo;
+<b>z</b>&raquo; podemos reproducir el elemento anterior de la lista, con la tecla &laquo;
+<b>x</b>&raquo; iniciamos la reproducci&oacute;n desde el inicio de la pista, con &laquo;
+<b>c</b>&raquo; pausamos/reiniciamos la reproducci&oacute;n, con &laquo;
+<b>v</b>&raquo; se detiene la reproducci&oacute;n y con &laquo;
+<b>b</b>&raquo; se reproduce el siguiente elemento de la lista. Todas estas teclas de reproducci&oacute;n est&aacute;n en la fila de abajo y todas seguidas en el teclado con lo que es c&oacute;modo usarlas y no muy complicado de recordarlas.
+<br />
+<br />Si queremos limpiar la Lista de reproducci&oacute;n o nuestra Colecci&oacute;n de m&uacute;sica podemos hacerlo individualmente sobre cada elemento con la tecla &laquo;
+<b>Supr</b>&raquo; o &laquo;
+<b>D</b>&raquo; (la may&uacute;scula es importante) o con el comando :clear, los comandos de cmus funcionan de forma similar a como se trabaja con vim, primeramente pulsando &laquo;
+<b>:</b>&raquo; y luego introduciendo el comando y pulsando la tecla retorno. Para buscar una pista en la Librer&iacute;a de m&uacute;sica pulsamos &laquo;
+<b>/</b>&raquo; seguido del t&eacute;rmino de la b&uacute;squeda, seg&uacute;n vayamos escribiendo la lista se ir&aacute; posicionando el el primer elemento encontrado, si queremos encontrar la siguiente coincidencia podemos hacerlo con la tecla &laquo;
+<b>n</b>&raquo; (al igual que con vim). Con los comandos &laquo;
+<b>:save</b> ~/playlist.pls&raquo; podemos guardar la lista de reproducci&oacute;n y con &laquo;
+<b>:load</b> ~/playlist.pls&raquo; cargarla.
+<br />
+<br />Con cmus tambi&eacute;n podemos 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/4-formas-de-escuchar-musica-internet.html">reproducir m&uacute;sica o radios que emiten por internet</a>. En la siguiente p&aacute;gina de manual sobre cmus de Ubuntu y en la referencia hay alguna opci&oacute;n m&aacute;s explicada.
+<br />
+<br />Finalmente, con la tecla &laquo;
+<b>q</b>&raquo; o comando &laquo;
+<b>:q</b>&raquo; podemos salir de cmus.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-Hm-Wzm1HcK4/UjMupR8X80I/AAAAAAAACnk/6FnP2fFSffw/s1600/cmus-1.png"><img height="214" src="http://3.bp.blogspot.com/-Hm-Wzm1HcK4/UjMupR8X80I/AAAAAAAACnk/6FnP2fFSffw/s320/cmus-1.png" width="320" /></a>
+</div>
+<br />Referencia:
+<br />
+<a href="http://cmus.sourceforge.net/">http://cmus.sourceforge.net/</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/4-formas-de-escuchar-musica-internet.html">4 formas de escuchar m&uacute;sica a trav&eacute;s de internet</a>
+<a href="http://tuxarena.blogspot.com.es/2009/04/cmus-review-great-ncurses-music-player.html">http://tuxarena.blogspot.com.es/2009/04/cmus-review-great-ncurses-music-player.html</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_via="blogstack" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus" st_title="Guía básica del reproductor de música cmus | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Guía básica del reproductor de música cmus";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2013/09/guia-basica-del-reproductor-de-musica-cmus.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/raspberrypi/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta raspberrypi</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 14,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/09/guia-basica-del-reproductor-de-musica-cmus"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

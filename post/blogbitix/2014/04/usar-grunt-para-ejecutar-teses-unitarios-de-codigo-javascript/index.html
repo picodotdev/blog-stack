@@ -1,0 +1,183 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript">Usar Grunt para ejecutar teses unitarios de código Javascript</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/">Entrada original</a></span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 14:43 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_via="blogstack" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grunt.png" alt="Grunt" title="Grunt" /> 
+</div> 
+<p>En la <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">serie de art&iacute;culos que escrib&iacute; sobre javascript</a> hice un ejemplo m&aacute;s o menos complejo y parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real usando muchas de las herramientas que ahora se consideran una buena opci&oacute;n para desarrollar aplicaciones javascript como <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>, <a href="http://www.genbetadev.com/desarrollo-web/patron-de-diseno-mvc-del-lado-cliente-con-backbonejs">Backbone</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Marionette</a>, <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Jasmine y Sinon</a>. En el <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">ejemplo de la lista de tareas con estas herramientas</a> hice unas cuantas pruebas unitarias para mostrar en un ejemplo como son y la forma de usar <a href="http://jasmine.github.io/">Jasmine</a>.</p> 
+<p>Sin embargo, para ejecutar las pruebas unitarias se necesitaba un navegador y hacerlo de forma manual cuando quisi&eacute;ramos comprobar el estado de las pruebas. Lo ideal tal y como se comenta en el libro <a href="http://www.amazon.es/gp/product/B000SEGEKI/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=B000SEGEKI&amp;linkCode=as2&amp;tag=blobit-21">The Pragmatic Programmer</a><img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=B000SEGEKI" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" /> es que las pruebas unitarias se ejecuten de forma automatizada con la herramienta de construcci&oacute;n que usemos, esto evitar&aacute; que se nos olvide ejecutarlas en cada cambio y as&iacute; descubriremos los errores pronto, tambi&eacute;n podremos hacer que se ejecuten en un entorno de integraci&oacute;n continua como podr&iacute;a ser <a href="http://jenkins-ci.org/">Jenkins</a>. En esta entrada mostrar&eacute; como ejecutar esas pruebas unitarias de javascript con una tarea de la herramienta <a href="http://www.gradle.org/">Gradle</a> y usando una herramienta similar a Gradle pero para Javascript llamada <a href="http://gruntjs.com/">Grunt</a>.</p> 
+<p>Primeramente necesitaremos instalar node.js y el paquete de javascript grunt-cli con de forma global en el sistema:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=script-1.sh"></script> 
+ <noscript>
+  <pre><code># pacman -S nodejs
+# npm install -g grunt-cli</code></pre>
+ </noscript>
+</div> 
+<p>En caso de que tengamos pruebas unitarias con Jasmine como es el caso de este ejemplo deberemos instalar los siguientes paquetes en el directorio ra&iacute;z del proyecto:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=script-2.sh"></script> 
+ <noscript>
+  <pre><code>$ npm install grunt-contrib-jasmine
+$ npm install grunt-template-jasmine-requirejs</code></pre>
+ </noscript>
+</div> 
+<p>La siguiente linea como se explica en <a href="https://www.npmjs.org/package/grunt-template-jasmine-requirejs">la documentaci&oacute;n del paquete grunt-template-jasmine-requirejs</a> puede ser necesaria si en alg&uacute;n momento obtenemos el siguiente error:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=script-3.sh"></script> 
+ <noscript>
+  <pre><code>$ npm install grunt-contrib-jasmine@0.5.3 --save-dev</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=mensaje.txt"></script> 
+ <noscript>
+  <pre><code>npm ERR! peerinvalid The package grunt-contrib-jasmine does not satisfy its siblings' peerDependencies requirements!
+npm ERR! peerinvalid Peer grunt-template-jasmine-requirejs@0.1.10 wants grunt-contrib-jasmine@~0.5.3</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=script-4.sh"></script> 
+ <noscript>
+  <pre><code>$ npm install</code></pre>
+ </noscript>
+</div> 
+<p>Si usamos <a href="http://visionmedia.github.io/mocha/">Mocha</a> como librer&iacute;a de pruebas unitarias probablemente disponemos de varios paquetes que podemos instalar de forma similar. Una vez instaladas estas herramientas debemos crear dos archivos necesarios para Grunt, que son <a href="https://github.com/picodotdev/elblogdepicodev/blob/master/MarionetteREST/package.json">package.json</a> y <a href="https://github.com/picodotdev/elblogdepicodev/blob/master/MarionetteREST/grunt.js">grunt.js</a>. El primero contiene la definici&oacute;n del paquete js para Grunt, quiz&aacute; lo m&aacute;s destacable es que el nombre del paquete debe estar en min&uacute;sculas sino obtendremos un error parecido a &laquo;Error: Invalid name: “MarionetteREST” npm ERR! at ensureValidName&raquo;. El archivo grunt.js es la descripci&oacute;n de las tareas de grunt que contiene un poco de configuraci&oacute;n donde indicamos las especificaciones que contienen las pruebas unitarias, las dependencias necesarias para ejecutar las pruebas y las tareas que se definen. Con todo esto ya podemos ejecutar las pruebas con:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=script-5.sh"></script> 
+ <noscript>
+  <pre><code>$ grunt --gruntfile grunt.js jasmine:requirejs
+$ ./gradlew jasmine</code></pre>
+ </noscript>
+</div> 
+<p>Sin embargo, puede que deseemos ejecutarlas desde la herramienta de construcci&oacute;n que usemos, en mi caso con Gradle. Para a&ntilde;adir el soporte a Gradle de ejecutar las pruebas unitarias a su vez con Grunt debemos a&ntilde;adir la siguiente configuraci&oacute;n a nuestro archivo build.gradle:</p> 
+<div>
+ <script src="https://gist.github.com/picodotdev/9977238.js?file=build.gradle"></script> 
+ <noscript>
+  <pre><code>task jasmine(type: GruntTask) {
+    gruntArgs = &quot;jasmine:requirejs&quot;
+}
+
+...
+
+class GruntTask extends Exec {
+    private String gruntExecutable = Os.isFamily(Os.FAMILY_WINDOWS) ? &quot;grunt.cmd&quot; : &quot;grunt&quot;
+    private String switches = &quot;--gruntfile grunt.js&quot;
+
+    String gruntArgs = &quot;&quot; 
+
+    public GruntTask() {
+        super()
+        this.setExecutable(gruntExecutable)
+    }
+
+    public void setGruntArgs(String gruntArgs) {
+        this.args = &quot;$switches $gruntArgs&quot;.trim().split(&quot; &quot;) as List
+    }
+}</code></pre>
+ </noscript>
+</div> 
+<p>Veremos como salida el siguiente resultado en la terminal.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/19/grunt-jasmine.png" title="Ejecutar teses Jasmine con Grunt"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/19/grunt-jasmine-thumb.png" /></a> 
+</div> 
+<p>Al hacer esta entrada de forma que las pruebas se ejecuten con Grunt he movido las plantillas de Mustache de lugar, antes estaban embebidas en el html en el ejemplo <a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Backbone</a> y las he movido a dentro del javascript de la aplicaci&oacute;n de la lista de tareas. Esto hace que para pasar las pruebas no tengamos una dependencia sobre un archivo html externo en el que buscar las plantillas, tambi&eacute;n as&iacute; el javascript es m&aacute;s aut&oacute;nomo y est&aacute; incluido en &eacute;l todo lo que necesita.</p> 
+<p>A&uacute;n tengo otra entrada preparada sobre javascript que es el mismo ejemplo de la lista de tareas pero en vez de usando las vistas de Backbone o Marionette usando <a href="http://facebook.github.io/react/">React</a>. El <a href="https://github.com/picodotdev/elblogdepicodev/tree/master/MarionetteREST">c&oacute;digo fuente completo de este ejemplo sobre pruebas unitarias y Marionette</a> est&aacute; en <a href="https://github.com/picodotdev">mi regpostorio de GitHub</a>.</p> 
+<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">Introducci&oacute;n y ejemplo de RequireJS</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Introducci&oacute;n y ejemplo de Mustache</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html">Logging en Javascript con log4javascript</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html">Capturar errores de Javascript</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/04/optimizar-modulos-de-requirejs.html">Optimizar m&oacute;dulos de RequireJS y archivos Javascript</a><br /> <a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Introducci&oacute;n y ejemplo de Backbone.js</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html">Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Ejemplo lista de tareas con Marionette</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react/">Ejemplo lista de tareas con Backbone y React</a></p></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_via="blogstack" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript" st_title="Usar Grunt para ejecutar teses unitarios de código Javascript | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Usar Grunt para ejecutar teses unitarios de código Javascript";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 28,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

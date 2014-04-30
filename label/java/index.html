@@ -1,0 +1,333 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">Ejemplo lista de tareas con Marionette</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/08/ejemplo-lista-de-tareas-con-marionette.html">Entrada original</a></span></div><div><span>Publicado el viernes, 30 de agosto de 2013 a las 12:28 UTC</span></div><div><span>Actualizado el viernes, 25 de abril de 2014 a las 22:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette" st_via="blogstack" st_title="Ejemplo lista de tareas con Marionette | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Marionette" src="http://2.bp.blogspot.com/-ODdQesCGeKg/UiCFBR7_Z_I/AAAAAAAACmg/an6e-SJv-jA/s200/marionette.png" height="200" title="Marionette" width="146" /> 
+</div>Como comentaba en el 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html">ejemplo de una aplicaci&oacute;n de una lista de tareas en una aplicaci&oacute;n javascript</a>&nbsp;Backbone es una herramienta que nos puede ayudar mucho a evitar que el c&oacute;digo se nos convierta en dif&iacute;cil de manejar facilit&aacute;ndonos como estructurarlo con los modelos, colecciones y vistas y permiti&eacute;ndonos separar el modelo de la vista actualizando estas &uacute;ltimas a trav&eacute;s de los eventos que produce el modelo y escuchados en las vistas. 
+<br /> 
+<br /> 
+<a href="http://backbonejs.org/">Backbone</a> es una herramienta que nos da bastante libertad en cuanto a como queremos hacer las cosas y de lo que ofrece podemos usar solo lo que queramos. En algunos casos podemos considerar que Backbone ya es de por si una soluci&oacute;n suficiente pero pero en otros podemos necesitar algo que nos facilite la tarea un poco m&aacute;s, de hecho hay muchas<p class="continue-reading"><a href="/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/04/ejemplo-lista-de-tareas-con-backbone.html">Entrada original</a></span></div><div><span>Publicado el viernes, 26 de abril de 2013 a las 19:38 UTC</span></div><div><span>Actualizado el viernes, 04 de abril de 2014 a las 16:11 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a>
+,
+<a href="/label/javascript">javascript</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" st_via="blogstack" st_title="Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /> 
+</div>Normalmente escribo art&iacute;culos con ejemplos que tratan sobre una &uacute;nica tecnolog&iacute;a, al tratar cada tecnolog&iacute;a por separado entender que puede ofrecer es m&aacute;s sencillo pero en una aplicaci&oacute;n real normalmente se usan varias tecnolog&iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&aacute;s parecido a lo que podr&iacute;a ser una aplicaci&oacute;n real que lo que he explicado durante las &uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&oacute;n de cosas por separado entre ellas 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html">RequireJS</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html">Mustache</a>,&nbsp; 
+<a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html">Backbone</a>, 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html">servicios rest con Tapestry</a> y 
+<a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">RESTEasy</a>. En esta entrada har&eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&aacute;s adicional como 
+<a href="http://twitter.github.io/bootstrap/">twitter bootstrap</a>. 
+<br /> 
+<br />El ejemplo consiste en una lista de tareas, pudi&eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&eacute;n se podr&aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&uacute;mero de tareas completadas y de tareas totales.<p class="continue-reading"><a href="/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8">Novedades y nuevas características de Java 8</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/">Entrada original</a></span></div><div><span>Actualizado el viernes, 28 de marzo de 2014 a las 20:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8" st_via="blogstack" st_title="Novedades y nuevas características de Java 8 | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>El 18 de marzo de 2014 se public&oacute; la nueva versi&oacute;n de la plataforma <a href="http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html">Java 8</a>, Java 7 fue liberada el en julio de 2011. Java 8 incorporar&aacute; varias novedades siguiendo la tendencia de otros lenguajes como la incorporaci&oacute;n de lambdas o closures o una demandada nueva API para el manejo de fechas entre otras muchas caracter&iacute;sticas m&aacute;s. La <a href="http://openjdk.java.net/projects/jdk8/features">lista completa de novedades</a> es bastante amplia, a continuaci&oacute;n pondr&eacute; lo que me ha parecido m&aacute;s destacable:</p> 
+<ul> 
+ <li>Se a&ntilde;aden las expresiones lambda o closures y se adapta la API para usarlas en los sitios que se pueda.</li> 
+ <li>Se definen nuevos perfiles compactos para dispositivos que no necesitan toda la API Java, esto es una alternativa a la modularizaci&oacute;n. Inicialmente la modularizaci&oacute;n era una caracter&iacute;stica que estaba planificada para Java 8 pero finalmente se ha aplazado a posteriores versiones.</li>
+</ul><p class="continue-reading"><a href="/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos">Patrones de diseño en la programación orientada a objetos</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html">Entrada original</a></span></div><div><span>Publicado el viernes, 16 de marzo de 2012 a las 20:46 UTC</span></div><div><span>Actualizado el sábado, 08 de marzo de 2014 a las 02:25 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_via="blogstack" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /> 
+</div>La programaci&oacute;n orientada a objetos (POO) es un paradigma en la que los sistemas se dise&ntilde;an mediante clases y relaciones entre ellas. Se utilizan conceptos como la herencia, polimorfismo, abstraci&oacute;n, encapsulamiento y ocultaci&oacute;n. Resumidamente estas propiedades son: 
+<br /> 
+<ul> 
+ <li>Clase: Abstracci&oacute;n que recoge las propiedades y comportamiento de los objetos en el sistema. Una clase puede instanciarse en objetos tantas veces como se necesite.</li> 
+ <li>Objeto: instancia de una clase que se relaciona con el resto de objetos a trav&eacute;s de los m&eacute;todos definidos en sus clases.</li> 
+ <li>Herencia: las clases no est&aacute;n aisladas y se relacionan entre ellas, mediante esta propiedad forman una jerarqu&iacute;a en la que las clases heredan las propiedades y m&eacute;todos de las clases superiores.</li> 
+ <li>Polimorfismo: es la propiedad de las instancias de las clases, los objetos, por la que pueden responder de forma diferente a un mismo nombre de m&eacute;todo en funci&oacute;n de su tipo concreto.</li>
+</ul><p class="continue-reading"><a href="/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms">Introducción y ejemplo sencillo de Java Message Service (JMS)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms/">Entrada original</a></span></div><div><span>Actualizado el sábado, 08 de marzo de 2014 a las 00:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms" st_via="blogstack" st_title="Introducción y ejemplo sencillo de Java Message Service (JMS) | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p><a href="http://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition">La plataforma Java EE</a> (Java Enterprise Edition) pone a disposici&oacute;n de los desarrolladores varias especificaciones, estas especificaciones describen las funcionalidades y la API que deben proporcionar las implementaciones y proporcionan al desarrollador herramientas para facilitar, hacer mejor las aplicaciones y de forma est&aacute;ndar seg&uacute;n estas especificaciones. Haciendo uso de una de estas especificaciones es posible cambiar de una implementaci&oacute;n a otra de forma transparente y sin modificar ninguna l&iacute;nea de c&oacute;digo de la aplicaci&oacute;n (en teor&iacute;a). Hay especificaciones para persistencia en base de datos (JPA), para transaccionalidad (JTA), para servicios web (JAX-WS ) y REST (JAX-RS) entre otras. En el siguiente enlace puede encontrarse el <a href="https://glassfish.java.net/downloads/ri/">listado completo de especificaciones y sus versiones de JEE 7</a></p><p class="continue-reading"><a href="/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/09/integracion-continua-con-jenkins">Integración continua con Jenkins</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/09/integracion-continua-con-jenkins.html">Entrada original</a></span></div><div><span>Publicado el viernes, 02 de septiembre de 2011 a las 18:16 UTC</span></div><div><span>Actualizado el viernes, 07 de marzo de 2014 a las 23:31 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/integracion-continua-con-jenkins" st_via="blogstack" st_title="Integración continua con Jenkins | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: left;"> 
+ <img alt="Jenkins" src="http://1.bp.blogspot.com/-VDA-zXScjY8/TmEXmNUTE4I/AAAAAAAAA-M/9Ox1D_VDmvQ/s200/jenkins.png" height="63" title="Jenkins" width="200" /> 
+</div>Jenkins es una herramienta de 
+<a href="http://en.wikipedia.org/wiki/Continuous_integration">integraci&oacute;n continua</a> (CI) que permite realizar tareas peri&oacute;dicas y autom&aacute;ticamente como generar el archivo del proyecto o ejecutar los casos de prueba. Usar una herramienta de integraci&oacute;n continua tiene varios beneficios como detectar problemas de forma temprana haciendo que sean m&aacute;s f&aacute;ciles de resolver y automatizar procesos repetitivos que nos liberan de tiempo. Todo ello en un entorno independiente de los de desarrollo. 
+<br /> 
+<br />Su instalaci&oacute;n y uso es muy sencillo basta con descargar u archivo .war y arrancarlo con: 
+<br /> 
+<br /> 
+<div> 
+ <pre>java -jar jenkins.war</pre> 
+</div> 
+<br />O desplegarlo en un contenedor de aplicaciones como Tomcat ya que es una aplicaci&oacute;n web java. Su configuraci&oacute;n se puede hacer completamente desde la interfaz de usuario que proporciona. Algunas otras caracter&iacute;sticas de Jenkins son:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/09/integracion-continua-con-jenkins">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5">Componente AjaxSpinner para Tapestry 5</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/09/componente-ajaxspinner-para-apache.html">Entrada original</a></span></div><div><span>Publicado el viernes, 09 de septiembre de 2011 a las 19:09 UTC</span></div><div><span>Actualizado el jueves, 06 de marzo de 2014 a las 08:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_via="blogstack" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /> 
+</div>Hoy en d&iacute;a las aplicaciones web que hace peticiones de forma as&iacute;ncrona con AJAX son la mayor&iacute;a ya que es una t&eacute;cnica que permite obtener &uacute;nicamente los datos que se necesitan sin tener que hacer una cargar entera de la p&aacute;gina web en el navegador. Esta t&eacute;cnica hace que las peticiones al devolver &uacute;nicamente los datos necesarios (y no toda la p&aacute;gina) y los recursos para procesar la petici&oacute;n sean menos, tambi&eacute;n hace que el resultado de las peticiones sean m&aacute;s peque&ntilde;os con lo que el tiempo de carga tambi&eacute;n se reduce al generar menos tŕafico de red, asi mismo el usuario nota un aumento de tiempo de respuesta. Tambi&eacute;n hace que en ciertos casos las aplicaciones sean m&aacute;s f&aacute;ciles de desarrollar por no tener que tratar en el servidor en cada petici&oacute;n el estado concreto de cada cliente.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry">Documentación sobre Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/05/documentacion-sobre-apache-tapestry.html">Entrada original</a></span></div><div><span>Publicado el lunes, 24 de mayo de 2010 a las 18:46 UTC</span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 23:34 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry" st_via="blogstack" st_title="Documentación sobre Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Apache Tapestry" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TOq7Y6w6wfI/AAAAAAAAAiU/DPBnmc4-2Sw/s320/tapestry.png" height="132" title="Apache Tapestry" width="320" /> 
+</div> 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a> ha sido para mi, con diferencia sobre el resto &nbsp;(JSF, Struts 1 y &uacute;ltimamente Grails), el mejor framework para desarrollar aplicaciones web en Java que he probado, adem&aacute;s de ser un placer programar con &eacute;l siempre que he podido. Tambi&eacute;n he le&iacute;do bastantes buenas cr&iacute;ticas y argumentos en varios blogs y art&iacute;culos destacando varios de sus aspectos y compar&aacute;ndolo con otros frameworks similares ( 
+<a href="http://wicket.apache.org/">Wicket</a>, 
+<a href="http://struts.apache.org/">Struts</a>, JSF y alg&uacute;n otro). En esta entrada quiero ir recogiendo todos los enlaces de documentaci&oacute;n que vaya encontrando sobre este framework ya que a pesar de que el framework es excelente la documentaci&oacute;n a d&iacute;a de hoy no es tan abundante&nbsp;no toda est&aacute; centralizada en la web del proyecto, lo que puede ser un problema para alguien que este empezando. Por fortuna, la documentaci&oacute;n es suficiente para llegar a comprender como funciona y hay algunos buenos libros publicados. Este framework le hace la vida m&aacute;s f&aacute;cil al programador en varias de las tareas m&aacute;s comunes de toda aplicaci&oacute;n web. As&iacute; que si estas cansado de JSF, de Struts o de el framework [pon aqu&iacute; el que uses] que no te permite disfrutar mientras desarrollas o te complica las cosas m&aacute;s de lo necesario te animo a que pruebes Tapestry quiz&aacute; sea lo que est&aacute;s buscando. Puedes empezar por el<p class="continue-reading"><a href="/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">Libro sobre desarrollo de aplicaciones con Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 24 de julio de 2013 a las 17:06 UTC</span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 20:12 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" st_via="blogstack" st_title="Libro sobre desarrollo de aplicaciones con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Recientemente he publicado 
+<a href="http://goo.gl/Vx8icI">PlugIn Tapestry</a>, un libro acerca del desarrollo de aplicaciones web en el lenguaje Java y con el framework 
+<a href="http://tapestry.apache.org/">Apache Tapestry</a>. 
+<br /> 
+<br /> 
+<div> 
+ <div style="clear: both; text-align: center;"> 
+  <a href="http://goo.gl/WFQgY"><img alt="PlugIn Tapestry" src="http://1.bp.blogspot.com/-CUcQ3fWr9Yw/Ue7FYGDd_SI/AAAAAAAACls/eLuRuVvRz7w/s320/PlugInTapestry.png" height="320" style="border-color: red; border-style: solid; border-width: 1px;" title="PlugIn Tapestry" width="226" /></a> 
+ </div>Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&aacute;pidas, din&aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como SpringMVC, Grails y Play! y tambi&eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como Django (Python), Symfony (PHP), .NET MVC (C#) o Ruby On Rails (Ruby). 
+ <br /> 
+ <br />Incluyendo la descripci&oacute;n de las caracter&iacute;sticas del framework el libro trata la mayor&iacute;a de aspectos que puede necesitar una aplicaci&oacute;n o p&aacute;gina web, entre ellos: 
+</div><p class="continue-reading"><a href="/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">Libro sobre desarrollo de aplicaciones con Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">Entrada original</a></span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 19:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" st_via="blogstack" st_title="Libro sobre desarrollo de aplicaciones con Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /> 
+</div> 
+<p>Hace unos meses publiqu&eacute; el libro PlugIn Tapestry, un libro acerca del desarrollo de aplicaciones y p&aacute;ginas web en el lenguaje Java y con el framework <a href="http://tapestry.apache.org/">Apache Tapestry</a>.</p> 
+<h2>PlugIn Tapestry</h2> 
+<p>Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&aacute;pidas, din&aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como <a href="http://projects.spring.io/spring-framework/">Spring</a>, <a href="http://grails.org/">Grails</a> y <a href="http://www.playframework.com/">Play!</a> y tambi&eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como <a href="https://www.djangoproject.com/">Django</a> (Python), <a href="http://symfony.com/">Symfony</a> (PHP), <a href="http://www.asp.net/mvc">ASP.NET MVC</a> (C#) o <a href="http://rubyonrails.org/">Ruby On Rails</a> (Ruby).</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry.png" title="Libro sobre Apache Tapestry"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry-thumb.png" /></a> 
+</div> 
+<p>Incluyendo la descripci&oacute;n de las caracter&iacute;sticas del framework el libro trata la mayor&iacute;a de aspectos que puede necesitar una aplicaci&oacute;n o p&aacute;gina web, entre ellos:</p><p class="continue-reading"><a href="/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry">Presentación sobre Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/02/presentacion-sobre-apache-tapestry/">Entrada original</a></span></div><div><span>Actualizado el viernes, 14 de febrero de 2014 a las 15:05 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry" st_via="blogstack" st_title="Presentación sobre Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /> 
+</div> 
+<p>El 10 de febrero tuve la oportunidad de dar una charla, la primera, sobre <a href="http://tapestry.apache.org/">Apache Tapestry</a> para el equipo de desarrolladores de la empresa en la que trabajo. Que en el equipo de desarrollo tengamos la posibilidad de vez en cuando dedicar un par de horas para juntarnos y compartir conocimiento es una buena iniciativa ya que siendo ya un equipo bastante grande de personas y con un nivel t&eacute;cnico elevado cada uno tiene un conocimiento que los dem&aacute;s pueden estar interesados en conocer al menos a nivel superficial, es motivador tener estas oportunidades.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/11/presentacion-apache-tapestry.jpg" title="Presentaci&oacute;n sobre Apache Tapestry"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/11/presentacion-apache-tapestry-thumb.jpg" /></a> 
+</div> 
+<p>Fue una charla simplemente como cultura general ya que el framework y el lenguaje que usamos como pila tecnol&oacute;gica es <a href="http://grails.org/">Grails</a> y <a href="http://groovy.codehaus.org/">Groovy</a> y eso es complicado que cambie. Otro motivo fue poder compartir el conocimiento de este framework para el desarrollo de aplicaciones y p&aacute;ginas web que a mi me gusta mucho. Si est&aacute;s suscrito al </p><p class="continue-reading"><a href="/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/02/servidor-de-aplicaciones-jbosswildfly">Servidor de aplicaciones JBoss/WildFly</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/">Entrada original</a></span></div><div><span>Actualizado el viernes, 07 de febrero de 2014 a las 21:35 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/02/servidor-de-aplicaciones-jbosswildfly" st_via="blogstack" st_title="Servidor de aplicaciones JBoss/WildFly | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/wildfly.png" alt="WildFly" title="WildFly" /> 
+</div> 
+<p>Para una peque&ntilde;a (o no tan peque&ntilde;a) aplicaci&oacute;n web desarrollada en la plataforma Java un servidor como <a href="http://tomcat.apache.org/">Tomcat</a> o <a href="http://www.eclipse.org/jetty/">Jetty</a> es suficiente. Pero una aplicaci&oacute;n grande o un entorno empresarial probablemente empiece a requerir funcionalidades que Tomcat no proporciona de por si. En algunos casos una librer&iacute;a puede suplir esta carencia, este podr&iacute;a ser el caso de <a href="http://hibernate.org/">Hibernate</a> para la persistencia o <a href="http://shiro.apache.org/">Apache Shiro</a> para la seguridad de la aplicaci&oacute;n. Sin embargo, cuando sea posible y tenga sentido es buena idea seguir alguna de las especificaciones o <a href="http://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition">APIs que proporciona la plataforma JEE</a> ya que de esta manera podremos cambiar de implementaci&oacute;n sin necesidad de modificar el c&oacute;digo de la aplicaci&oacute;n y permite integrar dos sistemas diferentes si ambos siguen una determinada especificaci&oacute;n. Un ejemplo podr&iacute;a ser el caso de Hibernate con la especificaci&oacute;n JPA que proporciona una funcionalidad equivalente (de hecho esta especificaci&oacute;n se basa en Hibernate y se puede usar Hibernate como implementaci&oacute;n a trav&eacute;s de la API que define JPA) o de integraci&oacute;n de sistemas con JMS.</p><p class="continue-reading"><a href="/post/blogbitix/2014/02/servidor-de-aplicaciones-jbosswildfly">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-javautillogging-logback-mentalog">Librerías de logging para Java (slf4j, log4j, java.util.logging, logback, MentaLog)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/04/librerias-de-logging-para-java-slf4j.html">Entrada original</a></span></div><div><span>Publicado el jueves, 26 de abril de 2012 a las 18:58 UTC</span></div><div><span>Actualizado el viernes, 31 de enero de 2014 a las 17:42 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-javautillogging-logback-mentalog" st_via="blogstack" st_title="Librerías de logging para Java (slf4j, log4j, java.util.logging, logback, MentaLog) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Java" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" height="200" title="Java" width="107" /> 
+</div>Pr&aacute;cticamente toda aplicaci&oacute;n incluye un sistema para emitir trazas con informaci&oacute;n relevate de lo que est&aacute; realizando a un fichero o a la salida est&aacute;ndar. Dependiendo de la informaci&oacute;n y detalle de la misma esta puede ser muy &uacute;til para determinar la causa de un posible fallo o alg&uacute;n mal funcionamiento de la aplicaci&oacute;n ya que el log es un registro no solo de la excepci&oacute;n producida sino tambi&eacute;n de su contexto con las acciones anteriores realizadas. Tambi&eacute;n puede servir para monitorizar en tiempo real las acciones que est&aacute; llevando a cabo el sistema que de otra forma no podr&iacute;amos realizar o ser&iacute;a utilizando herramientas m&aacute;s complejas. 
+<br /> 
+<br /> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="slf4j" src="http://4.bp.blogspot.com/-rSD_DRFz_AQ/T5mWY_T1dyI/AAAAAAAABF0/JnUxURh8TqA/s200/slf4j.jpg" height="85" title="slf4j" width="200" /> 
+</div>Generar trazas en una aplicaci&oacute;n es muy barato y simple comparado con la informaci&oacute;n que puede proporcionar, su utilidad y tiempo que puede ahorrar a la hora de descubrir problemas. B&aacute;sicamente, las trazas que queremos generar las insertamos dentro del propio c&oacute;digo de la aplicaci&oacute;n que est&aacute;n compuestas del mensaje que queremos emitir, el nivel de la traza y la categor&iacute;a a la misma. El mensaje puede ser cualquier cadena que queramos que creamos que nos puede ser &uacute;til pudiendo contener datos procedentes de variables o cualquier otra cosa de la que pueda disponer el programa. Los niveles de las trazas en muchos sistemas son las siguientes por orden de relevancia de mayor a menor: fatal, error, warn, info, debug. Estos niveles de las trazas nos pemitir&aacute;n utilizalos posteriormente para en tiempo de ejecuci&oacute;n y mendiante la configuraci&oacute;n del sistema de logging filtrar las mismas por el nivel que queramos pudiendo obtener &uacute;nicamente las trazas de nivel warn o superior. Las categor&iacute;as representan la pieza dentro de nuestro sistema que emite la traza que tambi&eacute;n podremos utilizar para filtrar los mensajes que queramos. Por supuesto, podremos utilizar las combinaciones de nivel y categor&iacute;a que queramos teniendo en nuestras manos un sistema muy flexible para obtener la informaci&oacute;n que queramos y que genere la aplicaci&oacute;n.<p class="continue-reading"><a href="/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-javautillogging-logback-mentalog">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback">Logging usando marcadores con slf4j y logback</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>, <span>Autor pico.dev</span>, <span><a href="http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback/">Entrada original</a></span></div><div><span>Actualizado el viernes, 31 de enero de 2014 a las 16:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software">software</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" st_via="blogstack" st_title="Logging usando marcadores con slf4j y logback | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="float: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /> 
+</div> 
+<p>Un sistema de logging en una aplicaci&oacute;n es indispensable para saber lo que est&aacute; sucediendo en la aplicaci&oacute;n en el mismo momento o pasado un tiempo. Es de gran utilidad tanto para en el momento de desarrollar la aplicaci&oacute;n como para una vez puesta en producci&oacute;n. Con el registro de las trazas podemos obtener informaci&oacute;n que nos permitir&aacute; descubrir un error o averiguar m&aacute;s f&aacute;cilmente y r&aacute;pidamente porque sucede alg&uacute;n comportamiento que no es como se espera.</p> 
+<p>En Java hay varios sistemas de logging entre los m&aacute;s utilizados est&aacute;n <a href="http://logging.apache.org/log4j/1.2/">log4j</a>, <a href="http://logback.qos.ch/">logback</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html">java.util.logging</a> y la capa de abstracci&oacute;n <a href="http://www.slf4j.org/">slf4j</a> sobre varios de estas librer&iacute;as. En estas librer&iacute;as de logging las trazas se emiten a trav&eacute;s de un logger que normalmente se corresponde con el nombre de la clase en la que se emite la traza. De esta forma las trazas se pueden filtrar por el nivel de importancia de la traza (debug, info, warn, …) y por el nombre del logger de forma que podemos obtener un registro de las trazas emitidas por los loggers que deseamos.</p><p class="continue-reading"><a href="/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry">Como devolver un archivo con Apache Tapestry</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/11/como-devolver-un-archivo-con-apache.html">Entrada original</a></span></div><div><span>Publicado el sábado, 10 de noviembre de 2012 a las 13:20 UTC</span></div><div><span>Actualizado el jueves, 30 de enero de 2014 a las 18:07 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry" st_via="blogstack" st_title="Como devolver un archivo con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /> 
+</div>En esta entrada voy a explicar como enviar un archivo al cliente desde el servidor usando el framework Apache Tapestry. Esto es necesario si por ejemplo nuestra aplicaci&oacute;n necesita generar un informe ya sea en formato txt, excel, pdf, 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/10/crear-un-archivo-zip-con-java.html">un archivo comprimido</a> o de cualquier otro tipo. 
+<br /> 
+<br />En tapestry el proceso no es muy complicado, tan solo deberemos devolver un objeto que implemente la 
+<a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/StreamResponse.html">interfaz StreamResponse</a> en el manejador de evento (&laquo;event handler&raquo;) que procesa la petici&oacute;n. 
+<br /> 
+<br />Aqu&iacute; el c&oacute;digo de parte de un manejador de evento que construye y devuelve un objeto que implementa la interfaz StreamResponse: 
+<br /> 
+<br /> 
+<script src="https://gist.github.com/4051027.js?file=Page.java"></script> Una posible implementaci&oacute;n de la clase StreamResponse podr&iacute;a ser la siguiente que podr&iacute;amos reutilizar siempre que tengamos que devolver un archivo:<p class="continue-reading"><a href="/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/1"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

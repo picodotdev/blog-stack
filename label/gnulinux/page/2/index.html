@@ -1,0 +1,398 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+209
+<span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+37
+<span>etiquetas</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
+2
+<span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article><header><h2><a href="/post/elblogdepicodev/2010/10/el-sistema-operativo-minix">El sistema operativo Minix</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/10/el-sistema-operativo-minix.html">Entrada original</a></span></div><div><span>Publicado el domingo, 31 de octubre de 2010 a las 12:59 UTC</span></div><div><span>Actualizado el viernes, 09 de marzo de 2012 a las 18:59 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/minix">minix</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/10/el-sistema-operativo-minix" st_via="blogstack" st_title="El sistema operativo Minix | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Minix" height="155" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TM1S9jnBVcI/AAAAAAAAAg8/Ni1Fn3hj53U/s200/minix.jpg" title="Minix" width="200" /> 
+</div>Si eres lector habitual de blogs sobre GNU/Linux o software libre seguramente habr&aacute;s le&iacute;do alguna vez que GNU/Linux es m&aacute;s que Ubuntu. Sin embargo, tambi&eacute;n se puede decir que Unix es m&aacute;s que solo GNU/Linux. Hay varios sistemas operativos con la filosof&iacute;a Unix adem&aacute;s de GNU/Linux, si bien es cierto no tan extendidos como este &uacute;ltimo, por mencionar algunos los de la familia BSD ( 
+<a href="http://www.netbsd.org/">NetBSD</a>, 
+<a href="http://www.freebsd.org/">FreeBSD</a>, 
+<a href="http://www.openbsd.org/">OpenBSD</a>, ...), el en continuo estado de desarrollo 
+<a href="http://www.gnu.org/software/hurd/hurd.html">GNU/Hurd</a> (del que Arch tiene una versi&oacute;n con este n&uacute;cleo, 
+<a href="http://www.archhurd.org/">Arch Hurd</a>), 
+<a href="http://illumos.org/">Illumos</a>&nbsp;y Solaris, otros menos conocidos como 
+<a href="http://www.dragonflybsd.org/">DragonFly</a> y sobre el que trata esta entrada, 
+<a href="http://www.minix3.org/">Minix</a>. 
+<br /> 
+<br />Como muy posiblemente ya conocer&aacute;s Minix es el sistema desarrollado por 
+<a href="http://en.wikipedia.org/wiki/Andrew_S._Tanenbaum">Andrew Tanenbaum</a> (y colaboradores) con el objetivo inicialmente de ser un sistema operativo con el que sus alumnos pudiesen aprender de forma pr&aacute;ctica los principios te&oacute;ricos sobre los que se basan los sistemas operativos. Con la versi&oacute;n 3 tambi&eacute;n tiene como objetivo ser un sistema usable seg&uacute;n la propia p&aacute;gina del proyecto.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/10/el-sistema-operativo-minix">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/10/ubuntu-enterprise-cloud-1010">Ubuntu Enterprise Cloud 10.10</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/10/ubuntu-enterprise-cloud-1010.html">Entrada original</a></span></div><div><span>Publicado el martes, 12 de octubre de 2010 a las 19:02 UTC</span></div><div><span>Actualizado el sábado, 25 de febrero de 2012 a las 14:35 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu">ubuntu</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/10/ubuntu-enterprise-cloud-1010" st_via="blogstack" st_title="Ubuntu Enterprise Cloud 10.10 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Ubuntu" height="84" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/TLStZnSXXnI/AAAAAAAAAf0/2F9garCHKlc/s320/ubuntu.png" title="Ubuntu" width="320" /> 
+</div> 
+<br />Muchos han sido los art&iacute;culos publicados el d&iacute;a 10 junto con la publicaci&oacute;n de Ubuntu Maverick Meerkat (10.10) pero tambi&eacute;n junto con la versi&oacute;n del escritorio tenemos la versi&oacute;n de servidor destinada a empresas aunque para un entorno de producci&oacute;n es m&aacute;s recomendable usar la versi&oacute;n LTS (10.04) por el mayor tiempo de soporte que posee.&nbsp;Adem&aacute;s de la tradicional versi&oacute;n para instalar como servidor tambi&eacute;n se puede instalar para construir una nube (que tan de moda est&aacute;) privada o en una nube p&uacute;blica utilizando los recursos de la 
+<a href="http://aws.amazon.com/ec2/">nube de Amazon</a>. 
+<br /> 
+<br />La Ubuntu Enterprise Cloud (UEC) est&aacute; formado por un controlador de la nube y uno o varios nodos controladores de las instancias. La nube de Ubuntu se basa en el software&nbsp; 
+<a href="http://www.eucalyptus.com/">Eucalyptus</a>. 
+<br /> 
+<br />El proceso de instalaci&oacute;n de una nube privada de Ubuntu se inicia como cualquier instalaci&oacute;n de otro sistema operativo introduciendo el CD o mediante una memoria USB (para hacer las pruebas lo m&aacute;s recomendables es utilizar una m&aacute;quina virtual como Vitrtualbox u otras similares).<p class="continue-reading"><a href="/post/elblogdepicodev/2010/10/ubuntu-enterprise-cloud-1010">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/01/last-como-obtener-los-ultimos-inicios-de-sesion">last, como obtener los últimos inicios de sesión</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/01/last-como-obtener-los-ultimos-inicios.html">Entrada original</a></span></div><div><span>Publicado el viernes, 27 de enero de 2012 a las 20:57 UTC</span></div><div><span>Actualizado el viernes, 27 de enero de 2012 a las 21:09 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/01/last-como-obtener-los-ultimos-inicios-de-sesion" st_via="blogstack" st_title="last, como obtener los últimos inicios de sesión | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Linux" height="200" src="http://4.bp.blogspot.com/-gf0CBdHQ0EI/TQJrCzG9OZI/AAAAAAAAAiY/NcJAFNmleAw/s200/tux.png" title="Linux" width="169" /> 
+</div>El comando last es una peque&ntilde;a utilidad que nos permite conocer cuando se inici&oacute; la sesi&oacute;n y cuando finaliz&oacute;, con que usuario y desde que direcci&oacute;n IP se realizaron los &uacute;ltimos inicios de sesi&oacute;n a un sistema. Quiz&aacute; esta informaci&oacute;n no sea de utilidad en alguna situaci&oacute;n o para detectar intrusiones a un sistema. Su uso es muy simple: 
+<br /> 
+<br /> 
+<div> 
+ <pre>$ last -F -10</pre> 
+</div> 
+<br />Este comando nos permite conocer los ultimos 10 inicios de sesi&oacute;n en el sistema. Si queremos conocer los inicio de sesi&oacute;n realizados por un determinado usuario lo har&iacute;amos con: 
+<br /> 
+<br /> 
+<div> 
+ <pre>$ last -F -10 root</pre> 
+</div> 
+<br />Este comando tiene unos cuantos par&aacute;metros m&aacute;s que pueden consultarse en la p&aacute;gina man del comando. 
+<br /> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://3.bp.blogspot.com/-AGLE_RMd6hE/TyMSbpB5nkI/AAAAAAAABC4/8m_xopWOrkY/s1600/last.png"><img alt="last" height="136" src="http://3.bp.blogspot.com/-AGLE_RMd6hE/TyMSbpB5nkI/AAAAAAAABC4/8m_xopWOrkY/s400/last.png" title="last" width="400" /></a> 
+</div> 
+<br /> 
+<div style="clear: both; text-align: center;"></div><p class="continue-reading"><a href="/post/elblogdepicodev/2012/01/last-como-obtener-los-ultimos-inicios-de-sesion">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2012/01/calendario-arch-linux-2012">Calendario Arch Linux 2012</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2012/01/calendario-arch-linux-2012.html">Entrada original</a></span></div><div><span>Publicado el domingo, 01 de enero de 2012 a las 14:19 UTC</span></div><div><span>Actualizado el sábado, 21 de enero de 2012 a las 16:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/otros">otros</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/01/calendario-arch-linux-2012" st_via="blogstack" st_title="Calendario Arch Linux 2012 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Empieza un nuevo a&ntilde;o y una de las cosas que primero hacemos es ver y obtener un calendario para poner encima de nuestra mesa. Hace unos d&iacute;as vi un 
+<a href="http://paraisolinux.com/2-calendarios-de-ubuntu-para-imprimir-del-2012/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+paraisoLinux+%28Paraiso+Linux%29">calendario tematizado con Ubuntu</a>. En un rato que he sacado he tenido tiempo de crear uno basado en Arch Linux y traducido al espa&ntilde;ol. As&iacute; que aqu&iacute; lo ten&eacute;is listo y esperando para imprimir, construirlo y ponerlo encima de vuestra mesa. En el paquete ten&eacute;is la versi&oacute;n SVG, PNG y PDF (200 KiB) lo pod&eacute;is 
+<a href="https://docs.google.com/open?id=0B4yquUFv3csrNmJjMDQ5ODYtYzk4Yi00MGM4LWE1MDItMmJiNzI2OGZhZmY5">obtener mediante este enlace</a>. 
+<br /> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://4.bp.blogspot.com/-lHmvpG811Xw/TwBqehbFy-I/AAAAAAAABCo/sxILVMr3dug/s1600/arch+linux+calendar+%25282012%2529.png"><img alt="Calendario Arch Linux 2012" height="400" src="http://4.bp.blogspot.com/-lHmvpG811Xw/TwBqehbFy-I/AAAAAAAABCo/sxILVMr3dug/s400/arch+linux+calendar+%25282012%2529.png" title="Calendario Arch Linux 2012" width="308" /></a> 
+</div> 
+<br /> 
+<br />Si le coge&iacute;s gusto a 
+<strike>
+  la papiroflexia 
+</strike>&nbsp;los modelos de papel tal vez os interese obtener este 
+<a href="http://elblogdepicodev.blogspot.com/2010/03/arch-linux-cheat-cube.html">Cheat Cube tamb&eacute;n para nuestra distribuci&oacute;n</a>. Ahora Tux y el cheat cube van a tener un nuevo compa&ntilde;ero :). En cuanto pueda imprimirlo le saco unas fotos. 
+<br /> 
+<br />&iexcl;Que empec&eacute;is bien el a&ntilde;o!<p class="continue-reading"><a href="/post/elblogdepicodev/2012/01/calendario-arch-linux-2012">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19">Un día en la Euskal Encounter 19</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/07/un-dia-en-la-euskal-encounter-19.html">Entrada original</a></span></div><div><span>Publicado el domingo, 24 de julio de 2011 a las 09:46 UTC</span></div><div><span>Actualizado el sábado, 21 de enero de 2012 a las 16:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu">ubuntu</a>
+,
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/otros">otros</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19" st_via="blogstack" st_title="Un día en la Euskal Encounter 19 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Euskal encounter 19" src="http://1.bp.blogspot.com/-XcMwHk7AABo/TiqxFNgHm7I/AAAAAAAAA50/Ot6_eSvAkEA/s1600/euskal-encounter.png" title="Euskal encounter 19" /> 
+</div>En estos d&iacute;as se est&aacute; celebrando, del 22 al 25 de julio, la&nbsp; 
+<a href="http://www.euskal.org/">Euskal Encounter</a>, uno de los enventos inform&aacute;ticos m&aacute;s importantes de Euskadi, del estado de Espa&ntilde;a y seg&uacute;n algunos uno de los mejores de parte de Europa. As&iacute; desde hace ya 19 ediciones, con en estos d&iacute;as exactamente 4096 puestos para los asistentes que disponen de una conexi&oacute;n de 20 Gb por segundo ofrecida por la mano de Euskaltel y HP. 
+<br /> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://3.bp.blogspot.com/-l99Z53pT6aQ/Tiq05lW8FXI/AAAAAAAAA6E/Olu9LltUxY4/s1600/DSCN0130.JPG"><img height="150" src="http://3.bp.blogspot.com/-l99Z53pT6aQ/Tiq05lW8FXI/AAAAAAAAA6E/Olu9LltUxY4/s200/DSCN0130.JPG" width="200" /></a> 
+ <a href="http://1.bp.blogspot.com/-SKInSG7mKf8/Tiq6WvHVMhI/AAAAAAAAA8c/c0fNIcXlILE/s1600/DSCN0100.JPG"><img height="150" src="http://1.bp.blogspot.com/-SKInSG7mKf8/Tiq6WvHVMhI/AAAAAAAAA8c/c0fNIcXlILE/s200/DSCN0100.JPG" width="200" /></a> 
+</div> 
+<div style="clear: both; text-align: center;"> 
+ <br /> 
+</div>A pesar de que se organiza en Barakaldo, al alcance de metro de ciudad en la que vivo y escasos minutos, hasta este a&ntilde;o no hab&iacute;a asistido a ninguna. Ten&iacute;a muchas ganas de ir y vivir en primera persona lo que ah&iacute; acontec&iacute;a al menos por un d&iacute;a, este a&ntilde;o no lo quer&iacute;a dejar pasar y as&iacute; ha sido. Como repaso de lo que ha dado el d&iacute;a (y parte de la noche) os escribo esta entrada.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/07/un-dia-en-la-euskal-encounter-19">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/05/el-impuesto-windows">El impuesto Windows</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/05/impuesto-windows.html">Entrada original</a></span></div><div><span>Publicado el viernes, 06 de mayo de 2011 a las 17:40 UTC</span></div><div><span>Actualizado el viernes, 09 de diciembre de 2011 a las 19:57 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tecnologia">tecnologia</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/el-impuesto-windows" st_via="blogstack" st_title="El impuesto Windows | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img height="198" src="http://3.bp.blogspot.com/-jH1CDgwhky0/TcQlzRMGfUI/AAAAAAAAApM/GqnFKxYCUQg/s200/no-windows.jpg" width="200" /> 
+</div>Desde hace ya un tiempo estoy en buscando comprar un port&aacute;til (PC, no Mac). &iquest;Pero os hab&eacute;is fijado? Todos vienen con Windows, incluso los menos potentes y baratos netbooks, donde probablemente el coste de la licencia Windows a pesar de ser m&aacute;s barata que la retail supondr&aacute; un importante porcentaje del coste total del equipo. Por desgrac&iacute;a en las marcas m&aacute;s conocidas (Sony, HP, Dell, Acer, ...) no he encontrado ning&uacute;n modelo con alguna distribuci&oacute;n GNU/Linux o al menos sin sistema operativo. Hay alguna marca de port&aacute;tiles menos conocida como 
+<a href="http://www.ahtec.es/">Ahtec</a> que si ofrece esta posibilidad pero he leido algunas opiniones no muy buenas de su soporte. 
+<br /> 
+<br />Si hace ya un tiempo la comisi&oacute;n Europea oblig&oacute; a Microsoft a no incluir su Internet Explorer en su sistema operativo para no abusar de posici&oacute;n dominante y a incluir la ballot screen para que los usuarios pudiesen elegir su navegador. &iquest;Por qu&eacute; no hace algo parecido pero con el sistema operativo de los port&aacute;tiles? &iquest;Por qu&eacute; el consumidor pr&aacute;cticamente no puede comprar un equipo sin sistema operativo? &iquest;Por qu&eacute; si no es justo imponer un canon indiscriminado a todos los medios de almacenamiento y dispositivos electr&oacute;nicos se nos impone un &quot;Impuesto Windows&quot; en los port&aacute;tiles a todos los usuarios aunque no seamos usuarios de ese sistema operativo y lo primero que hacemos es eliminarlo del disco duro? &iquest;Por qu&eacute; ese impuesto se ha de pagar por cada equipo que se compra? &iquest;Si ya tengo una licencia porque tengo que comprar otra nueva OEM?<p class="continue-reading"><a href="/post/elblogdepicodev/2011/05/el-impuesto-windows">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres">Alternativas a programas propietarios para sustituirlos por programas libres</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/02/alternativas-tus-programas-propietarios.html">Entrada original</a></span></div><div><span>Publicado el miércoles, 17 de febrero de 2010 a las 18:24 UTC</span></div><div><span>Actualizado el viernes, 09 de diciembre de 2011 a las 19:51 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/software-privativo">software-privativo</a>
+,
+<a href="/label/microsoft">microsoft</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/apple">apple</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres" st_via="blogstack" st_title="Alternativas a programas propietarios para sustituirlos por programas libres | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>El 
+<a href="http://es.wikipedia.org/wiki/Software_libre">software libre</a> (SL) a veces es confundido como sin&oacute;nimo de 
+<a href="http://es.wikipedia.org/wiki/GNU/Linux">GNU/Linux</a> y no es cierto, quiz&aacute; sea debido a que en GNU/Linux el SL est&aacute; mucho m&aacute;s presente (tambi&eacute;n el SL se confunde con gratis, y aunque en muchos casos es as&iacute; tampoco es cierto pero esto es asunto para otra entrada). El SL es un concepto que no est&aacute; asociado a determinado sistema operativo, sea este libre o no. De hecho, hay un mont&oacute;n de SL disponible para 
+<a href="http://es.wikipedia.org/wiki/Software_propietario">sistemas operativos privativos</a>, como os supondr&eacute;is me estoy refiriendo a Windows y Mac OS X, tanto que para cada programa privativo que tengamos en nuestro ordenador podemos encontrar uno o varios equivalentes con una licencia de software libre, con una funcionalidad similar y tan capaces como los no libres. 
+<br /> 
+<br />De eso va esta entrada, de hacer una peque&ntilde;a lista de programas propietarios que quiz&aacute; tengamos en el sistema que usamos con sus equivalentes libres. Pulsa en el enlace de cada programa para ver sus alternativas libres.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/02/alternativas-a-programas-propietarios-para-sustituirlos-por-programas-libres">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash">Cambiar el prompt de la terminal bash</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/03/cambiar-el-prompt-de-la-terminal-bash.html">Entrada original</a></span></div><div><span>Publicado el jueves, 04 de marzo de 2010 a las 12:51 UTC</span></div><div><span>Actualizado el miércoles, 30 de noviembre de 2011 a las 08:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/bash">bash</a>
+,
+<a href="/label/personalizacion">personalizacion</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash" st_via="blogstack" st_title="Cambiar el prompt de la terminal bash | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>El s&iacute;mbolo del sistema que aparece en la terminal puede ser personalizado tanto el texto del mismo como el color. Todo ello se hace modificando la variable de entorno PS1. 
+<br /> 
+<br />El valor predeterminado de esta variable de entorno es [\u@\h \W]\$] que se visualiza de la siguiente forma en la terminal. 
+<br /> 
+<br /> 
+<div> 
+ <pre>PS1='[\u@\h \W]\$] '</pre> 
+</div> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/S46yURHsnjI/AAAAAAAAAKE/mmt2_1dO_9o/s1600-h/bash-predeterminado.png"><img alt="bash sin personalizar" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/S46yURHsnjI/AAAAAAAAAKE/mmt2_1dO_9o/s320/bash-predeterminado.png" title="bash sin personalizar" /></a> 
+</div> 
+<br />Las secuencias de escape \u, \h, \W \$ determinan el contenido del s&iacute;mbolo del sistema que en este caso es una cadena formada por el nombre del usuario, el nombre de la m&aacute;quina host hasta el primer ., el directorio actual de trabajo y # para un UID de usuario efectivo 0, en cualquier otro caso $ que normalmente es # para el usuario root y $ para cualquier otro usuario. Los caracteres [, @ y ] se ponen en la cadena sin ser interpretados. La tabla completa de secuencias de escape la pod&eacute;is consultar en la p&aacute;gina man de bash.<p class="continue-reading"><a href="/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/11/personalizar-gnome-iconos-temas-extensiones-opciones">Personalizar GNOME (iconos, temas, extensiones, opciones)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/11/personalizar-gnome-iconos-temas.html">Entrada original</a></span></div><div><span>Publicado el viernes, 18 de noviembre de 2011 a las 19:24 UTC</span></div><div><span>Actualizado el sábado, 19 de noviembre de 2011 a las 05:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/gnome">gnome</a>
+,
+<a href="/label/planeta-codigo">planeta-codigo</a>
+,
+<a href="/label/wallpaper">wallpaper</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/personalizacion">personalizacion</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/11/personalizar-gnome-iconos-temas-extensiones-opciones" st_via="blogstack" st_title="Personalizar GNOME (iconos, temas, extensiones, opciones) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img height="76" src="http://1.bp.blogspot.com/-h-QR-vlTp1s/TZ8-U-5DhII/AAAAAAAAAn0/421PkrTee50/s200/gnome.png" width="200" alt="GNOME" title="GNOME" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img height="65" src="http://3.bp.blogspot.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s200/archlinux-official-dark.png" width="200" alt="Arch Linux" title="Arch Linux" /> 
+</div>Una vez que tenemos instalado nuestro sistema una de las primeras cosa que solemos hacer es personalizarlo cambiando el fondo de pantalla, instalando un pack de iconos o cambiando el tema de las ventanas. Aunque GNOME con su versi&oacute;n 3.0 o 3.2 ha perdido algunas funcionalidades y algunas posibilidadesd de configuraci&oacute;n la herramienta 
+<a href="http://www.archlinux.org/packages/extra/any/gnome-tweak-tool/">gnome-tweak-tool</a> permite configurar las opciones m&aacute;s habituales que querr&aacute;n la mayor&iacute;a de los usuarios. Para instalarla en arch linux: 
+<br /> 
+<br /> 
+<div> 
+ <pre># pacman -S gnome-tweak-tool</pre> 
+</div> 
+<br />Una vez instalada veremos su icono en el menu Aplicaciones &gt; Accesorios &gt; Configuraci&oacute;n avanzada. 
+<br /> 
+<br />En la pesta&ntilde;a 
+<b>Escritorio</b> podemos configurar algunos comportamientos como mostrar la visibilidad de los iconos Computadora, Papelera, Carpeta Home.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/11/personalizar-gnome-iconos-temas-extensiones-opciones">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux">Vídeo promocional sobre Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/07/video-promocional-sobre-arch-linux.html">Entrada original</a></span></div><div><span>Publicado el domingo, 17 de julio de 2011 a las 18:20 UTC</span></div><div><span>Actualizado el domingo, 17 de julio de 2011 a las 18:21 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux" st_via="blogstack" st_title="Vídeo promocional sobre Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>Despu&eacute;s de los 
+<a href="http://elblogdepicodev.blogspot.com/2011/07/motivos-para-elegir-la-distribucion.html">motivos de por qu&eacute; elegir Arch Linux</a> he hecho un peque&ntilde;o v&iacute;deo que resume algunos aspectos de est&aacute; fant&aacute;stica distribuci&oacute;n, para aquellos que prefieran ver en vez de leer y tambi&eacute;n para poder hacerlo llegar no solo a los que visitan mi blog sino tambi&eacute;n para aquellos que visitan youtube. 
+<br /> 
+<br />Rolling Release, KISS, n&uacute;mero de paquetes disponibles, aplicaciones de usuario, aplicaciones para desarrollo, personalizaci&oacute;n, rapidez y ligereza, adaptaci&oacute;n a las preferencias del usuario y su gran comunidad son algunas caracter&iacute;sticas que destaco de esta distribuci&oacute;n. El v&iacute;deo es muy simple porque es mi primer v&iacute;deo, no tengo muchas capacidades gr&aacute;ficas, ni una gran creatividad y tampoco PiTiVI permite muchas opciones (esperemos que seg&uacute;n vayan saliendo nuevas versiones le a&ntilde;adan funcionalidades y corrijan errores ya que&nbsp;no ha juntado bien las diapositivas)&nbsp;pero espero que contenga los&nbsp;aspectos importantes de Arch Linux, si cree&iacute;s que falta o ten&eacute;is alguna aportaci&oacute;n solo ten&eacute;is que suger&iacute;rmelo y har&eacute; lo que pueda por a&ntilde;adirlo. El v&iacute;deo no es definitivo y a medida que se me ocurra o me coment&eacute;is alguna modificaci&oacute;n la ir&eacute; a&ntilde;adiendo.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/07/video-promocional-sobre-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux">Instalar Symfony y Cherokee en Arch Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/06/instalar-symfony-y-cherokee-en-arch.html">Entrada original</a></span></div><div><span>Publicado el viernes, 17 de junio de 2011 a las 18:38 UTC</span></div><div><span>Actualizado el sábado, 18 de junio de 2011 a las 11:42 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a>
+,
+<a href="/label/php">php</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux" st_via="blogstack" st_title="Instalar Symfony y Cherokee en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Symfony" height="50" src="http://3.bp.blogspot.com/-EfsJMvWVKB8/Tfua8-JHx0I/AAAAAAAAA38/wEXePF8dCrk/s200/symfony.png" title="Symfony" width="200" /> 
+</div> 
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="Cherokee" height="77" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s200/cherokee2-mini.png" title="Cherokee" width="200" /> 
+</div>El 
+<a href="http://www.php.net/">lenguaje de programaci&oacute;n PHP</a> es uno de los m&aacute;s usados para desarrollar sitios web de internet. Su popularidad se debe a su sencillez y su clara orientaci&oacute;n al mundo de las p&aacute;ginas web. Es un lenguaje de scripting que ha incoporado y mejorado el soporte para la orientaci&oacute;n a objetos en las &uacute;ltimas versiones, yendo de esta forma hacia la direcci&oacute;n que en estos tiempos han seguido la mayor&iacute;a de lenguajes. Para proyectos peque&ntilde;os y sencillos usar &uacute;nicamente scripts de PHP puede ser suficiente pero en cuanto la complejidad y tama&ntilde;o del proyecto aumenta es necesario buscar soluciones para que el desarrollo y mantenimiento posterior no se convierta en un infierno, en la web de Symfony tienen un excelente 
+<a href="http://symfony.com/doc/current/book/from_flat_php_to_symfony2.html">art&iacute;culo de por que son necesarios</a> y con estos motivos surgen los frameworks. En PHP en concreto hay varios disponibles, quiza los m&aacute;s conocidos sean:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/06/instalar-symfony-y-cherokee-en-arch-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/04/obtener-informacion-del-sistema-en-linux-con-inxi-lspci-y-hwinfo">Obtener información del sistema en Linux (con inxi, lspci y hwinfo)</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/04/obtener-informacion-del-sistema-en.html">Entrada original</a></span></div><div><span>Publicado el viernes, 29 de abril de 2011 a las 18:21 UTC</span></div><div><span>Actualizado el viernes, 29 de abril de 2011 a las 18:21 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/04/obtener-informacion-del-sistema-en-linux-con-inxi-lspci-y-hwinfo" st_via="blogstack" st_title="Obtener información del sistema en Linux (con inxi, lspci y hwinfo) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><a href="http://code.google.com/p/inxi/">Inxi</a>&nbsp;es una peque&ntilde;a utilidad que nos permite conocer cierta informaci&oacute;n b&aacute;sica de nuestro equipo como que procesador tenemos, que caracter&iacute;sticas posee, cuales son las particiones del disco, la tarjeta gr&aacute;fica, distribuci&oacute;n gnu/linux que tenemos y con que versi&oacute;n de kernel, versi&oacute;n del servidor gr&aacute;fico, tarjeta de red y cantidad de memoria total y usada entre otra informaci&oacute;n. A veces conocer esta informaci&oacute;n es muy &uacute;til y en muchos casos cuando pedimos ayuda en un foro no est&aacute; dem&aacute;s dar esta informaci&oacute;n b&aacute;sica de nuestro equipo para que nos puedan ayudar mejor a encontrar una soluci&oacute;n al problema por el que preguntamos por si el mismo se debe a alg&uacute;n componente de nuestro equipo, del kernel o la versi&oacute;n del servidor gr&aacute;fico. 
+<br /> 
+<br />Su uso es muy sencillo, basta con el siguiente comando para obtener la informaci&oacute;n que se muestra en la captura de pantalla:<p class="continue-reading"><a href="/post/elblogdepicodev/2011/04/obtener-informacion-del-sistema-en-linux-con-inxi-lspci-y-hwinfo">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2010/12/juegos-para-gnulinux">Juegos para GNU/Linux</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2010/12/juegos-para-gnulinux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 10 de diciembre de 2010 a las 18:34 UTC</span></div><div><span>Actualizado el viernes, 15 de abril de 2011 a las 17:29 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu">ubuntu</a>
+,
+<a href="/label/juegos">juegos</a>
+,
+<a href="/label/arch-linux">arch-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/12/juegos-para-gnulinux" st_via="blogstack" st_title="Juegos para GNU/Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"> 
+ <img alt="Tux" height="200" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/TQJrCzG9OZI/AAAAAAAAAiY/LFBrHo1UgHs/s200/tux.png" title="Tux" width="169" /> 
+</div>En GNU/Linux no hay tantos juegos comerciales como en otros sistemas operativos, l&eacute;ase Windows y &uacute;ltimamente en Mac con su App Store, pero eso no quiere decir que no haya buenos juegos para el ping&uuml;ino. En la siguiente entrada pondr&eacute; algunos con los que he metido muchas horas y que se salen de los t&iacute;picos y habituales 
+<a href="http://en.wikipedia.org/wiki/First-person_shooter">FPS</a> aunque tambi&eacute;n los hay para Linux. 
+<br /> 
+<br /> 
+<b>Open TTD (Transport Tycoon Deluxe)</b> 
+<br /> 
+<br />Este juego est&aacute; basado en el original de la compa&ntilde;&iacute;a Microprose &laquo;Transport Tycoon Deluxe&raquo; y al que le a&ntilde;ade algunas caracter&iacute;sticas que no ten&iacute;a el original. Es un juego de estrategia en tiempo real en el que eres el propietario de una compa&ntilde;ia de transportes con el objetivo de amasar una fortuna y no llevar a la compa&ntilde;&iacute;a a la bancarrota. Para ello dispones de varios medios de transporte como tren, avi&oacute;n, camiones, autobuses y barcos para transportar mercancias o pasajeros (carb&oacute;n, hierro, acero, petroleo, madera, grano, ...) entre las f&aacute;bricas que producen las materias primas (bosques, granja , pozos de petr&oacute;leo, minas de hierro y de carb&oacute;n, ciudades, ...) y las factor&iacute;as que las procesan (acer&iacute;as, central el&eacute;ctricas, ciudades, serrerias, ...), tambi&eacute;n tendr&aacute;s que crear las rutas que har&aacute;n los veh&iacute;culos, de ello depender&aacute; que sean rentables y produzcan beneficios para comprar nuevos veh&iacute;culos y constuir nuevas rutas y no caer en la bancarrota. Seg&uacute;n se va avanzando en el tiempo ir&aacute;n apareciendo mejores medios de transporte con m&aacute;s capcidad, m&aacute;s r&aacute;pidos, que se averien menos o como en el caso de los trenes, en monorail o de levitaci&oacute;n. Seg&uacute;n del dinero que dispongas podr&aacute;s modificar el terreno y construir las carreteras para los veh&iacute;culos, v&iacute;as para los trenes, t&uacute;neles para evitar monta&ntilde;as, puentes para atravesar rios, comprar locomotoras, vagones, autobuses, aviones, constuir aeropuertos, .... &iexcl;Ten cuidado con las cat&aacute;strofes y los OVNIS!<p class="continue-reading"><a href="/post/elblogdepicodev/2010/12/juegos-para-gnulinux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/04/$003fhola-planeta-linux">¡Hola Planeta Linux!</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/04/hola-planeta-linux.html">Entrada original</a></span></div><div><span>Publicado el viernes, 15 de abril de 2011 a las 17:23 UTC</span></div><div><span>Actualizado el viernes, 15 de abril de 2011 a las 17:28 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/hola">hola</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/04/$003fhola-planeta-linux" st_via="blogstack" st_title="¡Hola Planeta Linux! | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <br /> 
+ <img alt="Planeta Linux" src="http://1.bp.blogspot.com/-y01yvbmMVko/Tah2O3Nf3TI/AAAAAAAAAoQ/IBeAcJfnWs0/s1600/pl_200x200.jpg" title="Planeta Linux" /> 
+</div>Esta es mi primera entrada para Planeta Linux y tambi&eacute;n ser&aacute; mi presentaci&oacute;n en esta comunidad de bloggers de la que estoy muy contento de formar parte. Los motivos para unirme a Planeta Linux es poder llegar a m&aacute;s lectores, usuarios de GNU/Linux y del software libre y aumentar las visitas di&aacute;rias y comentarios que recibo en el blog (aunque son m&aacute;s de las que pensaba recibir cuando empec&eacute; el blog), en cualquier caso lo hago realmente a gusto por sentir que quiz&aacute; lo que escribo a alguien le ayude tal y como lo que otros escribieron me ayud&oacute; a mi. 
+<br /> 
+<br />Para los usuarios de GNU/Linux que han hecho la migraci&oacute;n hace poco o tienen inter&eacute;s en el software libre recibir en su lector de feeds preferido es una buena forma de estar informado y aprender cosas nuevas sobre todo lo que le rodea a este sistema operativo.<p class="continue-reading"><a href="/post/elblogdepicodev/2011/04/$003fhola-planeta-linux">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article><header><h2><a href="/post/elblogdepicodev/2011/04/publicado-gnome-3">Publicado GNOME 3</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/04/publicado-gnome-3.html">Entrada original</a></span></div><div><span>Publicado el viernes, 08 de abril de 2011 a las 17:16 UTC</span></div><div><span>Actualizado el viernes, 08 de abril de 2011 a las 17:18 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/gnome">gnome</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/software-libre">software-libre</a>
+,
+<a href="/label/gnulinux">gnulinux</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/04/publicado-gnome-3" st_via="blogstack" st_title="Publicado GNOME 3 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+ <img alt="GNOME" src="http://1.bp.blogspot.com/-h-QR-vlTp1s/TZ8-U-5DhII/AAAAAAAAAn0/421PkrTee50/s1600/gnome.png" title="GNOME" /> 
+</div>Esta vez s&iacute; y cumpliendo con el calendario previsto el d&iacute;a 6 de abril fue publicada la versi&oacute;n 3 de 
+<a href="http://www.gnome.org/">gnome</a>. Despu&eacute;s de 9 a&ntilde;os (la versi&oacute;n 2 fue lanzada en junio de 2002) gnome se actualiza con una revisi&oacute;n mayor del proyecto. Al ser una revisi&oacute;n mayor, esta nueva versi&oacute;n incorpora muchas novedades de las que parte est&aacute;n comentadas en las 
+<a href="http://library.gnome.org/misc/release-notes/3.0/">notas de lanzamiento</a>&nbsp;no solo de cara a los usuarios del entorno de escritorio sino tambi&eacute;n para los desarrolladores sobre este entorno. 
+<br /> 
+<br />La evoluci&oacute;n para los usuarios de este entorno de escritorio puede verse en las siguientes im&aacute;genes que van desde el hoy vetusto gnome 1 hasta la nueva versi&oacute;n de gnome 3. 
+<br /> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://3.bp.blogspot.com/-SCmT9MZjbww/TZ8-XBk-IuI/AAAAAAAAAn4/7OhfTHR2lPY/s1600/gnome-1.x.png"><img alt="GNOME 1.x" height="150" src="http://3.bp.blogspot.com/-SCmT9MZjbww/TZ8-XBk-IuI/AAAAAAAAAn4/7OhfTHR2lPY/s200/gnome-1.x.png" title="GNOME 1.x" width="200" /></a> 
+ <a href="http://4.bp.blogspot.com/-bqC14WAI-Mc/TZ8-YoiNOMI/AAAAAAAAAn8/bv30U2ZfXzw/s1600/gnome-2.6.png"><img alt="GNOME 2.6" height="150" src="http://4.bp.blogspot.com/-bqC14WAI-Mc/TZ8-YoiNOMI/AAAAAAAAAn8/bv30U2ZfXzw/s200/gnome-2.6.png" title="GNOME 2.6" width="200" /></a> 
+</div> 
+<br /> 
+<div style="clear: both; text-align: center;"> 
+ <a href="http://2.bp.blogspot.com/-bfWVRNFoN38/TZ8-acTVPcI/AAAAAAAAAoA/Deg5_qSKbck/s1600/gnome-2.30.jpg"><img alt="GNOME 2.30" height="111" src="http://2.bp.blogspot.com/-bfWVRNFoN38/TZ8-acTVPcI/AAAAAAAAAoA/Deg5_qSKbck/s200/gnome-2.30.jpg" title="GNOME 2.30" width="200" /></a> 
+ <a href="http://3.bp.blogspot.com/-0XIR0I1QzGM/TZ8-cupV5bI/AAAAAAAAAoE/Fw1UHkrQCMQ/s1600/gnome-3.0.jpg"><img alt="GNOME 3.0" height="112" src="http://3.bp.blogspot.com/-0XIR0I1QzGM/TZ8-cupV5bI/AAAAAAAAAoE/Fw1UHkrQCMQ/s200/gnome-3.0.jpg" title="GNOME 3.0" width="200" /></a> 
+</div> 
+<br />Ya han sido publicados varios art&iacute;culos revisando las principales novedades de gnome que puedes consultar en el aparatado referencia al final de esta entrada. Yo me limitar&eacute; a a&ntilde;adir algo que no ha sido tan comentado y es que gnome es algo m&aacute;s que el entorno de escritorio, como la nueva infraestructura para el desarrollo y que sin duda permitir&aacute; a los desarrolladores realizar mejores aplicaciones y m&aacute;s f&aacute;cilmente. En el siguiente vista de la plataforma puede verse los<p class="continue-reading"><a href="/post/elblogdepicodev/2011/04/publicado-gnome-3">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"><a href="/label/page/3"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"><a href="/label/page/1">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/update:init",
+    {
+      "id" : "lastUpdated"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

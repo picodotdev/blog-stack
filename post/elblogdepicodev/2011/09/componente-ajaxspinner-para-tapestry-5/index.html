@@ -1,0 +1,157 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.less"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article><header><h2><a href="/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5">Componente AjaxSpinner para Tapestry 5</a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>, <span>Autor pico.dev</span>, <span><a href="http://elblogdepicodev.blogspot.com/2011/09/componente-ajaxspinner-para-apache.html">Entrada original</a></span></div><div><span>Publicado el viernes, 09 de septiembre de 2011 a las 19:09 UTC</span></div><div><span>Actualizado el jueves, 06 de marzo de 2014 a las 08:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion">programacion</a>
+,
+<a href="/label/planeta-arch-linux">planeta-arch-linux</a>
+,
+<a href="/label/planeta-linux">planeta-linux</a>
+,
+<a href="/label/tapestry">tapestry</a>
+,
+<a href="/label/java">java</a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_via="blogstack" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" />
+</div>Hoy en d&iacute;a las aplicaciones web que hace peticiones de forma as&iacute;ncrona con AJAX son la mayor&iacute;a ya que es una t&eacute;cnica que permite obtener &uacute;nicamente los datos que se necesitan sin tener que hacer una cargar entera de la p&aacute;gina web en el navegador. Esta t&eacute;cnica hace que las peticiones al devolver &uacute;nicamente los datos necesarios (y no toda la p&aacute;gina) y los recursos para procesar la petici&oacute;n sean menos, tambi&eacute;n hace que el resultado de las peticiones sean m&aacute;s peque&ntilde;os con lo que el tiempo de carga tambi&eacute;n se reduce al generar menos tŕafico de red, asi mismo el usuario nota un aumento de tiempo de respuesta. Tambi&eacute;n hace que en ciertos casos las aplicaciones sean m&aacute;s f&aacute;ciles de desarrollar por no tener que tratar en el servidor en cada petici&oacute;n el estado concreto de cada cliente.
+<br />
+<br />Por la naturaleza de las peticiones, as&iacute;ncronas y ejecutandose en segundo plano, es recomendable mostrar al usuario alg&uacute;n tipo de notificaci&oacute;n que informe a este de que hay una petici&oacute;n AJAX en curso de tal forma que pueda saber que se est&aacute; haciendo algo y que se ha completado.
+<br />
+<br />En el siguiente ejemplo voy a desarrollar un componente para Apache Tapestry 5 que implemente esta funcionalidad de tal forma que siempre que se est&eacute; realizando una petici&oacute;n AJAX se muestre un peque&ntilde;o tooltip del mismo estilo del que existe en gmail o google reader pero con los puntos suspentivos finales animados (de &laquo;.&raquo; a &laquo;..&raquo; a &laquo;...&raquo; a &laquo;....&raquo; y otra vez al inicio de &laquo;.&raquo;). En la vesi&oacute;n 5.2 de Tapestry a&uacute;n se usa prototype y las peticiones AJAX que inicia Tapestry las realiza con esta librer&iacute;a. Por suerte siempre que Prototype inicia una petici&oacute;n o alguna finaliza lanza 
+<a href="http://www.prototypejs.org/api/ajax/responders">dos eventos</a> informando de ello. Por lo que nuestra tarea ser&aacute; registrar un par de funciones propias para estos dos eventos con la l&oacute;gica que queremos implementar.
+<br />
+<br />El c&oacute;digo Java del componente es el siguiente, lo importante est&aacute; en el m&eacute;todo afterRender donde se genera el c&oacute;digo javascript de inicializaci&oacute;n que crea la instancia del objeto javascript AjaxSpinner cuando se carga la p&aacute;gina:
+<br />
+<br />
+<div>
+ <pre>package com.blogspot.elblogdepicodev.tapestry.components;<br /><br />import org.apache.tapestry5.ComponentResources;<br />import org.apache.tapestry5.MarkupWriter;<br />import org.apache.tapestry5.annotations.Environmental;<br />import org.apache.tapestry5.annotations.Import;<br />import org.apache.tapestry5.ioc.annotations.Inject;<br />import org.apache.tapestry5.services.javascript.JavaScriptSupport;<br /><br />@Import(stylesheet = { &quot;AjaxSpinner.css&quot; }, library = { &quot;AjaxSpinner.js&quot; })<br />public class AjaxSpinner {<br /><br />    @Environmental<br />    private JavaScriptSupport javaScriptSupport;<br />    <br />    @Inject<br />    private ComponentResources componentResources;<br /><br />    protected void afterRender(MarkupWriter writer) {<br />        String id = componentResources.getId();<br /><br />        JSONObject spec = new JSONObject();<br />        spec.put(&quot;id&quot;, id);<br />        <br />        javaScriptSupport.addInitializerCall(&quot;ajaxSpinner&quot;, spec);<br />    }<br />}</pre>
+</div>
+<br />La plantilla del componente se encarga de generar el html con las capas que van a contener los tooltips, uno para indicar que se est&aacute; realizando una petici&oacute;n, otro para indicar que a&uacute;n est&aacute; en funcionamiento si la petici&oacute;n tarda un rato y otro para indicar que la petici&oacute;n est&aacute; tardando m&aacute;s de lo normal. Se mostrar&aacute; una capa u otra dependiendo del tiempo que lleve realizandose. El c&oacute;digo de la plantilla AjaxSpinner.tml del componente es:
+<br />
+<br />
+<div>
+ <pre>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br />&lt;t:container xmlns:p=&quot;tapestry:parameter&quot; xmlns:t=&quot;http://tapestry.apache.org/schema/tapestry_5_1_0.xsd&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br /> &lt;div t:type=&quot;any&quot; t:id=&quot;div1&quot; id=&quot;${componentResources.id}1&quot; class=&quot;ajax-spinner&quot;&gt;<br />  Cargando...<br /> &lt;/div&gt;<br /> <br /> &lt;div t:type=&quot;any&quot; t:id=&quot;div2&quot; id=&quot;${componentResources.id}2&quot; class=&quot;ajax-spinner&quot;&gt;<br />  A&uacute;n en funcionamiento. Cargando...<br /> &lt;/div&gt;<br /> <br /> &lt;div t:type=&quot;any&quot; t:id=&quot;divX&quot; id=&quot;${componentResources.id}X&quot; class=&quot;ajax-spinner ajax-spinner-tardando&quot;&gt;<br />  Est&aacute; tardando demasiado...<br /> &lt;/div&gt;<br />&lt;/t:container&gt;<br /></pre>
+</div>
+<br />El c&oacute;digo javascript&nbsp;(AjaxSpinner.js)&nbsp;para el componente es:
+<br />
+<br />
+<div>
+ <pre>function AjaxSpinner(spec) {<br /> this.id = spec.id;<br /> this.t1 = null;<br /> this.t2 = null;<br /> this.tX = null;<br /> this.peZ = null;<br /><br /> this.d1 = $('#' + this.id + '1');<br /> this.d2 = $('#' + this.id + '2');<br /> this.dX = $('#' + this.id + 'X');<br /><br /> this.d1.css('margin-left', -1 * (this.d1.width() / 2));<br /> this.d2.css('margin-left', -1 * (this.d2.width() / 2));<br /> this.dX.css('margin-left', -1 * (this.dX.width() / 2));<br /><br /> var _this = this;<br /><br /> $(document).ajaxStart(function() {<br />  _this.clear();<br />  _this.t1 = setTimeout(function() {<br />   _this.timeout1();<br />  }, 500);<br />  _this.t2 = setTimeout(function() {<br />   _this.timeout2();<br />  }, 15000);<br />  _this.tX = setTimeout(function() {<br />   _this.timeoutX();<br />  }, 45000);<br />  _this.peZ = setInterval(function() { <br />   _this.timeoutZ();<br />  }, 1000);<br /> }).ajaxStop(function() {<br />  _this.clear();<br /> });<br />}<br /><br />AjaxSpinner.prototype.timeout1 = function() {<br /> this.d1.show();<br /> this.d2.hide();<br /> this.dX.hide();<br />}<br /><br />AjaxSpinner.prototype.timeout2 = function() {<br /> this.d1.hide();<br /> this.d2.show();<br /> this.dX.hide();<br />}<br /><br />AjaxSpinner.prototype.timeoutX = function() {<br /> this.d1.hide();<br /> this.d2.hide();<br /> this.dX.show();<br />}<br /><br />AjaxSpinner.prototype.timeoutZ = function() {<br /> var e = $('div[id^=' + this.id + ']:visible');<br /> var t = e.html().trim();<br /> if (t.endsWith('....')) {<br />  t = t.substring(0, t.length - 3);<br /> } else {<br />  t += '.';<br /> }<br /> e.html(t);<br />}<br /><br />AjaxSpinner.prototype.clear = function() {<br /> if (this.t1)<br />  clearTimeout(this.t1);<br /> if (this.t2)<br />  clearTimeout(this.t2);<br /> if (this.tX)<br />  clearTimeout(this.tX);<br /> if (this.peZ)<br />  clearTimeout(this.peZ);<br /> this.d1.hide();<br /> this.d2.hide();<br /> this.dX.hide();<br />}<br /><br />Tapestry.Initializer.ajaxSpinner = function(spec) {<br /> new AjaxSpinner(spec);<br />}</pre>
+</div>
+<br />Y los estilos CSS (AjaxSpinner.css) para dar a los tooltips el mismo aspecto que los de gmail y google reader:
+<br />
+<br />
+<div>
+ <pre>div.ajax-spinner {<br /> display: none;<br /> position: fixed;<br /> padding: 5px;<br /> top: 0px;<br /> left: 50%;<br /> text-align: center;<br /> background-color: #fff1a8;<br /> border-bottom-left-radius: 5px;<br /> border-bottom-right-radius: 5px;<br /> z-index: 9999;<br /> vertical-align: middle;<br />}<br /><br />div.ajax-spinner-tardando {<br /> background-color: #f8baba;<br />}</pre>
+</div>
+<br />Una vez desarrollado el componente lo &uacute;nico que tendr&iacute;amos que hacer es hacer uso del componente en la plantilla de la p&aacute;gina donde queramos usarlo, por ejemplo:
+<br />
+<br />
+<div>
+ <pre>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;<br />&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:t=&quot;http://tapestry.apache.org/schema/tapestry_5_1_0.xsd&quot; xmlns:p=&quot;tapestry:parameter&quot;&gt;<br />&lt;head&gt;<br />    &lt;title&gt;${titulo}&lt;/title&gt;<br /><br />    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic&quot;&gt;&lt;/link&gt;<br />    &lt;link t:type=&quot;any&quot; rel=&quot;shortcut icon&quot; href=&quot;context:/images/favicon.ico&quot;&gt;&lt;/link&gt;<br />    &lt;meta name=&quot;description&quot; content=&quot;${message:descripcion-app}&quot;/&gt;<br />    &lt;meta name=&quot;keywords&quot; content=&quot;${message:keywords-app}&quot;/&gt;<br />    <br />    &lt;t:extension-point id=&quot;head&quot;&gt;<br />    &lt;/t:extension-point&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />    <b>&lt;t:ajaxspinner t:id=&quot;principal&quot;/&gt;</b><br /><br />    &lt;div class=&quot;body&quot;&gt;<br />        &lt;t:extension-point id=&quot;cabecera&quot;&gt;<br />        &lt;/t:extension-point&gt;<br />        <br />        &lt;t:extension-point id=&quot;menu&quot;&gt;<br />        &lt;/t:extension-point&gt;<br />        <br />        &lt;t:extension-point id=&quot;cuerpo&quot;&gt;<br />        &lt;/t:extension-point&gt;<br /><br />        &lt;t:extension-point id=&quot;pie&quot;&gt;<br />        &lt;/t:extension-point&gt;<br />    &lt;/div&gt;<br />&lt;/body&gt;</pre>
+</div>
+<br />El resultado cuando se hace un petici&oacute;n AJAX que tarda bastante tiempo es:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-Enx47Bk5SMM/Tmpfiwhmw9I/AAAAAAAAA-g/mQgvsJmbylc/s1600/AjaxSpinner1.png"><img src="http://2.bp.blogspot.com/-Enx47Bk5SMM/Tmpfiwhmw9I/AAAAAAAAA-g/mQgvsJmbylc/s1600/AjaxSpinner1.png" /></a>
+ <a href="http://2.bp.blogspot.com/-K1PIa5Z6-Zs/TmpfjA7lUnI/AAAAAAAAA-k/UmridaGqnCw/s1600/AjaxSpinner2.png"><img src="http://2.bp.blogspot.com/-K1PIa5Z6-Zs/TmpfjA7lUnI/AAAAAAAAA-k/UmridaGqnCw/s1600/AjaxSpinner2.png" /></a>
+</div>
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-Ozq1URnDFM0/TmpfjY6rnUI/AAAAAAAAA-o/RDRGmlaJhV4/s1600/AjaxSpinner3.png"><img src="http://4.bp.blogspot.com/-Ozq1URnDFM0/TmpfjY6rnUI/AAAAAAAAA-o/RDRGmlaJhV4/s1600/AjaxSpinner3.png" /></a>
+</div>Tal vez te preguntes... &iquest;solo hace falta poner &lt;t:ajaxspinner t:id=&quot;principal&quot;/&gt; para usarlo? &iquest;y el archivo .js con el c&oacute;digo javascript no hay que meterlo en el head de la plantilla? &iquest;y la instanciaci&oacute;n del AjaxSpinner en javascript? &iquest;y el CSS tampoco hay que meterlo en el head? No, no hace falta saber que el componente hace uso de un archivo de javscript ni la hora de estilos que necesita ni saber como se inicializa de eso ya tiene conocimiento tapestry por la definici&oacute;n del componente (mediante la anotaci&oacute;n Import) y se encarga de incluir todo y de hacerlo eficientemente agregando el contenido de los archivos en uno solo. Tambi&eacute;n el propio componente se encarga de generar el c&oacute;digo javascript que necesita para inicalizarse.
+<br />
+<br />Esta es una de las grandes caracter&iacute;sticas de los componentes tapestry ya que como v&eacute;is lo &uacute;nico que hace falta es usarlo y pasarle los parametros necesarios (aunque en esta caso no tiene ninguno), no hace falta saber como funciona internamente, los estilos y que javascript necesita. Los componentes de tapestry permite abstraernos enormemente de sus detalles y eso es bueno, muy bueno &iquest;no crees?.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_via="blogstack" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" st_title="Componente AjaxSpinner para Tapestry 5 | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Componente AjaxSpinner para Tapestry 5";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/09/componente-ajaxspinner-para-apache.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 136,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
