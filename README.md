@@ -39,4 +39,5 @@ habitual pero el modelo «pull» seguido por Tapestry en las plantillas que gene
  en vez como contenido estático mediante una aplicación web prácticamente podría reutilizar todo el código de la aplicación. El funcionamiento de BS es similar a 
  [Octopress](http://octopress.org/) (con el que estoy bastante contento al usarlo en mi bitácora) generando el sitio de forma estática en [OpenShift](https://www.openshift.com/)
  y posteriormente hospedado en [GitHub Pages](https://pages.github.com/), generar el contenido de forma estática tiene algunas limitaciones pero por el momento es suficiente
- y para el proyecto igualmente importante es una solución cuyo coste solo está en la compra del dominio, con [DonDominio](http://dondominio.com/) unos 8€ anuales.
+ y para el proyecto por el momento es casi más importante una solución cuyo coste sea bajo. Actualmente, solo en la compra del dominio, con [DonDominio](http://dondominio.com/) 
+ unos 8€ anuales.
