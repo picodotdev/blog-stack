@@ -21,22 +21,22 @@ el que tengo mi [antigua bitácora](http://elblogdepicodev.blogspot.com.es/) agr
 a que me agregen [el nuevo](http://picodotdev.github.io/blog-bitix/) supongo que por falta de tiempo por parte de las personas encargadas de su mantenimiento, en cualquier
 caso tampoco he recibido al menos una respuesta.
 
-También quería poner a las bitácoras personales y al contenido, en los que algunos se escriben valiosas pildoras de conocimiento concentrado, en el lugar que se merecen 
+También quería poner a las bitácoras personales y al contenido, en los que algunos se escriben valiosas píldoras de conocimiento concentrado, en el lugar que se merecen 
 en esta época de redes sociales en las que lo relevante es compartirlo o comentarlo, esto también es importante y valioso pero no siempre más que el propio contenido que
-parece que queda relegado en un segundo plano más alla de los titulares o entradillas. Por último, a veces encontrar las bitácoras de esas personas que publican contenido 
-interesante no siempre es sencillo y a los nuevas bitácoras en los inicios les cuesta llegar a un número amplio de lectores hasta que es conocido o indexado en las
-páginas de resultados de los buscadores en las primeras posiciciones. Blog Stack permitirá descubrir nuevo contenido a través de las etiquetas en las que se publican 
+parece que queda relegado en un segundo plano más allá de los titulares o entradillas. Por último, a veces encontrar las bitácoras de esas personas que publican contenido 
+interesante no siempre es sencillo y a las nuevas bitácoras en los inicios les cuesta llegar a un número amplio de lectores hasta que es conocido o indexado en las
+páginas de resultados de los buscadores en las primeras posiciones. Blog Stack permitirá descubrir nuevo contenido a través de las etiquetas en las que se publican 
 los artículos y quizá en un futuro a medida que se vaya conociendo y en el que se vayan agregando bitácoras y atrayendo lectores hacer que el inicio de una bitácora no 
 sea escribir para uno mismo.
 
 Blog Stack es software libre con [licencia AGPL](http://www.gnu.org/licenses/agpl-3.0.html) y el código fuente está disponible en un este repositorio de GitHub. 
 Cualquiera podría usarlo para crear un agregador de temática similar o de otra (deportes, música, conciertos, cocina, arte, ciencia, educación, ocio, juegos, moda, noticias, 
 literatura, cine, sociedad, economía, ...) y con las herramientas que ofrece GitHub cualquiera podría colaborar con su desarrollo, es más, sería bien recibido, a través
-de código con «pull request» o creando «issues» con cualquier sugerencia o problema que se detecte. Blog Stack está desarrollado unsado Java y el framework
+de código con «pull request» o creando «issues» con cualquier sugerencia o problema que se detecte. Blog Stack está desarrollado usando Java y el framework
 [Apache Tapestry](http://tapestry.apache.org/) no como aplicación web sino como motor de plantillas para generar el contenido. Usar Tapestry de esta forma no es lo
 habitual pero el modelo «pull» seguido por Tapestry en las plantillas que generan el html y el conjunto controlador + plantilla que siguen los componentes me resulta mejor
  que la separación entre controlador y vista que es lo habitual en encontrar en la mayoría de motores de plantillas o frameworks web. Además, si en un futuro BS se generase
  en vez como contenido estático mediante una aplicación web prácticamente podría reutilizar todo el código de la aplicación. El funcionamiento de BS es similar a 
- [Octopress](http://octopress.org/) (con el que estoy bastante contento al usarlo en mi bitácora) genrando el sitio de forma estática en [OpenShift](https://www.openshift.com/)
+ [Octopress](http://octopress.org/) (con el que estoy bastante contento al usarlo en mi bitácora) generando el sitio de forma estática en [OpenShift](https://www.openshift.com/)
  y posteriormente hospedado en [GitHub Pages](https://pages.github.com/), generar el contenido de forma estática tiene algunas limitaciones pero por el momento es suficiente
  y para el proyecto igualmente importante es una solución cuyo coste solo está en la compra del dominio, con [DonDominio](http://dondominio.com/) unos 8€ anuales.
