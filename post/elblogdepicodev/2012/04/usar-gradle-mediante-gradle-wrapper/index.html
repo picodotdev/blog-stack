@@ -1,0 +1,122 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Usar Gradle mediante Gradle wrapper | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper"><span itemprop="headline">Usar Gradle mediante Gradle wrapper</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/04/usar-gradle-mediante-gradle-wrapper.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-04-06T14:39" itemprop="datePublished">Publicado el viernes, 06 de abril de 2012 a las 14:39 UTC</span></div><div><span datetime="2012-04-06T14:46" itemprop="dateModified">Actualizado el viernes, 06 de abril de 2012 a las 14:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_via="blogstack" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img height="88" src="http://1.bp.blogspot.com/-yE7Fw4P1zHE/T2zOQaIyDBI/AAAAAAAABFI/2AcLgy31ryI/s320/gradle.gif" width="320" alt="Gradle" title="Gradle" />
+</div>Despu&eacute;s de ver que es la 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/03/herramienta-de-construccion-gradle.html">herramienta de construcci&oacute;n Gradle</a>, cuales son sus caracter&iacute;sticas y que ventajas nos puede aportar en comparaci&oacute;n sobre ant o maven en esta entrada vamos a ver como usarla en los proyectos de la forma m&aacute;s sencilla posible y sin necesidad de instalar manualmente sus binarios en nuestra m&aacute;quina.
+<br />
+<br />El no tener que instalar los binarios antes de poder hacer uso de gradle facilita el trabajo a una nueva persona que vaya a comenzar a colaborar en el proyecto ya que &uacute;nicamente necesitar&aacute; obtener el c&oacute;digo fuente del mismo. Tambi&eacute;n nos ser&aacute; &uacute;til si no tenemos control sobre el entorno donde lo vayamos a ejecutar como podr&iacute;a ser un entorno de integraci&oacute;n continua. Para ello existe la herramienta gradle wrapper que una vez instalado en el proyecto nos permite usarlo sin necesidad de que descarguemos manualmente sus binarios, los descomprimamos en alguna carpeta de nuestro sistema y creemos una variable de entorno, de ello se encargar&aacute; el envoltorio de gradle descargando todas las cosas necesarias a trav&eacute;s de internet.
+<br />
+<br />Pero antes de usar gradle wrapper hay que a&ntilde;adir su soporte en el proyecto, para ello a&ntilde;adiremos la siguiente tarea &laquo;wrapper&raquo; y la ejecutaremos (esta tarea hace uso de gradle con lo que al inicio de proyecto al menos una persona deber&aacute; instalar manualmente gradle). Esto a&ntilde;adir&aacute; el soporte al proyecto para usar gradle wrapper creando una serie de archivos, entre ellos est&aacute;n los archivos de lotes que usaremos a partir de este momento, gradlew para entorno linux y gradlew.bat para windows, tambi&eacute;n se a&ntilde;adir&aacute; una carpeta gradle/wrapper con una librer&iacute;a y un archivo de configuraci&oacute;n.
+<br />
+<br />
+<div>
+ <pre>task wrapper(type: Wrapper) {<br /> gradleVersion = '1.0-milestone-9'<br />}<br /><br />$ ./gradle wrapper</pre>
+</div>
+<br />A partir de este momento usaremos el archivo de lotes adecuado para nuestro sistema:
+<br />
+<br />
+<div>
+ <pre>$ ./gradlew [tarea]</pre>
+</div>
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/03/herramienta-de-construccion-gradle.html">Herramienta de construcci&oacute;n Gradle</a>
+<br />
+<a href="http://www.gradle.org/">http://www.gradle.org/</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_via="blogstack" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper" st_title="Usar Gradle mediante Gradle wrapper | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Usar Gradle mediante Gradle wrapper";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/04/usar-gradle-mediante-gradle-wrapper.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 109,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/04/usar-gradle-mediante-gradle-wrapper"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

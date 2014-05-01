@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Blog Stack</title>
+  <link rel="alternate" href="http://www.blogstack.info" />
+  <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
+  <updated>2014-05-01T22:12:35Z</updated>
+  <dc:creator>Blog Stack</dc:creator>
+  <dc:date>2014-05-01T22:12:35Z</dc:date>
+  <dc:language>es</dc:language>
+  <entry>
+    <title>Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <category term="javascript" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-04-04T16:11:56Z</updated>
+    <published>2013-04-26T19:38:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /&gt; 
+&lt;/div&gt;Normalmente escribo art&amp;iacute;culos con ejemplos que tratan sobre una &amp;uacute;nica tecnolog&amp;iacute;a, al tratar cada tecnolog&amp;iacute;a por separado entender que puede ofrecer es m&amp;aacute;s sencillo pero en una aplicaci&amp;oacute;n real normalmente se usan varias tecnolog&amp;iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&amp;aacute;s parecido a lo que podr&amp;iacute;a ser una aplicaci&amp;oacute;n real que lo que he explicado durante las &amp;uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&amp;oacute;n de cosas por separado entre ellas 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;RequireJS&lt;/a&gt;,&amp;nbsp; 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html"&gt;Mustache&lt;/a&gt;,&amp;nbsp; 
+&lt;a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html"&gt;Backbone&lt;/a&gt;, 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html"&gt;servicios rest con Tapestry&lt;/a&gt; y 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html"&gt;RESTEasy&lt;/a&gt;. En esta entrada har&amp;eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&amp;aacute;s adicional como 
+&lt;a href="http://twitter.github.io/bootstrap/"&gt;twitter bootstrap&lt;/a&gt;. 
+&lt;br /&gt; 
+&lt;br /&gt;El ejemplo consiste en una lista de tareas, pudi&amp;eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&amp;eacute;n se podr&amp;aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&amp;uacute;mero de tareas completadas y de tareas totales.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-04-26T19:38:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Componente AjaxSpinner para Tapestry 5</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" />
+    <category term="programacion" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-03-06T08:46:40Z</updated>
+    <published>2011-09-09T19:09:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Hoy en d&amp;iacute;a las aplicaciones web que hace peticiones de forma as&amp;iacute;ncrona con AJAX son la mayor&amp;iacute;a ya que es una t&amp;eacute;cnica que permite obtener &amp;uacute;nicamente los datos que se necesitan sin tener que hacer una cargar entera de la p&amp;aacute;gina web en el navegador. Esta t&amp;eacute;cnica hace que las peticiones al devolver &amp;uacute;nicamente los datos necesarios (y no toda la p&amp;aacute;gina) y los recursos para procesar la petici&amp;oacute;n sean menos, tambi&amp;eacute;n hace que el resultado de las peticiones sean m&amp;aacute;s peque&amp;ntilde;os con lo que el tiempo de carga tambi&amp;eacute;n se reduce al generar menos tŕafico de red, asi mismo el usuario nota un aumento de tiempo de respuesta. Tambi&amp;eacute;n hace que en ciertos casos las aplicaciones sean m&amp;aacute;s f&amp;aacute;ciles de desarrollar por no tener que tratar en el servidor en cada petici&amp;oacute;n el estado concreto de cada cliente.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2011-09-09T19:09:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Documentación sobre Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-02-14T23:34:46Z</updated>
+    <published>2010-05-24T18:46:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;"&gt; 
+ &lt;img alt="Apache Tapestry" src="http://1.bp.blogspot.com/_9zOwWD_PYL8/TOq7Y6w6wfI/AAAAAAAAAiU/DPBnmc4-2Sw/s320/tapestry.png" height="132" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt; ha sido para mi, con diferencia sobre el resto &amp;nbsp;(JSF, Struts 1 y &amp;uacute;ltimamente Grails), el mejor framework para desarrollar aplicaciones web en Java que he probado, adem&amp;aacute;s de ser un placer programar con &amp;eacute;l siempre que he podido. Tambi&amp;eacute;n he le&amp;iacute;do bastantes buenas cr&amp;iacute;ticas y argumentos en varios blogs y art&amp;iacute;culos destacando varios de sus aspectos y compar&amp;aacute;ndolo con otros frameworks similares ( 
+&lt;a href="http://wicket.apache.org/"&gt;Wicket&lt;/a&gt;, 
+&lt;a href="http://struts.apache.org/"&gt;Struts&lt;/a&gt;, JSF y alg&amp;uacute;n otro). En esta entrada quiero ir recogiendo todos los enlaces de documentaci&amp;oacute;n que vaya encontrando sobre este framework ya que a pesar de que el framework es excelente la documentaci&amp;oacute;n a d&amp;iacute;a de hoy no es tan abundante&amp;nbsp;no toda est&amp;aacute; centralizada en la web del proyecto, lo que puede ser un problema para alguien que este empezando. Por fortuna, la documentaci&amp;oacute;n es suficiente para llegar a comprender como funciona y hay algunos buenos libros publicados. Este framework le hace la vida m&amp;aacute;s f&amp;aacute;cil al programador en varias de las tareas m&amp;aacute;s comunes de toda aplicaci&amp;oacute;n web. As&amp;iacute; que si estas cansado de JSF, de Struts o de el framework [pon aqu&amp;iacute; el que uses] que no te permite disfrutar mientras desarrollas o te complica las cosas m&amp;aacute;s de lo necesario te animo a que pruebes Tapestry quiz&amp;aacute; sea lo que est&amp;aacute;s buscando. Puedes empezar por el&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2010/05/documentacion-sobre-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2010-05-24T18:46:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Libro sobre desarrollo de aplicaciones con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="planeta-linux" />
+    <category term="tecnologia" />
+    <category term="software-libre" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-02-14T20:12:44Z</updated>
+    <published>2013-07-24T17:06:00Z</published>
+    <content type="html">&lt;p&gt;Recientemente he publicado 
+&lt;a href="http://goo.gl/Vx8icI"&gt;PlugIn Tapestry&lt;/a&gt;, un libro acerca del desarrollo de aplicaciones web en el lenguaje Java y con el framework 
+&lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt;. 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;div&gt; 
+ &lt;div style="clear: both; text-align: center;"&gt; 
+  &lt;a href="http://goo.gl/WFQgY"&gt;&lt;img alt="PlugIn Tapestry" src="http://1.bp.blogspot.com/-CUcQ3fWr9Yw/Ue7FYGDd_SI/AAAAAAAACls/eLuRuVvRz7w/s320/PlugInTapestry.png" height="320" style="border-color: red; border-style: solid; border-width: 1px;" title="PlugIn Tapestry" width="226" /&gt;&lt;/a&gt; 
+ &lt;/div&gt;Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&amp;aacute;pidas, din&amp;aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como SpringMVC, Grails y Play! y tambi&amp;eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como Django (Python), Symfony (PHP), .NET MVC (C#) o Ruby On Rails (Ruby). 
+ &lt;br /&gt; 
+ &lt;br /&gt;Incluyendo la descripci&amp;oacute;n de las caracter&amp;iacute;sticas del framework el libro trata la mayor&amp;iacute;a de aspectos que puede necesitar una aplicaci&amp;oacute;n o p&amp;aacute;gina web, entre ellos: 
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-07-24T17:06:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Libro sobre desarrollo de aplicaciones con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-02-14T19:10:34Z</updated>
+    <content type="html">&lt;p&gt;&lt;div style="float: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Hace unos meses publiqu&amp;eacute; el libro PlugIn Tapestry, un libro acerca del desarrollo de aplicaciones y p&amp;aacute;ginas web en el lenguaje Java y con el framework &lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt;.&lt;/p&gt; 
+&lt;h2&gt;PlugIn Tapestry&lt;/h2&gt; 
+&lt;p&gt;Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&amp;aacute;pidas, din&amp;aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como &lt;a href="http://projects.spring.io/spring-framework/"&gt;Spring&lt;/a&gt;, &lt;a href="http://grails.org/"&gt;Grails&lt;/a&gt; y &lt;a href="http://www.playframework.com/"&gt;Play!&lt;/a&gt; y tambi&amp;eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como &lt;a href="https://www.djangoproject.com/"&gt;Django&lt;/a&gt; (Python), &lt;a href="http://symfony.com/"&gt;Symfony&lt;/a&gt; (PHP), &lt;a href="http://www.asp.net/mvc"&gt;ASP.NET MVC&lt;/a&gt; (C#) o &lt;a href="http://rubyonrails.org/"&gt;Ruby On Rails&lt;/a&gt; (Ruby).&lt;/p&gt; 
+&lt;div style="text-align: center;"&gt; 
+ &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry.png" title="Libro sobre Apache Tapestry"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry-thumb.png" /&gt;&lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Incluyendo la descripci&amp;oacute;n de las caracter&amp;iacute;sticas del framework el libro trata la mayor&amp;iacute;a de aspectos que puede necesitar una aplicaci&amp;oacute;n o p&amp;aacute;gina web, entre ellos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+  </entry>
+  <entry>
+    <title>Presentación sobre Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-02-14T15:05:53Z</updated>
+    <content type="html">&lt;p&gt;&lt;div style="float: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;El 10 de febrero tuve la oportunidad de dar una charla, la primera, sobre &lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt; para el equipo de desarrolladores de la empresa en la que trabajo. Que en el equipo de desarrollo tengamos la posibilidad de vez en cuando dedicar un par de horas para juntarnos y compartir conocimiento es una buena iniciativa ya que siendo ya un equipo bastante grande de personas y con un nivel t&amp;eacute;cnico elevado cada uno tiene un conocimiento que los dem&amp;aacute;s pueden estar interesados en conocer al menos a nivel superficial, es motivador tener estas oportunidades.&lt;/p&gt; 
+&lt;div style="text-align: center;"&gt; 
+ &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/11/presentacion-apache-tapestry.jpg" title="Presentaci&amp;oacute;n sobre Apache Tapestry"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/11/presentacion-apache-tapestry-thumb.jpg" /&gt;&lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Fue una charla simplemente como cultura general ya que el framework y el lenguaje que usamos como pila tecnol&amp;oacute;gica es &lt;a href="http://grails.org/"&gt;Grails&lt;/a&gt; y &lt;a href="http://groovy.codehaus.org/"&gt;Groovy&lt;/a&gt; y eso es complicado que cambie. Otro motivo fue poder compartir el conocimiento de este framework para el desarrollo de aplicaciones y p&amp;aacute;ginas web que a mi me gusta mucho. Si est&amp;aacute;s suscrito al &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+  </entry>
+  <entry>
+    <title>Como devolver un archivo con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software-libre" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-01-30T18:07:53Z</updated>
+    <published>2012-11-10T13:20:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;En esta entrada voy a explicar como enviar un archivo al cliente desde el servidor usando el framework Apache Tapestry. Esto es necesario si por ejemplo nuestra aplicaci&amp;oacute;n necesita generar un informe ya sea en formato txt, excel, pdf, 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2012/10/crear-un-archivo-zip-con-java.html"&gt;un archivo comprimido&lt;/a&gt; o de cualquier otro tipo. 
+&lt;br /&gt; 
+&lt;br /&gt;En tapestry el proceso no es muy complicado, tan solo deberemos devolver un objeto que implemente la 
+&lt;a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/StreamResponse.html"&gt;interfaz StreamResponse&lt;/a&gt; en el manejador de evento (&amp;laquo;event handler&amp;raquo;) que procesa la petici&amp;oacute;n. 
+&lt;br /&gt; 
+&lt;br /&gt;Aqu&amp;iacute; el c&amp;oacute;digo de parte de un manejador de evento que construye y devuelve un objeto que implementa la interfaz StreamResponse: 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;script src="https://gist.github.com/4051027.js?file=Page.java"&gt;&lt;/script&gt; Una posible implementaci&amp;oacute;n de la clase StreamResponse podr&amp;iacute;a ser la siguiente que podr&amp;iacute;amos reutilizar siempre que tengamos que devolver un archivo:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-11-10T13:20:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Hola mundo con Apache Tapestry (5.1) en Google App Engine</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2010/06/hola-mundo-con-apache-tapestry-51-en-google-app-engine" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <category term="google" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-12-01T23:34:17Z</updated>
+    <published>2010-06-15T17:24:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt; 
+ &lt;img alt="Java" height="110" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/TBeztET3lAI/AAAAAAAAAZ8/BP4VHrwEXTY/s320/java.png" title="Java" /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+ &lt;img alt="Apache Tapestry" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/S-2l0Qxom1I/AAAAAAAAAOg/t4TfjsOh4WQ/s1600/tapestry-banner.gif" title="Apache Tapestry" /&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+ &lt;img alt="Google App Engine" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/TBezuYpe1NI/AAAAAAAAAaA/rszdHsAoPTo/s1600/appengine.gif" title="Google App Engine" /&gt; 
+&lt;/div&gt; 
+&lt;br /&gt;Este fin de semana he estado probando el servicio de hosting 
+&lt;a href="http://code.google.com/appengine/"&gt;Google App Engine&lt;/a&gt; para aplicaciones web (GAE para los amigos). Y por el momento me ha dejado muy buen sabor de boca ya que he conseguido subir a la nube con este servicio sin excesibas dificultades la aplicaci&amp;oacute;n 
+&lt;a href="http://elblogdepicodev.blogspot.com/2010/05/hola-mundo-con-apache-tapestry-5.html"&gt;Hola Mundo con Tapestry 5.1&lt;/a&gt; que hice en un post anterior. 
+&lt;br /&gt; 
+&lt;br /&gt;Pero antes de ver el ejemplo vamos a hablar de las principales caracteristicas de este servicio. Dado que es un servicio de hosting lo principal que hay que tener en cuenta es que no estamos trabajando sobre un servidor propio sino que lo hacemos sobre la infraestructura y servidores que utiliza la propia Google para sus servicios y por tanto no podemos hacer cualquier cosa en &amp;eacute;l sino que nos tenemos que limitar a usar las funcionalidades que nos ofrece y dentro de los l&amp;iacute;mites que nos impone el entorno. Pero no nos asustemos, si se puede hacer funcionar un framework como Apache Tapestry dentro de &amp;eacute;l, que no es un framework internamente sencillo, los l&amp;iacute;mites son bastante amplios y con bastante probabilidad podremos trabajar con el framework o librer&amp;iacute;as que m&amp;aacute;s nos gusten. Tambi&amp;eacute;n podemos optar por trabajar directamente con Servlets y JSPs si nuestra aplicaci&amp;oacute;n es sencilla.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2010/06/hola-mundo-con-apache-tapestry-51-en-google-app-engine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2010-06-15T17:24:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Integración y transacciones con Spring en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry-" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-11-10T11:41:35Z</updated>
+    <published>2013-11-08T20:04:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Spring" src="http://1.bp.blogspot.com/-z3Uf7rZosVk/Un04HYeUy3I/AAAAAAAACq0/JxaGVTEux-E/s1600/spring.png" title="Spring" /&gt; 
+&lt;/div&gt;En otra entrada comentaba como hacer transacciones en una base de datos relacional con Apache Tapestry y como mejorar el soporte que ofrece de por si con la anotaci&amp;oacute;n CommitAfter mediante con una 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/11/transacciones-en-apache-tapestry.html"&gt;soluci&amp;oacute;n propia que proporciona la anotaci&amp;oacute;n Transactional&lt;/a&gt;. La soluci&amp;oacute;n propia mejora la anotaci&amp;oacute;n CommitAfter y es usable en m&amp;aacute;s casos como cuando dos servicios distintos necesitan colaborar en una transaccion y compartirla. Sin embargo, si el correcto funcionamiento de las transacciones es una parte importante de la aplicaci&amp;oacute;n (y en una aplicaci&amp;oacute;n grande lo ser&amp;aacute;) podemos evaluar si optar por Spring o los EJB en vez de la soluci&amp;oacute;n propia o la anotaci&amp;oacute;n CommitAfter. 
+&lt;br /&gt; 
+&lt;br /&gt;Unos buenos motivos para optar tanto por Spring como por los EJB es que son soluciones ya desarrolladas con lo que solo tendremos que integrarlo en nuestros proyectos y no tendremos que preocuparnos de mantener nuestra soluci&amp;oacute;n en caso de que tenga errores, adem&amp;aacute;s ambas son ampliamente usadas incluso en proyectos grandes y complejos y est&amp;aacute;n ya probadas lo que es una garant&amp;iacute;a. Entre optar por Spring o los EJB depende de varios factores como puede ser si la aplicaci&amp;oacute;n va ha ser desplegada en un servidor de aplicaciones con soporte para EJB (como&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry-"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-11-08T20:04:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Transacciones en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-11-09T16:00:18Z</updated>
+    <published>2013-11-01T21:14:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Tapestry no proporciona de por s&amp;iacute; un soporte completo a las aplicaciones que necesitan realizar operaciones en una base de datos relacional de forma transaccional. La dependencia tapestry-hibernate provee la anotaci&amp;oacute;n 
+&lt;a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/hibernate/annotations/CommitAfter.html"&gt;@CommitAfter para Hibernate&lt;/a&gt; y la dependencia tapestry-jpa otra del mismo nombre para JPA pero esta anotaci&amp;oacute;n en ambos casos proporciona una funcionalidad muy b&amp;aacute;sica y probablemente no no sirva en casos de uso complejos. Esto ha sido objeto de discusi&amp;oacute;n varias veces en la lista de distribuci&amp;oacute;n de los usuarios 
+&lt;a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Transactions-and-AfterCommit-td5722996.html"&gt;[1]&lt;/a&gt; 
+&lt;a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Re-Transactions-and-AfterCommit-td5723025.html"&gt;[2]&lt;/a&gt; y el JIRA de Tapestry&amp;nbsp; 
+&lt;a href="https://issues.apache.org/jira/browse/TAP5-2159"&gt;[3]&lt;/a&gt;. 
+&lt;br /&gt; 
+&lt;br /&gt;Con la anotaci&amp;oacute;n CommitAfter si se produce una excepci&amp;oacute;n no controlada (&amp;laquo;unchecked&amp;raquo;) se har&amp;aacute; un rollback de la transacci&amp;oacute;n y, esto es importante, a&amp;uacute;n produciendose una excepci&amp;oacute;n controlada (&amp;laquo;checked&amp;raquo;) se har&amp;aacute; el commit de la transacci&amp;oacute;n y es responsabilidad del programador tratar la excepci&amp;oacute;n adecuadamente. Se puede usar en los m&amp;eacute;todos de los servicios y en los m&amp;eacute;todos manejadores de eventos de los componentes.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-11-01T21:14:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Solución al doble envío de peticiones en aplicaciones web</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <category term="javascript" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-11-01T18:29:38Z</updated>
+    <published>2013-10-11T17:25:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Las aplicaciones web pueden recibir informaci&amp;oacute;n del usuario a trav&amp;eacute;s de formularios o en los par&amp;aacute;metros de los enlaces. Los formularios o enlaces pueden desencadenar en la aplicaci&amp;oacute;n diversas acciones. Dada la naturaleza de las aplicaciones web en ciertas ocasiones la latencia de la red o el tiempo que toma procesar la petici&amp;oacute;n un usuario puede tener la oportunidad de hacer clic varias veces en un bot&amp;oacute;n o enlace tambi&amp;eacute;n cuando ve que tarda mucho en obtener la respuesta o simplemente por su desconocimiento al estar acostumbrado a hacer doble clic al trabajar con otras aplicaciones o la interfaz de su sistema operativo. En ocasiones el problema puede producirse tambi&amp;eacute;n haciendo un refrescar con el bot&amp;oacute;n del navegador si no se hace un redirect despu&amp;eacute;s del env&amp;iacute;o del formulario (&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-10-11T17:25:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Solución al problema de seguridad CSRF en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-11-01T18:29:26Z</updated>
+    <published>2013-10-18T18:20:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Al desarrollar una aplicaci&amp;oacute;n el problema de seguridad 
+&lt;a href="http://en.wikipedia.org/wiki/Cross-site_scripting"&gt;XSS&lt;/a&gt; (Cross-site scripting) puede afectar a los usuarios de nuestra aplicaci&amp;oacute;n. XSS consiste en que la aplicaci&amp;oacute;n permite la inyecci&amp;oacute;n de c&amp;oacute;digo malicioso que posteriormente otros usuarios obtienen al acceder a nuestra aplicaci&amp;oacute;n. Se produce porque nuestra aplicaci&amp;oacute;n no realiza el escapado correctamente de lo que env&amp;iacute;a al usuario y porque el usuario conf&amp;iacute;a en lo que obtiene del servidor. Para evitar este problema 
+&lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt; por defecto realiza un escapado de lo que emite al cliente con lo que si no hacemos lo contrario la aplicaci&amp;oacute;n estar&amp;aacute; a salvo de este problema. 
+&lt;br /&gt; 
+&lt;br /&gt;Otro problema de seguridad es 
+&lt;a href="https://owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29"&gt;CSRF&lt;/a&gt; (Cross-site request forgery) en el que b&amp;aacute;sicamente un sitio al que se accede devuelve un enlace malicioso que provoca una acci&amp;oacute;n en otro, el atacado. El enlace devuelto puede producir cualquier acci&amp;oacute;n que el sitio atacado permita, el ejemplo que se suele poner es el de un sitio bancario y el intento de hacer una transferencia de la cuenta del usuario que tiene iniciada una sesi&amp;oacute;n en la p&amp;aacute;gina de su banco a la cuenta del atacante pero podr&amp;iacute;a ser la realizaci&amp;oacute;n de un cambio de contrase&amp;ntilde;a a una que conozca el atacante y de esta forma posteriormente este pueda autenticarse con la cuenta de ese usuario en el sitio atacado. En la&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-10-18T18:20:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Persistencia con JPA y Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/06/persistencia-con-jpa-y-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-07-19T18:17:49Z</updated>
+    <published>2013-06-07T18:24:00Z</published>
+    <content type="html">&lt;p&gt;En Java disponemos de varias opciones para persistir la informaci&amp;oacute;n a una base de datos relacional, algunas de ellas son: 
+&lt;br /&gt; 
+&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Hibernate" src="http://4.bp.blogspot.com/-NW8tZ9bOLc0/Tr1-LwGV1KI/AAAAAAAAA_E/Ix83vOC01Nk/s1600/hibernate.png" title="Hibernate" /&gt; 
+&lt;/div&gt; 
+&lt;br /&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;JDBC: es la API que viene integrada en la propia plataforma Java sin necesidad de ninguna librer&amp;iacute;a adicional exceptuando el driver JDBC para acceder a la base de datos. Mediante esta opci&amp;oacute;n se tiene total flexibilidad y evita la abstracci&amp;oacute;n y sobrecarga de los sistemas como Hibernate y JPA. Se trabaja con el lenguaje SQL de forma directa y este lenguaje puede varia en algunos aspectos de una base de datos a otra con lo que para migrar a otra base de datos puede implicar reescribir las SQL de la aplicaci&amp;oacute;n. Su utilizaci&amp;oacute;n de forma directa no es tan habitual aunque en casos que se necesite acceder de forma masiva a los datos puede se &amp;uacute;til para evitar la sobrecarga o complejidad que a&amp;ntilde;aden sistemas como Hibernate o JPA.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/06/persistencia-con-jpa-y-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-06-07T18:24:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Personalizar la página de informe de error en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-la-pagina-de-informe-de-error-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-07-17T10:49:58Z</updated>
+    <published>2013-07-12T18:05:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Si en otra entrada explicaba 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/07/redefinicion-de-paginas-de-error-404.html"&gt;como redefinir las p&amp;aacute;ginas de los c&amp;oacute;digos de error HTTP en Apache Tapestry&lt;/a&gt; para personalizarlas y que tuviesen el mismo estilo que las p&amp;aacute;ginas del resto de la aplicaci&amp;oacute;n. En esta entrada explicar&amp;eacute; como redefinir la p&amp;aacute;gina de informe de error que se muestra cuando se produce una excepci&amp;oacute;n y no es controlada. 
+&lt;br /&gt; 
+&lt;br /&gt;En Tapestry se distingue entre la p&amp;aacute;gina de c&amp;oacute;digo de error HTTP 500 y la p&amp;aacute;gina del informe de excepci&amp;oacute;n, aunque esta &amp;uacute;ltimo tambi&amp;eacute;n devuelve un c&amp;oacute;digo de error 500 se trata de otra p&amp;aacute;gina diferente. Esta p&amp;aacute;gina de informe de error tambi&amp;eacute;n se muestra cuando se produce una excepci&amp;oacute;n en una petici&amp;oacute;n Ajax pero dentro de una ventana emergente dentro de la propia p&amp;aacute;gina. 
+&lt;br /&gt; 
+&lt;br /&gt;La p&amp;aacute;gina de informe de error tienen el siguiente aspecto por defecto.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-la-pagina-de-informe-de-error-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-07-12T18:05:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Hemeroteca #1</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/06/hemeroteca-1" />
+    <category term="hemeroteca" />
+    <category term="raspberrypi" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="blogger" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <category term="arch-linux" />
+    <category term="otros" />
+    <category term="software-libre" />
+    <category term="gnulinux" />
+    <category term="tapestry" />
+    <category term="java" />
+    <category term="minix" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-07-07T01:16:10Z</updated>
+    <published>2012-06-29T16:43:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img src="http://1.bp.blogspot.com/-cK1PH5pzXNc/TdKfToeduKI/AAAAAAAAApw/axtoypLaDfU/s1600/El+blog+de+picodev+%2528watermark%2529.png" /&gt; 
+&lt;/div&gt;Ya han pasado seis meses de este 2012 y seguro que muchos estamos ya pensando en coger vacaciones dentro de poco. En esta entrada recopilar&amp;eacute; para que han dado estos seis meses en El blog de pico.dev. Si te interesan entradas como estas y a&amp;uacute;n no lo has hecho suscr&amp;iacute;bete al feed de mi blog, tengo una buena cantidad de entradas esperando a ser escritas y que ir&amp;eacute; publicando a raz&amp;oacute;n de una por semana si dispongo del tiempo y el &amp;aacute;nimo para escribirlas. 
+&lt;br /&gt; 
+&lt;br /&gt;En estos seis meses he escrito estas 23 entradas agrupadas por tem&amp;aacute;tica: 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;b&gt;Varios&lt;/b&gt; 
+&lt;br /&gt;Como menci&amp;oacute;n especial integr&amp;eacute; el widget de karmacracy que puede verse al final de cada entrada mediante el cual cualquier usuario puede compartir la entradas de este blog en sus redes sociales como facebook, twitter o linkedin de una forma r&amp;aacute;pida y sencilla obteniendo a cambio un lugar en el widget para los usuarios que m&amp;aacute;s clics atraigan.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/06/hemeroteca-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-06-29T16:43:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Personalizar las páginas de error (404, 500, ...) en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-las-paginas-de-error-404-500-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-07-05T18:43:47Z</updated>
+    <published>2013-07-05T18:42:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt; 
+ &lt;a href="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s1600/tapestry.png"&gt;&lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt;&lt;/a&gt; 
+&lt;/div&gt;Al desarrollar una aplicaci&amp;oacute;n y sobre todo si se trata de una p&amp;aacute;gina web p&amp;uacute;blica a la que puede acceder cualquier usuario de internet es casi obligatorio hacer que las p&amp;aacute;ginas de los diferentes c&amp;oacute;digos de error HTTP tenga el mismo estilo que el resto de las p&amp;aacute;ginas de la aplicaci&amp;oacute;n y con el contenido que queramos indicar al usuario para que sepa porque se ha producido ese error y que puede hacer. 
+&lt;br /&gt; 
+&lt;br /&gt;En Tapestry se puede redefinir la p&amp;aacute;gina de cualquier error HTTP, los m&amp;aacute;s habituales son la del c&amp;oacute;digo de error 404 que es la de una p&amp;aacute;gina no encontrada o la del c&amp;oacute;digo de error 500 que es la p&amp;aacute;gina que se mostrar&amp;aacute; cuando se haya producido un error en el servidor. 
+&lt;br /&gt; 
+&lt;br /&gt;Lo que hay que a&amp;ntilde;adir para tener estas p&amp;aacute;ginas personalizadas es un poco de xml en el archivo descriptor de la aplicaci&amp;oacute;n web (web.xml) y crear las propias p&amp;aacute;ginas con el contenido que deseemos.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/07/personalizar-las-paginas-de-error-404-500-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-07-05T18:42:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Hemeroteca #3</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/06/hemeroteca-3" />
+    <category term="hemeroteca" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="blogger" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <category term="gnulinux" />
+    <category term="tapestry" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-06-29T08:54:49Z</updated>
+    <published>2013-06-29T08:46:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt; 
+ &lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+  &lt;img alt="El blog de pico.dev" height="44" src="http://4.bp.blogspot.com/-cK1PH5pzXNc/TdKfToeduKI/AAAAAAAAApw/axtoypLaDfU/s320/El+blog+de+picodev+%2528watermark%2529.png" title="El blog de pico.dev" width="320" /&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt;Mitad del a&amp;ntilde;o y otros seis meses m&amp;aacute;s que han pasado, ya queda menos para las esperadas vacaciones ;). Como he empezado a hacer desde hace un tiempo en esta entrada quiero recapitular las 25 entradas que he escrito durante este primer semestre de 2013, una por semana publicada normalmente durante la tarde de los viernes. Esta ser&amp;aacute; la cuarta Hemeroteca aunque lleve el n&amp;uacute;mero #3. Si te has suscrito a mi blog hace poco es buen momento para revisar alguna entrada anterior que he escrito y si hace un tiempo que estabas suscrito puedes releer alguna entrada que ya vistes y que en su momento te interes&amp;oacute; o que por falta de tiempo dejaste de leer. Muchas de las entradas que he escrito durante este semestre han estado relacionados con la programaci&amp;oacute;n de una o de otra manera.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/06/hemeroteca-3"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-06-29T08:46:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Pruebas unitarias y de integración en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-06-21T17:40:10Z</updated>
+    <published>2013-06-21T17:40:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Realizar teses unitarios, de integraci&amp;oacute;n y funcionales del c&amp;oacute;digo de la aplicaci&amp;oacute;n que desarrollamos es necesario para tener cierta seguridad de que lo codificado funciona como se espera al menos bajo las circunstancias de las pruebas. Una vez que tenemos un conjunto de pruebas y necesitamos hacer cambios a c&amp;oacute;digo existente las pruebas nos sirven para evitar introducir nuevos defectos, tendremos seguridad de que lo modificado sigue funcionando como antes y no dejaremos de hacer algo por miedo a introducir nuevos errores. 
+&lt;br /&gt; 
+&lt;br /&gt;A estas alturas supongo que todos estaremos de acuerdo en que las pruebas son de gran utilidad y necesarias. Adem&amp;aacute;s, de lo anterior los teses nos sirven como documentaci&amp;oacute;n en forma de c&amp;oacute;digo de como se puede usar los objetos bajo prueba. Y por otra parte si usamos un lenguaje din&amp;aacute;mico, que tan de moda est&amp;aacute;n en estos momentos, en el que el compilador no suele ayudar en tiempo de desarrollo y solo nos encontramos con los errores en tiempo de ejecuci&amp;oacute;n porque hemos puesto mal el nombre de un variable, de m&amp;eacute;todo o el n&amp;uacute;mero de par&amp;aacute;metros son incorrectos las pruebas nos ayudar&amp;aacute;n a detectarlos al menos en el entorno de integraci&amp;oacute;n continua y no en producci&amp;oacute;n, aunque muy posiblemente no siempre porque es raro que tengamos el 100% del c&amp;oacute;digo cubierto con teses. Si en Java es necesario tener teses en un lenguaje din&amp;aacute;mico como Groovy es vital si no queremos tener errores en producci&amp;oacute;n por temas de &amp;laquo;compilaci&amp;oacute;n&amp;raquo;.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/06/pruebas-unitarias-y-de-integracion-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-06-21T17:40:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Mantenimiento CRUD en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-06-14T16:22:03Z</updated>
+    <published>2013-06-14T16:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;El scaffolding es una ayuda que permite a partir de una descripci&amp;oacute;n disponer de una funcionalidad sin escribir una l&amp;iacute;nea de c&amp;oacute;digo o muy pocas exceptuando las necesarias para la descripci&amp;oacute;n. En funcionalidades que se repiten mucho en una aplicaci&amp;oacute;n, no aportan mucho valor y son aburridas de programar puede llegar ahorrar una cantidad considerable de tiempo y disponer de un prototipo funcional muy r&amp;aacute;pidamente. Es utilizada por varios frameworks web en diferentes lenguajes para hacer los mantenimientos CRUD (Create, Read, Update, Delete) de las tablas de una base de datos relacional: 
+&lt;br /&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Ruby on Rails&lt;/li&gt; 
+ &lt;li&gt;Symfony&lt;/li&gt; 
+ &lt;li&gt;Grails&lt;/li&gt; 
+ &lt;li&gt;Y quiz&amp;aacute; algunos otros menos conocidos&lt;/li&gt; 
+&lt;/ul&gt;El problema de los scaffoldings viene cuando la funcionalidad que proporcionan no es suficiente, no se adapta a lo que necesitamos o no nos gusta lo que se genera y nos vemos en la obligaci&amp;oacute;n de personalizarlo, los scaffolding son tan b&amp;aacute;sicos que si tenemos una aplicaci&amp;oacute;n un poco compleja probablemente deberemos adaptarlos. En ese caso no nos quedar&amp;aacute; m&amp;aacute;s remedio que programar lo que necesitemos. Algunos frameworks permiten generar un c&amp;oacute;digo inicial a partir del que comenzar la programaci&amp;oacute;n. Esto es el caso de Grails y el c&amp;oacute;digo generado deja bastante que desear (en mi humilde opini&amp;oacute;n), el CRUD de una tabla tiene cinco gsp, entre ellas una para el alta y otra para la modificaci&amp;oacute;n que son pr&amp;aacute;cticamente iguales con lo que contiene bastante c&amp;oacute;digo repetido tambi&amp;eacute;n en el controlador para las acciones save y update que para luego mantenerlo supone problemas. Una vez que el c&amp;oacute;digo est&amp;aacute; generado y lo hemos personalizado con alguna modificaci&amp;oacute;n al salir una nueva versi&amp;oacute;n del framework (y tarde o temprano saldr&amp;aacute;) tendremos la duda de si el c&amp;oacute;digo que se nos gener&amp;oacute; con una versi&amp;oacute;n anterior se ha quedado obsoleto en la nueva versi&amp;oacute;n, dudaremos si partir del c&amp;oacute;digo inicial que genera la nueva versi&amp;oacute;n e incorporar las cambios que hicimos o si adaptamos el c&amp;oacute;digo que tenemos con los nuevos cambios.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-06-14T16:10:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Seguridad en aplicación web con Apache Tapestry (II)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-06-07T19:48:04Z</updated>
+    <published>2013-05-31T16:15:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt;&lt;/div&gt;Si en la anterior entrada hablaba de la seguridad sobre los aspectos de la&amp;nbsp; 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/05/seguridad-en-aplicacion-web-con-apache.html"&gt;autenticaci&amp;oacute;n y autorizaci&amp;oacute;n de las acciones que puede realizar los usuarios&lt;/a&gt;&amp;nbsp;en una aplicaci&amp;oacute;n web en esta hablar&amp;eacute; como protegerse de otro tipo de fallos de seguridad, XSS e inyecci&amp;oacute;n de Sql. 
+&lt;br /&gt; 
+&lt;br /&gt;Otros dos aspectos muy a tener en cuenta desde el inicio y durante el desarrollo de una aplicaci&amp;oacute;n web son los siguientes: 
+&lt;br /&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;XSS (&lt;a href="http://es.wikipedia.org/wiki/Cross-site_scripting"&gt;Cross site scripting&lt;/a&gt;): es una vulnerabilidad que pueden sufrir las aplicaciones por b&amp;aacute;sicamente no controlar los datos que un usuario env&amp;iacute;a a trav&amp;eacute;s de formularios o como par&amp;aacute;metros en las URL. Por ejemplo, supongamos una aplicaci&amp;oacute;n recibe un formulario con un nombre que se escupe tal cual se envi&amp;oacute; en otra p&amp;aacute;gina de la aplicaci&amp;oacute;n y que otros usuarios pueden visualizar en sus navegadores posteriormente cuando accedan a las p&amp;aacute;ginas que los muestran. Una posible situaci&amp;oacute;n puede darse cuando los datos enviados se guardan en una base de datos, un usuario los env&amp;iacute;a se guardan en la base de datos y otro usuario los ve. Ese dato puede ser una cadena inofensiva como el nombre que se pide pero un usuario malicioso puede enviar c&amp;oacute;digo javascript o una imagen con una URL que puede recolectar&amp;nbsp;con cualquier prop&amp;oacute;sito la informaci&amp;oacute;n de los usuario que la ven en su navegador. Un usuario enviando los datos adecuados puede explotar esta vulnerabilidad y conseguir desde obtener la sesi&amp;oacute;n de otro usuario y hacer cualquier tipo de acci&amp;oacute;n como si fuera ese otro usuario, hasta obtener datos y distribuir virus a los usuarios a trav&amp;eacute;s de nuestra propia p&amp;aacute;gina web.&amp;nbsp; &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-05-31T16:15:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Seguridad en aplicación web con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-05-31T16:16:30Z</updated>
+    <published>2013-05-24T17:09:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Shiro" src="http://3.bp.blogspot.com/-0rj1VvDX_Nw/UZ9_nqEtnwI/AAAAAAAAChM/bBsxBV2MBNk/s1600/shiro.png" title="Apache Shiro" /&gt; 
+&lt;/div&gt;Adem&amp;aacute;s de la persistencia en una base de datos, otra de las funcionalidades comunes que suele necesitar una aplicaci&amp;oacute;n es la seguridad. En la seguridad hay varios aspectos a tratar que son: 
+&lt;br /&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Autenticaci&amp;oacute;n: que consiste en identificar al usuario en el sistema y comprobar que el usuario es quien dice ser. Normalmente la autenticaci&amp;oacute;n se suele realizar pidi&amp;eacute;ndole al usuario su identificativo, nombre de usuario o correo electr&amp;oacute;nico y una contrase&amp;ntilde;a que solo &amp;eacute;l conoce. Aunque hay otras formas de realizarlo entre ellas los certificados.&lt;/li&gt; 
+ &lt;li&gt;Autorizaci&amp;oacute;n: que consiste en determinar si el usuario autenticado tienen permisos para realizar una determinada operaci&amp;oacute;n. La autorizaci&amp;oacute;n puede realizarse mediante roles, permisos o una combinaci&amp;oacute;n de ambos dependiendo de lo adecuado para la operaci&amp;oacute;n. Pero en ocasiones no solo hay que validar si un usuario tiene permisos para para realizar una acci&amp;oacute;n, tambi&amp;eacute;n puede ser necesario restringir la operaci&amp;oacute;n sobre ciertos datos, los que se determinen que &amp;eacute;l est&amp;aacute; autorizado a modificar, si no se hiciese esto un usuario podr&amp;iacute;a alterar los datos de otro y el sistema tener una brecha de seguridad.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-05-24T17:09:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Conversiones de datos entre el cliente y servidor en Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-05-25T03:10:48Z</updated>
+    <published>2012-03-02T21:00:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="131" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Las clases que implementan la interfaz 
+&lt;a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html"&gt;Translator&lt;/a&gt; en Tapestry permiten convertir el valor de un campo de texto a un objeto (a trav&amp;eacute;s del m&amp;eacute;todo 
+&lt;a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html#parseClient(org.apache.tapestry5.Field, java.lang.String, java.lang.String)"&gt;parseClient&lt;/a&gt;) y de un objeto a un texto que ser&amp;aacute; incluido en un elemento de formulario en el cliente (a trav&amp;eacute;s del m&amp;eacute;todo 
+&lt;a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/Translator.html#toClient(T)"&gt;toClient&lt;/a&gt;). Esta conversi&amp;oacute;n es necesaria ya que lo que enviamos al cliente y lo que recibimos de &amp;eacute;l es un String. Al recibir los datos desde cliente en el servidor necesitaremos alguna forma de convertir esos datos representados en formato texto a su representaci&amp;oacute;n en objeto que hagamos en el el servidor. Estas dos tareas que en un principio no son muy complejas son tremendamente necesarias y b&amp;aacute;sicas en cualquier aplicaci&amp;oacute;n web, siendo algo b&amp;aacute;sico es el framework que usemos el que deber&amp;iacute;a dar un buen soporte para estas tareas. Con los translators podremos evitar repetirnos en diferentes puntos de la aplicaci&amp;oacute;n.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/03/conversiones-de-datos-entre-el-cliente-y-servidor-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-03-02T21:00:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Ejemplo de pruebas unitarias en javascript con Jasmine y Sinon</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <category term="javascript" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-05-03T19:32:54Z</updated>
+    <published>2013-05-03T19:27:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Jasmine" height="63" src="http://2.bp.blogspot.com/-CI-bmJ97HgE/UYP7rdVA0KI/AAAAAAAACf0/dGYUu61qUwg/s200/jasmine.png" title="Jasmine" width="200" /&gt; 
+&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Backbone.js" height="35" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s200/backbone.png" title="Backbone.js" width="200" /&gt; 
+&lt;/div&gt;Tener un conjunto de pruebas unitarias sobre el c&amp;oacute;digo de la aplicaci&amp;oacute;n que desarrollamos es importante para tener m&amp;aacute;s seguridad de que lo que hacemos funciona como se espera y no introducimos errores en funcionalidades que ya exist&amp;iacute;an al hacer modificaciones, adem&amp;aacute;s de que en el caso de que haya errores estos ser&amp;aacute;n m&amp;aacute;s f&amp;aacute;cilmente descubiertos y resueltos en menos tiempo lo que har&amp;aacute; que seamos m&amp;aacute;s productivos. Si en una aplicaci&amp;oacute;n web es posible que ya hagamos pruebas unitarias sobre el c&amp;oacute;digo del lado del servidor, &amp;iquest;por que no hacerlo tambi&amp;eacute;n en el lado del cliente? Si la aplicaci&amp;oacute;n tiene un peso importante de javascript en el lado del cliente, y esa es la tendencia, es recomendable tener tambi&amp;eacute;n teses unitarios de esta parte del c&amp;oacute;digo.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-05-03T19:27:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Motivos para elegir el framework Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2011/08/motivos-para-elegir-el-framework-apache-tapestry" />
+    <category term="programacion" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-03-23T15:59:31Z</updated>
+    <published>2011-08-19T17:21:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;En el mundo del desarrollo web en el entorno Java hay muchos frameworks disponibles en los que elegir (JSP/Servlets, Struts, Grails, Wicket, Play, Seam, ... Tapestry y varios m&amp;aacute;s), a veces la elecci&amp;oacute;n del framework m&amp;aacute;s adecuado para el desarrollo del proyecto que tenemos por delante no suele ser una decisi&amp;oacute;n sencilla y no solo intervienen decisiones t&amp;eacute;cnicas sino tambi&amp;eacute;n los conocimientos y predisposici&amp;oacute;n de aprender que tenga el equipo que vaya a desarrollarlo. Lo que est&amp;aacute; claro es que si el proyecto es m&amp;aacute;s o menos complejo o va a necesitar mantenimiento nadie se plantea desarrollarlo directamente con JSP y Servlets. 
+&lt;br /&gt; 
+&lt;br /&gt;En la siguiente entrada voy a tratar de explicar algunas caracter&amp;iacute;sticas y dar algunos motivos y razones por los que deber&amp;iacute;as tener en cuenta el framework Apache Tapestry.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2011/08/motivos-para-elegir-el-framework-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2011-08-19T17:21:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Skinning de web usando Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/03/skinning-de-web-usando-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software-libre" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-03-10T13:55:24Z</updated>
+    <published>2013-03-09T11:30:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: both; text-align: center;"&gt;&lt;/div&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Algunas p&amp;aacute;ginas o aplicaciones web tienen la necesidad de variar su aspecto en funci&amp;oacute;n de determinadas variables. La aplicaci&amp;oacute;n puede ser la misma pero necesitar cambiar el aspecto o la imagen de marca en funci&amp;oacute;n de esas variables. Si los cambios a realizar solo implican cosas visuales como colores, tipos de fuentes y tama&amp;ntilde;os, im&amp;aacute;genes, etc... con cambiar las hojas de estilo de la web puede ser suficiente, pero si es necesario modificar el html que genera la aplicaci&amp;oacute;n porque los elementos sean diferentes o est&amp;eacute;n en diferente posici&amp;oacute;n dentro del html generado necesitaremos incluir l&amp;oacute;gica en forma de condiciones en las plantillas &amp;nbsp;que forman parte de la vista del framework que usemos. Si &amp;uacute;nicamente tenemos una variable incluir l&amp;oacute;gica en las plantillas puede ser manejable pero si son varias tarde tarde o temprano su mantenimiento ser&amp;aacute; un problema y podremos tener como resultado&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/03/skinning-de-web-usando-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-03-09T11:30:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Integración de Apache Tapestry con RESTEasy</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-03-01T22:15:01Z</updated>
+    <published>2013-03-01T19:23:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="RESTEasy" height="141" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s200/resteasy.png" title="RESTEasy" width="200" /&gt; 
+&lt;/div&gt;Ahora que hemos visto en art&amp;iacute;culos anteriores como son los servicios web 
+&lt;a href="http://es.wikipedia.org/wiki/Representational_State_Transfer"&gt;REST&lt;/a&gt;, 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html"&gt;como realizar uno empleando la librer&amp;iacute;a RESTeasy&lt;/a&gt;, 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html"&gt;como crear un cliente para consumirlo desde el lenguaje de programaci&amp;oacute;n java o mediante javascript desde un navegador web&lt;/a&gt; y 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/devolver-xml-json-o-html-con-resteasy.html"&gt;como devolver datos en formato json, xml u otro&lt;/a&gt; se nos plantean algunas ideas de como definir la arquitectura de una aplicaci&amp;oacute;n. 
+&lt;br /&gt; 
+&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry 5" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry 5" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;br /&gt;Las aplicaciones web normalmente se organizan en tres capas, la del cliente, la que contiene la l&amp;oacute;gica de negocio y la capa de base de datos. La capa del cliente est&amp;aacute; formada por el navegador, la de negocio donde se emplea alg&amp;uacute;n framework y variar&amp;aacute; seg&amp;uacute;n lenguaje de programaci&amp;oacute;n que empleemos e incluye a menudo la responsabilidad de presentaci&amp;oacute;n transformando los datos de la capa de base de datos en html para el cliente. La capa de base de datos contiene los datos que trata la aplicaci&amp;oacute;n ya sea en forma relacional o no relacionan (no-sql).&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/03/integracion-de-apache-tapestry-con-resteasy"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2013-03-01T19:23:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Herramienta de construcción Gradle</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/03/herramienta-de-construccion-gradle" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2013-02-21T14:30:24Z</updated>
+    <published>2012-03-23T20:53:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Gradle" height="88" src="http://1.bp.blogspot.com/-yE7Fw4P1zHE/T2zOQaIyDBI/AAAAAAAABFI/2AcLgy31ryI/s320/gradle.gif" title="Gradle" width="320" /&gt; 
+&lt;/div&gt; 
+&lt;a href="http://gradle.org/"&gt;Gradle&lt;/a&gt; es una de las muchas herramientas que existen para construir proyectos de forma automatizada pero tiene unas cuantas ventajas sobre otras que se han estado utilizado ampliamente hasta el momento como 
+&lt;a href="http://ant.apache.org/"&gt;Ant&lt;/a&gt; y 
+&lt;a href="http://maven.apache.org/"&gt;Maven&lt;/a&gt; en el mundo Java. 
+&lt;br /&gt; 
+&lt;br /&gt;Primero vamos a ver los problemas de Ant y Maven. El problema de Ant es que para definir las tareas a ejecutar para la construcci&amp;oacute;n del proyecto se utiliza XML y usar XML para describir las acciones de las tareas da resultado ficheros grandes y de dif&amp;iacute;cil mantenimiento en cuanto el problema de la construcci&amp;oacute;n es complicado. Otro problema es que Ant no tiene la noci&amp;oacute;n de dependencias por lo que tendremos que descargarlas una a una, si posteriormente actualizamos a una nueva versi&amp;oacute;n tendremos que volver revisar manualmente las dependencias que tengamos. Usando Ant con&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/03/herramienta-de-construccion-gradle"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-03-23T20:53:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Como enviar un archivo con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-enviar-un-archivo-con-apache-tapestry" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software-libre" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2012-12-21T21:33:49Z</updated>
+    <published>2012-11-16T20:48:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Si en la entrada anterior explique un ejemplo de como 
+&lt;a href="http://elblogdepicodev.blogspot.com.es/2012/11/como-devolver-un-archivo-con-apache.html"&gt;devolver un archivo con Apache Tapestry&lt;/a&gt; desde el servidor al cliente en esta vamos a ver la operaci&amp;oacute;n contraria, enviar un archivo del cliente al servidor con Apache Tapestry a trav&amp;eacute;s de un formulario html. 
+&lt;br /&gt; 
+&lt;br /&gt;En una aplicaci&amp;oacute;n web el enviar un archivo al servidor se realiza con un campo &amp;lt;input type=&amp;quot;file&amp;quot; /&amp;gt; pero en el servidor se trata de forma especial para recibirlo. Dado que no es tan simple recibir un archivo como recibir un dato de un campo file como de otros campos (text, radio, select) que son &amp;uacute;nicamente una cadena lo habitual ser&amp;aacute; usar alguna librer&amp;iacute;a que nos facilite la tarea o a trav&amp;eacute;s de las facilidades que nos proporcione el framework que usemos. 
+&lt;br /&gt; 
+&lt;br /&gt;Con Tapestry para subir un archivo al servidor tenemos que modificar el html para el formulario e indicar el atributo enctype=&amp;quot;multipart/form-data&amp;quot; de la siguiente forma:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-enviar-un-archivo-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-11-16T20:48:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Páginas PageCatalog, ServiceStatus e HibernateStatistics de Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/08/paginas-pagecatalog-servicestatus-e-hibernatestatistics-de-tapestry" />
+    <category term="programacion" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2012-08-24T18:15:52Z</updated>
+    <published>2012-08-24T12:23:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
+&lt;/div&gt;Como ya he comentado en 
+&lt;a href="http://elblogdepicodev.blogspot.com/2011/08/motivos-para-elegir-apache-tapestry.html"&gt;alguna ocasi&amp;oacute;n anterior&lt;/a&gt; una de las buenas caracter&amp;iacute;sticas de Tapestry es la buena informaci&amp;oacute;n que d&amp;aacute; cuando algo va mal con la p&amp;aacute;gina de Informe de error (Exception Report). Tambi&amp;eacute;n podemos obtener un mont&amp;oacute;n de trazas ( 
+&lt;a href="http://tapestry.apache.org/logging.html"&gt;I&lt;/a&gt;, 
+&lt;a href="http://tapestry.apache.org/logging-in-tapestry.html"&gt;II&lt;/a&gt;) para conocer que es lo que est&amp;aacute; haciendo internamente en cada momento y que ayuda a resolver los problemas cuando los hay m&amp;aacute;s r&amp;aacute;pidamente. 
+&lt;br /&gt; 
+&lt;br /&gt;Otra buena fuente de informaci&amp;oacute;n adem&amp;aacute;s de la p&amp;aacute;gina de un informe de error y el sistema de trazas est&amp;aacute;n las p&amp;aacute;ginas incluidas en el propio framework (builtin) PageCatalog, 
+&lt;a href="http://tapestry.apache.org/service-status.html"&gt;ServiceStatus&lt;/a&gt; y 
+&lt;a href="http://tapestry.apache.org/hibernate-statistics.html"&gt;la p&amp;aacute;gina de estad&amp;iacute;sticas de Hibernate&lt;/a&gt;. 
+&lt;br /&gt; 
+&lt;br /&gt;La p&amp;aacute;gina PageCatalog permite monitorizar el estado de las p&amp;aacute;ginas de la aplicaci&amp;oacute;n, cuantas ha sido cargadas, que idiomas se est&amp;aacute;n usando, cuantas veces se han usado, cuanto tiempo han tardado en construirse, cuantos componentes tienen y alguna cosa m&amp;aacute;s. Otra cosa interesante acerca de esta p&amp;aacute;gina es que permite cargar todas las p&amp;aacute;ginas de la aplicaci&amp;oacute;n permitiendo descubrir r&amp;aacute;pidamente si alguna contiene errores.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/08/paginas-pagecatalog-servicestatus-e-hibernatestatistics-de-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2012-08-24T12:23:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Elegir herramientas para un proyecto Java</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2011/06/elegir-herramientas-para-un-proyecto-java" />
+    <category term="programacion" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <category term="software-libre" />
+    <category term="gnulinux" />
+    <category term="tapestry" />
+    <category term="php" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2012-08-10T18:03:59Z</updated>
+    <published>2011-06-09T10:00:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
+ &lt;img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" /&gt; 
+&lt;/div&gt;Cuando empezamos un nuevo proyecto siempre tenemos que tomar decisiones en el aspecto t&amp;eacute;cnico eligiendo las herramientas que vamos a usar para desarrollar el proyecto. La selecci&amp;oacute;n adecuada de estas herramientas puede determinar en gran medida lo f&amp;aacute;cil que pueda resultar el mantenimiento del mismo que en muchos proyectos es la parte a la que m&amp;aacute;s tiempo se le suele dedicar. El elegir la herramienta adecuada no es una decisi&amp;oacute;n f&amp;aacute;cil ya que hay muchos lenguajes que podr&amp;iacute;amos utilizar, para cada lenguaje numerosos frameworks y para algunas tareas espec&amp;iacute;ficas como acceso a base de datos o generaci&amp;oacute;n de informes varias librerias. La decisi&amp;oacute;n de cual elegir es un poco subjetiva seg&amp;uacute;n las preferencias de cada uno pero hay varios factores que pude ayudarnos como los conocimientos que tenga el equipo que lo va a desarrollar o las limitaciones impuestas por el mismo proyecto o cliente. Pero si tuviesemos una carta blanca y pudiesemos elegir libremente &amp;iquest;cuales son las herramientas que utilizar&amp;iacute;amos?&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2011/06/elegir-herramientas-para-un-proyecto-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2011-06-09T10:00:00Z</dc:date>
+  </entry>
+</feed>
+

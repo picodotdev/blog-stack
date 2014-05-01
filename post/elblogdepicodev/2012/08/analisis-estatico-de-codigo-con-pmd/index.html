@@ -1,0 +1,139 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Análisis estático de código con PMD | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd"><span itemprop="headline">Análisis estático de código con PMD</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/08/analisis-estatico-de-codigo-con-pmd.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-08-10T18:01" itemprop="datePublished">Publicado el viernes, 10 de agosto de 2012 a las 18:01 UTC</span></div><div><span datetime="2012-08-10T18:09" itemprop="dateModified">Actualizado el viernes, 10 de agosto de 2012 a las 18:09 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_via="blogstack" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="PMD" src="http://4.bp.blogspot.com/-QcdJu0SK0MY/UCVIYFSbyrI/AAAAAAAABU4/B1nUY-thhi0/s1600/pmd.jpg" title="PMD" />
+</div>Si seguimos las buenas pr&aacute;cticas de las metodolog&iacute;as &aacute;giles en los proyectos que desarrollemos realizaremos pruebas unitarias y de integraci&oacute;n a la vez que desarrollamos nuestro c&oacute;digo. Ello nos permitir&aacute; no tener que realizar pruebas manualmente y asegurarnos de que las cosas siguen funcionando cuando hacemos cambios, si adem&aacute;s disponemos de en servidor de integraci&oacute;n continua las pruebas se podr&aacute;n lanzar para cada cambio detectado en la herramienta de control de versiones que usemos.
+<br />
+<br />Las pruebas unitarias y de integraci&oacute;n son una cosa deseable y para algunos imprescindible, sin embargo, solo nos dicen que las partes probadas funcionan como se espera, no analiza nuestro c&oacute;digo fuente. Analizar el c&oacute;digo fuente puede proporcionarnos informaci&oacute;n para encontrar posibles errores, c&oacute;digo muerto y que no se usa, c&oacute;digo ineficiente, c&oacute;digo demasiado complejo y c&oacute;digo duplicado, ... que pasado el tiempo y con las diversas modificaciones seguramente tendremos. Siguiendo las indiciones de una herramienta de an&aacute;lisis de c&oacute;digo podemos detectar esos posibles problemas de forma automatizada. Adem&aacute;s, es seguro que en un equipo que desarrollan varias personas cada una codifique de una forma diferente, con una herramienta de estas como 
+<a href="http://checkstyle.sourceforge.net/">Checkstyle</a> podemos establecer reglas de estilo de tal forma que consigamos un c&oacute;digo m&aacute;s homogeneo y de nuevo m&aacute;s mantenible para todos.
+<br />
+<br />Una de las herramientas m&aacute;s conocidas en la plataforma Java es 
+<a href="http://pmd.sourceforge.net/">PMD</a>. Se puede integrar con la mayor&iacute;a de IDEs y herramientas como Ant y Maven. Si queremos automatizar las pruebas lo integraremos con 
+<a href="http://ant.apache.org/">Ant</a>, 
+<a href="http://maven.apache.org/">Maven</a> o 
+<a href="http://www.gradle.org/">Gradle</a> para no depender de un IDE y realizar las pruebas en la construcci&oacute;n de nuestro proyecto asi como poder ejecutarlas en el servidor de integraci&oacute;n continua. Estos ser&iacute;an los trozos necesarios para integrar PMD con Gradle.
+<br />
+<br />
+<div>
+ <pre>...<br />configurations {<br />    pmd<br />}<br /><br />dependencies {<br /> ...<br /> pmd 'net.sourceforge.pmd:pmd:5.0.0'<br /> ...<br />}<br />...<br />task pmd &lt;&lt; {<br /> ant.mkdir(dir:'build/pmd')<br /> ant.taskdef(name: 'pmd', classname: 'net.sourceforge.pmd.ant.PMDTask', classpath: project.configurations.pmd.asPath)<br /> ant.pmd {<br />  ruleset('java-basic,java-braces,java-codesize,java-naming,java-optimizations,java-unusedcode')<br />  formatter(type: 'html', toFile: 'build/pmd/pmd.html')<br />  fileset(dir: 'src/main/java') {<br />   include(name: '**/*.java')<br />  }<br /> }<br />}<br />...</pre>
+</div>
+<br />Este es el informe que genera PMD para la aplicaci&oacute;n 
+<a href="http://elblogdepicodev.blogspot.com/2010/05/hola-mundo-con-apache-tapestry-5.html">Hola mundo con Tapestry 5</a>.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-rMm2fwFj6f8/UCVN6YKUFjI/AAAAAAAABVQ/LKaER8sP_ls/s1600/pmd-report.png"><img height="65" src="http://3.bp.blogspot.com/-rMm2fwFj6f8/UCVN6YKUFjI/AAAAAAAABVQ/LKaER8sP_ls/s200/pmd-report.png" width="200" /></a>
+</div>
+<br />En el siguiente enlace podemos ver las 
+<a href="http://pmd.sourceforge.net/rules/index.html">reglas ya predefinidas</a> y que podemos aplicar a nuestro c&oacute;digo. Si queremos analizar c&oacute;digo groovy tenemos la herramienta 
+<a href="http://codenarc.sourceforge.net/">CodeNarc</a>.
+<br />
+<br />Referencia:
+<br />
+<a href="http://pmd.sourceforge.net/">http://pmd.sourceforge.net/</a>
+<br />
+<a href="http://pmd.sourceforge.net/ant-task.html">http://pmd.sourceforge.net/ant-task.html</a>
+<br />
+<a href="http://pmd.sourceforge.net/rules/index.html">http://pmd.sourceforge.net/rules/index.html</a>
+<br />
+<a href="http://checkstyle.sourceforge.net/">http://checkstyle.sourceforge.net/</a>
+<br />
+<a href="http://www.gradle.org/">http://www.gradle.org/</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2011/06/elegir-herramientas-para-un-proyecto.html">Elegir herramientas para un proyecto Java</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_via="blogstack" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd" st_title="Análisis estático de código con PMD | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Análisis estático de código con PMD";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/08/analisis-estatico-de-codigo-con-pmd.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 92,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/08/analisis-estatico-de-codigo-con-pmd"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>systemd, reemplazo de sysvinit | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit"><span itemprop="headline">systemd, reemplazo de sysvinit</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/09/systemd-reemplazo-de-sysvinit.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-09-07T12:01" itemprop="datePublished">Publicado el viernes, 07 de septiembre de 2012 a las 12:01 UTC</span></div><div><span datetime="2012-09-21T18:28" itemprop="dateModified">Actualizado el viernes, 21 de septiembre de 2012 a las 18:28 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
+,
+<a href="/label/gnulinux"><span itemprop="articleSection">gnulinux</span></a>
+,
+<a href="/label/grub2"><span itemprop="articleSection">grub2</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_via="blogstack" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">En los sistemas UNIX el primer proceso que se crea y se encarga de inicializar el resto de procesos se le conoce como init. Desde 1980 esta tarea era llevada a cabo por &laquo;System V init&raquo; (sysvinit). Sin embargo, dado que en sysvinit los servicios se lanzan en un orden determinado y los dispositivos actuales son muy diversos y din&aacute;micos est&aacute; dejando de ser adecuado para estos tiempos. En el 2006 
+<a href="http://www.canonical.com/">Canonical</a> desarrollo 
+<a href="http://upstart.ubuntu.com/">Upstart</a> con el objetivo de crear un reeemplazo para sysvinit. Upstart es sistema dirigido por eventos de tal forma que cuando ocurre cierta circunstancia se hace alguna acci&oacute;n, como &laquo;el dispositivo de red se ha montado&raquo;, soportando mejor de esta forma la dinamicidad del los sistemas. Upstart parec&iacute;a el sucesor de sysvinit, sin embargo, la migraci&oacute;n de sysvinit a un sistema dirigido por eventos como upstart no es sencilla.
+<br />
+<br />systemd fue lanzado en 2010 por Lennart Poettering, conocido tambi&eacute;n por desarrollar&nbsp;
+<a href="http://www.freedesktop.org/wiki/Software/PulseAudio">pulseaudio</a>,&nbsp;tambi&eacute;n como un reemplazo de sysvinit. systemd est&aacute; comenzando a reemplazar a sysvinit como el proceso encargado de arrancar el sistema en varias distribuciones como Fedora, openSUSE, Mandriva y Arch Linux por varias de sus caracter&iacute;sticas.
+<br />
+<br />systemd activa todos los sockets que utilizan los procesos para comunicarse antes de que ninguno sea arrancado de forma que est&eacute;n disponibles para cuando lo hagan, una vez inicializados los sockets systemd inicia todos los procesos en paralelo sin ning&uacute;n orden preestablecido o bajo demanda cuando se env&iacute;a un mensaje a su socket. Cuando un proceso necesita de otro se comunica a trav&eacute;s de los sockets, si el proceso destinatario a&uacute;n no no est&aacute; disponible para recibir el mensaje systemd lo encola para que no se pierda y lo despacha cuando el proceso destintario est&aacute; disponible. De esta forma se consigue un paralelismo total entre los procesos que inician el sistema.
+<br />
+<br />Aqui una comparativa de sysvinit, upstart y systemd:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-2ASikV1s6m8/UEndmh7jR1I/AAAAAAAABbE/Fyny1h2166k/s1600/sysvinit-upstart-systemd.png"><img height="256" src="http://1.bp.blogspot.com/-2ASikV1s6m8/UEndmh7jR1I/AAAAAAAABbE/Fyny1h2166k/s400/sysvinit-upstart-systemd.png" width="400" /></a>
+</div>
+<br />Si quieres conocer m&aacute;s acerca de systemd te recomiendo leer el 
+<a href="http://gespadas.com/archlinux-systemd">siguiente excelente art&iacute;culo</a> y la documentaci&oacute;n incluida en su referencia parte de la cual est&aacute; en el apartado de referencia, tambi&eacute;n algunas de las ventajas puestas en un 
+<a href="https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530">post del los foros de arch linux</a> que independientemente de las mejoras de tiempos (esto igual es lo menos importante de systemd) est&aacute;n que los servicios pueden ser proporcionados por los proyectos originales en vez de ser cada distribuci&oacute;n la que los desarrolle y la no necesidad de configurar expl&iacute;citamente las dependencias.
+<br />
+<br />Si usas Arch Linux y has echo una actualizanci&oacute;n completa hace menos de una semana ya tendr&aacute;s todo lo necesario para iniciar el sistema con systemd y realizar la migraci&oacute;n. Los pasos ser&aacute;n los siguientes:
+<br />
+<br />
+<ul>
+ <li>Lo primero ser&aacute; <a href="https://wiki.archlinux.org/index.php/Systemd#Native_systemd_configuration_files">adaptar los archivos de configuraci&oacute;n</a> a systemd. Basicamente lo que antes estaba en el archivo /etc/rc.conf ahora est&aacute; separado en varios archivos.</li>
+ <li>Tambi&eacute;n hay que indicar a systemd los servicios que queremos arrancar con el sistema a trav&eacute;s de &laquo;systemctl enable [servicio].service&raquo;, para ello miraremos la lista de DAEMONS del archivo en /etc.rc.conf e iremos habilitando <a href="https://wiki.archlinux.org/index.php/Daemons#List_of_Daemons">su correspondiente en systemd</a>.</li>
+ <li>Luego iniciaremos el sistema con systemd a&ntilde;adiendo en la linea de comando del kernel init=/bin/systemd y quitando la opci&oacute;n quiet para ver las trazas y si se produce alg&uacute;n error. Esto se puede hacer sin modificar ning&uacute;n archivo desde grub2 editando la entrada con la tecla &laquo;e&raquo; y una vez modificada la linea de comando pulsando F10.</li>
+ <li>Finalmente, si todo ha ido correctamente en el inicio con systemd podremos eliminar el paquete initscripts e instalar systemd-sysvcompat con lo que tendremos un sistema puro de systemd.</li>
+</ul>
+<br />Pero antes de nada es muy recomendable leer algo de documentaci&oacute;n sobre lo que se va a hacer empezando por la 
+<a href="http://en.wikipedia.org/wiki/Systemd">wiki de arch linux sobre systemd</a>. Decir que a&uacute;n hay 
+<a href="http://www.archlinux.org/todolists/#178">algunos programas que no tienen su correspondiente .service</a> para iniciarlo desde systemd pero se solucionar&aacute; con el tiempo.
+<br />
+<br />Despu&eacute;s de todo veremos a systemd como el proceso con PID 1:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-hiVbOE-FLII/UEnfVrJx0-I/AAAAAAAABbM/PAFnu1DTTZw/s1600/systemd-top.png"><img height="258" src="http://3.bp.blogspot.com/-hiVbOE-FLII/UEnfVrJx0-I/AAAAAAAABbM/PAFnu1DTTZw/s400/systemd-top.png" width="400" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;"></div>Referencia:
+<br />
+<a href="http://freedesktop.org/wiki/Software/systemd">http://freedesktop.org/wiki/Software/systemd</a>
+<br />
+<a href="http://en.wikipedia.org/wiki/Systemd">http://en.wikipedia.org/wiki/Systemd</a>
+<br />
+<a href="http://diegocg.blogspot.com.es/2010/05/systemd-otro-reemplazo-de-init.html">http://diegocg.blogspot.com.es/2010/05/systemd-otro-reemplazo-de-init.html</a>
+<br />
+<a href="http://www.h-online.com/open/features/Control-Centre-The-systemd-Linux-init-system-1565543.html">http://www.h-online.com/open/features/Control-Centre-The-systemd-Linux-init-system-1565543.html</a>
+<br />
+<a href="http://0pointer.de/blog/projects/systemd.html">http://0pointer.de/blog/projects/systemd.html</a>
+<br />
+<a href="http://0pointer.de/blog/projects/socket-activation.html">http://0pointer.de/blog/projects/socket-activation.html</a>
+<br />
+<a href="http://0pointer.de/blog/projects/socket-activation2.html">http://0pointer.de/blog/projects/socket-activation2.html</a>
+<br />
+<a href="http://0pointer.de/blog/projects/why.html">http://0pointer.de/blog/projects/why.html</a>
+<br />
+<a href="http://gespadas.com/archlinux-systemd">http://gespadas.com/archlinux-systemd</a>
+<br />
+<a href="https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530">https://bbs.archlinux.org/viewtopic.php?pid=1149530#p1149530</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_via="blogstack" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit" st_title="systemd, reemplazo de sysvinit | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "systemd, reemplazo de sysvinit";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/09/systemd-reemplazo-de-sysvinit.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li><li><a href="/label/grub2/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta grub2</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 88,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/09/systemd-reemplazo-de-sysvinit"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

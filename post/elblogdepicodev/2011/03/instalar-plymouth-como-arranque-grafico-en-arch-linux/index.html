@@ -1,0 +1,201 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux"><span itemprop="headline">Instalar Plymouth como arranque gráfico en Arch Linux</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2011/03/instalar-plymouth-como-arranque-grafico.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2011-03-25T19:23" itemprop="datePublished">Publicado el viernes, 25 de marzo de 2011 a las 19:23 UTC</span></div><div><span datetime="2011-03-27T17:45" itemprop="dateModified">Actualizado el domingo, 27 de marzo de 2011 a las 17:45 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/personalizacion"><span itemprop="articleSection">personalizacion</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
+,
+<a href="/label/gnulinux"><span itemprop="articleSection">gnulinux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_via="blogstack" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Arch Linux" height="106" src="https://lh3.googleusercontent.com/-XVsmee9V9Vo/S_LjDl4iWZI/AAAAAAAAAQI/LcBAWOoav-s/s320/archlinux-official-dark.png" title="Arch Linux" width="320" />
+</div>Los que usamos Arch Linux estamos acostumbrados a ver mientras se inicia nuestro sistema una serie de mensajes con los servicios que se van iniciando. Si queremos darle un toque m&aacute;s atractivo al inicio de nuestro sistema hay varias opciones, principalmente Usplash que utilizaba ubuntu hasta hace poco y desde hace un tiempo Plymouth, desarrollado por RedHat como reemplazo de su RHGB (Red Hat Graphical Boot). Plymouth proporciona una animaci&oacute;n gr&aacute;fica atractiva mientras se inicia el sistema y sin parpadeos producidos por cambios de resoluci&oacute;n de la pantalla lo que tambien contribuye a iniciar el sistema m&aacute;s r&aacute;pido. Para hacer uso de Plymouth se necesita 
+<a href="http://en.wikipedia.org/wiki/Mode-setting">Kernel Mode Setting</a> (que es lo que evita los parpadedos, cambios de resoluci&oacute;n de la pantalla, entre otras cosas) siendo el kernel en que ajusta la resoluci&oacute;n de la pantalla al inicio del sistema. A d&iacute;a de hoy no todos los controladores gr&aacute;ficos soportan KMS (principalmente los privativos de nvidia) pero Plymouth tambi&eacute;n puede ser usado con el framebuffer.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="https://lh3.googleusercontent.com/-ARHNCUqnSM4/TYzbnKE2HYI/AAAAAAAAAlo/P2IKLogB_B8/s1600/archlinux-boot.png"><img alt="Mensajes de inicio en Arch Linux" height="149" src="https://lh3.googleusercontent.com/-ARHNCUqnSM4/TYzbnKE2HYI/AAAAAAAAAlo/P2IKLogB_B8/s200/archlinux-boot.png" title="Mensajes de inicio en Arch Linux" width="200" /></a>
+</div>
+<br />La instalaci&oacute;n y configuraci&oacute;n de Plymouth no es complicada pero se hace &laquo;a la manera Arch&raquo;. Todo esto lo he probado dentro de una m&aacute;quina virtual en VirtuaBox pero deber&iacute;a funcionar perfectamente en un m&aacute;quina real. Antes de empezar deberemos tener instalado yaourt para poder instalar paquetes del repositorio AUR de Arch Linux, 
+<a href="https://wiki.archlinux.org/index.php/Yaourt">consulta la Wiki Arch</a> si es necesario.
+<br />
+<br />Primeramente instalaremos el paquete de plymouth con:
+<br />
+<br />
+<div>
+ <pre>$ yaourt -S plymouth-git</pre>
+</div>
+<br />El siguiente paso ser&aacute; a&ntilde;adir plymouth a los HOOKS que se ejecutan cuando se construye la imagen del kernel.
+<br />
+<br />
+<div>
+ <pre># nano /etc/mkinitcpio.conf<br /><br />HOOKS=&quot;base udev autodetect plymouth ...&quot;</pre>
+</div>
+<br />Ahora que tenemos en los hooks del kernel plymouth haremos una reconstrucci&oacute;n del mismo con:
+<br />
+<br />
+<div>
+ <pre># mkinitcpio -p kernel26</pre>
+</div>
+<br />Si alguna vez nos cansamos de plymouth bastar&aacute; con eliminar el HOOK a&ntilde;adido, volver a hacer un mkinitcpio y eliminar el paquete plymouth-git. Ahora deberemos modificar unos par&aacute;metros de grub:
+<br />
+<br />
+<div>
+ <pre>/* Para Grub2 */<br /># nano /etc/default/grub<br /><br />GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;<br />GRUB_CMDLINE_LINUX=&quot; splash&quot;</pre>
+</div>
+<br />Y regeneramos el archivo de grub:
+<br />
+<br />
+<div>
+ <pre># grub-mkconfig -o /boot/grub/grub.cfg</pre>
+</div>
+<br />Hacemos que una vez arrancado el sistema plymouth se deje de ejecutar:
+<br />
+<br />
+<div>
+ <pre># nano /etc/rc.local<br /><br />/bin/plymouth quit --retain-splash</pre>
+</div>
+<br />Cuando instalamos el paquete de plymouth podemos elegir entre varios temas (fade-in, glow, solar, spinfinity, script, text) y podemos cambiar de uno a otro en cualquier momento. Cada vez que queramos cambiar de tema tendremos que ejecutar:
+<br />
+<br />
+<div>
+ <pre>/* para listar los temas disponibles */<br /># plymouth-set-default-theme -l <br /># plymouth-set-default-theme solar<br /># mkinitcpio -p kernel26</pre>
+</div>
+<br />Tambi&eacute;n podemos probar el tema sin tener que reiniciar el sistema:
+<br />
+<br />
+<div>
+ <pre># plymouthd<br /># plymouth --show-splash</pre>
+</div>
+<br />Para detener la previsualizaci&oacute;n debemos cambiar de terminal tty (ALT+F2, inicar sesi&oacute;n si es necesario) y ejecutar:
+<br />
+<br />
+<div>
+ <pre># plymouth --quit</pre>
+</div>
+<br />Si hay alguna vez que queremos ver los mensajes de inicio de Arch Linux en vez de la animaci&oacute;n de Plymouth solo debemos pulsar la tecla Escape o si queremos ver los mensajes m&aacute;s tarde los tenemos en el archivo /var/log/boot.log. Y si de los temas por defecto no nos gusta ninguno podemos desarrollar uno nuevo para lo nos servir&aacute; de mucha ayuda la siguiente 
+<a href="https://wiki.ubuntu.com/Artwork/Documentation/Plymouth">docmentaci&oacute;n de como crearlos</a>. Pero no hace falta que desarrollemos uno desde cero lo m&aacute;s aconsejable es partir de uno ya hecho, los temas por defecto se encuentran en /usr/share/plymouth/themes deberemos copiar uno, cambiarle de nombre, modificar las im&aacute;genes y tal vez hacer un script que controle la animaci&oacute;n.
+<br />
+<br />Las siguientes im&aacute;genes son de los temas que he podido probar correctamente, el tema text me ha dado el error &quot;unexpedtedly disconectend from boot status daemon&quot; y no he podido probarlo.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="https://lh6.googleusercontent.com/-P-w1fYS6dWk/TYzbu5LWN-I/AAAAAAAAAls/oergXiN40Ow/s1600/plymouth-fadein.png"><img alt="Plymouth tema fade-in" height="149" src="https://lh6.googleusercontent.com/-P-w1fYS6dWk/TYzbu5LWN-I/AAAAAAAAAls/oergXiN40Ow/s200/plymouth-fadein.png" title="Plymouth tema fade-in" width="200" /></a>
+ <a href="https://lh3.googleusercontent.com/-SoBp3URzzuo/TYzbvzwfDiI/AAAAAAAAAlw/dlSbclkld3s/s1600/plymouth-script.png"><img alt="Plymouth tema script" height="149" src="https://lh3.googleusercontent.com/-SoBp3URzzuo/TYzbvzwfDiI/AAAAAAAAAlw/dlSbclkld3s/s200/plymouth-script.png" title="Plymouth tema script" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="https://lh5.googleusercontent.com/-j3IwaJqeI_Q/TYzbwv3OmDI/AAAAAAAAAl0/gcbjzyX58Ms/s1600/plymouth-solar.jpg"><img alt="Plymouth tema solar" height="150" src="https://lh5.googleusercontent.com/-j3IwaJqeI_Q/TYzbwv3OmDI/AAAAAAAAAl0/gcbjzyX58Ms/s200/plymouth-solar.jpg" title="Plymouth tema solar" width="200" /></a>
+ <a href="https://lh5.googleusercontent.com/-9dRvXQj6iHw/TYzbxoeCtiI/AAAAAAAAAl4/6Uv8rb75Pls/s1600/plymouth-spinfinity.png"><img alt="Plymouth tema spinfinity" height="149" src="https://lh5.googleusercontent.com/-9dRvXQj6iHw/TYzbxoeCtiI/AAAAAAAAAl4/6Uv8rb75Pls/s200/plymouth-spinfinity.png" title="Plymouth tema spinfinity" width="200" /></a>
+</div>
+<br />&iquest;Alguien se anima a 
+<a href="https://wiki.ubuntu.com/Artwork/Documentation/Plymouth">hacer un theme bonito para plymouth</a>?
+<br />
+<br />Referencia:
+<br />
+<a href="https://wiki.archlinux.org/index.php/Plymouth">https://wiki.archlinux.org/index.php/Plymouth</a>
+<br />
+<a href="http://es.wikipedia.org/wiki/Plymouth_(software)">http://es.wikipedia.org/wiki/Plymouth_(software)</a>
+<br />
+<a href="http://en.wikipedia.org/wiki/Mode-setting">http://en.wikipedia.org/wiki/Mode-setting</a>
+<br />
+<a href="http://es.wikipedia.org/wiki/Framebuffer">http://es.wikipedia.org/wiki/Framebuffer</a>
+<br />
+<a href="https://wiki.archlinux.org/index.php/Yaourt">https://wiki.archlinux.org/index.php/Yaourt</a>
+<br />
+<a href="https://wiki.ubuntu.com/Artwork/Documentation/Plymouth">https://wiki.ubuntu.com/Artwork/Documentation/Plymouth</a>
+<br />
+<a href="http://www.freedesktop.org/wiki/Software/Plymouth/Scripts">http://www.freedesktop.org/wiki/Software/Plymouth/Scripts</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_via="blogstack" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux" st_title="Instalar Plymouth como arranque gráfico en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Instalar Plymouth como arranque gráfico en Arch Linux";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/03/instalar-plymouth-como-arranque-grafico.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/personalizacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta personalizacion</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 157,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/03/instalar-plymouth-como-arranque-grafico-en-arch-linux"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

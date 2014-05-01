@@ -1,0 +1,159 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry"><span itemprop="headline">Validaciones de datos de formularios con Apache Tapestry</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/07/validaciones-de-datos-de-formularios.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-07-06T17:50" itemprop="datePublished">Publicado el viernes, 06 de julio de 2012 a las 17:50 UTC</span></div><div><span datetime="2012-07-13T19:06" itemprop="dateModified">Actualizado el viernes, 13 de julio de 2012 a las 19:06 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_via="blogstack" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>En una aplicaci&oacute;n web todo dato procedente del usuario a trav&eacute;s de un formulario debe ser validado para impedir introducir datos erroneos en la base de datos, posiblemente creando inconsistencias, fallos en la aplicaci&oacute;n o peor a&uacute;n creando problemas de seguridad. En una aplicaci&oacute;n web las validaciones pueden ser realizadas en el navegador del cliente mendiante javascript y en el el lado del servidor. Las validaciones deber&iacute;an hacerse siempre en el lado del servidor ya que las validaciones que pongamos en el lado del cliente podr&iacute;an no realizarse, un ejemplo de esto es si el cliente tiene el javascript desactivado pero no es la &uacute;nica forma de que nos puedan llegar datos erroneos al servidor. Por tanto, las validaciones del cliente son opcionales y pueden ser &uacute;tiles para no enviar datos al servidor que podemos detectar que son inv&aacute;lidos en el cliente con lo que evitamos tr&aacute;fico pero nuestra aplicaci&oacute;n no deber&iacute;a confiar &uacute;nicamente en ellas.
+<br />
+<br />Las validaciones en Tapestry en el servidor pueden ser realizadas de varias formas: 
+<br />
+<ul>
+ <li>De forma declarativa</li>
+ <li>Con anotaciones</li>
+ <li>Mediante eventos</li>
+</ul>
+<br />
+<h4> Validaciones de forma declarativa</h4>Quiz&aacute; esta es la forma m&aacute;s sencilla y se aplica en el momento de usar los componentes de formulario en las plantillas de los componentes.
+<br />
+<br />
+<div>
+ <pre>//...(parte de un archivo .tml)<br /><br />&lt;t:label for=&quot;telefono&quot;&gt;: &lt;t:textfield t:id=&quot;telefonoField&quot; value=&quot;producto&quot; <b>validate=&quot;regexp=^[a-zA-Z]{3,9}$&quot;</b> label=&quot;Producto&quot;/&gt;<br />&lt;t:label for=&quot;cantidad&quot;&gt;: &lt;t:textfield t:id=&quot;cantidadField&quot; value=&quot;cantidad&quot; <b>validate=&quot;required,min=0,max=120&quot;</b> label=&quot;Cantidad&quot;/&gt;<br />...</pre>
+</div>En el campo cantidad se est&aacute;n aplicando varias validaciones: el campo es requerido (required), el valor m&iacute;nimo aceptado es 0 (min), el valor m&aacute;ximo aceptado es 120 (max). En el campo producto se usa como validaci&oacute;n una expresi&oacute;n regular en la que el valor debe tener entre 3 y 9 caracteres. Otros validadores que incorpora Tapestry por defecto y que podemos usar son maxLength, minLength o email. Si estos validadores con los que viene Tapestry no se ajustan a lo que necesitamos podemos definir nuevos y usarlos de la misma manera.
+<br />
+<br />
+<h4> Validaciones con anotaciones</h4>Las validaciones con anotaciones se aplican en las propiedades que los componentes del formulario usan como valor a mostrar y a cambiar cuando se env&iacute;a el formulario. Siguiendo el ejemplo anterior con anotaciones ser&iacute;a:
+<br />
+<br />
+<div>
+ <pre>//...(parte de un archivo .java)<br /><br /><b>@Validate(&quot;^[a-zA-Z]{3,9}$&quot;)</b><br />@Property<br />private String producto;<br /><br /><b>@Validate(&quot;required,min=0,max=120&quot;)</b><br />@Property<br />private Integer cantidad;<br /><br />...</pre>
+</div>
+<br />
+<h4> Validaciones con eventos</h4>Los componentes de Tapestry pueden lanzar eventos (cuyos manejadores siguen la forma on[Evento]From[Componente]). En el caso de los componentes de formulario estos lanzan (entre otros) un evento (validate) para que podamos hacer alguna validaci&oacute;n personalizada que no est&eacute; entre los validadores por defecto. Nuevamente siguiendo el ejemplo anterior si no dispusiesemos los validadores de Tapestry con anotaciones ser&iacute;a:
+<br />
+<br />
+<div>
+ <pre>//...(parte de un archivo .java de un componente)<br /><br />void onValidateFromProductoField() throws ValidationException {<br /> if (<b>!Pattern.matches(&quot;^[a-zA-Z]{3,9}$&quot;, producto)</b>) {<br />  throw new ValidationException(&quot;El producto no es v&aacute;lido.&quot;);<br /> }<br />}<br /><br />void onValidateFromCantidadField() throws ValidationException {<br /> if (<b>cantidad == null || cantidad &lt; 0 || cantidad &gt; 120</b>) {<br />  throw new ValidationException(&quot;La cantidad no es v&aacute;lida.&quot;);<br /> }<br />}<br /><br />...</pre>
+</div>
+<br />
+<h4> Validaciones dependientes</h4>En las aplicaciones los datos suelen estar relacionados y algunas combinaciones de datos no son posibles. Los validadores nos permiten comprobar los datos individualmente pero si los datos est&aacute;n relacionados pueden no ser suficientes. Los componentes 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/components/Form.html">Form</a> lanzan un evento (validate) para que hagamos este tipo de comprobaciones. Suponiendo que un determinado producto tiene una cantidad m&iacute;nima a solicitar podr&iacute;amos validar esta dependencia entre estas propiedades con: 
+<br />
+<br />
+<div>
+ <pre>//...(parte de un archivo .java de un componente)<br /><br />@Component<br />private TextField productoField, cantidadField;<br /><br />@Component<br />private Form datosForm;<br /><br />@Property<br />private String producto;<br /><br />@Property<br />private Integer cantidad;<br /><br />void onValidateFromDatosForm() throws ValidationException {<br /> ValidationTracker tracker = datosForm.getDefaultTracker();<br /><br /> // Comprobar si los datos recogidos de producto y cantidad son correctos<br /> if (tracker.inError(productoField) || tracker.inError(cantidadField)) {<br />  return;<br /> }<br /><br /> // Realizar las validaciones dependiente entre los campos<br /> if (<b>producto.equals(&quot;pegatina&quot;) &amp;&amp; cantidad &lt; 10</b>) {<br />  tracker.recordError(&quot;La cantidad m&iacute;nima de pegatinas es de 10.&quot;);<br /> }<br />}<br /><br />...</pre>
+</div>
+<br />Tapestry realiza validaciones en el lado del cliente por defecto en cada unos de los campos cuando se lanza el evento blur de los mismos, si no quisieramos realizar las validaciones en el cliente al componente form debemos pasarle al parametro clientValidation el valor &laquo;none&raquo;. Tambi&eacute;n podriamos hacer que las validaciones se realizasen en el lado del cliente en el momento de enviar el formulario y no en cada blur del componente con el valor &laquo;submit&raquo;. El enumerado 
+<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/corelib/ClientValidation.html">ClientValidation</a> define los posibles valores que disponemos. 
+<br />
+<br />
+<div>
+ <pre>...<br />&lt;t:form t:id=&quot;form&quot; <b>clientValidation=&quot;none&quot;</b>&gt;<br />...<br />&lt;/t:form&gt;<br />...</pre>
+</div>
+<br />Como se puede ver las validaciones son sencillas (basta con a&ntilde;adir un par&aacute;metro a un componente), flexibles (hay varias formas de hacerlas seg&uacute;n prefiramos) y extensibles (se puede personalizar las validaciones y crear nuevas us&aacute;ndolas como las propias de Tapestry). En otra entrada explicar&eacute; como definir nuevas validaciones que podemos usar como las propias de Tapestry, como personalizar la decoraci&oacute;n de los campos cuando hay errores en ellos y como crear macros de validaciones si hay una combinaci&oacute;n de ellas que usamos de forma repetida.
+<br />
+<br />Referencia:
+<br />
+<a href="http://tapestry.apache.org/forms-and-validation.html">http://tapestry.apache.org/forms-and-validation.html</a>
+<br />
+<a href="http://tapestry.apache.org/bean-validation.html">http://tapestry.apache.org/bean-validation.html</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/07/extender-las-validaciones-de-apache.html">Extender las validaciones de Apache Tapestry</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_via="blogstack" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry" st_title="Validaciones de datos de formularios con Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Validaciones de datos de formularios con Apache Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/07/validaciones-de-datos-de-formularios.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 97,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/07/validaciones-de-datos-de-formularios-con-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

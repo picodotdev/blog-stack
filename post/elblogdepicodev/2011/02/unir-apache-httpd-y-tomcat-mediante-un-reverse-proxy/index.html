@@ -1,0 +1,161 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy"><span itemprop="headline">Unir Apache HTTPD y Tomcat mediante un reverse proxy</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2011/02/unir-apache-httpd-y-tomcat-mediante-un.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2011-02-11T19:10" itemprop="datePublished">Publicado el viernes, 11 de febrero de 2011 a las 19:10 UTC</span></div><div><span datetime="2011-02-18T18:51" itemprop="dateModified">Actualizado el viernes, 18 de febrero de 2011 a las 18:51 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/tecnologia"><span itemprop="articleSection">tecnologia</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_via="blogstack" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: both; text-align: center;"></div>
+<div style="margin-left: 1em; margin-right: 1em; text-align: center;">
+ <img alt="Apache HTTPD" height="28" src="http://2.bp.blogspot.com/-Yc4QODRbbTc/TVWF-a2fh7I/AAAAAAAAAlE/z58fDJXSeAo/s320/httpd_logo_wide.gif" title="Apache HTTPD" width="320" />
+ <img alt="Apache Tomcat" src="http://1.bp.blogspot.com/-TUqUInA8Y9A/S7cRPuP2gKI/AAAAAAAAANs/Fac3C7tNKJE/s1600/tomcat-logo.gif" title="Apache Tomcat" />
+</div>
+<br />Al dise&ntilde;ar el despliegue de una aplicaci&oacute;n es habitual hacer que un servidor web devuelva el contenido est&aacute;tico de la p&aacute;gina web o de la aplicaci&oacute;n. Esto nos puede interesar por varias razones, una de ellas es que quita la carga de trabajo correspondiente al servir el contenido est&aacute;tico al servidor de aplicaciones que dependiendo de la aplicaci&oacute;n o p&aacute;gina web puede ayudar a aliviar su carga. Pero tambi&eacute;n puede ser usado para realizar balanceo de carga entre varios servidores de de aplicaciones, cacheo o para acceder a un servidor de nuestra intranet que est&aacute; detr&aacute;s de un firewall y no es accesible directamente por los usuarios de internet. El esquema es el siguiente:
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-1Nyp24DjgcI/TVWGZfh7mvI/AAAAAAAAAlI/8hmiJSarJ58/s1600/proxy_phase1.png"><img height="106" src="http://4.bp.blogspot.com/-1Nyp24DjgcI/TVWGZfh7mvI/AAAAAAAAAlI/8hmiJSarJ58/s200/proxy_phase1.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-IluhR7FnlTY/TVWGaCrDIfI/AAAAAAAAAlM/ZbiWgdzXwaM/s1600/proxy_phase2.png"><img height="107" src="http://1.bp.blogspot.com/-IluhR7FnlTY/TVWGaCrDIfI/AAAAAAAAAlM/ZbiWgdzXwaM/s200/proxy_phase2.png" width="200" /></a>
+</div>
+<br />Viendo un gr&aacute;fico se entiende mejor &iquest;verdad?. En &eacute;l tenemos el cliente que realiza la petici&oacute;n, el servidor web que se encargar&aacute; de devolver los recursos est&aacute;ticos (en la figura denominado reverse proxy) y finalmente el servidor de aplicaciones que se encargar&aacute; de generar el contenido din&aacute;mico de la aplicaci&oacute;n (posiblemente accediendo a un servidor de base de datos que en el gr&aacute;fico no se muestra, en la figura denominado Web1 y Web2). En un primer paso el cliente realiza una petici&oacute;n que llega al servidor web, este determina si el recurso solicitado lo puede servir &eacute;l o lo tiene que delegar en el servidor de aplicaciones. En el caso de que el servidor web tenga que delegar la petici&oacute;n en el servidor de aplicaciones el servidor web realiza un petici&oacute;n al servidor de aplicaciones solicitando el recurso que no puede servir &eacute;l. Una vez que el servidor de aplicaciones genera el recurso se lo devuelve al servidor web que a su vez este se lo devuelve al cliente. Para el cliente todo este proceso es transparente, es como si todos los recursos los pudiese servir el servidor web. En este esquema el servidor web act&uacute;a de proxy para el servidor de aplicaciones (tambien se llama reverse proxy).
+<br />
+<br />&iquest;Como se configura 
+<a href="http://www.google.es/url?sa=t&amp;source=web&amp;cd=2&amp;ved=0CDcQFjAB&amp;url=http%3A%2F%2Fhttpd.apache.org%2F&amp;ei=84ZVTem3CYaAhAeY8KiNDQ&amp;usg=AFQjCNGyImC8Qi-rx_Bxd9knbUGKMxH5TQ">Apache HTTPD</a> para actuar en modo reverse proxy?
+<br />
+<br />En Apache para delegar las peticiones debemos utilizar las directivas 
+<a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypass">ProxyPass</a>, 
+<a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypassreverse">ProxyPassReverse</a>, 
+<a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxyrequests">ProxyRequests</a> y 
+<a href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypreservehost">ProxyPreserveHost</a>. En el primer par&aacute;metro de la directiva ProxyPass indicamos las URL que delegamos (/) y en el segundo par&aacute;metro indicamos la direcci&oacute;n del servidor de aplicaciones que devolver&aacute; realmente el contenido de la petici&oacute;n (ajp://localhost:8009/, ajp es un protocolo espec&iacute;fico para comunicarse con 
+<a href="http://tomcat.apache.org/">Tomcat</a>, tambi&eacute;n podr&iacute;amos haber utilizado el protocolo http con http://localhost:8080/, que es lo que haremos si utilizamos otro servidor web que no sea Apache). Para que el servidor web devuelva los contenidos est&aacute;ticos de la aplicaci&oacute;n debemos indicarle a Apache que las peticiones que empiecen por /static/ no las delegue en el servidor de aplicaciones sino que las procese &eacute;l, esto lo conseguimos con la directiva ProxyPass pero donde pondr&iacute;amos la direcci&oacute;n del servidor de aplicaciones ponemos un !. En el siguiente ejemplo de configuraci&oacute;n para Apache he definido un host virtual basado en nombres.
+<br />
+<br />Descomentamos las siguientes l&iacute;neas en el archivo httpd.conf:
+<br />
+<br />
+<div>
+ <pre>LoadModule proxy_module modules/mod_proxy.so<br />LoadModule proxy_ajp_module modules/mod_proxy_ajp.so<br />LoadModule proxy_ajp_module modules/mod_proxy_http.so</pre>
+</div>
+<br /># Virtual hosts
+<br />Include conf/extra/httpd-vhosts.conf
+<br />
+<br />Lineas a a&ntilde;adir en el archivo httpd-vhosts.conf:
+<br />
+<br />
+<div>
+ <pre>&lt;virtualhost *:80&gt;<br /> ServerName www.dominio.com<br /> ServerAdmin admin@dominio.com<br /> DocumentRoot &quot;/apache/www&quot;<br /> ErrorLog &quot;logs/www.dominio-error.log&quot;<br /> CustomLog &quot;logs/www.dominio-access.log&quot; common<br /><br /> ProxyRequests Off<br /> ProxyPreserveHost On<br /><br /> ProxyPass /static/ !<br /> ProxyPass / ajp://localhost:8009/<br /> ProxyPassReverse / ajp://localhost:8009/<br /> <br /> &lt;directory /&gt;<br />  Order deny,allow <br />  Allow from all <br /> &lt;/directory&gt;<br /> <br /> Alias /static/ &quot;/apache/www/&quot;<br />&lt;/virtualhost&gt;</pre>
+</div>
+<br />Ciertas aplicaciones del servidor de aplicaciones pueden necesitar conocer la m&aacute;quina original que realiz&oacute; la petici&oacute;n (hay que darse cuenta que para el servidor de aplicaciones todas las peticiones provienen del servidor web) esto se consigue con la directiva ProxyPreserverHost, de esta forma el servidor de aplicaciones podr&aacute; conocer cierta informaci&oacute;n del origen real de la petici&oacute;n.
+<br />
+<br />Seg&uacute;n esta configuraci&oacute;n la aplicaci&oacute;n en el Tomcat esta desplegada en el contexto ROOT y acceder&iacute;amos a ella con http://www.midominio.com/. Este es un aspecto importante y que en pocos sitios se comenta, el contexto de la aplicaci&oacute;n en Apache y en el servidor de aplicaciones ha de coincidir sino las URLs que devuelva el servidor de aplicaciones en el contenido no van a ser utilizables por el cliente. M&aacute;s especificamente no va a funcionar lo siguiente:
+<br />
+<br />
+<div>
+ <pre>ProxyPass / ajp://localhost:8009/aplicacion<br />ProxyPassReverse / ajp://localhost:8009/aplicacion</pre>
+</div>
+<br />En todo caso deberiamos indicar /aplicacion como URL a delegar y desplegar la aplicaci&oacute;n en Tomcat en el contexto /aplicacion:
+<br />
+<br />
+<div>
+ <pre>ProxyPass /aplicacion ajp://localhost:8009/aplicacion<br />ProxyPassReverse /aplicacion ajp://localhost:8009/aplicacion</pre>
+</div>
+<br />
+<div style="clear: both; text-align: center;"></div>Si nuestro servidor web es Apache HTTPD y nuestro servidor de aplicaciones es Tomcat en vez de utilizar un reverse proxy tambi&eacute;n se puede utilizar el 
+<a href="http://tomcat.apache.org/connectors-doc/webserver_howto/apache.html">conector mod_jk</a> para conectarlos pero he preferido utilizar esta forma de reverse proxy ya que el conector mod_jk no est&aacute; disponible para otros servidores web y servidores de aplicaciones, es decir, el este concepto de reverse proxy es m&aacute;s universal y normalmente es implementado por la mayor&iacute;a de servidores web lo que nos permite poder cambiar de servidor web f&aacute;cilmente en caso de que quisi&eacute;ramos. Podr&iacute;amos cambiar m&aacute;s f&aacute;cilmente Apache HTTPD por 
+<a href="http://www.cherokee-project.com/">cherokee</a>, 
+<a href="http://www.lighttpd.net/">lighttpd </a>o 
+<a href="http://wiki.nginx.org/">nginx </a>que son utilizados hoy d&iacute;a en importantes webs de internet.
+<br />
+<br />Referencia:
+<br />
+<a href="http://en.wikipedia.org/wiki/Reverse_proxy">Reverse proxy (wikipedia)</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_via="blogstack" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy" st_title="Unir Apache HTTPD y Tomcat mediante un reverse proxy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Unir Apache HTTPD y Tomcat mediante un reverse proxy";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/02/unir-apache-httpd-y-tomcat-mediante-un.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 160,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/02/unir-apache-httpd-y-tomcat-mediante-un-reverse-proxy"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

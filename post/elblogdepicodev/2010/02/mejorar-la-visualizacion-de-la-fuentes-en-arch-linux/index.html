@@ -1,0 +1,137 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux"><span itemprop="headline">Mejorar la visualización de la fuentes en Arch Linux</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2010/02/mejorar-la-visualizacion-de-la-fuentes.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2010-02-27T12:38" itemprop="datePublished">Publicado el sábado, 27 de febrero de 2010 a las 12:38 UTC</span></div><div><span datetime="2011-07-10T20:38" itemprop="dateModified">Actualizado el domingo, 10 de julio de 2011 a las 20:38 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/gnome"><span itemprop="articleSection">gnome</span></a>
+,
+<a href="/label/personalizacion"><span itemprop="articleSection">personalizacion</span></a>
+,
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_via="blogstack" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">Una vez instalado el sistema base y el entorno de escritorio GNOME en Arch Linux las fuentes se visualizan de una forma diferente compar&aacute;ndolo con la instalaci&oacute;n predeterminada de otras distribuciones.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/S4kMxW1BNgI/AAAAAAAAAJk/fe_e9kRBq7Y/s1600-h/arch-linux-fuentes-1.jpg"><img alt="Arch Linux con la visualizaci&oacute;n de las fuentes predeterminada" height="150" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/S4kMxW1BNgI/AAAAAAAAAJk/fe_e9kRBq7Y/s200/arch-linux-fuentes-1.jpg" title="Arch Linux con la visualizaci&oacute;n de las fuentes predeterminada" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/_9zOwWD_PYL8/S4kMytA9BBI/AAAAAAAAAJs/Y-PIdzkOjpg/s1600-h/arch-linux-fuentes-2.png"><img alt="Arch Linux con la visualizaci&oacute;n de las fuentes predeterminada" height="117" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/S4kMytA9BBI/AAAAAAAAAJs/Y-PIdzkOjpg/s200/arch-linux-fuentes-2.png" title="Arch Linux con la visualizaci&oacute;n de las fuentes predeterminada" width="200" /></a>
+</div>
+<br />En esta entrada vamos a cambiar el renderizado de las fuentes para que se vean un poco mejor tal y como ocurre en otras distribuciones. Para ello debemos ejecutar los siguientes comandos en un terminal (tener en cuenta como se ejecutan los comandos, # en modo root, $ en modo usuario).
+<br />
+<br />
+<div>
+ <pre># pacman -Rdd libxft cairo fontconfig freetype2<br />$ yaourt -S cairo-ubuntu fontconfig-ubuntu libxft-ubuntu freetype2-ubuntu</pre>
+</div>
+<br />El primero desinstala los paquetes predeterminados de la visualizaci&oacute;n de las fuentes y el segundo instala los nuevos paquetes mediante yaourt que le dar&aacute;n un mejor aspecto a las fuentes. Como podr&eacute;is adivinar por su nombre los nuevos paquetes tienen su origen en la distribuci&oacute;n Ubuntu.
+<br />
+<br />Despu&eacute;s de reiniciar la sesi&oacute;n de GNOME veremos el nuevo aspecto de las fuentes en nuestro sistema donde podemos apreciar el ligero cambio que se ha producido respecto a las originales (pulsa sobre las im&aacute;genes para verlas a tama&ntilde;o original).
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/_9zOwWD_PYL8/S4kM1G3w3xI/AAAAAAAAAJ0/YYFahVRuhis/s1600-h/arch-linux-fuentes-ubuntu-1.jpg"><img alt="Arch Linux con la visualizaci&oacute;n de las fuentes mejorada" height="150" src="http://4.bp.blogspot.com/_9zOwWD_PYL8/S4kM1G3w3xI/AAAAAAAAAJ0/YYFahVRuhis/s200/arch-linux-fuentes-ubuntu-1.jpg" title="Arch Linux con la visualizaci&oacute;n de las fuentes mejorada" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/_9zOwWD_PYL8/S4kM2YU-90I/AAAAAAAAAJ8/6N3oT9FMZd4/s1600-h/arch-linux-fuentes-ubuntu-2.png"><img alt="Arch Linux con la visualizaci&oacute;n de las fuentes mejorada" height="117" src="http://3.bp.blogspot.com/_9zOwWD_PYL8/S4kM2YU-90I/AAAAAAAAAJ8/6N3oT9FMZd4/s200/arch-linux-fuentes-ubuntu-2.png" title="Arch Linux con la visualizaci&oacute;n de las fuentes mejorada" width="200" /></a>
+</div>
+<br />Hay que tener en cuenta que con estos nuevos paquetes al realizar alguna actualizaci&oacute;n quiz&aacute; pacman nos indique que hay conflictos con ellos. Para evitar estos conflictos y poder actualizar el sistema deberemos desinstalar los paquetes, actualizar el sistema y volverlos a instalar. Los comandos ser&iacute;an los siguientes:
+<br />
+<br />
+<div>
+ <pre>$ yaourt -Rdd cairo-ubuntu fontconfig-ubuntu libxft-ubuntu freetype2-ubuntu <br /># pacman -S libxft cairo fontconfig freetype2<br /># pacman -Syu<br /># pacman -Rdd libxft cairo fontconfig freetype2<br />$ yaourt -S cairo-ubuntu fontconfig-ubuntu libxft-ubuntu freetype2-ubuntu</pre>
+</div>
+<br />El comando &laquo;pacman -Syu&raquo; es el encargado de hacer la actualizaci&oacute;n del sistema.
+<br />
+<br />
+<b>Nota</b>: con los &uacute;ltimos cambios de paquetes que se han producido en Arch Linux lo explicado en esta entrada ha quedado obsoleto. (
+<a href="http://www.archlinux-es.org/foros/viewtopic.php?f=2&amp;t=3883">Ver este hilo</a> para un poco m&aacute;s de informaci&oacute;n)
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com/search/label/personalizaci%C3%B3n">Otras entradas sobre personalizaci&oacute;n</a>
+<br />
+<a href="http://iyanmv.com/2009/12/29/post-instalacion-de-arch-linux/">Post-instalaci&oacute;n Arch Linux</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_via="blogstack" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux" st_title="Mejorar la visualización de la fuentes en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Mejorar la visualización de la fuentes en Arch Linux";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2010/02/mejorar-la-visualizacion-de-la-fuentes.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/gnome/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnome</a></li><li><a href="/label/personalizacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta personalizacion</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 198,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/02/mejorar-la-visualizacion-de-la-fuentes-en-arch-linux"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

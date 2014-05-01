@@ -1,0 +1,164 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico"><span itemprop="headline">Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2011/10/ejemplo-sencillo-con-javacc-de-un.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2011-10-15T10:34" itemprop="datePublished">Publicado el sábado, 15 de octubre de 2011 a las 10:34 UTC</span></div><div><span datetime="2011-10-15T10:54" itemprop="dateModified">Actualizado el sábado, 15 de octubre de 2011 a las 10:54 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_via="blogstack" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em; text-align: center;">
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
+</div>Hay ocasiones en que necesitamos procesar una determinada expresi&oacute;n, por ejemplo para hacer una b&uacute;squeda por una serie de criterios obtenidos de la misma. La forma habitual es hacerlo creando un algoritmo espec&iacute;fico m&aacute;s o menos complejo seg&uacute;n lo sea la expresi&oacute;n con varios splits, expresiones regulares, condiciones, bucles, etc..., que normalmente resulta en c&oacute;digo ofuscado dif&iacute;cil de desarrollar, mantener, entender lo que hace y poco flexible ante cambios. Esta es la primera opci&oacute;n que se nos ocurre pero no es la mejor forma de hacerlo como veremos en esta entrada.
+<br />
+<br />Cuando nos enfrentamos a un problema de procesar una expresi&oacute;n debemos tener en cuenta primeramente dos cosas: cual es su l&eacute;xico (las palabras que lo forman) y su sintaxis (las reglas que definen el orden del l&eacute;xico). M&aacute;s tarde por otra parte para procesar la expresi&oacute;n necesitaremos de acciones l&eacute;xicas y sint&aacute;cticas que es c&oacute;digo que se ejecutar&aacute; para realizar las tareas que necesitemos al procesar la expresi&oacute;n.
+<br />
+<br />Para facilitar la tarea existen los compiladores como resultado de la invenci&oacute;n de los primeros lenguajes y aunque parecen algo complejo de hacer no lo son tanto como desarrollar un algoritmo espec&iacute;fico. 
+<a href="http://javacc.java.net/">JavaCC</a> es una herramienta que nos permite definir el l&eacute;xico de una expresi&oacute;n o lenguaje, la sintaxis del mismo y las acciones l&eacute;xicas y sint&aacute;cticas generando posteriormente con la definci&oacute;n de estas cosas una serie de archivos .java con el c&oacute;digo fuente de un analizador l&eacute;xico, sint&aacute;ctico y otra serie de archivos .java de utilidad para los mismos.
+<br />
+<br />Supongamos que tenemos una aplicaci&oacute;n en la que el usuario tiene una caja de b&uacute;squeda en la que puede introducir una serie de palabras separadas por espacios, en la que tambi&eacute;n puede agrupar varias palabas rode&aacute;ndolas con &quot; y tambi&eacute;n puede introducir fechas en varios formatos y con distintos separadores para el d&iacute;a, mes y a&ntilde;o pudiendo especificar d&iacute;a, mes y a&ntilde;o, solo mes y a&ntilde;o, solo el mes o solo el a&ntilde;o, por ejemplo dd.MMM.yyyy, dd/MMMM/yyyy, MMMM-dd-yyyy, MMM.yyyy, MMM, yyyy, ... Para complicarlo a&uacute;n m&aacute;s los meses pueden estar en diferentes idiomas. Un ejemplo de expresi&oacute;n podr&iacute;a ser: &laquo;&quot;real madrid&quot; enero.2012 febrero.2012 f&uacute;tbol&raquo; en la que intenta buscar elementos relacionados con el real madrid y f&uacute;tbol y en los meses de enero o febrero de 2012.
+<br />
+<br />Veamos el c&oacute;digo fuente de nuestro peque&ntilde;o compilador cuya misi&oacute;n sera interpretar la expresi&oacute;n de la mejor de las formas y devolver un objeto 
+<a href="http://docs.jboss.org/hibernate/core/3.6/javadocs/org/hibernate/criterion/Criterion.html">org.hibernate.criterion.Criterion</a> con el que podremos hacer una b&uacute;squeda en Hibernate seg&uacute;n los criterios de la expresi&oacute;n. El compilador est&aacute; dividido en varias partes:
+<br />
+<br />PARSER_BEGIN y PARSE_END: define el nombre de nuestro analizador e incluye m&eacute;todos de utilidad (en perfecto c&oacute;digo Java) que ser&aacute; incluidos en el analizador sint&aacute;tico sin modificar y que podremos usar desde las acciones sint&aacute;cticas. Los m&eacute;todos importantes de esta primera parte son los constructores (JavaCC inserta unos pero como vemos podemos definir m&aacute;s), el m&eacute;todo main, buildCriterionTermino y buildCriterionFecha que construir&aacute;n un Criterion cuando el analizador sint&aacute;ctico detecte un t&eacute;rmino o fecha respectivamente, la misi&oacute;n principal de nuestro compilador. Estos m&eacute;todos no tienen mayor complicaci&oacute;n son puro c&oacute;digo Java. 
+<b>(en azul)</b>.
+<br />
+<br />SKIP y TOKEN: esta parte es la que define el analizador l&eacute;xico con las palabras de nuestra expresi&oacute;n o lenguaje. Ah&iacute; est&aacute;n la forma de las fechas, los t&eacute;rminos, el d&iacute;a, mes y a&ntilde;o, los separadores. B&aacute;sicamente son una forma de expresiones regulares para definir cada uno de ellos&nbsp;
+<b>(en morado)</b>.
+<br />
+<br />procesarQuery, procesar, termino, fecha: Son propiamente los m&eacute;todos del analizador sint&aacute;ctico y van a definir la sint&aacute;xis de nuestro lenguaje. procesar contiene una de las partes m&aacute;s importantes ya que es el punto de partida, va cogiendo los tokens proporcionados por el analizador l&eacute;xico (que genera JavaCC) y determina si es una fecha, t&eacute;rmino o algo desconocido. Seg&uacute;n lo detectado se ejecuta el bloque de c&oacute;digo posterior que va entre {} y que constituye una acci&oacute;n sint&aacute;ctica. Como se ve la acci&oacute;n sint&aacute;ctica es perfecto c&oacute;digo Java y puede usar las variables definidas en el bloque procesar como ct, ft y r. Despu&eacute;s de procesar todos los t&eacute;rminos de la expresi&oacute;n se ejecuta otra acci&oacute;n sint&aacute;ctica que agrupa todos los Criterion recogidos en ct, cf en uno solo y que ser&aacute; lo que devuelve el analizador&nbsp;
+<b>(en verde)</b>.
+<br />
+<br />En la acci&oacute;n sint&aacute;ctica de termino tenemos que tener en cuenta que el t&eacute;rmino puede ser un mes (enero, ...) por lo que se intenta procesar como una fecha con buildCriterionFecha y si devuelve algo es que se trataba de un mes sino se procesar&aacute; como un termino con buildCriterionTermino.
+<br />
+<br />&iquest;Por qu&eacute; se trata un elemento DESCONOCIDO? Porque sino el analizador sint&aacute;ctico dar&iacute;a un excepci&oacute;n al no saber lo que es, teminar&iacute;a y no devolver&iacute;a nada. De esta forma conseguimos que si una expresi&oacute;n que no se entiende se ignore y se devuelvan al menos el resto de expresiones en el Criterion. Este ser&aacute; el caso de un t&eacute;rmino fecha mal expresado como &laquo;01.enero/2012&raquo; donde mezcla diferentes separadores en la misma fecha. Tal como est&aacute;n definidos los tokens, el analizador l&eacute;xico no sabr&iacute;a que es.
+<br />
+<br />Y eso es lo principal de nuestro compilador. No es tan complicado hacer uno como podr&iacute;a parecer a priori, sin duda mucho m&aacute;s f&aacute;cil que hacer un algoritmo espec&iacute;fico para ello incluso para una expresi&oacute;n tan simple como la tratada, ahora imag&iacute;nate una que pueda ser como &laquo;(&lt;expr&gt; or (&lt;expr&gt;and (&lt;expr&gt;or&nbsp;&lt;expr&gt;) or&nbsp;&lt;expr&gt;))&raquo;.
+<br />
+<br />Esta es una de esas herramientas muy &uacute;tilies y con la cual sabiendo usarla o al menos tener conocimiento de ella nos puede ahorrar mucho tiempo y conseguir hacer las cosas mejor. Adem&aacute;s y dado que lo que genera como resultado son una serie de archivos .java podremos utilizarlos en cualquier entorno, como en alguna administraci&oacute;n p&uacute;blica cuyo nombre no citar&eacute; aqu&iacute; y en la que no esta permitido usar librer&iacute;as no homologadas por ellos, dado que se trata de c&oacute;digo fuente y que no tiene dependencias sobre otras librer&iacute;as no tendremos ning&uacute;n problema en usar JavaCC en casos como este.
+<br />
+<br />Para compilar el compilador podemos hacerlo con ant con la siguiente tarea (tambi&eacute;n podemos utilizar los propios comandos de JavaCC):
+<br /> 
+<br />
+<br />
+<div>
+ <pre>&lt;javacc target=&quot;src/main/java/com/blogspot/elblogdepicodev/jj/Buscador.jj&quot;<br /> outputdirectory=&quot;src/main/java/com/blogspot/elblogdepicodev/jj/buscador&quot;<br />    javacchome=&quot;/home/[user]/javacc-5.0&quot;/&gt;<br /></pre>
+</div>
+<br />Los archivos generados ser&iacute;an:
+<br />
+<br />
+<ul>
+ <li>Buscador.java</li>
+ <li>BuscadorConstants.java</li>
+ <li>BuscadorTokenManager.java</li>
+ <li>ParseException.java</li>
+ <li>SimpleCharStream.java</li>
+ <li>Token.java</li>
+ <li>TokenMgrError.java</li>
+</ul>
+<br />
+<br />
+<div>
+ <pre>// Buscador.jj<br />options {<br /> STATIC = false;<br />}<br /><br />PARSER_BEGIN(Buscador)<br />package com.blogspot.elblogdepicodev.jj.buscador;<br /><br />import java.io.InputStream;<br />import java.io.Reader;<br />import java.io.StringReader;<br />import java.text.SimpleDateFormat;<br />import java.util.ArrayList;<br />import java.util.Calendar;<br />import java.util.Date;<br />import java.util.List;<br />import java.util.Locale;<br /><br />import org.hibernate.criterion.Criterion;<br />import org.hibernate.criterion.Restrictions;<br />import org.hibernate.type.IntegerType;<br />import org.hibernate.type.Type;<br /><br />public class Buscador {<br /> private static final String[] FORMATOS_FECHAS = new String[] { <br />  &quot;d/MMM/yyyy&quot;, &quot;d/MMMM/yyyy&quot;, &quot;MMM/d/yyyy&quot;, &quot;MMMM/d/yyyy&quot;, &quot;MMM/yyyy&quot;, &quot;MMMM/yyyy&quot;,<br />  &quot;d.MMM.yyyy&quot;, &quot;d.MMMM.yyyy&quot;, &quot;MMM.d.yyyy&quot;, &quot;MMMM.d.yyyy&quot;, &quot;MMM.yyyy&quot;, &quot;MMMM.yyyy&quot;,<br />  &quot;d-MMM-yyyy&quot;, &quot;d-MMMM-yyyy&quot;, &quot;MMM-d-yyyy&quot;, &quot;MMMM-d-yyyy&quot;, &quot;MMM-yyyy&quot;, &quot;MMMM-yyyy&quot;,<br />  &quot;MMM&quot;, &quot;MMMM&quot;, &quot;yyyy&quot; <br /> };<br /><br /> private Locale locale;<br /><br /> public Buscador(Locale locale) {<br />  this(new StringReader(&quot;&quot;), locale);<br /> }<br /> <br />    public Buscador(InputStream is, String encoding, Locale locale) {<br />  this(is, encoding);<br />                this.locale = locale;<br /> }<br /> <br /> public Buscador(Reader r, Locale locale) {<br />  this(r);<br />        this.locale = locale;<br /> }<br /><br />    public static void main(String[] args) throws ParseException, TokenMgrError {<br />     StringBuffer sb = new StringBuffer();<br />     for(int i = 0; i &lt; args.length; ++i) {<br />   if (i &gt; 0) {<br />    sb.append(&quot; &quot;);<br />      }<br />   sb.append(args[i]);<br />     }<br /><br />     Buscador parser = new Buscador(new Locale(&quot;es&quot;));<br />     Criterion criterion = parser.procesarQuery(sb.toString());<br />     System.out.println(criterion);<br /> }<br /> <br /> // Utilidades<br /> private Criterion or(List&lt;Criterion&gt; criterions) {<br />  Criterion lhs = null;<br />  for (Criterion criterion : criterions) {<br />   if (lhs == null) {<br />    lhs = criterion;<br />   } else {<br />    lhs = Restrictions.or(lhs, criterion);<br />   }<br />  }<br />  return lhs;<br /> }<br /><br /> private Criterion and(List&lt;criterion&gt; criterions) {<br />  Criterion lhs = null;<br />  for (Criterion criterion : criterions) {<br />   if (lhs == null) {<br />    lhs = criterion;<br />   } else {<br />    lhs = Restrictions.and(lhs, criterion);<br />   }<br />  }<br />  return lhs;<br /> }<br /> <br /> private Criterion buildCriterionTermino(String term) {<br />  List&lt;Criterion&gt; coincidencias = new ArrayList&lt;Criterion&gt;();<br />  <br />  String t = &quot;%&quot; + term + &quot;%&quot;;<br /><br />  coincidencias.add(Restrictions.ilike(&quot;nombre&quot;, t));<br />  coincidencias.add(Restrictions.ilike(&quot;ciudad&quot;, t));<br />  coincidencias.add(Restrictions.ilike(&quot;direccion&quot;, t));<br /><br />  Criterion criterio = or(coincidencias);<br />  <br />  return criterio; <br /> }<br /> <br /> private Criterion buildCriterionFecha(String term) {<br />  Criterion criterio = null;<br />  <br />  for (int i = 0; i &lt; FORMATOS_FECHAS.length; ++i) {<br />   String formatoFecha = FORMATOS_FECHAS[i];<br />   SimpleDateFormat sdf = new SimpleDateFormat(formatoFecha, locale);<br /><br />   // Fecha<br />   try {<br />    Date fecha = sdf.parse(term);<br /><br />    Calendar calendario = Calendar.getInstance(locale);<br />    calendario.setTime(fecha);<br /><br />    switch (i) {<br />    case 0:<br />    case 1:<br />    case 2:<br />    case 3:<br />    case 6:<br />    case 7:<br />    case 8:<br />    case 9:<br />    case 12:<br />    case 13:<br />    case 14:<br />    case 15:<br />     // D&iacute;a, mes, a&ntilde;o<br />     criterio = Restrictions.sqlRestriction(&quot;(day({alias}.fecha) = ? and month({alias}.fecha) = ? and year({alias}.fecha) = ?)&quot;, new Object[] {<br />       calendario.get(Calendar.DAY_OF_MONTH), calendario.get(Calendar.MONTH) + 1, calendario.get(Calendar.YEAR) }, new Type[] { IntegerType.INSTANCE,<br />       IntegerType.INSTANCE, IntegerType.INSTANCE });<br />     break;<br />    case 4:<br />    case 5:<br />    case 10:<br />    case 11:<br />    case 16:<br />    case 17:<br />     // Mes, a&ntilde;o<br />     criterio = Restrictions.sqlRestriction(&quot;(month({alias}.fecha) = ? and year({alias}.fecha) = ?)&quot;, new Object[] {<br />       calendario.get(Calendar.MONTH) + 1, calendario.get(Calendar.YEAR) }, new Type[] { IntegerType.INSTANCE, IntegerType.INSTANCE });<br />     break;<br />    case 18:<br />    case 19:<br />     // Mes<br />     criterio = Restrictions.sqlRestriction(&quot;month({alias}.fecha) = ?&quot;, calendario.get(Calendar.MONTH) + 1, IntegerType.INSTANCE);<br />     break;<br />    case 20:<br />     // A&ntilde;o<br />     criterio = Restrictions.sqlRestriction(&quot;year({alias}.fecha) = ?&quot;, calendario.get(Calendar.YEAR), IntegerType.INSTANCE);<br />     break;<br />    default:<br />     assert (false);<br />     break;<br />    }<br />   } catch (java.text.ParseException e) {<br />   }<br />   <br />   if (criterio != null) {<br />    break;<br />   }<br />  }<br /><br />  return criterio;<br /> }<br /> <br /> private class CriterionInfo {<br />  public boolean isFecha;<br />  public Criterion criterio; <br /> }<br />}<br />PARSER_END(Buscador)<br /><br />SKIP : { &quot; &quot; | &quot;\t&quot; | &quot;\n&quot; | &quot;\r&quot; | &quot;\r\n&quot; }<br /><br />TOKEN : { &lt; #NO_SKIP : ~[&quot; &quot;, &quot;\t&quot;, &quot;\r&quot;, &quot;\n&quot;] &gt; }<br />TOKEN : { &lt; #SEP1 : &quot;/&quot; &gt; }<br />TOKEN : { &lt; #SEP2 : &quot;.&quot; &gt; }<br />TOKEN : { &lt; #SEP3 : &quot;-&quot; &gt; }<br />TOKEN : { &lt; #SEP : (&lt;sep1&gt; | &lt;sep2&gt; | &lt;sep3&gt;) &gt; }<br />TOKEN : { &lt; #LETRA : ~[&quot; &quot;, &quot;\t&quot;, &quot;\r&quot;, &quot;\n&quot;, &quot;/&quot;, &quot;.&quot;, &quot;-&quot;] &gt; }<br />TOKEN : { &lt; #NUM : [&quot;0&quot;-&quot;9&quot;] &gt; }<br />TOKEN : { &lt; #MES : (&lt;letra&gt;)+ &gt; }<br />TOKEN : { &lt; #DIA : (&lt;num&gt; | &lt;num&gt;&lt;num&gt;) &gt; }<br />TOKEN : { &lt; #ANO : (&lt;num&gt;&lt;num&gt;&lt;num&gt;&lt;num&gt;) &gt; }<br /><br />TOKEN : { &lt; FECHA : (<br /> &lt;dia&gt;&lt;sep1&gt;&lt;mes&gt;&lt;sep1&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep1&gt;&lt;dia&gt;&lt;sep1&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep1&gt;&lt;ano&gt; | <br /> &lt;dia&gt;&lt;sep2&gt;&lt;mes&gt;&lt;sep2&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep2&gt;&lt;dia&gt;&lt;sep2&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep2&gt;&lt;ano&gt; |<br /> &lt;dia&gt;&lt;sep3&gt;&lt;mes&gt;&lt;sep3&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep3&gt;&lt;dia&gt;&lt;sep3&gt;&lt;ano&gt; | &lt;mes&gt;&lt;sep3&gt;&lt;ano&gt; |<br /> &lt;num&gt;&lt;num&gt;&lt;num&gt;&lt;num&gt;) &gt; }<br />TOKEN : { &lt; TERMINO : (&quot;\&quot;&quot;(~[&quot;\&quot;&quot;])+&quot;\&quot;&quot; | (&lt;letra&gt;)+) &gt; }<br />TOKEN : { &lt; DESCONOCIDO : (&lt;no_skip&gt;)+ &gt; }<br /><br />Criterion procesarQuery(String query) :<br />{<br /> Criterion criterio = null;<br /><br /> ReInit(new StringReader(query));<br />}<br />{<br /> criterio = procesar()<br /> {<br />  return criterio;<br /> }<br />}<br /><br />Criterion procesar() :<br />{<br /> List&lt;Criterion&gt; ct = new ArrayList&lt;Criterion&lt;();<br /> List&lt;Criterion&gt; cf = new ArrayList&lt;Criterion&lt;();<br /><br /> Criterion criterio = null;<br /> CriterionInfo criterioInfo = null;<br /> Token t = null;<br />}<br />{<br /> (<br />  criterio = fecha()<br />  {<br />   if (criterio != null) {<br />    cf.add(criterio);<br />   }<br />   //System.out.println(criterio);<br />  }<br /> |<br />  criterioInfo = termino() <br />  {<br />   criterio = criterioInfo.criterio;<br />   if (criterio != null) {<br />    if (criterioInfo.isFecha) {<br />     cf.add(criterio);<br />    } else {<br />     ct.add(criterio);<br />    }<br />   }<br />   //System.out.println(criterio);<br />  }<br /> |<br />  t = &lt;desconocido&gt;<br />  {<br />   //System.out.println(t.image);<br />  }<br /> )*<br /> &lt;eof&gt;<br /> {<br />  List&lt;Criterion&gt; r = new ArrayList&lt;Criterion&gt;();<br />  if (!ct.isEmpty()) {<br />   r.addAll(ct);<br />  }<br />  if (!cf.isEmpty()) {<br />   r.add(or(cf));<br />  }<br />  return (r.isEmpty())?null:and(r);<br /> } <br />}<br /><br />CriterionInfo termino() :<br />{<br /> Token t = null;<br />}<br />{<br /> t = &lt;termino&gt;<br /> { <br />  //System.out.println(t.image);<br />  String term = t.image;<br />  CriterionInfo ci = new CriterionInfo();<br />   <br />  // Comprobar si se trata de un mes<br />  ci.criterio = buildCriterionFecha(term);<br />  <br />  if (ci.criterio != null) {<br />   ci.isFecha = true;<br />  } else {<br />   ci.isFecha = false;<br /><br />   if (term.startsWith(&quot;\&quot;&quot;) &amp;&amp; term.endsWith(&quot;\&quot;&quot;)) {<br />    term = term.substring(1, term.length() - 1);<br />   }<br />   ci.criterio = buildCriterionTermino(term);<br />  } <br />  return ci;<br /> }<br />}<br /><br />Criterion fecha() :<br />{<br /> Token t = null;<br />}<br />{<br /> t = &lt;fecha&gt;<br /> { <br />  String term = t.image;<br />  return buildCriterionFecha(term);<br /> }<br />}<br /></pre>
+</div>
+<br />Referencia:
+<br />
+<a href="http://javacc.java.net/">http://javacc.java.net/</a>
+<br />
+<a href="http://www.lpsi.eui.upm.es/webcomp/jgperez/java/IntrodJavaCC.pdf">http://www.lpsi.eui.upm.es/webcomp/jgperez/java/IntrodJavaCC.pdf</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_via="blogstack" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico" st_title="Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Ejemplo sencillo con JavaCC de un analizador léxico y sintáctico";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/10/ejemplo-sencillo-con-javacc-de-un.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 132,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/10/ejemplo-sencillo-con-javacc-de-un-analizador-lexico-y-sintactico"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

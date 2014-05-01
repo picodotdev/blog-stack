@@ -1,0 +1,140 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Peticiones Ajax en Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry"><span itemprop="headline">Peticiones Ajax en Tapestry</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2011/09/peticiones-ajax-en-tapestry.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2011-09-30T16:59" itemprop="datePublished">Publicado el viernes, 30 de septiembre de 2011 a las 16:59 UTC</span></div><div><span datetime="2011-10-21T18:00" itemprop="dateModified">Actualizado el viernes, 21 de octubre de 2011 a las 18:00 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_via="blogstack" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <br />
+ <img alt="Apache Tapestry" height="132" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
+</div>Tapestry posee un excelente soporte para trabajar con Ajax incluso llegando al punto de no ser necesario escribir ni una sola l&iacute;nea de javascript para hacer este tipo de peticiones. Aquellos componentes de Tapestry que poseen el par&aacute;metro zone (como por ejemplo 
+<a href="http://tapestry.apache.org/current/tapestry-core/ref/org/apache/tapestry5/corelib/components/ActionLink.html">ActionLink</a>, 
+<a href="http://tapestry.apache.org/current/tapestry-core/ref/org/apache/tapestry5/corelib/components/EventLink.html">EventLink</a> o 
+<a href="http://tapestry.apache.org/current/tapestry-core/ref/org/apache/tapestry5/corelib/components/Form.html">Form</a>, ...) permiten actualizar un fragmento de la p&aacute;gina (o varios a la vez) mediante una petici&oacute;n Ajax. Adem&aacute;s de utilizar un componte que posea un par&aacute;metro zone hay que definir las zonas, mediante el componente 
+<a href="http://tapestry.apache.org/current/tapestry-core/ref/org/apache/tapestry5/corelib/components/Zone.html">Zone</a>, que pueden ser actualizadas.
+<br />
+<br />En 
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/examples/ajax/actionlink">el ejemplo Ajax ActionLink</a> de la 
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/">aplicaci&oacute;n demostraci&oacute;n Jumpstart</a> puede verse un ejemplo en funcionamiento de actualizaci&oacute;n de un fragmento de la p&aacute;gina, tambien puede verse el c&oacute;digo fuente de los elementos implicados.
+<br />
+<br />Una de las cosas que hay que destacar es lo sencillo que es pasar de una aplicaci&oacute;n no-ajax a una ajax si esto se ajusta a lo que necesitamos, para ello basta usar los parametros zone de los componentes y definir las zonas en la propia p&aacute;gina, hay que notar que no es necesario separar ese contenido de la zonas en otro archivo para devolverlo &uacute;nicamete cuando se haga la petici&oacute;n ajax todo est&aacute; en un &uacute;nico archivo y Tapestry se encarga de devolver &uacute;nicamente el contenido de la zona cuando esta vaya a a ser actualizada en una petici&oacute;n Ajax.
+<br />
+<br />El actualizar fragmentos de una p&aacute;gina con el contenido html generado por una zona cubre la mayor&iacute;a de los casos en los que es necesario trabajar con Ajax, sin embargo, en alguna ocasi&oacute;n podenos necesitar trabajar a m&aacute;s bajo nivel haciendo nosotros mismos la petici&oacute;n Ajax y devolviendo datos en formato json en el servidor que luego procesaremos en el cliente para tratarlos, en el siguiente ejemplo se ve como es. El componente hace una petici&oacute;n ajax sobre el evento onGetColores del mismo al cabo de 5 segundos de cargarse la p&aacute;gina en la que es incluido. En el cliente hace un alert para cada uno de los elementos devueltos en el evento.
+<br />
+<br />
+<div>
+ <pre>//Colores.java<br />package com.blogspot.elblogdepicodev.tapestry.components;<br /><br />import org.apache.tapestry5.ComponentResources;<br />import org.apache.tapestry5.MarkupWriter;<br />import org.apache.tapestry5.annotations.Environmental;<br />import org.apache.tapestry5.annotations.Import;<br />import org.apache.tapestry5.ioc.annotations.Inject;<br />import org.apache.tapestry5.json.JSONArray;<br />import org.apache.tapestry5.services.javascript.JavaScriptSupport;<br /><br />@Import(library = { &quot;Colores.js&quot; })<br />public class Colores {<br /><br />    @Environmental<br />    private JavaScriptSupport javaScriptSupport;<br />    <br />    @Inject<br />    private ComponentResources componentResources;<br /><br />    Object onGetColores() {<br /> return new JSONArray(&quot;Rojo&quot;,&nbsp;&quot;Verde&quot;,&nbsp;&quot;Azul&quot;,&nbsp;&quot;Negro&quot;);<br />    }<br /><br />    protected void afterRender(MarkupWriter writer) {<br /> String link = componentResources.createEventLink(&quot;getColores&quot;).toAbsoluteURI();<br />        <br /> JSONObject spec = new JSONObject();<br /> spec.put(&quot;link&quot;, link);<br /><br />        javaScriptSupport.addInitializerCall(&quot;colores&quot;, spec);<br />    }<br />}<br /><br />// Colores.js<br />function Colores(spec) {<br /> this.link = spec.link;<br /><br /> var sthis = this;<br /> setTimeout(function() { sthis.getColores(); }, 5000);<br />}<br />Colores.prototype.getColores = function() {<br /> $j.ajax({<br />  url: this.link,<br />  success: function(data) {<br />                    $j.each(data, function(index, color) { <br />                        alert(color); <br />                    });<br />                }<br /> });<br />}<br /><br />Tapestry.Initializer.colores = function(spec) {<br /> new Colores(spec);<br />}<br /></pre>
+</div>
+<br />El javascript del ejemplo utiliza la librer&iacute;a jQuery para hacer la petici&oacute;n Ajax y la referencia a ella con la etiqueta script habr&iacute;a que incluirlo en la p&aacute;gina, $j es una variable con una referencia a ella.
+<br />
+<br />Todo realmente sencillo, en la mayor&iacute;a de los casos no ser&aacute; necesario que trabajemos a bajo nivel con las peticiones Ajax. Otra cosa m&aacute;s que hace que trabajar con Tapestry sea muy agradable.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com/2011/10/peticiones-ajax-en-tapestry-ii.html">Peticiones Ajax en Tapestry (II)</a>
+<br />
+<a href="http://tapestry.apache.org/ajax-and-zones.html">http://tapestry.apache.org/ajax-and-zones.html</a>
+<br />
+<a href="http://tapestry.apache.org/javascript.html">http://tapestry.apache.org/javascript.html</a>
+<br />
+<a href="http://jumpstart.doublenegative.com.au/home.html">http://jumpstart.doublenegative.com.au/home.html</a>
+<br />
+<a href="http://jumpstart.doublenegative.com.au/jumpstart/">http://jumpstart.doublenegative.com.au/jumpstart/</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_via="blogstack" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry" st_title="Peticiones Ajax en Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Peticiones Ajax en Tapestry";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/09/peticiones-ajax-en-tapestry.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 134,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/09/peticiones-ajax-en-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Pruebas unitarias con Spock y Mockito | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito"><span itemprop="headline">Pruebas unitarias con Spock y Mockito</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/07/pruebas-unitarias-con-spock-y-mockito.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-07-20T17:10" itemprop="datePublished">Publicado el viernes, 20 de julio de 2012 a las 17:10 UTC</span></div><div><span datetime="2013-10-21T08:41" itemprop="dateModified">Actualizado el lunes, 21 de octubre de 2013 a las 08:41 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_via="blogstack" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
+</div>Si estamos convencidos de que las teor&iacute;as de Extreme Programming y dem&aacute;s metodolog&iacute;as &aacute;giles son &uacute;tiles probablemente haremos alg&uacute;n tipo de prueba automatizada. Los inicios sueles ser dif&iacute;ciles ya que al principio hacer pruebas automatizadas parece m&aacute;s trabajo a realizar, sin embargo, una vez empezado se obtienen r&aacute;pidamente una serie de beneficios en forma de errores detectados de forma temprana de manera que producimos software con menos errores, tenemos mayor seguridad de que entregamos algo que funciona y el hecho de vernos obligagos a desarrollar c&oacute;digo testable obtenemos a cambio software de mayor calidad.
+<br />
+<br />Herramientas para hacer pruebas hay muchas en la mayor&iacute;a de los lenguajes de programaci&oacute;n. En el mundo Java una de las primeras herramientas diponibles y que a&uacute;n sigue us&aacute;ndose ampliameten es 
+<a href="http://www.junit.org/">JUnit</a>, luego vinieron otras como JUnit 4 o 
+<a href="http://testng.org/">TestNG</a>. 
+<a href="http://code.google.com/p/spock/">Spock</a> es la siguiente herramienta que est&aacute; empezando a usarse en muchos proyectos. El objetivo de Spock no es distinto del de Junit o TestNG pero la forma de definir las pruebas y el uso de Groovy le hacen tener una serie de caracter&iacute;sticas muy interesantes:
+<br />
+<ul>
+ <li>F&aacute;cil de aprender: en sus ideas es muy parecido a JUnit y por tanto si conocemos JUnit podremos enpezar r&aacute;picamente con Spock.</li>
+ <li>Groovy: es el lenguaje empleado en los casos de prueba, un lenguaje menos &laquo;verboso&raquo; que Java que produce c&oacute;digo m&aacute;s legible y compacto que este. Algunas de sus caracter&iacute;sticas le hacen m&aacute;s adecuado que Java para los casos de prueba.</li>
+ <li>Informaci&oacute;n: en caso de que alguna prueba falle proporciona informaci&oacute;n detallada de la comprobaci&oacute;n que fallo y sus valores.</li>
+ <li>Soporta varias orientaciones: Se adapta a como deseemos abordar las pruebas, probar primero, probar al final, teses unitarios, teses de integraci&oacute;n, desarrollo orientado por pruebas, desarrollo orientado por comportamiento.</li>
+ <li>Compatible: Es compatible con JUnit y por tanto se puede integrar con las principales herramientas e IDEs existentes.</li>
+</ul>Veamos un ejemplo de como son los teses con Spock:
+<br />
+<br />
+<div>
+ <pre>import spock.lang.Specification<br /><br />class HelloWorldSpock extends Specification {<br />    def &quot;length of Spock's and his friends' names&quot;() {<br />        expect:<br />        name.size() == length<br /><br />        where:<br />        name     | length<br />        &quot;Spock&quot;  | 5<br />        &quot;Kirk&quot;   | 4<br />        &quot;Scotty&quot; | 6<br />    }<br />}</pre>
+</div>
+<br />En este ejemplo se puede ver el DSL (Domain Specific Language) empleado por Spock. La secci&oacute;n expect es el test que queremos realizar, en este caso que una cadena tenga cierta longitud. La secci&oacute;n where son los datos que proporcionamos al test. Este test es un test parametrizado donde la secci&oacute;n expect se evalua para cada conjunto de valores indicado en la secci&oacute;n where.
+<br />
+<br />El test anterior es muy simple y normalmente necesitaremos hacer mocks para los objetos con los que se relaci&oacute;n el SUT (Subject Under Test) que queremos probar. En el siguiente ejemplo tenemos la interfaz de un servicio que se encarga de buscar datos en un sistema externo como una base de datos o un web service, si no queremos hacer un test de integraci&oacute;n con ese sistema externo tendremos que hacer un mock de la interfaz Servicio. Tambi&eacute;n tenemos la clase Procesador que se encarga de realizar una tarea sobre los datos que obtiene de un objeto que implemente la Servicio. La clase Procesador y su m&eacute;todo procesar forma el SUT en este ejemplo.
+<br />
+<br />Para hacer el mock de la interfaz en el ejemplo se usa la librer&iacute;a Mockito que nos permitir&aacute; definir el comportamiento que queramos de los mocks. En la secci&oacute;n setup es lo que hacemos, se crea el mock de Servicio, se define que cuando se llame al m&eacute;todo findDatos del Servicio se devuelvan unos datos en concreto y se crea el Procesador pas&aacute;ndole la referencia al mock del Servicio para que le devuelva los datos que deseemos. Dado que conocemos los datos que le va a devolver el Servicio al Procesador y lo que deber&iacute;a hacer el Procesador conocemos el resutlado que deber&iacute;a devover el m&eacute;todo procesar y esto es la comprobaci&oacute;n que se realiza en la secci&oacute;n then donde se comprueba lo esperado con lo que devuelve. La secci&oacute;n when es el est&iacute;mulo que proporcionamos al SUT con la tarea que queremos que haga y que nos servir&aacute; para comprobar que devuelve los resultados esperados. Este ejemplo es muy simple pero muestra los principales conceptos con los que realizar la mayor&iacute;a de teses unitarios que queramos.
+<br />
+<br />
+<div>
+ <pre>import spock.lang.Specification<br />import org.mockito.Mockito<br /><br />class MockitoSpock extends Specification {<br />    def &quot;procesado de elementos&quot;() {<br />        setup:<br />        def servicio = Mockito.mock(Servicio.class)<br />        Mockito.when(servicio.findDatos()).thenReturn([[id:1, letra:'A'], [id:2, letra:'B']])        <br />        def procesador = new Procesador(servicio)<br />            <br />        when:<br />        def resultado = procesador.procesar() <br />    <br />        then:<br />        resultado == '1,2'<br />    }<br />}<br /><br />interface Servicio {<br /><br />    List findDatos()<br />}<br /><br />class Procesador {<br /><br />    private Servicio servicio<br /><br />    Procesador(Servicio servicio) {<br />        this.servicio = servicio<br />    }<br /><br />    String procesar() {<br />        def datos = servicio.findDatos()<br />        def ids = datos.collect {<br />            it.id<br />        }<br />        return ids.join(',')<br />    }<br />}</pre>
+</div>
+<br />En la siguientes capturas se puede ver el informe generado por un proyecto gradle que contenga estos teses tanto pasando de forma correcta como incorrecta.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-JjyWVseyswQ/UAmPJABAARI/AAAAAAAABUA/1pOwB-4UbtQ/s1600/helloworldspock-1.png"><img height="176" src="http://3.bp.blogspot.com/-JjyWVseyswQ/UAmPJABAARI/AAAAAAAABUA/1pOwB-4UbtQ/s200/helloworldspock-1.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-tDT7b5SAup4/UAmPKMgt_hI/AAAAAAAABUE/0eLIFelLKac/s1600/helloworldspock-2.png"><img height="125" src="http://1.bp.blogspot.com/-tDT7b5SAup4/UAmPKMgt_hI/AAAAAAAABUE/0eLIFelLKac/s200/helloworldspock-2.png" width="200" /></a>
+</div>
+<br />
+<br />Refencia:
+<br />
+<a href="http://code.google.com/p/spock/">http://code.google.com/p/spock/</a>
+<br />
+<a href="http://code.google.com/p/spock/wiki/GettingStarted">http://code.google.com/p/spock/wiki/GettingStarted</a>
+<br />
+<a href="http://code.google.com/p/mockito/">http://code.google.com/p/mockito/</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_via="blogstack" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito" st_title="Pruebas unitarias con Spock y Mockito | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Pruebas unitarias con Spock y Mockito";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/07/pruebas-unitarias-con-spock-y-mockito.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 95,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

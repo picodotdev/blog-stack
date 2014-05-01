@@ -1,0 +1,320 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base"><span itemprop="headline">Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base)</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/06/guia-instalacion-raspberry-pi-con-arch.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-06-08T19:03" itemprop="datePublished">Publicado el viernes, 08 de junio de 2012 a las 19:03 UTC</span></div><div><span datetime="2013-03-23T19:08" itemprop="dateModified">Actualizado el sábado, 23 de marzo de 2013 a las 19:08 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/raspberrypi"><span itemprop="articleSection">raspberrypi</span></a>
+,
+<a href="/label/planeta-codigo"><span itemprop="articleSection">planeta-codigo</span></a>
+,
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/tecnologia"><span itemprop="articleSection">tecnologia</span></a>
+,
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
+,
+<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>
+,
+<a href="/label/gnulinux"><span itemprop="articleSection">gnulinux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_via="blogstack" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Raspberry Pi" src="http://2.bp.blogspot.com/-xGGLQL8UfII/T7azF5bgY2I/AAAAAAAABHg/CEVqX-iC4-g/s1600/raspberrypi.jpg" title="Raspberry Pi" />
+</div>Nota: la &uacute;ltima actualizaci&oacute;n de esta gu&iacute;a fue el 19-01-2013. Al ser Arch Linux una distribuci&oacute;n rolling release puede que cuando la leas algunas cosas hayan cambiado aunque la mayor&iacute;a seguir&aacute;n siendo como esta escrito a continuaci&oacute;n.
+<br />
+<br />Si ya tenemos en nuestras manos una 
+<a href="http://www.raspberrypi.org/">Raspberry Pi</a>&nbsp;convencidos de que nos puede ser de utilidad para algunas tareas&nbsp;y la hemos 
+<a href="http://elblogdepicodev.blogspot.com.es/2012/05/raspberry-pi-desempaquetado-unboxing.html">desempaquetado</a> el primer paso que deberemos de dar es instalar alguna de las 
+<a href="http://elinux.org/RPi_Distributions">distribuciones GNU/Linux disponibles</a>, en este momento Debian y 
+<a href="http://archlinuxarm.org/">Arch Linux ARM</a>, Fedora finalmente ha tenido alg&uacute;n problema y desapareci&oacute; de la lista de descargas aunque es probable que en alg&uacute;n momento vuelva a ofrecer soporte.
+<br />
+<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Arch Linux ARM" height="88" src="http://2.bp.blogspot.com/-Or91_hYDlQk/T9K1chcDVMI/AAAAAAAABOk/d1ORSB16KRY/s400/archlinuxarm.png" title="Arch Linux ARM" width="400" />
+</div>
+<br />Los materiales que deberemos tener para realizar el proceso adem&aacute;s de la propia Raspberry son:
+<br />
+<ul>
+ <li>un cargador USB y un cable adaptador USB a micro USB (un cargador de m&oacute;vil capaz de dar al menos 750mA)</li>
+ <li>Una tarjeta de memoria SD o SDHC (en la lista de <a href="http://elinux.org/RPi_VerifiedPeripherals#Working_SD_Cards">perif&eacute;ricos verificados</a> puedes comprobar las tarjetas compatibles)</li>
+ <li>Un cable de red y un router al que conectarlo</li>
+ <li>Conexi&oacute;n a internet para realizar la instalaci&oacute;n de paquetes y actualizaciones</li>
+ <li>Un ordenador con un lector de tarjetas SD o SDHC.</li>
+ <li>&Uacute;ltima imagen de la distribuci&oacute;n Arch Linux ARM que podemos obtener de la <a href="http://www.raspberrypi.org/downloads">p&aacute;gina de descargas</a>.</li>
+</ul>
+<div>
+ Este es material b&aacute;sico que deberemos disponer, opcionalmente podemos tener un teclado USB y un monitor con entrada de v&iacute;deo HDMI (adem&aacute;s de un cable HDMI), pero es opcional ya que desde un inicio podremos conectarnos via 
+ <a href="http://es.wikipedia.org/wiki/Secure_Shell">SSH</a> a la Raspberry Pi con lo que el teclado y monitor son prescindibles salvo que queramos disponer de un entorno gr&aacute;fico (y con una terminal remota gr&aacute;fica como&nbsp;
+ <a href="http://es.wikipedia.org/wiki/VNC">VNC</a> tal vez ni eso).
+</div>
+<br />Los pasos para realizar la instalaci&oacute;n son los siguientes:
+<br />
+<br />
+<h4> Grabar la imagen de Arch Linux ARM en la tarjeta SDHC</h4>Este es el primer paso que deberemos hacer pero para ello deberemos averiguar el dispositivo correspondiente a la tarjeta SD ejecutando el comando antes de insertarla y despu&eacute;s de insertarla:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-1.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-XuDsTplr-Rc/T9JlmhZA0tI/AAAAAAAABOQ/GmzEw2slYvI/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-1.png"><img height="133" src="http://1.bp.blogspot.com/-XuDsTplr-Rc/T9JlmhZA0tI/AAAAAAAABOQ/GmzEw2slYvI/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-1.png" width="200" /></a>
+</div>
+<br />El nuevo dispositivo que nos aparezca ser&aacute; el correspondiente a la tarjeta SD, en la imagen /dev/mmcblk0 (sin el p1 o p2, que indican la partici&oacute;n). Hay que prestar especial atenci&oacute;n a este paso ya que si grabamos la imagen en otro dispositivo probablemente perderemos datos en el mejor de los casos o destruiremos el sistema de archivos dejando el ordenador inservible.
+<br />
+<br />Una vez averiguado el dispositivo destino de la imagen la grabaremos con el siguiente comando, cambiando la ruta del par&aacute;metro if a donde tengamos la imagen:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-2.sh"></script> El proceso tardar&aacute; un rato y si todo ha ido bien montando la tarjeta veremos dos particiones, una de 100 MiB que es la partici&oacute;n de arranque y otra de 1,9 GiB para el usuario.
+<br />
+<br />
+<h4> Redimensionar partici&oacute;n del sistema</h4>Los tama&ntilde;os de las particiones ser&aacute;n los anteriores (100 MiB y 1,9 GiB) independientemente de si tenemos una tarjeta SDHC de m&aacute;s capacidad como 4/8/16/32 GiB. Si queremos aprovechar el espacio total de nuestra tarjeta deberemos redimensionar la partici&oacute;n de 1,9 GiB o crear una tercera partici&oacute;n. Aqu&iacute; explicar&eacute; la opci&oacute;n de redimensionarla que se puede hacer por linea de comandos o de forma gr&aacute;fica con&nbsp;
+<a href="http://es.wikipedia.org/wiki/GParted">gparted</a>&nbsp;ya sea con un live CD si somos usuarios de windows o instalando su paquete para nuestra distribuci&oacute;n GNU/Linux.
+<br />
+<br />Seleccionamos el dispositivo de la tarjeta en gparted y con el bot&oacute;n derecho sobre la partici&oacute;n de 1,9 GiB le damos a redimensionar (la partici&oacute;n deber&aacute; estar desmontada), agrandamos la partici&oacute;n hasta el m&aacute;ximo y le damos a Redimensionar/mover. Todav&iacute;a los cambios no se han aplicado, hacemos clic en el menu &laquo;Editar &gt; Aplicar todas las operaciones&raquo;. Este proceso tambi&eacute;n tardar&aacute; uno o dos minutos.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-rIIlGBMsGQo/T9JCVH_qfNI/AAAAAAAABMI/BG1Tq5_eI8M/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-2.png"><img height="136" src="http://2.bp.blogspot.com/-rIIlGBMsGQo/T9JCVH_qfNI/AAAAAAAABMI/BG1Tq5_eI8M/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-2.png" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/-nk-WuJqFM8o/T9JCV1k40ZI/AAAAAAAABMQ/dZr72h3k6hY/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-3.png"><img height="136" src="http://3.bp.blogspot.com/-nk-WuJqFM8o/T9JCV1k40ZI/AAAAAAAABMQ/dZr72h3k6hY/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-3.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-Gk_NhR5QoK8/T9JCXA48TvI/AAAAAAAABMU/6DshQfMcZAU/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-4.png"><img height="112" src="http://4.bp.blogspot.com/-Gk_NhR5QoK8/T9JCXA48TvI/AAAAAAAABMU/6DshQfMcZAU/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-4.png" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/-kCOp5cNMrJ0/T9JCX4o6j8I/AAAAAAAABMc/nJAVneFDuZc/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-5.png"><img height="112" src="http://3.bp.blogspot.com/-kCOp5cNMrJ0/T9JCX4o6j8I/AAAAAAAABMc/nJAVneFDuZc/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-5.png" style="cursor: move;" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-eeZLgAqvbLc/T9JCYxooW_I/AAAAAAAABMk/ZhIoCVSonAE/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-6.png"><img height="159" src="http://1.bp.blogspot.com/-eeZLgAqvbLc/T9JCYxooW_I/AAAAAAAABMk/ZhIoCVSonAE/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-6.png" width="200" /></a>
+</div>
+<br />En este punto ya tenemos la tarjeta SD lista para arrancar la Raspberry Pi y ser&aacute; lo que hagamos a continuaci&oacute;n.
+<br />
+<br />
+<h4> Primer arranque de la Raspberry Pi</h4>Como vemos el proceso de instalaci&oacute;n hasta aqu&iacute; tiene unos cuantos pasos pero no corremos ning&uacute;n peligro de dejar la Raspberry Pi tan &uacute;til como un ladrillo (&laquo;briked&raquo;) como nos podr&iacute;a ocurrir con otras placas. Lo peor que podremos conseguir es que no arranque con la tarjeta SD.
+<br />
+<br />Teniendo el cable de red de la raspberry conectado al router y nuestro ordenador conectado al mismo router estamos listos para arrancar la Raspberry, como no tiene un bot&oacute;n de encendido o apagado solo tendremos que conectar el cable USB y el cargador a la toma de corriente. Yo recomiendo tener un cargador al cual se le pueda quitar el cable USB (que el cargador y el cable USB no est&eacute;n unidos de manera fija) de esta manera para apagar&nbsp;la Raspberry cuando queramos&nbsp;podremos quitar el cable USB del cargador o tambi&eacute;n podemos optar por desenchufar el cargador. Esto lo recomiendo ya que al no tener caja la Raspberry evitamos tocar la placa muy amenudo para evitar da&ntilde;arla (tiene un condensador al lado de la conexi&oacute;n micro USB que corre cierto peligro de se arrancado si no tenemos cuidado). De esta forma dejamos el conector micro USB siempre conectado y reducimos la manipulaci&oacute;n de la placa al m&iacute;nimo.
+<br />
+<br />Conectamos el cable USB y el cargador a la corriente, si todo va bien veremos unos cuantos LED encenderse (Red, Link, Full Duplex, Power y Ok). Pasados unos cuantos segundos podremos iniciar sesi&oacute;n con SSH para lo cual necesitaremos conocer la IP que ha asignado nuestro router por DHCP a la Raspberry, cosa que podemos ver en el apartado de administraci&oacute;n del router.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-INEEWbb-ilw/T9JDpFytpPI/AAAAAAAABMw/NbHL0dO3g9s/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-7.png"><img height="160" src="http://4.bp.blogspot.com/-INEEWbb-ilw/T9JDpFytpPI/AAAAAAAABMw/NbHL0dO3g9s/s320/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-7.png" width="320" /></a>
+</div>
+<br />
+<h4> Iniciar sesi&oacute;n conectando via SSH</h4>La imagen de Arch Linux ARM viene ya por defecto con el demonio sshd instalado. Esto es muy &uacute;til ya que nos permite entrar en la Raspberry sin necesidad de tener un monitor o teclado conectado directamente a ella y podemos utilizar los del ordenador en el que trabajamos tal y como si lo hici&eacute;semos en &eacute;l pero realmente ejecutando los comandos en la Raspberry. Para ello ejecutamos (tal vez cambiando la direcci&oacute;n IP):
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-3.sh"></script> Nos mostrar&aacute; el fingerprint de la clave SSH y preguntar&aacute; si confiamos en ella, despu&eacute;s de responder que s&iacute; introducimos la clave que por defecto es root. Ya podemos ver el prompt ([root@alarmpi ~]#).
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-5CQ132L8swg/T9JEB7dSncI/AAAAAAAABM4/Mz6ocRkajpg/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-8.png"><img height="120" src="http://3.bp.blogspot.com/-5CQ132L8swg/T9JEB7dSncI/AAAAAAAABM4/Mz6ocRkajpg/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-8.png" width="200" /></a>
+</div>
+<br />
+<h4> Actualizar los paquetes de la imagen</h4>Casi seguro (por no decir seguro) que los paquetes de la imagen est&eacute;n desactualizados ya que Arch Linux es una distribuci&oacute;n 
+<a href="http://en.wikipedia.org/wiki/Rolling_release">rolling release</a>, por tanto&nbsp;el primer comando que ejecutaremos ser&aacute; para actualizar a sus &uacute;ltimas versiones todos los paquetes del sistema:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-4.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-Z12pT63s8gE/T9JEIefkanI/AAAAAAAABNA/EgZv9pV31pA/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-9.png"><img height="120" src="http://2.bp.blogspot.com/-Z12pT63s8gE/T9JEIefkanI/AAAAAAAABNA/EgZv9pV31pA/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-9.png" width="200" /></a>
+</div>
+<br />Con los cambios realizados al gestor de paquetes de arch linux con los cuales desde la versi&oacute;n 4.0 de pacman &nbsp;los paquetes se firman digitalmente probablemente necesitemos actualizar el paquete pacman e inicializar la cadena de firmas con:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-5.sh"></script> El paquete haveged proporcionar&aacute; la entrop&iacute;a necesaria al ejecutar pacman-key, sino pacman-key puede que tardase en ejecutarse mucho tiempo.
+<br />
+<br />
+<h4> Cambiar la clave del usuario root</h4>La clave por defecto de root es lo siguiente a modificar ya que es conocida y por tanto no es nada segura, por lo que la cambiaremos:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-14.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-686wsylwdHs/T9JEdD-1NYI/AAAAAAAABNI/Wl88zKhnJk0/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-10.png"><img height="120" src="http://4.bp.blogspot.com/-686wsylwdHs/T9JEdD-1NYI/AAAAAAAABNI/Wl88zKhnJk0/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-10.png" width="200" /></a>
+</div>
+<br />
+<h4> Crear un usuario</h4>Lo siguiente ser&aacute; crear un usuario para no conectarnos siempre con permisos de root, lo que haremos no es muy diferente de lo que har&iacute;amos para una instalaci&oacute;n de Arch Linux en cualquier computadora:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-11.sh"></script> Tambien instalamos el paquete sudo para en el momento que necesitemos poder ganar pemisos de super usuario como en el caso de una actualizaci&oacute;n del sistema.
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-6.sh"></script> Le damos permisos al usuario que hayamos creado:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-7.sh"></script> Elimando un # y dejando en el archivo (esto no cambia de la 
+<a href="http://elblogdepicodev.blogspot.com.es/2010/07/guia-instalacion-arch-linux-parte-ii.html">gu&iacute;a de instalaci&oacute;n para un ordenado de escritorio</a>) 
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=visudo.sh"></script> Con esto todo los usuarios del grupo wheel, como en el caso del que acabamos de crear, podr&aacute;n hacer sudo.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-9Wi9sUZnEVw/T9JEpByTioI/AAAAAAAABNQ/o6IruZWmkCk/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-11.png"><img height="133" src="http://3.bp.blogspot.com/-9Wi9sUZnEVw/T9JEpByTioI/AAAAAAAABNQ/o6IruZWmkCk/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-11.png" width="200" /></a>
+</div>
+<br />
+<h4> Edici&oacute;n propiedades del sistema</h4>Ahora cambiaremos algunas propiedades del sistema como el idioma, el nombre del sistema, la zona horaria del reloj. Para el idioma editamos el archivo /etc/locale.gen y descomentamos nuestro locale en espa&ntilde;ol seg&uacute;n sea nuestra regi&oacute;n como puede ser es_ES.UTF-8. Seguidamente lanzaremos el siguiente comando para que el sistema se actualice al nuevo idioma.
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-12.sh"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-OM9cP2kkq3c/T9JFIbz1oFI/AAAAAAAABNY/tUDgLuGaL6Y/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-12.png"><img height="132" src="http://3.bp.blogspot.com/-OM9cP2kkq3c/T9JFIbz1oFI/AAAAAAAABNY/tUDgLuGaL6Y/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-12.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/-b1xYrDtLI7Q/T9JFJCjMixI/AAAAAAAABNc/WkkP1IYIuh4/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-13.png"><img height="132" src="http://2.bp.blogspot.com/-b1xYrDtLI7Q/T9JFJCjMixI/AAAAAAAABNc/WkkP1IYIuh4/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-13.png" width="200" /></a>
+</div>
+<br />Para terminar con el idioma lanzamos los siguientes dos comandos:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-8.sh"></script> 
+<br />
+<h4>Nombre del sistema</h4>
+<div>
+ Para identificar la m&aacute;quina podemos darle al sistema un nombre f&aacute;cil de recordar y que nos permita diferenciarlo de otros. Para ello lanzaremos el siguiente comando modificado el nombre seg&uacute;n queramos:
+</div>
+<script src="https://gist.github.com/4572735.js?file=script-13.sh"></script> 
+<br />
+<h4> Cambiar la zona horaria</h4>La Raspberry no tiene el hardware del reloj del sistema es por ello que la imagen de Arch Linux ARM arranca el servicio de red ntp para obtener la hora desde internet. Pero seguramente tendremos que actualizar la zona horaria de Arch en la que estemos. En mi caso:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-9.sh"></script> 
+<br />
+<h4> Partici&oacute;n de memoria y ver memoria libre</h4>La Raspberry Pi tiene 256 MiB (512MiB en los modelos nuevos) que son compartidos entre la GPU y la CPU. 
+<a href="http://raspberrypi.stackexchange.com/questions/673/what-is-the-optimum-split-of-main-versus-gpu-memory">La memoria dedicada a la GPU y CPU puede modificarse</a> seg&uacute;n nuestras necesidades, por ejemplo, si solo nos conectamos a la Raspberry Pi por ssh y no hacemos uso de un entorno de escritorio no hace falta que le dediquemos mucha memoria a la GPU, la GPU solo necesitar&aacute; m&aacute;s memoria si ejecutamos programas que hagan uso de ella. Esto se configura en el archivo /boot/config.txt con la propiedad gpu_mem. Por lo que podemos editar el archivo y a&ntilde;adir esa propiedad al final de todas con:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=config.txt"></script> La memoria libre la podemos consultar con cualquiera de los dos siguientes comandos:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=script-10.sh"></script> 
+<br />
+<h4>Overclock</h4>Si queremos sacarle algo m&aacute;s de rendimiento a la RPi podemos subir la frecuencia del procesador. Esto no es ning&uacute;n peligro y no se pierde la garant&iacute;a por ello si se usa el valor recomendado de 800 Mhz, la RPi por defecto funciona a 700 Mhz es decir le estamos haciendo un overclock de 100 Mhz. Hay que editar el archivo /boot/config.txt y descomentar la propiedad arm_freq=800. 
+<br />
+<br />
+<h4> Dar color al prompt de la terminal</h4>Dar color al prompt de la terminal nos ayudar&aacute; a distinguir mejor donde estamos ejecutando los comandos con lo que para evitar alg&uacute;n riesgo lo podemos hacer. Necesitaremos editar los archivos ~/.bashrc y /root/.bashrc con el siguiente contenido para nuestro usuario (~/.bashrc):
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=.bashrc"></script> Y para el usuario root (/etc/.bash_profile y /root/.bashrc):
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=.bash_profile"></script> 
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-jCHjQ3ZoaLM/T9JF3a8sK2I/AAAAAAAABNo/2mHULkevHMo/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-14.png"><img height="133" src="http://4.bp.blogspot.com/-jCHjQ3ZoaLM/T9JF3a8sK2I/AAAAAAAABNo/2mHULkevHMo/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-14.png" width="200" /></a>
+ <a href="http://4.bp.blogspot.com/-D-WILXbcKAo/T9JF4L24V-I/AAAAAAAABNs/CVmN-ZDlkh4/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-15.png"><img height="108" src="http://4.bp.blogspot.com/-D-WILXbcKAo/T9JF4L24V-I/AAAAAAAABNs/CVmN-ZDlkh4/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-15.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-Sbs5MYzB7-k/T9JF43XbAtI/AAAAAAAABN0/k8MVWs3ygxo/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-16.png"><img height="108" src="http://2.bp.blogspot.com/-Sbs5MYzB7-k/T9JF43XbAtI/AAAAAAAABN0/k8MVWs3ygxo/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-16.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/-bLNL6U9y2kI/T9JF5ZDzMqI/AAAAAAAABN8/zembyYtzFa0/s1600/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-17.png"><img height="108" src="http://2.bp.blogspot.com/-bLNL6U9y2kI/T9JF5ZDzMqI/AAAAAAAABN8/zembyYtzFa0/s200/gu%C3%ADa-instalaci%C3%B3n-archlinux-raspberrypi-p1-17.png" width="200" /></a>
+</div>
+<br />Si queremos autocompletado en el comando sudo deberemos a&ntilde;adir lo siguiente al archivo .bashrc de nuestro usuario:
+<br />
+<br />
+<script src="https://gist.github.com/4572735.js?file=.bashrc-2"></script> Y estos son los pasos b&aacute;sicos para tener la Raspberry Pi funcionando. De momento no tenemos algo que nos aporte valor pero la instalaci&oacute;n de algunos programas que nos lo proporcionar&aacute;n como programa de descargas torrent, servidor web con php, ftp u otros los explicar&eacute; en la segunda parte de esta Gu&iacute;a de instalaci&oacute;n Raspberry Pi. El 
+<a href="http://us.mirror.archlinuxarm.org/arm/">software que tenemos a nuestra disposici&oacute;n en Arch Linux ARM</a> salvo algunas excepciones es mucho de lo que tenemos en 
+<a href="http://www.archlinux.org/">Arch Linux</a>&nbsp;pr&aacute;cticamente para cada necesidad tengamos una o m&aacute;s opciones entre las que elegir y la 
+<a href="https://wiki.archlinux.org/">wiki de Arch Linux</a> es una de los mejores recursos para aprender como instalarlos y usarlos, todo ello con la caracter&iacute;stica de Arch Linus de tener siempre las &uacute;ltimas versiones de cada paquete, los paquetes de Arch Linux ARM van a la par de los que encontramos en Arch Linux.
+<br />
+<br />La siguiente p&aacute;gina (
+<a href="http://smaug.mooo.com/raspberrypi">La guarida de Smaug</a>) que he creado es&nbsp;es una muestra&nbsp;y&nbsp;un adelanto de algunas funciones que podemos obtener con una placa de este tipo que comentar&eacute; en la siguiente parte de esta gu&iacute;a. Nota: puede que en alg&uacute;n momento la p&aacute;gina anterior no sea accesible ya que no tengo siempre encendida la Raspberry.
+<br />
+<br />Referencia:
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/05/raspberry-pi-desempaquetado-unboxing.html">Raspberry Pi, desempaquetado (&laquo;unboxing&raquo;)</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2012/06/guia-instalacion-raspberry-pi-con-arch_22.html">Raspberry Pi, Gu&iacute;a instalaci&oacute;n (Parte II) Programas</a>
+<br />
+<a href="http://elblogdepicodev.blogspot.com.es/2013/01/dejar-procesos-vivos-de-conexion-ssh.html">Dejar procesos vivos de conexi&oacute;n SSH con screen</a>
+<br />
+<a href="http://www.raspberrypi.org/">Raspberry Pi</a>
+<br />
+<a href="http://archlinuxarm.org/">Arch Linux ARM</a>
+<br />
+<a href="http://us.mirror.archlinuxarm.org/arm/">Paquetes&nbsp;de Arch Linux ARM</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_via="blogstack" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base" st_title="Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Guía instalación Raspberry Pi con Arch Linux ARM (Parte I, instalación base)";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2012/06/guia-instalacion-raspberry-pi-con-arch.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/raspberrypi/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta raspberrypi</a></li><li><a href="/label/planeta-codigo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-codigo</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 101,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/06/guia-instalacion-raspberry-pi-con-arch-linux-arm-parte-i-instalacion-base"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

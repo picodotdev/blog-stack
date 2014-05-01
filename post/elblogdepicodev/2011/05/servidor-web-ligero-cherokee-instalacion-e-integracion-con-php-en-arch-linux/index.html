@@ -1,0 +1,249 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux"><span itemprop="headline">Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2011-05-27T16:55" itemprop="datePublished">Publicado el viernes, 27 de mayo de 2011 a las 16:55 UTC</span></div><div><span datetime="2012-06-15T21:55" itemprop="dateModified">Actualizado el viernes, 15 de junio de 2012 a las 21:55 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+<a href="/label/planeta-arch-linux"><span itemprop="articleSection">planeta-arch-linux</span></a>
+,
+<a href="/label/planeta-linux"><span itemprop="articleSection">planeta-linux</span></a>
+,
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
+,
+<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>
+,
+<a href="/label/php"><span itemprop="articleSection">php</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_via="blogstack" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
+ <img alt="Cherokee web server" height="124" src="http://2.bp.blogspot.com/--jnKOtmfsFs/TZcVJcIY2LI/AAAAAAAAAns/K9lDtwl4IQU/s320/cherokee2-mini.png" title="Cherokee web server" width="320" />
+</div>El 
+<a href="http://www.cherokee-project.com/">servidor web Cherokee</a> es uno de los servidores de nueva generaci&oacute;n llamados&nbsp;ligeros&nbsp;que mejora notablemente el rendimiento ofrecido por el m&aacute;s usado Apache HTTPD soportando m&aacute;s usuarios concurrentes, aceptando m&aacute;s peticiones por segundo y consumiendo menos memoria. Quiz&aacute; no tenga toda la versatilidad de un servidor Apache HTTPD pero para la mayor&iacute;a de los escenarios es m&aacute;s que suficiente. En el siguiente art&iacute;culo vamos a ver cuales son sus principales caracter&iacute;sticas y como instalarlo junto con PHP en la distribuci&oacute;n Arch Linux. Otros servidores similares a Cherokee son 
+<a href="http://wiki.nginx.org/">nginx</a> y 
+<a href="http://www.lighttpd.net/">lighttpd</a> que quiz&aacute; te interese tambi&eacute;n echarles un vistazo. Por supuesto cherokee es un servidor con licencia 
+<a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU GPL v2</a>&nbsp;y por tanto es software libre.
+<br />
+<br />Comencemos poniendo algunas de las caracter&iacute;sticas que soporta: FastCGI, SCGI, PHP, CGI, SSI, TLS y conexiones cifradas SSL, host virtuales, autenticaci&oacute;n, codificaci&oacute;n al vuelo, balanceo de carga, archivos de log compatibles con apache, balanceador de base de datos, actualizaciones sin parada del servicio, proxy HTTP inverso y mucho m&aacute;s.
+<br />
+<br />De todas las caracter&iacute;sticas que posee Cherokee destacar&iacute;a las siguientes: 
+<br />
+<br />- Actualizaciones sin parada del servicio que puede ser muy importante para algunos servicios que no pueden permitirse dejar de dar servicio ning&uacute;n segundo.
+<br />- Configuraci&oacute;n a trav&eacute;s de una consola de administraci&oacute;n accesible con el navegador esto no se si es una ventaja o desventaja ya que no sigue la filosof&iacute;a de los sistemas Unix de realizar la configuraci&oacute;n mediante un archivo de texto para hacer una restauraci&oacute;n de la configuraci&oacute;n en caso de que la perdamos pero sin duda hace que la configuraci&oacute;n se realice m&aacute;s comodamente y es algo que no tienen otros servidores por lo que he considerado importante destacarlo. Tambi&eacute;n podemos editarlo directamente aunque realmente no estaremos interesados en ello a menos que seamos un usuario avanzado.
+<br />- 
+<a href="http://cherokee-market.com/about">Cherokee Market</a> con el que podremos instalar ciertos servicios de forma muy c&oacute;moda y con poca configuraci&oacute;n, como por ejemplo, instalar un servicio de Drupal, Wordpress, phpBB, phpMyAdmin, nuxeo, Liferay y algunos otros.
+<br />- Host virtuales SSL con esta caracter&iacute;stica podemos usar SSL en host virtuales ya que cherokee hace uso del m&eacute;todo Server Name Indication (SNI) por el que en la negociaci&oacute;n de la sesi&oacute;n TLS se env&iacute;a el nombre del host que se quiere acceder. Esta era una imitaci&oacute;n importante al usar SSL en servidores virtuales basados en nombres.
+<br />
+<br />Si esta caracter&iacute;sticas no te parecen importantes quiz&aacute; la del rendimiento por si sola te parezca suficiente para empezar a utilizar cherokee, consulta las pruebas de rendimiento (en el apartado referencia) para ver en que medida mejora Cherokee el rendimiento respesto a otros servidores. Pero sin duda lo mejor ser&iacute;a que lo comprobases por ti mismo. Una nueva caracteristica a&ntilde;adida recientemente y que afecta al rendimiento es la llamada 
+<a href="http://www.cherokee-project.com/doc/other_front_line_cache.html">Font-Line cache</a>. Los desarrolladores de cherokee se han dado cuenta que es muy habitual utilizar junto al servidor web otro servidor dedicado a cachear ciertos resultados, como Squid, sin tener que generar de nuevo el mismo contenido para cada petici&oacute;n, esto por si solo aumenta el rendimiento notablemente y reduce la carga del sistema pero a&uacute;n asi hay cierta latencia y comunicaci&oacute;n entre el servidor web y el servidor de cache que podr&iacute;a ser evitada como ha demostrado cherokee. Para reducir esta latencia cherokee incorpora en si mismo un servidor de cache que puede 
+<a href="http://www.alobbs.com/1393/Cherokee_1_2_98_New_Features.html">reducir esta latencia hasta en un 80%</a>.
+<br />
+<br />En Arch Linux la instalaci&oacute;n de Cherokee es muy sencilla basta con:
+<br />
+<br />
+<div>
+ <pre># pacman -S cherokee</pre>
+</div>
+<br />y se nos instalar&aacute; la &uacute;ltima versi&oacute;n disponible. Para arrancarlo y pararlo deberemos hacer:
+<br />
+<br />
+<div>
+ <pre># /etc/rc.d/cherokee start<br /># /etc/rc.d/cherokee stop</pre>
+</div>
+<br />Si queremos que se inicie al arrancar el sistema deberemos a&ntilde;adirlo al apartado DAEMONS del archivo /etc/rc.conf (Consulta la wiki de Arch Linux para m&aacute;s detalles sobre como administrar los servicios):
+<br />
+<br />
+<div>
+ <pre># nano /etc/rc.conf<br /><br />DAEMONS=(syslog-ng network netfs crond cherokee)</pre>
+</div>
+<br />Para arrancar la consola de administraci&oacute;n deberemos ejecutar:
+<br />
+<br />
+<div>
+ <pre># cherokee-admin -b -u</pre>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-oVFeelqxpaI/TZcTBSUjakI/AAAAAAAAAnc/82aE78EuESw/s1600/cherokee-admin.png"><img height="149" src="http://2.bp.blogspot.com/-oVFeelqxpaI/TZcTBSUjakI/AAAAAAAAAnc/82aE78EuESw/s200/cherokee-admin.png" width="200" /></a>
+</div>
+<br />El parm&aacute;metro -b har&aacute; que cherokee escuche en cualquier direcci&oacute;n IP y no solo en 127.0.0.1. Y el par&aacute;metro -u har&aacute; que no se solicite contrase&ntilde;a al acceder a la consola de administraci&oacute;n por lo que es recomendable no usarlo en un sistema de producci&oacute;n. En la pantalla de inicio de la consola de administraci&oacute;n podemos ver informaci&oacute;n b&aacute;sica de la carga del servidor en cuanto a procesador y memoria y veremos si tenemos instalada la &uacute;ltima versi&oacute;n de cherokee.
+<br />
+<br />La consola de administraci&oacute;n est&aacute; dividida en varios apartados: Inicio, Mercado, Estado, General, vServers, Or&iacute;genes y Avanzado. En el apartado Market podremos instalar los servicios disponibles pero para ello previamente deberemos tener una cuenta de cherokee market. En el apatado General podemos modificar algunas caracter&iacute;stica generales del servidor. En el apartado vServers podemos administrar los servidores virtuales e instalar nuevos servidores virtuales, con el bot&oacute;n + podremos a&ntilde;adir f&aacute;cilmente el soporte para PHP. En Avanzado podemos modificar algunos datos importantes sobre el funcionamiento del servidor.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-lVZ8TPESrV4/TZcSy3VFpaI/AAAAAAAAAmc/is5JeEIhpjU/s1600/cherokee-1.png"><img height="121" src="http://4.bp.blogspot.com/-lVZ8TPESrV4/TZcSy3VFpaI/AAAAAAAAAmc/is5JeEIhpjU/s200/cherokee-1.png" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/-MOdwzthfThc/TZcSz0F35LI/AAAAAAAAAmg/lkUD5GL_Ymg/s1600/cherokee-2.png"><img height="96" src="http://3.bp.blogspot.com/-MOdwzthfThc/TZcSz0F35LI/AAAAAAAAAmg/lkUD5GL_Ymg/s200/cherokee-2.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-G_hq_hXgkEo/TZcS1SvzC2I/AAAAAAAAAmk/84ihlyODfFY/s1600/cherokee-3.png"><img height="96" src="http://3.bp.blogspot.com/-G_hq_hXgkEo/TZcS1SvzC2I/AAAAAAAAAmk/84ihlyODfFY/s200/cherokee-3.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-QYjPWhSIh54/TZcS2DlFg3I/AAAAAAAAAmo/Onq7dOg7y-E/s1600/cherokee-4.png"><img height="96" src="http://1.bp.blogspot.com/-QYjPWhSIh54/TZcS2DlFg3I/AAAAAAAAAmo/Onq7dOg7y-E/s200/cherokee-4.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-8bqQaS8_7aI/TZcS3JrSuxI/AAAAAAAAAms/q57CFReutFU/s1600/cherokee-5.png"><img height="97" src="http://2.bp.blogspot.com/-8bqQaS8_7aI/TZcS3JrSuxI/AAAAAAAAAms/q57CFReutFU/s200/cherokee-5.png" width="200" /></a>
+ <a href="http://4.bp.blogspot.com/-bgGkvGM7Kj0/TZcS31GcFiI/AAAAAAAAAmw/RPrhHrPLc6I/s1600/cherokee-6.png"><img height="98" src="http://4.bp.blogspot.com/-bgGkvGM7Kj0/TZcS31GcFiI/AAAAAAAAAmw/RPrhHrPLc6I/s200/cherokee-6.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-ZnZ3l80uS6Y/TZcS4mFr10I/AAAAAAAAAm0/5kHT5CurQZw/s1600/cherokee-7.png"><img height="97" src="http://1.bp.blogspot.com/-ZnZ3l80uS6Y/TZcS4mFr10I/AAAAAAAAAm0/5kHT5CurQZw/s200/cherokee-7.png" width="200" /></a>
+ <a href="http://3.bp.blogspot.com/-WDHMdd_Auok/TZcS50wF3xI/AAAAAAAAAm4/jn9K_Mv5uRM/s1600/cherokee-8.png"><img height="97" src="http://3.bp.blogspot.com/-WDHMdd_Auok/TZcS50wF3xI/AAAAAAAAAm4/jn9K_Mv5uRM/s200/cherokee-8.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-dI1MUQNpBE8/TZcS6qZT2CI/AAAAAAAAAm8/lXyK6eDPieU/s1600/cherokee-9.png"><img height="97" src="http://4.bp.blogspot.com/-dI1MUQNpBE8/TZcS6qZT2CI/AAAAAAAAAm8/lXyK6eDPieU/s200/cherokee-9.png" width="200" /></a>
+ <a href="http://2.bp.blogspot.com/-NRoNdABJJ_o/TZcS73d_qxI/AAAAAAAAAnA/rtcD8EOLK2w/s1600/cherokee-10.png"><img height="97" src="http://2.bp.blogspot.com/-NRoNdABJJ_o/TZcS73d_qxI/AAAAAAAAAnA/rtcD8EOLK2w/s200/cherokee-10.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-eSBFvw1PDaw/TZcS8quSp8I/AAAAAAAAAnE/ONfzn348m-o/s1600/cherokee-11.png"><img height="97" src="http://2.bp.blogspot.com/-eSBFvw1PDaw/TZcS8quSp8I/AAAAAAAAAnE/ONfzn348m-o/s200/cherokee-11.png" width="200" /></a>
+ <a href="http://1.bp.blogspot.com/-O9-jUDEtOZ0/TZcS9gtXbEI/AAAAAAAAAnI/XXnJW-JpaLs/s1600/cherokee-12.png"><img height="97" src="http://1.bp.blogspot.com/-O9-jUDEtOZ0/TZcS9gtXbEI/AAAAAAAAAnI/XXnJW-JpaLs/s200/cherokee-12.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-XKcgzaJRhe0/TZcS-cQ_2jI/AAAAAAAAAnM/WK1TRHPhY3E/s1600/cherokee-13.png"><img height="97" src="http://3.bp.blogspot.com/-XKcgzaJRhe0/TZcS-cQ_2jI/AAAAAAAAAnM/WK1TRHPhY3E/s200/cherokee-13.png" width="200" /></a>
+</div>
+<br />Veamos ahora a ver como instalar PHP en cherokee. Primeramente instalaremos PHP con:
+<br />
+<br />
+<div>
+ <pre># pacman -S php php-cgi</pre>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-7tKC4nSsX1Q/TZcTBgdAJxI/AAAAAAAAAng/EZ5XhoFz-RQ/s1600/cherokee-php.png"><img height="149" src="http://1.bp.blogspot.com/-7tKC4nSsX1Q/TZcTBgdAJxI/AAAAAAAAAng/EZ5XhoFz-RQ/s200/cherokee-php.png" width="200" /></a>
+</div>
+<br />Si todo ha ido correctamte podremos ejecutar:
+<br />
+<br />
+<div>
+ <pre>$ php -v<br />$ php-cgi -v</pre>
+</div>
+<br />Ahora procederemos crear un servidor virtual con soporte para PHP, vamos al apartado vServer y pulsamos sobre el bot&oacute;n +, seleccionamos Lenguages y PHP. Tal vez necesitemos crear un directorio con mkdir /var/www. Continuamos con el asistente y finalmente nos aparece en la lista de servidores el que acabamos de crear.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-AGI64Tu57VI/TZcS_eb58XI/AAAAAAAAAnQ/Tc-kKUeFtlQ/s1600/cherokee-14.png"><img height="97" src="http://2.bp.blogspot.com/-AGI64Tu57VI/TZcS_eb58XI/AAAAAAAAAnQ/Tc-kKUeFtlQ/s200/cherokee-14.png" width="200" /></a>
+ <a href="http://4.bp.blogspot.com/--YDyEm0Cp2U/TZcTA6aUR7I/AAAAAAAAAnY/LebNXzB6cuY/s1600/cherokee-16.png"><img height="97" src="http://4.bp.blogspot.com/--YDyEm0Cp2U/TZcTA6aUR7I/AAAAAAAAAnY/LebNXzB6cuY/s200/cherokee-16.png" width="200" /></a>
+</div>
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-533rJO90-Qs/TZcTACuILSI/AAAAAAAAAnU/1DV9U_24QF0/s1600/cherokee-15.png"><img height="97" src="http://3.bp.blogspot.com/-533rJO90-Qs/TZcTACuILSI/AAAAAAAAAnU/1DV9U_24QF0/s200/cherokee-15.png" width="200" /></a>
+</div>
+<br />Ya nos queda poco!... solo nos queda crear un archivo php de ejemplo que lo crearemos con nuestro editor favorito en el directorio /var/www si hemos indicado este directorio en el asistente.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-TpIBd3gCN9I/TZcTCFuUKvI/AAAAAAAAAnk/sI5UGteCiVM/s1600/cherokee-php-hello-world.png"><img height="150" src="http://4.bp.blogspot.com/-TpIBd3gCN9I/TZcTCFuUKvI/AAAAAAAAAnk/sI5UGteCiVM/s200/cherokee-php-hello-world.png" width="200" /></a>
+ <a href="http://4.bp.blogspot.com/-NFpJjOMhfgA/TZcTCZDBH-I/AAAAAAAAAno/YrTxfQ1g6qo/s1600/cherokeex-www.png"><img height="149" src="http://4.bp.blogspot.com/-NFpJjOMhfgA/TZcTCZDBH-I/AAAAAAAAAno/YrTxfQ1g6qo/s200/cherokeex-www.png" width="200" /></a>
+</div>
+<br />Espero que a alguien le entren ganas de usar este servidor web, si es as&iacute; estar&eacute; encantado de escuchar sus comentarios.
+<br />
+<br />Referencia:
+<br />
+<a href="http://www.cherokee-project.com/doc/basics_why_cherokee.html">http://www.cherokee-project.com/doc/basics_why_cherokee.html</a>
+<br />
+<a href="http://www.cherokee-project.com/benchmarks.html">http://www.cherokee-project.com/benchmarks.html</a>
+<br />
+<a href="http://www.cherokee-project.com/doc/other_goodies.html">http://www.cherokee-project.com/doc/other_goodies.html</a>
+<br />
+<a href="http://www.cherokee-project.com/doc/other_graphs.html">http://www.cherokee-project.com/doc/other_graphs.html</a>
+<br />
+<a href="http://www.cherokee-project.com/doc/cookbook_php.html">http://www.cherokee-project.com/doc/cookbook_php.html</a>
+<br />
+<br />
+<a href="http://www.redes-linux.com/manuales/Servidor_web/ponencia_cherokee.pdf">http://www.redes-linux.com/manuales/Servidor_web/ponencia_cherokee.pdf</a>
+<br />
+<a href="http://en.wikipedia.org/wiki/Cherokee_(webserver)">http://en.wikipedia.org/wiki/Cherokee_(webserver)</a>
+<br />
+<a href="http://www.youtube.com/watch?v=bIxFzOv3U1A">http://www.youtube.com/watch?v=bIxFzOv3U1A</a>
+<br />
+<br />
+<a href="https://wiki.archlinux.org/index.php/Daemon">https://wiki.archlinux.org/index.php/Daemon</a></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_via="blogstack" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux" st_title="Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "elblogdepicodev";
+var disqus_title = "Servidor web ligero Cherokee, instalación e integración con PHP en Arch Linux";
+var disqus_url = "http://elblogdepicodev.blogspot.com/2011/05/servidor-web-ligero-cherokee.html";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/planeta-arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-arch-linux</a></li><li><a href="/label/planeta-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta planeta-linux</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/php/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta php</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 149,
+      "url" : "http://www.blogstack.info/post/elblogdepicodev/2011/05/servidor-web-ligero-cherokee-instalacion-e-integracion-con-php-en-arch-linux"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdepicodev",
+      "name" : "El blog de pico.dev"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
