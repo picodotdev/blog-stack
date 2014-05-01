@@ -298,4 +298,18 @@ public class Post implements Serializable {
 			return creationDate;
 		}
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+	    if (o == this) return true;
+	    if (o == null) return false;
+	    if (!(o instanceof Post)) return false;
+	    Post p = (Post) o;
+	    return (id == p.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return (id == null) ? super.hashCode() : id.hashCode();
+	}
 }

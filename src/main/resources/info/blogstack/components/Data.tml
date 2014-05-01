@@ -45,16 +45,16 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div>
-					<span>Bitácora <a href="${post.source.pageUrl}">${post.source.name}</a></span>, <span>Autor ${post.author}</span>, <span><a href="${post.url}">Entrada original</a></span>
+					Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">entrada original</span></a>
 				</div>
 				<t:if test="postData.get('publishDate')">
 					<div>
-						<span>Publicado el ${postData.get('publishDate')}</span>
+						<span itemprop="datePublished" datetime="${postData.get('microdataPublishDate')}">Publicado el ${postData.get('publishDate')}</span>
 					</div>
 				</t:if>
 				<t:if test="postData.get('updateDate')">
 					<div>
-						<span>Actualizado el ${postData.get('updateDate')}</span>
+						<span itemprop="dateModified" datetime="${postData.get('microdataUpdateDate')}">Actualizado el ${postData.get('updateDate')}</span>
 					</div>
 				</t:if>
 				<t:if test="labels">
@@ -65,7 +65,7 @@
 								<t:if test="!firstLabel">
 									, 
 								</t:if>				
-								<a t:type="pagelink" page="label" context="labelContext">${label.name}</a>
+								<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>
 							</t:loop>
 						</span>
 					</div>

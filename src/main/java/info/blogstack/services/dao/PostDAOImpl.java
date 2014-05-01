@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
@@ -20,10 +21,19 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	public PostDAOImpl(SessionFactory sessionFactory) {
 		super(Post.class, sessionFactory);
 	}
+	
+	@Override
+	public List<Post> findAll(Pagination pagination) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
+		criteria.setFetchMode("labels", FetchMode.JOIN);
+		setPagination(criteria, pagination);
+		return criteria.list();
+	}
 
 	@Override
 	public List<Post> findAllBySource(Source source, Pagination pagination) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
+		criteria.setFetchMode("labels", FetchMode.JOIN);
 		criteria.add(Restrictions.eq("source", source));
 		setPagination(criteria, pagination);
 		return criteria.list();
@@ -32,6 +42,7 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	@Override
 	public List<Post> findAllByLabel(Label label, Pagination pagination) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
+		criteria.setFetchMode("labels", FetchMode.JOIN);
 		criteria.createAlias("labels", "l");
 		criteria.add(Restrictions.in("l.id", Collections.singleton(label.getId())));
 		setPagination(criteria, pagination);

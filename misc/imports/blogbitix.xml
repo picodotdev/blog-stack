@@ -3,7 +3,7 @@
   <title><![CDATA[Blog Bitix]]></title>
   <link href="http://picodotdev.github.io/blog-bitix/atom.xml" rel="self"/>
   <link href="http://picodotdev.github.io/blog-bitix/"/>
-  <updated>2014-04-19T21:25:31+02:00</updated>
+  <updated>2014-05-01T19:33:44+02:00</updated>
   <id>http://picodotdev.github.io/blog-bitix/</id>
   <author>
     <name><![CDATA[pico.dev]]></name>
@@ -13,9 +13,276 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Introducción a Elasticsearch]]></title>
+    <link href="http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/"/>
+	<published>2014-04-25T17:15:05+02:00</published>
+    <updated>2014-05-01T13:00:00+02:00</updated>
+    <id>http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch</id>
+    <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
+    <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/elasticsearch.png" class="right" alt="Elasticsearch" title="Elasticsearch"/><br/>
+</div>
+
+
+<p>Continuando con la forma de <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">como dar solución a la búsquedas en las entidades de dominio</a> en esta entrada profundizaré en la solución que comentaba de usar <a href="http://www.elasticsearch.org">Elasticsearch</a> (ES). ES se basa en <a href="http://lucene.apache.org/core/">Lucene</a> pero expone su funcionalidad a través de una interfaz REST recibiendo y enviando datos en formato JSON y oculta mediante esta interfaz los detalles internos de lucene. Esta interfaz permite que pueda ser utilizada por cualquier plataforma no solo Java, puede usarse desde Python, .NET, PHP o incluso desde un navegador con Javascript. Es persistente, es decir, que lo que indexemos en ella sobrevivirá a un reinicio del servidor.</p>
+
+<p>Como comentaba en <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">el artículo anterior de búsquedas sobre entidades de dominio</a> ES nos puede servir para hacer búsquedas a texto completo pero también podemos hacer otra serie de cosas adicionales que no podemos con una base de datos relacional aunque soporte en su lenguaje SQL búsqueda a texto completo, por ejemplo, resaltado (highlight) y facetas (facets), también permite hacer búsquedas vagas (fuzzy) y soporta diferentes analizadores según el idioma de la propiedad en que se busque. El indexar y desindexar los datos en elasticsearch para que luego puedan ser buscados es responsabilidad nuestra y además de insertarlos o eliminarlos en la base de datos debemos hacer lo mismo en ES ya sea haciéndolo en ambos sitios a la vez o mediante un proceso de fondo que se encargue de ello.</p>
+
+<p>La instalación de ES es muy sencilla, basta con <a href="http://www.elasticsearch.org/overview/elkdownloads/">descargar el zip de su distribución</a>, descomprimirlo e iniciarlo con el siguiente comando:</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-1.sh'></script>
+<noscript><pre><code>$ elasticsearch -f</code></pre></noscript></div>
+
+
+<p>Después de unos segundos deberemos ver algo como lo siguiente.</p>
+
+<div class="imagenes-post" style="text-align: center;">
+    <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/elasticsearch.png" title="Mensajes de inicio del servidor Elasticsearch" data-gallery><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/elasticsearch-thumb.png"/></a>
+</div>
+
+
+<p>Elasticsearch usa sus propios conceptos y aunque no es una base de datos relacional algunos pueden ser similares. Lo que en en una base de datos relacional es un esquema en ES es un índice, lo que en la primera es una tabla en ES es un tipo, continuando una fila en ES es un documento y finalmente una columna es una propiedad en ES.</p>
+
+<p>La documentación de Elasticsearch es un documentación de referencia probablemente pero para aprender a sacarle el máximo provecho probablemente debamos buscar algún manual o libro que nos lo explique de una forma más didáctica. Algunas opciones son el libro <a href="http://exploringelasticsearch.com/">Exploring Elasticsearch</a> y el <a href="http://www.elasticsearchtutorial.com/">tutorial Elasticsearch</a>.</p>
+
+<p>Veamos como crear y borrar un índice, para ello utilizaremos la herramienta curl:</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-2.sh'></script>
+<noscript><pre><code>$ curl -XPUT &#39;http://localhost:9200/blogbitix&#39;
+$ curl -XDELETE &#39;http://localhost:9200/blogbitix&#39;</code></pre></noscript></div>
+
+
+<p>Aunque Elasticsearch es orientado a documentos y estos no tienen que adherirse a un esquema como en una base de datos relacional, podemos instruir a Elasticsearch como queremos que haga las búsquedas sobre los campos del documento. Para ello definimos la correspondencia (mapping). A continuación pondré el caso hipotético de un tipo libro que tiene las propiedades de nombre y descripción en varios idiomas, una serie de etiquetas para catalogarlo y una cantidad.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-3.sh'></script>
+<noscript><pre><code>$ curl -XPUT &#39;http://localhost:9200/blogbitix/libro/_mapping&#39; -d &#39;{
+    &quot;producto&quot; : {
+        &quot;properties&quot; : {
+            &quot;nombre&quot; : {
+                &quot;type&quot; : &quot;object&quot;,
+                &quot;properties&quot; : { 
+                    &quot;es&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot; },
+                    &quot;en&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot; }
+                }
+            },
+            &quot;descripcion&quot; : {
+                &quot;type&quot; : &quot;object&quot;,
+                &quot;properties&quot; : { 
+                    &quot;es&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot;, &quot;store&quot;: &quot;yes&quot; },
+                    &quot;en&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot;, &quot;store&quot;: &quot;yes&quot; }
+                }
+            },
+            &quot;etiquetas&quot; : {
+                &quot;type&quot; : &quot;object&quot;,
+                &quot;properties&quot; : { 
+                    &quot;es&quot;: { 
+                        &quot;type&quot; : &quot;multi_field&quot;,
+                        &quot;fields&quot; : {
+                            &quot;term&quot; : { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot; },
+                            &quot;untouched&quot; : {&quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;not_analyzed&quot;}
+                        }
+                    },
+                    &quot;en&quot;: { 
+                        &quot;type&quot; : &quot;multi_field&quot;,
+                        &quot;fields&quot; : {
+                            &quot;term&quot; : { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot; },
+                            &quot;untouched&quot; : {&quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;not_analyzed&quot;}
+                        }
+                    }
+                }
+            },
+            &quot;cantidad&quot; : { &quot;type&quot; : &quot;long&quot; }
+        }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Con la siguiente petición podemos ver el mapeo de un tipo.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-4.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/blogbitix/libro/_mapping?pretty=true&#39;</code></pre></noscript></div>
+
+
+<p>El mapeo no es necesario definirlo previamente pero es aconsejable para ciertas propiedades sino queremos que ES tome valores por defecto o haga suposiciones, a continuación insertamos los documentos. Cada documento tiene un identificativo que deberemos asignarle y para indexarlo básicamente proporcionamos un JSON con las propiedades del documento. Elasticsearch se encargará de indexarlo para que una búsqueda posterior se ejecute rápidamente.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-5.sh'></script>
+<noscript><pre><code>$ curl -XPUT &#39;http://localhost:9200/blogbitix/libro/1&#39; -d &#39;{
+    &quot;libro&quot; : {
+        &quot;nombre&quot; : {
+            &quot;es&quot;: &quot;PlugIn Tapestry&quot;,
+            &quot;en&quot;: &quot;PlugIn Tapestry&quot;
+        },
+        &quot;descripcion&quot; : {
+            &quot;es&quot;: &quot;Desarrollo de aplicaciones y páginas web con Apache Tapestry&quot;,
+            &quot;en&quot;: &quot;Development of applications and web pages with Apache Tapestry&quot;
+        },
+        &quot;etiquetas&quot; : {
+            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;español&quot;],
+            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;spanish&quot;]
+        },
+        &quot;cantidad&quot; : 1000
+    }
+}&#39;
+
+$ curl -XPUT &#39;http://localhost:9200/blogbitix/libro/2&#39; -d &#39;{
+    &quot;libro&quot; : {
+        &quot;nombre&quot; : {
+            &quot;es&quot;: &quot;Tapestry 5 - Desarrollo rápido de aplicaciones web en Java&quot;,
+            &quot;en&quot;: &quot;Tapestry 5 - Rapid web application development in Java&quot;
+        },
+        &quot;descripcion&quot; : {
+            &quot;es&quot;: &quot;Una guía completa presentando Apache Tapestry y su aproximación inovadora para la construcción de aplicaciones web modernas&quot;,
+            &quot;en&quot;: &quot;A comprehensive guide, introducing Apache Tapestry and its innovative approach to building modern web applications&quot;
+        },
+        &quot;etiquetas&quot; : {
+            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;inglés&quot;],
+            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;english&quot;]
+        },
+        &quot;cantidad&quot; : 1000
+    }
+}&#39;
+
+$ curl -XPUT &#39;http://localhost:9200/blogbitix/libro/3&#39; -d &#39;{
+    &quot;libro&quot; : {
+        &quot;nombre&quot; : {
+            &quot;es&quot;: &quot;Tapestry in Action&quot;,
+            &quot;en&quot;: &quot;Tapestry in Action&quot;
+        },
+        &quot;descripcion&quot; : {
+            &quot;es&quot;: &quot;Tapestry in Action e la introducción definitiva a Tapestry 3 escrito por Howard Lewis Ship, el creador de Tapestry&quot;,
+            &quot;en&quot;: &quot;Tapestry in Action is the definitive introduction to Tapestry 3 written by Howard Lewis Ship, the creator of Tapestry&quot;
+        },
+        &quot;etiquetas&quot; : {
+            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;inglés&quot;],
+            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;english&quot;]
+        },
+        &quot;cantidad&quot; : 1000
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Con las anteriores peticiones hemos indexado 3 documentos, podemos ver los datos de cada uno de ellos con:</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-6.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/blogbitix/libro/1&#39;</code></pre></noscript></div>
+
+
+<p>Una vez tenemos unos cuantos documentos indexados en ES podemos empezar a hacer búsquedas. Elasticsearch para hacer las búsquedas usa su propio lenguaje de DSL, no es sencillo y la documentación de ES no es muy útil para aprender a como usarla. Pondré algunos ejemplos simples, probablemente no reales y no representativos de todo el potencial que puede ofrecer ES. El primero es una búsqueda por una determinada palabra.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-7.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/blogbitix/libro/_search?pretty=true&#39; -d &#39;{
+    &quot;query&quot; : {
+        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Una búsqueda similar a la anterior pero con más condiciones, exigiendo que no tenga unas palabras en concreto y algunas que deberían tener haciendo que ES valore más los documentos que las tengan.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-8.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/blogbitix/libro/_search?pretty=true&#39; -d &#39;{
+    &quot;query&quot; : {
+        &quot;bool&quot; : {
+            &quot;must&quot; : {
+                &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
+            },
+            &quot;must_not&quot; : {
+                &quot;query_string&quot; : {
+                    &quot;fields&quot; : [&quot;descripcion.es&quot;],
+                    &quot;query&quot; : &quot;\&quot;tapestry 3\&quot;&quot;
+                }
+            },
+            &quot;should&quot; : [{ 
+                &quot;match&quot; : {
+                    &quot;descripcion.es&quot; : {
+                        &quot;query&quot; : &quot;guía&quot;,
+                        &quot;type&quot; : &quot;phrase&quot;
+                    }
+                }
+            }]
+        }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Además de búsquedas ES puede ofrecernos más funcionalidades como las facetas con las que podemos obtener un sumatorio de los resultados. En la siguiente consulta buscamos los documentos con una determinada palabra y además le pedimos a ES que nos devuelva cuantos documentos hay que cumplan ese criterio en cada etiqueta. Esto probablemente es lo que usen en la tienda de Amazon cuando muestran cuantos elementos hay en las diferentes categorizaciones. Aunque en Amazon solo muestran las categorías de los elementos buscados probablemente podrían mostrar cuantos elementos hay en cada una de esas categorías.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-9.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/blogbitix/libro/_search?pretty=true&#39; -d &#39;{
+    &quot;query&quot; : {
+        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
+    },
+    &quot;facets&quot;: {
+        &quot;etiquetas&quot;: { &quot;terms&quot;: { &quot;field&quot;: &quot;etiquetas.es.untouched&quot; } }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+
+
+<div class="imagenes-post" style="text-align: center;">
+    <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/categorias-amazon.png" title="Categorías de productos (facets) en Amazon" data-gallery><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/categorias-amazon-thumb.png"/></a>
+</div>
+
+
+<p>Otra de las funcionalizades que nos puede interesar es que ES nos ofrezca sugerencias para determinados términos, en el siguiente ejemplo solicitamos además de la búsqueda sugerencias para algunas palablas que tienen fallos de escritura.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-10.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/elblogdepicodev/libro/_search?pretty=true&#39; -d &#39;{
+    &quot;query&quot; : {
+        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
+    },
+    &quot;suggest&quot;: {
+        &quot;suggest1&quot; : {
+            &quot;text&quot; : &quot;tapestyr desarrallo&quot;,
+            &quot;term&quot; : {
+                &quot;field&quot; : &quot;descripcion.es&quot;  
+            }
+        }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Finalmente, otra cosa que nos puede interesar es que ES nos resalte las palabras de determinados campos para destacar las coincidencias de los resultados de forma visual que se han encontrado. Esto necesita { store: &ldquo;yes&rdquo; } en la correspondencia de la propiedad.</p>
+
+<div><script src='https://gist.github.com/picodotdev/11294261.js?file=script-11.sh'></script>
+<noscript><pre><code>$ curl -XGET &#39;http://localhost:9200/elblogdepicodev/libro/_search?pretty=true&#39; -d &#39;{
+    &quot;query&quot; : {
+        &quot;query_string&quot;: {  
+            &quot;query&quot;: &quot;Tapestry&quot;
+        }
+    },
+    &quot;highlight&quot; : {
+        &quot;fields&quot; : {
+            &quot;descripcion.es&quot; : { }
+        }
+    }
+}&#39;</code></pre></noscript></div>
+
+
+<p>Estos son solo unos pocos ejemplos, ES seguro que puede ofrecer muchas cosas más que leyendo solo la documentación de referencia es difícil descubrir. Lo ideal sería tener un libro específico en el que aprender en mucha más profundidad a sacarle partido sin embargo hasta el momento. El libro Elasticsearch Server tiene buena pinto</p>
+
+<p>Referencia:<br/>
+<a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">Búsquedas de texto completo en objetos de dominio</a><br/>
+<a href="http://www.elasticsearch.org">Elasticsearch</a><br/>
+<a href="http://exploringelasticsearch.com/">Exploring Elasticsearch</a><br/>
+<a href="http://www.elasticsearchtutorial.com/">Tutorial Elasticsearch</a></p>
+]]></content>
+    
+    <category scheme="http://picodotdev.github.io/blog-bitix/categories/" term="blog-stack" />
+    
+    <category scheme="http://picodotdev.github.io/blog-bitix/categories/" term="planeta-codigo" />
+    
+    <category scheme="http://picodotdev.github.io/blog-bitix/categories/" term="programacion" />
+    
+    <category scheme="http://picodotdev.github.io/blog-bitix/categories/" term="software" />
+    
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Ejemplo lista de tareas con Backbone y React]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react/"/>
-    <updated>2014-04-11T16:33:28+02:00</updated>
+	<published>2014-04-11T16:33:28+02:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/backbone.png" class="right" alt="Backbone" title="Backbone"/><br/>
@@ -330,7 +597,8 @@
   <entry>
     <title type="html"><![CDATA[Usar Grunt para ejecutar teses unitarios de código Javascript]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/"/>
-    <updated>2014-04-04T16:43:23+02:00</updated>
+	<published>2014-04-04T16:43:23+02:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grunt.png" class="right" alt="Grunt" title="Grunt"/>
@@ -443,6 +711,7 @@ class GruntTask extends Exec {
   <entry>
     <title type="html"><![CDATA[Desempaquetado y análisis Samsung SSD 840 EVO 250 GB]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/03/desempaquetado-y-analisis-samsung-840-evo-ssd-250-gb/"/>
+	<published>2014-03-28T18:22:41+01:00</published>
     <updated>2014-03-29T15:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/03/desempaquetado-y-analisis-samsung-840-evo-ssd-250-gb</id>
     <content type="html"><![CDATA[<p>En estos momentos sin lugar a dudas la actualización más provechosa para mejorar el rendimiento de un equipo es una unidad de estado sólido o SSD (<a href="http://es.wikipedia.org/wiki/Unidad_de_estado_s%C3%B3lido">Solid State Drive</a>) una vez tengamos memoria RAM suficiente, unos 2 GiB suelen ser suficientes para tareas ofimáticas y acceder a internet y los equipos que se están vendiendo ahora ya suelen venir con 4 GiB e incluso 8 GiB. El tiempo de acceso a un disco duro mecánico es grande y la velocidad de transferencia es pequeña, en los momentos que se require un uso intensivo del disco se nota que los disco mecánicos son el cuello de botella del sistema. A veces una mejora en el software puede producir una notable aumento de rendimiento con el mismo hardware pero cuando ya no hay margen de mejora en el software con una mejora en el hardware podemos conseguir el aumento de rendimiento buscado, este es el caso de los SSD.</p>
@@ -530,6 +799,7 @@ class GruntTask extends Exec {
   <entry>
     <title type="html"><![CDATA[Novedades y nuevas características de Java 8]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/"/>
+	<published>2014-03-21T16:03:27+01:00</published>
     <updated>2014-03-28T20:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
@@ -787,7 +1057,8 @@ Persona::new
   <entry>
     <title type="html"><![CDATA[Guía para la creación de un blog con Octopress]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress/"/>
-    <updated>2014-03-14T18:19:24+01:00</updated>
+	<published>2014-03-14T18:19:24+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/octopress.png" class="right" alt="Octopress" title="Octopress"/>
@@ -930,6 +1201,7 @@ $ git clone git@github.com:picodotdev/blog-bitix.git _deploy</code></pre></noscr
   <entry>
     <title type="html"><![CDATA[Introducción y ejemplo sencillo de Java Message Service (JMS)]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms/"/>
+	<published>2014-03-07T18:31:22+01:00</published>
     <updated>2014-03-08T01:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
@@ -1312,7 +1584,8 @@ public class Queue {
   <entry>
     <title type="html"><![CDATA[Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-apache/"/>
-    <updated>2014-02-28T16:58:17+01:00</updated>
+	<published>2014-02-28T16:58:17+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-apache</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/openssl.png" class="right" alt="OpenSSL" title="OpenSSL"/>
@@ -1470,7 +1743,8 @@ Listen 443
   <entry>
     <title type="html"><![CDATA[Generar y convertir claves y certificados con OpenSSL]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl/"/>
-    <updated>2014-02-21T17:36:21+01:00</updated>
+	<published>2014-02-21T17:36:21+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/openssl.png" class="right" alt="OpenSSL" title="OpenSSL"/>
@@ -1571,7 +1845,8 @@ $ openssl x509 -inform der -in localhost.cer -out localhost.pem</code></pre></no
   <entry>
     <title type="html"><![CDATA[Libro sobre desarrollo de aplicaciones con Apache Tapestry]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/"/>
-    <updated>2014-02-14T20:10:34+01:00</updated>
+	<published>2014-02-14T20:10:34+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" class="right" alt="Apache Tapestry" title="Apache Tapestry"/>
@@ -1748,7 +2023,8 @@ Inicialmente creé una página específica para alojar el libro con una aplicaci
   <entry>
     <title type="html"><![CDATA[Presentación sobre Apache Tapestry]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/02/presentacion-sobre-apache-tapestry/"/>
-    <updated>2014-02-14T16:05:53+01:00</updated>
+	<published>2014-02-14T16:05:53+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/02/presentacion-sobre-apache-tapestry</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" class="right" alt="Apache Tapestry" title="Apache Tapestry"/>
@@ -1797,7 +2073,8 @@ Inicialmente creé una página específica para alojar el libro con una aplicaci
   <entry>
     <title type="html"><![CDATA[Servidor de aplicaciones JBoss/WildFly]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/"/>
-    <updated>2014-02-07T22:35:31+01:00</updated>
+	<published>2014-02-07T22:35:31+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/wildfly.png" class="right" alt="WildFly" title="WildFly"/>
@@ -1869,7 +2146,8 @@ Inicialmente creé una página específica para alojar el libro con una aplicaci
   <entry>
     <title type="html"><![CDATA[Logging usando marcadores con slf4j y logback]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback/"/>
-    <updated>2014-01-31T17:10:17+01:00</updated>
+	<published>2014-01-31T17:10:17+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" class="right" alt="Java" title="Java"/>
@@ -2058,7 +2336,8 @@ public class ImportacionFilter extends Filter&lt;ILoggingEvent&gt; {
   <entry>
     <title type="html"><![CDATA[Ejemplo del patrón de diseño No Operation]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation/"/>
-    <updated>2014-01-24T16:48:40+01:00</updated>
+	<published>2014-01-24T16:48:40+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" class="right" alt="Java" title="Java"/>
@@ -2214,7 +2493,8 @@ public class OperacionCommandFactorySpec extends Specification {
   <entry>
     <title type="html"><![CDATA[Mi experiencia y consejos para un blog]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/01/mi-experiencia-y-consejos-para-un-blog/"/>
-    <updated>2014-01-17T15:44:23+01:00</updated>
+	<published>2014-01-17T15:44:23+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/01/mi-experiencia-y-consejos-para-un-blog</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/octopress.png" class="right" alt="Octopress" title="Octopress"/>
@@ -2281,7 +2561,8 @@ public class OperacionCommandFactorySpec extends Specification {
   <entry>
     <title type="html"><![CDATA[Iniciar la Raspberry Pi desde un disco o memoria USB]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb/"/>
-    <updated>2014-01-10T12:41:33+01:00</updated>
+	<published>2014-01-10T12:41:33+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/01/iniciar-la-raspberry-pi-desde-un-disco-o-memoria-usb</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/raspberrypi.jpg" class="right" alt="Raspberry Pi" title="Raspberry Pi"/>
@@ -2354,7 +2635,8 @@ public class OperacionCommandFactorySpec extends Specification {
   <entry>
     <title type="html"><![CDATA[Raspberry Pi como Media Center con GeeXboX]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox/"/>
-    <updated>2014-01-03T20:00:00+01:00</updated>
+	<published>2014-01-03T20:00:00+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2014/01/raspberry-pi-como-media-center-con-geexbox</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/geexbox.png" class="right" alt="GeeXboX" title="GeeXboX"/><br/>
@@ -2433,7 +2715,8 @@ public class OperacionCommandFactorySpec extends Specification {
   <entry>
     <title type="html"><![CDATA[Hemeroteca #4]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2013/12/hemeroteca-4/"/>
-    <updated>2013-12-24T18:28:48+01:00</updated>
+	<published>2013-12-24T18:28:48+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2013/12/hemeroteca-4</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/octopress.png" class="right" alt="Octopress" title="Octopress"/>
@@ -2516,7 +2799,8 @@ public class OperacionCommandFactorySpec extends Specification {
   <entry>
     <title type="html"><![CDATA[Firmar digitalmente documentos con el DNIe y Sinadura]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura/"/>
-    <updated>2013-12-21T11:34:55+01:00</updated>
+	<published>2013-12-21T11:34:55+01:00</published>
+    <updated></updated>
     <id>http://picodotdev.github.io/blog-bitix/2013/12/firmar-digitalmente-documentos-con-el-dnie-y-sinadura</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
     <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" class="right" alt="DNIe" title="DNIe"/><br/>
@@ -2651,6 +2935,7 @@ certificate.password= </code></pre></noscript></div>
   <entry>
     <title type="html"><![CDATA[Enviar correos electrónicos firmados con el DNIe y Evolution]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution/"/>
+	<published>2013-12-13T16:39:07+01:00</published>
     <updated>2013-12-21T12:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2013/12/enviar-correos-electronicos-firmados-con-el-dnie-y-evolution</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
@@ -2710,6 +2995,7 @@ certificate.password= </code></pre></noscript></div>
   <entry>
     <title type="html"><![CDATA[Usar el DNI electrónico con Firefox en Linux]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux/"/>
+	<published>2013-12-06T14:07:58+01:00</published>
     <updated>2013-12-21T12:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right; text-align: right;">
@@ -2802,6 +3088,7 @@ certificate.password= </code></pre></noscript></div>
   <entry>
     <title type="html"><![CDATA[¡Hola nuevo mundo!]]></title>
     <link href="http://picodotdev.github.io/blog-bitix/2013/12/hola-nuevo-mundo/"/>
+	<published>2013-12-02T13:00:00+01:00</published>
     <updated>2013-12-09T19:00:00+01:00</updated>
     <id>http://picodotdev.github.io/blog-bitix/2013/12/hola-nuevo-mundo</id>
     <content type="html"><![CDATA[<div class="logotipos-post" style="float: right;">

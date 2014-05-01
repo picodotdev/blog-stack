@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -171,8 +172,8 @@ public class Main {
 		boolean stop = cmd.hasOption("pp");
 		String repository = cmd.getOptionValue("r");
 
-		List<Post> posts = new ArrayList<>();
-		Collection<Label> labels = new HashSet<>();
+		Collection<Post> posts = new LinkedHashSet<>();
+		Collection<Label> labels = new LinkedHashSet<>();
 		if (index || iindex || importOption) {
 			initRegistry();
 			initSessionFactory();
@@ -181,13 +182,13 @@ public class Main {
 
 			logger.info("Indexing...");
 			service.getIndexerService().setForceIndex(iindex);
-			if (index || iindex) {
-				List<Post> e1 = service.getIndexerService().index();
-				posts.addAll(e1);
-			}
 			if (importOption) {
-				List<Post> e2 = service.getIndexerService().importAll();
-				posts.addAll(e2);
+				List<Post> p = service.getIndexerService().importAll();
+				posts.addAll(p);
+			}
+			if (index || iindex) {
+				List<Post> p = service.getIndexerService().index();
+				posts.addAll(p);
 			}
 			for (Post post : posts) {
 				labels.addAll(post.getLabels());
@@ -196,12 +197,12 @@ public class Main {
 
 		if (generate || ggenerate) {
 			initRegistry();
-			initSessionFactory();				
+			initSessionFactory();
 
 			MainService service = Globals.registry.getService(MainService.class);
 			posts = (ggenerate) ? service.getPostDAO().findAll() : posts;
 			labels = (ggenerate) ? service.getLabelDAO().findAll() : labels;
-			
+
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				File indexPage = service.getPublicGeneratorService().generatePage("index", new Object[0], Collections.EMPTY_MAP);
@@ -211,19 +212,19 @@ public class Main {
 				for (Label label : labels) {
 					String l = Utils.urlize(label.getName());
 					File labelPage = service.getPublicGeneratorService().generatePage("label", new Object[] { l }, Collections.EMPTY_MAP);
-					for	(int i = 1; i <= Globals.NUMBER_PAGES_LABEL; ++i) {
+					for (int i = 1; i <= Globals.NUMBER_PAGES_LABEL; ++i) {
 						File ilabelPage = service.getPublicGeneratorService().generatePage("label", new Object[] { l, "page", i }, Collections.EMPTY_MAP);
 					}
-				}				
+				}
 			}
 			if (ggenerate) {
-				File faqPage = service.getPublicGeneratorService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);				
+				File faqPage = service.getPublicGeneratorService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
 			}
-			
+
 			if (!posts.isEmpty()) {
 				logger.info("Generating posts...");
-				List<File> ps = service.getPublicGeneratorService().generatePosts(posts);
-				
+				List<File> ps = service.getPublicGeneratorService().generatePosts(new ArrayList(posts));
+
 				Set<Source> sources = new HashSet<>();
 				for (Post post : posts) {
 					sources.add(post.getSource());
@@ -237,13 +238,13 @@ public class Main {
 				logger.info("Generating feeds...");
 				File mainAtom = service.getPublicGeneratorService().generateRss();
 				for (Label label : labels) {
-					File labelAtom = service.getPublicGeneratorService().generateRss(label);				
-				}				
+					File labelAtom = service.getPublicGeneratorService().generateRss(label);
+				}
 			}
 
 			if (!posts.isEmpty()) {
 				logger.info("Generating sitemap...");
-				File sitemap = service.getPublicGeneratorService().generateSitemap();				
+				File sitemap = service.getPublicGeneratorService().generateSitemap();
 			}
 
 			if (ggenerate) {
@@ -254,7 +255,7 @@ public class Main {
 					service.getPublicGeneratorService().generateStatics(Globals.STATICS);
 				} finally {
 					Context.unset();
-				}				
+				}
 			}
 
 			logger.info("Generating last updated...");
@@ -267,7 +268,7 @@ public class Main {
 			String host = getHost();
 			int port = getPort();
 			int amdinPort = getAdminPort();
-			
+
 			File r = (repository == null) ? Globals.PUBLIC : new File(repository);
 
 			ResourceHandler handler = new ResourceHandler(new FileResourceManager(r, 1024 * 10));
@@ -290,14 +291,14 @@ public class Main {
 			server.start();
 			adminServer.start();
 		}
-		
+
 		if (serverOption) {
 			logger.info("Stating server...");
 
 			String host = getHost();
 			int port = getPort();
 			int amdinPort = getAdminPort();
-			
+
 			HttpHandler handler = new HttpHandler() {
 				@Override
 				public void handleRequest(final HttpServerExchange exchange) throws Exception {

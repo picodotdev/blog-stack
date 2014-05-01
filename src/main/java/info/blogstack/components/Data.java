@@ -28,6 +28,7 @@ import org.joda.time.format.DateTimeFormatter;
 public class Data {
 
 	private DateTimeFormatter DATETIME_FORMATTER = DateTimeFormat.forPattern("EEEE, dd 'de' MMMM 'de' yyyy 'a las' HH:mm z").withLocale(Globals.LOCALE);
+	private DateTimeFormatter MICRODATA_DATETIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm");
 	
 	@Parameter
 	@Property
@@ -92,10 +93,12 @@ public class Data {
 	public Map<String, Object> getPostData() {		
 		Map<String, Object> datos = new HashMap<>();
 		if (post.getPublishDate() != null) {
-			datos.put("publishDate", DATETIME_FORMATTER.print(post.getPublishDate()));			
+			datos.put("publishDate", DATETIME_FORMATTER.print(post.getPublishDate()));
+			datos.put("microdataPublishDate", MICRODATA_DATETIME_FORMATTER.print(post.getPublishDate()));
 		}
 		if (post.getUpdateDate() != null) {
 			datos.put("updateDate", DATETIME_FORMATTER.print(post.getUpdateDate()));
+			datos.put("microdataUpdateDate", MICRODATA_DATETIME_FORMATTER.print(post.getUpdateDate()));
 		}
 		return datos;
 	}
