@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette",
-      "title" : "Ejemplo lista de tareas con Marionette"
+      "url" : "/post/blogbitix/2014/05/introduccion-a-elasticsearch",
+      "title" : "Introducción a Elasticsearch"
     },
     {
-      "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
-      "title" : "Introducción a Elasticsearch"
+      "url" : "/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette",
+      "title" : "Ejemplo lista de tareas con Marionette"
     },
     {
       "url" : "/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react",

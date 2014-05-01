@@ -3,7 +3,7 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
-      "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
+      "url" : "/post/blogbitix/2014/05/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
     },
     {
