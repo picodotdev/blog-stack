@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+
+<t:delegate to="block"/>
+
+<t:block t:id="defaultBlock">
+	<section class="data">
+		<div class="row">
+			<div class="col-xs-6 col-sm-3 col-md-3">
+				<span class="number">
+					${data.get('posts')}
+					<span>artículos</span>
+				</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-md-3">
+				<span class="number">
+					${data.get('sources')}
+					<span>bitácoras</span>
+				</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-md-3">
+				<span class="number">
+					${data.get('labels')}
+					<span>etiquetas</span>
+				</span>
+			</div>
+			<div class="col-xs-6 col-sm-3 col-md-3">
+				<span class="number">
+					${data.get('authors')}
+					<span>autores</span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<span class="add"><a t:type="pagelink" page="faq" anchor="quesenecesita">¿Quieres agregar tu bitácora?</a></span><br/>
+				<span t:type="any" t:id="lastUpdated" class="date"></span>
+			</div>
+		</div>
+	</section>
+</t:block>
+
+<t:block t:id="postBlock">
+	<section class="post-data">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div>
+					<span>Bitácora <a href="${post.source.pageUrl}">${post.source.name}</a></span>, <span>Autor ${post.author}</span>, <span><a href="${post.url}">Entrada original</a></span>
+				</div>
+				<t:if test="postData.get('publishDate')">
+					<div>
+						<span>Publicado el ${postData.get('publishDate')}</span>
+					</div>
+				</t:if>
+				<t:if test="postData.get('updateDate')">
+					<div>
+						<span>Actualizado el ${postData.get('updateDate')}</span>
+					</div>
+				</t:if>
+				<t:if test="labels">
+					<div>
+						<span>
+							Etiquetado como
+							<t:loop source="post.labels" value="label" index="i">
+								<t:if test="!firstLabel">
+									, 
+								</t:if>				
+								<a t:type="pagelink" page="label" context="labelContext">${label.name}</a>
+							</t:loop>
+						</span>
+					</div>
+				</t:if>
+			</div>
+		</div>
+	</section>
+</t:block>
+</t:container>

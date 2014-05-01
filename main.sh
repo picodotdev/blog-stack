@@ -1,0 +1,1 @@
+java -classpath build/classes/main:build/resources/main:build/libs/lib/* info.blogstack.cli.Main $@

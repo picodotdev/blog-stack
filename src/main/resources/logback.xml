@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-23d{ISO8601} %-5p %-5marker %-17t %40.40C %-20M %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.apache.tapestry5.services.TapestryModule.ComponentClassResolver" level="INFO"/>
+    <logger name="org.apache.tapestry5.TapestryFilter" level="INFO"/>
+
+    <logger name="info.blogstack" level="INFO"/>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

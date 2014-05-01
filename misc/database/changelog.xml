@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    
+    <property name="schema" value="blogstack"/>
+    <property name="selectMaxIdAdsense" value="(select max(id) from ${schema}.adsense)"/>
+    <property name="selectMaxIdImportSource" value="(select max(id) from ${schema}.import_source)"/>
+    
+    <changeSet id="1" author="picodotdev">
+        <sql>create schema ${schema}</sql>
+        <createTable tableName="indexation" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+        </createTable>
+        <createTable tableName="adsense" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="adsenseAdClient" type="VARCHAR(32)" />
+            <column name="adsenseSlotBigRectangle" type="VARCHAR(16)" />
+            <column name="adsenseSlotWideSkycraper" type="VARCHAR(16)" />
+            <column name="adsenseSlotHorizontalSkycraper" type="VARCHAR(16)" />
+        </createTable>
+        <createTable tableName="import_source" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+            <column name="updateDate" type="DATETIME" />
+        </createTable>        
+        <createTable tableName="source" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+            <column name="updateDate" type="DATETIME" />
+            <column name="name" type="VARCHAR(256)" />
+            <column name="alias" type="VARCHAR(32)" />
+            <column name="pageUrl" type="VARCHAR(2048)">
+                <constraints unique="true"/>
+            </column>
+            <column name="url" type="VARCHAR(2048)">
+                <constraints unique="true"/>
+            </column>
+            <column name="author" type="VARCHAR(64)" />
+            <column name="email" type="VARCHAR(128)" />
+            <column name="disqusShortname" type="VARCHAR(32)" />
+            <column name="adsense_id" type="BIGINT">
+                <constraints references="${schema}.adsense(id)" foreignKeyName="source_adsense_id"/>
+            </column>
+            <column name="importsource_id" type="BIGINT">
+                <constraints references="${schema}.import_source(id)" foreignKeyName="source_importsource_id"/>
+            </column>
+        </createTable>
+        <createTable tableName="post" schemaName="blogstack">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+            <column name="updateDate" type="DATETIME" />
+            <column name="publishDate" type="DATETIME" />
+            <column name="date" type="DATETIME" />
+            <column name="url" type="VARCHAR(2048)">
+                <constraints unique="true"/>
+            </column>
+            <column name="hash" type="VARCHAR(24)"/>
+            <column name="title" type="VARCHAR(256)" />
+            <column name="author" type="VARCHAR(64)" />
+            <column name="contentCompressed" type="BLOB" />
+            <column name="indexation_id" type="BIGINT">
+                <constraints references="${schema}.indexation(id)" foreignKeyName="post_indexation_id"/>
+            </column>
+            <column name="source_id" type="BIGINT">
+                <constraints references="${schema}.source(id)" foreignKeyName="post_source_id"/>
+            </column>
+        </createTable>
+        <createTable tableName="label" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+            <column name="name" type="VARCHAR(128)" />
+            <column name="hash" type="VARCHAR(24)" />
+        </createTable>
+        <createTable tableName="posts_indexations" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="post_id" type="BIGINT">
+                <constraints references="${schema}.post(id)" foreignKeyName="posts_indexations_post_id"/>
+            </column>
+            <column name="indexation_id" type="BIGINT">
+                <constraints references="${schema}.indexation(id)" foreignKeyName="posts_indexations_indexation_id"/>
+            </column>
+        </createTable>
+        <createTable tableName="posts_labels" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="post_id" type="BIGINT">
+                <constraints references="${schema}.post(id)" foreignKeyName="posts_labels_post_id"/>
+            </column>
+            <column name="label_id" type="BIGINT">
+                <constraints references="${schema}.label(id)" foreignKeyName="posts_labels_label_id"/>
+            </column>
+        </createTable>        
+        <createIndex indexName="url_source_idx" tableName="source" unique="true" schemaName="${schema}">
+            <column name="url"/>
+        </createIndex>
+        <createIndex indexName="url_post_idx" tableName="post" unique="true" schemaName="${schema}">
+            <column name="url"/>
+        </createIndex>
+        <createIndex indexName="hash_post_idx" tableName="post" unique="true" schemaName="${schema}">
+            <column name="hash"/>
+        </createIndex>
+        <createIndex indexName="name_label_idx" tableName="label" unique="true" schemaName="${schema}">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="2" author="picodotdev">
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-3533636310991304" />
+            <column name="adsenseSlotBigRectangle" value="2873752587" />
+            <column name="adsenseSlotWideSkycraper" value="1896546988" />
+            <column name="adsenseSlotHorizontalSkycraper" value="1397019380" />
+        </insert>
+        <insert tableName="import_source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Blog Bitix"/>
+            <column name="alias" value="blogbitix"/>
+            <column name="pageUrl" value="http://picodotdev.github.io/blog-bitix/"/>
+            <column name="url" value="http://picodotdev.github.io/blog-bitix/categories/blog-stack/atom.xml"/>
+            <column name="author" value="pico.dev"/>
+            <column name="email" value="pico.dev@gmail.com"/>
+            <column name="disqusShortname" value="blog-bitix"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="importsource_id" valueComputed="${selectMaxIdImportSource}"/>
+        </insert>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-3533636310991304" />
+            <column name="adsenseSlotBigRectangle" value="2873752587" />
+            <column name="adsenseSlotWideSkycraper" value="1896546988" />
+            <column name="adsenseSlotHorizontalSkycraper" value="1397019380" />
+        </insert>
+        <insert tableName="import_source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="El blog de pico.dev"/>
+            <column name="alias" value="elblogdepicodev"/>
+            <column name="pageUrl" value="http://elblogdepicodev.blogspot.com.es/"/>
+            <column name="url" value="https://www.blogger.com/feeds/2347950092468997900/posts/default"/>
+            <column name="author" value="pico.dev"/>
+            <column name="email" value="pico.dev@gmail.com"/>
+            <column name="disqusShortname" value="elblogdepicodev"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="importsource_id" valueComputed="${selectMaxIdImportSource}"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

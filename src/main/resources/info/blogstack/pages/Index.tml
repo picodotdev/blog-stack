@@ -1,0 +1,34 @@
+<html t:type="layout" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+
+<t:data/>
+
+<t:loop source="posts" value="post">
+	<t:postcomponent post="post" excerpt="true"/>
+</t:loop>
+
+<section class="index-pagination">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-4 col-sm-4 col-md-4">
+				<t:if test="!lastPage">
+					<a t:type="pagelink" page="index" context="nextContext"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a>
+				</t:if>
+			</div>	
+			<div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right">
+				<t:if test="!firstPage">
+					<a t:type="pagelink" page="index" context="previusContext">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a>
+				</t:if>
+			</div>
+		</div>
+	</div>
+</section>
+
+<t:block id="aside1">
+	<t:feeds/>
+</t:block>
+
+<t:block id="aside2">
+	<t:lastposts/>
+	<t:lastsourceswithposts/>
+</t:block>
+</html>

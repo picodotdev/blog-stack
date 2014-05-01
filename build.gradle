@@ -1,0 +1,231 @@
+import java.text.SimpleDateFormat
+
+description = 'Blog Stack application'
+
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'distribution'
+
+archivesBaseName = 'blogstack' 
+group = 'info.blogstack'
+version = '0.1'
+
+def OPENSHIFT_SSH = '5352afa35973ca32ca0000b9@blogstack-appspot101.rhcloud.com'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    // For access to Apache Staging (Preview) packages
+    maven {
+    	name 'Apache Staging'
+    	url 'https://repository.apache.org/content/groups/staging'
+    }
+}
+
+// This simulates Maven's 'provided' scope, until it is officially supported by Gradle
+// See http://jira.codehaus.org/browse/GRADLE-784
+
+configurations {
+    provided
+    appJavadoc
+    
+    all*.exclude group: 'org.eclipse.jetty'
+    all*.exclude group: 'org.seleniumhq.selenium'
+    all*.exclude group: 'org.apache.tomcat'
+    all*.exclude group: 'org.testng'
+    all*.exclude group: 'javassist', module: 'javassist'
+    all*.exclude group: 'javassist', module: 'slf4j-log4j12'    
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+    test {
+        compileClasspath += configurations.provided
+        runtimeClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    // Tapestry
+    compile 'org.apache.tapestry:tapestry-core:5.4-beta-3'
+    compile 'org.apache.tapestry:tapestry-hibernate:5.4-beta-3'
+    compile 'org.apache.tapestry:tapestry-beanvalidator:5.4-beta-3'
+    compile files('misc/libs/tapestry-offline.jar')
+    compile 'org.apache.tapestry:tapestry-webresources:5.4-beta-3'
+    appJavadoc 'org.apache.tapestry:tapestry-javadoc:5.4-beta-3'
+    
+    // Log
+    compile 'org.slf4j:slf4j-api:1.7.5'
+	runtime 'ch.qos.logback:logback-core:1.1.0'
+	runtime 'ch.qos.logback:logback-classic:1.1.0'
+	runtime 'org.slf4j:jcl-over-slf4j:1.7.7'
+    
+    // Spring
+    compile ('org.apache.tapestry:tapestry-spring:5.4-beta-3') { exclude(group: 'org.springframework') }
+    compile 'org.springframework:spring-web:3.2.8.RELEASE'
+    compile 'org.springframework:spring-orm:3.2.8.RELEASE'
+    compile 'org.springframework:spring-tx:3.2.8.RELEASE'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+    
+    // Hibernate
+    compile 'org.hibernate:hibernate-core:4.2.8.Final'
+    compile 'org.hibernate:hibernate-validator:5.1.0.Final'
+    compile 'com.h2database:h2:1.3.175'
+    compile 'org.postgresql:postgresql:9.2-1004-jdbc41'
+    
+    // Utilidades
+    compile 'com.google.guava:guava:16.0.1'
+    compile 'joda-time:joda-time:2.3'
+    compile ('org.jadira.usertype:usertype.core:3.1.0.GA') { exclude(group: 'org.hibernate') }
+    compile 'rome:rome:1.0'
+    compile 'commons-cli:commons-cli:1.2'
+	compile 'org.apache.commons:commons-lang3:3.3.1'
+	compile 'org.apache.commons:commons-lang3:3.3.1'
+	compile 'org.apache.httpcomponents:httpclient:4.3.3'
+	compile 'org.jsoup:jsoup:1.7.3'
+	compile 'ro.isdc.wro4j:wro4j-core:1.7.5'
+	compile 'ro.isdc.wro4j:wro4j-extensions:1.7.5'
+	compile 'io.undertow:undertow-core:1.0.4.Final'
+        
+    // Runtime
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+distributions {
+    main {
+        baseName = 'blogstack'
+        contents {
+       		from('.') {
+   				include 'build.gradle'
+   				include 'gradlew'
+   				include 'README.md'
+   				include 'LICENSE'
+       		}
+       		into('gradle') {
+       			from 'gradle'
+       		}
+            into('misc/database') {
+            	from('misc/database') {
+    				include 'changelog.xml'
+            	}
+            }
+            into('misc/files') {
+            	from('misc/files')
+            }
+            into('misc/imports') {
+            	from('misc/imports')
+            }
+            into('misc/libs') {
+        		from configurations.runtime
+        		from jar.outputs.files
+    		}
+            into('misc/liquibase') {
+            	from('misc/liquibase')
+            }
+       		into('misc/logs') {
+       			from('misc/logs') {
+       				include 'dummy.log'
+       			}
+       		}
+            into('src/main/webapp') {
+            	from('src/main/webapp')
+            }
+            into('src/main/resources/META-INF') {
+            	from('src/main/resources/META-INF')
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.10'
+}
+
+clean.doLast {
+	ant.delete(includeEmptyDirs:true) {
+		fileset(erroronmissingdir:false, dir:'_publico', defaultexcludes:true, includes:'**/*')
+	}
+	ant.delete(includeEmptyDirs:true) {
+		fileset(erroronmissingdir:false, dir:'_despliegue', defaultexcludes:true, includes:'**/*')
+	}
+}
+
+build.doLast {
+	copy {
+		into "$buildDir/libs/lib"
+		from configurations.runtime
+	}
+}
+
+task deploy(dependsOn:'distZip') << {
+	def date = new SimpleDateFormat('yyyy-MM-dd-HHmm').format (new Date())
+	def db = "misc/database/app.h2.db (${date})"
+	def db_openshift = "~/app-root/data/${project.archivesBaseName}/misc/database/app.h2.db"
+	def db_openshift_backup = "~/app-root/data/${project.archivesBaseName}/misc/database/app.h2.db\\ \\(${date}\\)"
+	def backup = "misc/database/app.h2.db.backup.zip"
+	def backup_openshift = "~/app-root/data/${project.archivesBaseName}/misc/database/app.h2.db.backup.zip"
+
+	logger.lifecycle('Unzipping...')
+	exec {
+		commandLine 'unzip', '-ou', "build/distributions/${project.archivesBaseName}-${project.version}.zip", 
+			'-d', "build/distributions/"
+	}
+	logger.lifecycle('Testing if database exists...')
+	def output = new ByteArrayOutputStream()
+	def command = exec {
+		commandLine 'ssh', OPENSHIFT_SSH, """if [ -f ${db_openshift} ]; then echo "exists"; fi"""
+		standardOutput = output
+	}
+	def existsDatabase = (output.toString().trim() == 'exists')
+	if (existsDatabase) { 
+		logger.lifecycle('Backuping database...')
+		exec {
+			commandLine 'ssh', OPENSHIFT_SSH, """if [ -f "${db_openshift}" ]; then cp ${db_openshift} ${db_openshift_backup}; fi"""
+		}
+		exec {
+			commandLine 'ssh', OPENSHIFT_SSH, """if [ -f "${db_openshift_backup}" ]; then zip ${backup_openshift} ${db_openshift_backup}; fi"""
+		}
+		exec {
+			commandLine 'ssh', OPENSHIFT_SSH, """if [ -f "${db_openshift_backup}" ]; then rm ${db_openshift_backup}; fi"""
+		}
+		exec {
+			commandLine 'scp', """${OPENSHIFT_SSH}:${db_openshift}""", db 
+		}
+		exec {
+			commandLine 'zip', backup, db
+		}
+		exec {
+			commandLine 'rm', db
+		}
+	}
+	logger.lifecycle('Synchronizing...')
+	exec {
+		commandLine 'rsync', '-arzP', '-e', 'ssh', "build/distributions/${project.archivesBaseName}-${project.version}/", 
+			"${OPENSHIFT_SSH}:~/app-root/data/blogstack/"
+	}
+	logger.lifecycle('Setting permissions...')
+	exec {
+		commandLine 'ssh', OPENSHIFT_SSH, "chmod +x ~/app-root/data/blogstack/*.sh"
+	}
+	exec {
+		commandLine 'ssh', OPENSHIFT_SSH, "chmod +x ~/app-root/data/blogstack/misc/liquibase/liquibase"
+	}
+	logger.lifecycle('Updating database...')
+	exec {
+		commandLine 'ssh', OPENSHIFT_SSH, "cd ~/app-root/data/blogstack ; ./liquibase.sh"
+	}
+}
+
+task updateDatabase(type:Exec) {
+	commandLine "misc/liquibase/liquibase", '--classpath=misc/libs/h2-1.3.175.jar', '--driver=org.h2.Driver',
+		'--changeLogFile=misc/database/changelog.xml', '--url=jdbc:h2:misc/database/app', '--username=sa', '--password=sa', 'update'
+}

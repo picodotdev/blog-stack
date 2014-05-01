@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+	<article>
+		<header><h2><a t:type="pagelink" page="post" context="context">${post.title}</a></h2></header>
+		<t:data object="post"/>
+		<div class="text-justify post-content">
+			<t:sharethis post="post" onlyTwitter="true"/>
+			<t:if test="excerpt">
+				<t:outputRaw value="post.contentExcerpt"/>
+				<t:if test="contentExcerpted">
+					<p class="continue-reading"><a t:type="pagelink" page="post" context="context">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p>
+				</t:if>
+				<p:else>
+					<t:outputRaw value="post.content"/>
+				</p:else>
+			</t:if>			
+		</div>
+		<t:if test="share">
+			<section>
+				<h1>Compartir</h1>
+				<t:if test="sharethis"><t:sharethis post="post"/></t:if>
+				<t:if test="karmacracy"><t:karmacracy post="post"/></t:if>
+			</section>
+		</t:if>
+		<t:if test="coment">
+			<section>
+				<h1>Comentar</h1>
+				<t:if test="disqus"><t:disqus post="post"/></t:if>
+			</section>
+		</t:if>
+		<hr/>
+	</article>	
+</t:container>
