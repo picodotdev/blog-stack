@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
+      "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
+    },
+    {
       "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5",
       "title" : "Componente AjaxSpinner para Tapestry 5"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache",
-      "title" : "Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
+      "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
+    },
+    {
       "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/01/ejemplo-del-patron-de-diseno-no-operation",
       "title" : "Ejemplo del patrón de diseño No Operation"
-    },
-    {
-      "url" : "/post/blogbitix/2014/01/mi-experiencia-y-consejos-para-un-blog",
-      "title" : "Mi experiencia y consejos para un blog"
     }
   ]
 }
