@@ -193,7 +193,7 @@ public class Source implements Serializable {
 	    if (o == null) return false;
 	    if (!(o instanceof Source)) return false;
 	    Source s = (Source) o;
-	    return (id == s.getId());
+	    return (id != null && id.equals(s.getId()));
 	}
 
 	@Override

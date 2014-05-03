@@ -34,6 +34,9 @@ public class Data {
 	@Property
 	private Object object;
 	
+	@Parameter(value = "false")
+	private Boolean archive;
+	
 	@Property
 	private Post post;
 	
@@ -48,6 +51,9 @@ public class Data {
 	
 	@Inject
 	private Block postBlock;
+	
+	@Inject
+	private Block archivePostBlock;
 	
 	@Property
 	private Block block;
@@ -65,7 +71,7 @@ public class Data {
 		if (object == null) {
 			block = defaultBlock;
 		} else if (object instanceof info.blogstack.entities.Post) {
-			block = postBlock;
+			block = (archive) ? archivePostBlock : postBlock;
 			post = (info.blogstack.entities.Post) object;
 		}
 	}

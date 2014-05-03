@@ -19,4 +19,9 @@ git add .
 git commit -m "Blog Stack init"
 git remote add origin git@github.com:picodotdev/blogstack.git
 git push origin gh-pages
+
+if [ -n "$OPENSHIFT_DATA_DIR" ]; then
+	ssh-agent -k
+fi
+
 cd ..

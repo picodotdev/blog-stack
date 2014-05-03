@@ -134,13 +134,13 @@ public class IndexerServiceImpl implements IndexerService {
 		Post post = service.getPostDAO().findByURL(entry.getLink());
 
 		DateTime now = DateTime.now();
-		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
 		DateTime publishDate = (entry.getPublishedDate() == null) ? null : new DateTime(entry.getPublishedDate());
+		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
 
 		if (!forceIndex
-				&& post != null 
-				&& (updateDate == null || updateDate.isEqual(post.getUpdateDate()))
-				&& (publishDate == null || publishDate.isEqual(post.getPublishDate()))) {
+				&& post != null
+				&& (publishDate == null || publishDate.isEqual(post.getPublishDate()))
+				&& (updateDate == null || updateDate.isEqual(post.getUpdateDate()))) {
 			// La articulo ya estaba indexada y la fecha de actualizacion es anterior
 			return null;
 		} else if (post == null) {

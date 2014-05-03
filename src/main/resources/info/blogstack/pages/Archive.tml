@@ -1,0 +1,44 @@
+<html t:type="layout" t:title="prop:title" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+
+<t:data/>
+
+<section class="archive">
+	<t:if test="generic">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<h1>Archivo</h1>
+			<ul class="list-unstyled">
+				<t:loop source="dates.keySet()" value="i">
+					<li><h2>${i}</h2></li>
+					<ul class="list-unstyled list-inline">
+						<t:loop source="dates.get(i)" value="date">
+							<li><a t:type="pagelink" page="archive" context="getContext(date.get('year'), date.get('month'))" title="${date.get('posts')} artículos">${getMonthName(date.get('month'))} <small>x ${date.get('posts')}</small></a></li>
+						</t:loop>
+					</ul>
+				</t:loop>
+			</ul>
+		</div>
+	</t:if>
+	<t:if test="!generic">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<h1>Archivo de ${getMonthName(month)} de ${year}</h1>
+			<ul class="list-unstyled">
+				<t:loop source="posts" value="post">
+					<li>
+						<h2><a t:type="pagelink" page="post" context="getContext(post)">${post.title}</a></h2>
+						<t:data object="post" archive="true"/>
+					</li>
+				</t:loop>
+			</ul>
+		</div>
+	</t:if>
+</section>
+
+<t:block id="aside1">
+	<t:feeds/>
+</t:block>
+
+<t:block id="aside2">
+	<t:lastposts/>
+	<t:lastsourceswithposts/>
+</t:block>
+</html>

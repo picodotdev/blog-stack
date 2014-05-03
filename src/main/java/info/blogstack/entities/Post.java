@@ -305,7 +305,7 @@ public class Post implements Serializable {
 	    if (o == null) return false;
 	    if (!(o instanceof Post)) return false;
 	    Post p = (Post) o;
-	    return (id == p.getId());
+	    return (id != null && id.equals(p.getId()));
 	}
 
 	@Override

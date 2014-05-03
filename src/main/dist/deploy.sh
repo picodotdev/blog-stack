@@ -14,4 +14,10 @@ git pull origin gh-pages
 git add -A .
 git commit -m "Site updated $(date +"%A, %d-%m-%Y %R")"
 git push origin gh-pages
+
+if [ -n "$OPENSHIFT_DATA_DIR" ]; then
+	ssh-agent -k
+fi
+
 cd ..
+

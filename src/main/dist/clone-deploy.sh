@@ -1,5 +1,4 @@
 #!/bin/bash
-# Antes subir la clave privada a OpenShift
 if [ -n "$OPENSHIFT_DATA_DIR" ]; then
 	export GIT_SSH=$OPENSHIFT_DATA_DIR/blogstack/git.sh $@
 
@@ -12,4 +11,10 @@ cd _deploy
 git config user.email "pico.dev@gmail.com"
 git config user.name "pico.dev"
 git config core.editor "vim"
+
+
+if [ -n "$OPENSHIFT_DATA_DIR" ]; then
+	ssh-agent -k
+fi
+
 cd ..

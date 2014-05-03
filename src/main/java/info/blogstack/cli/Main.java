@@ -202,7 +202,6 @@ public class Main {
 			MainService service = Globals.registry.getService(MainService.class);
 			posts = (ggenerate) ? service.getPostDAO().findAll() : posts;
 			labels = (ggenerate) ? service.getLabelDAO().findAll() : labels;
-
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				File indexPage = service.getPublicGeneratorService().generatePage("index", new Object[0], Collections.EMPTY_MAP);
@@ -232,6 +231,11 @@ public class Main {
 				List<Source> s = new ArrayList(sources);
 				s.add(null);
 				List<File> ss = service.getPublicGeneratorService().generateLastPosts(s);
+			}
+			
+			if (!posts.isEmpty()) {
+				logger.info("Generating archive...");
+				List<File> as = service.getPublicGeneratorService().generateArchive(posts);
 			}
 
 			if (!labels.isEmpty()) {
