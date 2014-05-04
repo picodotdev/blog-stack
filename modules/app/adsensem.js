@@ -22,16 +22,17 @@ define("app/adsensem", ["jquery", "app/templates"], function($, templates) {
 		var wideSkycraper = (p3 == 0) ? this.spec.blogstack : this.spec.ad;
 
 		var adsense = templates.adsense();
-		var adHorizontalSkycraper = adsense({dimensions:"width:728px;height:90px;", adClient: horizontalSkycraper.adClient, adSlot: horizontalSkycraper.adSlotHorizontalSkycraper });
-		var adBigRectangle = adsense({dimensions:"width:336px;height:280px;", adClient: bigRectangle.adClient, adSlot: bigRectangle.adSlotBigRectangle });
-		var adWideSkycraper = adsense({dimensions:"width:160px;height:600px;", adClient: wideSkycraper.adClient, adSlot: wideSkycraper.adSlotWideSkycraper });
+		var adHorizontalSkycraper = adsense({dimensions: "width:728px;height:90px;", width: 728, height: 90, adClient: horizontalSkycraper.adClient, adSlot: horizontalSkycraper.adSlotHorizontalSkycraper });
+		var adBigRectangle = adsense({dimensions: "width:336px;height:280px;", width: 336, height: 280, adClient: bigRectangle.adClient, adSlot: bigRectangle.adSlotBigRectangle });
+		var adWideSkycraper = adsense({dimensions: "width:160px;height:600px;", width: 160, height: 600, adClient: wideSkycraper.adClient, adSlot: wideSkycraper.adSlotWideSkycraper });
 
 		try {
-			$("#horizontalSkycraper").html(adHorizontalSkycraper);
-			$("#bigRectangle").html(adBigRectangle);
-			$("#wideSkycraper").html(adWideSkycraper);
+			// Load the ad blocks with a delay, in Firefox they add a browser history entry (only in the archive)
+			setTimeout(function() { $("#horizontalSkycraper").html(adHorizontalSkycraper); }, 250);
+			setTimeout(function() { $("#bigRectangle").html(adBigRectangle); }, 500);
+			setTimeout(function() { $("#wideSkycraper").html(adWideSkycraper); }, 750);
 		} catch (exception) {
-			console.error(exception)
+			console.error(exception);
 		}
 	}
 	
