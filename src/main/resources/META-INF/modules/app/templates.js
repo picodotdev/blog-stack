@@ -11,7 +11,7 @@ define("app/templates", ["mustache"], function(Mustache) {
     function adsense() {
     	var template = ''
     		+ '<script async="async" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
-    		+ '<ins class="adsbygoogle"?'
+    		+ '<ins class="adsbygoogle"'
     		+ '		style="display:inline-block;{{dimensions}}"'
     		+ '		data-ad-client="{{adClient}}"'
     		+ '		data-ad-slot="{{adSlot}}"></ins>'
