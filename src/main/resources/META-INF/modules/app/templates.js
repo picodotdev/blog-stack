@@ -18,6 +18,7 @@ define("app/templates", ["mustache"], function(Mustache) {
     		+ '<script>'
     		+ '		(adsbygoogle = window.adsbygoogle || []).push({});'
     		+ '</script>';
+    	
     	return template;
     }
     
