@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
+      "title" : "Presentación de Blog Stack"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
       "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdepicodev/2011/09/integracion-continua-con-jenkins",
       "title" : "Integración continua con Jenkins"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5",
-      "title" : "Componente AjaxSpinner para Tapestry 5"
     }
   ]
 }
