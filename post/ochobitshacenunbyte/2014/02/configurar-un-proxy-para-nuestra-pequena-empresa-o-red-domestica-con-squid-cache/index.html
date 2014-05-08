@@ -1,0 +1,169 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache"><span itemprop="headline">Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache.</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/02/18/configurar-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-02-18T20:45" itemprop="datePublished">Publicado el martes, 18 de febrero de 2014 a las 20:45 UTC</span></div><div><span datetime="2014-02-18T21:00" itemprop="dateModified">Actualizado el martes, 18 de febrero de 2014 a las 21:00 UTC</span></div><div><span>
+Etiquetado como
+
+debian
+
+,
+
+web
+
+,
+
+xfce
+
+,
+
+firefox
+
+,
+
+nube
+
+,
+
+squid
+
+,
+
+proxy
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_via="blogstack" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/Squid-cache1.jpg"><img alt="Squid-cache1" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/Squid-cache1.jpg" width="200" height="148" /></a>Controlar el uso que hacen los usuarios de internet en una red local de una oficina, a veces puede resultar una tarea ardua, pero si aprendemos a instalar y configurar debidamente una herramienta tan potente, como un proxy, tendremos parte de la situci&oacute;n controlada.</p> 
+<p></p> 
+<p>C&oacute;mo bien vemos en la defici&oacute;n de Proxy, en la Wikipedia, en su versi&oacute;n en castellano:</p> 
+<p>“Un <b>proxy</b>, en una <a title="Red inform&aacute;tica" href="http://es.wikipedia.org/wiki/Red_inform%C3%A1tica">red inform&aacute;tica</a>, es un programa o dispositivo que realiza una acci&oacute;n en representaci&oacute;n de otro, esto es, si una hipot&eacute;tica m&aacute;quina <i><b>A</b></i> solicita un recurso a una <i><b>C</b></i>, lo har&aacute; mediante una petici&oacute;n a <i><b>B</b></i>; <i><b>C</b></i> entonces no sabr&aacute; que la petici&oacute;n procedi&oacute; originalmente de <i><b>A</b></i>. Esta situaci&oacute;n estrat&eacute;gica de punto intermedio suele ser aprovechada para soportar una serie de funcionalidades: proporcionar cach&eacute;, control de acceso, registro del tr&aacute;fico, prohibir cierto tipo de tr&aacute;fico, etc.</p> 
+<p>Su finalidad m&aacute;s habitual es la de <b>servidor proxy</b>, que consiste en interceptar las conexiones de red que un cliente hace a un servidor de destino, por varios motivos posibles como seguridad, rendimiento, anonimato, etc. Esta funci&oacute;n de <b>servidor proxy</b> puede ser realizada por un programa o dispositivo.”</p> 
+<p>Para &eacute;ste articulo he instalado y configurado una m&aacute;quina virtual con <a title="Debian 7 Wheezy" href="https://www.debian.org/index.es.html">Debian 7 Wheezy</a>, con escritorio <a title="Escritorio XFCE" href="http://www.xfce.org/?lang=es">XFCE</a>.</p> 
+<p>Utilizaremos el fabuloso software proxy <a title="Squid-cache" href="http://www.squid-cache.org/">SQUID-CACHE</a>, que es muy f&aacute;cil de configurar e instalar. De hecho lo tenemos en los repositorios oficiales de Debian.</p> 
+<p>Recuerda que tienes que usar el superusuario para la instalaci&oacute;n y configuraci&oacute;n.</p> 
+<pre>apt-get -y update &amp;&amp; apt-get -y install squid</pre> 
+<p>Una vez instalado, nos vamos al directorio /etc/squid</p> 
+<pre>cd /etc/squid</pre> 
+<p>Y guardamos el archivo de configuraci&oacute;n squid.conf</p> 
+<pre>mv squid.conf squid.conf.back</pre> 
+<p>Ahora creamos el nuestro, aqu&iacute; cada uno elige el editor que m&aacute;s le guste.</p> 
+<pre>nano squid.conf</pre> 
+<p>Y comenzamos a editar. Aqu&iacute; os dejo un par de im&aacute;genes de como quedar&iacute;a un archivo de configuraci&oacute;n muy sencillo.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/6partesquid.png"><img alt="6partesquid" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/6partesquid.png" width="798" height="387" /></a>Y continua el archivo</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/5partesquid.png"><img alt="5partesquid" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/5partesquid.png" width="806" height="127" /></a>Ahora s&oacute;lo nos queda probar que el servicio funciona correctamente.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/7partesquid.png"><img alt="7partesquid" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/7partesquid.png" width="805" height="82" /></a>Ahora nos queda configurar el proxy en el navegador. En el navegador Firefox es muy f&aacute;cil.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox1.jpg"><img alt="firefox1" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox1.jpg" width="972" height="641" /></a></p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox2.jpg"><img alt="firefox2" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox2.jpg" width="473" height="540" /></a></p> 
+<p>Usar el proxy har&aacute; que los usuarios accedan m&aacute;s r&aacute;pidamente a la web. Y centrar&aacute; los posibles ataques en una sola m&aacute;quina, en la que tengamos configurado el servidor proxy.</p> 
+<p>Supongamos que tenemos sospecha que varios trabajadores acceden a p&aacute;ginas de poker on-line desde los equipos de la empresa. Ahora toca crear los archivos donde guardaremos las palabras claves que se tendr&aacute;n que bloquear en el navegador.</p> 
+<p>Primero de todo creamos un directorio donde se guardar&aacute;n los archivos de bloqueo.</p> 
+<pre>mkdir /etc/squid/bloqueos</pre> 
+<p>Y dentro creamos el archivo con las palabras prohibidas.</p> 
+<pre>nano /etc/squid/bloqueos/prohibidas</pre> 
+<p>Y escribimos las que m&aacute;s adelante bloquearemos</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/8partesquid.png"><img alt="8partesquid" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/8partesquid.png" width="642" height="135" /></a></p> 
+<p>Sigamos. Ahora nos toca definir la variable indicando donde se sit&uacute;a el archivo.</p> 
+<p>Aqu&iacute; definimos la variable “def_prohibidas” y indicamos que en la “Red_Local” est&aacute;n denegadas.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/9partesquid.png"><img alt="9partesquid" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/9partesquid.png" width="778" height="392" /></a></p> 
+<p>Si os fij&aacute;is al final del archivo he a&ntilde;adido la l&iacute;nea:</p> 
+<pre>http_access deny all</pre> 
+<p>De esta manera indicamos que todo lo que no est&eacute; declarado antes, es decir, nuestro “local host” junto con la “red_local” ser&aacute; denegado.</p> 
+<p>Si queremos acceder a una url con una expresi&oacute;n regular prohibida, nos saldr&aacute; el mensaje de acceso denegado.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox3.jpg"><img alt="firefox3" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/firefox3.jpg" width="897" height="425" /></a></p> 
+<p>Bien. Hemos podido ver un poco c&oacute;mo controlar de manera f&aacute;cil el acceso a la web de nuestros usuarios. Adem&aacute;s de hacer que la navegaci&oacute;n les sea m&aacute;s r&aacute;pida y segura. La configuraci&oacute;n de Proxy Squid Cache da para muchos art&iacute;culos, y para libros de centenares de p&aacute;ginas. Aqu&iacute; he querido hacer de forma f&aacute;cil y amena una configuraci&oacute;n simple y sencilla, sin muchas florituras. Si se tercia, iremos profundizando en el tema.</p> 
+<p>No dud&eacute;is en comentar.</p> 
+<p> </p>
+<div> 
+ <a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2014/02/18/configurar-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid/&amp;text=Configurar un proxy para nuestra peque&ntilde;a empresa o red dom&eacute;stica, con squid-cache." title="Click here if you like this article."> <img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /> </a> 
+</div></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_via="blogstack" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" st_title="Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache. | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "";
+var disqus_title = "Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache.";
+var disqus_url = "http://www.ochobitshacenunbyte.com/2014/02/18/configurar-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 241,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

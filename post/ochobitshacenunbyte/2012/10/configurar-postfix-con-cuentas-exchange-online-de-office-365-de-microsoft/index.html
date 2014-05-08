@@ -1,0 +1,227 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft"><span itemprop="headline">Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2012/10/29/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-10-29T09:58" itemprop="datePublished">Publicado el lunes, 29 de octubre de 2012 a las 09:58 UTC</span></div><div><span datetime="2013-01-29T11:28" itemprop="dateModified">Actualizado el martes, 29 de enero de 2013 a las 11:28 UTC</span></div><div><span>
+Etiquetado como
+
+exchange-online
+
+,
+
+debian-squeeze
+
+,
+
+backports
+
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+
+postfix
+
+,
+<a href="/label/microsoft"><span itemprop="articleSection">microsoft</span></a>
+,
+
+ofimatica
+
+,
+<a href="/label/gnulinux"><span itemprop="articleSection">gnulinux</span></a>
+,
+
+office-365
+
+,
+
+correo
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_via="blogstack" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits.jpg"><img title="ochobits" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits.jpg" width="159" height="104" /></a><a title="Office365" href="http://www.microsoft.com/es-es/office365/online-software.aspx?&amp;WT.srch=1&amp;WT.mc_id=PS_google_Brand_office365_Text">Office365</a> es la &uacute;ltima apuesta de <a title="Microsoft" href="http://www.microsoft.com/es-es/default.aspx">Microsoft</a> para competir en soluciones de comunicaci&oacute;n y colaboraci&oacute;n en la nube. Integrada por productos como<a title="Office Professional Plus" href="http://office.microsoft.com/es-es/professional-plus/"> Office Professional Plus</a>, que incluye Excel, Word, o <a title="Exchange Online" href="http://www.microsoft.com/es-mx/office365/exchange-online.aspx">Exchange Online</a>, producto al cual estamos interesados en &eacute;sta entrada, ya que integraremos una cuenta de correo de &eacute;sta plataforma en un servidor <a title="GNU/Linux" href="http://www.gnu.org/gnu/linux-and-gnu.es.html">GNU/Linux</a> con Postfix para usarlo como relay.</p> 
+<p>Exchange Online, se trata de una plataforma de correo empresarial, que como caracter&iacute;sticas principales permite compartir calendarios, correos de voz o correo electr&oacute;nico m&oacute;vil. Adem&aacute;s permite tener una capacidad por cuenta de 25GB. Office365 incluye mucho m&aacute;s servicios que no tratar&eacute; en este art&iacute;culo.</p> 
+<p></p> 
+<p>El correo Exchange Online exige cifrado <a title="TLS" href="http://es.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> para la transmisi&oacute;n del correo, caracter&iacute;stica que tendremos que tener en cuenta cuando configuremos dicho servidor.</p> 
+<p>Bien, ya vimos en su d&iacute;a <a title="Postfix" href="http://www.ochobitshacenunbyte.com/?p=45">como configurar una m&aacute;quina GNU/Linux con Postfix</a>. As&iacute; que hay detalles que omitir&eacute;.</p> 
+<p>Primero de todo, tenemos que tener activa una cuenta de Exchange Online, a la cual accederemos desde la url: <a href="http://login.microsoftonline.com/">http://login.microsoftonline.com</a>, como vemos en la siguiente imagen:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/login.jpg"><img title="login" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/login-1024x535.jpg" width="640" height="334" /></a></p> 
+<p>Una vez dentro, y para saber que configuraci&oacute;n debemos utilizar para configurar nuestro relay tenemos que seguir la ruta: Outlook – Opciones – Ver todas las opciones, una vez llegado aqu&iacute; deberemos ver la siguiente ventana:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/menu.jpg"><img title="menu" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/menu-1024x630.jpg" width="640" height="393" /></a></p> 
+<p>&nbsp;Ahora seleccionamos “Configuraci&oacute;n para acceso POP, IMAP y SMTP….”</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/popsmtp.jpg"><img title="popsmtp" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/10/popsmtp.jpg" width="561" height="489" /></a></p> 
+<p>Tomaremos nota de la configuraci&oacute;n <a title="SMTP" href="http://es.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>, es decir, del nombre del servidor, el puerto y el m&eacute;todo de cifrado, que como vemos es puerto 587 y cifrado TLS. Cuando tenemos esta informaci&oacute;n ya nos podemos ir a nuestro servidor GNU/Linux para configurarlo. &acute;</p> 
+<p>Yo he usado un servidor con <a title="Debian Squeeze" href="http://www.debian.org/releases/stable/">Debian Squeeze</a>, y he introducido los comandos siempre como root.</p> 
+<p>Para que funciona correctamente el servicio POSTFIX con cuentas de Office 365 tienen que ser versiones a partir de la 2.9.0 por tema de compatibilidad.</p> 
+<p>Por defecto en Debian Squeeze no vienen las &uacute;ltimas versiones de POSTFIX, as&iacute; que tenemos que usar los repositiros <a title="Backports" href="http://wiki.debian.org/Backports">BACKPORTS</a> para poder actualizar. Para ello debemos modificar el archivo /etc/apt/sources.list y a&ntilde;adir la siguiente l&iacute;nea:</p>  
+<pre>deb http://backports.debian.org/debian-backports squeeze-backports main contrib non-free</pre> 
+<p>Una vez a&ntilde;adida debemos actualizar el sistema con el comando:</p>  
+<pre>apt-get update</pre> 
+<p>Ahora nos toca instalar la &uacute;ltima versi&oacute;n usando backports.</p> 
+<pre>aptitude -t squeeze-backports install postfix</pre> 
+<p>B&aacute;sicamente la configuraci&oacute;n que tenemos que usar para que funcione correctamente nuestro servidor de relay, es la siguiente.</p> 
+<p>En el archivo<strong> main.cf.&nbsp;</strong></p> 
+<pre># Para que utilice todas nuestras interfaces de red
+
+inet_interfaces = all
+
+# Indicamos nuestro servidor, informaci&oacute;n que hemos recogido de la web de Exchange Online
+
+relayhost = [podxxxxx.outlook.com]:587
+
+# En los siguientes par&aacute;metros decimos que el servidor necesita autentificaci&oacute;n y la ubicaci&oacute;n del archivo con las credenciales de seguridad
+
+smtp_sasl_auth_enable = yes
+
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
+
+# Decimos que no aceptamos conexiones an&oacute;nimas
+
+smtp_sasl_security_options = noanonymous
+
+# Al usar cifrado TLS necesitamos indicar donde tenemos ubicado nuestro certificado
+
+smtp_tls_CAfile = /etc/postfix/cacert.pem
+
+# Indicamos que efectivamente vamos a usar TLS como sistema de cifrado
+
+smtp_use_tls = yes
+
+# Hacemos saber cual es nuestro dominio
+
+relay_domain = dominio.com
+
+# Tambi&eacute;n decimos que cuando se conecte al servidor siempre env&iacute;e un ehlo
+
+smtp_always_send_ehlo = yes
+
+# Aqu&iacute; viene una parte importante, tenemos que usar un archivo generic, donde indicaremos los alias que vamos a usar para el env&iacute;o
+
+smtp_generics_maps = hash:/etc/postfix/generic</pre> 
+<p>Y con esto ya tendr&iacute;amos listo el archivo main.cf</p> 
+<p>Ahora generaremos el certificado de seguridad, usaremos el comando cat, que enviar&aacute; la salida de un archivo de texto a otro, de la siguiente manera:</p> 
+<pre>cat /etc/ssl/certs/Thawte_Premium_Server_CA.pem &gt; /etc/postfix/cacert.pem</pre> 
+<p>Hay otras maneras de hacerlo, pero esta es la que me gusta a mi, para gustos colores.</p> 
+<p>Ahora crearemos el archivo donde guardaremos las credenciales (esto lo hicimos tambi&eacute;n en la otra entrada sobre Postfix)</p> 
+<p>Yo tengo el arhivo en un directorio a parte llamado sasl, lo puedes ubicar donde m&aacute;s rabia te de, siempre que indiques la ruta en main.cf, como hemos dicho antes.</p> 
+<p>Ser&iacute;a as&iacute;:</p> 
+<pre>cat /etc/ssl/certs/Thawte_Premium_Server_CA.pem &gt; /etc/postfix/cacert.pem</pre> 
+<p>Una vez dentro del archivo escribimos:</p> 
+<pre>[podxxxxx.outlook.com]:587 Nuestro correo:Password</pre> 
+<p>Salimos del editor nano, habiendo grabado antes con la combinaci&oacute;n &nbsp;<strong>CTRL+O</strong> para grabar &nbsp;y&nbsp;<strong>CTRL+X </strong>para salir.</p> 
+<p>Indicamos permisos al archivo para que s&oacute;lo el usuario root pueda verlo:</p> 
+<pre>chmod 600 /etc/postfix/sasl/passwd</pre> 
+<p>Ahora usamos el comando postmap, para que el archivo sea legible por el sistema Postfix:</p> 
+<pre>postmap /etc/postfix/sasl/passwd</pre> 
+<p>Bien, ahora viene una parte muy importante. Es la creaci&oacute;n del archivo generic.</p> 
+<p>Antes de nada, indicamos al sistema que queremos crear nuevos alias:</p> 
+<pre>newaliases</pre> 
+<p>Ahora creamos el archivo:</p> 
+<pre>nano /etc/postfix/generic</pre> 
+<p>Y lo editamos:</p> 
+<pre>[Superusuario del sistema] [Nuestra cuenta de Office365]</pre> 
+<p>Por ejemplo:</p> 
+<pre>root@debian.localdomain fulanitodelospalotes@midominio.com</pre> 
+<p>Eso har&aacute; que cuando enviemos la informaci&oacute;n al servidor de Microsoft, le digamos nuestra cuenta de correo, y no nuestra credencial de superusuario.</p> 
+<p>Salimos del editor y generemos un archivo legible:</p> 
+<pre>postmap /etc/postfix/generic</pre> 
+<p>Ahora que tenemos todos los archivo generados, podemos reiniciar el servidor:</p> 
+<pre>/etc/init.d/postfix restart</pre> 
+<p>Y probar un env&iacute;o:</p> 
+<pre>mail correo@dominio.com</pre> 
+<p>Recordad que con CTRL+D ten&eacute;is que enviar el correo, una vez introducido el texto y los destinatarios.</p> 
+<p>Notas: Las im&aacute;genes, ventanas y logos de Office 365 son propiedad de <a title="Microsoft" href="http://www.microsoft.com/es-es/default.aspx">Microsoft</a>. Para la edici&oacute;n y capturas de las im&aacute;genes he utilizado el programa <a title="GIMP 2.8" href="http://www.gimp.org/release-notes/gimp-2.8.html">GIMP 2.8</a></p> 
+<div> 
+ <a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2012/10/29/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft/&amp;text=Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft" title="Click here if you like this article."> <img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /> </a> 
+</div></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_via="blogstack" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft" st_title="Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "";
+var disqus_title = "Configurar Postfix con cuentas Exchange Online de Office 365 de Microsoft";
+var disqus_url = "http://www.ochobitshacenunbyte.com/2012/10/29/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/microsoft/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta microsoft</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 255,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2012/10/configurar-postfix-con-cuentas-exchange-online-de-office-365-de-microsoft"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

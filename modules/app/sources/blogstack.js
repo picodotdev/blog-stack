@@ -3,64 +3,64 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack",
+      "title" : "Zentyal lanza un nuevo Service Pack"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/05/personalizando-la-shell",
+      "title" : "Personalizando la shell"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix",
+      "title" : "Como configurar un relay de correo para nuestra empresa con Postfix"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman",
+      "title" : "gNewSense el sistema operativo que usa Richard Stallman"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
       "title" : "Presentación de Blog Stack"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i",
+      "title" : "Distribuciones cien por cien libres (Parte I)"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii",
+      "title" : "Distribuciones cien por cien libres (Parte II)"
     },
     {
       "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
       "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
     },
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/openbsd-lanza-la-version-55",
+      "title" : "OpenBSD lanza la version 5.5"
+    },
+    {
       "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
     },
     {
-      "url" : "/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette",
-      "title" : "Ejemplo lista de tareas con Marionette"
+      "url" : "/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i",
+      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte I)"
     },
     {
-      "url" : "/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react",
-      "title" : "Ejemplo lista de tareas con Backbone y React"
+      "url" : "/post/ochobitshacenunbyte/2014/04/una-tabla-de-elementos-con-mucho-humor",
+      "title" : "Una tabla de elementos con mucho humor"
     },
     {
-      "url" : "/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry",
-      "title" : "Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry"
+      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnulinux",
+      "title" : "Cambiar la hora y la fecha en GNU/Linux"
     },
     {
-      "url" : "/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs",
-      "title" : "Introducción y ejemplo de RequireJS"
+      "url" : "/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano",
+      "title" : "Editando desde la línea de comandos, con nano."
     },
     {
-      "url" : "/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript",
-      "title" : "Usar Grunt para ejecutar teses unitarios de código Javascript"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-840-evo-250-gb",
-      "title" : "Desempaquetado y análisis Samsung SSD 840 EVO 250 GB"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8",
-      "title" : "Novedades y nuevas características de Java 8"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
-      "title" : "Guía para la creación de un blog con Octopress"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos",
-      "title" : "Patrones de diseño en la programación orientada a objetos"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2012/08/desempaquetado-$003c$003cunboxing$003e$003e-de-amazon-kindle-touch",
-      "title" : "Desempaquetado («unboxing») de Amazon Kindle Touch"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms",
-      "title" : "Introducción y ejemplo sencillo de Java Message Service (JMS)"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2011/09/integracion-continua-con-jenkins",
-      "title" : "Integración continua con Jenkins"
+      "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-20",
+      "title" : "Huayra lanza su nueva versión 2.0"
     }
   ]
 }

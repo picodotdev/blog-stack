@@ -1,0 +1,193 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix"><span itemprop="headline">Como configurar un relay de correo para nuestra empresa con Postfix</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2012/07/10/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-07-10T12:27" itemprop="datePublished">Publicado el martes, 10 de julio de 2012 a las 12:27 UTC</span></div><div><span datetime="2014-05-07T14:05" itemprop="dateModified">Actualizado el miércoles, 07 de mayo de 2014 a las 14:05 UTC</span></div><div><span>
+Etiquetado como
+
+servidor-correo
+
+,
+
+virtualbox
+
+,
+
+debian
+
+,
+
+ibm-lotus-notes
+
+,
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>
+,
+
+postfix
+
+,
+
+wietse-venema
+
+,
+<a href="/label/gnulinux"><span itemprop="articleSection">gnulinux</span></a>
+,
+
+correo
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_via="blogstack" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/mysza.gif"><img title="mysza" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/mysza.gif" alt="" width="130" height="91" /></a>&Uacute;ltimamente en la empresa donde trabajo hemos tenido que configurar un nuevo servidor de “relay” de correo para sustituir al que ten&iacute;amos, que era un viejo <a title="IBM Lotus Notes" href="http://es.wikipedia.org/wiki/Lotus_Notes">IBM Lotus Notes</a>. Por suerte yo ya hab&iacute;a o&iacute;do hablar del servicio de correo de c&oacute;digo abierto Postfix, creado por el programador<a title="Wietse Venema" href="http://es.wikipedia.org/wiki/Wietse_Venema"> Wietse Venema</a>. Lo cierto es que he tenido que investigar un poco, mirando manuales en Internet, y visitando asiduamente la p&aacute;gina web del <a title="Postfix" href="http://www.postfix.org/">proyecto</a>, para as&iacute; de paso practicar mi ingl&eacute;s.</p> 
+<p>Bueno. Una vez explicado esto, os explico como lo instal&eacute; y configur&eacute;.</p> 
+<p></p> 
+<p>Primero de todo, decid&iacute; usar una distribuci&oacute;n GNU/Linux, me decid&iacute; por Debian, sin interfaz gr&aacute;fica, para as&iacute; ahorrar recursos al sistema. Una vez descargada la &uacute;ltima versi&oacute;n estable de su web: &nbsp;<a href="http://www.debian.org/CD/http-ftp/#stable">http://www.debian.org/CD/http-ftp/#stable</a>, procedemos a instalarla en una m&aacute;quina virtual, yo siempre uso el software de VirtualBox, que nos podemos descargar desde su web:&nbsp;<a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a>.</p> 
+<p>Cuando ya tenemos la distribuci&oacute;n instalada, actualizaremos la versi&oacute;n, ya sab&eacute;is, primero le decimos al sistema que queremos actuar como “root”, tecleando el comando “su”, que nos pedir&aacute; la contrase&ntilde;a. Cuando estemos ya como super usuario, &nbsp;modificaremos el fichero “sources.list” que es donde est&aacute;n las direcciones desde donde actualizaremos nuestro sistema, este fichero est&aacute; ubicado en “/etc/apt/”, el fichero yo lo tengo configurado de la siguiente manera:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/Imagen1-Debian.jpg"><img title="Sources.List" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/Imagen1-Debian.jpg" alt="" width="782" height="662" /></a></p> 
+<p>El siguiente paso, es utilizar el comando para actualizar nuestro sistema operativo:</p> 
+<pre>apt-get update</pre> 
+<p>Como la inmensa mayor&iacute;a de programas en GNU/Linux est&aacute;n escritos en Lenguaje C, siempre instalo en compilador “gcc” que ya habl&eacute; de &eacute;l en su <a title="GCC" href="http://www.ochobitshacenunbyte.com/?p=31">d&iacute;a</a>, adem&aacute;s del de “python”, que siempre se suelen utilizar en estos casos.</p> 
+<pre>apt-get install gcc python</pre> 
+<p>A continuaci&oacute;n instalamos los servicios a utilizar:</p> 
+<pre>apt-get install mailutils postfix</pre> 
+<p>Creamos un enlace para el comando mail</p> 
+<pre>ln -s /usr/bin/mail /bin/mail</pre> 
+<p>Empezamos a configurar postfix con nuestra configuraci&oacute;n de correo en internet (yo en este caso utilizar&eacute; gmail).</p> 
+<p>En el archivo ubicado en <strong>/etc/postfix/main.cf</strong>, debemos indicar la siguiente configuraci&oacute;n:</p> 
+<pre>relayhost = [smtp.gmail.com]:587
+smtp_use_tls = yes
+smtp_tls_CAfile = /etc/postfix/cacert.pem
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
+smtp_sasl_security_options = noanonymous</pre> 
+<p>Como dir&iacute;a Jack, vamos por partes:</p> 
+<p>En “relayhost” indicamos en que direcci&oacute;n est&aacute; ubicado nuestro servidor de relay en la nube, en este caso usamos el de gmail, adem&aacute;s tambi&eacute;n le indicamos el puerto, el 587, que es el que se usa para conexiones seguras por TLS. En las siguientes l&iacute;neas le decimos que usaremos el cifrado TLS, despu&eacute;s decimos donde tendremos ubicado dicho certificado, y por &uacute;ltimo que no aceptamos conexiones an&oacute;nimas.</p> 
+<p>Muy importante, al final del fichero indicamos:</p> 
+<pre>myhostname = debian</pre> 
+<p>Esto lo hacemos para indicar nuestro nombre de host.</p> 
+<pre>mynetworks = 192.168.x.0/24 192.168.x.0/24 127.0.0.0/8</pre> 
+<p>Esta parte es muy importante, si queremos utilizar nuestro servidor como relay de otras m&aacute;quinas, tenemos que declarar las redes donde est&aacute;n dichos equipos.</p> 
+<p>Por &uacute;ltimo:</p> 
+<pre>mydestination = $mydomain,$myhostname,localhost,locahost.domain</pre> 
+<p>Y con esto terminamos de editar el archivo.</p> 
+<p>A continuaci&oacute;n generamos el fichero “passwd”</p> 
+<pre>nano -w /etc/postfix/sasl/passwd</pre> 
+<p>Con nuestra configuraci&oacute;n de seguridad:</p> 
+<pre>[smtp.gmail.com]:587 usuario@gmail.com:contrase&ntilde;a</pre> 
+<p>Asignamos los permisos adecuados:</p> 
+<pre>chmod 600 /etc/postfix/sasl/passwd</pre> 
+<p>Transformamos el fichero passwd a un fichero indexado hash</p> 
+<pre>postmap /etc/postfix/sasl/passwd</pre> 
+<p>Vemos que haciendo esto tendremos un nuevo fichero llamado “<strong>passwd.db</strong>“</p> 
+<p>Instalamos los certificados:</p> 
+<pre>apt-get install ca-certificates</pre> 
+<p>A&ntilde;adimos la autoridad certificadora:</p> 
+<pre>cat /etc/ssl/certs/Equifax_Secure_CA.pem &gt;&gt; /etc/postfix/cacert.pem</pre> 
+<p>Reiniciamos el servicio de correo:</p> 
+<pre>/etc/init.d/postfix restart</pre> 
+<p>Probamos el env&iacute;o de un correo:</p> 
+<pre>mail -s &quot;el asunto&quot; usuario@gmail.com</pre> 
+<p><strong>CTRL+D(Enviarlo)</strong></p> 
+<p>Por &uacute;ltimo, si queremos ver el log del correo en directo, con el comando “tail” lo podemos hacer, visualizando las diez &uacute;ltimas l&iacute;neas de texto:</p> 
+<pre>cd /var/log
+tail -f mail.log</pre> 
+<p>Y con todo esto ya tenemos configurado nuestro servidor de correo.</p> 
+<p>Si quer&eacute;is saber m&aacute;s:</p> 
+<p><a title="PostFix Home Page" href="http://www.postfix.org/">Proyecto POSTFIX</a></p> 
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+<div> 
+ <a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2012/07/10/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix/&amp;text=Como configurar un relay de correo para nuestra empresa con Postfix" title="Click here if you like this article."> <img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /> </a> 
+</div></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_via="blogstack" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" st_title="Como configurar un relay de correo para nuestra empresa con Postfix | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "";
+var disqus_title = "Como configurar un relay de correo para nuestra empresa con Postfix";
+var disqus_url = "http://www.ochobitshacenunbyte.com/2012/07/10/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/gnulinux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnulinux</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 260,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h2><a href="/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite"><span itemprop="headline">Configurar e instalar módulo WIFI con Debian (Toshiba Satellite)</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2012/08/21/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2012-08-21T21:21" itemprop="datePublished">Publicado el martes, 21 de agosto de 2012 a las 21:21 UTC</span></div><div><span datetime="2013-01-29T11:39" itemprop="dateModified">Actualizado el martes, 29 de enero de 2013 a las 11:39 UTC</span></div><div><span>
+Etiquetado como
+
+windows-7
+
+,
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>
+,
+
+debian
+
+,
+
+wifi
+
+,
+
+toshiba
+
+,
+
+lspci
+
+,
+
+sistemas-operativos
+
+,
+
+realtek
+
+,
+
+squeeze
+
+,
+
+build-essential
+
+,
+
+canonical
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_via="blogstack" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1.jpg"><img title="ochobits" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1-150x104.jpg" width="150" height="104" /></a></p> 
+<p>Desde hace ya varios meses tengo instalado la &uacute;ltima versi&oacute;n de <a title="Debian Squeeze" href="http://www.debian.org/releases/stable/">Debian Squeeze</a> en mi ordenador de sobremesa, pero mi port&aacute;til <a title="Toshiba Satellite" href="http://es.computers.toshiba-europe.com/innovation/family/Satellite/2326/">Toshiba Satellite</a> se resist&iacute;a. Durante los a&ntilde;os pas&oacute; del Windows 7 que ven&iacute;a preinstalado, a diferentes versiones de <a title="Ubuntu" href="http://www.ubuntu.com/">Ubuntu</a>. Ayer decid&iacute;, que para ser coherente con mis &uacute;ltimos pensamientos en referencia a que un sistema tiene que ser en la medida de los posible Libre, y que los se&ntilde;ores de <a title="Canonical" href="http://www.canonical.com/">Canonical</a> se est&aacute;n extralimitando, a mi manera de ver, en la aceptaci&oacute;n de programas privativos, adem&aacute;s de que los productos que te intentan vender, si vender, hab&eacute;is oido bien, cada vez que visualizas el repositorio de programas, ya ha sido la gota que a colmado el baso. S&iacute;, es verdad, tienen todo su derecho a financiarse, eso no lo discuto, pero mi camino va por otro lado.</p> 
+<p>Pues al turr&oacute;n. Ayer descarg&eacute; la &uacute;ltima versi&oacute;n de Debian Squeeze 6.0.5, publicado el pasado 12 de mayo de &eacute;ste a&ntilde;o, y me puse manos a la obra. Esta claro que trabajar con Debian exige m&aacute;s conocimiento, &nbsp;y trabajar m&aacute;s duro, en ciertos casos, pero por otro lado, hace que trabajes mucho con la terminal, y eso siempre viene bien, para refrescar los comandos.</p> 
+<p>Una vez ya ten&iacute;a instalado el sistema, sucedi&oacute; lo que me imaginaba, la Wifi no funciona, o mejor dicho, no tengo m&oacute;dulo alguno para controlar la tarjeta wireless.</p> 
+<p></p> 
+<p>Para averiguar que tarjeta wireless tenemos en el ordenador, para as&iacute; poder buscarle el m&oacute;dulo correspondiente, tenemos que usar el siguiente comando:</p> 
+<pre>#lspci</pre> 
+<p>Este comando nos devolver&aacute; toda la lista de dispositivos pci que tenemos en el equipo. Aqu&iacute; ten&eacute;is un extracto:</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista1.jpg"><img title="lista1" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista1.jpg" width="650" height="188" /></a></p> 
+<p>El listado es un poco largo, as&iacute; que vamos diractamente al final:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista2.jpg"><img title="lista2" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista2.jpg" width="650" height="165" /></a></p> 
+<p>C&oacute;mo v&eacute;is en la imagen, la tarjeta Wireless es la que tiene el c&oacute;digo al inicio 14:00.0.</p> 
+<p>Si &nbsp;queremos ver m&aacute;s detalles del dispositivo, lo haremos de la siguiente manera:</p> 
+<pre>#lspci -s 14:00.0 -v</pre> 
+<p>Con -s decimos que queremos que nos muestre informaci&oacute;n del dispositivo seleccionado, con -v que la informaci&oacute;n sea amplia.</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista3.jpg"><img title="lista3" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/lista3.jpg" width="650" height="250" /></a>Ahora que ya tenemos toda la informaci&oacute;n del dispositivo nos toca buscarnos un poco la vida, y navegar por los mares de internet, para buscar un m&oacute;dulo que lo haga funcionar.</p> 
+<p>Yo opt&eacute; por buscar en los foros de forum.debian.net, la wiki de Debian y los de esdebian.org, adem&aacute;s San Google. &nbsp;Al fin encontr&eacute; el m&oacute;dulo correcto, os explicar&eacute; cual me funcion&oacute; y como lo instal&eacute;.</p> 
+<p>Primero de todo tenemos que actualizar el sistema:</p> 
+<pre>#apt-get update</pre> 
+<p>Como el fabricante es Realtek en el fichero /etc/apt/sources.list, a&ntilde;adiremos una l&iacute;nea en el repositorio:</p> 
+<pre>deb http://ftp.es.debian.org/debian squeeze main contrib non-free</pre> 
+<p>Y volvemos a actualizar con #apt-get update</p> 
+<p>Para poder compilar los archivo con “make”, tenemos que instalar el siguiente paquete:</p> 
+<pre>#apt-get install build-essential</pre> 
+<p>Y los paquetes:</p> 
+<pre>#apt-get install firmware-realtek wireless-tools</pre> 
+<p>Por &uacute;ltimo, descargar los ‘linux-headers’ correspondientes a nuestro kernel. Para saber nuestra versi&oacute;n usaremos el comando:</p> 
+<pre>#uname -r</pre> 
+<p>Y cuando sepamos el que tenemos instalarlo:</p> 
+<pre>#apt-get install linux-headers-(el que tengamos)</pre> 
+<p>Y ya podemos descargar el m&oacute;dulo.</p> 
+<p><strong>http://www.wireless-driver.com/realtek-rtl8191se-rtl8192se-wireless-linux-driver-ver0019/&nbsp;</strong></p> 
+<p>Cuando lo tenemos descargado, realizamos los siguientes pasos:</p> 
+<p>1. Accedemos al directorio donde hemos descomprimido el archivo:</p> 
+<pre>#cd ~/rtl8192se_linux_2.6.0019.1207.2010</pre> 
+<p>2. Nos logeamos como superusuario:</p> 
+<pre>#sudo su</pre> 
+<p>3. Compilamos:</p> 
+<pre>#make
+#make install</pre> 
+<p>4. Probamos el m&oacute;dulo:</p> 
+<pre>#modprobe r8192se_pci</pre> 
+<p>5. A&ntilde;adimos la l&iacute;nea “r8192se_pci” al archivo /etc/modules.</p> 
+<p>6. Y</p> 
+<pre>#Reboot</pre> 
+<p>Al reiniciar ya podremos ver la listas de wifis:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/wifi.jpg"><img title="wifi" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/wifi.jpg" width="300" height="301" /></a></p> 
+<p>&nbsp;</p> 
+<p>C&oacute;mo nota final, s&oacute;lo decir que da mucho “orgullo y satisfacci&oacute;n” como dir&iacute;a aquel, que despu&eacute;s de horas de buscarte la vida, y darle ca&ntilde;a a la shell, consigues lo que te propones.</p> 
+<p>Para realizar &eacute;ste art&iacute;culo he usado el programa de manipulaci&oacute;n de im&aacute;genes GNU, <a title="Gimp" href="http://packages.debian.org/sid/gimp">Gimp 2.6</a> , y el editor <a title="nano" href="http://www.nano-editor.org/">nano</a></p> 
+<p>Para escribir &eacute;ste art&iacute;culo me ha ayudado la informaci&oacute;n de las siguientes p&aacute;ginas webs:</p> 
+<p><em>http://www.cyberciti.biz/faq/howto-install-kernel-headers-package/</em></p> 
+<p><em>http://wiki.debian.org/WiFi/HowToUse</em></p> 
+<p><em>http://michael-peeters.blogspot.com.es/2011/06/fixing-rtl8191sevb-wifi-under-ubuntu.html</em></p> 
+<div> 
+ <a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2012/08/21/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite/&amp;text=Configurar e instalar m&oacute;dulo WIFI con Debian (Toshiba Satellite)" title="Click here if you like this article."> <img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /> </a> 
+</div></span></div><section><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_via="blogstack" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" st_title="Configurar e instalar módulo WIFI con Debian (Toshiba Satellite) | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "";
+var disqus_title = "Configurar e instalar módulo WIFI con Debian (Toshiba Satellite)";
+var disqus_url = "http://www.ochobitshacenunbyte.com/2012/08/21/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 258,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>
