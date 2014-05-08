@@ -16,5 +16,5 @@ public interface IndexerService {
 	List<Post> index() throws Exception;
 	
 	@Transactional(propagation = Propagation.REQUIRED)
-	List<Post> importAll() throws Exception;
+	List<Post> importSources() throws Exception;
 }

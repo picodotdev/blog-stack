@@ -38,6 +38,9 @@ public class Feeds {
 		feeds = new ArrayList<>();
 		if (post != null) {
 			for (Label l : post.getLabels()) {
+				if (!l.getEnabled()) {
+					continue;
+				}
 				feeds.add(new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss(l).getPath(), String.format("Fuente de la etiqueta %s", l.getName())));
 			}
 		} else if (label != null) {

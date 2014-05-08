@@ -12,6 +12,7 @@ import info.blogstack.services.dao.Sort;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -60,13 +61,18 @@ public class Label {
 		Pagination pagination = new Pagination(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE * (page + 1), sorts);
 		return service.getPostDAO().findAllByLabel(label, pagination);
 	}
-
+	
+	@Cached(watch = "label")
+	public Long getPostsCount() {
+		return service.getPostDAO().countBy(label);
+	}
+	
 	public boolean isFirstPage() {
 		return page == 0;
 	}
 	
 	public boolean isLastPage() {
-		return page + 1 > Globals.NUMBER_PAGES_LABEL;
+		return (page + 1 > Globals.NUMBER_PAGES_LABEL || getPostsCount() <= Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 	
 	public Object[] getPreviusContext() {

@@ -1,5 +1,7 @@
 package info.blogstack.components;
 
+import info.blogstack.entities.Adsense;
+
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.ComponentResources;
@@ -36,6 +38,10 @@ public class Layout {
 	@Parameter(defaultPrefix = BindingConstants.BLOCK)
 	@Property
 	private Block aside4;
+	
+	@Parameter
+	@Property
+	private Adsense adsense;
 
 	@Property
 	private String page;	

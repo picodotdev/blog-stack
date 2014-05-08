@@ -42,6 +42,12 @@ public class Label implements Serializable {
 	@Basic
 	@NotNull
 	private String hash;
+	
+	@Basic
+	private Boolean enabled;
+	
+	@Basic
+	private Boolean visible;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, mappedBy = "labels", fetch = FetchType.LAZY)
 	private Set<Post> posts;
@@ -85,6 +91,22 @@ public class Label implements Serializable {
 
 	public void setHash(String hash) {
 		this.hash = hash;
+	}
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Boolean getVisible() {
+		return visible;
+	}
+
+	public void setVisible(Boolean visible) {
+		this.visible = visible;
 	}
 
 	public Set<Post> getPosts() {

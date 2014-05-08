@@ -1,5 +1,6 @@
 package info.blogstack.services;
 
+import info.blogstack.entities.ImportSource;
 import info.blogstack.entities.Indexation;
 import info.blogstack.entities.Label;
 import info.blogstack.entities.Post;
@@ -13,7 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -76,24 +76,45 @@ public class IndexerServiceImpl implements IndexerService {
 	}
 	
 	@Override
-	public List<Post> importAll() throws Exception {
+	public List<Post> importSources() throws Exception {
 		List<Source> sources = service.getSourceDAO().findImportPending();
 
+		// Importar aquellas cuya fuente de información exista
+		List<Source> s = new ArrayList<>();
+		for (Source source : sources) {
+			File f = new File(Globals.IMPORT, String.format("%s.xml", source.getAlias()));
+			if (!f.exists()) {
+				continue;
+			}
+			s.add(source);
+		}
+		sources = s;
+
 		logger.info("Importing {} sources...", sources.size());
+		List<Post> posts = new ArrayList<>();		
+		if (sources.isEmpty()) {
+			return posts;
+		}
+
 		Indexation indexation = new Indexation();
 		indexation.setPosts(new ArrayList<Post>());
 		indexation.setCreationDate(DateTime.now());
 		service.getIndexationDAO().persist(indexation);
-		
-		List<Post> posts = new ArrayList<>();
+
 		for (Source source : sources) {
 			File f = new File(Globals.IMPORT, String.format("%s.xml", source.getAlias()));
-			if (!f.exists()) {
-				return Collections.EMPTY_LIST;
-			}
 			XmlReader reader = new XmlReader(f);
-
 			posts.addAll(index(indexation, source, reader));
+
+			ImportSource importSource = source.getImportSource();
+			if (importSource == null) {
+				importSource = new ImportSource();
+				importSource.setCreationDate(DateTime.now());
+				source.setImportSource(importSource);
+			}
+			importSource.setUpdateDate(DateTime.now());
+			service.getImportSourceDAO().persist(importSource);
+			service.getSourceDAO().persist(source);
 		}
 
 		return posts;
@@ -146,6 +167,7 @@ public class IndexerServiceImpl implements IndexerService {
 		} else if (post == null) {
 			post = new Post();
 			post.setCreationDate(now);
+			post.setVisible(true);
 		}
 
 		Set<Label> labels = indexLabels(entry.getCategories());
@@ -156,7 +178,7 @@ public class IndexerServiceImpl implements IndexerService {
 		post.setUrl(entry.getLink());
 		post.setTitle(entry.getTitle());
 		if (StringUtils.isBlank(entry.getAuthor())) {
-			post.setAuthor(source.getAutor());
+			post.setAuthor(source.getAuthor());
 		} else {
 			post.setAuthor(entry.getAuthor());
 		}
@@ -199,14 +221,16 @@ public class IndexerServiceImpl implements IndexerService {
 		for (SyndCategory category : categories) {
 			String n = Utils.urlize(category.getName());
 			String hash = Utils.getHash(new Object[] { n });
-			Label l = service.getLabelDAO().findByHash(hash);
-			if (l == null) {
-				l = new Label(n);
-				l.setPosts(new HashSet<Post>());
-				l.updateHash();
-				service.getLabelDAO().persist(l);
+			Label label = service.getLabelDAO().findByHash(hash);
+			if (label == null) {
+				label = new Label(n);
+				label.setEnabled(false);
+				label.setVisible(true);
+				label.setPosts(new HashSet<Post>());
+				label.updateHash();
+				service.getLabelDAO().persist(label);
 			}
-			es.add(l);
+			es.add(label);
 		}
 		return es;
 	}

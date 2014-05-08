@@ -18,7 +18,9 @@ public interface GeneratorService {
 	File getToRss(Label label);
 	
 	File generatePage(String page, Object[] context, Map<String, String> params) throws IOException;
-	List<File> generatePosts(List<Post> posts) throws IOException;
+	List<File> generateIndex() throws IOException;
+	List<File> generateLabels(List<Label> labels) throws IOException;
+	List<File> generatePosts(List<Post> posts) throws IOException;	
 	List<File> generateArchive(Collection<Post> posts) throws IOException;
 	File generatePost(Post post) throws IOException;
 	List<File> generateLastPosts(List<Source> sources) throws IOException;

@@ -40,7 +40,7 @@ public class Index {
 	}
 	
 	/**
-	 * Método que devuelve las articulos publicadas o actualizadas más recientemente.
+	 * Método que devuelve las artículos publicadas o actualizados más recientemente.
 	 */
 	public List<Post> getPosts() {
 		List<Sort> sorts = new ArrayList<>();

@@ -91,6 +91,9 @@ public class Post implements Serializable {
 	@Lob
 	@NotNull
 	private Blob contentCompressed;
+	
+	@Basic
+	private Boolean visible;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "source_id", nullable = false)
@@ -243,6 +246,14 @@ public class Post implements Serializable {
 		this.contentCompressed = contentCompressed;
 	}
 	
+	public Boolean getVisible() {
+		return visible;
+	}
+
+	public void setVisible(Boolean visible) {
+		this.visible = visible;
+	}
+
 	public Source getSource() {
 		return source;
 	}

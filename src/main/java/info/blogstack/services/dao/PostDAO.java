@@ -30,6 +30,9 @@ public interface PostDAO extends GenericDAO<Post> {
 	Long countBy(Source source);
 	
 	@Transactional(readOnly = true)
+	Long countBy(Label label);
+	
+	@Transactional(readOnly = true)
 	Long countAuthors();
 
 	@Transactional(readOnly = true)

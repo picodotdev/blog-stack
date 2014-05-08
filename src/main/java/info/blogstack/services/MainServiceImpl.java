@@ -1,10 +1,11 @@
 package info.blogstack.services;
 
-import info.blogstack.services.dao.PostDAO;
-import info.blogstack.services.dao.LabelDAO;
-import info.blogstack.services.dao.SourceDAO;
+import info.blogstack.services.dao.ImportSourceDAO;
 import info.blogstack.services.dao.IndexationDAO;
+import info.blogstack.services.dao.LabelDAO;
+import info.blogstack.services.dao.PostDAO;
 import info.blogstack.services.dao.RepositoryDAO;
+import info.blogstack.services.dao.SourceDAO;
 
 import org.apache.tapestry5.annotations.Service;
 import org.apache.tapestry5.services.PageRenderLinkSource;
@@ -22,11 +23,12 @@ public class MainServiceImpl implements MainService {
 	private PostDAO postDAO;
 	private LabelDAO labelDAO;
 	private SourceDAO sourceDAO;
+	private ImportSourceDAO importSourceDAO;
 	private IndexationDAO indexationDAO;
 	private RepositoryDAO repositoryDAO;
 	
 	@Autowired
-	public MainServiceImpl(SessionFactory sessionFactory, PageRenderLinkSource pageRenderLinkSource, IndexerService indexadorService, @Service("publicGeneratorService") GeneratorService publicGeneratorService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, IndexationDAO indextionDAO,  RepositoryDAO repositoryDAO) {
+	public MainServiceImpl(SessionFactory sessionFactory, PageRenderLinkSource pageRenderLinkSource, IndexerService indexadorService, @Service("publicGeneratorService") GeneratorService publicGeneratorService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, ImportSourceDAO importSourceDAO, IndexationDAO indextionDAO,  RepositoryDAO repositoryDAO) {
 		this.sessionFactory = sessionFactory;
 		this.pageRenderLinkSource = pageRenderLinkSource;
 		
@@ -36,6 +38,7 @@ public class MainServiceImpl implements MainService {
 		this.postDAO = postDAO;
 		this.labelDAO = labelDAO;
 		this.sourceDAO = sourceDAO;
+		this.importSourceDAO = importSourceDAO;
 		this.indexationDAO = indextionDAO;
 		this.repositoryDAO = repositoryDAO;
 	}
@@ -73,6 +76,11 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public SourceDAO getSourceDAO() {
 		return sourceDAO;
+	}
+	
+	@Override
+	public ImportSourceDAO getImportSourceDAO() {
+		return importSourceDAO;
 	}
 	
 	@Override

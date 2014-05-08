@@ -29,6 +29,7 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	public List<Post> findAll(Pagination pagination) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setFetchMode("labels", FetchMode.SELECT);
+		criteria.add(Restrictions.eq("visible", true));
 		setPagination(criteria, pagination);
 		return criteria.list();
 	}
@@ -37,6 +38,7 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	public List<Post> findAllBySource(Source source, Pagination pagination) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setFetchMode("labels", FetchMode.SELECT);
+		criteria.add(Restrictions.eq("visible", true));
 		criteria.add(Restrictions.eq("source", source));
 		setPagination(criteria, pagination);
 		return criteria.list();
@@ -46,6 +48,7 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	public List<Post> findAllByYearMonth(Integer year, Integer month) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setFetchMode("labels", FetchMode.SELECT);
+		criteria.add(Restrictions.eq("visible", true));
 		criteria.add(Restrictions.sqlRestriction("year({alias}.publishDate) = ?", year, IntegerType.INSTANCE));
 		criteria.add(Restrictions.sqlRestriction("month({alias}.publishDate) = ?", month, IntegerType.INSTANCE));
 		criteria.addOrder(Order.desc("publishDate"));
@@ -57,6 +60,7 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setFetchMode("labels", FetchMode.SELECT);
 		criteria.createAlias("labels", "l");
+		criteria.add(Restrictions.eq("visible", true));
 		criteria.add(Restrictions.in("l.id", Collections.singleton(label.getId())));
 		setPagination(criteria, pagination);
 		return criteria.list();
@@ -80,20 +84,31 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	public Long countBy(Source source) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setProjection(Projections.rowCount());
+		criteria.add(Restrictions.eq("visible", true));
 		criteria.add(Restrictions.eq("source", source));
+		return (Long) criteria.uniqueResult();
+	}
+	
+	@Override
+	public Long countBy(Label label) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
+		criteria.createAlias("labels", "l");
+		criteria.setProjection(Projections.rowCount());
+		criteria.add(Restrictions.eq("visible", true));
+		criteria.add(Restrictions.in("l.id", Collections.singleton(label.getId())));
 		return (Long) criteria.uniqueResult();
 	}
 
 	@Override
 	public Long countAuthors() {
-		// ¿No se puede hacer esto con HQL?
+		// TODO: ¿No se puede hacer esto con HQL?
 		Query query = sessionFactory.getCurrentSession().createSQLQuery("select count(distinct(source_id, author)) from blogstack.post");
 		return ((Number) query.uniqueResult()).longValue();
 	}
 	
 	@Override
 	public List<Map> getArchive() {
-		Query query = sessionFactory.getCurrentSession().createQuery("select new map(year(p.publishDate) as year, month(p.publishDate) as month, count(*) as posts) from Post p group by year(p.publishDate), month(p.publishDate) order by year(p.publishDate) desc, month(p.publishDate) desc");
+		Query query = sessionFactory.getCurrentSession().createQuery("select new map(year(p.publishDate) as year, month(p.publishDate) as month, count(*) as posts) from Post p where p.visible = true group by year(p.publishDate), month(p.publishDate) order by year(p.publishDate) desc, month(p.publishDate) desc");
 		return (List<Map>) query.list();
 	}
 }

@@ -108,23 +108,41 @@ public class GeneratorServiceImpl implements GeneratorService {
 	}
 
 	@Override
-	public File generatePage(String page, Object[] context, Map<String, String> params) throws IOException {
-		File file = new File(to, getToPage(page, context, params).getPath());
-		logger.info("Generating page «{}» ({}, {})...", page, file, params.toString());
-
-		file.getParentFile().mkdirs();
-
-		Writer w = new FileWriter(file);
-		render(page, context, params, Globals.LOCALE, w);
-		w.close();
-
-		return file;
+	public List<File> generateIndex() throws IOException {
+		List<File> files = new ArrayList<>();
+		File page = generatePage("index", new Object[0], Collections.EMPTY_MAP);
+		files.add(page);
+		for (int i = 1; i <= Globals.NUMBER_PAGES_INDEX; ++i) {
+			File npage = generatePage("index", new Object[] { "page", i }, Collections.EMPTY_MAP);
+			files.add(npage);
+		}
+		return files;
+	}
+	
+	public List<File> generateLabels(List<Label> labels) throws IOException {
+		List<File> files = new ArrayList<>();
+		for (Label label : labels) {
+			if (!label.getEnabled()) {
+				continue;
+			}			
+			String l = Utils.urlize(label.getName());
+			File labelPage = generatePage("label", new Object[] { l }, Collections.EMPTY_MAP);
+			Long n = service.getPostDAO().countBy(label);
+			Integer np = Math.min(((Double) Math.floor(n / Globals.NUMBER_POSTS_PAGE)).intValue(), Globals.NUMBER_PAGES_LABEL);
+			for (int i = 1; i <= np; ++i) {
+				File ilabelPage = generatePage("label", new Object[] { l, "page", i }, Collections.EMPTY_MAP);
+			}
+		}
+		return files;
 	}
 
 	@Override
 	public List<File> generatePosts(List<Post> posts) throws IOException {
 		List<File> files = new ArrayList<>();
 		for (Post post : posts) {
+			if (!post.getVisible()) {
+				continue;
+			}
 			files.add(generatePost(post));
 		}
 		return files;
@@ -142,6 +160,9 @@ public class GeneratorServiceImpl implements GeneratorService {
 		
 		Map<String ,Object[]> dates = new HashMap<>();
 		for (Post post : posts) {
+			if (!post.getVisible()) {
+				continue;
+			}
 			String y = String.valueOf(post.getDate().getYear());
 			String m = StringUtils.leftPad(String.valueOf(post.getDate().getMonthOfYear()), 2, "0");
 			dates.put(String.format("%s-%s", y, m), new Object[] { y, m });
@@ -159,6 +180,10 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Override
 	public File generatePost(Post post) throws IOException {
+		if (!post.getVisible()) {
+			return null;
+		}
+		
 		logger.info("Generating post «{}» ({}, {})...", post.getTitle(), post.getId(), post.getSource().getName());
 
 		Object[] context = Utils.getContext(post);
@@ -242,6 +267,9 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 			JSONArray ps = new JSONArray();
 			for (Post post : posts) {
+				if (!post.getVisible()) {
+					continue;
+				}
 				JSONObject object = new JSONObject();
 				object.put("url", service.getPageRenderLinkSource().createPageRenderLinkWithContext("post", Utils.getContext(post)).toString());
 				object.put("title", post.getTitle());
@@ -303,6 +331,10 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Override
 	public File generateRss(Label label) throws Exception {
+		if (!label.getEnabled()) {
+			return null;
+		}
+		
 		Pagination pagination = new Pagination(0, Globals.NUMBER_ARTICLES_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
 		List<Post> posts = service.getPostDAO().findAllByLabel(label, pagination);
 
@@ -332,6 +364,10 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 		List<SyndEntry> es = new ArrayList<>();
 		for (Post post : posts) {
+			if (!post.getVisible()) {
+				continue;
+			}
+
 			SyndEntry e = new SyndEntryImpl();
 			if (post.getUpdateDate() != null) {
 				e.setUpdatedDate(post.getUpdateDate().toDate());
@@ -382,6 +418,10 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 		int i = 0;
 		for (Post post : posts) {
+			if (!post.getVisible()) {
+				continue;
+			}
+			
 			String loc = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post)).toAbsoluteURI();
 			String lastmod = formatter.print(post.getDate());
 			String changefreq = (post.getDate().isAfter(DateTime.now().plusDays(-7))) ? "daily" : "monthly";
@@ -398,6 +438,20 @@ public class GeneratorServiceImpl implements GeneratorService {
 		Writer w = new FileWriter(file);
 		IOUtils.copy(r, w);
 		r.close();
+		w.close();
+
+		return file;
+	}
+	
+	@Override
+	public File generatePage(String page, Object[] context, Map<String, String> params) throws IOException {
+		File file = new File(to, getToPage(page, context, params).getPath());
+		logger.info("Generating page «{}» ({}, {})...", page, file, params.toString());
+
+		file.getParentFile().mkdirs();
+
+		Writer w = new FileWriter(file);
+		render(page, context, params, Globals.LOCALE, w);
 		w.close();
 
 		return file;

@@ -2,6 +2,8 @@ package info.blogstack.services.dao;
 
 import info.blogstack.entities.Label;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -12,6 +14,14 @@ public class LabelDAOImpl extends GenericDAOImpl<Label> implements LabelDAO {
 	@Autowired
 	public LabelDAOImpl(SessionFactory sessionFactory) {
 		super(Label.class, sessionFactory);
+	}
+	
+	@Override
+	public List<Label> findAll(Pagination pagination) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Label.class);
+		criteria.add(Restrictions.eq("enabled", true));
+		setPagination(criteria, pagination);
+		return criteria.list();
 	}
 	
 	@Override

@@ -7,6 +7,7 @@
     <property name="selectMaxIdImportSource" value="(select max(id) from ${schema}.import_source)"/>
     
     <changeSet id="1" author="picodotdev">
+        <comment>Creación de la base de datos inicial (01-05-2014)</comment>
         <sql>create schema ${schema}</sql>
         <createTable tableName="indexation" schemaName="${schema}">
             <column autoIncrement="true" name="id" type="BIGINT">
@@ -120,6 +121,7 @@
         </createIndex>
     </changeSet>
     <changeSet id="2" author="picodotdev">
+        <comment>Fuentes propias iniciales (01-05-2014)</comment>
         <insert tableName="adsense" schemaName="${schema}">
             <column name="adsenseAdClient" value="ca-pub-3533636310991304" />
             <column name="adsenseSlotBigRectangle" value="2873752587" />
@@ -163,4 +165,82 @@
             <column name="importsource_id" valueComputed="${selectMaxIdImportSource}"/>
         </insert>
     </changeSet>
+    <changeSet id="3" author="picodotdev">
+        <comment>Añadidos campos para poder filtar contenido agregado (08-05-2014)</comment>
+        <addColumn tableName="source" schemaName="${schema}">
+            <column name="enabled" type="boolean"/>
+        </addColumn>
+        <addColumn tableName="post" schemaName="${schema}">
+            <column name="visible" type="boolean"/>
+        </addColumn>
+        <addColumn tableName="label" schemaName="${schema}">
+            <column name="enabled" type="boolean"/>
+            <column name="visible" type="boolean"/>
+        </addColumn>
+        <update tableName="source" schemaName="${schema}">
+            <column name="enabled" valueBoolean="true"/>
+        </update>
+        <update tableName="post" schemaName="${schema}">
+            <column name="visible" valueBoolean="true"/>
+        </update>
+        <update tableName="label" schemaName="${schema}">
+            <column name="enabled" valueBoolean="true"/>
+            <column name="visible" valueBoolean="true"/>
+        </update>
+        <update tableName="source" schemaName="${schema}">
+            <column name="enabled" valueBoolean="false"/>
+            <where>alias = 'elblogdepicodev'</where>
+        </update>
+    </changeSet>
+    <changeSet id="4" author="picodotdev">
+        <comment>Agregación de fuente (08-05-2014)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-1362235464953379" />
+            <column name="adsenseSlotBigRectangle" value="5825737840" />
+            <column name="adsenseSlotWideSkycraper" value="5825737840" />
+            <column name="adsenseSlotHorizontalSkycraper" value="5825737840" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Ocho bits hacen un byte"/>
+            <column name="alias" value="ochobitshacenunbyte"/>
+            <column name="pageUrl" value="http://www.ochobitshacenunbyte.com/"/>
+            <column name="url" value="http://www.ochobitshacenunbyte.com/feed/atom/"/>
+            <column name="author" value="David Penya"/>
+            <column name="email" value="info@ochobitshacenunbyte.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+    <changeSet id="6" author="picodotdev">
+        <comment>Crrección de la fuente agregada (08-05-2014)</comment>
+        <update tableName="source" schemaName="${schema}">
+            <column name="url" value="http://www.ochobitshacenunbyte.com/tag/blog-stack/feed/atom/"/>
+            <where>alias = 'ochobitshacenunbyte'</where>
+        </update>
+    </changeSet>        
+    <!--
+    <changeSet id="5" author="picodotdev">
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Laborategia"/>
+            <column name="alias" value="laborategia"/>
+            <column name="pageUrl" value="http://laborategia.net/"/>
+            <column name="url" value="http://laborategia.net/tag/blog-stack/feed/"/>
+            <column name="author" value="Dabid Martinez"/>
+            <column name="email" value="dabid@laborategia.net"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Placer Digital"/>
+            <column name="alias" value="placerdigital"/>
+            <column name="pageUrl" value="http://placerdigital.net/"/>
+            <column name="url" value="http://placerdigital.net/tag/blog-stack/feed/atom/"/>
+            <column name="author" value="Ricardo Barra"/>
+            <column name="email" value="chuqui@gmail.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+    -->
 </databaseChangeLog>

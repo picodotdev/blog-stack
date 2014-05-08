@@ -1,7 +1,6 @@
 package info.blogstack.entities;
 
 import info.blogstack.misc.Globals;
-import info.blogstack.services.MainService;
 
 import java.io.Serializable;
 import java.util.List;
@@ -69,6 +68,9 @@ public class Source implements Serializable {
 	@Basic
 	private String disqusShortname;
 	
+	@Basic
+	private Boolean enabled;
+	
 	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.LAZY)
 	private Adsense adsense;
 	
@@ -135,12 +137,12 @@ public class Source implements Serializable {
 		this.url = url;
 	}
 	
-	public String getAutor() {
+	public String getAuthor() {
 		return author;
 	}
 
-	public void setAutor(String autor) {
-		this.author = autor;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getEmail() {
@@ -157,6 +159,14 @@ public class Source implements Serializable {
 
 	public void setDisqusShortname(String disqusShortname) {
 		this.disqusShortname = disqusShortname;
+	}
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public Adsense getAdsense() {
@@ -183,10 +193,6 @@ public class Source implements Serializable {
 		this.posts = posts;
 	}	
 	
-	private MainService getService() {
-		return Globals.registry.getService(MainService.class);
-	}
-
 	@Override
 	public boolean equals(Object o) {
 	    if (o == this) return true;

@@ -4,7 +4,6 @@ import info.blogstack.entities.Label;
 import info.blogstack.entities.Post;
 import info.blogstack.entities.Source;
 import info.blogstack.misc.Globals;
-import info.blogstack.misc.Utils;
 import info.blogstack.services.GeneratorModule;
 import info.blogstack.services.MainService;
 import io.undertow.Undertow;
@@ -183,7 +182,7 @@ public class Main {
 			logger.info("Indexing...");
 			service.getIndexerService().setForceIndex(iindex);
 			if (importOption) {
-				List<Post> p = service.getIndexerService().importAll();
+				List<Post> p = service.getIndexerService().importSources();
 				posts.addAll(p);
 			}
 			if (index || iindex) {
@@ -204,18 +203,10 @@ public class Main {
 			labels = (ggenerate) ? service.getLabelDAO().findAll() : labels;
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
-				File indexPage = service.getPublicGeneratorService().generatePage("index", new Object[0], Collections.EMPTY_MAP);
-				for (int i = 1; i <= Globals.NUMBER_PAGES_INDEX; ++i) {
-					File iindexPage = service.getPublicGeneratorService().generatePage("index", new Object[] { "page", i }, Collections.EMPTY_MAP);
-				}
-				for (Label label : labels) {
-					String l = Utils.urlize(label.getName());
-					File labelPage = service.getPublicGeneratorService().generatePage("label", new Object[] { l }, Collections.EMPTY_MAP);
-					for (int i = 1; i <= Globals.NUMBER_PAGES_LABEL; ++i) {
-						File ilabelPage = service.getPublicGeneratorService().generatePage("label", new Object[] { l, "page", i }, Collections.EMPTY_MAP);
-					}
-				}
+				List<File> pindex = service.getPublicGeneratorService().generateIndex();
+				List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));
 			}
+
 			if (ggenerate) {
 				File faqPage = service.getPublicGeneratorService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
 			}
