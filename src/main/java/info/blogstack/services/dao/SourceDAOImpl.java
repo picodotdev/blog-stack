@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,13 @@ public class SourceDAOImpl extends GenericDAOImpl<Source> implements SourceDAO {
 		criteria.createAlias("importSource", "is", JoinType.LEFT_OUTER_JOIN);
 		criteria.add(Restrictions.or(Restrictions.isNull("importSource"), Restrictions.isNull("is.updateDate")));
 		return criteria.list();
+	}
+
+	@Override
+	public Long countAll() {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Source.class);
+		criteria.add(Restrictions.eq("enabled", true));
+		criteria.setProjection(Projections.rowCount());
+		return (Long) criteria.uniqueResult();
 	}
 }

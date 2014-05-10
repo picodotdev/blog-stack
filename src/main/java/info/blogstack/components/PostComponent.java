@@ -41,8 +41,8 @@ public class PostComponent {
 		return sharethis || karmacracy;
 	}
 	
-	public boolean isComent() {
-		return disqus;
+	public boolean isComment() {
+		return disqus && post.getSource().getDisqusShortname() != null;
 	}
 	
 	@Cached(watch = "post")

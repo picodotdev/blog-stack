@@ -24,13 +24,13 @@
 		mantenimiento preguntándole por la situación finalmente Planeta Linux está disponible. Por otro lado también tengo mi bitácora agregada a <a
 			href="http://www.planetacodigo.com/">Planeta Código</a> y de vez en cuando publico algo en <a href="http://www.javahispano.org/">JavaHispano</a> pero creo que se les podría
 		hacer algunos añadidos para tener un mejor agregador, planeta, o fuente de información. Desde darle un mejor aspecto hasta el permitir incluir el contenido que en la mayoría
-		de agregadores es filtrado por seguridad como videos de <a href="https://www.youtube.com/">Youtube</a> o <a href="https://vimeo.com/">Vimeo</a>, presentaciones de <a
+		de agregadores es filtrado por seguridad como vídeos de <a href="https://www.youtube.com/">Youtube</a> o <a href="https://vimeo.com/">Vimeo</a>, presentaciones de <a
 			href="https://speakerdeck.com/">Speaker Deck</a>, Gist de <a href="https://github.com/">GitHub</a>, comentarios de <a href="http://disqus.com/">Disqus</a> y permitir
 		monetizar el contenido con publicidad de <a href="https://www.google.com/adsense/">AdSense</a> o el programa de <a href="https://afiliados.amazon.es/">afiliados de
-			Amazon</a>. Además, a través de las etiquetas los lectores pueden suscribirse únicamente a los temas que les interesen sin tener que suscribirse a cada bitácora de forma
-		individual. Otro planeta en el que tengo <a href="http://elblogdepicodev.blogspot.com.es/">mi antigua bitácora</a> agregada es <a href="http://planeta.archlinux-es.org/">Planeta
-			Arch Linux</a> pero aún estoy esperando a que me agregen <a href="http://picodotdev.github.io/blog-bitix/">el nuevo</a> supongo que por falta de tiempo por parte de las
-		personas encargadas de su mantenimiento, en cualquier caso tampoco he recibido al menos una respuesta.
+			Amazon</a>. Además, a través de las etiquetas los lectores pueden suscribirse únicamente a los temas que les interesen. Otro planeta en el que tengo <a
+			href="http://elblogdepicodev.blogspot.com.es/">mi antigua bitácora</a> agregada es <a href="http://planeta.archlinux-es.org/">Planeta Arch Linux</a> pero aún estoy
+		esperando a que me agregen <a href="http://picodotdev.github.io/blog-bitix/">el nuevo</a> supongo que por falta de tiempo por parte de las personas encargadas de su
+		mantenimiento, en cualquier caso tampoco he recibido al menos una respuesta.
 	</p>
 
 	<p>También quería poner a las bitácoras personales y al contenido, en los que algunos se escriben valiosas píldoras de conocimiento concentrado, en el lugar que se
@@ -42,16 +42,21 @@
 
 	<h2>Tengo una bitácora, ¿qué me ofrece Blog Stack?</h2>
 
-	<p>Ahora en los inicios en principio no mucho pero a medida que se vayan agregando bitácoras y se de a conocer probablemente hará que tus artículos lleguen a más
+	<p>Ahora en los inicios de BS en principio no mucho pero a medida que se vayan agregando bitácoras y se de a conocer probablemente hará que tus artículos lleguen a más
 		lectores, posiblemente recibas más comentarios en los artículos y algunas visitas o nuevos suscriptores directamente de tu bitácora.</p>
+
+	<p>
+		Si en tu bitácora muestras publicidad de <a href="https://www.google.com/adsense/">AdSense</a> BS es capaz de mostrar publicidad tuya en el contenido agregado de tu
+		bitácora. Esta funcionalidad de mostrar publicidad de la fuente es algo que desconozco si se ha aplicado en alguna otra página.
+	</p>
 
 	<h2>Soy un lector, ¿qué me ofrece Blog Stack?</h2>
 
 	<p>A medida que se vayan agregando nuevas bitácoras e implemente algunas funcionalidades te permitirá descubrir nuevo contenido y nuevas bitácoras. Además, podrás
 		suscribirte al contenido de las etiquetas en las que estés interesado en vez de tener que suscribirte a cada una de las bitácoras individuales y de forma completa con tu
-		lector de feeds.</p>
+		lector de feeds. No todos los agregadores o planetas permiten suscribirse al contenido por etiquetas.</p>
 
-	<a name="quesenecesita" />
+	<a id="aggregate"></a>
 	<h2>Tengo una bitácora, ¿qué se necesita para agregarla?</h2>
 
 	<p>
@@ -64,12 +69,13 @@
 	<ul>
 		<li><strong>Nombre de la bitácora (*)</strong></li>
 		<li><strong>URL del bitácora (*)</strong></li>
-		<li><strong>URL de la fuente («feed») a agregar (*)</strong>: preferentemente el feed de una categoría o etiqueta asociada a Blog Stack (por ejemplo, blog-stack), de
-			esta forma podrás escribir contenido en tu bitácora que no tenga la temática de Blog Stack.</li>
-		<li><strong>Fuente completa de tu bitácora (*)</strong>: si quieres que BS agrege todo el contenido de tu bitácora necesitaré que me envíes en un archivo un feed que
-			incluya todos los artículos, ya que en las fuentes solo se incluyen por defecto unas pocos artículos.</li>
+		<li><strong>URL de la fuente («feed») a agregar (*)</strong>: preferentemente el «feed» de una categoría o etiqueta asociada a Blog Stack (por ejemplo, blog-stack), de
+			esta forma podrás escribir contenido en tu bitácora que no tenga la temática de Blog Stack. El «feed» debería incluir el contenido completo de los artículos, no solo un
+			extracto.</li>
 		<li><strong>Dirección de correo electrónico (*)</strong>: por si alguna vez necesito ponerme en contacto con el propietario de la bitácora.</li>
-		<li><strong>Identificador de AdSense (data-ad-client)</strong>: si quieres que BS muestre anuncios tuyos y así recibas ingresos por publicidad es el identificador que
+		<li><strong>Fuente completa de tu bitácora</strong>: si quieres que BS agrege todo el contenido de tu bitácora necesitaré que me envíes en un archivo un feed que
+			incluya todos los artículos, ya que en las fuentes solo se incluyen por defecto unas pocos artículos.</li>
+		<li><strong>Identificador de AdSense (data-ad-client)</strong>: si quieres que BS muestre anuncios tuyos y así recibas ingresos por publicidad, es el identificador que
 			AdSense ha asignado para tus anuncios.</li>
 		<li><strong>Identificadores de bloques de anuncio AdSense (data-ad-slot)</strong>: si quieres que BS muestre anuncios tuyos es el identificador de los diferentes tipos
 			de anuncio mostrados en BS, deberás crear un bloque de anuncios skycraper-horizontal, rectángulo-grande, skycraper-ancho y proporcionar sus data-ad-slot.</li>
@@ -80,8 +86,8 @@
 		<small>(*) dato requerido.</small>
 	</p>
 
-	<p>Finalmente, puedes incluir la siguiente insignia al pie o en un lateral de tu bitácora y escribir un pequeño artículo en tu bitácora sobre Blog Stack para contribuir
-		un poquito a darlo a conocer.</p>
+	<p>Finalmente, puedes incluir la siguiente insignia al pie o en un lateral de tu bitácora y escribir un pequeño artículo en tu bitácora sobre Blog Stack para contribuir a
+		darlo a conocer.</p>
 
 	<div class="text-center">
 		<a t:type="pagelink" page="index"><img src="${context:images/blog-stack-80x15.png}" border="0" alt="Blog Stack" title="Blog Stack" /></a>
@@ -127,6 +133,17 @@
 	<p>
 		Mi dirección de correo electrónico es <a href="mailto:pico.dev@gmail.com">pico.dev@gmail.com</a>.
 	</p>
+
+	<h2>Exoneración</h2>
+
+	<p>
+		Siempre trataré de responder a todos los correos que me lleguen a <a href="mailto:pico.dev@gmail.com">mi dirección de correo electrónico</a> y atender a todas las <a
+			href="https://github.com/picodotdev/blogstack.info/issues">peticiones que se creen en GitHub</a>.
+	</p>
+
+	<p>A pesar de la buena voluntad y de que trataré que en todo momento funcione correctamente en algún momento puede que algo deje de funcionar o esté mal, si se da el caso
+		trataré de restaurar el servicio o corregir el problema. Pero tened en cuenta que Blog Stack es un proyecto personal que mantengo por afición y en mi tiempo libre, puede
+		pasar algo de tiempo hasta que responda y puede no estar libre de fallos puntuales.</p>
 
 	<h2>¿Cómo funciona tecnológicamente?</h2>
 

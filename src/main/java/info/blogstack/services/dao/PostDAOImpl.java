@@ -81,6 +81,14 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	}
 
 	@Override
+	public Long countAll() {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
+		criteria.setProjection(Projections.rowCount());
+		criteria.add(Restrictions.eq("visible", true));
+		return (Long) criteria.uniqueResult();
+	}
+	
+	@Override
 	public Long countBy(Source source) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Post.class);
 		criteria.setProjection(Projections.rowCount());

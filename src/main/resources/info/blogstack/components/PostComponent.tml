@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 	<article itemscope="" itemtype="http://schema.org/BlogPosting">
+		<a id="content"></a>
 		<header><h2><a t:type="pagelink" page="post" context="context"><span itemprop="headline">${post.title}</span></a></h2></header>
 		<t:data object="post"/>
 		<div class="text-justify post-content">
@@ -17,13 +18,15 @@
 		</div>
 		<t:if test="share">
 			<section>
+				<a id="share"></a>
 				<h1>Compartir</h1>
 				<t:if test="sharethis"><t:sharethis post="post"/></t:if>
 				<t:if test="karmacracy"><t:karmacracy post="post"/></t:if>
 			</section>
 		</t:if>
-		<t:if test="coment">
+		<t:if test="comment">
 			<section>
+				<a id="comments"></a>
 				<h1>Comentar</h1>
 				<t:if test="disqus"><t:disqus post="post"/></t:if>
 			</section>

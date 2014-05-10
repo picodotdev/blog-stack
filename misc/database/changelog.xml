@@ -213,24 +213,27 @@
         </insert>
     </changeSet>
     <changeSet id="6" author="picodotdev">
-        <comment>Crrección de la fuente agregada (08-05-2014)</comment>
+        <comment>Corrección de la fuente agregada (08-05-2014)</comment>
         <update tableName="source" schemaName="${schema}">
             <column name="url" value="http://www.ochobitshacenunbyte.com/tag/blog-stack/feed/atom/"/>
             <where>alias = 'ochobitshacenunbyte'</where>
         </update>
     </changeSet>        
-    <!--
-    <changeSet id="5" author="picodotdev">
+    <changeSet id="7" author="picodotdev">
+        <comment>Agregación de fuente (11-05-2014)</comment>
         <insert tableName="source" schemaName="${schema}">
             <column name="creationDate" valueDate="SYSDATE()"/>
             <column name="name" value="Laborategia"/>
             <column name="alias" value="laborategia"/>
             <column name="pageUrl" value="http://laborategia.net/"/>
-            <column name="url" value="http://laborategia.net/tag/blog-stack/feed/"/>
+            <column name="url" value="http://laborategia.net/tag/blog-stack/feed/atom/"/>
             <column name="author" value="Dabid Martinez"/>
             <column name="email" value="dabid@laborategia.net"/>
             <column name="enabled" valueBoolean="true"/>
         </insert>
+    </changeSet>
+    <!--
+    <changeSet id="7" author="picodotdev">
         <insert tableName="source" schemaName="${schema}">
             <column name="creationDate" valueDate="SYSDATE()"/>
             <column name="name" value="Placer Digital"/>
