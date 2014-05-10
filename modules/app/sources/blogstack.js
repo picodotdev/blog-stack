@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
+      "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
+    },
+    {
+      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnulinux-oculta-ficheros-en-otros-ficheros",
+      "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack",
       "title" : "Zentyal lanza un nuevo Service Pack"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnulinux",
       "title" : "Cambiar la hora y la fecha en GNU/Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano",
-      "title" : "Editando desde la línea de comandos, con nano."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-20",
-      "title" : "Huayra lanza su nueva versión 2.0"
     }
   ]
 }
