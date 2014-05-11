@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2014",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
+    },
+    {
       "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/una-tabla-de-elementos-con-mucho-humor",
       "title" : "Una tabla de elementos con mucho humor"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnulinux",
-      "title" : "Cambiar la hora y la fecha en GNU/Linux"
     }
   ]
 }
