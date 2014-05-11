@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/indie-box-one-el-servidor-listo-para-usar",
+      "title" : "Indie Box one el servidor listo para usar"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2014",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte I)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/una-tabla-de-elementos-con-mucho-humor",
-      "title" : "Una tabla de elementos con mucho humor"
     }
   ]
 }
