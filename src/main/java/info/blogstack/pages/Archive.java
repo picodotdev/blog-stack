@@ -54,7 +54,7 @@ public class Archive {
 	}
 	
 	public String getTitle() {
-		return (isGeneric()) ? "Archivo" : String.format("Archivo %d/%d", year, month);
+		return (isGeneric()) ? "Archivo" : String.format("Archivo %s/%s", String.valueOf(year), StringUtils.leftPad(String.valueOf(month), 2, "0"));
 	}
 	
 	public boolean isGeneric() {

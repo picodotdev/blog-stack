@@ -97,7 +97,14 @@
 								<t:if test="!firstLabel">
 									, 
 								</t:if>				
-								<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>
+								<t:if test="label.visible">
+									<t:if test="label.enabled">
+										<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>
+										<p:else>
+											${label.name}
+										</p:else>
+									</t:if>
+								</t:if>
 							</t:loop>
 						</span>
 					</div>
