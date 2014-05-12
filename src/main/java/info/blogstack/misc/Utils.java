@@ -56,7 +56,7 @@ public class Utils {
 	}
 
 	public static String urlize(String text) {
-		return Utils.trasnliterate(text.toLowerCase().replaceAll("\\p{Space}[\\p{Punct}&&[^-]]", " ").replaceAll("[\\p{Punct}&&[^-]]", "").replaceAll("[\\p{Space}]", "-").replaceAll("-+", "-"));
+		return Utils.trasnliterate(text.toLowerCase().replaceAll("[\\p{Space}¡[\\p{Punct}&&[^-]]]", " ").replaceAll("[\\p{Punct}&&[^-]]", "").replaceAll("[\\p{Space}]", "-").replaceAll("-+", "-").replaceAll("^-+", "").replaceAll("-+$", ""));
 	}
 	
 	public static String trasnliterate(String s) {
