@@ -3,7 +3,7 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-136-de-calibre",
+      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-1-36-de-calibre",
       "title" : "Lanzada la versión 1.36 de Calibre"
     },
     {
@@ -31,7 +31,7 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "Distribuciones cien por cien libres (Parte II)"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/openbsd-lanza-la-version-55",
+      "url" : "/post/ochobitshacenunbyte/2014/05/openbsd-lanza-la-version-5-5",
       "title" : "OpenBSD lanza la version 5.5"
     },
     {
@@ -43,7 +43,7 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "Una tabla de elementos con mucho humor"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnulinux",
+      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnu-linux",
       "title" : "Cambiar la hora y la fecha en GNU/Linux"
     },
     {
@@ -51,11 +51,11 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "Editando desde la línea de comandos, con nano."
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-20",
+      "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2-0",
       "title" : "Huayra lanza su nueva versión 2.0"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnulinux",
+      "url" : "/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnu-linux",
       "title" : "Listar los usuarios de un sistema GNU/Linux"
     },
     {
