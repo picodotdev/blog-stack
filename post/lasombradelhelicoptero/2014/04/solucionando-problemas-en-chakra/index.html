@@ -1,0 +1,244 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Solucionando problemas en Chakra | La sombra del helicóptero</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra"><span itemprop="headline">Solucionando problemas en Chakra</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Enrique Bravo</span> en la bitácora <a href="http://www.lasombradelhelicoptero.com">La sombra del helicóptero</a>, <a href="http://www.lasombradelhelicoptero.com/2014/04/solucionando-problemas-en-chakra.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-04-01T14:39" itemprop="datePublished">Publicado el martes, 01 de abril de 2014 a las 14:39 UTC</span></div><div><span datetime="2014-04-01T14:39" itemprop="dateModified">Actualizado el martes, 01 de abril de 2014 a las 14:39 UTC</span></div><div><span>
+Etiquetado como
+
+experiencias
+
+,
+
+chakra
+
+,
+
+tutorial
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_via="blogstack" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">Con la &uacute;ltima, ya en&eacute;sima, re-instalaci&oacute;n de mi sistema operativo GNU/Linux favorito me he topado con algunos problemillas, tanto ya conocidos como de nueva aparici&oacute;n. Los hay que son meras incomodidades, con las que se puede convivir sin m&aacute;s, mientras que otros te pueden dar al traste con la experiencia de uso del equipo. Sean de una clase o de otra, todas han encontrado soluci&oacute;n con algo de paciencia y dedicaci&oacute;n. Estas son las peque&ntilde;as cosas que, dependiendo de tu estado de &aacute;nimo y tu predisposici&oacute;n al aprendizaje en cada momento pueden hacer que te alejes de GNU/Linux si no dispones de tiempo o ganas. Cuando no es el caso, ocurre lo contrario y... 
+<i>habemus</i> tutorial.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-ZVmQUyy95Qw/Uzp_TeZQQyI/AAAAAAAAEXk/sNtwrkjhxlA/s1600/Problema-soluci%C3%B3n.jpg"><img src="http://3.bp.blogspot.com/-ZVmQUyy95Qw/Uzp_TeZQQyI/AAAAAAAAEXk/sNtwrkjhxlA/s1600/Problema-soluci%C3%B3n.jpg" height="300" width="400" /></a>
+</div>
+<br />
+<br />
+<a></a>Partimos de un sistema 
+<a href="http://chakraos.org/home/?get">Chakra GNU/Linux Curie</a> reci&eacute;n instalado en mi archiconocido 
+<a href="http://www.lasombradelhelicoptero.com/p/equipo-de-pruebas.html">equipo dom&eacute;stico de sobremesa</a>. Tras los pasos de rigor en toda instalaci&oacute;n, me dirijo a mi propio 
+<a href="http://www.lasombradelhelicoptero.com/2013/02/cosas-que-hacer-despues-de-instalar.html">tutorial de puesta a punto</a> e instalo todo lo necesario para mi desempe&ntilde;o inform&aacute;tico diario. Cuando ya esta todo listo, comienza la resoluci&oacute;n de problemas, que paso a desglosar punto por punto.
+<br />
+<br />
+<b>La impresora HP Laserjet 1018 no imprime</b>
+<br />Hace unos meses que tuve que prescindir de mi vetusta Epson Stylus Color 680, pues la impresi&oacute;n dejaba ya mucho que desear (l&iacute;neas por todas partes, letras y fotograf&iacute;as mal alineadas...), algo l&oacute;gico al tratarse de un modelo con 14 a&ntilde;os a sus espaldas. Recuper&eacute; para su uso en casa una HP Laserjet 1018, impresora l&aacute;ser monocromo, que sol&iacute;a utilizar en el negocio de hosteler&iacute;a de mi familia pol&iacute;tica y que &uacute;ltimamente no ten&iacute;a ya apenas utilidad (s&iacute;, lo hab&eacute;is adivinado, la 
+<strike>
+ crisis
+</strike> estafa haciendo estragos).
+<br />
+<b> </b>
+<br />Ya sab&iacute;a, por experiencia, que este tipo de impresora precisa de un &quot;plugin&quot; propietario de HP para funcionar en GNU/Linux, algo que se instala autom&aacute;ticamente en distros m&aacute;s amigables, como Ubuntu. Tambi&eacute;n sab&iacute;a que este &quot;plugin&quot; da problemas en Arch y derivadas, siendo la alternativa m&aacute;s simple la instalaci&oacute;n de los controladores 
+<a href="http://chakraos.org/ccr/packages.php?ID=2600">foo2zjs</a>, disponibles en CCR para Chakra y en AUR para Arch, Manjaro y dem&aacute;s. Por desgracia, los 
+<a href="http://ext4.wordpress.com/2014/03/18/que-pasa-con-chakra-que-todo-el-mundo-se-calme/">turbulentos momentos</a> por los que atraviesa Chakra tienen la desagradable consecuencia de que CCR no sea un prioridad, sobre todo cuando hablamos de paquetes mantenidos por usuarios que son, a la vez, desarrolladores importantes de la distribuci&oacute;n, caso del que nos ocupa. La instalaci&oacute;n desde CCR, como pod&eacute;is suponer por lo ya comentado, fall&oacute; estrepitosamente.
+<br />
+<br />Dado que dicho desarrollador, responsable de la paqueter&iacute;a del repositorio [core], probablemente tendr&iacute;a cosas m&aacute;s importantes de las que ocuparse en este momento, decid&iacute; arreglar yo mismo el desaguisado, empleando para ello otro de mis tutoriales de cosecha propia: el de importaci&oacute;n de paquetes 
+<a href="http://www.lasombradelhelicoptero.com/2013/03/tutorial-de-aur-ccr-un-ejemplo-practico.html">de AUR a CCR</a>. Eso s&iacute;, dichos paquetes se quedar&iacute;an en mi equipo sin ser subidos, algo que no es posible hacer cuando ya existe el mismo paquete, para evitar la duplicidad de los programas.
+<br />
+<br />La operaci&oacute;n tampoco tuvo &eacute;xito, alg&uacute;n tipo de incompatibilidad imped&iacute;a la instalaci&oacute;n del paquete en mi sistema, de manera que hube de acudir a los creadores del controlador, quienes, curiosamente, en 
+<a href="http://foo2zjs.rkkda.com/">su p&aacute;gina</a> desaconsejan la instalaci&oacute;n de los paquetes pre-compilados para la gran mayor&iacute;a de distribuciones. Siguiendo las instrucciones que all&iacute; se dan consegu&iacute; instalar el controlador foo2zjs. Pero... Tras intentar instalar la impresora con el m&oacute;dulo correspondiente de KDE y con la interfaz web de CUPS, me encontr&eacute; con que, efectivamente se instalaba, pero no imprim&iacute;a. El mensaje de error &quot;Filter failed&quot; (&quot;fall&oacute; el filtro&quot;) era lo &uacute;nico que obten&iacute;a.
+<br />
+<br />Lleg&oacute; entonces el turno de Duck Duck Go, logrando hallar, tras varios intentos, la ra&iacute;z del problema en la madre de todas las wikis: 
+<a href="https://wiki.archlinux.org/index.php/CUPS_%28Espa%C3%B1ol%29#La_impresora_no_funciona_o_devuelve_como_error_.C2.ABFilter_failed.C2.BB_en_la_interfaz_web_de_CUPS_.28HP_printer.29">la de Arch</a>. Se trataba de un problema de permisos en el puerto USB, subsanado completamente gracias a la informaci&oacute;n all&iacute; encontrada. Uno, que ha sido usuario de Arch y de Chakra durante la mayor parte de su tiempo en GNU/Linux, siempre estar&aacute; en deuda con esta wiki y su inconmensurable aportaci&oacute;n al software libre. Gracias, Arch.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-q4k5pL1CP44/Uzp_2J6_HgI/AAAAAAAAEXs/iycCypp5Gao/s1600/Chakra9.png"><img src="http://4.bp.blogspot.com/-q4k5pL1CP44/Uzp_2J6_HgI/AAAAAAAAEXs/iycCypp5Gao/s1600/Chakra9.png" height="320" width="400" /></a>
+</div>
+<br />
+<b>Mejorando el &quot;scrolling&quot; en Firefox</b>
+<br />Lo mencionaba como uno de las diferencias m&aacute;s notables entre Windows y GNU/Linux en 
+<a href="http://www.lasombradelhelicoptero.com/2014/03/desmontando-shadow.html">mi art&iacute;culo</a> de pseudo-despedida.
+<b> </b>Lo corroboraba el comentario de otro sufridor de AMD/ATI en GNU/Linux, 
+<a href="http://www.lasombradelhelicoptero.com/2014/03/desmontando-shadow.html?showComment=1393863837350#c749358548632988750">INDX (Juan Mart&iacute;nez)</a>. Pero en lo que ambos est&aacute;bamos equivocados era en atribuir el problema a los deficientes controladores gr&aacute;ficos de dicha empresa para GNU/Linux. O no... En mi actual instalaci&oacute;n de Chakra uso los controladores propietarios Catalyst, por si alguien se lo estaba preguntando.
+<br />
+<br />Pues bien, me atrevo a afirmar, por fin, que he equiparado la rapidez del &quot;scrolling&quot; de la rueda del rat&oacute;n en Windows y en Chakra, con dos sencillos pasos:
+<br />
+<br />1 - En el m&oacute;dulo de Configuraci&oacute;n del sistema de KDE --&gt; Dispositivos de entrada --&gt; Rat&oacute;n, pesta&ntilde;a Avanzado, apartado &quot;La rueda del rat&oacute;n desplaza&quot;. Ah&iacute; ponemos el valor m&aacute;ximo, que son 12 l&iacute;neas.
+<br />
+<br />2 - En Firefox, abrimos &quot;about:config&quot; y buscamos la expresi&oacute;n &quot;mousewheel.min_line_scroll_amount&quot;, sustituyendo el valor asignado (creo que era 5), por un valor mucho mayor, sobre 50 &oacute; 60, dependiendo de los gustos de cada cual.
+<br />
+<br />Salimos y volvemos a entrar en Firefox y... 
+<i>voil&aacute;</i>, el &quot;scroll&quot; es much&iacute;simo m&aacute;s r&aacute;pido, a la altura del de Windows. Ignoro el motivo, pero en la versi&oacute;n de Firefox para el sistema de Microsoft, el valor asignado a la expresi&oacute;n vista arriba es 5. Sin embargo, el &quot;scrolling&quot; va perfecto con ese valor en Windows. Misterios insondables, o tal vez, Juan y yo no &iacute;bamos tan desencaminados y el controlador gr&aacute;fico tiene algo que ver... Si alg&uacute;n lector puede arrojar luz sobre el asunto, se lo agradecer&iacute;a. En el siguiente v&iacute;deo - mis disculpas por la p&eacute;sima calidad - se ve lo que quiero decir:
+<br />
+<br />
+<div style="clear: both; text-align: center;"></div>
+<br />Por cierto, la elecci&oacute;n de la web de un conocido peri&oacute;dico para la demostraci&oacute;n obedece &uacute;nicamente a razones de &quot;carga&quot; de la misma, pues contiene gran cantidad de material en Flash y v&iacute;deos que suelen hacer m&aacute;s lenta la navegaci&oacute;n.
+<br />
+<br />
+<b>Acabando con las congelaciones de Plasma</b>
+<br />Otro de mis caballos de batalla, que incluso un d&iacute;a me condujo a llegar tarde a recoger a mi hijo, como contaba 
+<a href="http://www.lasombradelhelicoptero.com/2014/01/pesadilla-antes-de-navidad.html">en su momento</a>, y finalmente a la decisi&oacute;n de dejar nuevamente de usar Chakra en favor de Ubuntu. En esta nueva instalaci&oacute;n, el problema se segu&iacute;a reproduciendo e incluso dir&iacute;a que era m&aacute;s frecuente su aparici&oacute;n: de buenas a primeras, sin estar haciendo nada especial, la barra de tareas y el espacio de trabajo de Plasma quedaban congelados. Pod&iacute;a abrir una sesi&oacute;n en terminal con CTRL+Fn, pod&iacute;a incluso cambiar de ventana con ALT+TAB, pero todo lo dem&aacute;s no funcionaba.
+<br />
+<br />En aquel fat&iacute;dico d&iacute;a en que el reloj de KDE me llev&oacute; a enga&ntilde;o, como suele ser habitual en m&iacute;, el cabreo me imped&iacute;a pensar e investigar, y mi &uacute;nico objetivo era dejar atr&aacute;s los errores y arramplar con todo lo que tuviese que ver con la distro y el escritorio en cuesti&oacute;n. Si hubiera contado hasta diez e indagado un poco, se me habr&iacute;a presentado la ocasi&oacute;n de acabar con el molesto problema, cuyo origen estaba en el plasmoide de NetworkManager. Llegu&eacute; a esta conclusi&oacute;n tras encontrar varios hilos en foros diversos de varias distribuciones (openSUSE, Kubuntu, Arch, Debian) con errores similares que no encontraban soluci&oacute;n. Alguien, en uno de dichos hilos, propon&iacute;a a los plasmoides como fuente del problema y daba como remedio un ejercicio concreto: desactivarlos todos e ir activ&aacute;ndolos uno por uno hasta dar con el que provocaba el comportamiento err&aacute;tico en KDE.
+<br />
+<br />Y a la primera fue la vencida. Tras sustituir NetworkManager por Wicd, siguiendo las instrucciones de la 
+<a href="http://chakraos.org/wiki/index.php?title=Wicd">wiki de Chakra</a>, se acabaron las congelaciones de KDE de una vez por todas. Por fin puedo fiarme del reloj...
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-e29ezGwMl28/UzqdOvqNI8I/AAAAAAAAEX8/Vpv1bvskAHI/s1600/Chakra10.png"><img src="http://1.bp.blogspot.com/-e29ezGwMl28/UzqdOvqNI8I/AAAAAAAAEX8/Vpv1bvskAHI/s1600/Chakra10.png" height="320" width="400" /></a>
+</div>
+<br />
+<b>KDE lento al copiar archivos grandes a pendrive</b>
+<br />Este problema no me lo hab&iacute;a encontrado anteriormente, pues ten&iacute;a costumbre de hacer &quot;streaming&quot; desde el equipo de sobremesa al port&aacute;til para ver los episodios de mis series favoritas en el sal&oacute;n. Recientemente cambi&eacute; de proveedor de Internet, y el Livebox de Orange provocaba molestos cortes durante el &quot;streaming&quot;, de modo que tuve que optar por pasar los ficheros a mi pendrive y de ah&iacute; llevarlos al port&aacute;til.
+<br />
+<br />En Windows, todo hay que decirlo, cero problemas. Fue al intentar hacer la copia de archivos de casi 4 Gb de tama&ntilde;o a mi pendrive en Chakra cuando not&eacute; que todo el escritorio se enlentec&iacute;a (el rat&oacute;n se mov&iacute;a como a saltos) y el uso del procesador se disparaba a casi el 100%. A la vez que esto ocurr&iacute;a, la tasa de transferencia deca&iacute;a sin parar hasta hacerse inviable la copia (menos de 100 Kb por segundo). En los foros de Arch aportaban 
+<a href="https://bbs.archlinux.org/viewtopic.php?id=170231">una soluci&oacute;n</a> que me sirvi&oacute; una vez, pero no las sucesivas. Finalmente, con la calma que da disponer de una partici&oacute;n de Windows para hacer la copia (cualquiera se pone a buscar la soluci&oacute;n a las tantas de la noche mientras la se&ntilde;ora se impacienta en el sal&oacute;n...) y poder as&iacute; investigar con tranquilidad en otro momento, encontr&eacute; una causa y la forma de subsanarlo en el 
+<a href="http://www.pclinuxos.com/forum/index.php?topic=96501.0">foro de PCLinuxOS</a>. Deshabilitando el modo &quot;USB Legacy&quot; en la BIOS dije adi&oacute;s al problema. Lo malo es que al deshabilitar dicho modo me qued&eacute; sin la posibilidad de usar el teclado antes de iniciar el sistema, lo cual se traduce en que no se puede entrar en la BIOS ni elegir nada en Grub. Por si a alguien le ocurre, se soluciona quitando la bater&iacute;a de la placa base durante un minuto m&aacute;s o menos, con el equipo desconectado de la corriente para resetear la BIOS. Si no sois muy duchos en esto de toquetear la BIOS, tened cuidado de no equivocaros en la elecci&oacute;n.
+<br />
+<br />Aparte del fastidio que supone no poder usar el teclado hasta haber entrado en el sistema, not&eacute; que el ahorro de energ&iacute;a del monitor no se activaba. Ni idea de qu&eacute; tiene que ver esto con el USB Legacy, pero cuando resete&eacute; la BIOS volvi&oacute; a funcionar.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-vHfV8DyzcX4/UzqgJCIFA0I/AAAAAAAAEYI/vlRmaAPj8oo/s1600/tux-constructor.png"><img src="http://3.bp.blogspot.com/-vHfV8DyzcX4/UzqgJCIFA0I/AAAAAAAAEYI/vlRmaAPj8oo/s1600/tux-constructor.png" /></a>
+</div>
+<br />Total que, puestos a elegir, decid&iacute; seguir con la investigaci&oacute;n.Y hete aqu&iacute; que la sapiencia y el esp&iacute;ritu comunitario de Gregorio Espadas me dieron por fin la ansiada soluci&oacute;n, en un 
+<a href="http://gespadas.com/copia-lenta">art&iacute;culo</a> de su blog. Bastaba a&ntilde;adir al primer paso que yo describ&iacute;a (el mencionado en la wiki de Arch), un segundo (editando un fichero de configuraci&oacute;n con par&aacute;metros del kernel). Mano de santo, oigan. No solo se estabiliz&oacute; la velocidad de transferencia de principio a fin en torno a los 7 Mb por segundo, sino que desapareci&oacute; completamente la lentitud y los &quot;lags&quot; de respuesta del rat&oacute;n. Por segunda vez, gracias Arch. Y, por supuesto, gracias maestro Espadas.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-6mT2psC4u5E/UzrLQT6xu3I/AAAAAAAAEYs/o5Frw9TvvCs/s1600/Chakra13.png"><img src="http://3.bp.blogspot.com/-6mT2psC4u5E/UzrLQT6xu3I/AAAAAAAAEYs/o5Frw9TvvCs/s1600/Chakra13.png" height="320" width="400" /></a>
+</div>
+<br />
+<br />
+<b>Firefox no tematizado al abrir desde gmail-plasmoid</b>
+<br />Si bien todo lo anteriormente relatado puede ser &uacute;til a usuarios de cualquier distribuci&oacute;n con KDE, sospecho que esta &uacute;ltima soluci&oacute;n solamente se aplica a Chakra. Hace mucho que utilizo el 
+<a href="https://code.google.com/p/gmail-plasmoid/">plasmoide de Gmail de KDE</a> para la notificaci&oacute;n y apertura de correos electr&oacute;nicos. Dentro de la configuraci&oacute;n del plasmoide se puede elegir la acci&oacute;n a realizar cuando se hace clic con el rat&oacute;n sobre &eacute;l, que en mi caso se trata de abrir el navegador Firefox con la bandeja de entrada de mi cuenta, ya que no uso clientes de correo. Siempre me ocurr&iacute;a que, si no estaba abierto el navegador, al abrirlo a trav&eacute;s del plasmoide aparec&iacute;a sin el tema oxygen-gtk, con un horrible &quot;look&quot; a lo Windows 95. No era un problema molesto, bastaba abrir normalmente Firefox y luego hacer clic en el plasmoide para que la pesta&ntilde;a con la bandeja de entrada tuviera la apariencia normal.
+<br />
+<br />La soluci&oacute;n, hallada investigando por mi cuenta con los enlaces de KDE, pasa por sustituir la orden de apertura del navegador en la configuraci&oacute;n del plasmoide: en lugar de &quot;firefox %u&quot;, utilizar la expresi&oacute;n &quot;xdg-open %u&quot;. De este modo, el plasmoide abre el navegador por defecto que hayamos indicado en las preferencias de KDE, y lo abre tematizado, como debe ser.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://3.bp.blogspot.com/-zgEqXDlELEo/UzqgnPcNAJI/AAAAAAAAEYQ/hIYN4slBRhw/s1600/Chakra11.png"><img src="http://3.bp.blogspot.com/-zgEqXDlELEo/UzqgnPcNAJI/AAAAAAAAEYQ/hIYN4slBRhw/s1600/Chakra11.png" height="320" width="400" /></a>
+</div>
+<br />
+<b>Resumiendo, que es gerundio</b>
+<br />Para quienes no deseen tomarse la molestia de leer el tocho previo, hago un breve resumen de cada problema y su soluci&oacute;n propuesta:
+<br />
+<b> </b>
+<br />
+<b>Problema: </b>HP Laserjet 1018 no imprime, mensaje &quot;Filter failed&quot;
+<b></b>.
+<br />
+<b>Soluci&oacute;n: </b>instalar los controladores foo2zjs y dar permisos al puerto USB.
+<br />
+<br />
+<b>Problema: </b>&quot;scrolling&quot; lento en Firefox.
+<br />
+<b>Soluci&oacute;n: </b>ampliar las l&iacute;neas que desplaza la rueda del rat&oacute;n en KDE y en el m&oacute;dulo de configuraci&oacute;n de Firefox (about:config).
+<br />
+<br />
+<b>Problema: </b>KDE se congela.
+<br />
+<b>Soluci&oacute;n: </b>desinstalar el plasmoide NetworkManager y usar Wicd.
+<br />
+<br />
+<b>Problema: </b>KDE lento al copiar archivos a pendrive o USB externo.
+<br />
+<b>Soluci&oacute;n:&nbsp; </b>el maestro Gregorio Espadas la cuenta 
+<a href="http://gespadas.com/copia-lenta">aqu&iacute;</a>. 
+<br />
+<br />
+<b>Problema: </b>Firefox no tematizado si se abre desde gmail-plasmoid.
+<br />
+<b>Soluci&oacute;n: </b>usar la expresi&oacute;n &quot;xdg-open %u&quot; en lugar de &quot;firefox %u&quot;.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-NrHdIMA_HBQ/UzqknkvZaKI/AAAAAAAAEYc/1AUQqM_jrLQ/s1600/Chakra12.png"><img src="http://2.bp.blogspot.com/-NrHdIMA_HBQ/UzqknkvZaKI/AAAAAAAAEYc/1AUQqM_jrLQ/s1600/Chakra12.png" height="320" width="400" /></a>
+</div>
+<br />&iquest;Qu&eacute; he aprendido con todo esto? Que cuando algo falla en GNU/Linux tiene arreglo. Lo que no puede ser, y me ha pasado cientos de veces ya, es pretender que se arregle r&aacute;pido, a lo loco, sin investigar ni documentarse, sin leer o preocuparse por preguntar. Las prisas no son buenas consejeras, y este es un ejemplo m&aacute;s. Mi recomendaci&oacute;n, que cobra especial relevancia en el caso de que se use una distribuci&oacute;n &quot;rolling-release&quot;, es disponer de alg&uacute;n sistema estable en el equipo, donde todo funcione, para pasar el apuro que pueda surgir. Luego, con calma y ganas de aprender, todo - o casi todo - se puede solucionar. Que dicho sistema estable sea un Windows, un Mac o un Debian Stable, ya depender&aacute; de cada cual.
+<br />
+<br />Espero que este art&iacute;culo pueda servir de ayuda a quien aqu&iacute; llegue buscando arreglo a su problema. Un saludo para todos.</span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_via="blogstack" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" st_title="Solucionando problemas en Chakra | La sombra del helicóptero"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 317,
+      "url" : "http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "lasombradelhelicoptero",
+      "name" : "La sombra del helicóptero"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

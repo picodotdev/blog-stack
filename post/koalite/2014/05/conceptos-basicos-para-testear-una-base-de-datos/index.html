@@ -1,0 +1,142 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Conceptos básicos para testear una base de datos | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos"><span itemprop="headline">Conceptos básicos para testear una base de datos</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/sPKW0IAZkkQ/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-05-12T05:06" itemprop="datePublished">Publicado el lunes, 12 de mayo de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+
+development
+
+,
+
+software-development
+
+,
+
+integration-testing
+
+,
+
+testing
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_via="blogstack" st_title="Conceptos básicos para testear una base de datos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Que me interesa el tema del <a href="http://blog.koalite.com/tag/testing/">testing</a> es algo que, para cualquier lector de este blog, no es algo nuevo. En mi anterior post hablaba sobre <a href="http://blog.koalite.com/2014/05/deconstruyendo-la-piramide-de-los-tests/" title="Deconstruyendo la pir&aacute;mide de los tests">la pir&aacute;mide de los tests</a> y ve&iacute;amos que, dependendiendo del tipo de aplicaci&oacute;n y de la arquitectura que tuviera, pod&iacute;a ser m&aacute;s interesante centrarse en un tipo de tests o en otro.</p> 
+<p>Hasta ahora he escrito bastante sobre <a href="http://blog.koalite.com/2012/09/como-no-escribir-tests-unitarios-resumen-final/" title="C&oacute;mo NO escribir tests unitarios: Resumen final">c&oacute;mo escribir tests unitarios</a> (muy &uacute;tiles cuando trabajas con un <a href="http://blog.koalite.com/2014/02/crear-modelos-mas-ricos-quitando-logica-de-los-servicios/" title="Crear modelos m&aacute;s ricos quitando l&oacute;gica de los servicios">modelo de dominio rico</a>), y tambi&eacute;n he comentado algunas <a href="http://blog.koalite.com/2014/04/testeando-sitios-web-con-fsharp-y-canopy/" title="Testeando sitios web con F# y Canopy">t&eacute;cnicas para testear desde el interfaz de usuario con Canopy</a>, pero si mi memoria (y google) no me falla, todav&iacute;a no hab&iacute;a escrito nada sobre c&oacute;mo podemos testear una base datos.</p> 
+<p>En los pr&oacute;ximos posts vamos a ver c&oacute;mo podemos testear una base de datos y, como siempre, vamos a empezar por aclarar algunos conceptos b&aacute;sicos que debemos tener presentes si queremos escribir este tipo de tests.</p> 
+<h3>&iquest;Por qu&eacute; testear contra la base de datos?</h3> 
+<p>Aunque utilices un ORM (y <a href="http://blog.koalite.com/2014/04/por-que-sigo-usando-un-orm/" title="Por qu&eacute; sigo usando un ORM">yo lo sigo usando</a>, aunque no est&eacute; de moda), es importante asegurarse de que el comportamiento de las operaciones que realizamos con la base de datos es el esperado. </p> 
+<p>Hay quien piensa que, con escribir tests unitarios sobre el modelo en memoria y utilizar mocks (o fakes o stubs o lo que m&aacute;s te guste) sobre la base de datos ya es suficiente, pero dependiendo del tipo de consulta que estemos lanzando a la base de datos, puede ser necesario tener tests espec&iacute;ficos que trabajen contra la base de datos <em>real</em> para comprobar que todo es correcto.</p> 
+<p>Es cierto que este tipo de tests es m&aacute;s lento y, por tanto, se pierde parte de las ventajas de usar tests automatizados ya que el tiempo que tardamos en obtener feedback es mayor que en un test unitario, pero en general sigue siendo mucho m&aacute;s r&aacute;pido que testear “a mano” usando el interfaz de usuario para crear los datos de ejemplo y revisar la base de datos para verificar que todo ha ido como esper&aacute;bamos.</p> 
+<p>Este tipo de tests suele ser m&aacute;s complicado de escribir que un test unitario, especialmente por la preparaci&oacute;n (<em>setup</em>) que requieren, pero con una estrategia adecuada y un poco de ayuda por parte de la infraestructura que montemos, esta limitaci&oacute;n es salvable y podemos conseguir unos tests lo bastante claros y f&aacute;ciles de escribir como para que merezca la pena hacerlo.</p> 
+<h3>Principios b&aacute;sicos para testear una base de datos</h3> 
+<p>Conceptualmente, testear una base de datos no es diferente de testear un modelo en memoria. La idea es exactamente la misma y se basa en el archiconocido <em>arrange-act-assert</em> (preparar, actuar, verificar). </p> 
+<p>Lo primero que necesitamos asegurar es que partimos siempre de un estado conocido. Uno de los problemas de testear una base de datos es que &eacute;sta no deja de ser un mont&oacute;n de estado global que puede ser modificado desde infinidad de puntos de la aplicaci&oacute;n, por lo que necesitamos alguna forma de poder generar un estado inicial de forma c&oacute;moda (y lo m&aacute;s r&aacute;pida posible) antes de ejecutar cada test.</p> 
+<p>Adem&aacute;s, cada test necesitar&aacute; su propio setup, lo que significa que tendremos que buscar una forma de preparar la base de datos con la informaci&oacute;n que necesitemos. Para ello, podemos utilizar el mismo API que usemos en nuestra aplicaci&oacute;n para almacenar la informaci&oacute;n en la base de datos (ya sea un ORM, MicroORM, consultas a mano, etc.). De esta forma estaremos tambi&eacute;n testeando (en cierto modo) que esa parte de la aplicaci&oacute;n funciona, lo que puede ser un beneficio a&ntilde;adido (aunque se podr&iacute;a argumentar que estamos acoplando dos conceptos distintos en los tests y que eso no es aconsejable).</p> 
+<p>Para esta parte de inicializaci&oacute;n puede ser muy &uacute;til utilizar <a href="http://blog.koalite.com/2014/01/aplicando-el-patron-builder-para-escribir-tests-unitarios/" title="Aplicando el patr&oacute;n builder para escribir tests unitarios">builders que nos ayuden a preparar la informaci&oacute;n</a> y hagan el test m&aacute;s legible (y resistente), o incluso si tenemos un conjunto importante de datos maestros (por ejemplo una tabla de Pa&iacute;ses o de Formas de Pago), podemos emplear algo similar a un <a href="http://blog.koalite.com/2012/08/como-no-escribir-tests-unitarios-dependiendo-de-otros-constructores/" title="C&oacute;mo NO escribir tests unitarios: Dependiendo de otros constructores">object mother</a> para cargar esa informaci&oacute;n de referencia b&aacute;sica en la base de datos.</p> 
+<p>Una vez que tenemos montado nuestro escenario de test, el resto es f&aacute;cil: invocar el m&eacute;todo que lance la consulta real a la base de datos, y validar los resultados. Sobre esta parte no creo que haya mucho que contar porque es exactamente igual que en cualquier test que podamos escribir.</p> 
+<h3>&iquest;Cu&aacute;les son las partes complicadas?</h3> 
+<p>En base a lo que acabamos de ver, podemos irnos haciendo una idea de las partes que m&aacute;s nos pueden costar al escribir este tipo de tests.</p> 
+<p>Puesto que tenemos que partir de un estado conocido, eso implica que necesitamos ser capaces de construir una base de datos sobre la que trabajar, y hemos de ser capaces de poder “limpiarla” antes de ejecutar cada test para asegurarnos de que sabemos de d&oacute;nde partimos.</p> 
+<p>Lo normal es aprovechar en los tests el mismo sistema que usemos en producci&oacute;n para crear la base de datos desde cero. Si utilizas un ORM, normalmente tendr&aacute;s la opci&oacute;n de dejar que sea &eacute;l quien genere el esquema de datos. Si est&aacute;s usando una aproximaci&oacute;n m&aacute;s <em>data centric</em>, deber&iacute;as tener un script sql para crear la base de datos. </p> 
+<p>Si no tienes una forma r&aacute;pida y c&oacute;moda de crear una base de datos desde cero, no te preocupes por escribir este tipo de tests y empieza por solucionar ese problema, que es bastante m&aacute;s grave.</p> 
+<p>Una vez que tenemos creada la base de datos, necesitamos poder limpiarla entre tests. La opci&oacute;n m&aacute;s sencilla es volver a crearla entera antes de ejecutar cada tests, y si est&aacute;s usando una base de datos que pueda funcionar en memoria (como SQLite, RavenDB o Datomic), puede ser suficiente. Lo malo es que esta t&eacute;cnica es la m&aacute;s lenta y, si tienes muchos tests, puede ser inviable. </p> 
+<p>Para mejorar la velocidad de los tests, se puede iniciar una transacci&oacute;n antes de cada test y realizar un rollback al final. &Eacute;sta es posiblemente la opci&oacute;n m&aacute;s r&aacute;pida, pero si tu test va a utilizar sus propias transacciones, necesitas que la base de datos soporte transacciones anidadas, cosa que no todas las bases de datos hacen. Adem&aacute;s, tendr&aacute;s que tener en cuenta que de algunas cosas (como las secuencias en Oracle o los campos identity en SQLServer) no se hace un rollback real, por lo que tus tests no ser&iacute;an exactamente reproducibles. Que esto sea un problema o no, depende de cada caso concreto.</p> 
+<p>Otra opci&oacute;n es borrar las tablas que hayamos modificado durante el test, ya sea manualmente (lo que nos permite minimizar el n&uacute;mero de consultas) o autom&aacute;ticamente (<a href="https://gist.github.com/jbogard/3914345#file-databasedeleter-cs">con algo parecido a esto</a>). </p> 
+<p>Personalmente, suelo usar una opci&oacute;n mixta aprovechando los distintos <a href="http://panicoenlaxbox.blogspot.com.es/2014/02/introduccion-nunit-iii-ciclo-de-vida-de_21.html">puntos de inicializaci&oacute;n que ofrece NUnit</a>:</p> 
+<ul> 
+ <li>Creo la base de datos una &uacute;nica vez antes de ejecutar <em>todos</em> los tests usando un <a href="http://www.nunit.org/index.php?p=setupFixture&amp;r=2.4">SetupFixture</a>.</li> 
+ <li>Borro todas las tablas de la base de datos y reseteo identies y secuencias antes de ejecutar cada clase de tests usando un <a href="http://www.nunit.org/index.php?p=fixtureSetup&amp;r=2.4">TestFixtureSetup</a>.</li> 
+ <li>Borro las tablas concretas afectadas por los tests de cada fixture antes de ejecutar cada test usando un <a href="http://www.nunit.org/index.php?p=setup&amp;r=2.4">Setup</a>.</li> 
+</ul> 
+<p>Por &uacute;ltimo, es importante que cada m&aacute;quina en que se vayan a ejecutar los tests (cada m&aacute;quina de desarrollo y el <a href="http://blog.koalite.com/2013/05/servidor-de-integracion-continua-una-buena-inversion/" title="Servidor de Integraci&oacute;n Continua, una buena inversi&oacute;n">servidor de integraci&oacute;n continua</a>, b&aacute;sicamente) cuente con su propia base de datos para ejecutar los tests sin interferir unos con otros.</p> 
+<p>Aqu&iacute; estamos igual que antes, si no estabas haciendo eso ya, empieza por aqu&iacute;, aunque nunca vayas a escribir tests contra la base de datos. As&iacute; evitar&aacute;s problemas mientr&aacute;s est&aacute;s desarrollando y alguien introduce cambios en el esquema de datos.</p> 
+<h3>Resumen</h3> 
+<p>En este post hemos visto algunas ideas b&aacute;sicas que debemos tener en cuenta para escribir tests de integraci&oacute;n contra la base de datos. Como siempre que empiezo una serie de posts, ha sido mucha teor&iacute;a y poco c&oacute;digo, pero en los pr&oacute;ximos posts veremos como montar paso a paso una suite de tests de integraci&oacute;n y comprobaremos que no es tan complicado como pudiera parecer al principio.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2013/05/angularjs-conceptos-basicos/" title="AngularJS: Conceptos B&aacute;sicos">AngularJS: Conceptos B&aacute;sicos</a></li> 
+ <li><a href="http://blog.koalite.com/2014/03/datomic-una-base-de-datos-diferente/" title="Datomic, una base de datos diferente">Datomic, una base de datos diferente</a></li> 
+ <li><a href="http://blog.koalite.com/2012/12/tests-de-aprobacion-para-bases-de-datos/" title="Tests de aprobaci&oacute;n para bases de datos">Tests de aprobaci&oacute;n para bases de datos</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/sPKW0IAZkkQ" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_via="blogstack" st_title="Conceptos básicos para testear una base de datos | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_title="Conceptos básicos para testear una base de datos | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_title="Conceptos básicos para testear una base de datos | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_title="Conceptos básicos para testear una base de datos | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos" st_title="Conceptos básicos para testear una base de datos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 304,
+      "url" : "http://www.blogstack.info/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

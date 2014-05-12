@@ -3,8 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-136-de-calibre",
+      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-1-36-de-calibre",
       "title" : "Lanzada la versión 1.36 de Calibre"
+    },
+    {
+      "url" : "/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos",
+      "title" : "Conceptos básicos para testear una base de datos"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/05/indie-box-one-el-servidor-listo-para-usar",
@@ -19,7 +23,7 @@ define("app/sources/blogstack", [], function() {
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },
     {
-      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnulinux-oculta-ficheros-en-otros-ficheros",
+      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
       "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
     },
     {
@@ -31,36 +35,32 @@ define("app/sources/blogstack", [], function() {
       "title" : "Personalizando la shell"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix",
-      "title" : "Como configurar un relay de correo para nuestra empresa con Postfix"
+      "url" : "/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios",
+      "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman",
-      "title" : "gNewSense el sistema operativo que usa Richard Stallman"
+      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
+      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
     },
     {
-      "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
-      "title" : "Presentación de Blog Stack"
+      "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
+      "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i",
-      "title" : "Distribuciones cien por cien libres (Parte I)"
+      "url" : "/post/placerdigital/2013/06/como-extrano-el-acuerdo-entre-google-y-twitter-para-resultados-en-tiempo-real",
+      "title" : "Cómo extraño el acuerdo entre Google y Twitter para resultados en tiempo real"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii",
-      "title" : "Distribuciones cien por cien libres (Parte II)"
+      "url" : "/post/placerdigital/2013/05/como-saber-que-tecnologias-usa-un-sitio-web",
+      "title" : "Cómo saber qué tecnologías usa un sitio web"
     },
     {
-      "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
-      "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
+      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
+      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/05/openbsd-lanza-la-version-55",
-      "title" : "OpenBSD lanza la version 5.5"
-    },
-    {
-      "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
-      "title" : "Introducción a Elasticsearch"
+      "url" : "/post/placerdigital/2014/02/por-que-el-gobierno-y-el-sistema-educativo-deben-preferir-software-libre",
+      "title" : "Por qué el gobierno y el sistema educativo DEBEN preferir software libre"
     }
   ]
 }

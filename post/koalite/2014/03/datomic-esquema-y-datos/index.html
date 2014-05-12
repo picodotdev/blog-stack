@@ -1,0 +1,246 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Datomic: esquema y datos | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/03/datomic-esquema-y-datos"><span itemprop="headline">Datomic: esquema y datos</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/ictoGOKzadU/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-24T05:06" itemprop="datePublished">Publicado el lunes, 24 de marzo de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+
+datomic
+
+,
+
+nosql
+
+,
+
+clojure
+
+,
+
+development
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_via="blogstack" st_title="Datomic: esquema y datos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><img src="http://blog.koalite.com/wp-content/uploads/datomic-logo-medium.png" alt="datomic-logo-medium" width="250" height="240" /></p> 
+<p>En mi anterior post realizaba una peque&ntilde;a <a href="http://blog.koalite.com/2014/03/datomic-una-base-de-datos-diferente/" title="Datomic, una base de datos diferente">introducci&oacute;n a Datomic</a>, una base de datos inmutable bastante alejada de las t&iacute;picas soluciones relacionales o documentales que tan de moda est&aacute;n en estos d&iacute;as.</p> 
+<p>Despu&eacute;s de esa peque&ntilde;a presentaci&oacute;n de Datomic y los conceptos en que se basa, vamos a ver c&oacute;mo podemos trabajar con ella, centr&aacute;ndonos en la parte de definir un esquema de datos e insertar informaci&oacute;n. Para ello usar&eacute; clojure porque parece el lenguaje m&aacute;s apropiado para tratar con Datomic. Si no est&aacute;s familiarizado con el lenguaje, esta <a href="http://blog.koalite.com/2013/01/introduccion-a-clojure-en-5-minutos/" title="Introducci&oacute;n a Clojure en 5 minutos">introducci&oacute;n r&aacute;pida a la sintaxis de clojure</a> te puede resultar &uacute;til.</p> 
+<p><strong>OJO:</strong> No soy un experto en Datomic. En realidad, no le he dedicado m&aacute;s que unas horas para jugar con ella, por lo que es posible probable que parte de lo que diga no sea completamente cierto o, directamente, sea falso. Lo que pretendo con estos posts es poner en claro mis propias ideas y, si de paso, te sirven para aprender algo nuevo o despertar tu curiosidad, estupendo.</p> 
+<h3>Creando una base de datos</h3> 
+<p>Para poder empezar a jugar con Datomic, lo primero que necesitamos es configurar nuestro proyecto para incluir una dependencia sobre Datomic. Podemos <a href="http://blog.koalite.com/2013/01/estructura-de-un-proyecto-con-clojure/">crear un proyecto usando leiningen</a> y modificar el fichero <code>project.clj</code> para incluir la librer&iacute;a de Datomic:</p> 
+<pre>
+(defproject datomic-playground &quot;0.1.0-SNAPSHOT&quot;
+  :description &quot;Proyecto para jugar con Datomic&quot;
+  :url &quot;http://blog.koalite.com&quot;
+  :license {:name &quot;Eclipse Public License&quot;
+            :url &quot;http://www.eclipse.org/legal/epl-v10.html&quot;}
+  :dependencies [[org.clojure/clojure &quot;1.5.1&quot;]
+                 [com.datomic/datomic-free &quot;0.9.4532&quot;]])
+</pre> 
+<p>Tras esto, deberemos referenciar el API de Datomic para usarlo desde nuestro c&oacute;digo. Aparentemente, es idiom&aacute;tico usar como alias <code>d</code>:</p> 
+<pre>
+(ns datomic-playground.core
+  [:require [datomic.api :as d]])
+</pre> 
+<p>En el post anterior vimos que datomic ten&iacute;a varios sistemas de almacenamiento, incluyendo un sistema en memoria que resulta ideal para nuestras pruebas. Podemos crear una base de datos de memoria con la funci&oacute;n <code>create-database</code> y conectarnos a ella con la funci&oacute;n <code>connect</code>:</p> 
+<pre>
+(def uri &quot;datomic:mem://koalite&quot;)
+
+(d/create-database uri)
+
+(def conn (d/connect uri))
+</pre> 
+<h3>Refrescando conceptos: atributos y entidades</h3> 
+<p>Como explicaba en el post anterior, Datomic se basa en el concepto de atributos para almacenar la informaci&oacute;n. Un atributo define una relaci&oacute;n (o un <em>hecho</em>, si prefieres verlo as&iacute;) entre un <code>Id</code> de una entidad y un valor determinado. Los atributos puede ser de diferentes tipos (<code>string</code>, <code>long</code>, referencia a otra entidad, etc.) y puede tener distinta cardinalidad (contener un &uacute;nico valor o varios valores del mismo tipo).</p> 
+<p><strong>Las entidades no existen expl&iacute;citamente</strong>. No hay ning&uacute;n sitio en que definamos la entidad X, sino que &uacute;nicamente existen como el conjunto de atributos asociados a un <code>Id</code> determinado. En Datomic no tendremos una entidad <code>Person</code> como tal, sino varios atributos asociados a un <code>Id</code> y esos atributos ser&aacute;n lo que conformen la entidad <code>Person</code>. Por convenci&oacute;n, todos los atributos relacionados con una misma entidad conceptual est&aacute;n prefijados con el nombre de la entidad, por ejemplo tendremos atributos <code>:person/name</code>, <code>:person/friends</code> o <code>:person/height</code>, pero en realidad no es necesario seguir esta convenci&oacute;n y podr&iacute;amos llamarlos como quisi&eacute;ramos.</p> 
+<h3>Los atributos tambi&eacute;n son entidades</h3> 
+<p>Una vez que tenemos creada la base de datos, podemos empezar a definir el esquema creando atributos, pero antes de eso es importante entender una cosa: <strong>los atributos en Datomic son entidades</strong>. </p> 
+<p>En muchas bases de datos la informaci&oacute;n sobre el esquema o, en general, la metainformaci&oacute;n sobre la base de datos, se almacena en la propia base de datos. Por ejemplo, en SQL Server, la base de datos <code>master</code> contiene informaci&oacute;n sobre todas las bases de datos del sistema, y a trav&eacute;s de <a href="http://en.wikipedia.org/wiki/Information_schema">information_schema</a> podemos acceder a informaci&oacute;n sobre la propia estructura de cada base de datos.</p> 
+<p>En Datomic esta idea se lleva al extremo, y mientras que en SQL existen “lenguajes” diferentes para la creaci&oacute;n del esquema (DDL) y para la manipulaci&oacute;n de datos (DML), en Datomic la creaci&oacute;n del esquema, es decir, de los atributos, se realiza <em>exactamente igual</em> que la creaci&oacute;n del resto de entidades.</p> 
+<p>Por tanto, un atributo no es m&aacute;s que una entidad (un <code>Id</code>) que lleva asociados otros atributos que permiten a Datomic saber c&oacute;mo tratar con &eacute;l. Una ventaja de esta idea es que permite tratar de forma homog&eacute;nea la creaci&oacute;n del esquema y la inserci&oacute;n de datos, puesto que en el fondo es lo mismo: asociar atributos a entidades. </p> 
+<p>Para “escribir” en la base de datos la funci&oacute;n principal es <code>transact</code> que recibe una conexi&oacute;n y una lista de operaciones a realizar. En su versi&oacute;n m&aacute;s b&aacute;sica, tendr&iacute;amos algo as&iacute;:</p> 
+<pre>
+(d/transact 
+  conn
+  [[:db/add entity-id attribute1 value1]
+   [:db/add entity-id attribute2 value2]])
+</pre> 
+<p>Si os fij&aacute;is en el API, un factor imnportante es que las operaciones est&aacute;n representadas por datos (vectores en este caso) en lugar de utilizar un modelo de objetos espec&iacute;ficos o strings. Esto es muy t&iacute;pico en clojure (y supongo que en otros lenguajes funcionales) y permite construir las operaciones que queremos usar en las transacciones utilizando todas las funciones gen&eacute;ricas de manipulaci&oacute;n de datos (<code>map</code>, <code>filter</code>, etc.). </p> 
+<p>Como es muy frecuente el caso en que en la misma transacci&oacute;n queremos a&ntilde;adir varios atributos a una misma entidad, <code>transact</code> permite hacerlo usando un <code>map</code>:</p> 
+<pre>
+(d/transact
+  conn
+  [{:db/id entity-id
+    attribute1 value1
+    attribute2 value2}])
+</pre> 
+<p>Este c&oacute;digo es equivalente al anterior, pero es algo m&aacute;s corto y f&aacute;cil de leer. Independientemente de qu&eacute; versi&oacute;n uses, siempre puedes incluir varios <code>map</code> o <code>vector</code> en la transacci&oacute;n para que se ejecuten conjuntamente como parte de la misma transacci&oacute;n, en incluso mezclarlos entre s&iacute;.</p> 
+<h3>Un esquema de ejemplo</h3> 
+<p>Para poner en pr&aacute;ctica todo lo que hemos visto hasta ahora vamos a crear un esquema muy simple. En nuestro esquema tendremos los siguientes atributos:</p> 
+<table> 
+ <tbody>
+  <tr> 
+   <th>Nombre</th> 
+   <th>Tipo</th> 
+   <th>Cardinalidad</th> 
+  </tr> 
+  <tr> 
+   <td>:person/name</td> 
+   <td>string</td> 
+   <td>1</td> 
+  </tr> 
+  <tr> 
+   <td>:person/age</td> 
+   <td>integer</td> 
+   <td>1</td> 
+  </tr> 
+  <tr> 
+   <td>:person/friends</td> 
+   <td>reference</td> 
+   <td>varios</td> 
+  </tr> 
+ </tbody>
+</table> 
+<p>Usando <code>transact</code>, podemos definirlo as&iacute;:</p> 
+<pre>
+(d/transact
+   conn
+   [{:db/id #db/id[:db.part/db -1]
+     :db/ident :person/name
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/one
+     :db/doc &quot;Person's name&quot;}
+    {:db/id #db/id[:db.part/db -2]
+     :db/ident :person/age
+     :db/valueType :db.type/long
+     :db/cardinality :db.cardinality/one
+     :db/doc &quot;Person's age&quot;}
+    {:db/id #db/id[:db.part/db -3]
+     :db/ident :person/friends
+     :db/valueType :db.type/ref
+     :db/cardinality :db.cardinality/many
+     :db/doc &quot;Person's friends (refs to another people)&quot;}
+    [:db/add :db.part/db :db.install/attribute #db/id[:db.part/db -1]]
+    [:db/add :db.part/db :db.install/attribute #db/id[:db.part/db -2]]
+    [:db/add :db.part/db :db.install/attribute #db/id[:db.part/db -3]]])
+</pre> 
+<p>Eso ha sido bastante c&oacute;digo. Vamos a centrarnos en un atributo concreto, por ejemplo <code>:person/name</code>. Lo primero que tenemos es la definici&oacute;n del atributo como tal:</p> 
+<pre>
+{:db/id #db/id[:db.part/db -1]
+ :db/ident :person/name
+ :db/valueType :db.type/string
+ :db/cardinality :db.cardinality/one
+ :db/doc &quot;Person's name&quot;}
+</pre> 
+<p>Estamos usando un <code>map</code> para representar la informaci&oacute;n del atributo, indicando su nombre (<code>:db/ident</code>), su tipo (<code>:db/valueType</code>), su cardinalidad (<code>:db/cardinality</code>) y (esto es opcional) su documentaci&oacute;n (<code>:db/doc</code>). </p> 
+<p>Como dijimos hace un momento, los atributos son entidades y, por tanto, tienen un <code>Id</code>. Lo m&aacute;s extra&ntilde;o del c&oacute;digo anterior es, precisamente, la generaci&oacute;n de ese <code>Id</code>. En este caso estamos dejando que lo genere la base de datos dentro de la partici&oacute;n <code>:db.part/db</code> (lo que es una partici&oacute;n se escapa un poco del alcance de este post, pero puedes leer m&aacute;s en la <a href="http://docs.datomic.com/transactions.html">documentaci&oacute;n de Datomic</a>). Podr&iacute;amos generar el <code>Id</code> simplemente poniendo <code>#db/id[:db.part/db]</code>, pero el <code>-1</code> nos permite referenciar el <code>Id</code> generado dentro de otra operaciones de la misma transacci&oacute;n.</p> 
+<p>De esta forma, en la misma transacci&oacute;n podemos <em>instalar</em> el atributo para decirle a Datomic que queremos empezar a utilizarlo en otras entidades, cosa que hacemos con la operaci&oacute;n:</p> 
+<pre>
+[:db/add :db.part/db :db.install/attribute #db/id[:db.part/db -1]
+</pre> 
+<p>Nuevamente podemos ver c&oacute;mo todo se trata de forma homog&eacute;nea. Instalar un atributo consiste en a&ntilde;adir una relaci&oacute;n <code>:db.install/attribute</code> entre la entidad <code>:db.part/db</code> y el <code>Id</code> del atributo que acabamos de crear. Aunque todav&iacute;a no sabemos el valor que se asignar&aacute; a <code>Id</code>, podemos referenciarlo gracias a que hemos usado la forma <code>#db/id[:db.part/db -1]</code>.</p> 
+<p>Una duda razonable ser&iacute;a por qu&eacute; para referenciar la entidad <code>:db.part/db</code> no estamos usando su <code>Id</code>. Podemos hacerlo as&iacute; porque al definir un atributo podemos indicar que es un &iacute;ndice &uacute;nico, lo que nos permite usarlo para identificar entidades igual que har&iacute;amos con el <code>Id</code>.</p> 
+<p>Con lo que ya sabemos sobre transacciones, entidades, ids y atributos, es f&aacute;cil imaginarse c&oacute;mo ser&iacute;a el c&oacute;digo para a&ntilde;adir un par de personas amigas entre s&iacute;:</p> 
+<pre>
+(d/transact
+ conn
+ [{:db/id #db/id[:db.part/user -1]
+   :person/name &quot;Alejandro&quot;
+   :person/age 53
+   :person/friends [#db/id[:db.part/user -2]]}
+  {:db/id #db/id[:db.part/user -2]
+   :person/name &quot;Lucas&quot;
+   :person/age 62
+   :person/friends [#db/id[:db.part/user -1]]}])
+</pre> 
+<h3>Resumen</h3> 
+<p>En este post hemos visto c&oacute;mo definir un esquema de datos en Datomic y c&oacute;mo a&ntilde;adir informaci&oacute;n sobre ese esquema de datos. </p> 
+<p>Es importante quedarse con la idea de que en Datomic se definen atributos que permiten establecer hechos sobre entidades, y que esos atributos son entidades en si mismas, por lo que la forma de definir el esquema y la forma de insertar informaci&oacute;n es exactamente la misma.</p> 
+<p>Adem&aacute;s, las transacciones est&aacute;n formadas por un conjunto de operaciones que no son m&aacute;s que estructuras de datos simples (<code>maps</code> y <code>vectors</code>), por lo que podemos utilizar toda la potencia del lenguaje (clojure en este caso) para construir las operaciones que lanzaremos contra la base de datos.</p> 
+<p>En el siguiente post veremos c&oacute;mo podemos lanzar consultas sobre la base de datos e introduciremos otro de los conceptos diferenciales de Datomic frente a otras bases de datos: <em>la base de datos como valor</em>.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2014/03/datomic-una-base-de-datos-diferente/" title="Datomic, una base de datos diferente">Datomic, una base de datos diferente</a></li> 
+ <li><a href="http://blog.koalite.com/2013/02/estructuras-de-datos-sin-esquema/" title="Estructuras de datos sin esquema">Estructuras de datos sin esquema</a></li> 
+ <li><a href="http://blog.koalite.com/2013/02/ventajas-e-inconvenientes-de-las-estructuras-de-datos-sin-esquema/" title="Ventajas e inconvenientes de las estructuras de datos sin esquema">Ventajas e inconvenientes de las estructuras de datos sin esquema</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/ictoGOKzadU" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_via="blogstack" st_title="Datomic: esquema y datos | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_title="Datomic: esquema y datos | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_title="Datomic: esquema y datos | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_title="Datomic: esquema y datos | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos" st_title="Datomic: esquema y datos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 310,
+      "url" : "http://www.blogstack.info/post/koalite/2014/03/datomic-esquema-y-datos"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu"><span itemprop="headline">Por qué no actualizo el kernel de Ubuntu</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Enrique Bravo</span> en la bitácora <a href="http://www.lasombradelhelicoptero.com">La sombra del helicóptero</a>, <a href="http://www.lasombradelhelicoptero.com/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-01-17T12:23" itemprop="datePublished">Publicado el viernes, 17 de enero de 2014 a las 12:23 UTC</span></div><div><span datetime="2014-01-17T12:23" itemprop="dateModified">Actualizado el viernes, 17 de enero de 2014 a las 12:23 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>
+,
+
+kernel
+
+,
+
+elementary-os
+
+,
+
+experiencias
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_via="blogstack" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">Aprovechando que llueve a mares en este viernes, el peque est&aacute; en el cole y mi mujer ejerciendo de madre/profesora de apoyo - nueva figura propiciada por los recortes en materia de Educaci&oacute;n en esta caricatura de pa&iacute;s que llamamos Espa&ntilde;a - me he propuesto explicar el motivo por el cual no tengo a bien actualizar el kernel de mi 
+<a href="http://www.lasombradelhelicoptero.com/2013/01/dos-semanas-con-ubuntu-impresiones.html">Ubuntu Precise</a> a uno m&aacute;s moderno. El art&iacute;culo lleva alg&uacute;n tiempo en el tintero de temas futuribles, y tras leer la 
+<a href="http://yoyo308.com/2014/01/16/opinion-no-esta-tan-mal-digan-lo-que-digan/">acertada reflexi&oacute;n</a> del blog de Yoyo, con la que no creo que haga falta puntualizar que estoy totalmente de acuerdo, me ha parecido un buen momento para tratar el asunto.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://2.bp.blogspot.com/-GansG5KqW_8/UtkbihBJltI/AAAAAAAAELM/o50gVP65Uf8/s1600/Captura+de+pantalla+de+2014-01-17+13:00:16.png"><img src="http://2.bp.blogspot.com/-GansG5KqW_8/UtkbihBJltI/AAAAAAAAELM/o50gVP65Uf8/s1600/Captura+de+pantalla+de+2014-01-17+13:00:16.png" height="320" width="400" /></a>
+</div>
+<br />
+<br />
+<a></a>Empecemos por el resultado que arroja el comando &quot;uname -r&quot; en mi sistema: 3.2.0-58-generic. El primer y m&aacute;s importante motivo por el que me mantengo en esta versi&oacute;n tan antigua - que enseguida veremos que no lo es tanto - es que FUNCIONA. As&iacute;, en may&uacute;sculas, funciona y lo hace realmente bien. El sistema va fluido y r&aacute;pido, de modo que lo m&aacute;s sensato es atender a la m&aacute;xima que tan a menudo se nos olvida y que nos recordaba 
+<a href="http://www.lasombradelhelicoptero.com/2014/01/pesadilla-antes-de-navidad.html?showComment=1389384933458#c1959801022291051926">Juan Carlos Senar</a> en los comentarios de un art&iacute;culo anterior: &quot;si no esta roto, no lo arregles&quot;. Y en mi caso, no solo no est&aacute; roto, sino que me permite hacer mis tareas cotidianas perfectamente, am&eacute;n de algunas otras que demandan m&aacute;s recursos, como jugar alguna partida a Left 4 Dead 2, Steam mediante, sin molestos &quot;lags&quot; ni problema alguno que rese&ntilde;ar.
+<br />
+<br />Obviamente, de presentar alg&uacute;n tipo de problema ya me habr&iacute;a planteado actualizar. O algo peor, tan saturado como estoy a estas alturas de practicar distro hopping... Ahora bien, esto no ocurre por casualidad. Si bien el kernel 3.2.0 fue lanzado all&aacute; por los albores de 2012, lo que en Inform&aacute;tica lo convierte autom&aacute;ticamente en obsoleto, debemos prestar atenci&oacute;n a ese &uacute;ltimo numerito: el 58. Canonical no solo da soporte al kernel 3.2, considerado LTS (soporte a largo plazo), hasta Abril de 2017, sino que lo va mejorando e incorporando parches (imagino que tomados de versiones m&aacute;s nuevas del kernel), para aumentar el rendimiento, corregir vulnerabilidades y ampliar el reconocimiento de hardware a nuevos dispositivos.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://1.bp.blogspot.com/-UMa4QgP6mUI/Utkb35SmWiI/AAAAAAAAELU/8Hhgx9NTjB8/s1600/Captura+de+pantalla+de+2014-01-17+13:02:07.png"><img src="http://1.bp.blogspot.com/-UMa4QgP6mUI/Utkb35SmWiI/AAAAAAAAELU/8Hhgx9NTjB8/s1600/Captura+de+pantalla+de+2014-01-17+13:02:07.png" height="320" width="400" /></a>
+</div>
+<br />Para entendernos: no estamos usando un kernel de enero de 2012. Usamos la base de dicho kernel, estable y s&oacute;lido, escogido, adem&aacute;s de por Canonical, por 
+<a href="http://www.lasombradelhelicoptero.com/2013/05/debian-7-wheezy-una-autentica-roca.html">Debian</a> y Slackware como n&uacute;cleo de las &uacute;ltimas versiones de sus distribuciones. Y, sobre esa base que proporciona estabilidad, nos beneficiamos de los parches a&ntilde;adidos que mejoran el rendimiento. Por esta raz&oacute;n, no veo preciso actualizar el kernel de mi sistema.
+<br />
+<br />Esos son mis &uacute;nicos motivos, pero hay quien va m&aacute;s all&aacute;. El mes pasado encontr&eacute; una opini&oacute;n que, aunque apunta en el mismo sentido, incide en otro aspecto que considera importante: no todo el mundo est&aacute; capacitado para actualizar el kernel y resolver las posibles consecuencias negativas que se pueden derivar de dicha acci&oacute;n. El art&iacute;culo se refiere a 
+<a href="http://www.lasombradelhelicoptero.com/2013/06/elementary-os-luna-beta-una-autentica.html">Elementary OS</a>, pero es perfectamente extendible a Ubuntu, no en vano la primera se basa en la versi&oacute;n LTS de la segunda. Es un art&iacute;culo de Sergey &quot;Shnatsel&quot; Davidoff titulado &quot;
+<a href="http://shnatsel.blogspot.com.es/2013/12/why-you-should-not-upgrade-kernel-on.html">Por qu&eacute; NO debes actualizar el kernel de Elementary OS Luna (y c&oacute;mo hacerlo bien si no tienes m&aacute;s remedio)</a>&quot;, que os traduzco a continuaci&oacute;n:
+<br />
+<i><br /></i>
+<i>Comenzar&eacute; con una introducci&oacute;n. He trabajado como desarrollador de Elementary Luna, siendo requerido por el resto de desarrolladores para explicar por qu&eacute; no se debe tocar el kernel, y c&oacute;mo hacerlo bien cuando no queda m&aacute;s remedio.</i>
+<br />
+<i><br /></i>
+<i><b>No creas todo lo que se publica</b></i>
+<br />
+<i>Me han pedido que escriba esto porque ha habido un frenes&iacute; de art&iacute;culos <b>muy peligrosos</b> &uacute;ltimamente sobre &quot;Actualizar tu kernel en Luna&quot;. Los m&eacute;todos que se describen permitir&iacute;an a un atacante <b>tomar el control completo de tu sistema</b> de modo furtivo en el momento de actualizar. Dichos m&eacute;todos, adem&aacute;s, te <b>dejar&iacute;an sin actualizaciones de seguridad</b>, por no mencionar que supondr&iacute;an una <b>ruleta rusa, en t&eacute;rminos de estabilidad y desempe&ntilde;o.</b></i>
+<br />
+<br />
+<i>Si te topas con un art&iacute;culo que menciona &quot;wget&quot; o &quot;mainline kernel ppa&quot;, p&iacute;dele al autor que lo <b>retire de inmediato</b>, y dile de mi parte que, o bien <b>es un incompetente o un capullo</b> que deber&iacute;a mantenerse alejado de la tarea de escribir tutoriales.</i>
+<br />
+<i><br /></i>
+<i>(De hecho, puedes pedirle que retire cualquier art&iacute;culo referido a actualizaciones del kernel y las reemplace con un enlace a este art&iacute;culo, ya que no vas a necesitar ning&uacute;n otro art&iacute;culo sobre actualizaciones del kernel).</i>
+<br />
+<i><br /></i>
+<i><b>El kernel no es un juego</b></i>
+<br />
+<i>El kernel es, probablemente, la pieza fundamental del software de un sistema operativo. A menos que sepas realmente lo que haces (es decir, lo opuesto a seguir una gu&iacute;a cualquiera en Internet), <b>no le metas mano.</b> En serio. <b>Est&aacute;s subestimando la complejidad de la tarea.</b></i>
+<br />
+<br />
+<i>&iquest;Te crees lo suficientemente h&aacute;bil con la tecnolog&iacute;a como para atreverte con el kernel? &iexcl;Ja! Co&ntilde;o, yo soy el principal desarrollador del sistema operativo, estoy escribiendo <a href="http://es.wikipedia.org/wiki/Pruebas_de_regresi%C3%B3n">pruebas de regresi&oacute;n</a> para el kernel (en colaboraci&oacute;n con el equipo del kernel de Ubuntu), y <b>ni siquiera yo estoy capacitado para tocar el kernel. Nadie lo est&aacute;, </b>excepto puede que alguno de sus mantenedores con mayor nivel de conocimientos, como el propio Linus. No es una tarea que una sola persona pueda llevar a cabo con &eacute;xito. Se necesita un equipo de profesionales dedicados a ello y un mont&oacute;n de recursos, como ocurre en Ubuntu o en Red Hat.</i>
+<br />
+<i><br /></i>
+<i>Y, bueno, si piensas que nuestro kernel &quot;3.2&quot; es viejo, te equivocas. Ubuntu 12.04 LTS y Elementary OS tienen un kernel <b>derivado del 3.2, pero con un mont&oacute;n de elementos incorporados de kernels posteriores. </b>Los cambios giran, en su mayor&iacute;a, alrededor de la correcci&oacute;n de errores y el soporte de hardware.</i>
+<br />
+<i><br /></i>
+<i>Pero, y esto es lo m&aacute;s importante, nuestro kernel de base es <b>estable</b> comparado con los nuevos. No completamente estable, lo advierto, de lo contrario no estar&iacute;a escribiendo pruebas de regresi&oacute;n, pero a&uacute;n as&iacute; supone una ventaja considerable. Y la estabilidad es preferible al rendimiento siempre. <b>As&iacute; es.</b> Cr&eacute;eme, yo tambi&eacute;n he sufrido desilusiones a este respecto.</i>
+<br />
+<i><br /></i>
+<i><b>Cuando no te queda m&aacute;s remedio...</b></i>
+<br />
+<i>Por desgracia, no todo el soporte de hardware puede hacerse mediante &quot;backports&quot; y no todo el hardware funcionar&aacute; &quot;out-of-the-box&quot; en Luna, al igual que nuestro kernel base no es perfectamente estable en todo el hardware que existe. As&iacute; que hay unos pocos casos en los que una actualizaci&oacute;n del kernel puede ser necesaria, pero nunca cuando tienes un sistema que funciona.</i>
+<br />
+<i><br /></i>
+<i>Debes considerar la posibilidad de actualizar el kernel <b>solamente</b> si experimentas varios problemas graves relacionados con el kernel, como &quot;<a href="https://es.wikipedia.org/wiki/Kernel_panic">kernel panics</a>&quot;, o cuando tu sistema no inicia despu&eacute;s de la instalaci&oacute;n. <b>&iexcl;El &quot;rendimiento&quot; no es una excusa, lee m&aacute;s arriba!</b></i>
+<br />
+<br />
+<i>Si realmente no te queda otra que actualizar el kernel, simplemente ejecuta &quot;sudo apt-get install linux-generic-lts-saucy&quot; y reinicia. <b>Eso es todo</b>.<b> </b>&iexcl;No necesitas ninguna gu&iacute;a!</i>
+<br />
+<i><b> </b></i>
+<br />
+<i>Si el kernel actualizado se comporta incluso peor que el de base, puedes iniciar con un kernel antiguo escogi&eacute;ndolo en el cargador de arranque. Mant&eacute;n pulsada &quot;May&uacute;sculas&quot; al inicio del proceso de arranque en caso de que dicha opci&oacute;n no aparezca.</i>
+<br />
+<i><br /></i>
+<i>Para eliminar el kernel que has instalado, ejecuta &quot;sudo apt-get purge linux-generic-lts-saucy&quot; <b>mientras est&aacute;s usando el kernel antiguo, </b>lee m&aacute;s arriba. &iexcl;Eliminar un kernel cuando se est&aacute; usando no me funcion&oacute; la &uacute;ltima vez que lo intent&eacute;! (s&iacute;, mi labor incluye hacer cosas as&iacute; de raras).</i>
+<br />
+<i><br /></i>
+<i><b>&iexcl;&iexcl;&iexcl;No a la informaci&oacute;n err&oacute;nea!!!</b></i>
+<br />
+<br />El autor termina su art&iacute;culo recomendando enlazarlo y revisarlo de vez en cuando en busca de actualizaciones. Igualmente pide que si alguien tiene alguna duda la publique en los comentarios, con objeto de poder responderle directamente. Dichos comentarios incluyen alguna que otra observaci&oacute;n a sus palabras, tachadas por algunos de tremendistas. En lo personal no he tenido excesivos problemas cuando me ha dado por actualizar el kernel (lo hice cuando tuve instalado Elementary OS en el port&aacute;til, precisamente). Al menos, que yo sepa, pues su comentario referente al &quot;atacante malicioso&quot; que toma control del sistema me ha dejado poco menos que perplejo.
+<br />
+<br />
+<div style="clear: both; text-align: center;">
+ <a href="http://4.bp.blogspot.com/-4vYqcpg_ums/UtkcVJwtJTI/AAAAAAAAELc/tMXTenzBjno/s1600/hacker_detected_wp_by_er0n22.jpg"><img src="http://4.bp.blogspot.com/-4vYqcpg_ums/UtkcVJwtJTI/AAAAAAAAELc/tMXTenzBjno/s1600/hacker_detected_wp_by_er0n22.jpg" height="320" width="400" /></a>
+</div>
+<br />En cualquier caso, en lo que a m&iacute; respecta, la complejidad de la tarea no parece tanta como para generar tal alarma. De hecho, me da la impresi&oacute;n de que se equipara el simple acto de instalar un kernel con compilarlo, o programar parches para &eacute;l... Pero claro, queda la duda, igual creo saber m&aacute;s de lo que realmente s&eacute;, y todo lo expuesto por el se&ntilde;or Davidoff es rigurosamente cierto. Como de costumbre, os invito a la reflexi&oacute;n y al comentario cr&iacute;tico, faltar&iacute;a m&aacute;s. &iquest;Este hombre exagera hasta el punto de pretender que se debe ser el mism&iacute;simo Linus Torvalds para instalar un kernel? &iquest;O, tal vez, no exagera en absoluto? 
+<i>Habemus</i> debate.</span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_via="blogstack" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu" st_title="Por qué no actualizo el kernel de Ubuntu | La sombra del helicóptero"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 320,
+      "url" : "http://www.blogstack.info/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "lasombradelhelicoptero",
+      "name" : "La sombra del helicóptero"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

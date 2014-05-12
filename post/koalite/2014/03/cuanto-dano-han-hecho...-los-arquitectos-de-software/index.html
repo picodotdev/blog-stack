@@ -1,0 +1,138 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cuánto daño han hecho… los arquitectos de software | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software"><span itemprop="headline">Cuánto daño han hecho… los arquitectos de software</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/yW4SImhXJnw/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-03T05:06" itemprop="datePublished">Publicado el lunes, 03 de marzo de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+
+opinion
+
+,
+
+development
+
+,
+
+software-development
+
+,
+
+rant
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_via="blogstack" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En el mundo del desarrollo de software, como en todo, hay cosas que, a priori, parec&iacute;an una buena idea, pero con el tiempo han acabado haciendo m&aacute;s mal que bien. Si anteriormente pon&iacute;a el ejemplo del <a href="http://blog.koalite.com/2013/10/cuanto-dano-han-hecho-los-generadores-de-aplicaciones/" title="Cu&aacute;nto da&ntilde;o han hecho… Los generadores de aplicaciones">da&ntilde;o que hab&iacute;an hecho los generadores de aplicaciones</a>, en este post le toca el turno a los <strong>arquitectos de software</strong>.</p> 
+<p>En demasiadas ocasiones se utiliza el, en mi opini&oacute;n poco acertado, s&iacute;mil de la construcci&oacute;n o de la ingenier&iacute;a civil para intentar comprender y gestionar el desarrollo de software y eso ha dado lugar a la aparici&oacute;n de un rol, el del arquitecto de software, que se pretende asimilar al arquitecto de un edificio, y que incluso ha sido mitificado por <a href="http://es.wikipedia.org/wiki/Arquitecto_%28Matrix%29">pel&iacute;culas como Matrix</a>.</p> 
+<p><img src="http://blog.koalite.com/wp-content/uploads/matrix-architect.png" alt="Arquitecto de Matrix" width="807" height="356" /></p> 
+<p>Pero empecemos por el principio, &iquest;a qu&eacute; nos referimos con <em>arquitectura de software</em>?</p> 
+<h3>Arquitectura de Software</h3> 
+<p><a href="http://es.wikipedia.org/wiki/Arquitectura_de_software">Seg&uacute;n la wikipedia</a>, la arquitectura de software es el dise&ntilde;o de m&aacute;s alto nivel de la estructura de un sistema. Esta definici&oacute;n es algo ambigua puesto que precisar cu&aacute;l es el “m&aacute;s alto nivel” de un sistema es un tanto subjetivo, pero nos permite hacernos una idea intuitiva de lo que estamos hablando. </p> 
+<p>En realidad, podr&iacute;amos ver la arquitectura como algo fractal que podemos observar con distintos niveles de detalle. Podemos tener una arquitectura global de todo un proyecto que engloba varios sistemas, arquitecturas a nivel de cada sistema, y arquitecturas espec&iacute;ficas para cada componente de un sistema pero, independientemente del nivel al que lo apliquemos, la idea es la misma: <strong>dise&ntilde;ar la manera en que se estructuran y comunican los distintos componentes</strong> que forman parte de algo.</p> 
+<p>Partiendo de esta idea, es f&aacute;cil entender que <strong>la arquitectura de software es un factor muy importante</strong> a la hora de desarrollar aplicaciones. Elegir la arquitectura correcta para un sistema (o para una parte del mismo) puede ser cr&iacute;tico a la hora de alcanzar los requisitos establecidos de escalabilidad, flexibilidad, facilidad de mantenimiento, etc.</p> 
+<p>Existen muchos tipos de arquitecturas que han ido evolucionando con el tiempo, desde las tradiciones cliente-servidor, las basadas en N-capas, orientadas a servicios, basadas en microservicios, orquestadas alrededor de buses, etc. </p> 
+<p>Hay tambi&eacute;n cat&aacute;logos de <a href="http://martinfowler.com/eaaCatalog/">patrones de arquitectura</a> similares a los cat&aacute;logos de patrones de dise&ntilde;o (a veces la frontera entre dise&ntilde;o y arquitectura es francamente difusa), que recogen distintos patrones de “probada eficacia” (ejem) que podemos aplicar al establecer la arquitectura de un sistema.</p> 
+<p>Desarrollar una aplicaci&oacute;n sin tener en cuenta la arquitectura acaba resultando en una masa monstruosa de c&oacute;digo dif&iacute;cil de comprender, dif&iacute;cil de evolucionar y dif&iacute;cil de escalar.</p> 
+<p>Si la arquitectura de software es algo tan importante a la hora de desarrollar aplicaciones, parece l&oacute;gico que exista gente especialmente preparada para decidir qu&eacute; arquitectura usar y c&oacute;mo implantarla, y esos son, claro est&aacute;, los arquitectos de sofware.</p> 
+<h3>Arquitectos de Software</h3> 
+<p>Un arquitecto de software debe ser capaz de analizar un problema y dise&ntilde;ar la mejor arquitectura para resolverlo. Un arquitecto de software conoce una amplia gama de tipos de arquitectura y patrones arquitect&oacute;nicos, sabe cuando aplicarlos y, a partir de ellos, establece unas pautas, normalmente usando diagramas UML, frameworks o implementaciones de referencia, y delega la implementaci&oacute;n del sistema a un equipo de desarrollo.</p> 
+<p>Esa visi&oacute;n de la arquitectura de software tan similar a la del arquitecto de un edificio, que genera unos planos para que otros construyan el edificio, es una visi&oacute;n err&oacute;nea y peligrosa.</p> 
+<p>El desarrollo de sofware no se puede compartimentalizar tanto como para que unos diagramas UML o un mega framework corporativo sirva de gu&iacute;a &uacute;nica e infalible al construir una aplicaci&oacute;n.</p> 
+<p>Es posible (no lo s&eacute;, no tengo ni idea de eso) que al construir un edificio se puedan dar instrucciones tan precisas sobre c&oacute;mo debe ser una pared como para que cualquiera que sepa construir paredes lo haga bien.</p> 
+<p>En el desarrollo de software, el n&uacute;mero de grados de libertidad que existen a la hora de implementar algo hacen que definir espec&iacute;ficamente lo que se debe hacer y <em>c&oacute;mo</em> se debe hacer, no sea pr&aacute;ctico. La &uacute;nica forma de conseguirlo es con el c&oacute;digo fuente, y eso implica hacerlo (no dise&ntilde;arlo).</p> 
+<p>La arquitectura es algo que hay que ir ajustando en mayor o menor medida a lo largo del desarrollo. Puede que las pautas m&aacute;s generales, como si la aplicaci&oacute;n ser&aacute; web o de escritorio, o si se usar&aacute; una SQL Server o MongoDB puedan mantenerse estables durante bastante tiempo, pero en cuanto bajas a niveles de componentes, suele ser contraproducente tener que atarse a una arquitectura prefijada, del estilo de “todos las clases deben tener su interfaz correspondiente”, “todo sistema tendr&aacute; su contenedor de inversi&oacute;n de control”, “siempre se usar&aacute; un ORM”, etc.</p> 
+<p>Tratar de separar la arquitectura del desarrollo es un error y tratar de separar el rol del arquitecto del rol del programador/desarrollador es otro error. Es cierto que <a href="http://www.codingthearchitecture.com/2014/02/21/most_software_developers_are_not_architects.html">no todos los programadores son arquitectos, pero todos los arquitectos deben ser programadores</a>. Aun as&iacute;, todo programador deber&iacute;a comprender la arquitectura del sistema que est&aacute; desarrollando, con sus pros, sus contras y los motivos por los que se ha elegido.</p> 
+<p>Ser arquitecto de software tiene un componente aspiracional para muchas personas. Puede que sea porque es la &uacute;nica forma que tienen de mejorar en sus empresas, puede que sea por el aparente glamour asociado al rol, pero hay personas que parece que <em>necesitan</em> ser arquitectos de software, incluso a veces despreciando todo el trabajo relacionado con la programaci&oacute;n (eso es para lo que “pican c&oacute;digo”). </p> 
+<p>Eso suele acabar con una obsesi&oacute;n por la arquitectura en t&eacute;rminos abstractos, mucha palabrar&iacute;a sobre SOA, DDD, ESBs o lo que est&eacute; de moda en el momento, pero con una falta de conexi&oacute;n muy grande con el mundo real. Son arquitectos que viven sus torres de marfil y desde ellas “dise&ntilde;an” (por llamarlo de alguna manera) arquitecturas que luego son de muy poca ayuda, o incluso directamente contraproducentes, a la hora de desarrollar realmente el software.</p> 
+<p>He conocido empresas en las que un “arquitecto” dise&ntilde;aba una arquitectura, se la pasaba al equipo de desarrollo para que la siguiese a rajatabla y s&oacute;lo volv&iacute;a a aparecer por el proyecto de vez en cuando para asegurarse que la arquitectura se estaba siguiendo. Incluso he visto casos de empresas con un departamento espec&iacute;fico de arquitectura que marcaba las pautas a nivel global de c&oacute;mo deb&iacute;an ser todos los proyectos. En ambos casos los resultados, al menos desde el punto de vista del software desarrollado, era bastante cuestionables.</p> 
+<h3>Conclusiones</h3> 
+<p>La arquitectura de software es una tarea necesaria para el desarrollo de software y se le debe prestar la atenci&oacute;n adecuada. </p> 
+<p>El problema es que <strong>la arquitectura de software es algo demasiado importante para dejarlo en manos de los arquitectos</strong>. O al menos, es algo demasiado importante como para dejarlo en manos de arquitectos como los que he descrito antes y que, por desgracia, abundan en determinados sectores. </p> 
+<p>Existen muy buenos arquitectos de software, capaces de dise&ntilde;ar y desarrollar soluciones sencillas para problemas complejos, pero todos los que he conocido con esa capacidad son tambi&eacute;n buenos programadores, viven el d&iacute;a a d&iacute;a con el equipo de desarrollo y conciben la arquitectura como parte del proceso de desarrollo, no como algo que quede prefijado al principio del desarrollo y haya que seguir de forma ciega e innegociable.</p> 
+<p>En definitiva, por mucho que en algunos &aacute;mbitos se empe&ntilde;en en crear roles espec&iacute;ficos para cada aspecto del desarrollo de software, es bueno recordar que <a href="http://www.microsiervos.com/archivo/frases-citas/especializacion.html">la especializaci&oacute;n es para los insectos</a>, y que cuando creas roles muy especializados, consigues justamente eso: arquitectos que dise&ntilde;an sin saber las implicaciones que tienen sus dise&ntilde;os a nivel de c&oacute;digo, y programadores que no pueden mejorar el sistema porque ni pueden ni saben salirse de la arquitectura marcada.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2013/10/cuanto-dano-han-hecho-los-generadores-de-aplicaciones/" title="Cu&aacute;nto da&ntilde;o han hecho… Los generadores de aplicaciones">Cu&aacute;nto da&ntilde;o han hecho… Los generadores de aplicaciones</a></li> 
+ <li><a href="http://blog.koalite.com/2011/12/cuanto-dano-ha-hecho-commonservicelocator/" title="Cu&aacute;nto da&ntilde;o ha hecho… CommonServiceLocator">Cu&aacute;nto da&ntilde;o ha hecho… CommonServiceLocator</a></li> 
+ <li><a href="http://blog.koalite.com/2011/11/cuanto-dano-ha-hecho-ivalidable-y-sucedaneos/" title="Cu&aacute;nto da&ntilde;o ha hecho… IValidable (y suced&aacute;neos)">Cu&aacute;nto da&ntilde;o ha hecho… IValidable (y suced&aacute;neos)</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/yW4SImhXJnw" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_via="blogstack" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software" st_title="Cuánto daño han hecho… los arquitectos de software | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 313,
+      "url" : "http://www.blogstack.info/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

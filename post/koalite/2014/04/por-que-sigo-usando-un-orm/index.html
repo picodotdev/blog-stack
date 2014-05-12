@@ -1,0 +1,134 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Por qué sigo usando un ORM | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/04/por-que-sigo-usando-un-orm"><span itemprop="headline">Por qué sigo usando un ORM</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/X1U9CPpVPMQ/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-04-22T04:06" itemprop="datePublished">Publicado el martes, 22 de abril de 2014 a las 04:06 UTC</span></div><div><span>
+Etiquetado como
+
+orm
+
+,
+
+development
+
+,
+
+software-development
+
+,
+
+nhibernate
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_via="blogstack" st_title="Por qué sigo usando un ORM | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En el mundo del desarrollo de software, como en todas partes, las modas van y vienen. Cuando hace unos a&ntilde;os (ya bastantes) surgieron los ORMs, con Hibernate para Java a la cabeza, se gener&oacute; bastante discusi&oacute;n sobre si eran una soluci&oacute;n adecuada al problema de la persistencia, con opiniones para todos los gustos y argumentos v&aacute;lidos tanto a favor como en contra. </p> 
+<p>Por una parte, estaban aquellos que consideraban que ceder el control del acceso a la base de datos a una librer&iacute;a daba lugar a <a href="http://blogs.tedneward.com/PermaLink,guid,33e0e84c-1a82-4362-bb15-eb18a1a1d91f.aspx">soluciones sub&oacute;ptimas</a>, con consultas SQL pesadas y patrones de acceso no recomendables. </p> 
+<p>Enfrente, hab&iacute;a quienes llegaban a decir que no usar un ORM y escribir consultas las consultas a mano supon&iacute;a <a href="http://ayende.com/blog/3712/stealing-from-your-client">robar a tus clientes</a> porque implicaba dedicar tiempo a resolver un problema ya resuelto en lugar de centrarse en aportar valor.</p> 
+<p>Con el paso del tiempo, los ORMs ganaron la batalla y se convirtieron en <em>mainstream</em>. En el caso de .NET un factor clave para ello fue la aparici&oacute;n de Entity Framework, apadrinado por Microsoft, que hizo que la barrera de entrada a este tipo de herramientas fuese mucho m&aacute;s baja y hoy en d&iacute;a sea el est&aacute;ndar de facto para acceso a datos en .NET.</p> 
+<p>En paralelo, la necesidad de hacer aplicaciones con un rendimiento cada vez mayor fue haciendo que se volviesen a tener en cuenta los problemas asociados a las abstracciones introducidas por un ORM y se desarrollasen alternativas m&aacute;s ligeras, los MicroORMs, que permit&iacute;an un acceso m&aacute;s expl&iacute;cito y controlado a la base de datos.</p> 
+<p>Si a eso le unimos el auge de las bases de datos NoSQL, especialmente de las bases de datos documentales del estilo de MondoDB o RavenDB, capaces de almacenar directamente grafos de objetos sin necesidad de hacer una traducci&oacute;n entre el modelo de objetos y el modelo de persistencia, hoy en d&iacute;a los ORMs vuelven a parecer una soluci&oacute;n innecesaria, que s&oacute;lo introduce complejidad y que penaliza el rendimiento de la aplicaci&oacute;n.</p> 
+<p>Sin embargo, y pese a todos los argumentos en contra, a d&iacute;a de hoy sigo utilizando un ORM (NHibernate) en muchos de mis desarrollos. &iquest;Por qu&eacute;?</p> 
+<h3>&iquest;Qu&eacute; aporta un ORM?</h3> 
+<p>A priori, un ORM se encarga de guardar y cargar informaci&oacute;n de una base de datos relacional de manera autom&aacute;tica. Esto quiere decir que nos evita tener que escribir a mano las consultas SQL necesarias para persistir y recuperar nuestro modelo de objetos, y para muchos, este es el &uacute;nico motivo para utilizar un ORM.</p> 
+<p>Pero un ORM aporta otras cosas que, por mi forma de trabajar, son mucho m&aacute;s importantes que el evitar escribir sentencias SQL a mano.</p> 
+<p>Un ORM nos garantiza a trav&eacute;s del <em>identity map</em> que siempre que cargamos una misma entidad en una sesi&oacute;n, ya sea a trav&eacute;s de distintas consultas o navegando relaciones diferentes, obtengamos una referencia al mismo objeto. </p> 
+<p>Realizar manualmente esta gesti&oacute;n es complicado y podemos acabar teniendo en memoria dos instancias distintas para representar una misma entidad, cada una con valores diferentes, dando lugar a errores y oblig&aacute;ndonos a tener mucho cuidado con la forma y lugar en que cargamos los datos.</p> 
+<p>Adem&aacute;s, el ORM se encarga de gestionar la unidad de trabajo (<a href="http://martinfowler.com/eaaCatalog/unitOfWork.html">Unit of Work</a>) con la que podemos interactuar expl&iacute;citamente (Save, Delete) pero tambi&eacute;n, y lo que es m&aacute;s importante, de forma impl&iacute;cita mediante la detecci&oacute;n autom&aacute;tica de cambios y la persistencia por alcance.</p> 
+<p>Esto nos permite trabajar c&oacute;modamente el modelo de objetos en memoria sin tener que llevar la cuenta manualmente de aquello que hemos modificado, ya que el ORM se encargar&aacute; de detectarlo autom&aacute;ticamente y realizar las operaciones necesarias en la base de datos para persistir los cambios.</p> 
+<p>Un &uacute;ltimo punto que me resulta especialmente &uacute;til es poder centralizar en el ORM la definici&oacute;n del esquema de base de datos. Con ello conseguimos acercarnos al ideal de tener una <a href="http://en.wikipedia.org/wiki/Single_Source_of_Truth">&uacute;nica fuente de verdad</a> de la que parte todo el conocimiento sobre nuestro modelo. </p> 
+<p>En lugar de mantener por separado un esquema de datos y por otro un modelo de objetos, el esquema de datos “emana” del modelo de objetos, facilitando que ambos se mantengan sincronizados. </p> 
+<p>Una ventaja adicional de esto es que es muy sencillo automatizar la creaci&oacute;n y actualizaci&oacute;n de la base de datos, lo que es facilita mucho las cosas no s&oacute;lo para el despliegue de la aplicaci&oacute;n, sino tambi&eacute;n durante el desarrollo o los tests.</p> 
+<h3>&iquest;Cu&aacute;l es el problema con los ORMs?</h3> 
+<p>Todo lo anterior no es gratis y hay que ser consciente del precio que se est&aacute; pagando por usar un ORM. </p> 
+<p>El primer problema, y al que m&aacute;s veces se hace referencia, es la p&eacute;rdida de rendimiento, especialmente a la hora de cargar informaci&oacute;n. En realidad, muchas veces esta es una cuesti&oacute;n m&aacute;s de c&oacute;mo se use el ORM que del ORM como tal. Todos los ORMs decentes que conozco permiten utilizar distintos sistemas de lectura, algunos de ellos tan optimizados cuyo rendimiento es indistinguible de lanza las consultas a mano.</p> 
+<p>Otro problema recurrente es la complejidad adicional que introducen y que, en muchos casos, resulta innecesaria. A fin de cuentas, escribir un par de selects y de inserts no es tanto trabajo, y tener que incluir una librer&iacute;a tan pesada como es un ORM para ello no parece que merezca la pena.</p> 
+<p>Pero <strong>el problema real con los ORMs es que se usan en aplicaciones sin un modelo de objetos</strong>. Un ORM, por definici&oacute;n, est&aacute; dise&ntilde;ado para resolver un problema concreto, el mapeo entre un modelo relacional y un modelo de objetos, y hay muchas aplicaciones que no tienen (y probablemente no necesitan) un modelo de objetos. </p> 
+<p>Si tu modelo de “objetos” es un fiel reflejo de tu esquema de base de datos, con objetos que pr&aacute;cticamente s&oacute;lo contienen datos sin operaciones asociadas, donde cada clase se corresponde exactamente con una tabla y los tipos de datos de las propiedades de esas clases son calcados a los tipos de datos de las columnas de las tablas, utilizar un ORM seguramente no sea la mejor soluci&oacute;n y puedas obtener resultados muchos mejores con otro tipo de herramientas.</p> 
+<p>Esto no es algo malo, hay muchas aplicaciones que realmente no necesitan nada m&aacute;s y eso no las hace peores, ni necesariamente m&aacute;s simples. Muchas veces la complejidad de una aplicaci&oacute;n no reside en un modelo con operaciones complicadas sino en ofrecer, por ejemplo, una excelente experiencia de usuario o manejar un volumen de datos enorme.</p> 
+<h3>&iquest;Por qu&eacute; sigo usando un ORM?</h3> 
+<p>El motivo por que sigo usando un ORM es porque, actualmente, la manera en que dise&ntilde;o la mayor&iacute;a de las aplicaciones con las que trabajo es utilizando un modelo de objetos, y eso hace que todas las cosas que aporta un ORM y que mencionaba antes sean importantes para mi forma de trabajar.</p> 
+<p>Utilizar un ORM me permite centrarme en dise&ntilde;ar mi modelo de objetos sin tener que pensar demasiado en la forma en que lo persistir&eacute; y organizar toda mi aplicaci&oacute;n alrededor de ese modelo de objetos. Para mi eso es un valor importante.</p> 
+<p>En realidad, esto nos llevar&iacute;a a escalar la pregunta, &iquest;por qu&eacute; dise&ntilde;ar una aplicaci&oacute;n alrededor de un modelo de objetos?, pero esa es una pregunta diferente que <a href="http://blog.koalite.com/2013/07/como-elegir-un-lenguaje-de-programacion/" title="C&oacute;mo elegir un lenguaje de programaci&oacute;n">depende de muchos factores</a>, entre ellos el tipo de aplicaciones a desarrollar, el equipo de desarrollo, etc.</p> 
+<p>En mi opini&oacute;n, <strong>una de las razones por las cuales los ORMs est&aacute;n empezando a tener “mala fama” en el mundo de .NET es Entity Framework</strong>. La excelente documentaci&oacute;n que tiene y su facilidad de uso se ha convertido en un arma de doble filo que ha hecho que se adopte en muchos proyectos en los cuales no es necesario utilizar un ORM. Si a eso le unimos las carencias que todav&iacute;a tiene a la hora de mapear modelos complejos (ausencia de tipos personalizados, imposibilidad de mapear objetos inmutables, falta de herencia impl&iacute;cita, etc.), hace que se acabe viendo el ORM como un <a href="http://martinfowler.com/eaaCatalog/dataMapper.html">DataMapper</a> avanzado, cuando un ORM es mucho m&aacute;s que eso.</p> 
+<p>No hay posts relacionados.</p>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/X1U9CPpVPMQ" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_via="blogstack" st_title="Por qué sigo usando un ORM | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_title="Por qué sigo usando un ORM | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_title="Por qué sigo usando un ORM | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_title="Por qué sigo usando un ORM | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm" st_title="Por qué sigo usando un ORM | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 307,
+      "url" : "http://www.blogstack.info/post/koalite/2014/04/por-que-sigo-usando-un-orm"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
