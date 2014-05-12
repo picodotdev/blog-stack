@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-136-de-calibre",
+      "title" : "Lanzada la versión 1.36 de Calibre"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack",
       "title" : "Zentyal lanza un nuevo Service Pack"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/ampliando-la-busqueda",
       "title" : "Ampliando la busqueda"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnulinux",
-      "title" : "Cambiar nombre de máquina (host) en GNU/Linux"
     }
   ]
 }

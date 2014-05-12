@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-136-de-calibre",
+      "title" : "Lanzada la versión 1.36 de Calibre"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/indie-box-one-el-servidor-listo-para-usar",
       "title" : "Indie Box one el servidor listo para usar"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte I)"
     }
   ]
 }
