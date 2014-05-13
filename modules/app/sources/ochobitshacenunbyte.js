@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
+      "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-1-36-de-calibre",
       "title" : "Lanzada la versión 1.36 de Calibre"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnu-linux",
       "title" : "Listar los usuarios de un sistema GNU/Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/ampliando-la-busqueda",
-      "title" : "Ampliando la busqueda"
     }
   ]
 }
