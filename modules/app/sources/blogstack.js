@@ -47,20 +47,20 @@ define("app/sources/blogstack", [], function() {
       "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
-      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
-      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
-    },
-    {
       "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
       "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
+    },
+    {
+      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
+      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
     },
     {
       "url" : "/post/placerdigital/2013/06/como-extrano-el-acuerdo-entre-google-y-twitter-para-resultados-en-tiempo-real",
       "title" : "Cómo extraño el acuerdo entre Google y Twitter para resultados en tiempo real"
     },
     {
-      "url" : "/post/placerdigital/2013/05/como-saber-que-tecnologias-usa-un-sitio-web",
-      "title" : "Cómo saber qué tecnologías usa un sitio web"
+      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
+      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
     }
   ]
 }
