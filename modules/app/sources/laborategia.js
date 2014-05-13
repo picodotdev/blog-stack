@@ -7,7 +7,7 @@ define("app/sources/laborategia", [], function() {
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },
     {
-      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnulinux-oculta-ficheros-en-otros-ficheros",
+      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
       "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
     }
   ]

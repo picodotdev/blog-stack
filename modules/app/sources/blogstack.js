@@ -55,12 +55,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
-      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
-      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
-    },
-    {
       "url" : "/post/placerdigital/2013/05/como-saber-que-tecnologias-usa-un-sitio-web",
       "title" : "Cómo saber qué tecnologías usa un sitio web"
+    },
+    {
+      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
+      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
     }
   ]
 }

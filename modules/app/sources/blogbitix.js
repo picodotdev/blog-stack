@@ -55,7 +55,7 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Presentación sobre Apache Tapestry"
     },
     {
-      "url" : "/post/blogbitix/2014/02/servidor-de-aplicaciones-jbosswildfly",
+      "url" : "/post/blogbitix/2014/02/servidor-de-aplicaciones-jboss-wildfly",
       "title" : "Servidor de aplicaciones JBoss/WildFly"
     },
     {
