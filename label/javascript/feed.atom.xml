@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-05-11T09:12:54Z</updated>
+  <updated>2014-05-13T18:58:03Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-05-11T09:12:54Z</dc:date>
+  <dc:date>2014-05-13T18:58:03Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Ejemplo lista de tareas con Marionette</title>
@@ -193,7 +193,7 @@
   </entry>
   <entry>
     <title>Introducción y ejemplo de Backbone.js</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs" />
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbone-js" />
     <category term="planeta-codigo" />
     <category term="programacion" />
     <category term="javascript" />
@@ -206,7 +206,7 @@
  &lt;img alt="Backbone.js" height="56" src="http://3.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACeY/uGQRcCderAg/s320/backbone.png" title="Backbone.js" width="320" /&gt; 
 &lt;/div&gt;Las aplicaciones y p&amp;aacute;ginas web est&amp;aacute;n haciendo uso de c&amp;oacute;digo javascript cada vez en mayor cantidad para proporcionar aplicaciones con funcionalidades m&amp;aacute;s complejas. En estos momentos las librer&amp;iacute;as para utilizarse en javascript son muchas y una aplicaci&amp;oacute;n puede hacer uso de varias de ellas. 
 &lt;br /&gt; 
-&lt;br /&gt;A pesar de las facilidades que proporcionan librer&amp;iacute;as como jQuery para manipular los elementos de una p&amp;aacute;gina web de forma din&amp;aacute;mica, mucho c&amp;oacute;digo mal estructurado puede llegar a convertirse en un perfecto c&amp;oacute;digo espagueti, aunque jQuery facilita y simplifica muchas tareas en el manejo de los elementos de una p&amp;aacute;gina no es suficiente, a pesar de jQuery se puede llegar a tener un c&amp;oacute;digo con un mar de selectores, mantener sincronizados con la interfaz con el estado de la aplicaci&amp;oacute;n y la base de datos puede convertirse en una tarea complicada dar como resultado c&amp;oacute;digo con el que apetece poco trabajar.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbonejs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+&lt;br /&gt;A pesar de las facilidades que proporcionan librer&amp;iacute;as como jQuery para manipular los elementos de una p&amp;aacute;gina web de forma din&amp;aacute;mica, mucho c&amp;oacute;digo mal estructurado puede llegar a convertirse en un perfecto c&amp;oacute;digo espagueti, aunque jQuery facilita y simplifica muchas tareas en el manejo de los elementos de una p&amp;aacute;gina no es suficiente, a pesar de jQuery se puede llegar a tener un c&amp;oacute;digo con un mar de selectores, mantener sincronizados con la interfaz con el estado de la aplicaci&amp;oacute;n y la base de datos puede convertirse en una tarea complicada dar como resultado c&amp;oacute;digo con el que apetece poco trabajar.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/introduccion-y-ejemplo-de-backbone-js"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-04-19T18:22:00Z</dc:date>
   </entry>
@@ -330,6 +330,45 @@
 &lt;/noscript&gt; Y la implementaci&amp;oacute;n:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/02/cliente-javascript-y-java-de-servicio-web-rest-con-resteasy"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-02-16T01:57:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Creación de objetos eficiente en JavaScript</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2012/11/creacion-de-objetos-eficiente-en-javascript" />
+    <category term="prototipos" />
+    <category term="desarrollo-de-software" />
+    <category term="javascript" />
+    <author>
+      <name>Guille</name>
+    </author>
+    <updated>2012-11-02T12:17:02Z</updated>
+    <published>2012-11-02T12:17:02Z</published>
+    <content type="html">&lt;p&gt;&lt;blockquote&gt; 
+ &lt;p&gt;There’s more than one way to skin a cat&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt; – Proverbio ingl&amp;eacute;s.&lt;/p&gt; 
+&lt;p&gt;Hay muchas maneras de crear objetos en JavaScript y la que elijamos debe depender de las necesidades particulares de cada problema, pero siempre tenemos que tener en mente la eficiencia del c&amp;oacute;digo que escribamos.&lt;/p&gt; 
+&lt;p&gt;En general, queremos que nuestro c&amp;oacute;digo fuente se ejecute &lt;strong&gt;una sola vez&lt;/strong&gt; y que prepare en memoria todo lo necesario para generar objetos, uno detr&amp;aacute;s de otro, como churros y con el m&amp;iacute;nimo esfuerzo posible. Por ello, la mejor opci&amp;oacute;n consiste en usar una funci&amp;oacute;n constructora y a&amp;ntilde;adir aquello que no sea el estado de una nueva instancia en el prototipo de la funci&amp;oacute;n constructora:&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;var Counter = function(offset) {
+  this.value = offset || 0;
+};
+&amp;nbsp;
+Counter.prototype.increase = function() {
+  return ++this.value;
+};
+&amp;nbsp;
+Counter.prototype.decrease = function() {
+  return --this.value;
+};&lt;/pre&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2012/11/creacion-de-objetos-eficiente-en-javascript"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Guille</dc:creator>
+    <dc:date>2012-11-02T12:17:02Z</dc:date>
   </entry>
 </feed>
 
