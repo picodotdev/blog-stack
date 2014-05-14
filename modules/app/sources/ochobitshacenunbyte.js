@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
+      "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
       "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2-0",
       "title" : "Huayra lanza su nueva versión 2.0"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnu-linux",
-      "title" : "Listar los usuarios de un sistema GNU/Linux"
     }
   ]
 }
