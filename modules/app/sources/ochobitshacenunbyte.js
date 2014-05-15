@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
+      "title" : "Virtualizando con KVM"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
       "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano",
       "title" : "Editando desde la línea de comandos, con nano."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2-0",
-      "title" : "Huayra lanza su nueva versión 2.0"
     }
   ]
 }

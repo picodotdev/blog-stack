@@ -1,0 +1,169 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Virtualizando con KVM | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"><span itemprop="headline">Virtualizando con KVM</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-05-15T14:41" itemprop="datePublished">Publicado el jueves, 15 de mayo de 2014 a las 14:41 UTC</span></div><div><span datetime="2014-05-15T14:45" itemprop="dateModified">Actualizado el jueves, 15 de mayo de 2014 a las 14:45 UTC</span></div><div><span>
+Etiquetado como
+
+virtualbox
+
+,
+
+debian
+
+,
+<a href="/label/blog-stack"><span itemprop="articleSection">blog-stack</span></a>
+,
+
+kvm
+
+,
+
+virsh
+
+,
+
+comandos
+
+,
+
+virtualizacion
+
+,
+
+xen
+
+,
+
+gnu
+
+,
+
+vmware
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_via="blogstack" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Virtualizar servidores est&aacute; al orden del d&iacute;a, ya sea con <a title="vmWare" href="http://www.vmware.com/es">vmWare</a>, <a title="Xen Project" href="http://www.xenproject.org/">Xen </a>o <a title="VirtualBox" href="https://www.virtualbox.org/">VirtualBox.</a> Hoy hablaramos de la virtualizaci&oacute;n completa para <a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine">Linux KVM </a>o “Kernel-based Virtual Machine”, que usa s&oacute;lo software libre.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /></a>KVM est&aacute; basada en dos partes, una formadada por un m&oacute;dulo de n&uacute;cleo, llamado “<strong>kvm.ko</strong>” y las herramientas del espacio del usuario. Est&aacute; disponible a partir de la versi&oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&oacute;n<a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"> Intel VT</a> o <a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization">AMD-V</a>.</p> 
+<p></p> 
+<p><strong>Instalaci&oacute;n</strong></p> 
+<p>Hemos realizado las pruebas en un m&aacute;quina con procesador I7 y un sistema operativo <a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/">GNU/Linux Debian 7 Wheezy</a>.</p> 
+<p>Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo <strong>/proc/cpuinfo</strong>, para que nos de la informaci&oacute;n, aplicando el filtro m&aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:</p> 
+<pre>grep --color cmx /proc/cpuinfo</pre> 
+<p>Y nos devoler&aacute; algo parecido a la siguiente imagen:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/captura_kvm.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/captura_kvm.jpg" alt="captura_kvm" width="705" height="617" /></a>C&oacute;mo se observa “vmx” aparece en rojo, eso quiere decir que nuestro procesador tiene las “banderas” que necesitamos.</p> 
+<p>En el caso de los procesadores AMD, ser&iacute;a de la siguiente manera:</p> 
+<pre>grep --color svm /proc/cpuinfo</pre> 
+<p>Si no nos aparece en rojo la “bandera” que buscamos significa que el procesador no da soporte a KVM.</p> 
+<p>Bien, ahora que sabemos que nuestro procesador da soporte a KVM, as&iacute; que ya podemos instalar los paquetes correspondientes.</p> 
+<p>Usaremos el paquete <strong>qemu-kvm</strong> y la herramienta <strong>virt-manager</strong> para gestionar las m&aacute;quinas virtuales desde la interfas gr&aacute;fica.</p> 
+<pre>aptitude update &amp;&amp; aptitude install qemu-kvm virt-manager</pre> 
+<p>Automaticamente el demonio <strong>libvirt-bin</strong> arrancar&aacute; con el kernel al iniciar la m&aacute;quina. Para poder manejar las m&aacute;quinas virtuales tendremos que usar el siguiente comando para a&ntilde;adir nuestro usuario dentro del grupo <strong>libvirt</strong>:</p> 
+<pre>adduser &lt;nuestrousuario&gt; libvirt</pre> 
+<p>Crear m&aacute;quinas virtuales desde la interfaz gr&aacute;fica es bastante similar a otros entornos de virtualizaci&oacute;n. Aqu&iacute; os dejo una pantalla con dos m&aacute;quinas ya creadas y funcionando:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/captura_virt_manager.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/captura_virt_manager.jpg" alt="captura_virt_manager" width="555" height="352" /></a>Si nos gusta m&aacute;s la consola podemos usar el comando<strong> virsh</strong>, desde donde podremos listar, parar o iniciar nuestras m&aacute;quinas virtuales.</p> 
+<p>Unos ejemplos:</p> 
+<ul> 
+ <li><em><strong>virsh start</strong></em> ‘nombre m&aacute;quina’ para encenderla.</li> 
+ <li><strong><em>virsh shutdown</em> </strong>‘nombre m&aacute;quina’ para apagarla.</li> 
+ <li><em><strong>virsh list -all</strong></em> para listar las m&aacute;quinas.</li> 
+</ul> 
+<p>Tambi&eacute;n se pueden crear las m&aacute;quinas virtuales a nuestra medida, para saber m&aacute;s de c&oacute;mo crearlas desde la consola os dejo varios enlaces:</p> 
+<ul> 
+ <li><a title="Jaime Frutos Morales's Blog" href="http://acidborg.wordpress.com/2010/02/18/how-to-create-virtual-machines-using-kvm-kernel-based-virtual-machine/">Jaime Frutos Morales’s Blog</a></li> 
+ <li><a title="KVM/Virsh Ubuntu Documentation" href="https://help.ubuntu.com/community/KVM/Virsh">KVM/Virsh Ubuntu Documentation</a></li> 
+ <li><a title="Virsh en CentSO" href="http://www.centos.org/docs/5/html/5.2/Virtualization/chap-Virtualization-Managing_guests_with_virsh.html">Virsh en CentOS</a></li> 
+</ul> 
+<p>Si quereis saber m&aacute;s y profundizar en el tema pod&eacute;is consultar la p&aacute;gina oficial de KVM <a title="KVM" href="http://www.linux-kvm.org/page/Main_Page">aqu&iacute;</a>.</p> 
+<p>Espero que os haya sido interesante. No dud&eacute;is en comentar.</p> 
+<p>&nbsp;</p> 
+<p> </p>
+<div> 
+ <a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/&amp;text=Virtualizando con KVM" title="Click here if you like this article."> <img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /> </a> 
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_via="blogstack" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" st_title="Virtualizando con KVM | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/blog-stack/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta blog-stack</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 362,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
+      "title" : "Virtualizando con KVM"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
       "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
     },
@@ -47,20 +51,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Personalizando la shell"
     },
     {
-      "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
-      "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
-    },
-    {
       "url" : "/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios",
       "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
-      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
-      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
+      "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
+      "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
     },
     {
-      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
-      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
+      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
+      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
     }
   ]
 }
