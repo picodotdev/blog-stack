@@ -1,0 +1,126 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a JMeter y pruebas de carga | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga"><span itemprop="headline">Introducción a JMeter y pruebas de carga</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/introduccion-jmeter-y-pruebas-de-carga/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-04-24T06:54" itemprop="datePublished">Publicado el jueves, 24 de abril de 2014 a las 06:54 UTC</span></div><div><span>
+Etiquetado como
+
+jmeter
+
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_via="blogstack" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Normalmente cuando los desarrolladores trabajamos con Java &nbsp;realizamos una toma de requerimientos ,usamos frameworks y desarrollamos c&oacute;digo. Sin embargo en muchas ocasiones me he encontrado con que nos olvidamos un poco de aquellos requerimientos no funcionales .Uno de los mas habituales es el rendimiento . <strong>&iquest; La aplicaci&oacute;n se comporta correctamente con 100 usuarios simultaneos y con mil?</strong>. Muchas veces estas cosas se olvidan y generan tremendos problemas porque SOLO cuando la aplicaci&oacute;n entra en un entorno de producci&oacute;n real se prueban . Lamentablemente cuando llega a un entorno r<strong>eal y hay PROBLEMAS &nbsp;es muy dif&iacute;cil dar marcha atras y corregirlos.</strong> JMeter es la herramienta Java mas utilizada para realizar pruebas de carga. Vamos a realizar una introducci&oacute;n a ella.</p> 
+<h2>Instalaci&oacute;n de JMeter</h2> 
+<p>La instalaci&oacute;n es muy sencilla simplemente nos bajamos JMeter de la siguiente<a title="jmeter" href="https://jmeter.apache.org/"> URL&nbsp;</a>. Una vez hemos bajado la herramienta simplemente descomprimimos el zip y ya podremos arrancar el JMeter con jmeter.bat o ./jmeter.sh .En linux tendremos que darle los permisos adecuados con chmod. Hecho esto el programa arrancar&aacute; y nos mostrar&aacute; la pantalla inicial.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/001136.png"><img alt="001" src="http://www.arquitecturajava.com/wp-content/uploads/001136.png" width="1036" height="687" /></a></p> 
+<p>Esta pantalla como punto de partida asusta ya que tiene demasiadas opciones desde mi punto de vista .</p> 
+<h2>JMeter y ThreadGroup</h2> 
+<p>Sin embargo JMeter no es una herramienta tan compleja de manejar . Por ejemplo si nosotros queremos hacer pruebas de carga contra un servidor web . Deberemos lanzar un conjunto de peticiones para ver como responde .<strong>&iquest;Como se dise&ntilde;a este conjunto de peticiones en JMeter?</strong> . JMeter hace uso de un concepto que se denomina ThreadGroup o grupo de Hilos .</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00215.gif"><img alt="002" src="http://www.arquitecturajava.com/wp-content/uploads/00215.gif" width="207" height="232" /></a></p> 
+<p>Para a&ntilde;adir a nuestro proyecto de JMeter un grupo de Hilos que se encargar&aacute; de lanzar las peticiones deberemos ir al siguiente men&uacute;.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00367.png"><img alt="003" src="http://www.arquitecturajava.com/wp-content/uploads/00367.png" width="831" height="349" /></a></p> 
+<p>Esto a&ntilde;adir&aacute; al plan de pruebas el siguiente elemento .</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00458.png"><img alt="004" src="http://www.arquitecturajava.com/wp-content/uploads/00458.png" width="292" height="154" /></a></p> 
+<p>Ya tenemos a nuestra disposici&oacute;n un grupo de hilos .Si pulsamos sobre el podremos ver que opciones de configuraci&oacute;n del grupo tenemos.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00538.png"><img alt="005" src="http://www.arquitecturajava.com/wp-content/uploads/00538.png" width="1034" height="379" /></a></p> 
+<p>En este caso simplemente hemos modificado el Thread Group para que tenga 10 hilos (Number of Threads) .El siguiente paso es configurar el grupo de hilos para que realicen alg&uacute;n tipo de petici&oacute;n .En este caso vamos a elegir una petici&oacute;n web (Http Request)</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00627.png"><img alt="006" src="http://www.arquitecturajava.com/wp-content/uploads/00627.png" width="1034" height="690" /></a></p> 
+<p>Una vez a&ntilde;adida la petici&oacute;n nos aparecer&aacute; un nuevo elemento a nivel del Grupo de Hilos que hace referencia a una petici&oacute;n web.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00714.png"><img alt="007" src="http://www.arquitecturajava.com/wp-content/uploads/00714.png" width="203" height="110" /></a></p> 
+<p>Vamos a configurar esta petici&oacute;n de una forma sencilla asign&aacute;ndole nombre , servidor , puerto y path al que tiene que acceder .</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00813.png"><img alt="008" src="http://www.arquitecturajava.com/wp-content/uploads/00813.png" width="1417" height="620" /></a></p> 
+<p>Como podemos ver hemos configurado el grupo de Threads para que solicite la URL http://localhost:8080/Web01/Hola.jsp.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/009.gif"><img alt="009" src="http://www.arquitecturajava.com/wp-content/uploads/009.gif" width="454" height="298" /></a></p> 
+<h2>JMeter Listeners</h2> 
+<p>Estamos ya a punto de finalizar la configuraci&oacute;n de las pruebas de carga. Ahora bien necesitamos alguna forma de saber si las peticiones que lanzamos se ejecutan de forma correcta . Para ello usaremos el concepto de <strong>Listener </strong>el cual se encarga de almacenar los resultados<strong>. En este caso usaremos el listener de resumen que es el mas sencillo.</strong></p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/0103.png"><img alt="010" src="http://www.arquitecturajava.com/wp-content/uploads/0103.png" width="1151" height="449" /></a></p> 
+<p>Realizada esta operaci&oacute;n en nuestro plan de pruebas nos aparecer&aacute; un nuevo elemento.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/0114.png"><img alt="011" src="http://www.arquitecturajava.com/wp-content/uploads/0114.png" width="302" height="135" /></a></p> 
+<p>Solo nos queda pulsar el icono verde de play del plan de pruebas y ejecutarlo con los 10 Hilos que hemos creado .</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/0125.png"><img alt="012" src="http://www.arquitecturajava.com/wp-content/uploads/0125.png" width="583" height="86" /></a></p> 
+<p>Podemos ver los resultados en nuestro Listener.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/013.png"><img alt="013" src="http://www.arquitecturajava.com/wp-content/uploads/013.png" width="1160" height="330" /></a></p> 
+<p>El listener nos muestra la informaci&oacute;n sobre las peticiones realizadas .En nuestro caso son 10 y ninguna ha dado error . Hemos terminado de configurar una prueba de carga <strong>“elemental”.</strong></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/introduccion-jmeter-y-pruebas-de-carga/">Introducci&oacute;n a JMeter y pruebas de carga</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_via="blogstack" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga" st_title="Introducción a JMeter y pruebas de carga | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 370,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

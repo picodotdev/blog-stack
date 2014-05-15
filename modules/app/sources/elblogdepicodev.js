@@ -43,7 +43,7 @@ define("app/sources/elblogdepicodev", [], function() {
       "title" : "Libro sobre desarrollo de aplicaciones con Apache Tapestry"
     },
     {
-      "url" : "/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-javautillogging-logback-mentalog",
+      "url" : "/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-java-util-logging-logback-mentalog",
       "title" : "Librerías de logging para Java (slf4j, log4j, java.util.logging, logback, MentaLog)"
     },
     {
