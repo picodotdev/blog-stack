@@ -45,7 +45,10 @@ public class AppWhitelist extends Whitelist {
 				.addAttributes("div", "style")
 				.addAttributes("img", "style")
 				.addAttributes("script", "src", "data-.*")
-				.addAttributes("iframe", "src", "width", "height", "frameborder", "allowfullscreen", "style", "marginwidth", "marginheight", "frameborder", "scrolling");
+				.addAttributes("iframe", "src", "width", "height", "frameborder", "allowfullscreen", "style", "marginwidth", "marginheight", "frameborder", "scrolling")
+				.addAttributes("object", "width", "height")
+				.addAttributes("param", "name", "value")
+				.addAttributes("embed", "src", "type", "width", "height", "allowscriptaccess", "allowfullscreen");
 		return wl;
 	}
 

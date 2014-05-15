@@ -12,6 +12,12 @@ public interface IndexerService {
 	@Transactional(readOnly = true)
 	void setForceIndex(boolean force);
 	
+	@Transactional(readOnly = true)
+	void setForceImport(boolean force);
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	void hash() throws Exception;
+	
 	@Transactional(propagation = Propagation.REQUIRED)
 	List<Post> index() throws Exception;
 	

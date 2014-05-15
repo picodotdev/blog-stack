@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.jsoup.Jsoup;
@@ -39,16 +40,33 @@ public class IndexerServiceImpl implements IndexerService {
 
 	private MainService service;
 	private boolean forceIndex;
+	private boolean forceImport;
 
 	public IndexerServiceImpl(MainService service) {
 		this.service = service;
 		this.forceIndex = false;
+		this.forceImport = false;
 	}
 
 	@Override
 	public void setForceIndex(boolean force) {
 		this.forceIndex = force;
+	}
+	
+	@Override
+	public void setForceImport(boolean force) {
+		this.forceImport = force;
 	}	
+	
+	@Override
+	public void hash() throws Exception {
+		List<Post> posts = service.getPostDAO().findAll();
+		logger.info("Hashsing {} posts...", posts.size());
+		for (Post post : posts) {
+			post.updateHash();
+			service.getPostDAO().persist(post);
+		}
+	}
 	
 	@Override
 	public List<Post> index() throws Exception {
@@ -77,7 +95,7 @@ public class IndexerServiceImpl implements IndexerService {
 	
 	@Override
 	public List<Post> importSources() throws Exception {
-		List<Source> sources = service.getSourceDAO().findImportPending();
+		List<Source> sources = (forceImport) ? service.getSourceDAO().findAll() : service.getSourceDAO().findImportPending();
 
 		// Importar aquellas cuya fuente de información exista
 		List<Source> s = new ArrayList<>();
@@ -158,7 +176,8 @@ public class IndexerServiceImpl implements IndexerService {
 		DateTime publishDate = (entry.getPublishedDate() == null) ? null : new DateTime(entry.getPublishedDate());
 		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
 
-		if (!forceIndex
+		if (!forceIndex 
+				&& !forceImport
 				&& post != null
 				&& (publishDate == null || publishDate.isEqual(post.getPublishDate()))
 				&& (updateDate == null || updateDate.isEqual(post.getUpdateDate()))) {
@@ -176,7 +195,7 @@ public class IndexerServiceImpl implements IndexerService {
 		post.setUpdateDate(updateDate);
 		post.setPublishDate(publishDate);
 		post.setUrl(entry.getLink());
-		post.setTitle(entry.getTitle());
+		post.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
 		if (StringUtils.isBlank(entry.getAuthor())) {
 			post.setAuthor(source.getAuthor());
 		} else {
@@ -195,6 +214,7 @@ public class IndexerServiceImpl implements IndexerService {
 		whitelist.addAttribute("iframe", "src", "^http[s]?://www.youtube.com/embed/.*$");
 		whitelist.addAttribute("iframe", "src", "^http[s]?://player.vimeo.com/video/.*$");
 		whitelist.addAttribute("iframe", "src", "^http[s]?://rcm-eu.amazon-adsystem.com/.*$");
+		whitelist.addAttribute("embed", "src", "^http[s]?://www.youtube.com/v/.*$");
 		String c = Jsoup.clean(postContent.toString(), source.getPageUrl(), whitelist);
 		post.setContent(c, service.getSessionFactory().getCurrentSession());
 		

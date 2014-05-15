@@ -144,9 +144,11 @@ public class Main {
 
 	private CommandLine buildCommandLine(String[] args) throws ParseException {
 		Options options = new Options();
+		options.addOption("h", "hash", false, "Rehash the content");
 		options.addOption("i", "index", false, "Index the new content of all sources");
 		options.addOption("ii", "iindex", false, "Reindex al the content of all sources");
 		options.addOption("im", "import", false, "Index the content of the pending import sources");
+		options.addOption("iim", "iimport", false, "Reindex the content of the import sources");
 		options.addOption("g", "generate", false, "Generate the content changed since the last indexation");
 		options.addOption("gg", "ggenerate", false, "Regenerate all the content");
 		options.addOption("p", "preview", false, "Preview the content");
@@ -161,9 +163,11 @@ public class Main {
 	}
 
 	private void processCommandLine(CommandLine cmd) throws Exception {
+		boolean hash = cmd.hasOption("h");
 		boolean index = cmd.hasOption("i");
 		boolean iindex = cmd.hasOption("ii");
 		boolean importOption = cmd.hasOption("im");
+		boolean iimportOption = cmd.hasOption("iim");
 		boolean generate = cmd.hasOption("g");
 		boolean ggenerate = cmd.hasOption("gg");
 		boolean preview = cmd.hasOption("p");
@@ -171,9 +175,18 @@ public class Main {
 		boolean stop = cmd.hasOption("pp");
 		String repository = cmd.getOptionValue("r");
 
+		if (hash) {
+			initRegistry();
+			initSessionFactory();
+			
+			MainService service = Globals.registry.getService(MainService.class);
+			
+			service.getIndexerService().hash();
+		}
+		
 		Collection<Post> posts = new LinkedHashSet<>();
 		Collection<Label> labels = new LinkedHashSet<>();
-		if (index || iindex || importOption) {
+		if (index || iindex || importOption || iimportOption) {
 			initRegistry();
 			initSessionFactory();
 
@@ -181,7 +194,8 @@ public class Main {
 
 			logger.info("Indexing...");
 			service.getIndexerService().setForceIndex(iindex);
-			if (importOption) {
+			service.getIndexerService().setForceImport(iimportOption);
+			if (importOption || iimportOption) {
 				List<Post> p = service.getIndexerService().importSources();
 				posts.addAll(p);
 			}
