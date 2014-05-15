@@ -51,16 +51,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Personalizando la shell"
     },
     {
+      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
+      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
+    },
+    {
       "url" : "/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios",
       "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
       "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
       "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
-    },
-    {
-      "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
-      "title" : "¡Felices 15 años, Mozilla! Gracias por cambiar el mundo"
     }
   ]
 }
