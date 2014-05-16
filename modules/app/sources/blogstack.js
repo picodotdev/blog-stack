@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
+      "title" : "Arquitectura y hospedaje de Blog Stack"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack",
       "title" : "Zentyal lanza un nuevo Service Pack"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/personalizando-la-shell",
-      "title" : "Personalizando la shell"
     }
   ]
 }

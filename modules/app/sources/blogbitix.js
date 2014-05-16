@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
+      "title" : "Arquitectura y hospedaje de Blog Stack"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
       "title" : "Presentación de Blog Stack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/servidor-de-aplicaciones-jboss-wildfly",
       "title" : "Servidor de aplicaciones JBoss/WildFly"
-    },
-    {
-      "url" : "/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback",
-      "title" : "Logging usando marcadores con slf4j y logback"
     }
   ]
 }
