@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Blog Stack</title>
+  <link rel="alternate" href="http://www.blogstack.info" />
+  <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
+  <updated>2014-05-17T22:35:15Z</updated>
+  <dc:creator>Blog Stack</dc:creator>
+  <dc:date>2014-05-17T22:35:15Z</dc:date>
+  <dc:language>es</dc:language>
+  <entry>
+    <title>Virtualizando con KVM</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
+    <category term="blog-stack" />
+    <category term="debian" />
+    <category term="virtualbox" />
+    <category term="kvm" />
+    <category term="comandos" />
+    <category term="virsh" />
+    <category term="virtualizacion" />
+    <category term="gnu" />
+    <category term="xen" />
+    <category term="vmware" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-15T17:34:55Z</updated>
+    <published>2014-05-15T14:41:31Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-15T14:41:31Z</dc:date>
+  </entry>
+  <entry>
+    <title>Descubrimos Trisquel, el buque insignia de las distribuciones libres</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres" />
+    <category term="blog-stack" />
+    <category term="debian" />
+    <category term="ubuntu" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="trisquel" />
+    <category term="gnucash" />
+    <category term="openbravo" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-14T15:45:48Z</updated>
+    <published>2014-05-14T15:43:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Para terminar la serie de art&amp;iacute;culos sobre las distribuciones 100 % libres, que pod&amp;eacute;is ver aqu&amp;iacute;:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a title="Distribucionnes cien por cien libres partes 1" href="http://www.ochobitshacenunbyte.com/2014/05/02/distribuciones-cien-por-cien-libres-parte-1/"&gt;Distribuciones cien por cien libres (Parte I)&lt;/a&gt;&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="Distribucionnes cien por cien libres partes 2" href="http://www.ochobitshacenunbyte.com/2014/05/05/distribuciones-cien-por-cien-libres-parte-ii/"&gt;Distribuciones cien por cien libres (Parte II)&lt;/a&gt;&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="El sistema operativo que usa Richard Stallman" href="http://www.ochobitshacenunbyte.com/2014/05/06/gnewsense-el-sistema-operativo-que-usa-richard-stallman/"&gt;gNewSense el sistema operativo que usa Richard Stallman&lt;/a&gt;&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;Hablaremos de &lt;a title="Trisquel GNU/Linux Web" href="http://trisquel.info/es"&gt;Trisquel GNU/Linux&lt;/a&gt;. Dicha distribuci&amp;oacute;n fue iniciada en 2004 en Galicia (Espa&amp;ntilde;a) y fue patrocinada por la &lt;a title="Universidad de Vigo" href="http://www.uvigo.es/"&gt;Universidad de Vigo&lt;/a&gt;. Se present&amp;oacute; al mundo oficinalmente en Abril de 2005 por el mism&amp;iacute;simo Richard Stallman. En sus inicios se baso en Debian, aunque finalmente se ha basado en Ubuntu. Usa un &lt;a title="Kernel Libre" href="http://es.wikipedia.org/wiki/Linux-libre"&gt;kernel-libre&lt;/a&gt; sin ning&amp;uacute;n repositorio no libre. Desde el 2008 est&amp;aacute; reconocida por la Free Software Foundation como distribuci&amp;oacute;n 100 % libre. De hecho, los nuevo miembros de la FSF reciben al inscribirse un USB con Trisquel GNU/Linux incorporado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-14T15:43:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Como configurar un relay de correo para nuestra empresa con Postfix</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix" />
+    <category term="servidor-correo" />
+    <category term="debian" />
+    <category term="virtualbox" />
+    <category term="programacion" />
+    <category term="ibm-lotus-notes" />
+    <category term="postfix" />
+    <category term="gnu-linux" />
+    <category term="wietse-venema" />
+    <category term="correo" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-07T14:05:40Z</updated>
+    <published>2012-07-10T12:27:34Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/mysza.gif"&gt;&lt;img title="mysza" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/07/mysza.gif" alt="" width="130" height="91" /&gt;&lt;/a&gt;&amp;Uacute;ltimamente en la empresa donde trabajo hemos tenido que configurar un nuevo servidor de “relay” de correo para sustituir al que ten&amp;iacute;amos, que era un viejo &lt;a title="IBM Lotus Notes" href="http://es.wikipedia.org/wiki/Lotus_Notes"&gt;IBM Lotus Notes&lt;/a&gt;. Por suerte yo ya hab&amp;iacute;a o&amp;iacute;do hablar del servicio de correo de c&amp;oacute;digo abierto Postfix, creado por el programador&lt;a title="Wietse Venema" href="http://es.wikipedia.org/wiki/Wietse_Venema"&gt; Wietse Venema&lt;/a&gt;. Lo cierto es que he tenido que investigar un poco, mirando manuales en Internet, y visitando asiduamente la p&amp;aacute;gina web del &lt;a title="Postfix" href="http://www.postfix.org/"&gt;proyecto&lt;/a&gt;, para as&amp;iacute; de paso practicar mi ingl&amp;eacute;s.&lt;/p&gt; 
+&lt;p&gt;Bueno. Una vez explicado esto, os explico como lo instal&amp;eacute; y configur&amp;eacute;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Primero de todo, decid&amp;iacute; usar una distribuci&amp;oacute;n GNU/Linux, me decid&amp;iacute; por Debian, sin interfaz gr&amp;aacute;fica, para as&amp;iacute; ahorrar recursos al sistema. Una vez descargada la &amp;uacute;ltima versi&amp;oacute;n estable de su web: &amp;nbsp;&lt;a href="http://www.debian.org/CD/http-ftp/#stable"&gt;http://www.debian.org/CD/http-ftp/#stable&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2012-07-10T12:27:34Z</dc:date>
+  </entry>
+  <entry>
+    <title>Instalar y configurar Nagios en servidor Debian 7 (Parte I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i" />
+    <category term="apache" />
+    <category term="debian" />
+    <category term="gd" />
+    <category term="nagios" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="servicios" />
+    <category term="wheezy" />
+    <category term="php" />
+    <category term="www-data" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-30T15:54:44Z</updated>
+    <published>2014-04-30T15:40:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png" alt="Nagios_Logo" width="212" height="50" /&gt;&lt;/a&gt;Actualmente, en pleno siglo XXI, las empresas, ya sean grandes o peque&amp;ntilde;as se encuentran ante el desaf&amp;iacute;o de controlar decenas de m&amp;aacute;quinas, ya sean f&amp;iacute;sicas o virtuales, est&amp;eacute;n en la nube o en sus propias instalaciones.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;En el presente art&amp;iacute;culo hablaremos de &lt;a title="Nagios Web" href="http://www.nagios.org/"&gt;Nagios&lt;/a&gt;, un fant&amp;aacute;stico software de monitorizaci&amp;oacute;n liberado bajo licencia &lt;a title="GNU General Public License" href="http://www.ochobitshacenunbyte.com/2014/04/30/un-elemento-con-mucho-humor/"&gt;GNU General Public License Version 2&lt;/a&gt;. Con Nagios podemos vigilar el hardware, es decir, las m&amp;aacute;quinas f&amp;iacute;sicas c&amp;oacute;mo tambi&amp;eacute;n los diferentes servicios que pueden correr en dichas m&amp;aacute;quinas (SMTP,POP3, HTTP,FTP,BBDD, etc&amp;eacute;tera).&lt;/p&gt; 
+&lt;p&gt;He usado una m&amp;aacute;quina virtual con &lt;a title="Debian 7" href="https://www.debian.org/index.es.html"&gt;Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Antes de empezar debemos de instalar los siguientes paquetes en el sistema:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Apache2&lt;/li&gt; 
+ &lt;li&gt;PHP 5&lt;/li&gt; 
+ &lt;li&gt;El compilador GCC y las librerias de desarrollo&lt;/li&gt; 
+ &lt;li&gt;Las &lt;a title="Librer&amp;iacute;as GD" href="http://www.php.net/manual/es/book.image.php"&gt;librerias GD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-30T15:40:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Editando desde la línea de comandos, con nano.</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano" />
+    <category term="wodstar" />
+    <category term="debian" />
+    <category term="nano" />
+    <category term="ubuntu" />
+    <category term="msdos" />
+    <category term="editor" />
+    <category term="comandos" />
+    <category term="ofimatica" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-28T15:35:54Z</updated>
+    <published>2014-04-28T15:28:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo-150x150.png" alt="GNU-Nano-Logo" width="150" height="150" /&gt;&lt;/a&gt;En mis primeros pasos en el mundo de la inform&amp;aacute;tica, a principios de a&amp;ntilde;os noventa, en la academia ten&amp;iacute;amos sistemas 80286 y 80386 con &lt;a title="MS-DOS" href="http://es.wikipedia.org/wiki/MS-DOS"&gt;MS-DOS,&lt;/a&gt; y nuestro editor, donde hac&amp;iacute;a mis trabajos, era el fabuloso, para la &amp;eacute;poca, &lt;a title="WordStar" href="http://www.wordstar.org/"&gt;WordStar&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Actualmente, en los sistemas basados en &lt;a title="UNIX" href="http://www.unix.org/"&gt;UNIX&lt;/a&gt; y &lt;a title="GNU/LINUX" href="http://es.wikipedia.org/?title=GNU/Linux"&gt;GNU/LINUX &lt;/a&gt;podemos usar varios editores, uno de los m&amp;aacute;s sencillos de usar, es &lt;a title="GNU nano" href="http://www.nano-editor.org/"&gt;GNU nano&lt;/a&gt;, el cu&amp;aacute;l trataremos en &amp;eacute;ste art&amp;iacute;culo.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;GNU Nano, seg&amp;uacute;n leemos en su p&amp;aacute;gina oficial en ingl&amp;eacute;s:&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt;GNU nano est&amp;aacute; dise&amp;ntilde;ado para ser un reemplazo libre para el editor de texto de Pico , que forma parte de la suite de correo electr&amp;oacute;nico del pino de la Universidad de Washington. Su objetivo es ” emular Pico lo m&amp;aacute;s cerca posible y tal vez incluir la funcionalidad extra” .&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;C&amp;oacute;mo vemos GNU nano fue creado para reemplazar, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-28T15:28:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Huayra lanza su nueva versión 2.0</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2" />
+    <category term="debian" />
+    <category term="argentina" />
+    <category term="blender" />
+    <category term="comunidad-open-source" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="quechua" />
+    <category term="huayra" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-26T10:22:50Z</updated>
+    <published>2014-04-25T17:55:41Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/logo-huayra-300x162.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/logo-huayra-300x162.png" alt="logo-huayra-300x162" width="300" height="162" /&gt;&lt;/a&gt;Leemos en la p&amp;aacute;gina &lt;a title="Anuncio Huayra 2.0" href="http://huayra.conectarigualdad.gob.ar/noticias/2014/04/23/tenemos-el-honor-de-anunciar-el-lanzamiento-de-huayra-20"&gt;web oficial &lt;/a&gt;del proyecto Huayra, que acaban de lanzar la versi&amp;oacute;n 2.0 de su programario, basado en &lt;a title="Debian" href="https://www.debian.org/index.es.html"&gt;Debian&lt;/a&gt;. Desde hace tiempo estoy dirigiendo la mirada al continente sudamericano, por las buenas noticias que nos est&amp;aacute;n dando a la comunidad GNU/Linux y OpenSource. Por las iniciativas tanto privadas c&amp;oacute;mo de instituciones p&amp;uacute;blicas para fomentar la comunidad de software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Huayra ha sido desarrollado por &lt;a title="Programa Conectar Igualdad" href="http://www.conectarigualdad.gob.ar/"&gt;Programa Conectar Igualdad de Argentina&lt;/a&gt;. Y est&amp;aacute; liberado bajo la licencia GNU/GPL. Huayra toma su nombre del vocablo &lt;a title="Quechua" href="http://es.wikipedia.org/wiki/Quechua"&gt;Quechua&lt;/a&gt; que significa &lt;i&gt;Viento&lt;/i&gt;.&lt;/p&gt; 
+&lt;p&gt;Entre los diversos programas que nos podemos encontrar en est&amp;aacute; distribuci&amp;oacute;n:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a title="Pilas Engine" href="http://pilas-engine.com.ar/"&gt;Pilas Engine&lt;/a&gt;, para programar videojuegos.&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="&amp;Iacute;caro" href="http://roboticaro.org/"&gt;&amp;Iacute;caro&lt;/a&gt;, para programaci&amp;oacute;n de rob&amp;oacute;tica educativa.&lt;/li&gt; 
+ &lt;li&gt;El popular, &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-25T17:55:41Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cambiar nombre de máquina (host) en GNU/Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnu-linux" />
+    <category term="qemu" />
+    <category term="debian" />
+    <category term="hosts" />
+    <category term="kvm" />
+    <category term="shell" />
+    <category term="sistemas-operativos" />
+    <category term="hostname" />
+    <category term="comandos" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-01T09:59:44Z</updated>
+    <published>2014-04-01T09:58:31Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /&gt;&lt;/a&gt;Estoy preparando un art&amp;iacute;culo de virtualizaci&amp;oacute;n con &lt;a title="QEMU/KVM" href="http://www.linux-kvm.org/page/Main_Page"&gt;QEMU/KVM&lt;/a&gt; y me he encontrado con la situaci&amp;oacute;n de tener que clonar m&amp;aacute;quinas, y una vez ya clonadas, cambiarles la configuraci&amp;oacute;n. Uno de estos cambios es referente al nombre de la m&amp;aacute;quina. Ya que si clono un host que se llama vDebian1 a otro vDebian2, tendr&amp;eacute; que modifcar varios archivos en la segunda m&amp;aacute;quina, para que no tenga el nombre de la primera.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Al l&amp;iacute;o, hay que modificar dos archivos, ubicados ambos en la carpeta &lt;strong&gt;/etc&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;El primero es &lt;strong&gt;/etc/hosts&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Por defecto la configuraci&amp;oacute;n suele se as&amp;iacute;:&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;127.0.0.1 localhost&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt; 127.0.1.1 nombredemaquina&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Tendr&amp;eacute; que modificar la segunda l&amp;iacute;nea:&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;127.0.1.1 vDebian2&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Pasemos al siguiente fichero a modificar, es decir, &lt;strong&gt;/etc/hostname&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;El nombre de la m&amp;aacute;quina era:&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;vDebian1&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-01T09:58:31Z</dc:date>
+  </entry>
+  <entry>
+    <title>Trabajando con ventanas con OpenBox</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/trabajando-con-ventanas-con-openbox" />
+    <category term="debian" />
+    <category term="sistemas-operativos" />
+    <category term="gnu-linux" />
+    <category term="comandos" />
+    <category term="ofimatica" />
+    <category term="xorg" />
+    <category term="x11" />
+    <category term="startx" />
+    <category term="openbox" />
+    <category term="moc" />
+    <category term="feh" />
+    <category term="iceweasel" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-03-27T09:22:29Z</updated>
+    <published>2014-03-26T21:17:58Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/openbox.png"&gt;&lt;img alt="openbox" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/openbox.png" width="156" height="132" /&gt;&lt;/a&gt;&amp;Uacute;ltimamente mi port&amp;aacute;til Toshiba se est&amp;aacute; quedando un poco atr&amp;aacute;s en el rendimiento, as&amp;iacute; que he decidido cambiar el sistema operativo a algo m&amp;aacute;s ligero. Ahora misto tengo Ubuntu con XFCE.&amp;nbsp; Mi elecci&amp;oacute;n ha sido &lt;a title="Debian 7" href="https://www.debian.org/index.es.html"&gt;Debian 7&lt;/a&gt;, en su versi&amp;oacute;n x86, con &lt;a title="OpenBox" href="http://openbox.org/"&gt;OpenBox&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Como me da un poco de respeto, ya que nunca he trabajado con OpenBox, primero lo voy a instalar en una m&amp;aacute;quina virtual, y as&amp;iacute; probarlo. As&amp;iacute; usar&amp;eacute; las capturas de la instalaci&amp;oacute;n para &amp;eacute;ste art&amp;iacute;culo.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos al l&amp;iacute;o, lo primero instalar Debian 7&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox001.jpg"&gt;&lt;img alt="OpenBox001" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox001.jpg" width="640" height="480" /&gt;&lt;/a&gt;Elegiremos “Install” y para adelante.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox002.jpg"&gt;&lt;img alt="OpenBox002" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox002.jpg" width="800" height="600" /&gt;&lt;/a&gt;En este momento, s&amp;oacute;lo elegiremos las “Utilidades est&amp;aacute;ndar del sistema” ya que no queremos que nos instale ning&amp;uacute;n escritorio ni ning&amp;uacute;n servicio adicional.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox003.jpg"&gt;&lt;img alt="OpenBox003" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox003.jpg" width="720" height="400" /&gt;&lt;/a&gt;C&amp;oacute;mo pod&amp;eacute;is observar en la captura anterior ya estamos dentro del sistema, y la pregunta es: &amp;iquest;Y ahora qu&amp;eacute;?&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/trabajando-con-ventanas-con-openbox"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-03-26T21:17:58Z</dc:date>
+  </entry>
+  <entry>
+    <title>Sobre compresión y formatos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/sobre-compresion-y-formatos" />
+    <category term="debian" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="gnu-linux" />
+    <category term="comandos" />
+    <category term="gnu" />
+    <category term="7z" />
+    <category term="compresion" />
+    <category term="redhat" />
+    <category term="tar" />
+    <category term="tar-gz2" />
+    <category term="tar-gz" />
+    <category term="zip" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-03-18T15:41:36Z</updated>
+    <published>2014-03-18T12:05:10Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /&gt;&lt;/a&gt;Comprimir archivos y descomprimirlos, es una tarea clave en cualquier departamento de sistemas que se precie. Los backups de datos muchas veces no se hacen con programas complejos y costosos, sino con compresi&amp;oacute;n de carpetas y archivos en lugares seguros donde guardarlos, sean cabinas de discos, discos duros externos o en la nube.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Seg&amp;uacute;n leemos en wikipedia:&lt;/p&gt; 
+&lt;p&gt;&lt;cite&gt;En ciencias de la computaci&amp;oacute;n la compresi&amp;oacute;n de datos es la reducci&amp;oacute;n del volumen de datos tratables para representar una determinada informaci&amp;oacute;n empleando una menor cantidad de espacio. Al acto de compresi&amp;oacute;n de datos se denomina compresi&amp;oacute;n, y al contrario descompresi&amp;oacute;n&lt;/cite&gt;&lt;/p&gt; 
+&lt;p&gt;Existen muchos formatos de compresi&amp;oacute;n unos son m&amp;aacute;s famosos que otros. Podemos decir que unos son muy r&amp;aacute;pidos comprimiendo y usan pocos recursos para ese proceso, y otros son m&amp;aacute;s lentos comprimiendo y usan m&amp;aacute;s recursos, pero tienen mucho mejor nivel de compresi&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/sobre-compresion-y-formatos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-03-18T12:05:10Z</dc:date>
+  </entry>
+  <entry>
+    <title>Configurar un proxy para nuestra pequeña empresa o red doméstica, con squid-cache.</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache" />
+    <category term="debian" />
+    <category term="web" />
+    <category term="xfce" />
+    <category term="firefox" />
+    <category term="nube" />
+    <category term="squid" />
+    <category term="proxy" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-02-18T21:00:18Z</updated>
+    <published>2014-02-18T20:45:34Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/Squid-cache1.jpg"&gt;&lt;img alt="Squid-cache1" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/Squid-cache1.jpg" width="200" height="148" /&gt;&lt;/a&gt;Controlar el uso que hacen los usuarios de internet en una red local de una oficina, a veces puede resultar una tarea ardua, pero si aprendemos a instalar y configurar debidamente una herramienta tan potente, como un proxy, tendremos parte de la situci&amp;oacute;n controlada.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;C&amp;oacute;mo bien vemos en la defici&amp;oacute;n de Proxy, en la Wikipedia, en su versi&amp;oacute;n en castellano:&lt;/p&gt; 
+&lt;p&gt;“Un &lt;b&gt;proxy&lt;/b&gt;, en una &lt;a title="Red inform&amp;aacute;tica" href="http://es.wikipedia.org/wiki/Red_inform%C3%A1tica"&gt;red inform&amp;aacute;tica&lt;/a&gt;, es un programa o dispositivo que realiza una acci&amp;oacute;n en representaci&amp;oacute;n de otro, esto es, si una hipot&amp;eacute;tica m&amp;aacute;quina &lt;i&gt;&lt;b&gt;A&lt;/b&gt;&lt;/i&gt; solicita un recurso a una &lt;i&gt;&lt;b&gt;C&lt;/b&gt;&lt;/i&gt;, lo har&amp;aacute; mediante una petici&amp;oacute;n a &lt;i&gt;&lt;b&gt;B&lt;/b&gt;&lt;/i&gt;; &lt;i&gt;&lt;b&gt;C&lt;/b&gt;&lt;/i&gt; entonces no sabr&amp;aacute; que la petici&amp;oacute;n procedi&amp;oacute; originalmente de &lt;i&gt;&lt;b&gt;A&lt;/b&gt;&lt;/i&gt;. Esta situaci&amp;oacute;n estrat&amp;eacute;gica de punto intermedio suele ser aprovechada para soportar una serie de funcionalidades: proporcionar cach&amp;eacute;, control de acceso, registro del tr&amp;aacute;fico, prohibir cierto tipo de tr&amp;aacute;fico, etc.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/configurar-un-proxy-para-nuestra-pequena-empresa-o-red-domestica-con-squid-cache"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-02-18T20:45:34Z</dc:date>
+  </entry>
+  <entry>
+    <title>I LOVE FREE SOFTWARE</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/i-love-free-software" />
+    <category term="debian" />
+    <category term="comunidad-open-source" />
+    <category term="richard-stallman" />
+    <category term="red-hat" />
+    <category term="linux-foundation" />
+    <category term="suse" />
+    <category term="ilovefs" />
+    <category term="gimp" />
+    <category term="linus-torvalds" />
+    <category term="document-foundation" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-02-14T17:19:26Z</updated>
+    <published>2014-02-14T13:45:21Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/ilovefs-heart-small-en.png"&gt;&lt;img alt="ilovefs-heart-small-en" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/02/ilovefs-heart-small-en.png" width="150" height="90" /&gt;&lt;/a&gt;Hoy d&amp;iacute;a de San Valent&amp;iacute;n, d&amp;iacute;a en may&amp;uacute;sculas del capitalismo y los centros comerciales. Vamos a convertirlo, d&amp;aacute;ndole la vuenta a la tortilla, en algo realmente &amp;uacute;til. Felicitemos a los desarrolladores, miembros de la &lt;a title="Free Software Foundation" href="http://www.fsf.org/"&gt;Free Software Foundation&lt;/a&gt;, trabajadores entusiastas de compa&amp;ntilde;&amp;iacute;as como &lt;a title="Red Hat" href="http://es.redhat.com/"&gt;Red Hat&lt;/a&gt; &amp;nbsp;o &lt;a title="Suse" href="https://www.suse.com/es-es/"&gt;Suse&lt;/a&gt;, &amp;nbsp;instituciones como la &lt;a title="Linux Foundation" href="http://www.linuxfoundation.org/"&gt;Linux Foundation&lt;/a&gt; o &lt;a title="Document Foundation" href="http://www.documentfoundation.org/"&gt;Document Foundation&lt;/a&gt;, proyectos como &lt;a title="Debian" href="https://www.debian.org/index.es.html"&gt;Debian&lt;/a&gt; o &lt;a title="GIMP" href="http://www.gimp.org/"&gt;GIMP,&lt;/a&gt; &amp;nbsp;gurus como &lt;a title="Linus Torvalds" href="https://plus.google.com/+LinusTorvalds/posts"&gt;Linus Torvalds&lt;/a&gt;, &lt;a title="Richard Stallman" href="http://stallman.org/"&gt;Richard Stallman&lt;/a&gt;, &lt;a title="Sarah Sharp" href="http://sarah.thesharps.us/"&gt;Sarah Sharp&lt;/a&gt; y tantos cientos de personas que hacen que cada d&amp;iacute;a GNU/Linux y el Open Source sean m&amp;aacute;s grandes. #ILOVEFS&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://ilovefs.orgimgsrc=http://fsfe.org/campaigns/ilovefs/artwork/graphics/ilovefs-ascii.pngstyle=border:0!important;alt=IloveFreeSoftware!"&gt;&lt;img style="border: 0 !important;" alt="&amp;quot;I" src="http://fsfe.org/campaigns/ilovefs/artwork/graphics/ilovefs-ascii.png" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2014/02/14/i-love-free-software/&amp;amp;text=I LOVE FREE SOFTWARE" title="Click here if you like this article."&gt; &lt;img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /&gt; &lt;/a&gt; 
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/i-love-free-software"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-02-14T13:45:21Z</dc:date>
+  </entry>
+  <entry>
+    <title>Montar unidades remotas con fstab en GNU/Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/11/montar-unidades-remotas-con-fstab-en-gnu-linux" />
+    <category term="debian" />
+    <category term="sistemas-operativos" />
+    <category term="gnu-linux" />
+    <category term="mount" />
+    <category term="ntfs" />
+    <category term="windows" />
+    <category term="cifs" />
+    <category term="fstab" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2013-11-28T16:42:22Z</updated>
+    <published>2013-11-28T16:39:34Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1.jpg"&gt;&lt;img alt="ochobits" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1.jpg" width="159" height="104" /&gt;&lt;/a&gt;Si partimos de la base que queremos montar una unidad remota, es decir, de otra m&amp;aacute;quina de nuestra red, en nuestra equipo, podemos hacerlo de dos maneras.&lt;/p&gt; 
+&lt;p&gt;La primera de ellas ser&amp;iacute;a de forma manual con el comando &lt;strong&gt;mount&lt;/strong&gt;. En &amp;eacute;ste art&amp;iacute;culo se explica c&amp;oacute;mo hacerlo de forma autom&amp;aacute;tica con &lt;strong&gt;fstab&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;En nuestra empresa tenemos mayor&amp;iacute;a de m&amp;aacute;quinas con sistema operativo &lt;strong&gt;Windows&lt;/strong&gt;, y su habitual sistema de ficheros &lt;strong&gt;NTFS&lt;/strong&gt;.&lt;br /&gt; &lt;/p&gt; 
+&lt;p&gt;Por lo tanto en nuestro sistemas GNU/Linux instalaremos el programa &lt;strong&gt;cifs-utils&lt;/strong&gt; para poder montarlas.&lt;/p&gt; 
+&lt;pre&gt;su
+apt-get -y update &amp;amp;&amp;amp; apt-get -y install cifs-utils&lt;/pre&gt; 
+&lt;p&gt;Si trabajamos con un sistema basado en Red Hat ser&amp;iacute;a con el comando &lt;strong&gt;yum&lt;/strong&gt; o &lt;strong&gt;yast&lt;/strong&gt; Para lograrlo primero crearemos el directorio donde queremos que se monte la unidad. Lo haremos de la siguiente manera:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/11/montar-unidades-remotas-con-fstab-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2013-11-28T16:39:34Z</dc:date>
+  </entry>
+  <entry>
+    <title>GNU/Linux Debian evoluciona: El instalador Debian Wheezy (testing) ya está aquí.</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/02/gnu-linux-debian-evoluciona-el-instalador-debian-wheezy-testing-ya-esta-aqui" />
+    <category term="debian" />
+    <category term="sistemas-operativos" />
+    <category term="gnu-linux" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2013-02-19T13:04:25Z</updated>
+    <published>2013-02-19T12:38:04Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2013/02/debian-logo.jpg"&gt;&lt;img alt="debian-logo" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2013/02/debian-logo.jpg" width="131" height="172" /&gt;&lt;/a&gt;Hace dos d&amp;iacute;as, el pasado 17, Debian anunciaba desde su p&amp;aacute;gina web la salida de la primera versi&amp;oacute;n del instalador de Debian Wheezy (Sibilante, en castellano).&lt;/p&gt; 
+&lt;p&gt;Entre las novedades que podemos encontrar est&amp;aacute;n la eliminaci&amp;oacute;n de librer&amp;iacute;as obsoletas, la compatibilidad con &lt;a title="IPv6" href="http://es.wikipedia.org/wiki/IPv6"&gt;IPv6&lt;/a&gt; y un nuevo formato de soporte de paquetes. El sistema de ficheros por defecto ser&amp;aacute; &lt;a title="ex4" href="http://es.wikipedia.org/wiki/Ext4"&gt;ext4&lt;/a&gt;, por fin dejar&amp;aacute; de venir preinstalado &lt;a title="OpenOffice" href="http://www.openoffice.org/es/"&gt;OpenOffice&lt;/a&gt; y vendr&amp;aacute; con el flamante &lt;a title="LibreOffice4" href="http://www.libreoffice.org/#2"&gt;LibreOffice&lt;/a&gt; (me encanta) , la versi&amp;oacute;n de &lt;a title="GNOME" href="http://www.gnome.org/"&gt;GNOME&lt;/a&gt; ser&amp;aacute; la 3.4, de &lt;a title="KDE" href="http://www.kde.org/"&gt;KDE&lt;/a&gt; la 4.8 y de &lt;a title="XFCE" href="http://www.xfce.org/"&gt;XFCE&lt;/a&gt; tambi&amp;eacute;n la 4.8 y much&amp;iacute;simas m&amp;aacute;s novedades.&lt;/p&gt; 
+&lt;p&gt;Ahora mismo lo estoy descargando, en breve m&amp;aacute;s noticias.&amp;nbsp; Para m&amp;aacute;s informaci&amp;oacute;n &lt;a title="Debian Wheezy" href="http://wiki.debian.org/DebianWheezy"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt; &lt;/p&gt; 
+&lt;div&gt; 
+ &lt;a href="http://twitter.com/share?url=http://www.ochobitshacenunbyte.com/2013/02/19/gnulinux-debian-evoluciona-wheezy-ya-esta-aqui/&amp;amp;text=GNU/Linux Debian evoluciona: El instalador Debian Wheezy (testing) ya est&amp;aacute; aqu&amp;iacute;." title="Click here if you like this article."&gt; &lt;img src="http://www.ochobitshacenunbyte.com/wp-content/plugins/twitter-plugin/images/twitt.gif" alt="Twitt" /&gt; &lt;/a&gt; 
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/02/gnu-linux-debian-evoluciona-el-instalador-debian-wheezy-testing-ya-esta-aqui"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2013-02-19T12:38:04Z</dc:date>
+  </entry>
+  <entry>
+    <title>Configurar sistemas basados en Debian para salir por proxy</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/02/configurar-sistemas-basados-en-debian-para-salir-por-proxy" />
+    <category term="debian" />
+    <category term="sistemas-operativos" />
+    <category term="apt" />
+    <category term="gnu-linux" />
+    <category term="proxy" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2013-02-07T10:15:09Z</updated>
+    <published>2013-02-07T10:04:16Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits.jpg"&gt;&lt;img alt="ochobits" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits.jpg" width="159" height="104" /&gt;&lt;/a&gt;En la empresa donde trabajo hemos montando varios servidores con sistemas GNU/Linux Debian. Uno de las vicesitudes con las que me he encontrado es que algunas de ellas ten&amp;iacute;an que salir a trav&amp;eacute;s de un proxy corporativo, que hace tiempo que tenemos instalado.&lt;/p&gt; 
+&lt;p&gt;Para poder salir a trav&amp;eacute;s de &amp;eacute;l lo hice de la siguiente manera:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Primero de todo hemos de saber los datos de nuestro proxy, una vez apuntados localizamos los archivos que tenemos que modificar en el sistema, que son los siguientes:&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;/etc/environment&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Este fichero contiene las variables que especifican el entorno b&amp;aacute;sico para los procesos del sistema.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;/etc/apt/apt.conf&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Como bien indica su propio nombre, es el fichero de configuraci&amp;oacute;n de gestor de paquetes apt.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;/etc/bash.bashrc&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Bash lee &amp;eacute;ste fichero y ejecuta las ordenes que tenga en su interior. Podemos incluir variables generales del sistema.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2013/02/configurar-sistemas-basados-en-debian-para-salir-por-proxy"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2013-02-07T10:04:16Z</dc:date>
+  </entry>
+  <entry>
+    <title>Configurar e instalar módulo WIFI con Debian (Toshiba Satellite)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite" />
+    <category term="windows-7" />
+    <category term="debian" />
+    <category term="ubuntu" />
+    <category term="wifi" />
+    <category term="toshiba" />
+    <category term="sistemas-operativos" />
+    <category term="lspci" />
+    <category term="realtek" />
+    <category term="squeeze" />
+    <category term="build-essential" />
+    <category term="canonical" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2013-01-29T11:39:34Z</updated>
+    <published>2012-08-21T21:21:09Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1.jpg"&gt;&lt;img title="ochobits" alt="" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2012/08/ochobits1-150x104.jpg" width="150" height="104" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Desde hace ya varios meses tengo instalado la &amp;uacute;ltima versi&amp;oacute;n de &lt;a title="Debian Squeeze" href="http://www.debian.org/releases/stable/"&gt;Debian Squeeze&lt;/a&gt; en mi ordenador de sobremesa, pero mi port&amp;aacute;til &lt;a title="Toshiba Satellite" href="http://es.computers.toshiba-europe.com/innovation/family/Satellite/2326/"&gt;Toshiba Satellite&lt;/a&gt; se resist&amp;iacute;a. Durante los a&amp;ntilde;os pas&amp;oacute; del Windows 7 que ven&amp;iacute;a preinstalado, a diferentes versiones de &lt;a title="Ubuntu" href="http://www.ubuntu.com/"&gt;Ubuntu&lt;/a&gt;. Ayer decid&amp;iacute;, que para ser coherente con mis &amp;uacute;ltimos pensamientos en referencia a que un sistema tiene que ser en la medida de los posible Libre, y que los se&amp;ntilde;ores de &lt;a title="Canonical" href="http://www.canonical.com/"&gt;Canonical&lt;/a&gt; se est&amp;aacute;n extralimitando, a mi manera de ver, en la aceptaci&amp;oacute;n de programas privativos, adem&amp;aacute;s de que los productos que te intentan vender, si vender, hab&amp;eacute;is oido bien, cada vez que visualizas el repositorio de programas, ya ha sido la gota que a colmado el baso. S&amp;iacute;, es verdad, tienen todo su derecho a financiarse, eso no lo discuto, pero mi camino va por otro lado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2012/08/configurar-e-instalar-modulo-wifi-con-debian-toshiba-satellite"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2012-08-21T21:21:09Z</dc:date>
+  </entry>
+</feed>
+

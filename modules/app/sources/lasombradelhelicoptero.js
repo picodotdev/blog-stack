@@ -59,7 +59,7 @@ define("app/sources/lasombradelhelicoptero", [], function() {
       "title" : "Chakra y GTK: otra vuelta de tuerca"
     },
     {
-      "url" : "/post/lasombradelhelicoptero/2013/11/ubuntu-13-10-una-version-muy-buena",
+      "url" : "/post/lasombradelhelicoptero/2013/11/ubuntu-13-1-una-version-muy-buena",
       "title" : "Ubuntu 13.10: una versión muy buena"
     }
   ]

@@ -27,7 +27,7 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Usar Grunt para ejecutar teses unitarios de código Javascript"
     },
     {
-      "url" : "/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-840-evo-250-gb",
+      "url" : "/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-84-evo-25-gb",
       "title" : "Desempaquetado y análisis Samsung SSD 840 EVO 250 GB"
     },
     {

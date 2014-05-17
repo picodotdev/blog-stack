@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Blog Stack</title>
+  <link rel="alternate" href="http://www.blogstack.info" />
+  <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
+  <updated>2014-05-17T22:35:18Z</updated>
+  <dc:creator>Blog Stack</dc:creator>
+  <dc:date>2014-05-17T22:35:18Z</dc:date>
+  <dc:language>es</dc:language>
+  <entry>
+    <title>Virtualizando con KVM</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
+    <category term="blog-stack" />
+    <category term="debian" />
+    <category term="virtualbox" />
+    <category term="kvm" />
+    <category term="comandos" />
+    <category term="virsh" />
+    <category term="virtualizacion" />
+    <category term="gnu" />
+    <category term="xen" />
+    <category term="vmware" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-15T17:34:55Z</updated>
+    <published>2014-05-15T14:41:31Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-15T14:41:31Z</dc:date>
+  </entry>
+  <entry>
+    <title>Descubrimos Trisquel, el buque insignia de las distribuciones libres</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres" />
+    <category term="blog-stack" />
+    <category term="debian" />
+    <category term="ubuntu" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="trisquel" />
+    <category term="gnucash" />
+    <category term="openbravo" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-14T15:45:48Z</updated>
+    <published>2014-05-14T15:43:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Para terminar la serie de art&amp;iacute;culos sobre las distribuciones 100 % libres, que pod&amp;eacute;is ver aqu&amp;iacute;:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a title="Distribucionnes cien por cien libres partes 1" href="http://www.ochobitshacenunbyte.com/2014/05/02/distribuciones-cien-por-cien-libres-parte-1/"&gt;Distribuciones cien por cien libres (Parte I)&lt;/a&gt;&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="Distribucionnes cien por cien libres partes 2" href="http://www.ochobitshacenunbyte.com/2014/05/05/distribuciones-cien-por-cien-libres-parte-ii/"&gt;Distribuciones cien por cien libres (Parte II)&lt;/a&gt;&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="El sistema operativo que usa Richard Stallman" href="http://www.ochobitshacenunbyte.com/2014/05/06/gnewsense-el-sistema-operativo-que-usa-richard-stallman/"&gt;gNewSense el sistema operativo que usa Richard Stallman&lt;/a&gt;&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;Hablaremos de &lt;a title="Trisquel GNU/Linux Web" href="http://trisquel.info/es"&gt;Trisquel GNU/Linux&lt;/a&gt;. Dicha distribuci&amp;oacute;n fue iniciada en 2004 en Galicia (Espa&amp;ntilde;a) y fue patrocinada por la &lt;a title="Universidad de Vigo" href="http://www.uvigo.es/"&gt;Universidad de Vigo&lt;/a&gt;. Se present&amp;oacute; al mundo oficinalmente en Abril de 2005 por el mism&amp;iacute;simo Richard Stallman. En sus inicios se baso en Debian, aunque finalmente se ha basado en Ubuntu. Usa un &lt;a title="Kernel Libre" href="http://es.wikipedia.org/wiki/Linux-libre"&gt;kernel-libre&lt;/a&gt; sin ning&amp;uacute;n repositorio no libre. Desde el 2008 est&amp;aacute; reconocida por la Free Software Foundation como distribuci&amp;oacute;n 100 % libre. De hecho, los nuevo miembros de la FSF reciben al inscribirse un USB con Trisquel GNU/Linux incorporado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-14T15:43:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Fundación de software Libre. Recopilación de Noticias de Abril 2014</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14" />
+    <category term="blog-stack" />
+    <category term="richard-stallman" />
+    <category term="supporter" />
+    <category term="gnu-linux" />
+    <category term="noticias" />
+    <category term="software-libre" />
+    <category term="gnu" />
+    <author>
+      <name>Victor Hck</name>
+    </author>
+    <updated>2014-05-11T17:00:32Z</updated>
+    <published>2014-05-10T15:39:27Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;&amp;iquest;Quieres conocer las noticias y eventos de la Fundaci&amp;oacute;n de Software Libre? Entonces sigue leyendo&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.fsf.org/about/"&gt;&lt;img src="https://victorhckinthefreeworld.files.wordpress.com/2013/06/fsf_logo.png?w=652" alt="FSF_logo" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;La Fundaci&amp;oacute;n de Software Libre o Free Software Foundation (FSF) es una organizaci&amp;oacute;n creada en Octubre de 1985 por&amp;nbsp;&lt;a href="http://es.wikipedia.org/wiki/Richard_Stallman"&gt;&lt;strong&gt;Richard Stallman&lt;/strong&gt;&lt;/a&gt; y otros entusiastas del software libre con el prop&amp;oacute;sito de difundir este movimiento.&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt;La Fundaci&amp;oacute;n para el software libre (FSF) se dedica a eliminar las restricciones sobre la copia, redistribuci&amp;oacute;n, entendimiento, y modificaci&amp;oacute;n de programas de computadoras. Con este objeto, promociona el desarrollo y uso del software libre en todas las &amp;aacute;reas de la computaci&amp;oacute;n, pero muy particularmente, ayudando a desarrollar el sistema operativo &lt;a href="http://es.wikipedia.org/wiki/GNU"&gt;&lt;strong&gt;GNU&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;Adem&amp;aacute;s de tratar de difundir la filosof&amp;iacute;a del &lt;strong&gt;software libre,&lt;/strong&gt; y de crear licencias que permitan la difusi&amp;oacute;n de obras y conservando los derechos de autor&amp;iacute;as, tambi&amp;eacute;n llevan a cabo diversas campa&amp;ntilde;as de concienciaci&amp;oacute;n y para proteger derechos de los usuarios frentes a aquellos que quieren poner restricciones abusivas en cuestiones tecnol&amp;oacute;gicas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Victor Hck</dc:creator>
+    <dc:date>2014-05-10T15:39:27Z</dc:date>
+  </entry>
+  <entry>
+    <title>Zentyal lanza un nuevo Service Pack</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack" />
+    <category term="zentyal" />
+    <category term="blog-stack" />
+    <category term="gpl" />
+    <category term="comunidad-open-source" />
+    <category term="exchange" />
+    <category term="linux" />
+    <category term="noticias" />
+    <category term="microsoft" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-08T19:56:39Z</updated>
+    <published>2014-05-08T13:22:10Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/zentyal.jpeg"&gt;&lt;img style="float: left;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/zentyal-150x150.jpeg" alt="zentyal" width="150" height="150" /&gt;&lt;/a&gt;La empresa zaragozana &lt;a title="Zentyal" href="http://www.zentyal.com/"&gt;Zentyal&lt;/a&gt;, acaba de lanzar un nuevo Service Pack para mejorar la compatibilidad con el Servidor Microsoft Exchange de Microsoft&amp;reg; .&lt;/p&gt; 
+&lt;p&gt;Ya no hay excusa para las empresas peque&amp;ntilde;as y medianas para migrar sus viejos Windows Server a los sistemas GNU/Linux de Zentyal.&lt;/p&gt; 
+&lt;p&gt;Zentyal ha anunciado hoy la publicaci&amp;oacute;n del &lt;strong&gt;Service Pack (SP2)&lt;/strong&gt; para ediciones comerciales de su producto, concretamente la versi&amp;oacute;n 3.2. Con &amp;eacute;ste nuevo Service Pack se facilitar&amp;aacute; a&amp;uacute;n m&amp;aacute;s la migraci&amp;oacute;n transparente desde un entorno Microsoft&amp;reg; a Zentyal, “sin causar inactividad de los sistemas cambios a los usuarios”&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Novedades:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Introduce soporte para Autodiscover y ActiveSync&amp;reg; , m&amp;aacute;s una nueva interfaz de webmail.&amp;nbsp; “&lt;em&gt;Los usuarios de Microsoft Outlook&amp;reg; pueden configurar sus clientes de escritorio con los datos m&amp;iacute;nimos, tan solo insertando su direcci&amp;oacute;n de correo electr&amp;oacute;nico y contrase&amp;ntilde;a.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-08T13:22:10Z</dc:date>
+  </entry>
+  <entry>
+    <title>Personalizando la shell</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/personalizando-la-shell" />
+    <category term="prompt" />
+    <category term="alias" />
+    <category term="blog-stack" />
+    <category term="bash" />
+    <category term="linux" />
+    <category term="shell" />
+    <category term="unalias" />
+    <category term="comandos" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-08T19:47:23Z</updated>
+    <published>2014-05-07T21:55:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150.jpg"&gt;&lt;img style="float: left;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150-107x150.jpg" alt="shell_150" width="107" height="150" /&gt;&lt;/a&gt;Al principio, sobre todo si no has usado nunca o pocas veces, la &lt;a title="shell Wikipedia" href="http://www.ochobitshacenunbyte.com/kipedia.org/wiki/L&amp;iacute;nea_de_comandos"&gt;shell&lt;/a&gt; da un poco de miedo. Acostumbrados que estamos a los gestores de ventanas, puede parecer un paso atr&amp;aacute;s. Nada m&amp;aacute;s lejos de la realidad. La consola nos permitir&amp;aacute; ampliar los par&amp;aacute;metros y funciones de los comandos y exprimir al m&amp;aacute;ximo nuestro sistema operativo.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Por defecto, en la mayor&amp;iacute;a de sistemas GNU/Linux la consola por predeterminada es &lt;a title="Bash" href="http://es.wikipedia.org/wiki/Bash"&gt;Bash&lt;/a&gt;. Una herramienta fant&amp;aacute;stica y adem&amp;aacute;s muy personalizable, podr&amp;aacute;s crear nombres cortos para los comandos, tambi&amp;eacute;n cambiar los permisos, y personalizar la apariencia y el sentido del comando y tratar con el historial de Bash.&lt;/p&gt; 
+&lt;p&gt;Para personalizar Bash trataremos con cuatro archivos ocultos, que podemos ver con el siguiente comando:&lt;/p&gt; 
+&lt;pre&gt;ls -la .bash*&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/personalizando-la-shell"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-07T21:55:01Z</dc:date>
+  </entry>
+  <entry>
+    <title>gNewSense el sistema operativo que usa Richard Stallman</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="fsf" />
+    <category term="gnewsense" />
+    <category term="deltah" />
+    <category term="epiphany" />
+    <category term="openoffice" />
+    <category term="parkes" />
+    <category term="gnu" />
+    <category term="iceweasel" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-06T21:33:48Z</updated>
+    <published>2014-05-06T21:32:36Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/gnewsenselogo.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/gnewsenselogo-150x150.png" alt="gnewsenselogo" width="150" height="150" /&gt;&lt;/a&gt;Hoy hablaremos del sistema operativo gNewSense, dentro de la serie de art&amp;iacute;culos sobre las distribuciones libres seg&amp;uacute;n la &lt;a title="Free Software Foundation" href="https://www.fsf.org/"&gt;Free Software Foundation&lt;/a&gt;. Aunque el t&amp;iacute;tulo se titula “gNewSense el sistema operativo que usa &lt;a title="Richard Stallman" href="http://stallman.org/"&gt;Richard Stallman&lt;/a&gt;“, seguramente debe usar varios, pero durante mucho tiempo fue el que ten&amp;iacute;a instalado en su port&amp;aacute;til. (&lt;a title="gNewSense y Richard Stallman" href="http://richard.stallman.usesthis.com/"&gt;fuente&lt;/a&gt;)&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Hasta ahora hemos hablado de :&lt;/p&gt; 
+&lt;p&gt;En la &lt;a title="Distribuciones blag, Parabola y dynebolic" href="http://www.ochobitshacenunbyte.com/2014/05/02/distribuciones-cien-por-cien-libres-parte-1/"&gt;primera parte &lt;/a&gt;de las distribuciones blag, Dragora y dynebolic.&lt;/p&gt; 
+&lt;p&gt;En la &lt;a title="Distribuciones Musix, Parabola y Ututo XS" href="http://www.ochobitshacenunbyte.com/2014/05/05/distribuciones-cien-por-cien-libres-parte-ii/"&gt;segunda parte&lt;/a&gt; tratamos las distribuciones Musix, Parabola y Ututo XS&lt;/p&gt; 
+&lt;p&gt;Volvamos a gNewSense. Este sistema operativo GNU/Linux est&amp;aacute; basado en &lt;a title="Debian" href="https://www.debian.org/index.es.html"&gt;Debian&lt;/a&gt; y &lt;a title="Ubuntu" href="http://www.ubuntu.com/"&gt;Ubuntu&lt;/a&gt;. Pero c&amp;oacute;mo el resto de distribuciones libres s&amp;oacute;lo admite paquetes no propietarios. Junto con &lt;a title="Trisquel GNU" href="http://trisquel.info/es"&gt;Trisquel&lt;/a&gt;, que trataremos en el siguiente art&amp;iacute;culo, es la distribuci&amp;oacute;n cabecera de la FSF.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-06T21:32:36Z</dc:date>
+  </entry>
+  <entry>
+    <title>Distribuciones cien por cien libres (Parte I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i" />
+    <category term="dragora" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="blag" />
+    <category term="audacity" />
+    <category term="fsf" />
+    <category term="libreoffice" />
+    <category term="gimp" />
+    <category term="dynebolic" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-05T15:01:33Z</updated>
+    <published>2014-05-02T11:36:12Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/FSF_Logo.menor_150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/FSF_Logo.menor_150-150x105.jpg" alt="FSF_Logo.menor_150" width="150" height="105" /&gt;&lt;/a&gt;GNU/Linux es famoso por tener una variedad muy extensa de distribuciones, pero de todas ellas, s&amp;oacute;lo unas pocas se pueden considerar cien por cien libres. Seg&amp;uacute;n la &lt;a title="Free Software Foundation" href="https://www.fsf.org/"&gt;Free Software Foundation &lt;/a&gt;para que una distribuci&amp;oacute;n se considere libre ha de cumplir con las siguientes &lt;a title="Pautas FSF" href="http://www.gnu.org/distros/free-system-distribution-guidelines.html"&gt;pautas&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;br /&gt; Actualmente la FSF reconoce los siguientes distribuciones como libres:&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;BLAG Linux y GNU, una distribuci&amp;oacute;n GNU/Linux basada en Fedora&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/distros-blag.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/distros-blag.jpg" alt="distros-blag" width="100" height="100" /&gt;&lt;/a&gt;Seg&amp;uacute;n leemos en su p&amp;aacute;gina&lt;a title="blag web" href="http://www.blagblagblag.org/"&gt; web&lt;/a&gt; (en ingl&amp;eacute;s)&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Blag es una distribuci&amp;oacute;n GNU / Linux 100%, lo que significa que cuenta con s&amp;oacute;lo software libre - en el cd live y en el repo - seg&amp;uacute;n la definici&amp;oacute;n de la Free Software Foundation.&lt;/li&gt; 
+ &lt;/ul&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;Entre las principales diferencias entre Blag y otras distribuciones de GNU / Linux, &lt;strong&gt;Blag cuenta con un kernel especial, del proyecto linux-libre que no incluye ning&amp;uacute;n firmware no libre. Tambi&amp;eacute;n utiliza Icecat lugar de Firefox. &lt;/strong&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/blockquote&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-02T11:36:12Z</dc:date>
+  </entry>
+  <entry>
+    <title>Distribuciones cien por cien libres (Parte II)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii" />
+    <category term="parabola" />
+    <category term="musix" />
+    <category term="argentina" />
+    <category term="archlinux" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="ututo-xs" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-05-05T14:59:51Z</updated>
+    <published>2014-05-05T14:53:35Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/heckert_gnu.small_.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/heckert_gnu.small_.png" alt="heckert_gnu.small" width="145" height="140" /&gt;&lt;/a&gt;En la segunda parte de la serie de art&amp;iacute;culos sobre las distribuciones libres seg&amp;uacute;n la &lt;a title="Free Software Foundation" href="https://www.fsf.org/"&gt;Free Software Foundation&lt;/a&gt; hablaremos de &lt;strong&gt;Musix&lt;/strong&gt;, una distribuci&amp;oacute;n especializada en la edici&amp;oacute;n de sonido, &lt;strong&gt;Parabola&lt;/strong&gt;, que busca la sencillez, y la veterana &lt;strong&gt;Ututo XS&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Musix GNU + Linux&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/Distros-musix.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/Distros-musix.png" alt="Distros-musix" width="128" height="128" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Musix es una distribuci&amp;oacute;n basada en &lt;a title="Knoppix" href="http://www.knoppix.org/"&gt;Knopixx&lt;/a&gt;, &lt;a title="Debian" href="https://www.debian.org/"&gt;Debian&lt;/a&gt; y &lt;a title="Kanotix" href="http://www.kanotix.com/"&gt;Kanotix&lt;/a&gt;, pero a diferencia de &amp;eacute;stas s&amp;oacute;lo usa paquetes libres. Se presenta en formato Live-CD, Live-DVD y Live-USB.&lt;/p&gt; 
+&lt;p&gt;Seg&amp;uacute;n leemos en su web oficial:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt; 
+  &lt;blockquote&gt; 
+   &lt;h2&gt;Musix , sistema operativo multimedia 100% Libre destinado a m&amp;uacute;sicos, t&amp;eacute;cnicos sonidistas, DJs, cineastas, dise&amp;ntilde;adores gr&amp;aacute;ficos, y usuarios en general.&lt;/h2&gt; 
+  &lt;/blockquote&gt; &lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;Detr&amp;aacute;s del proyecto existe una comunidad de usuarios y programadores. Inicialmente el proyecto lo comenz&amp;oacute; Gilberto Gorges, y actualmente es coordinado por Marcos Germ&amp;aacute;n Guglielmetti, aunque en el peso del proyecto tambi&amp;eacute;n contribuyen un n&amp;uacute;cleo de programadores de diferentes pa&amp;iacute;ses como Argentina, Uruguay, Espa&amp;ntilde;a, M&amp;eacute;xico o Estados Unidos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-05T14:53:35Z</dc:date>
+  </entry>
+  <entry>
+    <title>Instalar y configurar Nagios en servidor Debian 7 (Parte I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i" />
+    <category term="apache" />
+    <category term="debian" />
+    <category term="gd" />
+    <category term="nagios" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="servicios" />
+    <category term="wheezy" />
+    <category term="php" />
+    <category term="www-data" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-30T15:54:44Z</updated>
+    <published>2014-04-30T15:40:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png" alt="Nagios_Logo" width="212" height="50" /&gt;&lt;/a&gt;Actualmente, en pleno siglo XXI, las empresas, ya sean grandes o peque&amp;ntilde;as se encuentran ante el desaf&amp;iacute;o de controlar decenas de m&amp;aacute;quinas, ya sean f&amp;iacute;sicas o virtuales, est&amp;eacute;n en la nube o en sus propias instalaciones.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;En el presente art&amp;iacute;culo hablaremos de &lt;a title="Nagios Web" href="http://www.nagios.org/"&gt;Nagios&lt;/a&gt;, un fant&amp;aacute;stico software de monitorizaci&amp;oacute;n liberado bajo licencia &lt;a title="GNU General Public License" href="http://www.ochobitshacenunbyte.com/2014/04/30/un-elemento-con-mucho-humor/"&gt;GNU General Public License Version 2&lt;/a&gt;. Con Nagios podemos vigilar el hardware, es decir, las m&amp;aacute;quinas f&amp;iacute;sicas c&amp;oacute;mo tambi&amp;eacute;n los diferentes servicios que pueden correr en dichas m&amp;aacute;quinas (SMTP,POP3, HTTP,FTP,BBDD, etc&amp;eacute;tera).&lt;/p&gt; 
+&lt;p&gt;He usado una m&amp;aacute;quina virtual con &lt;a title="Debian 7" href="https://www.debian.org/index.es.html"&gt;Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Antes de empezar debemos de instalar los siguientes paquetes en el sistema:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Apache2&lt;/li&gt; 
+ &lt;li&gt;PHP 5&lt;/li&gt; 
+ &lt;li&gt;El compilador GCC y las librerias de desarrollo&lt;/li&gt; 
+ &lt;li&gt;Las &lt;a title="Librer&amp;iacute;as GD" href="http://www.php.net/manual/es/book.image.php"&gt;librerias GD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-30T15:40:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cambiar la hora y la fecha en GNU/Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnu-linux" />
+    <category term="linux" />
+    <category term="man" />
+    <category term="hwclock" />
+    <category term="comandos" />
+    <category term="funcionamiento" />
+    <category term="ofimatica" />
+    <category term="date" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-29T11:44:24Z</updated>
+    <published>2014-04-29T11:41:21Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/reloj-antiguo.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/reloj-antiguo-150x150.jpg" alt="old pocket watch, minute, time runs without stops" width="150" height="150" /&gt;&lt;/a&gt;Quiz&amp;aacute;s uno de los comandos m&amp;aacute;s usados por todos los usuarios del mundo GNU/Linux, es el comando &lt;strong&gt;date&lt;/strong&gt;. Ya seas administrador de sistemas o simplemente un usuario dom&amp;eacute;stico, alguna vez lo habr&amp;aacute;s necesitado.&lt;/p&gt; 
+&lt;p&gt;En la primera parte del art&amp;iacute;culo mostraremos en pocos pasos como cambiar la hora del sistema, y c&amp;oacute;mo mantenerla para que no cambie al arrancar. En la segunda parte nos extenderemos m&amp;aacute;s en explicar todos los par&amp;aacute;metros posibles para dicho comando.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;br /&gt; &lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Cambiar la hora en pocos pasos&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Imaginemos que la hora es incorrecta, y queremos cambiarla por la correcta. Ahora son las seis de la tarde del 28 de abril de 2014. El comando ser&amp;iacute;a el siguiente:&lt;/p&gt; 
+&lt;pre&gt;date --set &amp;quot;2014-04-28 18:00&amp;quot;&lt;/pre&gt; 
+&lt;p&gt;Ahora que ya tenemos cambiada la hora en el sistema, tenemos que ejecutar el comando &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-29T11:41:21Z</dc:date>
+  </entry>
+  <entry>
+    <title>Editando desde la línea de comandos, con nano.</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano" />
+    <category term="wodstar" />
+    <category term="debian" />
+    <category term="nano" />
+    <category term="ubuntu" />
+    <category term="msdos" />
+    <category term="editor" />
+    <category term="comandos" />
+    <category term="ofimatica" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-28T15:35:54Z</updated>
+    <published>2014-04-28T15:28:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo-150x150.png" alt="GNU-Nano-Logo" width="150" height="150" /&gt;&lt;/a&gt;En mis primeros pasos en el mundo de la inform&amp;aacute;tica, a principios de a&amp;ntilde;os noventa, en la academia ten&amp;iacute;amos sistemas 80286 y 80386 con &lt;a title="MS-DOS" href="http://es.wikipedia.org/wiki/MS-DOS"&gt;MS-DOS,&lt;/a&gt; y nuestro editor, donde hac&amp;iacute;a mis trabajos, era el fabuloso, para la &amp;eacute;poca, &lt;a title="WordStar" href="http://www.wordstar.org/"&gt;WordStar&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Actualmente, en los sistemas basados en &lt;a title="UNIX" href="http://www.unix.org/"&gt;UNIX&lt;/a&gt; y &lt;a title="GNU/LINUX" href="http://es.wikipedia.org/?title=GNU/Linux"&gt;GNU/LINUX &lt;/a&gt;podemos usar varios editores, uno de los m&amp;aacute;s sencillos de usar, es &lt;a title="GNU nano" href="http://www.nano-editor.org/"&gt;GNU nano&lt;/a&gt;, el cu&amp;aacute;l trataremos en &amp;eacute;ste art&amp;iacute;culo.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;GNU Nano, seg&amp;uacute;n leemos en su p&amp;aacute;gina oficial en ingl&amp;eacute;s:&lt;/p&gt; 
+&lt;blockquote&gt; 
+ &lt;p&gt;GNU nano est&amp;aacute; dise&amp;ntilde;ado para ser un reemplazo libre para el editor de texto de Pico , que forma parte de la suite de correo electr&amp;oacute;nico del pino de la Universidad de Washington. Su objetivo es ” emular Pico lo m&amp;aacute;s cerca posible y tal vez incluir la funcionalidad extra” .&lt;/p&gt; 
+&lt;/blockquote&gt; 
+&lt;p&gt;C&amp;oacute;mo vemos GNU nano fue creado para reemplazar, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-28T15:28:19Z</dc:date>
+  </entry>
+  <entry>
+    <title>Huayra lanza su nueva versión 2.0</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2" />
+    <category term="debian" />
+    <category term="argentina" />
+    <category term="blender" />
+    <category term="comunidad-open-source" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="quechua" />
+    <category term="huayra" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-26T10:22:50Z</updated>
+    <published>2014-04-25T17:55:41Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/logo-huayra-300x162.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/logo-huayra-300x162.png" alt="logo-huayra-300x162" width="300" height="162" /&gt;&lt;/a&gt;Leemos en la p&amp;aacute;gina &lt;a title="Anuncio Huayra 2.0" href="http://huayra.conectarigualdad.gob.ar/noticias/2014/04/23/tenemos-el-honor-de-anunciar-el-lanzamiento-de-huayra-20"&gt;web oficial &lt;/a&gt;del proyecto Huayra, que acaban de lanzar la versi&amp;oacute;n 2.0 de su programario, basado en &lt;a title="Debian" href="https://www.debian.org/index.es.html"&gt;Debian&lt;/a&gt;. Desde hace tiempo estoy dirigiendo la mirada al continente sudamericano, por las buenas noticias que nos est&amp;aacute;n dando a la comunidad GNU/Linux y OpenSource. Por las iniciativas tanto privadas c&amp;oacute;mo de instituciones p&amp;uacute;blicas para fomentar la comunidad de software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Huayra ha sido desarrollado por &lt;a title="Programa Conectar Igualdad" href="http://www.conectarigualdad.gob.ar/"&gt;Programa Conectar Igualdad de Argentina&lt;/a&gt;. Y est&amp;aacute; liberado bajo la licencia GNU/GPL. Huayra toma su nombre del vocablo &lt;a title="Quechua" href="http://es.wikipedia.org/wiki/Quechua"&gt;Quechua&lt;/a&gt; que significa &lt;i&gt;Viento&lt;/i&gt;.&lt;/p&gt; 
+&lt;p&gt;Entre los diversos programas que nos podemos encontrar en est&amp;aacute; distribuci&amp;oacute;n:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a title="Pilas Engine" href="http://pilas-engine.com.ar/"&gt;Pilas Engine&lt;/a&gt;, para programar videojuegos.&lt;/li&gt; 
+ &lt;li&gt;&lt;a title="&amp;Iacute;caro" href="http://roboticaro.org/"&gt;&amp;Iacute;caro&lt;/a&gt;, para programaci&amp;oacute;n de rob&amp;oacute;tica educativa.&lt;/li&gt; 
+ &lt;li&gt;El popular, &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/huayra-lanza-su-nueva-version-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-25T17:55:41Z</dc:date>
+  </entry>
+  <entry>
+    <title>Listar los usuarios de un sistema GNU/Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnu-linux" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="comandos" />
+    <category term="uid-number" />
+    <category term="passwd" />
+    <category term="etc" />
+    <category term="gnu" />
+    <category term="cat" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-25T05:59:17Z</updated>
+    <published>2014-04-24T13:23:24Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/freeimage-8326745-web.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/freeimage-8326745-web-150x150.jpg" alt="Users Security Internet" width="150" height="150" /&gt;&lt;/a&gt;Un administrador de sistemas tiene que controlar decenas de m&amp;aacute;quinas, con sus respectivos usuarios. Eso puede ser una tarea bastante farragosa, aunque lleves un control de base de datos o en una simple hoja de c&amp;aacute;lculo, con todos los usuarios.&lt;/p&gt; 
+&lt;p&gt;Una manera f&amp;aacute;cil de ver todos los usuarios es mediante la visualizaci&amp;oacute;n del archivo &lt;strong&gt;&lt;em&gt;passwd,&lt;/em&gt;&lt;/strong&gt; ubicado en la carpeta&lt;strong&gt;&lt;em&gt; etc&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Lo har&amp;iacute;amos de la siguiente manera:&lt;/p&gt; 
+&lt;pre&gt;cat /etc/passwd&lt;/pre&gt; 
+&lt;p&gt;Si tenemos una lista podemos usar un filtro, con el comando &lt;strong&gt;&lt;em&gt;grep&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;cat /etc/passwd | grep &amp;quot;busqueda&amp;quot;&lt;/pre&gt; 
+&lt;p&gt;Analizamos un poco los resultados que suelen dar:&lt;/p&gt; 
+&lt;div style="width: 671px"&gt; 
+ &lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/passwd.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/passwd.png" alt="Listado de passwd" width="661" height="563" /&gt;&lt;/a&gt; 
+ &lt;p&gt;Listado de passwd&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Destripemos los resultados:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Login ID. Que se es el nombre de la cuenta.&lt;/li&gt; 
+ &lt;li&gt;x. Vemos x en representaci&amp;oacute;n del password encriptado.&lt;/li&gt; 
+ &lt;li&gt;La siguiente cifra es el n&amp;uacute;mero de identificaci&amp;oacute;n del usuario o UID number. Ampliando la informaci&amp;oacute;n podemos decir que &amp;eacute;ste n&amp;uacute;mero es realmente con el que trata el sistema en sus procesos, para facilitarle las cosas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/listar-los-usuarios-de-un-sistema-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-24T13:23:24Z</dc:date>
+  </entry>
+  <entry>
+    <title>Ampliando la busqueda</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/ampliando-la-busqueda" />
+    <category term="linux" />
+    <category term="shell" />
+    <category term="sistemas-operativos" />
+    <category term="konqueror" />
+    <category term="locate" />
+    <category term="comandos" />
+    <category term="find" />
+    <category term="dolphin" />
+    <category term="gnu" />
+    <category term="kde" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-04-02T20:38:27Z</updated>
+    <published>2014-04-02T20:27:26Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/binocular150.jpg"&gt;&lt;img alt="binocular150" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/binocular150.jpg" width="150" height="113" /&gt;&lt;/a&gt;Hay muchos comandos de GNU/Linux que usamos en el d&amp;iacute;a a d&amp;iacute;a sin darnos cuenta de todas las posibilidades que nos pueden dar. En &amp;eacute;ste art&amp;iacute;culo hablaremos de los comandos de busqueda.&lt;/p&gt; 
+&lt;p&gt;Muchas veces, en las series de la televisi&amp;oacute;n se crean partidas de b&amp;uacute;squeda para encontrar una persona desaparecida o los restos de un accidente de avi&amp;oacute;n. En nuestro caso buscaremos archivos de usuarios que ya no trabajan en nuestra empresa, o que hace m&amp;aacute;s de dos a&amp;ntilde;os que se crearon o realizaremos b&amp;uacute;squedas con par&amp;aacute;metros combinados.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;El comando m&amp;aacute;s usado es &lt;strong&gt;&lt;em&gt;find&lt;/em&gt;.&lt;/strong&gt; Aqu&amp;iacute; veremos varias de opciones que nos puede dar:&lt;/p&gt; 
+&lt;p&gt;Partiremos de la base de una b&amp;uacute;squeda sencilla, por ejemplo, queremos encontrar todos los archivos que contengan la palabra java&lt;em&gt;.&lt;/em&gt; &amp;iquest;C&amp;oacute;mo lo hacemos?&lt;/p&gt; 
+&lt;pre&gt;#Buscamos todos los archivos que contengan la palabra &amp;quot;java&amp;quot;
+find -name &amp;quot;*java*&amp;quot;&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/ampliando-la-busqueda"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-04-02T20:27:26Z</dc:date>
+  </entry>
+  <entry>
+    <title>Obteniendo información del sistema</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema" />
+    <category term="shell" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="unix" />
+    <category term="comandos" />
+    <category term="fdisk" />
+    <category term="free" />
+    <category term="proc" />
+    <category term="df" />
+    <category term="gnu" />
+    <category term="lsusb" />
+    <category term="bash" />
+    <category term="lspci" />
+    <category term="lsmod" />
+    <category term="less" />
+    <category term="cat" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-03-29T21:54:59Z</updated>
+    <published>2014-03-29T21:48:36Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /&gt;&lt;/a&gt;Cualquier administrador de sistemas inform&amp;aacute;ticos que se precie tiene que saber extraer informaci&amp;oacute;n de la m&amp;aacute;quina con la que est&amp;aacute; trabajando, ya sea caracter&amp;iacute;sticas del disco duro, la CPU, la memoria, los procesos que se est&amp;aacute;n ejecutando y infinidad de cosas m&amp;aacute;s. Y teniendo en cuenta que estamos trabajando con sistemas GNU/Linux, encontrar el modelo de nuestra tarjeta de red inal&amp;aacute;mbrica o de la tarjeta de v&amp;iacute;deo es totalmente imprescindible,&amp;nbsp; ya que muchas veces nos tenemos que buscar la vida para encontrar los m&amp;oacute;dulos (drivers) correspondientes.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Est&amp;aacute; claro, en este art&amp;iacute;culo trataremos de los comandos que nos facilitar&amp;aacute;n todas esas tareas.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Informaci&amp;oacute;n general del sistema&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;En &amp;eacute;ste primer apartado nos encontramos con el comando &lt;em&gt;uname&lt;/em&gt;, que nos mostrar&amp;aacute;, si los sabemos utilizar, gran informaci&amp;oacute;n sobre el sistema.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-03-29T21:48:36Z</dc:date>
+  </entry>
+  <entry>
+    <title>Sobre compresión y formatos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/sobre-compresion-y-formatos" />
+    <category term="debian" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="gnu-linux" />
+    <category term="comandos" />
+    <category term="gnu" />
+    <category term="7z" />
+    <category term="compresion" />
+    <category term="redhat" />
+    <category term="tar" />
+    <category term="tar-gz2" />
+    <category term="tar-gz" />
+    <category term="zip" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-03-18T15:41:36Z</updated>
+    <published>2014-03-18T12:05:10Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /&gt;&lt;/a&gt;Comprimir archivos y descomprimirlos, es una tarea clave en cualquier departamento de sistemas que se precie. Los backups de datos muchas veces no se hacen con programas complejos y costosos, sino con compresi&amp;oacute;n de carpetas y archivos en lugares seguros donde guardarlos, sean cabinas de discos, discos duros externos o en la nube.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Seg&amp;uacute;n leemos en wikipedia:&lt;/p&gt; 
+&lt;p&gt;&lt;cite&gt;En ciencias de la computaci&amp;oacute;n la compresi&amp;oacute;n de datos es la reducci&amp;oacute;n del volumen de datos tratables para representar una determinada informaci&amp;oacute;n empleando una menor cantidad de espacio. Al acto de compresi&amp;oacute;n de datos se denomina compresi&amp;oacute;n, y al contrario descompresi&amp;oacute;n&lt;/cite&gt;&lt;/p&gt; 
+&lt;p&gt;Existen muchos formatos de compresi&amp;oacute;n unos son m&amp;aacute;s famosos que otros. Podemos decir que unos son muy r&amp;aacute;pidos comprimiendo y usan pocos recursos para ese proceso, y otros son m&amp;aacute;s lentos comprimiendo y usan m&amp;aacute;s recursos, pero tienen mucho mejor nivel de compresi&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/sobre-compresion-y-formatos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-03-18T12:05:10Z</dc:date>
+  </entry>
+</feed>
+

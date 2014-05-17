@@ -35,7 +35,7 @@ define("app/sources/blogstack", [], function() {
       "title" : "Lanzada la versión 1.36 de Calibre"
     },
     {
-      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1$003f-ventas-amazon-es-en-programacion",
+      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
       "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
     },
     {
@@ -47,7 +47,7 @@ define("app/sources/blogstack", [], function() {
       "title" : "Indie Box one el servidor listo para usar"
     },
     {
-      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2014",
+      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
     },
     {

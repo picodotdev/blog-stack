@@ -11,7 +11,7 @@ define("app/sources/koalite", [], function() {
       "title" : "Deconstruyendo la pirámide de los tests"
     },
     {
-      "url" : "/post/koalite/2014/04/gusenet-2014-extraordinario-un-ano-mas",
+      "url" : "/post/koalite/2014/04/gusenet-2-14-extraordinario-un-ano-mas",
       "title" : "Gusenet 2014, extraordinario un año más"
     },
     {
@@ -39,7 +39,7 @@ define("app/sources/koalite", [], function() {
       "title" : "El fin de Windows XP y el anclaje tecnológico"
     },
     {
-      "url" : "/post/koalite/2014/03/cuanto-dano-han-hecho...-los-arquitectos-de-software",
+      "url" : "/post/koalite/2014/03/cuanto-dano-han-hecho-los-arquitectos-de-software",
       "title" : "Cuánto daño han hecho\u2026 los arquitectos de software"
     }
   ]

@@ -11,7 +11,7 @@ define("app/sources/arquitecturajava", [], function() {
       "title" : "Arquitecturas Móviles y Breakpoints (CantabriaTIC)"
     },
     {
-      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1$003f-ventas-amazon-es-en-programacion",
+      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
       "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
     },
     {

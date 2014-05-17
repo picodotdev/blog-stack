@@ -11,7 +11,7 @@ define("app/sources/victorhckinthefreeworld", [], function() {
       "title" : "Indie Box one el servidor listo para usar"
     },
     {
-      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2014",
+      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
     }
   ]

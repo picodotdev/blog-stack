@@ -19,7 +19,7 @@ define("app/sources/elblogdepicodev", [], function() {
       "title" : "Patrones de diseño en la programación orientada a objetos"
     },
     {
-      "url" : "/post/elblogdepicodev/2012/08/desempaquetado-$003c$003cunboxing$003e$003e-de-amazon-kindle-touch",
+      "url" : "/post/elblogdepicodev/2012/08/desempaquetado-unboxing-de-amazon-kindle-touch",
       "title" : "Desempaquetado («unboxing») de Amazon Kindle Touch"
     },
     {

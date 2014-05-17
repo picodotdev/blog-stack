@@ -35,7 +35,7 @@ define("app/sources/cuadernodesoftware", [], function() {
       "title" : "Algunos pensamientos sobre Story Points"
     },
     {
-      "url" : "/post/cuadernodesoftware/2012/12/retrospectiva-personal-2012",
+      "url" : "/post/cuadernodesoftware/2012/12/retrospectiva-personal-2-12",
       "title" : "Retrospectiva personal 2012"
     },
     {
