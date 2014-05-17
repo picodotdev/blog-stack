@@ -34,7 +34,7 @@ public class Utils {
 			for (int i = 0; i < s.length; ++i) {
 				s[i] = "%s";
 			}
-			String ss = String.format(StringUtils.join(s, "-"), context);
+			String ss = String.format(StringUtils.join(s, "/"), context);
 			byte[] h = MessageDigest.getInstance("MD5").digest(ss.getBytes());
 			return Base64.encodeBase64String(h);
 		} catch (NoSuchAlgorithmException e) {
@@ -56,7 +56,7 @@ public class Utils {
 	}
 
 	public static String urlize(String text) {
-		return Utils.trasnliterate(text.toLowerCase().replaceAll("[\\p{Space}¿¡[\\p{Punct}&&[^-]]]", " ").replaceAll("[\\p{Punct}&&[^-]]", "").replaceAll("[\\p{Space}]", "-").replaceAll("-+", "-").replaceAll("^-+", "").replaceAll("-+$", ""));
+		return Utils.trasnliterate(text.toLowerCase()).replaceAll("[^a-z1-9-]", "-").replaceAll("-+", "-").replaceAll("^-+", "").replaceAll("-+$", "");
 	}
 	
 	public static String trasnliterate(String s) {

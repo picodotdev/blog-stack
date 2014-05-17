@@ -163,8 +163,8 @@ public class GeneratorServiceImpl implements GeneratorService {
 			if (!post.getVisible()) {
 				continue;
 			}
-			String y = String.valueOf(post.getDate().getYear());
-			String m = StringUtils.leftPad(String.valueOf(post.getDate().getMonthOfYear()), 2, "0");
+			String y = String.valueOf(post.getPublishDate().getYear());
+			String m = StringUtils.leftPad(String.valueOf(post.getPublishDate().getMonthOfYear()), 2, "0");
 			dates.put(String.format("%s-%s", y, m), new Object[] { y, m });
 		}
 

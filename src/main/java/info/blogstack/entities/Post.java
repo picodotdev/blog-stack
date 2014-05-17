@@ -303,8 +303,6 @@ public class Post implements Serializable {
 	public DateTime getConsolidatedPublishDate() {
 		if (publishDate != null) {
 			return publishDate;
-		} else if (updateDate != null) {
-			return updateDate;
 		} else {
 			return creationDate;
 		}
