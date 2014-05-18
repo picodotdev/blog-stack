@@ -1,0 +1,175 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción de Backbonejs | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs"><span itemprop="headline">Introducción de Backbonejs</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/03/16/Introduccion-de-Backbonejs.aspx"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-16T22:41" itemprop="datePublished">Publicado el domingo, 16 de marzo de 2014 a las 22:41 UTC</span></div><div><span datetime="2014-03-16T22:41" itemprop="dateModified">Actualizado el domingo, 16 de marzo de 2014 a las 22:41 UTC</span></div><div><span>
+Etiquetado como
+
+backbone-js
+
+,
+<a href="/label/javascript"><span itemprop="articleSection">javascript</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><h3>&nbsp;</h3> 
+<p><img alt="Backbone.js" src="http://backbonejs.org/docs/images/backbone.png" width="696" height="129" /></p> 
+<h3>introducci&oacute;n</h3> 
+<p>Si nuestra aplicaci&oacute;n web “single page” es compleja del lado del cliente o empieza a serlo, m&aacute;s tarde o m&aacute;s temprano vamos a necesitar aplicar las mismas pr&aacute;cticas de arquitectura que aplicamos del lado del servidor en <em>Javascript (MVC, MVP, etc.)</em>, para esto hay varios patrones, bibliotecas y varios <em>frameworks</em>, hoy vamos a hablar de <a href="http://backbonejs.org/">Backbonejs</a>.</p> 
+<h3>Qu&eacute; es Backbone?</h3> 
+<p>Es 
+ <strike>
+  un 
+  <em>framework</em>
+ </strike> una biblioteca para realizar aplicaciones en <em>Javascript</em>, <a href="http://en.wikipedia.org/wiki/Backbonejs">utiliza el patr&oacute;n MVP</a> (esta parte es discutible ya que no est&aacute; tan claro) y posee ciertos componentes definidos, est&aacute; pensado para trabajar sobre una <a href="http://es.wikipedia.org/wiki/Representational_State_Transfer">API RESTFul</a> pero nada impide no hacerlo, sus componentes son:</p> 
+<ul> 
+ <li>Modelo </li> 
+ <li>Vista </li> 
+ <li>Colecciones </li> 
+ <li>Rutas </li> 
+</ul> 
+<h3>Qui&eacute;n lo usa?</h3> 
+<p>Es usado en sitios que seguramente has visitado, nombro algunos:</p> 
+<ul> 
+ <li><a href="http://airbnb.com">Airbnb</a> </li> 
+ <li><a href="http://usatoday.com/">Usa Today</a> </li> 
+ <li><a href="http://www.groupon.com/now">Grupon</a> </li> 
+ <li><a href="http://trello.com/">Trello</a> </li> 
+ <li><a href="https://delicious.com/">Delicious</a> </li> 
+ <li><a href="https://foursquare.com/">Foursquare</a> </li> 
+</ul> 
+<p><a href="http://backbonejs.org/#examples">Y muchos m&aacute;s</a></p> 
+<h3>C&oacute;mo lo agregamos a nuestro sitio?</h3> 
+<p>B&aacute;sicamente agregamos la referencia a nuestra aplicaci&oacute;n (<a href="http://backbonejs.org/backbone-min.js">un &uacute;nico archivo de 6,5kB</a>) tiene una dependencia la cual es <a href="http://en.wikipedia.org/wiki/Underscore.js">underscore.js</a> (del mismo autor <a href="http://en.wikipedia.org/wiki/Jeremy_Ashkenas">Jeremy Ashkenas</a> responsable tambi&eacute;n de <a href="http://en.wikipedia.org/wiki/CoffeeScript">Coffee Script</a>) y por &uacute;ltimo tambi&eacute;n depende de alguna biblioteca para manipular el DOM que pueden ser <a href="http://jquery.com">jQuery</a> , <a href="http://ender.var.require.io/">Ender</a>, <a href="http://zeptojs.com/">Zepto</a> o cualquiera compatible, a partir de ah&iacute; podemos empezar a usarlo escribiendo <em>Javascript</em> como siempre, pero pudiendo utilizar los componente que nos provee o no; en resumen, la forma de incluirlo ser&iacute;a la siguiente:</p> 
+<pre>&lt;html&gt;
+&lt;head&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/jquery/jquery.js&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/underscore/underscore.js&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/backbone/backbone.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre> 
+<h3>Cosas que nos da Backbone y cosas que no nos da:</h3> 
+<p>Para terminar la introducci&oacute;n voy a listar los pro y contras que tiene <em>Backbone</em> (al menos para m&iacute;) desde el punto de vista de cada componente que lo forma.</p> 
+<p>Modelo:</p> 
+<ul> 
+ <li>+ una base con funciones comunes para trabajar nuestro modelo. </li> 
+ <li>+ un m&eacute;todo est&aacute;ndar de validaciones . </li> 
+ <li>+ funciones de serializaci&oacute;n . </li> 
+ <li>+ podemos recuperar el estado anterior ante una modificaci&oacute;n. </li> 
+ <li>+ notificaciones mediante eventos y la posibilidad de declararlos y dispararlos . </li> 
+ <li>+ algunas convenciones sobre <em>ids</em> y otras cosas. </li> 
+</ul> 
+<p>Vista: </p> 
+<ul> 
+ <li>+ las vista son m&aacute;s convenciones que otra cosa, <em>Backbone</em> nos da una base pero mayormente trabajamos siguiente un est&aacute;ndar de nombres y formas de hacer las cosas “de facto”. </li> 
+ <li>+ es muy siempre “<em>atacharse</em>” a los eventos de la vista. </li> 
+ <li>= no tenemos <em>binding</em> autom&aacute;tico (<a href="http://stackoverflow.com/questions/14793692/angulars-use-of-inline-javascript-in-html-attributes-is-not-bad-practice/">si bien es discutible si esto es bueno o malo</a>) de todos modos se suele usar <a href="http://www.rivetsjs.com/">rivetsjs</a> para esto. </li> 
+ <li>= no tenemos un motor de <em>templating</em> dentro de <em>Backbone</em> (aunque ya que depende de <em>underscore</em> y &eacute;ste tiene uno lo normal es usarlo) podemos usar el que queramos. </li> 
+</ul> 
+<p>Ruteo</p> 
+<ul> 
+ <li>+ nos permite utilizar navegaci&oacute;n por hash ( # ) de manera muy sencilla y clara. </li> 
+ <li>+ el “binding” de par&aacute;metros es muy simple. </li> 
+</ul> 
+<p>Colecciones</p> 
+<ul> 
+ <li>+ Permiten agrupar listados de modelos (en principio del mismo tipo pero no es necesario en realidad) </li> 
+ <li>+ La manipulaci&oacute;n de los datos es muy sencilla apoyado en funciones de <em>underscore</em> como <em>where</em>, <em>find</em>, etc. </li> 
+ <li>+ Son la interfaz para trabajar contra una <em>API Restfull</em> de manera transparente. </li> 
+</ul> 
+<p>En general</p> 
+<ul> 
+ <li>+ una gran ventaja de <em>Backbone</em> es que podemos usar cualquiera de sus componentes sin estar atados a los otros, por ejemplo podemos usar el motor de rutas solamente. </li> 
+ <li>+ tambi&eacute;n las definiciones son muy livianas y nos permite hacer cambios con facilidad y que la adopci&oacute;n no sea tan brusca. </li> 
+ <li>+ existe <a href="https://github.com/search?l=JavaScript&amp;q=backbone+plugin&amp;ref=cmdform&amp;type=Repositories">una gran cantidad de plugins</a> para agregarle cosas que no tiene. </li> 
+ <li>+ soporta varias biliotecas de manipulaci&oacute;n de DOM. </li> 
+ <li>+ soporta <a href="http://leomicheloni.com/post/2014/01/06/Manejando-dependencias-en-Javascript-con-RequireJs.aspx">Requirejs</a>. </li> 
+ <li>+ Es perfectamente apto para m&oacute;viles de hecho <a href="http://mobile.walmart.com/">Wallmart lo utiliza para su versi&oacute;n m&oacute;vil</a>. </li> 
+ <li>- Creo que la documentaci&oacute;n es el punto d&eacute;bil, siendo un <em>framework</em> usado en lugares tan importantes la documentaci&oacute;n tiene muy pocos ejemplos y es bastante escueta (para mi gusto). </li> 
+ <li>= Est&aacute; muy enfocado en REST y la estructura de la aplicaci&oacute;n y poco en la vista, esto puede ser o no bueno, depende del proyecto creo. </li> 
+</ul> 
+<h3>Deber&iacute;a usar Backbone?</h3> 
+<p>Lo m&aacute;s importante tal vez sea esto, saber si necesitamos poner una dependencia tan importante en nuestro proyecto, yo creo que s&iacute;, y si no es <em>Backbone</em> ser&aacute; otra, es decir, mi respuesta es s&iacute;; y si preferimos un framework diferente a Backbone <a href="http://stackoverflow.com/questions/14336450/javascript-spa-frameworks-single-page-application">ac&aacute; hay un lindo hilo sobre el tema</a>.</p> 
+<p>Mi opini&oacute;n personal es muy cercana a la de <a href="http://www.youtube.com/watch?v=qWr7x9wk6_c">este video</a> y <a href="http://blog.binarymist.net/2013/12/28/evaluation-of-angularjs-emberjs-backbonejs-marionettejs/">este resumen</a>, b&aacute;sicamente lo m&aacute;s valioso de <em>Backbone</em> es que no nos ata a una forma de hacer las cosas (claro, tampoco nos da mucha base de arquitectura pero la podemos <a href="http://marionettejs.com">encontrar</a> en <a href="http://chaplinjs.org">varios</a> <a href="http://www.youtube.com/watch?v=iBffGfUfC1c">lugares</a>), y si bien, no podemos pegar un <em>tag</em> y que funcione de forma m&aacute;gica tenemos todo el control de lo que pasa y realmente si la cosa se llegase a complicar no es dif&iacute;cil encontrar problemas como en el caso de <em>frameworks</em> en los que hacen falta <a href="https://github.com/emberjs/ember-inspector">herramientas especiales</a> para <a href="https://github.com/angular/angularjs-batarang">facilitar la depuraci&oacute;n</a>.</p> 
+<p>Bien, sin entrar mucho en detalle ni ser quisquilloso creo que esto es lo principal, no quiero aburrir con largas lectura, la pr&oacute;xima empezamos jugando con el modelo, pero para no quedarnos con las ganas dejo <a href="http://backbonejs.org/examples/todos/index.html">un link a un lindo ejemplo</a> y el <a href="https://github.com/jeromegn/Backbone.localStorage/tree/ea380087a4cacac3ad4b6f4ddd52b67a24b78634/examples/todos">c&oacute;digo del mismo</a>, nos leemos.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" st_title="Introducción de Backbonejs | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 386,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

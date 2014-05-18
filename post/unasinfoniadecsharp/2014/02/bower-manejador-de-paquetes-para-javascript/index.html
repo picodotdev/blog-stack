@@ -1,0 +1,137 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Bower: manejador de paquetes para Javascript | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript"><span itemprop="headline">Bower: manejador de paquetes para Javascript</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/02/21/Bower-manejador-de-paquetes-para-Javascript.aspx"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-02-21T23:43" itemprop="datePublished">Publicado el viernes, 21 de febrero de 2014 a las 23:43 UTC</span></div><div><span datetime="2014-02-21T23:43" itemprop="dateModified">Actualizado el viernes, 21 de febrero de 2014 a las 23:43 UTC</span></div><div><span>
+Etiquetado como
+
+nodejs
+
+,
+<a href="/label/javascript"><span itemprop="articleSection">javascript</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>A medida que las aplicaciones crecen, crecen tambi&eacute;n en dependencias y muchas veces la tarea de comenzar una aplicaci&oacute;n es tediosa y repetitiva al tener que agregar una y otra vez las mismas referencias o no.</p> 
+<p><img alt="Bower logo" src="http://bob.yexley.net/content/images/2013/Dec/bower_logo.png" width="241" height="241" /></p> 
+<h3>Primero que nada, tener Nodejs instalado</h3> 
+<p>S&iacute;, <a href="http://bower.io/">Bower</a> es un paquete de Nodejs, as&iacute; que una vez que <a href="http://www.leomicheloni.com/post/2012/08/05/Comenzando-con-NodeJS-en-Windows.aspx">tenemos Nodejs instalado</a>, ejecutamos el siguiente comando:</p> 
+<pre>npm install -g bower</pre> 
+<h3>CERT_UNTRUSTED Error</h3> 
+<p>Si esto ocurre lo m&aacute;s simple es ejecutar el siguiente comando</p> 
+<pre>npm config set ca &quot;&quot; </pre> 
+<p>Si esto no funciona <a href="https://groups.google.com/forum/#!topic/nodejs/aonVboqx8wM">ac&aacute; hay un par de opciones m&aacute;s</a></p> 
+<h3>Tambi&eacute;n es necesario git</h3> 
+<p><em>Bower</em> permite instalar paquetes desde cualquier repositrio <em>git</em> (incluso uno nuestro, remoto lo local) pero necesitamos tener <em>git</em> instalado y en el path para que <em>Bower</em> lo encuentre.</p> 
+<h3>Ahora s&iacute;, bower instalado, empecemos</h3> 
+<p>Una vez que tenemos Bower instalado podemos hacer lo mismo que hacemos con el comando <em>npm</em> de <em>Nodejs</em>, es decir, solicitar paquetes.</p> 
+<p>Entonces vamos a la consola y ejecutamos</p> 
+<pre>bower install requirejs</pre> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/35bf4373dcf7/35700823/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/35bf4373dcf7/56CFADBF/image_thumb.png" width="689" height="49" /></a></p> 
+<p>si revisamos el directorio desde donde ejecutamos el comando vamos a ver que <em>Bower</em> cre&oacute; una carpeta <em>bower_components</em> y puso el paquete ah&iacute; (lo que hay en el paquete depende de la definici&oacute;n de quien lo cre&oacute;)</p> 
+<h3>Cambiando el directorio de instalaci&oacute;n</h3> 
+<p>Esto es simple, creamos un archivo con el nombre .<em>bowerrs</em> (si, un archivo sin nombre con extensi&oacute;n bowerrc) y colocamos lo siguiente dentro</p> 
+<pre>{	
+&quot;directory&quot;: &quot;scripts&quot;
+}</pre> 
+<p>Entonces ejecutamos de nuevo el comando y vemos que <em>Bower</em> pone todo dentro de la carpeta scripts</p> 
+<h3>Automatizando tareas comunes</h3> 
+<p>Una cosa interesante es tener un archivo con varias dependencias que siempre usamos y usarlo de base para instalar diferentes paquetes y versiones en nuestra aplicaci&oacute;n, esto es simple. Creamos un archivo con el nombre bower.json y colocamos dentro lo siguiente</p> 
+<pre>{	
+&quot;name&quot;: &quot;app&quot;, &quot;dependencies&quot;: {&quot;backbone&quot;: null, &quot;jquery&quot;: null, &quot;requirejs&quot;: null}
+}</pre> 
+<p>Ahora con estos dos archivos en nuestro directorio no nos queda m&aacute;s que ejecutar <em>bower install</em> y listo (el null en cada componente indica la versi&oacute;n, en este caso es la &uacute;ltima).</p> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/35bf4373dcf7/23E01D58/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/35bf4373dcf7/64EE9CBC/image_thumb.png" width="199" height="142" /></a></p> 
+<p>Un detalle interesante es que instal&oacute; <em>underscorejs</em> sin que lo pidamos, esto ocurre porque <em>backbone</em> tiene <a href="https://github.com/jashkenas/backbone/blob/master/bower.json">definido en su archivo de configuraci&oacute;n de Bower</a><em></em> que depende de <em>underscore</em>.</p> 
+<p>Esto es un buen ejemplo de un archivo de configuraci&oacute;n</p> 
+<pre>{
+  &quot;name&quot;          : &quot;backbone&quot;,
+  &quot;version&quot;       : &quot;1.1.2&quot;,
+  &quot;main&quot;          : &quot;backbone.js&quot;,
+  &quot;dependencies&quot;  : {
+    &quot;underscore&quot;  : &quot;&gt;=1.5.0&quot;
+  },
+  &quot;ignore&quot;        : [&quot;backbone-min.js&quot;, &quot;docs&quot;, &quot;examples&quot;, &quot;test&quot;, &quot;*.yml&quot;, &quot;*.map&quot;, &quot;.html&quot;, &quot;*.ico&quot;]
+}</pre> 
+<p>Como ver&aacute;n se pueden definir muchas cosas, <a href="http://bower.io/#defining-a-package">ac&aacute; podemos encontrar una referencia completa</a>.</p> 
+<p>Entonces, a partir de ahora podemos tener nuestros archivos de configuraci&oacute;n comunes para las aplicaciones y dejar que <em>Bower</em> haga todo por nosotros, o si tenemos un proyecto con dependencias de terceros simplemente agregamos en el c&oacute;digo los archivos de configuraci&oacute;n de <em>Bower</em> para que cada uno los instale.</p> 
+<p>Hasta la pr&oacute;xima.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" st_title="Bower: manejador de paquetes para Javascript | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 388,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

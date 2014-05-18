@@ -1,0 +1,218 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Backbonejs: el modelo | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo"><span itemprop="headline">Backbonejs: el modelo</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/03/20/Backbonejs-el-modelo.aspx"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-20T12:33" itemprop="datePublished">Publicado el jueves, 20 de marzo de 2014 a las 12:33 UTC</span></div><div><span datetime="2014-03-20T12:33" itemprop="dateModified">Actualizado el jueves, 20 de marzo de 2014 a las 12:33 UTC</span></div><div><span>
+Etiquetado como
+
+backbone-js
+
+,
+<a href="/label/javascript"><span itemprop="articleSection">javascript</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><img src="http://ts1.mm.bing.net/th?id=HN.608021284466656241&amp;pid=1.7" /></p> 
+<h3>Qu&eacute; es el modelo?</h3> 
+<p>El modelo es la abstracci&oacute;n que representa nuestro sistema, con sus datos y comportamiento, en principio deber&iacute;a ser totalmente independiente de los dem&aacute;s componentes de la aplicaci&oacute;n (por ejemplo, deber&iacute;a ser independiente de la <em>UI</em>)</p> 
+<h3>Creando un modelo con <em>backbone</em></h3> 
+<p>Para crear un modelo en <em>backbone</em> tenemos que hacer dos cosas:</p> 
+<ul> 
+ <li>Declarar una clase </li> 
+ <li>Instanciarla </li> 
+</ul> 
+<p>Para crear la clase de nuestro modelo necesitamos extender una clase de <em>backbone</em>, del siguiente modo:</p> 
+<pre>var Task = Backbone.Model.extend();</pre> 
+<p>con esto generamos una clase <em>Task</em> que extiende la clase <em>Model</em> de <em>backbone</em>, esto nos permite utilizar su funcionalidad, por ejemplo podemos hacer:</p> 
+<pre>var task = new Task({name: &quot;hacer algo&quot;});
+console.log(task.toJSON());</pre> 
+<p>y obtenemos una representaci&oacute;n <em>JSON</em> de nuestro modelo, esta funcionalidad la heredamos de la clase base de <em>backbone</em>.</p> 
+<p>Otra cosa que podemos hacer es tener propiedades por defecto, por ejemplo:</p> 
+<pre>var Task = Backbone.Model.extend({
+	defaults: {
+		done: false
+	}
+});</pre> 
+<p>de esta manera indicamos que la propiedad <em>done</em>, tiene un valor por defecto en <em>false</em>, entonces si hacemos</p> 
+<pre>var task = new Task({name: &quot;hacer algo&quot;});
+console.log(task.toJSON());</pre> 
+<p>Obtenemos:</p> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs/64E59632/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs/354777A6/image_thumb.png" width="338" height="196" /></a></p> 
+<h3>Leer y escribir propiedades</h3> 
+<p>Si queremos leer o escribir alguna propiedad del modelo no podemos simplemente acceder a ella con el&nbsp; (puntro)., es decir, no podemos hacer</p> 
+<pre>	console.log(task.name);</pre> 
+<p>Lo que necesitamos es acceder a los m&eacute;todos <em>get</em> y <em>set</em> respectivamente</p> 
+<pre>	task.set(&quot;name&quot;, &quot;hablar con el dentista&quot;);
+			
+			
+	console.log( task.get(&quot;name&quot;) );</pre> 
+<p>No olvidemos que ahora estamos accediendo a un clase que hereda de otra, y adem&aacute;s <em>backbone</em> necesita controlar el acceso a las propiedades del modelo para manejar las validaciones y notificaciones.</p> 
+<h3>Validaciones</h3> 
+<p>Para agregar validaciones a nuestro modelo tenemos que definir un m&eacute;todo <em>validate</em> dentro de la declaraci&oacute;n del mismo, por ejemplo</p> 
+<pre>var Task = Backbone.Model.extend({
+	defaults:{
+		done: false
+	},
+	validate: function(attributes){
+		if(attributes.name.length===0) return &quot;the name is required&quot;;
+	}
+});</pre> 
+<p>simplemente definimos el m&eacute;todo <em>validate</em>, el cual recibe los atributos de la clase como par&aacute;metro y ponemos nuestro c&oacute;digo de validaci&oacute;n, por convenci&oacute;n siempre que el m&eacute;todo <em>validate</em> retorne algo distinto de <em>void</em> indicar&aacute; un error de validaci&oacute;n.</p> 
+<p>Para probarlo debemos hacer:</p> 
+<pre>	
+var Task = Backbone.Model.extend({				
+		defaults:{
+			done: false
+			},				
+		validate: function(attributes){					
+			if(attributes.name.length===0) return &quot;the name is required&quot;;				
+		}			
+	});
+					
+var task = new Task({name: &quot;hacer algo&quot;});			
+task.set(&quot;name&quot;, &quot;&quot;, {validate: true});			
+console.log(task.toJSON());</pre> 
+<p>Lo corremos y obtenemos:</p> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs/5A64C212/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs/47439566/image_thumb.png" width="418" height="97" /></a></p> 
+<p>La propiedad no cambi&oacute; a causa del error de validaci&oacute;n (el nombre deber existir), notemos que al hacer el set de la propiedad agregamos el par&aacute;metro <em>{validate:true}</em> esto es para que las validaciones se ejecuten al establecer el valor de la propiedad, podr&iacute;amos obviarlo, dejar que el usuario establezca todos los valores y luego consultar el m&eacute;todo <em>isValid</em>().</p> 
+<h3>Eventos</h3> 
+<p>Por &uacute;ltimo en esta escueta introducci&oacute;n al modelo vamos a hablar de eventos, podemos saber varias cosas relacionadas con el modelo</p> 
+<ul> 
+ <li>Cu&aacute;ndo cambi&oacute; alguna propiedad </li> 
+ <li>Cu&aacute;ndo cambia una propiedad particular </li> 
+ <li>Cu&aacute;ndo hay un error de validaci&oacute;n </li> 
+</ul> 
+<p>Hay m&aacute;s pero por ahora est&aacute; bien, un ejemplo completo de los visto hasta ahora m&aacute;s los eventos ser&iacute;a:</p> 
+<pre>&lt;html&gt;
+	&lt;head&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/jquery/jquery.min.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/underscore/underscore.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor/backbone/backbone.js&quot;&gt;&lt;/script&gt;			
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id=&quot;container&quot; &gt;&lt;/div&gt;
+
+		&lt;script type=&quot;text/javascript&quot;&gt;
+			//creamos el modelo extendiendo la clase Model de backbone
+			var Task = Backbone.Model.extend({
+				//valores por defecto de algunas propiedades
+				defaults:{ 
+					done: false
+				},
+				//m&eacute;todo de validaci&oacute;n, si retorna algo indica que ocurri&oacute; un error
+				validate: function(attributes){
+					if(attributes.name.length===0) return &quot;the name is required&quot;;
+				}
+			});
+		
+			//creamos un objeto a partir de la definici&oacute;n del modelo
+			var task = new Task({name: &quot;hacer algo&quot;});
+			
+			//le asignamos un valor a la propiedad name
+			task.set(&quot;name&quot;, &quot;&quot;);
+			
+			//escuchamos el evento change del modelo
+			task.on(&quot;change&quot;, function(){
+				console.log(&quot;algo cambi&oacute;&quot;);
+				console.log(&quot;el valor anterior fue:&quot;);
+				console.log(this.changed);
+			});
+
+			//agregamos un filtro al evento para indicar que nos interesa el name
+			task.on(&quot;change:name&quot;, function(){
+				console.log(&quot;el nombre cambi&oacute;&quot;);
+			});
+			
+			//si hay un error de validaci&oacute;n cuando
+			//hacemos set(&quot;propiead&quot;, &quot;valor&quot;, {validate: true} se ejecuta este evento
+			//tambi&eacute;n se ejecuta consultamos el m&eacute;todo isValid() y existen errores
+			task.on(&quot;invalid&quot;, function(){
+				console.log(&quot;ocurri&oacute; un error de validaci&oacute;n&quot;);
+				console.log(this.validationError);
+			});
+		&lt;/script&gt;
+		
+	&lt;/body&gt;
+&lt;/html&gt;
+		
+	</pre> 
+<p>Nos leemos, la pr&oacute;xima.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" st_title="Backbonejs: el modelo | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 385,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Backbonejs: La vista | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista"><span itemprop="headline">Backbonejs: La vista</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/03/24/Backbonejs-La-vista.aspx"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-25T01:55" itemprop="datePublished">Publicado el martes, 25 de marzo de 2014 a las 01:55 UTC</span></div><div><span datetime="2014-03-25T01:55" itemprop="dateModified">Actualizado el martes, 25 de marzo de 2014 a las 01:55 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>
+,
+
+backbone-js
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><h3>Qu&eacute; es la vista?</h3> 
+<p>En ella vamos a mostrar nuestro modelo, en este caso al tratarse de un navegador web ser&aacute; en <em>HTML</em>, y responder&aacute; a la interacci&oacute;n del usuario.</p> 
+<h3>C&oacute;mo creo una vista con Backbone?</h3> 
+<p>Primero que nada utilizamos el mismo patr&oacute;n que para crear un <a href="http://www.leomicheloni.com/post/2014/03/20/Backbonejs-el-modelo.aspx">modelo</a>, del siguiente modo:</p> 
+<pre>var Vista = Backbone.View.extend({});</pre> 
+<p>y luego para utilizarla</p> 
+<pre>var vista = new Vista();</pre> 
+<h3>Definiciones y cosas que tenemos por defecto</h3> 
+<p>Si no hacemos m&aacute;s nada que lo anterior nuestra vista no hace gran cosa, de hecho, no hace nada, lo que acabamos de lograr es extender la clase de <em>Backbone</em> para tener algunos m&eacute;todos y propiedades (que vamos a usar despu&eacute;s) pero en s&iacute;, por ahora, no hace mucho</p> 
+<h3>El m&eacute;todo render</h3> 
+<p>Este m&eacute;todo nos permitir&aacute; imprimir nuestra vista sobre alg&uacute;n otro elemento de la p&aacute;gina, sin embargo <em>backbone</em> no nos da ninguna definici&oacute;n especial de este m&eacute;todo (es decir, nada nos impide ponerle otro nombre) pero es lo m&aacute;s com&uacute;n hacerlo de este modo, vamos a ver una primera implementaci&oacute;n</p> 
+<pre>		var Vista = Backbone.View.extend({
+			render: function(){
+				return this;
+			}
+		});
+				
+		var vista = new Vista();
+		
+		$(&quot;#container&quot;).append(vista.render().el);	</pre> 
+<p>Como vemos no hay nada especial, simplemente retornamos el mismo objeto vista en el m&eacute;todo <em>render</em> (claro, es un ejemplo) la parte m&aacute;s importante del ejemplo es ver la l&iacute;nea final, luego de llamar al m&eacute;todo <em>render</em> accedemos al objeto <em><strong>el</strong></em>, este objeto es parte de la clase base y va a contener el <em>HTML</em> que vamos a imprimir en la vista, entonces, siempre vamos a retornar <em>this</em> en nuestro m&eacute;todo <em>render</em> para poder acceder a <em><strong>el</strong></em> y poner en la p&aacute;gina. Si corremos este c&oacute;digo vemos lo siguiente:</p> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/229FAB55/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/4BC74393/image_thumb.png" width="365" height="175" /></a></p> 
+<p>Por defecto el contenido de la vista es un simple <em>div</em>, el mismo se encuentra contenido en la propiedad <em><strong>el</strong></em></p> 
+<h3>La propiedad el de la vista</h3> 
+<p>Como vimos en esta propiedad se guarda el contenido de nuestra vista, existe otra propiedad (muy similar) que se llama <em><strong>$el</strong></em>, que es igual que el pero tiene un <em>wrapper</em> de <em>jQuery</em> (o <em>Zepto</em>, o la biblioteca que hayamos usado para manipular el <em>DOM</em>), vamos a interactuar con esta propiedad cuando queramos manipular el contenido de nuestra vista.</p> 
+<h3>El tagName</h3> 
+<p>La propiedad <em>tagName</em> de la vista nos permite cambiar el tipo de elemento que genera, por defecto es un <em>div</em> pero si configuramos la propiedad como un <em>strong</em> por ejemplo es lo que obtendremos.</p> 
+<pre>var Vista = Backbone.View.extend({
+	tagName: &quot;strong&quot;, //cambiamos el elemento de la vista
+	render: function(){
+		return this;
+	}
+});
+		
+var vista = new Vista();
+
+$(&quot;#container&quot;).append(vista.render().el);</pre> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/2203C8A0/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/2706064F/image_thumb.png" width="356" height="209" /></a></p> 
+<h3>Usando un template en la vista</h3> 
+<p>Como dije al principio <em>backbone</em> no nos dice mucho de la vista as&iacute; que muchas de las cosas que hacen son como convenciones, una de ellas es asignar a la vista una propiedad <em>template</em> y colocar dentro c&oacute;digo <em>HTML</em> que vamos a <em>renderizar</em> y con esto reemplazar totalmente el contenido del elemento <em><strong>el</strong></em>, por ejemplo:</p> 
+<pre>var Vista = Backbone.View.extend({
+	template: &quot;&lt;strong&gt;hola&lt;/strong&gt;&quot;,
+	render: function(){
+		this.el = this.template;
+		return this;
+	}
+});
+		
+var vista = new Vista();
+
+$(&quot;#container&quot;).append(vista.render().el);</pre> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/396E5704/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/778771B5/image_thumb.png" width="383" height="161" /></a></p> 
+<h3>Agregando el modelo a la vista</h3> 
+<p>Bien, ahora vamos a intentar mostrar el contenido del modelo en la vista, para hacer vamos a crear un modelo <a href="http://www.leomicheloni.com/post/2014/03/20/Backbonejs-el-modelo.aspx">como hicimos antes</a> y pasarlo a la vista para que &eacute;sta lo muestre, el c&oacute;digo ser&iacute;a as&iacute;:</p> 
+<pre>//definimos un modelo sin nada en especial
+var Modelo = Backbone.Model.extend({
+});	
+//definimos una vista, vamos a usar el div por defecto
+//en &quot;el&quot; para agregarle datos del modelo
+var Vista = Backbone.View.extend({
+	render: function(){
+		//utilizamos $el para agregar el dato del modelo
+		this.$el.append(this.model.get(&quot;texto&quot;));
+		return this;
+	}
+});
+//creamos una instancia del modelo y asignamos la propiedad texto		
+var modelo = new Modelo({texto: &quot;hola mundo&quot;});
+//instanciamos una vista y pasamos el modelo en el constructor
+//utilizamos la propiedad model
+var vista = new Vista({model: modelo});
+//renderizamos la vista
+$(&quot;#container&quot;).append(vista.render().el);</pre> 
+<p><a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/6DDF037F/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; background-image: none; border-bottom-width: 0px; padding-top: 0px; padding-left: 0px; display: inline; padding-right: 0px; border-top-width: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Backbonejs-La-vista/2BF81E31/image_thumb.png" width="240" height="111" /></a></p> 
+<h3>Eventos, escuchando y cambiando el modelo</h3> 
+<p>Una cosa interesante de <em>backbone</em> es que la comunicaci&oacute;n entre componentes la podemos hacer totalmente a trav&eacute;s de eventos, vamos a ver c&oacute;mo hacemos para que la vista sepa que el modelo cambi&oacute;.</p> 
+<p>Existe un m&eacute;todo en la vista el cual es ejecutado al crearse la misma, que sirve las veces de constructor, aqu&iacute; es donde nos “<em>atachamos</em>” a los eventos del modelo para saber que cambi&oacute;, del siguiente modo:</p> 
+<pre>//definimos un modelo sin nada en especial
+var Modelo = Backbone.Model.extend({
+});	
+//definimos una vista, vamos a usar el div por defecto
+//en &quot;el&quot; para agregarle datos del modelo
+var Vista = Backbone.View.extend({
+	initialize: function(){ //este m&eacute;todo se ejecuta el crear una instancia
+		this.model.on(&quot;change&quot;, this.render, this); 
+		//escuchamos el evento &quot;change&quot; de nuestro modelo
+		//y indicamos que cuando ocurra se ejecute el m&eacute;todo
+		//&quot;render&quot; (el &uacute;ltimo par&aacute;metro es el contexto)
+	},
+	render: function(){
+		//utilizamos $el para agregar el dato del modelo
+		this.$el.html(this.model.get(&quot;texto&quot;));
+		return this;
+	}
+});
+//creamos una instancia del modelo y asignamos la propiedad texto		
+var modelo = new Modelo({texto: &quot;hola mundo&quot;});
+//instanciamos una vista y pasamos el modelo en el constructor
+//utilizamos la propiedad model
+var vista = new Vista({model: modelo});
+//renderizamos la vista
+$(&quot;#container&quot;).append(vista.render().el);</pre> 
+<p>Si ahora ejecutamos la aplicaci&oacute;n y desde la consola hacemos:</p> 
+<pre>model.set(&quot;texto&quot;, &quot;chau&quot;)</pre> 
+<p>La vista se vuelve a dibujar.</p> 
+<p><a href="http://backbonejs.org/#Events">Ac&aacute; tenemos una lista completa de los eventos</a> a los que nos podemos “atachar” entre ellos est&aacute;, por supuesto”, el evento “invalid”.</p> 
+<h3>Cambiar el contenido del modelo cuando algo cambia en la vista</h3> 
+<p><em>Backbone</em> tiene una forma de escuchar los eventos dentro de una vista con un sintaxis similar a la de <em>jQuery</em>, el &uacute;nico detalle a tener en cuenta es que el contexto sobre el que se trabaja es siempre el elemento <em><strong>$el</strong></em>, veamos un ejemplo</p> 
+<pre>//definimos un modelo sin nada en especial
+var Modelo = Backbone.Model.extend({
+});	
+//definimos una vista, vamos a usar el div por defecto
+//en &quot;el&quot; para agregarle datos del modelo
+var Vista = Backbone.View.extend({
+	initialize: function(){ //este m&eacute;todo se ejecuta el crear una instancia
+		this.model.on(&quot;change&quot;, this.render, this); 
+		//escuchamos el evento &quot;change&quot; de nuestro modelo
+		//y indicamos que cuando ocurra se ejecute el m&eacute;todo
+		//&quot;render&quot; (el &uacute;ltimo par&aacute;metro es el contexto)
+	},
+	render: function(){
+		//utilizamos $el para agregar el dato del modelo
+		this.$el.html(this.model.get(&quot;texto&quot;));
+		return this;
+	},
+	events:{
+		&quot;click&quot;: function(){ //escuchamos el evento click
+							 //sobre todo $el
+			this.model.set(&quot;texto&quot;, &quot;click!!&quot;); //modificamos el modelo
+		}
+	}
+});
+//creamos una instancia del modelo y asignamos la propiedad texto		
+var modelo = new Modelo({texto: &quot;hola mundo&quot;});
+//instanciamos una vista y pasamos el modelo en el constructor
+//utilizamos la propiedad model
+var vista = new Vista({model: modelo});
+//renderizamos la vista
+$(&quot;#container&quot;).append(vista.render().el);</pre> 
+<p>En este caso escuchamos el evento “<em>click</em>” sobre todo <em><strong>$el</strong></em> (porque no definimos agregamos un selector despu&eacute;s del nombre del evento click) y cuando ocurre el evento modificamos el modelo, despu&eacute;s, ya que estamos escuchando los cambios del modelo, autom&aacute;ticamente se vuelve a dibujar con el nuevo valor de la propiedad <em>texto</em>, para resumir <a href="https://gist.github.com/leomicheloni/9732208">dejo un link a un ejemplo un poco m&aacute;s completo</a>, con un <em>template</em>.</p> 
+<p>Nos leemos.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" st_title="Backbonejs: La vista | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 384,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
