@@ -203,11 +203,17 @@ public class IndexerServiceImpl implements IndexerService {
 		}
 
 		StringBuffer postContent = new StringBuffer();
-		Iterator cit = entry.getContents().iterator();
-		while (cit.hasNext()) {
-			SyndContent content = (SyndContent) cit.next();
-			postContent.append(content.getValue());
+		if (entry.getContents().isEmpty()) {
+			logger.warn(String.format("Article without content, using description (%s, %s)", source.getName(), entry.getLink()));
+			postContent.append(entry.getDescription().getValue());
+		} else {
+			Iterator cit = entry.getContents().iterator();
+			while (cit.hasNext()) {
+				SyndContent content = (SyndContent) cit.next();
+				postContent.append(content.getValue());
+			}
 		}
+		
 		AppWhitelist whitelist = (AppWhitelist) AppWhitelist.relaxed();
 		whitelist.addAttribute("script", "src", "^http[s]?://speakerdeck.com/.*$");
 		whitelist.addAttribute("script", "src", "^http[s]?://gist.github.com/.*$");
