@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno",
+      "title" : "Tests de integración con Entity Framework (I): Preparando el entorno"
+    },
+    {
       "url" : "/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos",
       "title" : "Conceptos básicos para testear una base de datos"
     },
