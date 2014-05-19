@@ -3,10 +3,51 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-05-17T22:35:18Z</updated>
+  <updated>2014-05-19T17:33:32Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-05-17T22:35:18Z</dc:date>
+  <dc:date>2014-05-19T17:33:32Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Singletons en C++. Intentando que sean seguros en hilos (thread safety) II</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii" />
+    <category term="safe" />
+    <category term="simultaneo" />
+    <category term="singleton" />
+    <category term="thread" />
+    <category term="unica" />
+    <category term="volatile" />
+    <category term="ejecucion" />
+    <category term="exclusion" />
+    <category term="c" />
+    <category term="hilos" />
+    <category term="hardware" />
+    <category term="instancia" />
+    <category term="memoria" />
+    <category term="mutex" />
+    <category term="objeto" />
+    <category term="procesador" />
+    <category term="concurrencia" />
+    <category term="c-c" />
+    <category term="general" />
+    <category term="cosas-que-damos-por-hechas" />
+    <category term="clases" />
+    <category term="arquitectura" />
+    <category term="creacion" />
+    <category term="cpu" />
+    <category term="c-11" />
+    <category term="algoritmos" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2014-04-22T08:50:49Z</updated>
+    <published>2014-04-22T08:50:49Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC90aHJlYWQuanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/thread.jpg" alt="Singleton thread-safe" title="thread" width="500" height="375" /&gt;&lt;/a&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzA0L3NpbmdsZXRvbi1pbi1jcHAv"&gt;Ayer habl&amp;aacute;bamos&lt;/a&gt; de la creaci&amp;oacute;n de un sigleton y de que nuestro ejemplo no era &lt;em&gt;“thread safe”&lt;/em&gt;, vamos, que en un entorno con varios hilos de ejecuci&amp;oacute;n cabe la posibilidad de que el comportamiento esperado no siempre se cumpla.&lt;/p&gt; 
+&lt;p&gt;Ah&amp;iacute; encontr&amp;aacute;bamos diferencias entre C++ (&amp;lt;11) y C++11 ya que esta &amp;uacute;ltima revisi&amp;oacute;n incluye &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDEzLzEwL2p1Z2FuZG8tY29uLXRocmVhZHMteS1tdXRleC1lbi1jMTEv"&gt;tratamiento de threads&lt;/a&gt; y algunas cosas m&amp;aacute;s que trataremos aqu&amp;iacute;.&lt;/p&gt; 
+&lt;p&gt;Lo primero que podemos pensar, es que al traernos la instancia de nuestro singleton se crea una secci&amp;oacute;n cr&amp;iacute;tica, la cu&amp;aacute;l podemos regular con un &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAyL2NvbmN1cnJlbmNpYS1jdWFuZG8tdmFyaW9zLWhpbG9zLXRocmVhZHMtcGVsZWFuLXBvci1lbC1hY2Nlc28tYS11bi1yZWN1cnNvLWVqZW1wbG9zLWVuLWMv"&gt;mutex&lt;/a&gt;, provocando que &lt;strong&gt;siempre&lt;/strong&gt; que vayamos a obtener una instancia de nuestro objeto pasemos por el sem&amp;aacute;foro, y aunque dos threads quieran pelearse por ver qui&amp;eacute;n crea antes el recurso, s&amp;oacute;lo uno lo conseguir&amp;aacute; finalmente.&lt;/p&gt; 
+&lt;p&gt;A partir de ahora, ya que antes de C++11 no tenemos mutex nativos (ya lo he dicho varias veces, bueno una m&amp;aacute;s, a ver si mejora el SEO &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2014-04-22T08:50:49Z</dc:date>
+  </entry>
   <entry>
     <title>Desempaquetado y análisis Samsung SSD 840 EVO 250 GB</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-84-evo-25-gb" />

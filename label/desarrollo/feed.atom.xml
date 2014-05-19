@@ -3,10 +3,34 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-05-17T22:35:15Z</updated>
+  <updated>2014-05-19T17:33:31Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-05-17T22:35:15Z</dc:date>
+  <dc:date>2014-05-19T17:33:31Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Attribute routing en ASPNET MVC y Web API (I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/attribute-routing-en-aspnet-mvc-y-web-api-i" />
+    <category term="routing" />
+    <category term="webapi" />
+    <category term="aspnetmvc" />
+    <category term="desarrollo" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-03-25T19:21:54Z</updated>
+    <published>2014-03-25T13:05:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="mvc" src="http://lh5.ggpht.com/-SdKB9xTXbdI/Uu6nSWVdqSI/AAAAAAAADTw/WAkrbhBFLMo/mvc2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="mvc" width="142" /&gt;Como seguro sab&amp;eacute;is, una de las novedades que acompa&amp;ntilde;an a MVC 5 es la inclusi&amp;oacute;n de un nuevo mecanismo para la definici&amp;oacute;n de rutas llamado 
+&lt;em&gt;attribute routing&lt;/em&gt;, que b&amp;aacute;sicamente consiste en acercar el registro de rutas a las acciones y controladores que las utilizan en lugar de definirlas en el tradicional y lejano RouteConfig.cs. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;A nivel de c&amp;oacute;digo la idea es permitir definir las rutas utilizando atributos de la siguiente forma: 
+&lt;br /&gt; 
+&lt;pre&gt;public class ProductController: Controller&lt;br /&gt; {&lt;br /&gt;    [Route(&amp;quot;product/{category}/{product}&amp;quot;)] &lt;br /&gt;    public ActionResult Show(string category, string product) &lt;br /&gt;    { &lt;br /&gt;        ... &lt;br /&gt;    } &lt;br /&gt; }&lt;/pre&gt;Las ventajas que tiene este enfoque sobre el tradicional, llamado ahora 
+&lt;em&gt;rutado por convenciones&lt;/em&gt;, es que permite un control m&amp;aacute;s detallado de las rutas y que hace el c&amp;oacute;digo bastante m&amp;aacute;s legible, pues de un simple vistazo podemos ver tanto la acci&amp;oacute;n que ejecutar&amp;aacute; una petici&amp;oacute;n como la URL mediante la cual llegaremos a ella. Adem&amp;aacute;s, es m&amp;aacute;s sencillo de utilizar y m&amp;aacute;s previsible en muchos casos.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/attribute-routing-en-aspnet-mvc-y-web-api-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-03-25T13:05:00Z</dc:date>
+  </entry>
   <entry>
     <title>La nueva versión de Apache soluciona fallos de seguridad</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/la-nueva-version-de-apache-soluciona-fallos-de-seguridad" />
@@ -28,6 +52,54 @@
 &lt;p&gt;La soluci&amp;oacute;n a esta vulnerabilidad desde la nueva versi&amp;oacute;n de Apache, hace que el servidor limpie el registro de cookies de forma que ya no reconoce las cookies que no valen.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/la-nueva-version-de-apache-soluciona-fallos-de-seguridad"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-03-21T12:43:04Z</dc:date>
+  </entry>
+  <entry>
+    <title>Soporte para enums en ASPNET MVC 5.1</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" />
+    <category term="aspnetmvc" />
+    <category term="desarrollo" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-03-18T13:58:23Z</updated>
+    <published>2014-03-18T13:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET MVC" src="http://lh4.ggpht.com/-hRjGd44kO18/UxM14zKRI4I/AAAAAAAADVo/lLl6fBXT-vg/mvc%25255B2%25255D.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 11px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC" width="142" /&gt;Soportar de forma medio decente tipos enumerados ( 
+&lt;em&gt;enums&lt;/em&gt;) no era algo que no pudi&amp;eacute;ramos hacer con versiones anteriores de ASP.NET MVC, pero ya iba siendo hora de que el producto incluyera de serie herramientas para facilitarlo un poco. Y por fin, la revisi&amp;oacute;n 5.1 de ASP.NET MVC algo ha aportado al respecto :) 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt;En primer lugar, MVC 5.1 ha a&amp;ntilde;adido a la colecci&amp;oacute;n de helpers HTML el extensor 
+&lt;code&gt;EnumDropDownListFor()&lt;/code&gt;, que, como su nombre indica, crea un cuadro desplegable para seleccionar valores de un tipo enumerado (o un 
+&lt;em&gt;nullable&lt;/em&gt; de dicho tipo): 
+&lt;br /&gt; 
+&lt;pre&gt;// Model:&lt;br /&gt;&lt;br /&gt;public enum Color&lt;br /&gt;{&lt;br /&gt;    Black, White, Green, Blue, Red&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;public class Point&lt;br /&gt;{&lt;br /&gt;    public int X { get; set; }&lt;br /&gt;    public int Y { get; set; }&lt;br /&gt;    public Color Color { get; set; }&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;// View:&lt;br /&gt;@model Point&lt;br /&gt;...&lt;br /&gt;@Html.LabelFor(m =&amp;gt; m.Color)&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-03-18T13:10:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Mejoras de EditorFor() y Editor() en MVC 5.1</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/mejoras-de-editorfor-y-editor-en-mvc-5-1" />
+    <category term="novedades" />
+    <category term="aspnetmvc" />
+    <category term="desarrollo" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-03-11T21:00:50Z</updated>
+    <published>2014-03-11T08:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET MVC" src="http://lh5.ggpht.com/-bbz56V2yXoM/Uu6LsmK8FpI/AAAAAAAADTY/wg7Dyo2zKdQ/mvc2.png?imgmax=800" height="77" style="display: inline; float: right; margin: 0px 0px 10px 10px;" title="ASP.NET MVC" width="142" /&gt;Est&amp;aacute; claro que 
+&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; ha calado hondo en los productos de la familia ASP.NET como marco de trabajo “oficial” para la maquetaci&amp;oacute;n de las p&amp;aacute;ginas o vistas. Tanto es as&amp;iacute;, que incluso hay una caracter&amp;iacute;stica introducida en la revisi&amp;oacute;n 5.1 de MVC para facilitar el trabajo con el mismo, aunque siendo estrictos, puede beneficiar tambi&amp;eacute;n al que opte por otro framework o incluso prefiera soluciones m&amp;aacute;s artesanas. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt; 
+&lt;br /&gt;Hasta MVC 5.0 inclusive, las sobrecargas de los helpers 
+&lt;code&gt;Html.EditorFor()&lt;/code&gt; y 
+&lt;code&gt;Html.Editor()&lt;/code&gt; que utiliz&amp;aacute;bamos para generar editores de propiedades del modelo dispon&amp;iacute;an de sobrecargas que permit&amp;iacute;an indicar, adem&amp;aacute;s de la propiedad en cuesti&amp;oacute;n: 
+&lt;br /&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;strong&gt;El nombre de la plantilla &lt;/strong&gt;(&lt;code&gt;templateName&lt;/code&gt;) a utilizar, en la pr&amp;aacute;ctica, el nombre del archivo .cshtml ubicado en &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/mejoras-de-editorfor-y-editor-en-mvc-5-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-03-11T08:10:00Z</dc:date>
   </entry>
   <entry>
     <title>BlueFish, un potente editor para desarrollo web.</title>
@@ -53,6 +125,33 @@
 &lt;p&gt;Partimos de la base que puede editar c&amp;oacute;digo para lenguajes como C, C++, Python entre otros. Pero d&amp;oacute;nde desmarca claramente es para el desarrollo web, ya que tiene soporte para HTML, CSS y PHP, adem&amp;aacute;s proporciona una lista todas las etiquetas HTML, y eso facilita mucha las cosas.&amp;nbsp; &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-03-10T09:17:15Z</dc:date>
+  </entry>
+  <entry>
+    <title>El operador “?.” en C# y VB.NET, más cerca</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" />
+    <category term="novedades" />
+    <category term="c" />
+    <category term="vb-net" />
+    <category term="desarrollo" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-03-04T08:05:00Z</updated>
+    <published>2014-03-04T08:05:00Z</published>
+    <content type="html">&lt;p&gt;&lt;a href="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s1600-h/programacion.jpg"&gt;&lt;img align="right" alt="" src="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s400/programacion.jpg" style="height: 200px; margin: 0px 0px 0px 10px;" /&gt;&lt;/a&gt; 
+&lt;br /&gt;El operador “?.”, tambi&amp;eacute;n llamado 
+&lt;em&gt;safe navigation operator&lt;/em&gt;, era la caracter&amp;iacute;stica m&amp;aacute;s demandada para el lenguaje C# en 
+&lt;a href="http://visualstudio.uservoice.com/"&gt;Uservoice&lt;/a&gt;, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se est&amp;aacute; considerando la posibilidad de incluir este &amp;uacute;til azucarillo sint&amp;aacute;ctico tanto en C# como en VB. 
+&lt;br /&gt; 
+&lt;br /&gt;Para los que no lo conozc&amp;aacute;is, se trata de una construcci&amp;oacute;n que permite acceder a propiedades de objetos sin temor a las 
+&lt;em&gt;null reference exceptions &lt;/em&gt;lanzadas cuando estos objetos son nulos. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt;Mejor ve&amp;aacute;moslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco m&amp;aacute;s abajo: 
+&lt;br /&gt; 
+&lt;pre&gt;public class Person&lt;br /&gt;{&lt;br /&gt;    public Person Father { get; set; }&lt;br /&gt;    public string Name { get; set; }&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-03-04T08:05:00Z</dc:date>
   </entry>
 </feed>
 

@@ -3,10 +3,89 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-05-17T22:35:15Z</updated>
+  <updated>2014-05-19T17:33:32Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-05-17T22:35:15Z</dc:date>
+  <dc:date>2014-05-19T17:33:32Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Singletons en C++. Intentando que sean seguros en hilos (thread safety) II</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii" />
+    <category term="safe" />
+    <category term="simultaneo" />
+    <category term="singleton" />
+    <category term="thread" />
+    <category term="unica" />
+    <category term="volatile" />
+    <category term="ejecucion" />
+    <category term="exclusion" />
+    <category term="c" />
+    <category term="hilos" />
+    <category term="hardware" />
+    <category term="instancia" />
+    <category term="memoria" />
+    <category term="mutex" />
+    <category term="objeto" />
+    <category term="procesador" />
+    <category term="concurrencia" />
+    <category term="c-c" />
+    <category term="general" />
+    <category term="cosas-que-damos-por-hechas" />
+    <category term="clases" />
+    <category term="arquitectura" />
+    <category term="creacion" />
+    <category term="cpu" />
+    <category term="c-11" />
+    <category term="algoritmos" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2014-04-22T08:50:49Z</updated>
+    <published>2014-04-22T08:50:49Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC90aHJlYWQuanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/thread.jpg" alt="Singleton thread-safe" title="thread" width="500" height="375" /&gt;&lt;/a&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzA0L3NpbmdsZXRvbi1pbi1jcHAv"&gt;Ayer habl&amp;aacute;bamos&lt;/a&gt; de la creaci&amp;oacute;n de un sigleton y de que nuestro ejemplo no era &lt;em&gt;“thread safe”&lt;/em&gt;, vamos, que en un entorno con varios hilos de ejecuci&amp;oacute;n cabe la posibilidad de que el comportamiento esperado no siempre se cumpla.&lt;/p&gt; 
+&lt;p&gt;Ah&amp;iacute; encontr&amp;aacute;bamos diferencias entre C++ (&amp;lt;11) y C++11 ya que esta &amp;uacute;ltima revisi&amp;oacute;n incluye &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDEzLzEwL2p1Z2FuZG8tY29uLXRocmVhZHMteS1tdXRleC1lbi1jMTEv"&gt;tratamiento de threads&lt;/a&gt; y algunas cosas m&amp;aacute;s que trataremos aqu&amp;iacute;.&lt;/p&gt; 
+&lt;p&gt;Lo primero que podemos pensar, es que al traernos la instancia de nuestro singleton se crea una secci&amp;oacute;n cr&amp;iacute;tica, la cu&amp;aacute;l podemos regular con un &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAyL2NvbmN1cnJlbmNpYS1jdWFuZG8tdmFyaW9zLWhpbG9zLXRocmVhZHMtcGVsZWFuLXBvci1lbC1hY2Nlc28tYS11bi1yZWN1cnNvLWVqZW1wbG9zLWVuLWMv"&gt;mutex&lt;/a&gt;, provocando que &lt;strong&gt;siempre&lt;/strong&gt; que vayamos a obtener una instancia de nuestro objeto pasemos por el sem&amp;aacute;foro, y aunque dos threads quieran pelearse por ver qui&amp;eacute;n crea antes el recurso, s&amp;oacute;lo uno lo conseguir&amp;aacute; finalmente.&lt;/p&gt; 
+&lt;p&gt;A partir de ahora, ya que antes de C++11 no tenemos mutex nativos (ya lo he dicho varias veces, bueno una m&amp;aacute;s, a ver si mejora el SEO &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2014-04-22T08:50:49Z</dc:date>
+  </entry>
+  <entry>
+    <title>Singletons en C++ y alguna nota sobre thread safety (I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" />
+    <category term="singleton" />
+    <category term="thread" />
+    <category term="curioso" />
+    <category term="clase" />
+    <category term="c" />
+    <category term="hilos" />
+    <category term="instancia" />
+    <category term="seguridad" />
+    <category term="objeto" />
+    <category term="c-c" />
+    <category term="general" />
+    <category term="cosas-que-damos-por-hechas" />
+    <category term="single" />
+    <category term="safety" />
+    <category term="pthread" />
+    <category term="patron" />
+    <category term="objetos" />
+    <category term="intance" />
+    <category term="algoritmos" />
+    <category term="generacion" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2014-04-21T08:57:23Z</updated>
+    <published>2014-04-21T08:57:23Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC9zaW5nbGV0b24uanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/singleton.jpg" alt="" title="singleton" width="500" height="357" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Antes de nada, comentar que he dividido este post en dos porque vi que se estaba alargando demasiado y se lanzar&amp;aacute;n uno al d&amp;iacute;a, pondr&amp;eacute; aqu&amp;iacute; enlaces a todos los posts.&lt;/p&gt; 
+&lt;p&gt;Muchas veces cuando estamos programando tenemos la necesidad de crear un objeto de una clase determinada, pero &amp;eacute;ste objeto deber&amp;aacute; ser creado una sola vez en nuestra aplicaci&amp;oacute;n y debemos evitar a toda costa que pueda ser creado m&amp;aacute;s veces. Podemos pensar en:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Una conexi&amp;oacute;n de base de datos para nuestra aplicaci&amp;oacute;n. Bueno, a veces necesitamos varias, pero muchas veces s&amp;oacute;lo necesitamos una, y queremos referirnos a ella en cualquier punto de nuestro programa (y no queremos una variable global ni nada de eso).&lt;/li&gt; 
+ &lt;li&gt;Un objeto de configuraci&amp;oacute;n general del programa. Imaginemos que en el constructor leemos el archivo de configuraci&amp;oacute;n y generamos un &amp;aacute;rbol con las opciones de nuestra aplicaci&amp;oacute;n. Dicho &amp;aacute;rbol no debe ser generado m&amp;aacute;s veces, s&amp;oacute;lo cuando arrancamos el programa.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2014-04-21T08:57:23Z</dc:date>
+  </entry>
   <entry>
     <title>BlueFish, un potente editor para desarrollo web.</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web" />
@@ -31,6 +110,33 @@
 &lt;p&gt;Partimos de la base que puede editar c&amp;oacute;digo para lenguajes como C, C++, Python entre otros. Pero d&amp;oacute;nde desmarca claramente es para el desarrollo web, ya que tiene soporte para HTML, CSS y PHP, adem&amp;aacute;s proporciona una lista todas las etiquetas HTML, y eso facilita mucha las cosas.&amp;nbsp; &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-03-10T09:17:15Z</dc:date>
+  </entry>
+  <entry>
+    <title>El operador “?.” en C# y VB.NET, más cerca</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" />
+    <category term="novedades" />
+    <category term="c" />
+    <category term="vb-net" />
+    <category term="desarrollo" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-03-04T08:05:00Z</updated>
+    <published>2014-03-04T08:05:00Z</published>
+    <content type="html">&lt;p&gt;&lt;a href="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s1600-h/programacion.jpg"&gt;&lt;img align="right" alt="" src="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s400/programacion.jpg" style="height: 200px; margin: 0px 0px 0px 10px;" /&gt;&lt;/a&gt; 
+&lt;br /&gt;El operador “?.”, tambi&amp;eacute;n llamado 
+&lt;em&gt;safe navigation operator&lt;/em&gt;, era la caracter&amp;iacute;stica m&amp;aacute;s demandada para el lenguaje C# en 
+&lt;a href="http://visualstudio.uservoice.com/"&gt;Uservoice&lt;/a&gt;, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se est&amp;aacute; considerando la posibilidad de incluir este &amp;uacute;til azucarillo sint&amp;aacute;ctico tanto en C# como en VB. 
+&lt;br /&gt; 
+&lt;br /&gt;Para los que no lo conozc&amp;aacute;is, se trata de una construcci&amp;oacute;n que permite acceder a propiedades de objetos sin temor a las 
+&lt;em&gt;null reference exceptions &lt;/em&gt;lanzadas cuando estos objetos son nulos. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt;Mejor ve&amp;aacute;moslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco m&amp;aacute;s abajo: 
+&lt;br /&gt; 
+&lt;pre&gt;public class Person&lt;br /&gt;{&lt;br /&gt;    public Person Father { get; set; }&lt;br /&gt;    public string Name { get; set; }&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-03-04T08:05:00Z</dc:date>
   </entry>
 </feed>
 

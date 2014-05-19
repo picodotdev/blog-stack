@@ -1,0 +1,670 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java"><span itemprop="headline">Cancelando y reanudando una tarea con Timer y TimerTask en Java</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-02-12T09:05" itemprop="datePublished">Publicado el miércoles, 12 de febrero de 2014 a las 09:05 UTC</span></div><div><span>
+Etiquetado como
+
+almacen
+
+,
+
+cancelar
+
+,
+
+info
+
+,
+
+clases
+
+,
+
+task
+
+,
+
+timer
+
+,
+
+timertask
+
+,
+
+programar
+
+,
+
+reanudar
+
+,
+
+schedule
+
+,
+<a href="/label/java"><span itemprop="articleSection">java</span></a>
+,
+
+store
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMS9jYW5jZWwuanBn"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/01/cancel.jpg" alt="" title="cancel" width="500" height="281" /></a></p> 
+<p>Hemos estado viendo <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAxL2ludHJvLXRpbWVydGFzay1qYXZhLw==">c&oacute;mo utilizar TimerTask</a> para programar tareas en el tiempo y <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAxL3Bhc2FuZG8tYXJndW1lbnRvcy1hLXVuLXRpbWVydGFzay1lbi1qYXZhLw==">c&oacute;mo pasarle argumentos</a> para hacer una funcionalidad m&aacute;s completa. Ahora vamos a ver c&oacute;mo podemos cancelar una tarea peri&oacute;dica que ha sido programada (eso es f&aacute;cil), pero pueden surgir problemas a la hora de reanudar la tarea, para lo cual propongo algunas ideas.</p> 
+<p>Lo primero, es tener un c&oacute;digo b&aacute;sico para lanzar una tarea y cancelarla:<br /> TimerEx.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class TimerEx 
+      <br /> {
+      <br /> &nbsp; &nbsp; public static void main(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">String</a> arglist[]) 
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> &nbsp; &nbsp; timer = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a>();
+      <br /> 
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a> task = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a>()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; int tic = 0;
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; @Override
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; public void run()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println((tic++%2==0)?&quot;TIC&quot;:&quot;TOC&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; };
+      <br /> 
+      <br /> &nbsp; &nbsp; timer.schedule(task, 10, 100);
+      <br /> &nbsp; &nbsp; try
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Athread+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Thread</a>.sleep(1000);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; catch (
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Exception</a> e)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; task.cancel();
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>En este ejemplo, transcurrido un segundo (con Thread.sleep()), cancelaremos la tarea, por lo tanto no se ejecutar&aacute; m&aacute;s, aunque el proceso se quedar&aacute; a la espera, ya que el Timer sigue activo. Podemos hacer “timer.cancel()” y por tanto el proceso terminar&aacute;. El problema viene cuando queremos que la tarea programada se reanude, ya que tenemos que crear de nuevo el objeto de la tarea, si intentamos aprovechar el objeto task que ya tenemos, nos devolver&aacute; una excepci&oacute;n.</p> 
+<p>Si queremos parar y reanudar tendremos que hacer algo as&iacute;:<br /> TimerEx.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class TimerEx 
+      <br /> {
+      <br /> &nbsp; &nbsp; public static void main(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">String</a> arglist[]) 
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> &nbsp; &nbsp; timer = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a>();
+      <br /> 
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a> task = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a>()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; int tic = 0;
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; @Override
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; public void run()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println((tic++%2==0)?&quot;TIC&quot;:&quot;TOC&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; };
+      <br /> 
+      <br /> &nbsp; &nbsp; timer.schedule(task, 10, 100);
+      <br /> &nbsp; &nbsp; try
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Athread+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Thread</a>.sleep(1000);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; task.cancel();
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Athread+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Thread</a>.sleep(1000);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; catch (
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Aexception+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Exception</a> e)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; task = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a>()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; int tic = 0;
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; @Override
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; public void run()
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println((tic++%2==0)?&quot;TIC2&quot;:&quot;TOC2&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; };
+      <br /> 
+      <br /> &nbsp; &nbsp; timer.schedule(task, 10, 100);
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Aunque claro, tenemos que definir de nuevo la clase impl&iacute;cita de TimerTask, por lo que estar&iacute;a bien crear una clase derivada de TimerTask, que parara la tarea y se reanudara ella sola, para ello, nuestra TimerTask (MyTimerTask) debe conocer al timer, as&iacute; podr&aacute; reprogramar la tarea incluso con diferente frecuencia:<br /> MyTimerTask.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class MyTimerTask extends 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a>
+      <br /> {
+      <br /> &nbsp; &nbsp; private int tic=0;
+      <br /> &nbsp; &nbsp; private 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> 
+      <br /> &nbsp; &nbsp; public MyTimerTask(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> t)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; this.timer = t;
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; public void run()
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println((tic++%2==0)?&quot;TIC&quot;:&quot;TOC&quot;);
+      <br /> &nbsp; &nbsp; if (tic%10==0)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println(&quot;Cancelling task&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; this.cancel();
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; this.timer.schedule(new MyTimerTask(this.timer), 1000, 1000);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>TimerEx.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class TimerEx 
+      <br /> {
+      <br /> &nbsp; &nbsp; public static void main(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">String</a> arglist[]) 
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> &nbsp; &nbsp; timer = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a>();
+      <br /> 
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a> task = new MyTimerTask(timer);
+      <br /> &nbsp; &nbsp; timer.schedule(task, 10, 100);
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Pero claro, ahora el problema es que la tarea, una vez cancelada, al tener que crear de nuevo el objeto, si tenemos que pasar informaci&oacute;n de la tarea antigua a la tarea nueva, simplemente debemos pasar esa informaci&oacute;n de tarea en tarea, podemos hacer como en el siguiente ejemplo, tener una clase que haga de almac&eacute;n de informaci&oacute;n para la tarea, y pasaremos su instancia entre los TimerTasks, para evitar que el proceso lanzador sea capaz de modificar esa informaci&oacute;n, podemos poner el constructor sobrecargado (donde pasamos adem&aacute;s el nuevo objeto) como privado.</p> 
+<p>En el siguiente ejemplo, s&oacute;lo metemos un entero en el objeto MyTimerTaskInfo (podemos meter todo lo que queramos mantener entre las programaciones de tareas), y con ese objeto controlaremos la salida del programa en la que se cancelar&aacute; tambi&eacute;n el timer cuando se haya programado la tarea unas 5 veces:</p> 
+<p>MyTimerTaskInfo.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      class MyTimerTaskInfo
+      <br /> {
+      <br /> &nbsp; &nbsp; private int times = 0;
+      <br /> 
+      <br /> &nbsp; &nbsp; public void setTimes(int newTimes)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; this.times = newTimes;
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; public int getTimes()
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; return this.times;
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; public void increment()
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; this.times++;
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>MyTimerTask.java</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class MyTimerTask extends 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a>
+      <br /> {
+      <br /> &nbsp; &nbsp; private int tic=0;
+      <br /> &nbsp; &nbsp; private 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> &nbsp; &nbsp; private MyTimerTaskInfo info;
+      <br /> 
+      <br /> &nbsp; &nbsp; public MyTimerTask(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> t)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; this.timer = t;
+      <br /> &nbsp; &nbsp; this.info = new MyTimerTaskInfo();
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; private MyTimerTask(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> t, MyTimerTaskInfo i)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; this.timer = t;
+      <br /> &nbsp; &nbsp; this.info = i;
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; public void run()
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println((tic++%2==0)?&quot;TIC&quot;:&quot;TOC&quot;);
+      <br /> &nbsp; &nbsp; if (tic%10==0)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println(&quot;Cancelling task&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; this.cancel();
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; this.info.increment();
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; if (info.getTimes()==5)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Asystem+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">System</a>.out.println(&quot;Exiting...&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.timer.cancel();
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; else
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.timer.schedule(new MyTimerTask(this.timer, this.info), 200, 100);
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>TimerEx.java (no cambia)</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      import java.util.Timer;
+      <br /> import java.util.TimerTask;
+      <br /> 
+      <br /> class TimerEx 
+      <br /> {
+      <br /> &nbsp; &nbsp; public static void main(
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Astring+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">String</a> arglist[]) 
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a> timer;
+      <br /> &nbsp; &nbsp; timer = new 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimer+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">Timer</a>();
+      <br /> 
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Atimertask+java.sun.com&amp;btnI=I%27m%20Feeling%20Lucky">TimerTask</a> task = new MyTimerTask(timer);
+      <br /> &nbsp; &nbsp; timer.schedule(task, 10, 100);
+      <br /> &nbsp; &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F02%2Fcancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2203" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java/">Cancelando y reanudando una tarea con Timer y TimerTask en Java</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" st_title="Cancelando y reanudando una tarea con Timer y TimerTask en Java | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 424,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

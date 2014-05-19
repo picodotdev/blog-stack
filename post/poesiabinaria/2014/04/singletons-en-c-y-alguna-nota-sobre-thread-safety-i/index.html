@@ -1,0 +1,584 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i"><span itemprop="headline">Singletons en C++ y alguna nota sobre thread safety (I)</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/04/singleton-in-cpp/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-04-21T08:57" itemprop="datePublished">Publicado el lunes, 21 de abril de 2014 a las 08:57 UTC</span></div><div><span>
+Etiquetado como
+
+singleton
+
+,
+
+thread
+
+,
+
+curioso
+
+,
+
+clase
+
+,
+<a href="/label/c"><span itemprop="articleSection">c</span></a>
+,
+
+hilos
+
+,
+
+instancia
+
+,
+<a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>
+,
+
+objeto
+
+,
+
+c-c
+
+,
+
+general
+
+,
+
+cosas-que-damos-por-hechas
+
+,
+
+single
+
+,
+
+safety
+
+,
+
+pthread
+
+,
+
+patron
+
+,
+
+objetos
+
+,
+
+intance
+
+,
+
+algoritmos
+
+,
+
+generacion
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC9zaW5nbGV0b24uanBn"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/singleton.jpg" alt="" title="singleton" width="500" height="357" /></a></p> 
+<p>Antes de nada, comentar que he dividido este post en dos porque vi que se estaba alargando demasiado y se lanzar&aacute;n uno al d&iacute;a, pondr&eacute; aqu&iacute; enlaces a todos los posts.</p> 
+<p>Muchas veces cuando estamos programando tenemos la necesidad de crear un objeto de una clase determinada, pero &eacute;ste objeto deber&aacute; ser creado una sola vez en nuestra aplicaci&oacute;n y debemos evitar a toda costa que pueda ser creado m&aacute;s veces. Podemos pensar en:</p> 
+<ul> 
+ <li>Una conexi&oacute;n de base de datos para nuestra aplicaci&oacute;n. Bueno, a veces necesitamos varias, pero muchas veces s&oacute;lo necesitamos una, y queremos referirnos a ella en cualquier punto de nuestro programa (y no queremos una variable global ni nada de eso).</li> 
+ <li>Un objeto de configuraci&oacute;n general del programa. Imaginemos que en el constructor leemos el archivo de configuraci&oacute;n y generamos un &aacute;rbol con las opciones de nuestra aplicaci&oacute;n. Dicho &aacute;rbol no debe ser generado m&aacute;s veces, s&oacute;lo cuando arrancamos el programa.</li> 
+ <li>Un logger, que configuraremos una sola vez y nos referiremos al objeto cuando queramos escribir algo.</li> 
+ <li>Almac&eacute;n de cach&eacute;. Por ejemplo para almacenar valores tra&iacute;dos de base de datos que vamos a utilizar en el transcurso de nuestro programa, as&iacute; evitamos traerlos m&aacute;s veces.</li> 
+ <li>Acceso a un recurso exclusivo, por poner un ejemplo un hardware especializado.</li> 
+ <li>Muchos m&aacute;s usos.</li> 
+</ul> 
+<p>Tambi&eacute;n es cierto que para muchos casos el uso del patr&oacute;n Singleton <strong>no es obligatorio</strong>, en otros casos no tenemos que usarlo y mucha gente desaconseja su uso, pero es una de las muchas herramientas que tenemos en este mundo <img src="http://totaki.com/poesiabinaria/wp-includes/images/smilies/icon_smile.gif" alt=":)" /> </p> 
+<h2>Primera aproximaci&oacute;n</h2> 
+<p>El caso m&aacute;s sencillo que podremos hacer es el siguiente:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      class Singleton
+      <br /> {
+      <br /> public:
+      <br /> &nbsp; static Singleton *getInstance()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; if (instance == NULL)
+      <br /> &nbsp; &nbsp; &nbsp; instance = new Singleton();
+      <br /> &nbsp; &nbsp; else
+      <br /> &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; &quot;Getting existing instance&quot;&lt;&lt;std::endl;
+      <br /> 
+      <br /> &nbsp; &nbsp; return instance;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> protected:
+      <br /> &nbsp; Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; std::cout &lt;&lt; &quot;Creating singleton&quot; &lt;&lt; std::endl;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; virtual ~Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; Singleton(Singleton const&amp;);&nbsp; 
+      <br /> &nbsp; Singleton&amp; operator=(Singleton const&amp;);
+      <br /> 
+      <br /> private:
+      <br /> &nbsp; static Singleton *instance;
+      <br /> };
+      <br /> 
+      <br /> Singleton* Singleton::instance=NULL;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>De esta forma nos aseguramos de que el objeto <strong>s&oacute;lo lo creamos una vez</strong>. Y por lo tanto, si durante la ejecuci&oacute;n de nuestro programa queremos utilizar nuestro objeto de clase Singleton, tenemos que hacer:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      Singleton *s = Singleton::getInstance();
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>En este caso, si la instancia no est&aacute; creada, la crear&aacute; (hay que observar que el constructor de la clase est&aacute; protegido por lo tanto s&oacute;lo se puede utilizar dentro de la clase Singleton y en clases derivadas), y si est&aacute; creado utilizar&aacute; la clase instanciada previamente (almacenada en el atributo instance). La magia est&aacute; en que, tanto el atributo como el m&eacute;todo getInstance() son est&aacute;ticos, &eacute;stos dos ser&aacute;n globales para la clase y nos devolver&aacute;n el objeto instanciado (que s&oacute;lo podr&aacute; ser uno), y ser&aacute;n los m&eacute;todos que creemos para nuestra clase los que se basen en cada objeto instanciado.</p> 
+<p>Por otro lado, el constructor de copia y el operador de asignaci&oacute;n est&aacute;n protegidos para evitar que se puedan utilizar en nuestro programa y alguien pueda chafarnos este precioso funcionamiento, por ejemplo pudiendo crear dos instancias de esta clase (nuestra perdici&oacute;n).</p> 
+<p>En cuanto al destructor, nosotros elegimos, &iquest;queremos que se pueda destruir la clase? Podemos poner el destructor en la parte p&uacute;blica, as&iacute; con un simple:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      destroy s;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>se podr&aacute; destruir la instancia de nuestro singleton (debemos tener cuidado y hacer que el m&eacute;todo instance valga NULL de nuevo, o la pr&oacute;xima vez que utilicemos la instancia obtenida por getInstance() se puede liar).<br /> Otra opci&oacute;n ser&iacute;a crear otro m&eacute;todo est&aacute;tico:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      void destroyInstance()
+      <br /> {
+      <br /> &nbsp; if (instance != NULL)
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; destroy instance;
+      <br /> &nbsp; &nbsp; instance = NULL;
+      <br /> &nbsp; }
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>y mantener el destructor de nuestra clase protegido (o hacerlo privado). En estos m&eacute;todo podemos poner m&aacute;s c&oacute;digo, dependiendo del uso de nuestra clase. Tambi&eacute;n podemos optar por la funci&oacute;n atexit() de  que llama a una serie de funciones (establecidas por nosotros) cuando el programa finaliza (siempre que termine bien, con return, o exit()).</p> 
+<h2>&iquest;Qu&eacute; pasa cuando mi programa es multi-hilo?</h2> 
+<p>Lo que hemos visto hasta ahora funciona bien cuando el programa tiene un s&oacute;lo thread (o hilo), es decir, s&oacute;lo tenemos una l&iacute;nea de &oacute;rdenes en ejecuci&oacute;n. Por un lado podemos pensar en procesadores de varios n&uacute;cleos, es cierto que son capaces de ejecutar varias &oacute;rdenes al mismo tiempo, pero nuestro programa puede aprovechar s&oacute;lo un n&uacute;cleo, por lo que normalmente los dem&aacute;s n&uacute;cleos que no aprovechamos con una aplicaci&oacute;n, el sistema operativo los destina a otros procesos, y no pasa nada.<br /> El problema viene cuando, para aprovechar la tecnolog&iacute;a de que disponemos, queremos aprovechar al m&aacute;ximo el procesador dentro de nuestra aplicaci&oacute;n (imaginad un procesamiento matem&aacute;tico complejo) y queremos que nuestra aplicaci&oacute;n pueda realizar varias cosas a la vez, es decir nuestra aplicaci&oacute;n pueda estar ejecutando varias tareas simult&aacute;neamente. Aunque este concepto se asocia casi siempre con varios n&uacute;cleos no siempre es as&iacute; y a veces podemos ganar velocidad en un sistema mono-n&uacute;cleo utilizando varios hilos (y tambi&eacute;n tendr&iacute;amos el problema con los singletons) aprovechando esperas generadas, por ejemplo, por interacci&oacute;n con dispositivos. </p> 
+<p>Bueno, &iquest; qu&eacute; puede ocurrir ? Pues que varios hilos quieran simult&aacute;neamente solicitar una instancia de nuestro Singleton, y si es la primera vez, va a intentar crear una instancia, pero qu&eacute; pasar&iacute;a si un proceso entra en getInstance() y pasa el “if (instance == NULL)”, entra en el constructor, y al mismo tiempo otro proceso entra tambi&eacute;n en getInstance() ? Pues que para cada proceso se crear&aacute; una nueva instancia ya que no ha dado tiempo a asignar el valor del atributo instance, y eso puede pasar con varios procesos.</p> 
+<p>El primer problema es el multi-thread, C++ (versiones anteriores a C++11) no trae de forma nativa soporte para threads, por lo tanto, para los ejemplos utilizar&eacute; la biblioteca <strong>pthread</strong> que se podr&aacute; compilar en cualquier *nix, y tambi&eacute;n el ejemplo de C++11 para compiladores modernos, vamos a lanzar varios getInstance() en threads concurrentes, a ver qu&eacute; pasa:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />52
+      <br />53
+      <br />54
+      <br />55
+      <br />56
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;iostream&gt;
+      <br /> #include &lt;pthread.h&gt;
+      <br /> #include &lt;cstdlib&gt;
+      <br /> #include &lt;unistd.h&gt;
+      <br /> 
+      <br /> using namespace std;
+      <br /> 
+      <br /> class Singleton
+      <br /> {
+      <br /> public:
+      <br /> &nbsp; static Singleton *getInstance()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; if (instance == NULL)
+      <br /> &nbsp; &nbsp; &nbsp; instance = new Singleton();
+      <br /> &nbsp; &nbsp; else
+      <br /> &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; &quot;Getting existing instance&quot;&lt;&lt;std::endl;
+      <br /> 
+      <br /> &nbsp; &nbsp; return instance;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> protected:
+      <br /> &nbsp; Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; std::cout &lt;&lt; &quot;Creating singleton&quot; &lt;&lt; std::endl;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; virtual ~Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; Singleton(Singleton const&amp;);&nbsp; 
+      <br /> &nbsp; Singleton&amp; operator=(Singleton const&amp;);
+      <br /> 
+      <br /> private:
+      <br /> &nbsp; static Singleton *instance;
+      <br /> };
+      <br /> 
+      <br /> Singleton* Singleton::instance=NULL;
+      <br /> 
+      <br /> void *task (void*)
+      <br /> {
+      <br /> &nbsp; Singleton *s = Singleton::getInstance();
+      <br /> &nbsp; cout &lt;&lt; &quot;Thread con instancia&quot;&lt;&lt;endl;
+      <br /> }
+      <br /> 
+      <br /> int main()
+      <br /> {
+      <br /> &nbsp; for (unsigned i=0; i&lt;100; ++i)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; pthread_t thread;
+      <br /> &nbsp; &nbsp; &nbsp; int rc = pthread_create(&amp;thread, NULL, task, NULL);
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; pthread_exit(NULL);
+      <br /> &nbsp; return 0;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Para compilar este ejemplo, hacemos gcc -o singlethread singlethread.cpp -lpthread</p> 
+<p>En ejemplo en C++11 es el siguiente (s&iacute;, podemos hacerlo mucho m&aacute;s sencillo aqu&iacute;):</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;iostream&gt;
+      <br /> #include &lt;thread&gt;
+      <br /> #include &lt;cstdlib&gt;
+      <br /> #include &lt;unistd.h&gt;
+      <br /> 
+      <br /> using namespace std;
+      <br /> 
+      <br /> class Singleton
+      <br /> {
+      <br /> public:
+      <br /> &nbsp; static Singleton *getInstance()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; if (instance == nullptr)
+      <br /> &nbsp; &nbsp; &nbsp; instance = new Singleton();
+      <br /> &nbsp; &nbsp; else
+      <br /> &nbsp; &nbsp; &nbsp; std::cout &lt;&lt; &quot;Getting existing instance&quot;&lt;&lt;std::endl;
+      <br /> 
+      <br /> &nbsp; &nbsp; return instance;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> protected:
+      <br /> &nbsp; Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; &nbsp; std::cout &lt;&lt; &quot;Creating singleton&quot; &lt;&lt; std::endl;
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; virtual ~Singleton()
+      <br /> &nbsp; {
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; Singleton(Singleton const&amp;);&nbsp; 
+      <br /> &nbsp; Singleton&amp; operator=(Singleton const&amp;);
+      <br /> 
+      <br /> private:
+      <br /> &nbsp; static Singleton *instance;
+      <br /> };
+      <br /> 
+      <br /> Singleton* Singleton::instance=nullptr;
+      <br /> 
+      <br /> int main()
+      <br /> {
+      <br /> &nbsp; for (unsigned i=0; i&lt;100; ++i)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; thread([](){ 
+      <br /> &nbsp; &nbsp; &nbsp; Singleton *s = Singleton::getInstance();
+      <br /> &nbsp; &nbsp; &nbsp; cout &lt;&lt; &quot;Thread con instancia&quot;&lt;&lt;endl;
+      <br /> &nbsp; &nbsp; }).detach();
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; return 0;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Para compilar este con g++ : g++ -o singlethread11 singlethread11.cpp -std=c++11 -lpthread (C++ como lenguaje es m&aacute;s r&aacute;pido e intuitivo, pero para este compilador, utilizamos la biblioteca de threads POSIX como antes).</p> 
+<p>En ambos casos en la salida podremos ver varios mensajes “<em>Creating singleton</em>” y hemos demostrado nuestro estrepitoso fallo en este sentido, nuestro Singleton se ha creado varias veces, y eso puede resultar desastroso para nuestro programa. En el caso de utilizar una estructura de este tipo para gestionar la configuraci&oacute;n de nuestra aplicaci&oacute;n, estaremos manteniendo varias veces en memoria la configuraci&oacute;n, en principio no es demasiado malo, pero si modificamos la configuraci&oacute;n para posteriormente guardarla, s&oacute;lo se modificar&aacute; una de las estructuras y al guardarse tendremos un problema.</p> 
+<p>Ma&ntilde;ana, nos aproximamos al thread safety un poco m&aacute;s.</p> 
+<p>Modificado 22/04/2014: Gracias a Luis Cabellos por su sugerencia, he cambiado en el ejemplo de C++11 los NULL por nullptr.<br /> Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly93d3cuZmxpY2tyLmNvbS9waG90b3MvbmFucGFsbWVyby85MTc3NDM0ODY0">Nan Palmero</a> (Flickr CC-by)</p> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F04%2Fsingleton-in-cpp%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2268" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/04/singleton-in-cpp/">Singletons en C++ y alguna nota sobre thread safety (I)</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" st_title="Singletons en C++ y alguna nota sobre thread safety (I) | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li><li><a href="/label/seguridad/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta seguridad</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 418,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

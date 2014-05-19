@@ -1,0 +1,299 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Routing en MVC y Web API (II): Restricciones | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones"><span itemprop="headline">Routing en MVC y Web API (II): Restricciones</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/knrkuX7G9AQ/routing-en-mvc-y-web-api-ii.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-04-01T12:02" itemprop="datePublished">Publicado el martes, 01 de abril de 2014 a las 12:02 UTC</span></div><div><span datetime="2014-04-01T12:02" itemprop="dateModified">Actualizado el martes, 01 de abril de 2014 a las 12:02 UTC</span></div><div><span>
+Etiquetado como
+
+routing
+
+,
+
+webapi
+
+,
+
+aspnetmvc
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET MVC" src="http://lh6.ggpht.com/-VPH4kq6cJMo/UxzGXblMcNI/AAAAAAAADXE/mGworg1sz7M/mvc2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC" width="142" />En la entrega anterior de la serie hicimos una peque&ntilde;a 
+<a href="http://www.variablenotfound.com/2014/03/attribute-routing-en-aspnet-mvc-y-web.html">introducci&oacute;n al attribute routing</a> introducido en ASP.NET MVC 5 y Web API 2, explicando c&oacute;mo pod&iacute;amos activar esta caracter&iacute;stica y las reglas b&aacute;sicas para la definici&oacute;n de rutas sobre acciones y controladores de ambos frameworks.
+<br />
+<br />En esta ocasi&oacute;n vamos a ver c&oacute;mo podemos incluir restricciones o 
+<em>constraints</em> en dichas rutas, algo que pod&iacute;amos conseguir tambi&eacute;n utilizando el rutado por convenciones pero de forma m&aacute;s farragosa y que ahora con 
+<em>attribute routing</em> y otras mejoras incluidas en las &uacute;ltimas versiones de MVC y Web API se convierte en trivial. 
+<br />
+<br />Y ya de paso, repasaremos lo que son las restricciones de ruta y c&oacute;mo pod&iacute;amos usarlas en versiones anteriores de MVC y Web API, para que aquellos que a&uacute;n no hay&aacute;is tenido oportunidad de trabajar con ellas.
+<br />
+<a></a>
+<br />
+<h3>1. &iquest;Qu&eacute; son las restricciones de ruta?</h3>Como sabemos, cuando una petici&oacute;n llega a nuestro sitio web, el sistema de 
+<em>routing</em> analiza la URL entrante y la contrasta con el contenido de la tabla de rutas. Cuando en dicha tabla encuentra una regla cuyo patr&oacute;n de ruta coincide con el 
+<em>path</em> de la petici&oacute;n entrante, se utilizan sus datos para determinar a qu&eacute; acci&oacute;n se delega el proceso de la petici&oacute;n, as&iacute; como los par&aacute;metros a suministrarle.
+<br />
+<br />Las restricciones de ruta, o 
+<em>route constraints</em>, 
+<strong>permiten a&ntilde;adir l&oacute;gica adicional al proceso de <em>matching</em> entre la petici&oacute;n entrante y las reglas registradas en la tabla de rutas</strong>, de forma que no s&oacute;lo se atienda a la coincidencia ambas URLs sino tambi&eacute;n a cualquier otro tipo de criterio. En la pr&aacute;ctica, los 
+<em>constraints</em> son b&aacute;sicamente funciones que retornan cierto o falso, por lo que podemos introducir en ellos cualquier l&oacute;gica de comprobaci&oacute;n.
+<br />
+<br />As&iacute;, al entrar una petici&oacute;n, y una vez el sistema de 
+<em>routing</em> ha determinado qu&eacute; regla de la tabla de rutas encaja con la URL de dicha petici&oacute;n, se ejecutar&aacute;n sucesivamente todos los 
+<em>constraints</em> definidos en la misma. En cuanto uno de ellos retorne 
+<code>false</code>, se descartar&aacute; la ruta actual y se seguir&aacute; buscando en la tabla de rutas una entrada que encaje con la petici&oacute;n entrante; si todos retornan 
+<code>true</code>, la ruta actual ser&aacute; la elegida para gestionar la petici&oacute;n.
+<br />
+<h3>2. Route constraints en versiones anteriores de MVC y Web API</h3>En versiones de ASP.NET MVC anteriores a la 5 y Web API 2, las restricciones se introduc&iacute;an en las entradas de la tabla de rutas, cuanto menos, de forma algo “extra&ntilde;a”. Era necesario asignar al par&aacute;metro 
+<code>constraints</code> de los m&eacute;todos 
+<code>MapRoute()</code> o 
+<code>MapHttpRoute()</code> –de MVC y Web API, respectivamente-, un objeto an&oacute;nimo en el que se defin&iacute;an a modo de diccionario clave/valor las restricciones a emplear por cada par&aacute;metro. Observad el siguiente ejemplo:
+<br />
+<pre>routes.MapRoute(<br />    name: &quot;ProductById&quot;,<br />    url: &quot;product/{id}&quot;,<br />    defaults: new {controller = &quot;product&quot;, action = &quot;details&quot;},<br />    constraints: new { id = new MustBeInteger() }<br />);</pre>En este c&oacute;digo indic&aacute;bamos al sistema de routing que ten&iacute;amos una restricci&oacute;n sobre el par&aacute;metro de ruta 
+<code>id</code>, cuya l&oacute;gica estaba implementada en la clase 
+<code>MustBeInteger</code> . La verdad es que es una forma realmente oscura y poco intuitiva para expresar algo que probablemente podr&iacute;a haberse solucionado de forma sencilla mediante lambdas y predicados, pero bueno…
+<br />
+<br />Pero a&uacute;n peor, sin duda, es que ni MVC ni Web API ven&iacute;an acompa&ntilde;ados de restricciones de serie (exceptuando una, basada en expresiones regulares), por lo que todas ellas deb&iacute;amos desarrollarlas nosotros, y esto ha provocado que muy poca gente se anime a usar 
+<em>constraints</em> en las rutas de sus aplicaciones, aunque resulte bastante sencillo hacerlo. 
+<br />
+<br />Las restricciones son simplemente clases personalizadas que implementan el interfaz 
+<code>System.Web.Routing.IRouteConstraint</code>, y en cuyo &uacute;nico m&eacute;todo 
+<code>Match()</code> se introduce la l&oacute;gica de comprobaci&oacute;n. Siguiendo con el ejemplo anterior, la siguiente restricci&oacute;n permitir&iacute;a asegurar que el valor de un par&aacute;metro es de tipo 
+<code>int</code>:
+<br />
+<pre>public class MustBeInteger : IRouteConstraint<br />{<br />    public bool Match(HttpContextBase httpContext, Route route, <br />                      string parameterName, RouteValueDictionary values,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RouteDirection routeDirection)<br />    {<br />        int value;<br />        return int.TryParse(values[parameterName].ToString(), out value);<br />    }<br />}</pre>Observad que este m&eacute;todo recibe par&aacute;metros a trav&eacute;s de los cuales puede acceder al contexto completo de la petici&oacute;n, la ruta actual, al nombre del par&aacute;metro evaluado (“id” en el caso anterior), la colecci&oacute;n de par&aacute;metros de ruta, y la direcci&oacute;n de la conversi&oacute;n, que indica si la restricci&oacute;n se est&aacute; evaluando durante el proceso de 
+<em>matching</em> en una petici&oacute;n entrante, o durante la generaci&oacute;n de una URL mediante los 
+<em>helpers</em> que todos conocemos.
+<br />
+<br />Y este era el mecanismo que ten&iacute;amos hasta ahora para crear restricciones en las rutas de nuestras aplicaciones MVC y Web API. Aunque no era muy complicado, s&iacute; era bastante farragoso e inc&oacute;modo, as&iacute; que veamos c&oacute;mo mejorar esto.
+<br />
+<h3>3. Restricciones incluidas “de serie” en MVC 5 y Web API 2</h3>Independientemente de las novedades relativas a 
+<em>attribute routing</em> que vienen ya de serie con ASP.NET MVC 5 y Web API 2, 
+<strong>las &uacute;ltimas versiones de estos <em>frameworks</em> han venido acompa&ntilde;adas de un buen n&uacute;mero de <em>constraints</em> predefinidas</strong> que permiten solucionar de forma muy r&aacute;pida los escenarios m&aacute;s comunes.
+<br />
+<br />Estas clases vienen definidas en 
+<code>System.Web.Mvc.Routing.Constraints</code> en ASP.NET MVC y en 
+<code>System.Web.Http.Routing.Constraints</code> en el caso de Web API y, como ya sabemos, todas ellas son clases que implementan el interfaz 
+<code>IRouteConstraint</code>. Las disponibles son:
+<br />
+<ul>
+ <li><code>AlphaRouteConstraints</code>, para permitir valores alfab&eacute;ticos. </li>
+ <li><code>BoolRouteContraint</code>, permite valores booleanos. </li>
+ <li><code>CompoundRouteConstraint</code>, &uacute;til cuando queremos aplicar varias restricciones al mismo par&aacute;metro, pues act&uacute;a como contenedor de otras constraints que ser&aacute;n aplicadas de forma conjunta al mismo. </li>
+ <li><code>DateTimeRouteConstraint</code>, para permitir valores de tipo fecha. </li>
+ <li><code>DecimalRouteConstraint</code>, permitir valores decimales. </li>
+ <li><code>FloatRouteConstraint</code>, permitir valores de tipo <code>float</code>. </li>
+ <li><code>GuidRouteConstraint</code>, permitir exclusivamente valores <code>Guid</code>. </li>
+ <li><code>IntRouteConstraint</code>, permitir valores enteros. </li>
+ <li><code>LengthRouteConstraint</code>, para permitir par&aacute;metros con longitud comprendida entre los valores m&iacute;nimo y m&aacute;ximo especificados, o de un tama&ntilde;o exacto. </li>
+ <li><code>LongRouteConstraint</code>, para permitir valores de tipo <code>long</code> . </li>
+ <li><code>MaxRouteConstraint</code>, permite valores num&eacute;ricos hasta el m&aacute;ximo indicado. </li>
+ <li><code>MaxLengthRouteConstraint</code>, para permitir valores cuya longitud no supere la indicada. </li>
+ <li><code>MinLengthRouteConstraint</code>, &iacute;dem, con valores de una longitud m&iacute;nima. </li>
+ <li><code>MinRouteConstraint</code>, permite valores num&eacute;ricos mayores o iguales al indicado. </li>
+ <li><code>OptionalRouteConstraint</code>, permite indicar una restricci&oacute;n que se superar&aacute; si el valor suministrado coincide con el valor por defecto <code>UrlParameter.Optional</code>. </li>
+ <li><code>RangeRouteConstraint</code>, permite valores num&eacute;ricos que se encuentren en un rango determinado. </li>
+ <li><code>RegexRouteConstraint</code>, los valores deben cumplir una expresi&oacute;n regular. </li>
+</ul>As&iacute;, a partir de este momento podr&iacute;amos utilizar cualquiera de estas restricciones directamente en nuestro c&oacute;digo para asegurar que a las acciones llegan los par&aacute;metros que nos interesan. En el ejemplo anterior quedar&iacute;a algo as&iacute;:
+<br />
+<pre>using System.Web.Mvc.Routing.Constraints;<br />[...]<br />routes.MapRoute(<br />    name: &quot;ProductById&quot;,<br />    url: &quot;product/{id}&quot;,<br />    defaults: new {controller = &quot;product&quot;, action = &quot;details&quot;},<br />    constraints: new { id = new IntRouteConstraint() }<br />);</pre>De nuevo, recordad que a la hora de aplicar estas restricciones 
+<strong>deb&eacute;is tener en cuenta el espacio de nombres usado</strong>, pues si incluis restricciones Web API en una ruta MVC no funcionar&aacute;n, ni viceversa.
+<br />
+<h3>4. Especificaci&oacute;n de restricciones en attribute routing</h3>
+<em>Attribute routing</em> incluye su propia sintaxis para incluir restricciones en el interior de las definiciones de ruta que encontramos junto a las acciones o controladores. Lo vemos r&aacute;pidamente con un ejemplo:
+<br />
+<pre>[Route(&quot;product/edit/{id:int}&quot;] <br />public ActionResult GetProductById(int id) { ... } </pre>Pues s&iacute;, basta con incluir la restricci&oacute;n tras el nombre del par&aacute;metro, separ&aacute;ndolo por los dos puntos “:”. Sencillo, &iquest;eh?
+<br />
+<br />Los tipos de restricci&oacute;n son m&aacute;s simples y r&aacute;pidos de escribir que las clases donde se implementa, que son las que hemos citado algo m&aacute;s arriba. En este caso debemos usar las siguientes denominaciones:
+<br />
+<br />
+<table>
+ <thead>
+  <tr> 
+   <th>Constraint</th> 
+   <th>Descripci&oacute;n</th> 
+   <th>Ejemplo de uso</th> 
+  </tr>
+ </thead>
+ <tbody>
+  <tr> 
+   <td>alpha</td> 
+   <td>Secuencia de caracteres alfab&eacute;ticos latinos (a-z, A-Z)</td> 
+   <td>{x:alpha}</td> 
+  </tr>
+  <tr> 
+   <td>bool</td> 
+   <td>Valor booleanos (true o false)</td> 
+   <td>{x:bool}</td> 
+  </tr>
+  <tr> 
+   <td>datetime</td> 
+   <td>Valor <strong>DateTime</strong> (en formato aaaa-mm-dd)</td> 
+   <td>{x:datetime}</td> 
+  </tr>
+  <tr> 
+   <td>decimal</td> 
+   <td>Valor decimal (usando el punto como separador decimal)</td> 
+   <td>{x:decimal}</td> 
+  </tr>
+  <tr> 
+   <td>double</td> 
+   <td>Valor en punto flotante de 64-bits</td> 
+   <td>{x:double}</td> 
+  </tr>
+  <tr> 
+   <td>float</td> 
+   <td>Valor en punto flotante de 64-bits</td> 
+   <td>{x:float}</td> 
+  </tr>
+  <tr> 
+   <td>guid</td> 
+   <td>GUID</td> 
+   <td>{x:guid}</td> 
+  </tr>
+  <tr> 
+   <td>int</td> 
+   <td>Valor entero de 32 bits</td> 
+   <td>{x:int}</td> 
+  </tr>
+  <tr> 
+   <td>length</td> 
+   <td>Cadena de caracteres con una longitud espec&iacute;fica, o en un rango</td> 
+   <td>{x:length(6)} <br /><br />{x:length(1,20)}</td> 
+  </tr>
+  <tr> 
+   <td>long</td> 
+   <td>Valor entero de 64 bits</td> 
+   <td>{x:long}</td> 
+  </tr>
+  <tr> 
+   <td>max</td> 
+   <td>Entero, como m&aacute;ximo el valor indicado</td> 
+   <td>{x:max(10)}</td> 
+  </tr>
+  <tr> 
+   <td>maxlength</td> 
+   <td>Cadena de caracteres con un tama&ntilde;o m&aacute;ximo</td> 
+   <td>{x:maxlength(10)}</td> 
+  </tr>
+  <tr> 
+   <td>min</td> 
+   <td>Entero, como m&iacute;nimo el valor indicado</td> 
+   <td>{x:min(10)}</td> 
+  </tr>
+  <tr> 
+   <td>minlength</td> 
+   <td>Cadena de caracteres con un tama&ntilde;o m&iacute;nimo</td> 
+   <td>{x:minlength(10)}</td> 
+  </tr>
+  <tr> 
+   <td>range</td> 
+   <td>Entero que se encuentre en un rango de valores</td> 
+   <td>{x:range(10,50)}</td> 
+  </tr>
+  <tr> 
+   <td>regex</td> 
+   <td>Valor que cumpla la expresi&oacute;n regular indicada</td> 
+   <td>{x:regex(^\d{3}-\d{3}-\d{4}$)}</td> 
+  </tr>
+ </tbody>
+</table>
+<br />Si un par&aacute;metro est&aacute; sujeto a m&aacute;s de una restricci&oacute;n, podemos especificarlas de forma consecutiva, siempre usando el mismo separador:
+<br />
+<pre>[Route(&quot;user/confirm/{pin:alpha:length(4}&quot;] // 4 alphabet chars (a-z)<br />public ActionResult Confirm(string pin) <br />{ <br />    ... <br />}</pre>Por otra parte, si el par&aacute;metro tuviera un valor por defecto, se indicar&aacute; tras las 
+<em>constraints</em>:
+<br />
+<pre>[Route(&quot;~/test/{data:alpha:length(3)=car}&quot;)] <br />public ActionResult Test(string data) <br />{ <br />    ... <br />} </pre>Y de momento vamos a dejarlo aqu&iacute;, que creo que ya me estoy alargando demasiado. En la pr&oacute;xima entrega, la &uacute;ltima&nbsp; de la serie, veremos la extensibilidad de 
+<em>attribute routing,</em> que permite crear nuevos tipos de restricciones e integrarlas en su sintaxis de forma muy limpia y elegante.
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=knrkuX7G9AQ:GSjx2oXbPtU:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=knrkuX7G9AQ:GSjx2oXbPtU:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=knrkuX7G9AQ:GSjx2oXbPtU:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=knrkuX7G9AQ:GSjx2oXbPtU:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/knrkuX7G9AQ" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones" st_title="Routing en MVC y Web API (II): Restricciones | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 402,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/04/routing-en-mvc-y-web-api-ii-restricciones"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

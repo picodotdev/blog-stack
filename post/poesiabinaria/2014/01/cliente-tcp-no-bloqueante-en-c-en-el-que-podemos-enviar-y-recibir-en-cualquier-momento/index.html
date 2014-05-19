@@ -1,0 +1,649 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento"><span itemprop="headline">Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-01-13T09:29" itemprop="datePublished">Publicado el lunes, 13 de enero de 2014 a las 09:29 UTC</span></div><div><span>
+Etiquetado como
+
+descriptor
+
+,
+
+envio
+
+,
+
+comunicaciones
+
+,
+
+socket
+
+,
+
+tcp
+
+,
+
+comunicacion
+
+,
+
+recepcion
+
+,
+
+simultaneos
+
+,
+
+datos
+
+,
+
+estandar
+
+,
+
+lectura
+
+,
+
+c-c
+
+,
+
+entrada
+
+,
+
+ip
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMS9yb3V0ZXJzLmpwZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/01/routers.jpg" alt="" title="routers" width="500" height="374" /></a></p> 
+<p>Hace tiempo ve&iacute;amos un art&iacute;culo de <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDExLzAyL2NyZWFuZG8tdW4tc2Vydmlkb3ItcXVlLWFjZXB0ZS1tdWx0aXBsZXMtY2xpZW50ZXMtc2ltdWx0YW5lb3MtZW4tYy8=">un servidor que fuera capaz de aceptar m&uacute;ltiples conexiones</a>, ahora, toca le toca el turno a la implementaci&oacute;n del cliente. </p> 
+<p>En principio, vamos a implementar un cliente sencillo, en el que conectaremos a un servidor y nos permitir&aacute; enviar texto que escribamos por teclado. No podremos recibir nada del servidor, pero nos servir&aacute; como primera aproximaci&oacute;n:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />52
+      <br />53
+      <br />54
+      <br />55
+      <br />56
+      <br />57
+      <br />58
+      <br />59
+      <br />60
+      <br />61
+      <br />62
+      <br />63
+      <br />64
+      <br />65
+      <br />66
+      <br />67
+      <br />68
+      <br />69
+      <br />70
+      <br />71
+      <br />72
+      <br />73
+      <br />74
+      <br />75
+      <br />76
+      <br />77
+      <br />78
+      <br />79
+      <br />80
+      <br />81
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;stdlib.h&gt;
+      <br /> #include &lt;stdio.h&gt;
+      <br /> #include &lt;string.h&gt;
+      <br /> #include &lt;sys/types.h&gt;
+      <br /> #include &lt;sys/socket.h&gt;
+      <br /> #include &lt;netinet/in.h&gt;
+      <br /> #include &lt;netdb.h&gt;
+      <br /> #include &lt;arpa/inet.h&gt;
+      <br /> #include &lt;errno.h&gt;
+      <br /> #include &lt;unistd.h&gt;
+      <br /> 
+      <br /> #define MENS_MAX_LEN 500
+      <br /> 
+      <br /> void usage()
+      <br /> {
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;Wrong arguments. Must give two:\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;tcpclient SERVER PORT\n\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;For example:\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot; &nbsp;tcpclient totaki.com 80\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/exit.html">exit</a>(1);
+      <br /> }
+      <br /> 
+      <br /> void panic(char *msg)
+      <br /> {
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;Fatal error: %s (errno %d, %s)\n&quot;, msg, errno, 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strerror.html">strerror</a>(errno));
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/exit.html">exit</a>(2);
+      <br /> }
+      <br /> 
+      <br /> int main(int argc, char *argv[])
+      <br /> {
+      <br /> &nbsp; char *server;
+      <br /> &nbsp; int port;
+      <br /> &nbsp; int socketfd;
+      <br /> &nbsp; int finish = 0;
+      <br /> &nbsp; struct sockaddr_in serverAddress, clientAddress;
+      <br /> &nbsp; struct hostent *h;
+      <br /> &nbsp; char mens [MENS_MAX_LEN];
+      <br /> &nbsp; size_t recvsize;
+      <br /> 
+      <br /> &nbsp; if (argc&lt;3)
+      <br /> &nbsp; &nbsp; usage();
+      <br /> 
+      <br /> &nbsp; server = argv[1];
+      <br /> &nbsp; port = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/atoi.html">atoi</a>(argv[2]);
+      <br /> 
+      <br /> &nbsp; /* Create a TCP socket */
+      <br /> &nbsp; socketfd = socket(AF_INET, SOCK_STREAM, 0);
+      <br /> &nbsp; if (socketfd==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Failed to create socket&quot;);
+      <br /> 
+      <br /> &nbsp; /* Sets client address */
+      <br /> &nbsp; clientAddress.sin_family = AF_INET;
+      <br /> &nbsp; clientAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+      <br /> &nbsp; clientAddress.sin_port = htons(0);
+      <br /> 
+      <br /> &nbsp; /* Bind the address to the socket */
+      <br /> &nbsp; if (bind(socketfd, (struct sockaddr *)&amp;clientAddress, sizeof(clientAddress))==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Binding address&quot;);
+      <br /> 
+      <br /> &nbsp; /* Get the hostname address */
+      <br /> &nbsp; h = gethostbyname(server);
+      <br /> 
+      <br /> &nbsp; /* Sets server address */
+      <br /> &nbsp; serverAddress.sin_family = h-&gt;h_addrtype;
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/memcpy.html">memcpy</a>((char*) &amp;serverAddress.sin_addr.s_addr, h-&gt;h_addr_list[0], h-&gt;h_length);
+      <br /> &nbsp; serverAddress.sin_port = htons(port);
+      <br /> 
+      <br /> &nbsp; if (connect(socketfd, (struct sockaddr * )&amp;serverAddress, sizeof(serverAddress))==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Cannot connect&quot;);
+      <br /> 
+      <br /> &nbsp; do
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fgets.html">fgets</a>(mens, MENS_MAX_LEN, stdin);
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; if (send(socketfd, mens, 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(mens)+1, 0)==-1)
+      <br /> &nbsp; &nbsp; panic (&quot;Cannot sent message&quot;);
+      <br /> 
+      <br /> &nbsp; &nbsp; } while (!finish);&nbsp; &nbsp; &nbsp; /* Never finish */
+      <br /> 
+      <br /> &nbsp; return EXIT_SUCCESS;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Vamos directamente al main(), ya que usage() s&oacute;lo muestra texto y panic() provoca la salida cuando se produce un error. Lo primero que hacemos es determinar el servidor y el puerto en funci&oacute;n de los argumentos de entrada, creamos el socket y establecemos la direcci&oacute;n del cliente. Como el puerto es 0, el cliente coger&aacute; un puerto libre cualquiera, es m&aacute;s, no nos importa cu&aacute;l sea, con bind(), asignamos dicha direcci&oacute;n al socket.<br /> Luego, creamos la direcci&oacute;n del servidor, como &eacute;ste puede venir por su hostname, y tal vez debamos resolverlo utilizamos getbyhostname(), cuando creamos la variable de direcci&oacute;n conectamos y empezamos el intercambio de mensajes. En este caso utilizamos fgets() para pedir informaci&oacute;n al usuario por teclado y con send() enviamos la informaci&oacute;n especificando qu&eacute; enviamos (mens) y cu&aacute;nto ocupa (strlen(mens)+1, tenemos que incluir el terminador \0 al final de la cadena).<br /> Nota: Es posible que fgets() env&iacute;e el retorno de carro producido al pulsar intro cuando termina la cadena. Podemos utilizar una funci&oacute;n <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDEwLzAzL3RyaW0tdW4tZ3Jhbi1hbWlnby1waHAtYy1jLw==">trim()</a>, o filtrar con:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      if (mens[
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(mens)-1]=='\n')
+      <br /> &nbsp; &nbsp;mens[
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(mens)-1] = '\0';
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Para poder recibir un mensaje del servidor, bastar&aacute; con poner:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      size_t recvsize;
+      <br /> recvsize = recv(socketfd, mens, MENS_MAX_LEN, 0);
+      <br /> if (recvsize==-1)
+      <br /> &nbsp; panic(&quot;Cannot receive information&quot;);
+      <br /> mens[recvsize] = '\0';
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>La recepci&oacute;n es muy parecida al env&iacute;o, s&oacute;lo que esta vez no sabemos cu&aacute;nto ocupa el mensaje, por lo que damos un tama&ntilde;o m&aacute;ximo (si se sobrepasa este tama&ntilde;o, el resto del mensaje se recibir&aacute; en sucesivas llamadas a recv().<br /> Como este mensaje puede no tener un terminador (debe haberse enviado el terminador expresamente), como &uacute;ltimo car&aacute;cter en el buffer imponemos este terminador.</p> 
+<p>Hasta aqu&iacute; todo es sencillo, el gran problema viene cuando tenemos que establecer turnos fijos para env&iacute;o y recepci&oacute;n, es m&aacute;s, el cliente podr&aacute; estar en modo recepci&oacute;n o modo env&iacute;o. Pero si estamos acostumbrados a utilizar telnet, o incluso cualquier programa de env&iacute;o de mensajes o chat, podemos ver que los mensajes pueden salir o entrar en cualquier momento, no tenemos por qu&eacute; esperar a que alguien escriba un mensaje para recibir todo lo que tenemos pendiente.<br /> Ahora completaremos este ejemplo con una llamada a select(), esta funci&oacute;n detectar&aacute; cu&aacute;ndo hay datos en alguno de los descriptores monitorizados y podremos elegir si leer de la entrada est&aacute;ndar o del socket, pero tiene una funcionalidad m&aacute;s que nos resultar&aacute; muy interesante, dispone de timeout, por lo que si transcurrido un tiempo no ha venido nada por ninguno de los descriptores, la ejecuci&oacute;n puede continuar, no estaremos bloqueando el programa de forma indefinida hasta que venga un dato.</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />52
+      <br />53
+      <br />54
+      <br />55
+      <br />56
+      <br />57
+      <br />58
+      <br />59
+      <br />60
+      <br />61
+      <br />62
+      <br />63
+      <br />64
+      <br />65
+      <br />66
+      <br />67
+      <br />68
+      <br />69
+      <br />70
+      <br />71
+      <br />72
+      <br />73
+      <br />74
+      <br />75
+      <br />76
+      <br />77
+      <br />78
+      <br />79
+      <br />80
+      <br />81
+      <br />82
+      <br />83
+      <br />84
+      <br />85
+      <br />86
+      <br />87
+      <br />88
+      <br />89
+      <br />90
+      <br />91
+      <br />92
+      <br />93
+      <br />94
+      <br />95
+      <br />96
+      <br />97
+      <br />98
+      <br />99
+      <br />100
+      <br />101
+      <br />102
+      <br />103
+      <br />104
+      <br />105
+      <br />106
+      <br />107
+      <br />108
+      <br />109
+      <br />110
+      <br />111
+      <br />112
+      <br />113
+      <br />114
+      <br />115
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;stdlib.h&gt;
+      <br /> #include &lt;stdio.h&gt;
+      <br /> #include &lt;string.h&gt;
+      <br /> #include &lt;sys/types.h&gt;
+      <br /> #include &lt;sys/select.h&gt;
+      <br /> #include &lt;sys/socket.h&gt;
+      <br /> #include &lt;netinet/in.h&gt;
+      <br /> #include &lt;netdb.h&gt;
+      <br /> #include &lt;arpa/inet.h&gt;
+      <br /> #include &lt;errno.h&gt;
+      <br /> #include &lt;unistd.h&gt;
+      <br /> 
+      <br /> #define MENS_MAX_LEN 500
+      <br /> 
+      <br /> void usage()
+      <br /> {
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;Wrong arguments. Must give two:\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;tcpclient SERVER PORT\n\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;For example:\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot; &nbsp;tcpclient totaki.com 80\n&quot;);
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/exit.html">exit</a>(1);
+      <br /> }
+      <br /> 
+      <br /> void panic(char *msg)
+      <br /> {
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fprintf.html">fprintf</a> (stderr, &quot;Fatal error: %s (errno %d, %s)\n&quot;, msg, errno, 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strerror.html">strerror</a>(errno));
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/exit.html">exit</a>(2);
+      <br /> }
+      <br /> 
+      <br /> int main(int argc, char *argv[])
+      <br /> {
+      <br /> &nbsp; char *server;
+      <br /> &nbsp; int port;
+      <br /> &nbsp; int socketfd;
+      <br /> &nbsp; int finish = 0;
+      <br /> &nbsp; struct sockaddr_in serverAddress, clientAddress;
+      <br /> &nbsp; struct hostent *h;
+      <br /> &nbsp; char mens [MENS_MAX_LEN];
+      <br /> &nbsp; fd_set readmask;
+      <br /> &nbsp; struct timeval timeout;
+      <br /> &nbsp; size_t recvsize;
+      <br /> 
+      <br /> &nbsp; if (argc&lt;3)
+      <br /> &nbsp; &nbsp; usage();
+      <br /> 
+      <br /> &nbsp; server = argv[1];
+      <br /> &nbsp; port = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/atoi.html">atoi</a>(argv[2]);
+      <br /> 
+      <br /> &nbsp; /* Create a TCP socket */
+      <br /> &nbsp; socketfd = socket(AF_INET, SOCK_STREAM, 0);
+      <br /> &nbsp; if (socketfd==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Failed to create socket&quot;);
+      <br /> 
+      <br /> &nbsp; /* Sets client address */
+      <br /> &nbsp; clientAddress.sin_family = AF_INET;
+      <br /> &nbsp; clientAddress.sin_addr.s_addr = htonl(INADDR_ANY);
+      <br /> &nbsp; clientAddress.sin_port = htons(0);
+      <br /> 
+      <br /> &nbsp; /* Bind the address to the socket */
+      <br /> &nbsp; if (bind(socketfd, (struct sockaddr *)&amp;clientAddress, sizeof(clientAddress))==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Binding address&quot;);
+      <br /> 
+      <br /> &nbsp; /* Get the hostname address */
+      <br /> &nbsp; h = gethostbyname(server);
+      <br /> 
+      <br /> &nbsp; /* Sets server address */
+      <br /> &nbsp; serverAddress.sin_family = h-&gt;h_addrtype;
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/memcpy.html">memcpy</a>((char*) &amp;serverAddress.sin_addr.s_addr, h-&gt;h_addr_list[0], h-&gt;h_length);
+      <br /> &nbsp; serverAddress.sin_port = htons(port);
+      <br /> 
+      <br /> &nbsp; if (connect(socketfd, (struct sockaddr * )&amp;serverAddress, sizeof(serverAddress))==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Cannot connect&quot;);
+      <br /> 
+      <br /> &nbsp; do
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; /* We must set all this information on each select we do */
+      <br /> &nbsp; &nbsp; &nbsp; FD_ZERO(&amp;readmask); &nbsp; /* empty readmask */
+      <br /> &nbsp; &nbsp; &nbsp; /* Then we put all the descriptors we want to wait for in a */
+      <br /> &nbsp; &nbsp; &nbsp; /* mask = readmask */
+      <br /> &nbsp; &nbsp; &nbsp; FD_SET(socketfd, &amp;readmask);
+      <br /> &nbsp; &nbsp; &nbsp; FD_SET(STDIN_FILENO, &amp;readmask); /* STDIN_FILENO = 0 (standard input) */
+      <br /> &nbsp; &nbsp; &nbsp; /* Timeout, we will stop waiting for information */
+      <br /> &nbsp; &nbsp; &nbsp; timeout.tv_sec=0;
+      <br /> &nbsp; &nbsp; &nbsp; timeout.tv_usec=100000;
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; /* The first parameter is the biggest descriptor+1. The first one
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp;was 0, so every other descriptor will be bigger.*/
+      <br /> &nbsp; &nbsp; &nbsp; /* readfds = &amp;readmask */
+      <br /> &nbsp; &nbsp; &nbsp; /* writefds = we are not waiting for writefds */
+      <br /> &nbsp; &nbsp; &nbsp; /* exceptfds = we are not waiting for exception fds */
+      <br /> &nbsp; &nbsp; &nbsp; if (select(socketfd+1, &amp;readmask, NULL, NULL, &amp;timeout)==-1)
+      <br /> &nbsp; &nbsp; panic(&quot;Error on SELECT&quot;);
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; /* If something was received */
+      <br /> &nbsp; &nbsp; &nbsp; if (FD_ISSET(socketfd, &amp;readmask))
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; recvsize = recv(socketfd, mens, MENS_MAX_LEN, 0);
+      <br /> &nbsp; &nbsp; &nbsp; if (recvsize==-1)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; panic(&quot;Cannot receive information&quot;);
+      <br /> &nbsp; &nbsp; &nbsp; mens[recvsize] = '\0';
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html">printf</a> (&quot;&gt;&gt; %s\n&quot;, mens);
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; /* If something was written by the user */
+      <br /> &nbsp; &nbsp; &nbsp; if (FD_ISSET(STDIN_FILENO, &amp;readmask))
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/fgets.html">fgets</a>(mens, MENS_MAX_LEN, stdin);
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; if (send(socketfd, mens, 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(mens)+1, 0)==-1)
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; panic (&quot;Cannot sent message&quot;);
+      <br /> &nbsp; &nbsp; }
+      <br /> &nbsp; &nbsp; } while (!finish);
+      <br /> 
+      <br /> &nbsp; return EXIT_SUCCESS;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3d3dy5mbGlja3IuY29tL3Bob3Rvcy82MTM2ODk1NkBOMDAvNTMwOTg2NzM3Ny9pbi9waG90b2xpc3QtOTZkc3p4LWNOd1ZzQS04cnJmeVgtYlFDS25YLWJRQ0syaS1iQko0N20tOHRYUXdTLTg3MWlQWC04dFVKc0gtOHRVSlAyLTh0WFJ1eS04dFhTN0EtYjJjY2JSLTh0VUs0SC04dFVLc3QtOHRYUFNOLTh0WFJGYi04dFhTZXMtOHRVTGt4LTh0WFJRWS04dFVLYXItOHRYUVZFLTZ5dXNuei1haExOUGMtYkJKNGtiLWJRQ0t1TS1iQko0YXUtYkJKNHNzLWJRQ0toUi1iUUNKTjYtYlFDSlhyLWJRQ0s3dC1iUUNKUlgtYkJKM1ZtLWJCSjRqNS1iQko0dnktYkJKNGM5LWJRQ0pXNC1iUUNKUXAtYlFDS2ZhLWJCSjQxRy1iUUNLYUQtNlhaV1pHLTh0WFJZMy04dFhRZjMtNUVaVVNKLTVFWlV6MS1hb1lOY0ctOVd2NVUtOHRVSkFwLTh0WFI2cw==">Julien Gong Min</a> (Flickr) CC-by</p> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F01%2Fcliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2206" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento/">Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento" st_title="Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 430,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

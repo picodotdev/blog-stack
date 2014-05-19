@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-158",
+      "title" : "Enlaces interesantes 158"
+    },
+    {
       "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno",
       "title" : "Tests de integración con Entity Framework (I): Preparando el entorno"
     },
@@ -27,6 +31,14 @@ define("app/sources/blogstack", [], function() {
       "title" : "Instalar en openSUSE Dianara, cliente para redes Pump.io"
     },
     {
+      "url" : "/post/variablenotfound/2014/05/vnext",
+      "title" : "vNext"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/05/ocho-anos-que-se-dice-pronto",
+      "title" : "Ocho años, que se dice pronto\u2026"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
       "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
     },
@@ -39,28 +51,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Lanzada la versión 1.36 de Calibre"
     },
     {
+      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-157",
+      "title" : "Enlaces interesantes 157"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
       "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
     },
     {
       "url" : "/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos",
       "title" : "Conceptos básicos para testear una base de datos"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/indie-box-one-el-servidor-listo-para-usar",
-      "title" : "Indie Box one el servidor listo para usar"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
-    },
-    {
-      "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
-      "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
-    },
-    {
-      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
-      "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
     }
   ]
 }

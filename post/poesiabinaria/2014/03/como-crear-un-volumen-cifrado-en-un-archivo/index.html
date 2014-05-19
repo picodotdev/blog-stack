@@ -1,0 +1,307 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cómo crear un volumen cifrado en un archivo | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo"><span itemprop="headline">Cómo crear un volumen cifrado en un archivo</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-14T18:07" itemprop="datePublished">Publicado el viernes, 14 de marzo de 2014 a las 18:07 UTC</span></div><div><span>
+Etiquetado como
+
+fat
+
+,
+
+fat32
+
+,
+
+encriptado
+
+,
+
+ext3
+
+,
+<a href="/label/linux"><span itemprop="articleSection">linux</span></a>
+,
+
+dd
+
+,
+
+desmontar
+
+,
+
+blowfish
+
+,
+
+crypto
+
+,
+
+arc4
+
+,
+
+archivo
+
+,
+
+aes
+
+,
+
+sistema
+
+,
+<a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>
+,
+<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
+,
+
+twofish
+
+,
+
+mount
+
+,
+
+punto
+
+,
+
+volumen
+
+,
+
+unidad
+
+,
+
+loopback
+
+,
+
+loop
+
+,
+
+cifrado
+
+,
+
+montaje
+
+,
+
+losetup
+</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMy9sb2NrZWQuanBn"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/03/locked.jpg" alt="" title="locked" width="500" height="375" /></a><br /> Queremos alojar en un archivo un sistema de archvos, ya sea para probarlo, para organizarnos o para almacenar informaci&oacute;n sensible. Tambi&eacute;n puede ser una buena soluci&oacute;n si tenemos una unidad con una partici&oacute;n en un sistema de archivos FAT32 y queremos establecer permisos de Linux a ciertos archivos, esos archivos podemos almacenarlos en nuestro nuevo volumen, que residir&aacute; en un archivo muy grande dentro de la partici&oacute;n FAT.</p> 
+<p>Lo primero que debemos hacer es crear un archivo con el tama&ntilde;o del volumen que queremos crear, no importa lo que escribamos dentro, podemos copiar un fichero grande, o escribir desde un fichero de texto… pero vamos a lo f&aacute;cil, vamos a crear un archivo que s&oacute;lo contenga ceros. En este ejemplo, la unidad que vamos a crear ser&aacute; de 10Gb por lo tanto escribimos:</p> 
+<blockquote>
+ <p>dd if=/dev/zero of=destino.img bs=1024000 count=10240<br /> …y al cabo de un tiempo aparecer&aacute; algo parecido a esto…<br /> 10240+0 registros le&iacute;dos<br /> 10240+0 registros escritos<br /> 10485760000 bytes (10 GB) copiados, 233,616 s, 44,9 MB/s </p>
+</blockquote> 
+<div style="margin-left:3em;"> 
+ <h3>C&oacute;mo funciona esto?</h3> 
+ <p>Lo importante es que estemos en un directorio de donde podamos disponer de los 10Gb, ya sea en una unidad flash, disco duro, disco externo, etc, y nuestro archivo se llamar&aacute; destino.img.<br /> El origen de datos ser&aacute; /dev/zero , esto es un dispositivo especial que nos da el kernel Linux que s&oacute;lo contiene ceros.<br /> El argumento bs indica los bytes que se escribir&aacute;n de cada vez, como si recopil&aacute;ramos en un buffer este n&uacute;mero de bytes y los mand&aacute;ramos todos juntos al destino.<br /> Y por &uacute;ltimo, el argumento count indica cu&aacute;ntos bloques de bs bytes vamos a escribir en el dispositivo.<br /> M&aacute;s o menos podemos optimizar las escrituras tocando bs y count, no es lo mismo hacer 1000 env&iacute;os de 1 byte que 10 env&iacute;os de 100 bytes, lo mismo que si queremos enviar 100 cajas de refrescos desde el almac&eacute;n a una tienda, no se mandar&aacute;n de 1 en 1 (al final tardamos m&aacute;s gestionando los env&iacute;os y recepciones), pero tampoco queremos sobrecargar el cami&oacute;n, si le caben 90 cajas no tenemos m&aacute;s remedio que fragmentar los env&iacute;os, o comprar un cami&oacute;n m&aacute;s grande.<br /> Por eso tampoco es plan de poner en bs=10485760000 y en count=1 , los datos se mandar&aacute;n al final, pero estaremos utilizando 10Gb de memoria, aunque s&oacute;lo gestionemos un env&iacute;o, pero el cami&oacute;n tendr&aacute; que ir con cuidado y hacer malabares para no perder la mercanc&iacute;a.</p> 
+ <p>Un detalle m&aacute;s, puede que volvamos pronto a la terminal y dd nos diga que ha terminado, eso s&oacute;lo significa que ha terminado de realizar los env&iacute;os, muchas veces la unidad se queda un tiempo recibiendo la informaci&oacute;n. </p>
+</div> 
+<h2>Lo que tenemos que saber del kernel</h2> 
+<p>Necesitamos soporte para “loopback devices”, en muchas de las distribuciones modernas viene ya compilado en el kernel, por lo que lo tendremos de serie, en otras ocasiones encontramos un m&oacute;dulo que podemos cargar (loop). Este nos permitir&aacute; asignar ficheros a dispositivos virtuales, el ejemplo m&aacute;s com&uacute;n es montar un archivo ISO de CD/DVD para ver su contenido sin tener que grabarlo. Para comprobar si tenemos este soporte en nuestro kernel podemos hacer:</p> 
+<blockquote>
+ <p>$ls /dev/loop*</p>
+</blockquote> 
+<p>si vemos /dev/loop0, /dev/loop1 y algunos m&aacute;s, significa que podemos continuar. Si no lo tenemos, podemos probar:</p> 
+<blockquote>
+ <p>$ sudo modprobe loop</p>
+</blockquote> 
+<p>(o sin sudo si somos root)<br /> Si no dice nada, todo habr&aacute; ido bien, podremos repetir el primer paso y ver que efectivamente ahora s&iacute; tenemos /dev/loop*<br /> Si sigue sin funcionar, debemos recompilar el kernel con soporte para loopback devices, y seguro que por Internet se pueden encontrar referencias detalladas.</p> 
+<p>Lo siguiente es la configuraci&oacute;n criptogr&aacute;fica, necesitamos cargar el m&oacute;dulo <strong>cryptoloop</strong>:</p> 
+<blockquote>
+ <p>$ sudo modprobe cryptoloop</p>
+</blockquote> 
+<p>Si no tenemos el m&oacute;dulo, podemos saltar este paso y ver si est&aacute; compilado en nuestro kernel, si no funciona, tendremos que dar soporte recompilando.</p> 
+<p>Tambi&eacute;n puede ser necesario cargar el m&oacute;dulo del algoritmo de cifrado (si no est&aacute; cargado, es interesante ver la respuesta de:</p> 
+<blockquote>
+ <p>$ sudo modprobe -l | grep crypto</p>
+</blockquote> 
+<p>Con los diferentes m&oacute;dulos de cifrado, tambi&eacute;n podemos consultar el archivo /proc/crypto para ver los algoritmos disponibles para cifrado (aqu&iacute; veremos algunos algoritmos que no podremos utilizar en nuestro volumen cifrado, no todos los algoritmos tienen la misma utilidad).</p> 
+<h2>Configurando nuestro dispositivo</h2> 
+<p>Para ello, primero vamos a hacerlo sin cifrado, ya que es muy sencillo, lo haremos con “losetup”</p> 
+<blockquote>
+ <p>$ sudo losetup /dev/loop0 destino.img</p>
+</blockquote> 
+<p>Estamos asignando el archivo destino.img al dispositivo /dev/loop0, primero debemos asegurarnos de que /dev/loop0 no tiene nada asignado. Aunque tenemos otra opci&oacute;n, para asignarlo al primer dispositivo libre:</p> 
+<blockquote>
+ <p>$ sudo losetup -f –show destino.img</p>
+</blockquote> 
+<p>Cuando termine de configurar el dispositivo, nos dir&aacute; qu&eacute; dispositivo ha utilizado.</p> 
+<p>Ahora bien, si queremos cifrar nuestros datos, debemos indicar qu&eacute; algoritmo de cifrado queremos utilizar, por ejemplo (des, blowfish, aes, serpent, twofish, arc4 y m&aacute;s). Cada uno tiene sus ventajas e inconvenienes en materia de memoria/cpu/seguridad, podemos encontrar algunas comparativas en <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL2VudHJvcHlzZWN1cml0eS5jb20vYmVuY2htYXJraW5nLWFsZ29yaXRtb3Mtc2ltZXRyaWNvcy8=">Entropy Security</a>.<br /> Para establecer el algoritmo, basta con a&ntilde;adir un argumento a losetup (por ejemplo, para cifrado por AES):</p> 
+<blockquote>
+ <p>$ sudo losetup -f –show -e aes destino.img</p>
+</blockquote> 
+<p>Nos pedir&aacute; contrase&ntilde;a (una vez) y listo, a partir de ahora trabajaremos con el dispositivo que nos ha devuelto la l&iacute;nea, en este caso /dev/loop0.</p> 
+<h2>Formateando el volumen</h2> 
+<p>El siguiente paso es crear un sistema de archivos, y podemos formatearlo con el sistema que queramos, en este caso he elegido un ext3:</p> 
+<blockquote>
+ <p>$ sudo mkfs.ext3 /dev/loop0</p>
+</blockquote> 
+<p>Podemos utilizar los argumentos que queramos para configurar los detalles del formato.</p> 
+<h2>Empezamos a trabajar con la unidad!</h2> 
+<p>Ya est&aacute; terminado, s&oacute;lo queda montar la unidad, y esto es lo que tendremos que hacer siempre que queramos trabajar con ella.</p> 
+<blockquote>
+ <p>$ sudo mount /dev/loop0 /punto/de/montaje</p>
+</blockquote> 
+<p>Donde el punto de montaje podr&aacute; ser cualquier directorio, los t&iacute;pico es crear un directorio en /media/ o /mnt/ y montarlo dentro, por ejemplo /media/destino o /mnt/destino, pero el punto de montaje puede estar en nuestra home si queremos.<br /> Para montar el volumen, debemos haber hecho antes “losetup”, y si la clave especificada no es v&aacute;lida, no nos dejar&aacute; montar el volumen.</p> 
+<p>Otra opci&oacute;n para montar el volumen (si no queremos hacer losetup, aunque losetup es necesario para la primera vez), es la siguiente:</p> 
+<blockquote>
+ <p>$ sudo mount destino.img /punto/de/montaje o loop,encryption=aes</p>
+</blockquote> 
+<p>Y ya est&aacute; listo para trabajar.</p> 
+<h2>Desmontando la unidad</h2> 
+<p>Para desmontar, es como cualquier otro dispositivo:</p> 
+<blockquote>
+ <p>$ sudo umount /dev/loop0</p>
+</blockquote> 
+<p>o</p> 
+<blockquote>
+ <p>$ sudo umount /punto/de/montaje</p>
+</blockquote> 
+<p>Y si hemos utilizado losetup al principio, tambi&eacute;n debemos desasociar el dispositivo virtual y el archivo de la siguiente manera:</p> 
+<blockquote>
+ <p>$ sudo losetup -d /dev/loopX</p>
+</blockquote> 
+<p>donde X ser&aacute; el dispositivo utilizado</p> 
+<h2>Un peque&ntilde;o extra</h2> 
+<p>Si no sabemos qu&eacute; dispositivos loopX est&aacute;n siendo utilizados, podemos escribir esto:</p> 
+<blockquote>
+ <p>$ sudo losetup -a<br /> /dev/loop0: [0811]:14 (/home/ordenador/destino.img), cifrado aes (tipo 18) </p>
+</blockquote> 
+<h2>Recapitulando</h2> 
+<p>Ya que en el art&iacute;culo he dado varias opciones para hacer las cosas, voy a poner una peque&ntilde;a gu&iacute;a r&aacute;pida de consulta de los comandos que se pueden utilizar para cada caso.</p> 
+<h3>Crear la unidad (sin cifrado)</h3> 
+<p>Una unidad de 10Gb.</p> 
+<blockquote>
+ <p>$ dd if=/dev/zero of=destino.img bs=1024000 count=10240<br /> $ sudo losetup /dev/loop0 destino.img<br /> $ sudo mkfs.ext3 /dev/loop0<br /> $ sudo losetup -d /dev/loop0</p>
+</blockquote> 
+<h3>Montar la unidad (sin cifrado, en dos pasos)</h3> 
+<blockquote>
+ <p>$ sudo losetup -f –show destino.img<br /> /dev/loop1<br /> $ mount /dev/loop1 /punto/de/montaje</p>
+</blockquote> 
+<p>(Podemos elegir qu&eacute; manera de utilizar losetup queremos, especificando el dispositivo, o indicando que utilice el primero libre (importante –show para que nos diga qu&eacute; dispositivo ha utilizado)</p> 
+<h3>Desmontar la unidad (en dos pasos)</h3> 
+<blockquote>
+ <p>$ sudo losetup -a<br /> /dev/loop0: [0811]:14 (/home/ordenador/destino.img), cifrado aes (tipo 18)<br /> $ sudo umount /punto/de/montaje<br /> $ sudo losetup -d /dev/loop0</p>
+</blockquote> 
+<p>Si sabemos qu&eacute; dispositivo loop se ha utilizado, no es necesario hacer “losetup -a”</p> 
+<h3>Montar la unidad (sin cifrado, en un paso)</h3> 
+<blockquote>
+ <p>$ sudo mount destino.img /punto/de/montaje -o loop</p>
+</blockquote> 
+<p>Si s&oacute;lo hemos dado un paso, s&oacute;lo tenemos que hacer “$ sudo umount /punto/de/montaje” para desmontar.</p> 
+<h3>Crear la unidad con cifrado</h3> 
+<p>Creamos una unidad de 10Gb con cifrado aes.</p> 
+<blockquote>
+ <p>$ dd if=/dev/zero of=destino.img bs=1024000 count=10240<br /> $ sudo losetup -f –show -e aes destino.img<br /> $ sudo mkfs.ext3 /dev/loop0<br /> $ sudo losetup -d /dev/loop0</p>
+</blockquote> 
+<h3>Montar la unidad (con cifrado, en dos pasos)</h3> 
+<p>Suponemos cifrado aes.</p> 
+<blockquote>
+ <p>$ sudo losetup -f –show -e aes destino.img<br /> /dev/loop1<br /> $ mount /dev/loop1 /punto/de/montaje</p>
+</blockquote> 
+<p>Para desmontar, el cifrado no tiene nada que ver podemos utilizar el m&eacute;todo anterior.</p> 
+<h3>Montar la unidad (con cifrado, en un paso)</h3> 
+<p>Suponemos cifrado aes.</p> 
+<blockquote>
+ <p>$ sudo mount destino.img /punto/de/montaje -o loop,encryption=aes</p>
+</blockquote> 
+<p>Es importante que no haya espacios entre “loop,encryption=aes”.</p> 
+<p>Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3d3dy5mbGlja3IuY29tL3Bob3Rvcy9lbG5pY29mb3Rvcy83ODc1MTAwNzUvaW4vcGhvdG9saXN0LTJjQWNpVi1jeEZ1R1MtaHhvckVvLWQ0dXAzaC1qOTZuemYtajk2bnBMLWRzTXpwaC1kdDRUbmEtakZSSlJRLTZUaGlIRi02a1hhMnQtOFVIZUw1LWNQcWZLNy1hQnZxVk0tYnJIYmFXLTVyR1pYMS1jQ2taN3ktNlpxTG45LWVmZUtzRi03dXNzTW0tNXlycWsyLTNQVVZvLXplOWZNLWQzRVNZNy03eGNaYm8tYWlZd24zLWVhaWpVNS1mdHhHZkItZnRONHMzLWRRVGhaQi1heExxcjQtZTFKQTdpLTZLQzg1Ui01eUY0MS15QkQ1SC01ZzJvQVItZE03YWhXLTdEVWUzMi1makdxVC04NmsyQTQtYkwzTG96LTJmcUZRai03QWdTWHAtNXFhcFdCLTRXNjZoeC0yVzdOVnctYm5jZEhELWR1Q1NhUi1hUXgxNzYtYXluUUtDLWJDS1pwQi8=">elNico</a> (Flickr) CC-by</p> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F03%2Fcomo-crear-un-volumen-cifrado-en-un-archivo%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2252" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo/">C&oacute;mo crear un volumen cifrado en un archivo</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/seguridad/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta seguridad</a></li><li><a href="/label/bash/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta bash</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 420,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

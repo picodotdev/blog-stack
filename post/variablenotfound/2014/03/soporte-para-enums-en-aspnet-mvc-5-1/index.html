@@ -1,0 +1,188 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Soporte para enums en ASPNET MVC 5.1 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1"><span itemprop="headline">Soporte para enums en ASPNET MVC 5.1</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/Czirxl8BvNA/soporte-para-enums-en-aspnet-mvc-51.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-18T13:10" itemprop="datePublished">Publicado el martes, 18 de marzo de 2014 a las 13:10 UTC</span></div><div><span datetime="2014-03-18T13:58" itemprop="dateModified">Actualizado el martes, 18 de marzo de 2014 a las 13:58 UTC</span></div><div><span>
+Etiquetado como
+
+aspnetmvc
+
+,
+<a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET MVC" src="http://lh4.ggpht.com/-hRjGd44kO18/UxM14zKRI4I/AAAAAAAADVo/lLl6fBXT-vg/mvc%25255B2%25255D.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 11px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC" width="142" />Soportar de forma medio decente tipos enumerados (
+<em>enums</em>) no era algo que no pudi&eacute;ramos hacer con versiones anteriores de ASP.NET MVC, pero ya iba siendo hora de que el producto incluyera de serie herramientas para facilitarlo un poco. Y por fin, la revisi&oacute;n 5.1 de ASP.NET MVC algo ha aportado al respecto :)
+<br />
+<a></a>
+<br />En primer lugar, MVC 5.1 ha a&ntilde;adido a la colecci&oacute;n de helpers HTML el extensor 
+<code>EnumDropDownListFor()</code>, que, como su nombre indica, crea un cuadro desplegable para seleccionar valores de un tipo enumerado (o un 
+<em>nullable</em> de dicho tipo):
+<br />
+<pre>// Model:<br /><br />public enum Color<br />{<br />    Black, White, Green, Blue, Red<br />}<br /><br />public class Point<br />{<br />    public int X { get; set; }<br />    public int Y { get; set; }<br />    public Color Color { get; set; }<br />}<br /><br />// View:<br />@model Point<br />...<br />@Html.LabelFor(m =&gt; m.Color)<br />@Html.EnumDropDownListFor(m =&gt; m.Color)</pre>
+<img alt="EnumDropDownList in action" src="http://lh4.ggpht.com/-FFdMoYGVfR0/UxM15WbzBTI/AAAAAAAADVs/9NqPEeNGMr4/image%25255B9%25255D.png?imgmax=800" height="115" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="EnumDropDownList in action" width="155" />El resultado en tiempo de ejecuci&oacute;n ser&iacute;a el mostrado a la derecha.
+<br />
+<br />Como se puede observar, la ejecuci&oacute;n del helper ha generado un desplegable en el que es posible seleccionar exclusivamente los valores disponibles en el enumerado.
+<br />
+<br />Si en cambio la propiedad a editar fuera anulable (Nullable&lt;Color&gt; o Color? en C#), el framework a&ntilde;adir&aacute; autom&aacute;ticamente un primer elemento en blanco, cuya selecci&oacute;n asignar&iacute;a el valor nulo a la propiedad. Por supuesto, es posible modificar la forma de presentar este elemento nulo utilizando sobrecargas del helper: 
+<br />
+<pre>@Html.EnumDropDownListFor(m =&gt; m.Color, &quot;(None)&quot;)</pre>
+<img alt="EnumDropDownList with nullable types" src="http://lh6.ggpht.com/-urYLM7E04DE/UxM15wZDJeI/AAAAAAAADV0/nxiv9tVZdII/image%25255B13%25255D.png?imgmax=800" height="118" style="float: right; margin: 0 0 10px 10px;" title="EnumDropDownList with nullable types" width="141" />
+<br />El resultado en este caso ser&iacute;a el mostrado tambi&eacute;n a la derecha.
+<br />
+<br />Y antes de seguir, un par de curiosidades. Primero, 
+<strong>no existe un equivalente no tipado al helper</strong>, es decir, por alguna raz&oacute;n no se ha seguido el mismo criterio que en otros casos, donde por ejemplo ten&iacute;amos un helper 
+<code>Html.TextBox()</code> y otro 
+<code>Html.TextBoxFor()</code>. Aqu&iacute; s&oacute;lo podremos usar la versi&oacute;n tipada.
+<br />
+<br />Tampoco se han modificado las plantillas de edici&oacute;n por defecto de MVC 5. Por tanto, siguiendo con el ejemplo anterior, una llamada a 
+<code>Html.EditorFor(m=&gt;m.Color)</code> 
+<strong>no mostrar&aacute; un desplegable</strong>, sino la caja de texto b&aacute;sica, pero 
+<a href="http://www.variablenotfound.com/2012/10/enums-con-desplegables-automaticos-en.html">ya vimos por aqu&iacute; hace hace tiempo c&oacute;mo solucionarlo</a>.
+<br />
+<h3>&iquest;Y podemos cambiar los nombres de los elementos que aparecen en el desplegable?</h3>Pues s&iacute;. De hecho, hay muchos casos en los que ser&aacute; conveniente modificar el texto que aparece en el desplegable, puesto que los nombres de los elementos del 
+<code>enum</code> deben ce&ntilde;irse a la sintaxis C# y esto puede limitar bastante en algunas ocasiones.
+<br />
+<br />
+<img align="right" alt="Dropdown list default texts" src="http://lh5.ggpht.com/-4cJFZZYYsHQ/UxM16dYspgI/AAAAAAAADV8/1GpjaCSwpqY/image%25255B17%25255D.png?imgmax=800" height="102" title="Dropdown list default texts" width="165" />Por ejemplo, considerad el siguiente caso, cuyo resultado en ejecuci&oacute;n vemos a la derecha:
+<br />
+<pre>// Model<br />public enum Language<br />{<br />    CSharp, VbNet, FSharp, NodeJs<br />}<br /><br />// View:<br />@model Generator<br />...<br />@Html.EnumDropDownListFor(m =&gt; m.Language)</pre>Est&aacute; claro que el contenido del desplegable no es lo que un usuario de nuestra aplicaci&oacute;n esperar&iacute;a ver, puesto que estamos condicionando el UI por las limitaciones de sintaxis del lenguaje en el que hemos implementado el tipo 
+<code>Language</code>.
+<br />
+<br />
+<img align="right" alt="Dropdown list with custom texts" src="http://lh3.ggpht.com/-9ue8CBNtFLk/UxM16pEJ0dI/AAAAAAAADWI/QSJWwhQE_1A/image%25255B21%25255D.png?imgmax=800" height="102" style="display: inline; float: right;" title="Dropdown list with custom texts" width="154" />La forma de solucionar esto ser&iacute;a bien sencilla. Basta con utilizar el conocido atributo 
+<code>[Display]</code> en cada elemento del enumerado para proporcionar una descripci&oacute;n alternativa al mismo:
+<br />
+<pre>public enum Language<br />{<br />    [Display(Name = &quot;C#&quot;)]     CSharp,<br />    [Display(Name = &quot;VB.NET&quot;)] VbNet,<br />    [Display(Name = &quot;F#&quot;)]     FSharp,<br />    [Display(Name = &quot;NodeJS&quot;)] NodeJs<br />}</pre>
+<h3>&iquest;Y ocurre si mi aplicaci&oacute;n es multi-idioma?</h3>Pues sin problema, podemos utilizar tambi&eacute;n el atributo 
+<code>Display</code> como hacemos habitualmente en este tipo de escenarios. Simplemente usaremos su par&aacute;metro 
+<code>ResourceType </code>para indicar la clase a trav&eacute;s de la cual podemos acceder al texto localizado, y 
+<code>Name </code>para la clave del mismo.
+<br />
+<br />
+<img alt="Localized resources" src="http://lh4.ggpht.com/-ul5ioQf0klk/UxM17Q2fduI/AAAAAAAADWQ/79lZAuoZif4/image%25255B25%25255D.png?imgmax=800" height="264" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px 0px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Localized resources" width="549" />
+<br />
+<pre>public enum Color<br />{<br />    [Display(Name=&quot;Black&quot;, ResourceType=typeof(ColorResources))]<br />    Black,<br /><br />    [Display(Name=&quot;White&quot;, ResourceType = typeof(ColorResources))]<br />    White,<br /><br />    [Display(Name=&quot;Green&quot;, ResourceType = typeof(ColorResources))]<br />    Green,<br /><br />    [Display(Name = &quot;Blue&quot;, ResourceType = typeof(ColorResources))]<br />    Blue,<br /><br />    [Display(Name = &quot;Red&quot;, ResourceType = typeof(ColorResources))]<br />    Red<br />}</pre>De esta forma, el texto mostrado depender&aacute; de la cultura del hilo de ejecuci&oacute;n:
+<br />
+<br />
+<table>
+ <tbody>
+  <tr> 
+   <td width="300">Ejecuci&oacute;n bajo cultura “es”:<br /><br /><img alt="I18N in EnumDropDownListFor" src="http://lh5.ggpht.com/-3IGPrCEboRI/UxM172TG_CI/AAAAAAAADWU/a_rafyfYdHg/image%25255B28%25255D.png?imgmax=800" height="116" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: block; float: none; margin: 0px auto 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="I18N in EnumDropDownListFor" width="120" /></td> 
+   <td width="300">Ejecuci&oacute;n bajo cultura “en”:<br /><br /><img alt="image" src="http://lh5.ggpht.com/-6PTL7f1VLLQ/UxM18cfoDcI/AAAAAAAADWc/gHOvun2cOwU/image%25255B31%25255D.png?imgmax=800" height="117" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: block; float: none; margin: 0px auto 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="123" /></td>
+  </tr>
+ </tbody>
+</table>
+<h3>Helpers adicionales</h3>Para cubrir aquellos casos en los que se desee tener m&aacute;s control sobre la generaci&oacute;n del HTML, ASP.NET MVC 5.1 proporciona un par de helpers adicionales que pueden ser de utilidad a trav&eacute;s de la clase 
+<code>EnumHelper</code>.
+<br />
+<br />El primero de ellos, 
+<code>EnumHelper.GetSelectList()</code>, retorna una lista de objetos 
+<code>SelectListItem</code> partiendo de un tipo enumerado, lista para ser utilizada en los tradicionales helpers como 
+<code>Html.DropDroList()</code> o bien para recorrerla y generar manualmente el HTML del control de selecci&oacute;n. En todos los casos, la lista retornada tendr&aacute; en cuenta las descripciones (localizadas o no) introducidas mediante el atributo 
+<code>Display</code> en los elementos, y asegurar&aacute; que los valores asignados a cada elemento en el desplegable son correctos.
+<br />
+<br />En el siguiente ejemplo, obtenemos la lista con el valor 
+<code>Color.Red</code> seleccionado por defecto, y mostramos por pantalla el desplegable usando el helper cl&aacute;sico:
+<br />
+<pre>@{<br />    var list = EnumHelper.GetSelectList(typeof(Color), Color.Red);<br />}<br />...<br /><br />@Html.DropDownListFor(m=&gt;m.Color, list)  </pre>Otra sobrecarga facilita su uso en plantillas de edici&oacute;n, pues permite generar directamente la lista partiendo de los metadatos del modelo que recibe la vista, permitiendo as&iacute; soluciones m&aacute;s gen&eacute;ricas que no dependan del tipo concreto de enumerado.
+<br />
+<br />Para evitar errores y poder comprobar de antemano si los valores que vamos a suministrar a 
+<code>GetSelectList()</code> son correctos, podemos utilizar el helper 
+<code>EnumHelper.IsValidForEnumHelper()</code>, que b&aacute;sicamente retornar&aacute; 
+<code>true</code> si se trata de un 
+<code>enum</code>, pero siempre que no sean 
+<a href="http://www.variablenotfound.com/2007/10/enumeraciones-de-campos-de-bits-en-net.html">flags</a>, pues no se permite la selecci&oacute;n m&uacute;ltiple.
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=Czirxl8BvNA:eiQAGRO2NZI:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=Czirxl8BvNA:eiQAGRO2NZI:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=Czirxl8BvNA:eiQAGRO2NZI:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=Czirxl8BvNA:eiQAGRO2NZI:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/Czirxl8BvNA" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" st_title="Soporte para enums en ASPNET MVC 5.1 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/desarrollo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 406,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
