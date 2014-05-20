@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
+      "title" : "LFTP , transferencia de archivos desde la consola de comandos"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnu-linux",
       "title" : "Cambiar la hora y la fecha en GNU/Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano",
-      "title" : "Editando desde la línea de comandos, con nano."
     }
   ]
 }

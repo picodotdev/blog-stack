@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
+      "title" : "LFTP , transferencia de archivos desde la consola de comandos"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
       "title" : "Explicando los comandos de consola de manera sencilla"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/arquitecturas-moviles-y-breakpoints-cantabriatic",
       "title" : "Arquitecturas Móviles y Breakpoints (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-1-36-de-calibre",
-      "title" : "Lanzada la versión 1.36 de Calibre"
     }
   ]
 }
