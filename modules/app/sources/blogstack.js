@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
+      "title" : "Explicando los comandos de consola de manera sencilla"
+    },
+    {
       "url" : "/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio",
       "title" : "Sidewaffle, gran pack de plantillas para Visual Studio"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/lanzada-la-version-1-36-de-calibre",
       "title" : "Lanzada la versión 1.36 de Calibre"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-157",
-      "title" : "Enlaces interesantes 157"
     }
   ]
 }

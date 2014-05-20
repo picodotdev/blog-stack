@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
+      "title" : "Explicando los comandos de consola de manera sencilla"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/instalar-en-opensuse-dianara-cliente-para-redes-pump-io",
       "title" : "Instalar en openSUSE Dianara, cliente para redes Pump.io"
     },
