@@ -1,5 +1,5 @@
 <!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Label"/><title>Blog Stack</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Label" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><section class="data"><div class="row"><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
-406
+410
 <span>artículos</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
 13
 <span>bitácoras</span></span></div><div class="col-xs-6 col-sm-3 col-md-3"><span class="number">
@@ -8,216 +8,22 @@
 17
 <span>autores</span></span></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><span class="add"><a href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></span><br/><span id="lastUpdated" class="date"></span></div></div></section><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/05/personalizando-la-shell"><span itemprop="headline">Personalizando la shell</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/05/07/personalizando-la-shell/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-05-07T21:55" itemprop="datePublished">Publicado el miércoles, 07 de mayo de 2014 a las 21:55 UTC</span></div><div><span datetime="2014-05-08T19:47" itemprop="dateModified">Actualizado el jueves, 08 de mayo de 2014 a las 19:47 UTC</span></div><div><span>
 Etiquetado como
-
-prompt
-
-,
-
-alias
-
-,
-
-blog-stack
-
-,
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-<a href="/label/linux"><span itemprop="articleSection">linux</span></a>
-,
-
-shell
-
-,
-
-unalias
-
-,
-
-comandos
-
-,
-<a href="/label/gnu"><span itemprop="articleSection">gnu</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/personalizando-la-shell" st_title="Personalizando la shell | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150.jpg"><img style="float: left;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150-107x150.jpg" alt="shell_150" width="107" height="150" /></a>Al principio, sobre todo si no has usado nunca o pocas veces, la <a title="shell Wikipedia" href="http://www.ochobitshacenunbyte.com/kipedia.org/wiki/L&iacute;nea_de_comandos">shell</a> da un poco de miedo. Acostumbrados que estamos a los gestores de ventanas, puede parecer un paso atr&aacute;s. Nada m&aacute;s lejos de la realidad. La consola nos permitir&aacute; ampliar los par&aacute;metros y funciones de los comandos y exprimir al m&aacute;ximo nuestro sistema operativo.</p> 
+prompt, alias, blog-stack, <a href="/label/bash"><span itemprop="articleSection">bash</span></a>, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, shell, unalias, comandos, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/personalizando-la-shell" st_title="Personalizando la shell | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150.jpg"><img style="float: left;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/shell_150-107x150.jpg" alt="shell_150" width="107" height="150" /></a>Al principio, sobre todo si no has usado nunca o pocas veces, la <a title="shell Wikipedia" href="http://www.ochobitshacenunbyte.com/kipedia.org/wiki/L&iacute;nea_de_comandos">shell</a> da un poco de miedo. Acostumbrados que estamos a los gestores de ventanas, puede parecer un paso atr&aacute;s. Nada m&aacute;s lejos de la realidad. La consola nos permitir&aacute; ampliar los par&aacute;metros y funciones de los comandos y exprimir al m&aacute;ximo nuestro sistema operativo.</p> 
 <p></p> 
 <p>Por defecto, en la mayor&iacute;a de sistemas GNU/Linux la consola por predeterminada es <a title="Bash" href="http://es.wikipedia.org/wiki/Bash">Bash</a>. Una herramienta fant&aacute;stica y adem&aacute;s muy personalizable, podr&aacute;s crear nombres cortos para los comandos, tambi&eacute;n cambiar los permisos, y personalizar la apariencia y el sentido del comando y tratar con el historial de Bash.</p> 
 <p>Para personalizar Bash trataremos con cuatro archivos ocultos, que podemos ver con el siguiente comando:</p> 
 <pre>ls -la .bash*</pre></span><p class="continue-reading"><a href="/post/ochobitshacenunbyte/2014/05/personalizando-la-shell">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema"><span itemprop="headline">Obteniendo información del sistema</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/03/29/obteniendo-informacion-del-sistema/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-29T21:48" itemprop="datePublished">Publicado el sábado, 29 de marzo de 2014 a las 21:48 UTC</span></div><div><span datetime="2014-03-29T21:54" itemprop="dateModified">Actualizado el sábado, 29 de marzo de 2014 a las 21:54 UTC</span></div><div><span>
 Etiquetado como
-
-shell
-
-,
-<a href="/label/linux"><span itemprop="articleSection">linux</span></a>
-,
-<a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>
-,
-<a href="/label/unix"><span itemprop="articleSection">unix</span></a>
-,
-
-comandos
-
-,
-
-fdisk
-
-,
-
-free
-
-,
-
-proc
-
-,
-
-df
-
-,
-<a href="/label/gnu"><span itemprop="articleSection">gnu</span></a>
-,
-
-lsusb
-
-,
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-
-lspci
-
-,
-
-lsmod
-
-,
-
-less
-
-,
-
-cat
-</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema" st_title="Obteniendo información del sistema | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"><img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /></a>Cualquier administrador de sistemas inform&aacute;ticos que se precie tiene que saber extraer informaci&oacute;n de la m&aacute;quina con la que est&aacute; trabajando, ya sea caracter&iacute;sticas del disco duro, la CPU, la memoria, los procesos que se est&aacute;n ejecutando y infinidad de cosas m&aacute;s. Y teniendo en cuenta que estamos trabajando con sistemas GNU/Linux, encontrar el modelo de nuestra tarjeta de red inal&aacute;mbrica o de la tarjeta de v&iacute;deo es totalmente imprescindible,&nbsp; ya que muchas veces nos tenemos que buscar la vida para encontrar los m&oacute;dulos (drivers) correspondientes.</p> 
+shell, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, <a href="/label/unix"><span itemprop="articleSection">unix</span></a>, comandos, fdisk, free, proc, df, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a>, lsusb, <a href="/label/bash"><span itemprop="articleSection">bash</span></a>, lspci, lsmod, less, cat</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema" st_title="Obteniendo información del sistema | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"><img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /></a>Cualquier administrador de sistemas inform&aacute;ticos que se precie tiene que saber extraer informaci&oacute;n de la m&aacute;quina con la que est&aacute; trabajando, ya sea caracter&iacute;sticas del disco duro, la CPU, la memoria, los procesos que se est&aacute;n ejecutando y infinidad de cosas m&aacute;s. Y teniendo en cuenta que estamos trabajando con sistemas GNU/Linux, encontrar el modelo de nuestra tarjeta de red inal&aacute;mbrica o de la tarjeta de v&iacute;deo es totalmente imprescindible,&nbsp; ya que muchas veces nos tenemos que buscar la vida para encontrar los m&oacute;dulos (drivers) correspondientes.</p> 
 <p></p> 
 <p>Est&aacute; claro, en este art&iacute;culo trataremos de los comandos que nos facilitar&aacute;n todas esas tareas.</p> 
 <p><strong>Informaci&oacute;n general del sistema</strong></p> 
 <p>En &eacute;ste primer apartado nos encontramos con el comando <em>uname</em>, que nos mostrar&aacute;, si los sabemos utilizar, gran informaci&oacute;n sobre el sistema.</p></span><p class="continue-reading"><a href="/post/ochobitshacenunbyte/2014/03/obteniendo-informacion-del-sistema">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo"><span itemprop="headline">Cómo crear un volumen cifrado en un archivo</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-03-14T18:07" itemprop="datePublished">Publicado el viernes, 14 de marzo de 2014 a las 18:07 UTC</span></div><div><span>
 Etiquetado como
-
-fat
-
-,
-
-fat32
-
-,
-
-encriptado
-
-,
-
-ext3
-
-,
-<a href="/label/linux"><span itemprop="articleSection">linux</span></a>
-,
-
-dd
-
-,
-
-desmontar
-
-,
-
-blowfish
-
-,
-
-crypto
-
-,
-
-arc4
-
-,
-
-archivo
-
-,
-
-aes
-
-,
-
-sistema
-
-,
-<a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>
-,
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-
-twofish
-
-,
-
-mount
-
-,
-
-punto
-
-,
-
-volumen
-
-,
-
-unidad
-
-,
-
-loopback
-
-,
-
-loop
-
-,
-
-cifrado
-
-,
-
-montaje
-
-,
-
-losetup
-</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMy9sb2NrZWQuanBn"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/03/locked.jpg" alt="" title="locked" width="500" height="375" /></a><br /> Queremos alojar en un archivo un sistema de archvos, ya sea para probarlo, para organizarnos o para almacenar informaci&oacute;n sensible. Tambi&eacute;n puede ser una buena soluci&oacute;n si tenemos una unidad con una partici&oacute;n en un sistema de archivos FAT32 y queremos establecer permisos de Linux a ciertos archivos, esos archivos podemos almacenarlos en nuestro nuevo volumen, que residir&aacute; en un archivo muy grande dentro de la partici&oacute;n FAT.</p> 
+fat, fat32, encriptado, ext3, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, dd, desmontar, blowfish, crypto, arc4, archivo, aes, sistema, <a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>, <a href="/label/bash"><span itemprop="articleSection">bash</span></a>, mount, twofish, punto, volumen, unidad, loopback, cifrado, loop, montaje, losetup</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo" st_title="Cómo crear un volumen cifrado en un archivo | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMy9sb2NrZWQuanBn"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/03/locked.jpg" alt="" title="locked" width="500" height="375" /></a><br /> Queremos alojar en un archivo un sistema de archvos, ya sea para probarlo, para organizarnos o para almacenar informaci&oacute;n sensible. Tambi&eacute;n puede ser una buena soluci&oacute;n si tenemos una unidad con una partici&oacute;n en un sistema de archivos FAT32 y queremos establecer permisos de Linux a ciertos archivos, esos archivos podemos almacenarlos en nuestro nuevo volumen, que residir&aacute; en un archivo muy grande dentro de la partici&oacute;n FAT.</p> 
 <p>Lo primero que debemos hacer es crear un archivo con el tama&ntilde;o del volumen que queremos crear, no importa lo que escribamos dentro, podemos copiar un fichero grande, o escribir desde un fichero de texto… pero vamos a lo f&aacute;cil, vamos a crear un archivo que s&oacute;lo contenga ceros. En este ejemplo, la unidad que vamos a crear ser&aacute; de 10Gb por lo tanto escribimos:</p></span><p class="continue-reading"><a href="/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica"><span itemprop="headline">Autenticación SSH con clave privada y pública</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2013/01/autenticacion-ssh-con-clave-privada-y.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2013-01-11T12:44" itemprop="datePublished">Publicado el viernes, 11 de enero de 2013 a las 12:44 UTC</span></div><div><span datetime="2013-09-19T13:21" itemprop="dateModified">Actualizado el jueves, 19 de septiembre de 2013 a las 13:21 UTC</span></div><div><span>
 Etiquetado como
-<a href="/label/raspberrypi"><span itemprop="articleSection">raspberrypi</span></a>
-,
-
-planeta-codigo
-
-,
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-
-planeta-arch-linux
-
-,
-
-planeta-linux
-
-,
-<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
-,
-<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>
-,
-
-gnulinux
-</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><div style="clear: both; text-align: center;"></div> 
+<a href="/label/raspberrypi"><span itemprop="articleSection">raspberrypi</span></a>, planeta-codigo, <a href="/label/bash"><span itemprop="articleSection">bash</span></a>, planeta-arch-linux, planeta-linux, <a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, gnulinux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica" st_title="Autenticación SSH con clave privada y pública | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><div style="clear: both; text-align: center;"></div> 
 <div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
  <img alt="OpenSSH" height="104" src="http://2.bp.blogspot.com/-xA1fbdip4ik/UOcpr317aSI/AAAAAAAACI8/ERcKs9Fm7IA/s320/openssh.gif" title="OpenSSH" width="320" /> 
 </div>Siguiendo el art&iacute;culo de la semana pasada sobre 
@@ -228,29 +34,7 @@ gnulinux
 <br /> 
 <script src="https://gist.github.com/4510310.js?file=ssh-1.sh"></script> Esto nos pedir&aacute; la contrase&ntilde;a del usuario con el que trabajaremos en la m&aacute;quina remota, en este caso la contrase&ntilde;a del usuario raspberrypi, y la deberemos introducir cada vez que realicemos la conexi&oacute;n. Si nos conectamos varias veces, realizamos conexiones a diferentes m&aacute;quinas o nos conectamos con diferentes usuarios m&aacute;s pronto que tarde nos cansaremos de introducir la contrase&ntilde;a constantemente adem&aacute;s de tener que estar recordando cada una de ellas si trabajamos con diferentes usuarios y asignamos a cada uno de ellos una diferente.</span><p class="continue-reading"><a href="/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen"><span itemprop="headline">Dejar procesos vivos de conexión SSH con screen</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2013/01/dejar-procesos-vivos-de-conexion-ssh.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2013-01-04T19:22" itemprop="datePublished">Publicado el viernes, 04 de enero de 2013 a las 19:22 UTC</span></div><div><span datetime="2013-01-11T12:47" itemprop="dateModified">Actualizado el viernes, 11 de enero de 2013 a las 12:47 UTC</span></div><div><span>
 Etiquetado como
-<a href="/label/raspberrypi"><span itemprop="articleSection">raspberrypi</span></a>
-,
-
-planeta-codigo
-
-,
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-
-planeta-arch-linux
-
-,
-
-planeta-linux
-
-,
-<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>
-,
-<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>
-,
-
-gnulinux
-</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen" st_title="Dejar procesos vivos de conexión SSH con screen | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
+<a href="/label/raspberrypi"><span itemprop="articleSection">raspberrypi</span></a>, planeta-codigo, <a href="/label/bash"><span itemprop="articleSection">bash</span></a>, planeta-arch-linux, planeta-linux, <a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, gnulinux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen" st_title="Dejar procesos vivos de conexión SSH con screen | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
  <img alt="OpenSSH" height="105" src="http://2.bp.blogspot.com/-xA1fbdip4ik/UOcpr317aSI/AAAAAAAACI8/ERcKs9Fm7IA/s320/openssh.gif" title="OpenSSH" width="320" /> 
 </div> 
 <div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"> 
@@ -260,15 +44,7 @@ gnulinux
 <br />Este es el caso que me ha surgido recientemente con la 
 <a href="http://www.raspberrypi.org/">Raspberry Pi</a>. Lo explico, a la RPi me conecto por SSH y dado que si se cierra esa conexi&oacute;n SSH se terminan todos los procesos lanzados en esa conexi&oacute;n SSH tengo que tener encendido el ordenador y la conexi&oacute;n SSH abierta hasta que termine de hacer lo que estaba haciendo. En la mayor&iacute;a de los casos esto no es un problema pero para dejar la RPi reproduciendo m&uacute;sica con</span><p class="continue-reading"><a href="/post/elblogdepicodev/2013/01/dejar-procesos-vivos-de-conexion-ssh-con-screen">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash"><span itemprop="headline">Cambiar el prompt de la terminal bash</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2010/03/cambiar-el-prompt-de-la-terminal-bash.html"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2010-03-04T12:51" itemprop="datePublished">Publicado el jueves, 04 de marzo de 2010 a las 12:51 UTC</span></div><div><span datetime="2011-11-30T08:41" itemprop="dateModified">Actualizado el miércoles, 30 de noviembre de 2011 a las 08:41 UTC</span></div><div><span>
 Etiquetado como
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>
-,
-
-personalizacion
-
-,
-
-gnulinux
-</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash" st_title="Cambiar el prompt de la terminal bash | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description">El s&iacute;mbolo del sistema que aparece en la terminal puede ser personalizado tanto el texto del mismo como el color. Todo ello se hace modificando la variable de entorno PS1. 
+<a href="/label/bash"><span itemprop="articleSection">bash</span></a>, personalizacion, gnulinux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash" st_title="Cambiar el prompt de la terminal bash | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="description">El s&iacute;mbolo del sistema que aparece en la terminal puede ser personalizado tanto el texto del mismo como el color. Todo ello se hace modificando la variable de entorno PS1. 
 <br /> 
 <br />El valor predeterminado de esta variable de entorno es [\u@\h \W]\$] que se visualiza de la siguiente forma en la terminal. 
 <br /> 
@@ -280,7 +56,7 @@ gnulinux
 <div style="clear: both; text-align: center;"> 
  <a href="http://2.bp.blogspot.com/_9zOwWD_PYL8/S46yURHsnjI/AAAAAAAAAKE/mmt2_1dO_9o/s1600-h/bash-predeterminado.png"><img alt="bash sin personalizar" src="http://2.bp.blogspot.com/_9zOwWD_PYL8/S46yURHsnjI/AAAAAAAAAKE/mmt2_1dO_9o/s320/bash-predeterminado.png" title="bash sin personalizar" /></a> 
 </div> 
-<br />Las secuencias de escape \u, \h, \W \$ determinan el contenido del s&iacute;mbolo del sistema que en este caso es una cadena formada por el nombre del usuario, el nombre de la m&aacute;quina host hasta el primer ., el directorio actual de trabajo y # para un UID de usuario efectivo 0, en cualquier otro caso $ que normalmente es # para el usuario root y $ para cualquier otro usuario. Los caracteres [, @ y ] se ponen en la cadena sin ser interpretados. La tabla completa de secuencias de escape la pod&eacute;is consultar en la p&aacute;gina man de bash.</span><p class="continue-reading"><a href="/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/bash/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta bash</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://www.variablenotfound.com">Variable not found</a></li><li><a href="http://blog.koalite.com/">Koalite</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li><li><a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a></li><li><a href="http://www.arquitecturajava.com/">Arquitectura Java</a></li><li><a href="https://victorhckinthefreeworld.wordpress.com/">Victorhck in the free world</a></li><li><a href="http://laborategia.net/">Laborategia</a></li><li><a href="http://placerdigital.net">Placer digital</a></li><li><a href="http://navegapolis.com/">Navegapolis</a></li><li><a href="http://www.lasombradelhelicoptero.com">La sombra del helicóptero</a></li><li><a href="http://www.leomicheloni.com/">Una sinfonía en C#</a></li><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://www.programania.net/">Cuaderno de software</a></li><li><a href="http://totaki.com/poesiabinaria/">Poesía binaria</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+<br />Las secuencias de escape \u, \h, \W \$ determinan el contenido del s&iacute;mbolo del sistema que en este caso es una cadena formada por el nombre del usuario, el nombre de la m&aacute;quina host hasta el primer ., el directorio actual de trabajo y # para un UID de usuario efectivo 0, en cualquier otro caso $ que normalmente es # para el usuario root y $ para cualquier otro usuario. Los caracteres [, @ y ] se ponen en la cadena sin ser interpretados. La tabla completa de secuencias de escape la pod&eacute;is consultar en la p&aacute;gina man de bash.</span><p class="continue-reading"><a href="/post/elblogdepicodev/2010/03/cambiar-el-prompt-de-la-terminal-bash">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p></div><hr/></article><section class="index-pagination"><div class="container-fluid"><div class="row"><div class="col-xs-4 col-sm-4 col-md-4"></div><div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right"></div></div></div></section></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/bash/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta bash</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><section><h3>Últimas bitácoras con artículos</h3><ul class="list-unstyled"><li><a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a></li><li><a href="https://victorhckinthefreeworld.wordpress.com/">Victorhck in the free world</a></li><li><a href="http://www.variablenotfound.com">Variable not found</a></li><li><a href="http://www.arquitecturajava.com/">Arquitectura Java</a></li><li><a href="http://blog.koalite.com/">Koalite</a></li><li><a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></li><li><a href="http://laborategia.net/">Laborategia</a></li><li><a href="http://placerdigital.net">Placer digital</a></li><li><a href="http://navegapolis.com/">Navegapolis</a></li><li><a href="http://www.lasombradelhelicoptero.com">La sombra del helicóptero</a></li><li><a href="http://www.leomicheloni.com/">Una sinfonía en C#</a></li><li><a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></li><li><a href="http://www.programania.net/">Cuaderno de software</a></li><li><a href="http://totaki.com/poesiabinaria/">Poesía binaria</a></li></ul></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
 </div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {

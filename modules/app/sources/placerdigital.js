@@ -3,12 +3,12 @@ define("app/sources/placerdigital", [], function() {
   "name" : "Placer digital",
   "posts" : [
     {
-      "url" : "/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios",
-      "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
-    },
-    {
       "url" : "/post/placerdigital/2013/04/9-acronimos-en-internet-asap-lol-wtf-fyi-aka-y-otros",
       "title" : "9 acrónimos en Internet: ASAP, LOL, WTF, FYI, AKA y otros"
+    },
+    {
+      "url" : "/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios",
+      "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
       "url" : "/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo",
@@ -35,12 +35,12 @@ define("app/sources/placerdigital", [], function() {
       "title" : "Problema de accesibilidad en ventana de bloqueo de Windows"
     },
     {
-      "url" : "/post/placerdigital/2014/02/por-que-el-gobierno-y-el-sistema-educativo-deben-preferir-software-libre",
-      "title" : "Por qué el gobierno y el sistema educativo DEBEN preferir software libre"
-    },
-    {
       "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
       "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
+    },
+    {
+      "url" : "/post/placerdigital/2014/02/por-que-el-gobierno-y-el-sistema-educativo-deben-preferir-software-libre",
+      "title" : "Por qué el gobierno y el sistema educativo DEBEN preferir software libre"
     }
   ]
 }
