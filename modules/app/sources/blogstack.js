@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/javascript-thread-y-ajax",
+      "title" : "Javascript Thread y Ajax"
+    },
+    {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-158",
       "title" : "Enlaces interesantes 158"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
       "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
-    },
-    {
-      "url" : "/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos",
-      "title" : "Conceptos básicos para testear una base de datos"
     }
   ]
 }

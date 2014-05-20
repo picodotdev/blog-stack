@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/javascript-thread-y-ajax",
+      "title" : "Javascript Thread y Ajax"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry",
       "title" : "Android TAG y  el principio DRY"
     },
