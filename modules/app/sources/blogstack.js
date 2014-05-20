@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio",
+      "title" : "Sidewaffle, gran pack de plantillas para Visual Studio"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/javascript-thread-y-ajax",
       "title" : "Javascript Thread y Ajax"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-157",
       "title" : "Enlaces interesantes 157"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
-      "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
     }
   ]
 }
