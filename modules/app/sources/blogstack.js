@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
+      "title" : "Identity vs GUID"
+    },
+    {
       "url" : "/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio",
       "title" : "Sidewaffle, gran pack de plantillas para Visual Studio"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
       "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/arquitecturas-moviles-y-breakpoints-cantabriatic",
-      "title" : "Arquitecturas Móviles y Breakpoints (CantabriaTIC)"
     }
   ]
 }

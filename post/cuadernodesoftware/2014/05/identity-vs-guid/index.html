@@ -1,0 +1,154 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Identity vs GUID | Cuaderno de software</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/cuadernodesoftware/2014/05/identity-vs-guid"><span itemprop="headline">Identity vs GUID</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Guille</span> en la bitácora <a href="http://www.programania.net/">Cuaderno de software</a>, <a href="http://www.programania.net/diseno-de-software/identity-vs-guid/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-05-21T12:10" itemprop="datePublished">Publicado el miércoles, 21 de mayo de 2014 a las 12:10 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/desarrollo-de-software"><span itemprop="articleSection">desarrollo-de-software</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Este es el resumen de un an&aacute;lisis sobre la materia que realic&eacute; hace alg&uacute;n tiempo. Se agradecer&aacute; cualquier aportaci&oacute;n <img src="http://www.programania.net/wp-includes/images/smilies/icon_smile.gif" alt=":)" /> </p> 
+<p><b>Recursos para entender este art&iacute;culo</b></p> 
+<ul> 
+ <li>Benchmark ID vs GUID y propuesta de un algoritmo de generaci&oacute;n de GUIDs secuenciales para mitigar problemas de rendimiento en INSERT y derivadas: <a href="http://www.informit.com/articles/printerfriendly/25862">http://www.informit.com/articles/printerfriendly/25862</a></li> 
+ <li>Benchmark ID vs GUID en donde salen parejos (mysql) en un escenario de UPDATE: <a href="http://krow.livejournal.com/497839.html">http://krow.livejournal.com/497839.html</a></li> 
+ <li><a href="http://databases.aspfaq.com/database/what-should-i-choose-for-my-primary-key.html">http://databases.aspfaq.com/database/what-should-i-choose-for-my-primary-key.html</a></li> 
+ <li>Estudio espec&iacute;fico para MySQL + &iacute;ndices &uacute;nicos <a href="http://kccoder.com/mysql/uuid-vs-int-insert-performance/">http://kccoder.com/mysql/uuid-vs-int-insert-performance/</a></li> 
+ <li><a href="http://stackoverflow.com/questions/45399/advantages-and-disadvantages-of-guid-uuid-database-keys">http://stackoverflow.com/questions/45399/advantages-and-disadvantages-of-guid-uuid-database-keys</a></li> 
+</ul> 
+<p><b>Pros GUID</b></p> 
+<ul> 
+ <li>Unique across every table, every database, every server</li> 
+ <li>Allows easy merging of records from different databases,&nbsp; data set merging ease and non-sequential</li> 
+ <li>Allows easy distribution of databases across multiple servers, Most replication scenarios require GUID columns anyway</li> 
+ <li>You can generate IDs anywhere, instead of having to roundtrip to the database</li> 
+ <li>Unique identification for security (think credit card numbers)</li> 
+ <li>distributed values prevent hot-spot (as long as you don’t cluster this column, which can lead to abnormally high fragmentation).</li> 
+ <li>ORM’s usually like them</li> 
+</ul> 
+<p><b>Cons GUID</b></p> 
+<ul> 
+ <li>4x size (4 bytes vs 16 bytes)</li> 
+ <li>Cumbersome to debug (where userid=’{BAE7DF4-DDF-3RG-5TY3E3RF456AS10}’)</li> 
+ <li>the wider datatype leads to a drop in index performance (if clustered, each insert almost guaranteed to ‘dirty’ a different page), and an increase in storage requirements;</li> 
+ <li>updateable (need to propogate changes, or prevent the activity altogether);</li> 
+ <li>&iquest;? sensitive to time rollbacks in certain environments (e.g. daylight savings time rollbacks);</li> 
+ <li>&iquest;? GROUP BY and other set operations often require CAST/CONVERT;</li> 
+ <li>not all languages and environments directly support GUIDs;</li> 
+ <li>there is no statement like SCOPE_GUID() to determine the value that was generated, e.g. by NEWID();</li> 
+ <li>pero&nbsp;“The generated GUIDs should be partially sequential for best performance (eg, newsequentialid() on SQL 2005) and to enable use of clustered indexes”: <a href="http://www.informit.com/articles/printerfriendly/25862">http://www.informit.com/articles/printerfriendly/25862</a></li> 
+ <li><strong>GUIDs no secuenciales</strong> 
+  <ul> 
+   <li>Indexes need more frequent rebuilding with GUIDs. That also applies when updating statistics.</li> 
+   <li>You must be prepared to see inconsistent INSERT throughput at different times.</li> 
+   <li>The scalability for INSERTs isn’t good because the INSERT overhead increases rapidly.</li> 
+  </ul> </li> 
+</ul> 
+<p><b>Pros Identity</b></p> 
+<ul> 
+ <li>small storage footprint;</li> 
+ <li>optimal join / index performance (e.g. for time range queries, most rows recently inserted will be on a limited number of pages);</li> 
+ <li>&iquest;? highly useful for data warehousing;</li> 
+ <li>easy to debug (where userid = 457);</li> 
+ <li>(feature no standard y propietaria) generated automatically (retrieved through SCOPE_IDENTITY() rather than assigned);</li> 
+ <li>not updateable (though some consider this a disadvantage, strangely enough).</li> 
+</ul> 
+<p><b>Cons identity</b></p> 
+<ul> 
+ <li>cannot be reliably “predicted” by applications — can only be retrieved after the INSERT;</li> 
+ <li>need a complex scheme in multi-server environments, since IDENTITY is not allowed in some forms of replication;</li> 
+ <li>can be duplicated, if not explicitly set to PRIMARY KEY</li> 
+ <li>if part of the clustered index on the table, this can create an insert hot-spot;</li> 
+ <li>proprietary and not directly portable;</li> 
+ <li>only unique within a single table;</li> 
+ <li>gaps can occur (e.g. with a rolled back transaction), and this can cause chicken little-style alarms.</li> 
+</ul> 
+<p><b>Apriorismos</b></p> 
+<ul> 
+ <li>Si estoy en un cluster (para evitar hotspots) o en un entorno replicado =&gt; GUID</li> 
+ <li>Si necesito generar IDs fuera de la base de datos =&gt; GUID</li> 
+ <li>Si el rendimiento en escritura es cr&iacute;tico: Identity 
+  <ul> 
+   <li>Pero si puedo implementar GUID secuencial =&gt; GUID</li> 
+  </ul> </li> 
+</ul></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid" st_title="Identity vs GUID | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/desarrollo-de-software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo-de-software</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 441,
+      "url" : "http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "cuadernodesoftware",
+      "name" : "Cuaderno de software"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
