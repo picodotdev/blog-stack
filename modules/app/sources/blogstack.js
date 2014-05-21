@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
+      "title" : "Pienso, luego existo... e instalo Chakra Descartes"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
       "title" : "Identity vs GUID"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/ocho-anos-que-se-dice-pronto",
       "title" : "Ocho años, que se dice pronto\u2026"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
-      "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
     }
   ]
 }
