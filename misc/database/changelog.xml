@@ -339,5 +339,41 @@
             <column name="email" value="leonardogabrielmicheloni@gmail.com"/>
             <column name="enabled" valueBoolean="true"/>
         </insert>
-    </changeSet>    
+    </changeSet>
+    <changeSet id="15" author="picodotdev">
+        <comment>Agregación de fuente (19-05-2014)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Variable not found"/>
+            <column name="alias" value="variablenotfound"/>
+            <column name="pageUrl" value="http://www.variablenotfound.com"/>
+            <column name="url" value="http://feeds.feedburner.com/vnf?format=xml"/>
+            <column name="author" value="José María Aguilar"/>
+            <column name="email" value="josemariaaguilar@gmail.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Poesía binaria"/>
+            <column name="alias" value="poesiabinaria"/>
+            <column name="pageUrl" value="http://totaki.com/poesiabinaria/"/>
+            <column name="url" value="http://totaki.com/poesiabinaria/feed/"/>
+            <column name="author" value="Gaspar Fernández"/>
+            <column name="email" value="blakeyed@totaki.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>        
+    </changeSet>
+    <changeSet id="16" author="picodotdev">
+        <comment>Agregación de fuente (21-05-2014)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Kinisoftware"/>
+            <column name="alias" value="kinisoftware"/>
+            <column name="pageUrl" value="http://kinisoftware.com/"/>
+            <column name="url" value="http://kinisoftware.com/feed/"/>
+            <column name="author" value="Joaquin Engelmo"/>
+            <column name="email" value="kinisoftware@gmail.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

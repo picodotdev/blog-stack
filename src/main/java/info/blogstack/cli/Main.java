@@ -172,7 +172,7 @@ public class Main {
 		boolean ggenerate = cmd.hasOption("gg");
 		boolean preview = cmd.hasOption("p");
 		boolean serverOption = cmd.hasOption("s");
-		boolean stop = cmd.hasOption("pp");
+		boolean stop = cmd.hasOption("ss");
 		String repository = cmd.getOptionValue("r");
 
 		if (hash) {
@@ -333,8 +333,8 @@ public class Main {
 			HttpGet get = new HttpGet(String.format("http://%s:%d/", host, adminPort));
 			HttpResponse response1 = cliente.execute(get);
 
-			String respuesta = IOUtils.toString(response1.getEntity().getContent());
-			logger.info(respuesta);
+			String response = IOUtils.toString(response1.getEntity().getContent());
+			logger.info(String.format("Response: %s", response));
 		}
 	}
 
