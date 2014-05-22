@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
+      "title" : "Chakra y yo"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
       "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/05/instalar-en-opensuse-dianara-cliente-para-redes-pump-io",
       "title" : "Instalar en openSUSE Dianara, cliente para redes Pump.io"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/vnext",
-      "title" : "vNext"
     }
   ]
 }

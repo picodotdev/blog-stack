@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
+      "title" : "Chakra y yo"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
       "title" : "Pienso, luego existo... e instalo Chakra Descartes"
     },
@@ -57,10 +61,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/12/linux-mint-16-petra-7-meses-de-excelencia",
       "title" : "Linux Mint 16 Petra: 7 meses de excelencia"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/11/chakra-y-gtk-otra-vuelta-de-tuerca",
-      "title" : "Chakra y GTK: otra vuelta de tuerca"
     }
   ]
 }
