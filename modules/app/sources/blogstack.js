@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
+      "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
       "title" : "Pienso, luego existo... e instalo Chakra Descartes"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/vnext",
       "title" : "vNext"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/ocho-anos-que-se-dice-pronto",
-      "title" : "Ocho años, que se dice pronto\u2026"
     }
   ]
 }
