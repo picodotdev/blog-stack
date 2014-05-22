@@ -1,0 +1,177 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalando OpenStack en mi portátil | PLEDIN</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/pledin/2014/02/instalando-openstack-en-mi-portatil"><span itemprop="headline">Instalando OpenStack en mi portátil</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://www.josedomingo.org/pledin/">PLEDIN</a>, <a href="http://www.josedomingo.org/pledin/2014/02/instalando-openstack-en-mi-portatil/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-02-10T23:04" itemprop="datePublished">Publicado el lunes, 10 de febrero de 2014 a las 23:04 UTC</span></div><div><span>
+Etiquetado como
+general, vagrant, virtualizacion, cloud-computing, ansible, open-stack</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/vao.png"><img alt="vao" src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/vao.png" width="800" height="250" /></a></p> 
+<p>El objetivo de esta entrada es contar mi experiencia de instalar el software de Cloud Computing OpenStack en mi ordenador a partir del repositorio de GitHub: <a href="https://github.com/openstack-ansible/openstack-ansible">https://github.com/openstack-ansible/openstack-ansible</a>. Se trata de la instalaci&oacute;n de un escenario formado por varias m&aacute;quinas virtuales desplegadas con Vagrant donde se instala OpenStack a partir de recetas desarrolladas en ansible. Las personas que han desarrollado dichas recetas y son los mantenedores del repositorio son&nbsp;<a href="https://github.com/lorin">Lorin Hochstein</a>&nbsp; y&nbsp;<a href="https://github.com/marklee77">Mark Stillwell</a>.</p> 
+<p></p> 
+<h2>&iquest;Qu&eacute; necesito para realizar la instalaci&oacute;n?</h2> 
+<ul> 
+ <li>En primer lugar tenemos que tener en cuenta la memoria RAM que disponemos. Las cuatro m&aacute;quinas que se despliegan necesitan 2,5 GB de RAM, por lo que creo que con un ordenador de 4 GB ser&iacute;a suficiente. Por otro lado partimos de que estamos usando un equipo con la extensi&oacute;n de virtualizaci&oacute;n hardware VT-x/AMD-v activada.</li> 
+ <li>El repositorio que vamos a utilizar se encuentra en GitHub por lo tanto tenemos que tener instalado el paquete git en nuestro ordenador:</li> 
+</ul> 
+<pre># apt-get install git</pre> 
+<ul> 
+ <li>El software que se va a utilizar para ejecutar las m&aacute;quinas virtuales es VirtualBox que en mi caso est&aacute; instalado sobre un sistema operativo GNU Linux Debian Wheezy. La versi&oacute;n de VirtualBox que estoy utilizando es 4.1.18. Para la instalaci&oacute;n, ejecutamos simplemente:</li> 
+</ul> 
+<pre># apt-get install virtualbox</pre> 
+<ul> 
+ <li>Siguiendo la documentaci&oacute;n tambi&eacute;n necesitamos instalar el paquete <a href="https://pypi.python.org/pypi/netaddr/">python-netaddr</a>, para ello: <pre># apt-get install python-netaddr</pre> </li> 
+</ul> 
+<ul> 
+ <li>Con <a href="http://www.vagrantup.com/">Vagrant</a> podemos virtualizar entornos de desarrollo. Esta herramienta nos permite automatizar la creaci&oacute;n y gesti&oacute;n de m&aacute;quinas virtuales. Vamos a utilizar esta herramienta para definir y gestionar las m&aacute;quinas virtuales que vamos a usar. Estas m&aacute;quinas ser&aacute;n ejecutadas en VirtualBox. En el momento de escribir esta entrada la versi&oacute;n de vagrant es la 1.4.3, podemos bajarnos el paquete deb de la p&aacute;gina oficial e instalarlo en nuestro sistema:</li> 
+</ul> 
+<pre># wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.4.3_x86_64.deb
+# dpkg -i vagrant_1.4.3_x86_64.deb</pre> 
+<p>Las m&aacute;quinas virtuales que se crean tienen el sistema operativo Ubuntu 12.04 amd64, por lo tanto es conveniente descargar el box de vagrant precise64 con el siguiente comando:</p> 
+<pre># vagrant box add precise64 http://files.vagrantup.com/precise64.box</pre> 
+<ul> 
+ <li>Por &uacute;ltimo vamos a utilizar <a href="http://www.ansible.com/home">ansible</a>, una herramienta &nbsp;que nos permite &nbsp;automatizar y gestionar la configuraci&oacute;n de nuestras m&aacute;quinas. Podemos utilizar la herramienta pip para instalar la &uacute;ltima versi&oacute;n de este programa:</li> 
+</ul> 
+<pre># apt-get install python-pip python-dev
+# pip install ansible</pre> 
+<h2>Presentando el escenario que vamos a desplegar</h2> 
+<p>Un vez que tenemos instaladas las herramientas necesarias, vamos a obtener el repositorio desde el que vamos a realizar la instalaci&oacute;n, para ello tenemos que clonarlo ejecutando los siguientes comandos:</p> 
+<pre>git clone https://github.com/openstack-ansible/openstack-ansible
+cd openstack-ansible
+git submodule update --init</pre> 
+<p>Para iniciar la instalaci&oacute;n simplemente tendremos que ejecutar el comando:</p> 
+<pre>openstack-ansible# make</pre> 
+<p>Este comando ejecuta los pasos que se encuentran definido en el fichero Makefile, que de forma resumida son los siguientes:</p> 
+<p><strong>1) Se crean las m&aacute;quinas virtuales</strong> con el comando <em>vagrant up</em> utilizando como fichero de configuraci&oacute;n Vagranfile, que podemos encontrar en el directorio testcase/standard.</p> 
+<p>Es esquema de m&aacute;quinas que se levantan son las siguientes y la los podemos representar usando el siguiente esquema:</p> 
+<ul> 
+ <li>10.1.0.2, nodo controlador.</li> 
+ <li>10.1.0.3, nodo de computaci&oacute;n.</li> 
+ <li>10.1.0.4, nodo de red (neutron).</li> 
+ <li>10.1.0.5, nodo de almacenamiento.</li> 
+</ul> 
+<p><strong><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/InstalandoOpenStackEnMiPortatil.jpg"><img alt="InstalandoOpenStackEnMiPortatil" src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/InstalandoOpenStackEnMiPortatil.jpg" width="1000" height="700" /></a><br /> </strong></p> 
+<h6>Nota:Le doy las gracias a mi alumno <a href="https://twitter.com/EvaristoGZ">@EvaristoGZ</a> por haber dise&ntilde;ado el esquema anterior. Puedes ver el esquema original que dise&ntilde;&eacute; para esta entrada en este <a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/esquema.png">enlace</a>.</h6> 
+<p>Adem&aacute;s si accedemos a este directorio podemos manejar las m&aacute;quinas virtuales (pararlas, arrancarlas o destruirlas). Estas tres acciones se har&iacute;an con los siguientes comandos:</p> 
+<pre>openstack-ansible/testcases/standard#vagrant halt
+openstack-ansible/testcases/standard#vagrant up
+openstack-ansible/testcases/standard#vagrant destroy</pre> 
+<p><strong>2) Se instalan los servicios necesarios en cada una de las m&aacute;quinas que hemos arrancado.</strong> Para ello se ejecuta la receta ansible <strong>openstack-ansible/openstack.yaml</strong> utilizando el fichero de configuraci&oacute;n de los hosts que encontramos en el directorio del escenario <strong>openstack-ansible/testcases/standard/ansible_hosts. </strong>Si editamos el fichero de la receta nos daremos cuenta que existe una receta distinta para instalar los distintos servicios: keystone, swift, glance, neutron, cinder, nova, horizon, heat y ceilometer.</p> 
+<p><strong>3) Se levanta una instancia de prueba.&nbsp;</strong>Para ello se ejecuta la receta ansible <strong>openstack-ansible/demo.yaml, </strong>utilizando el mismo fichero de configuraci&oacute;n de los hosts visto en el punto anterior. Esta receta, sube una imagen cirros al sistema, crea el router y la red necesaria y por &uacute;ltimo lanza una instancia a la que le asigna una ip flotante.</p> 
+<h2>Accediendo a openstack</h2> 
+<p>Si utilizamos la aplicaci&oacute;n web horizon para trabajar, debemos acceder a la siguiente URL:</p> 
+<pre>http://10.1.0.2/horizon</pre> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/01.png"><img alt="01" src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/01.png" width="263" height="185" /></a>Durante la instalaci&oacute;n se han creado dos usuarios: un usuario de prueba: <strong>demo</strong> con contrase&ntilde;a <strong>secret, </strong>este usuario es el propietario del proyecto demo, en el que se ha creado la instancia de prueba. Tambi&eacute;n podemos acceder con el usuario <strong>admin,</strong> cuya contrase&ntilde;a est&aacute; guardada en un fichero que luego comentaremos.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/02.png"><img alt="02" src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/02/02.png" width="510" height="162" /></a>Si queremos trabajar con el cliente <strong>nova</strong> tenemos que instalar el paquete <a href="http://pypi.python.org/pypi/python-novaclient/">python-novaclient</a>, y siguiendo, por ejemplo, este <a href="http://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-ii-openstack-cli/">manual</a>, podemos gestionar las instancias de nuestro cloud. Tenemos que tener en cuenta que en el nodo controlador encontramos dos ficheros de credenciales: <em>demo.openrc</em>, donde encontramos las del usuario demo, y <em>admin.openrc</em> donde est&aacute;n las del usuario admin (en este fichero puedes encontrar la password del admin por si quieres acceder a horizon con &eacute;l).</p> 
+<p>Ejemplo:</p> 
+<pre>$ source demo.openrc
+$ nova list
++--------------------------------------+------+--------+------------+-------------+-------------------------------------+
+| ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Name | Status | Task State | Power State | Networks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
++--------------------------------------+------+--------+------------+-------------+-------------------------------------+
+| 1491f908-42c6-4f7c-a937-5f9ef9a76ba2 | p11&nbsp; | ACTIVE | None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Running&nbsp;&nbsp;&nbsp;&nbsp; | demo-net=192.168.100.2, 10.4.10.101 |
++--------------------------------------+------+--------+------------+-------------+-------------------------------------+</pre> 
+<h2>&Uacute;ltimas consideraciones</h2> 
+<ol> 
+ <li>Con la asignaci&oacute;n de memoria a cada uno de los nodos se pueden crear pocas instancias, una soluci&oacute;n puede ser crear un nuevo sabor que tenga 256 MB de RAM (yo lo he llamado m1.enano).</li> 
+ <li>Otra opci&oacute;n, si tenemos suficiente RAM en nuestra m&aacute;quina, es modificar el fichero Vagranfile, y asignar m&aacute;s memoria RAM al nodo de computaci&oacute;n.</li> 
+ <li>Puedes acceder a la instancia cirros por ssh, usando el usuario <strong>cirros</strong>, y la contrase&ntilde;a <strong>cubswin:)</strong></li> 
+ <li>Si necesitas entrar en cualquier de las m&aacute;quinas virtuales, lo puedes hacer con el usuario <strong>vagrant</strong> y contrase&ntilde;a <strong>vagrant</strong>, o usando la clave privada ssh <strong>vagrant_private_key</strong>.</li> 
+ <li>El acceso por ssh a la instancia s&oacute;lo se puede hacer desde alguna de las m&aacute;quinas virtuales.</li> 
+</ol> 
+<p><strong>Modificado el 19/03/20014:</strong></p> 
+<h2>Acceso a la instancia por ssh</h2> 
+<p>Primero tenemos que entrar a una m&aacute;quina virtual, por ejemplo el controlador:</p> 
+<pre>$ &nbsp;<strong>vagrant ssh controller</strong>
+Welcome to Ubuntu 12.04.4 LTS (GNU/Linux 3.2.0-60-generic x86_64)
+&nbsp;* Documentation:&nbsp; https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Wed Mar 19 16:35:49 2014 from 10.0.2.2
+
+vagrant@controller:~$ <strong>ssh cirros@10.4.10.102</strong>
+The authenticity of host '10.4.10.102 (10.4.10.102)' can't be established.
+RSA key fingerprint is e1:c3:6f:5a:6a:f9:5d:c8:5a:85:ec:a7:d4:5e:95:ac.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.4.10.101' (RSA) to the list of known hosts.
+$</pre></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil" st_title="Instalando OpenStack en mi portátil | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 458,
+      "url" : "http://www.blogstack.info/post/pledin/2014/02/instalando-openstack-en-mi-portatil"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "pledin",
+      "name" : "PLEDIN"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

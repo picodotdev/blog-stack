@@ -1,0 +1,209 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Configurar subdominios en bind9 | PLEDIN</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/pledin/2013/11/configurar-subdominios-en-bind9"><span itemprop="headline">Configurar subdominios en bind9</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://www.josedomingo.org/pledin/">PLEDIN</a>, <a href="http://www.josedomingo.org/pledin/2013/11/configurar-subdominios-en-bind9/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2013-11-21T16:24" itemprop="datePublished">Publicado el jueves, 21 de noviembre de 2013 a las 16:24 UTC</span></div><div><span>
+Etiquetado como
+general, dns, manuales, redes-sociales</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>El objetivo de este art&iacute;culo es estudiar las distintas formas que tenemos en el servidor dns bind9 para gestionar la creaci&oacute;n de un subdominio de nuestro dominio principal.</p> 
+<p>Por ejemplo, tenemos el dominio example.org y queremos crear un subdomio es.example.org, por lo que podr&iacute;amos tener los siguientes nombres:</p> 
+<ul> 
+ <li>Nombre de dominio principal: <strong>example.org</strong></li> 
+ <li>Nombre de un host en el dominio principal: <strong>www.example.org</strong></li> 
+ <li>Nombre del subdominio: <strong>es.example.org</strong></li> 
+ <li>Nombre de un host en el subdominio:<strong> www.es.example.org</strong></li> 
+</ul> 
+<p>Para conseguir configurar subdominios tenemos dos alternativas:</p> 
+<ol> 
+ <li><strong>Crear un subdominio virtual</strong>, en este caso es un s&oacute;lo servidor DNS el que va a tener autoridad sobre el dominio y sobre el subdomio.</li> 
+ <li><strong>Delegar el subdomio</strong>, es decir el servidor DNS autorizado para el dominio va a delegar la gesti&oacute;n y autorizaci&oacute;n del subdominio a otro servidor DNS.</li> 
+</ol> 
+<p></p> 
+<h1>Crear un subdominio virtual</h1> 
+<p>En este caso suponemos de tenemos configurado un servidor DNS donde hemos configurado la zona example.org en el fichero /var/cache/bind/db.example.org. La configuraci&oacute;n del subdominio virtual se ha indicado en negrita, y quedar&iacute;a de la siguiente manera:</p> 
+<pre>$TTL    86400
+@       IN      SOA     ns1 mail (
+                              4         
+                         604800         
+                          86400         
+                        2419200       
+                          86400 )       
+
+                NS      ns1
+ns1     IN      A       10.0.10.2
+www     IN      A       10.0.10.1
+
+<strong>$ORIGIN es.example.org.</strong>
+<strong>www     IN      A      10.10.0.3</strong></pre> 
+<p>Despu&eacute;s de reiniciar el servidor podemos hacer una consulta con la utilidad dig, de la siguiente manera:</p> 
+<pre># dig @10.0.10.2 www.es.example.org
+
+; &lt;&lt;&gt;&gt; DiG 9.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; @10.0.10.2 www.es.example.org
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 61235
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;www.es.example.org.		IN	A
+
+;; ANSWER SECTION:
+www.es.example.org.	86400	IN	A	10.10.0.3
+
+;; AUTHORITY SECTION:
+example.org.		86400	IN	NS	ns1.example.org.
+
+;; ADDITIONAL SECTION:
+ns1.example.org.	86400	IN	A	10.0.10.2
+
+;; Query time: 0 msec
+;; SERVER: 10.0.10.2#53(10.0.10.2)
+;; WHEN: Thu Nov 21 15:27:26 2013
+;; MSG SIZE  rcvd: 86</pre> 
+<p>Donde podemos observar que la resoluci&oacute;n se hace correctamente, y como se&ntilde;alamos anteriormente el servidor con autoridad (registro NS) es el servidor ns1.example.org que, en realidad, es el servidor con autoridad del dominio example.org.</p> 
+<h1>Delegaci&oacute;n de subdominios</h1> 
+<p>En esta ocasi&oacute;n partimos de un servidor DNS con autoridad sobre el dominio <strong>example.org</strong> (<strong>ns1.example.org</strong>), que va a delegar la gesti&oacute;n del subdominio <strong>es.example.org</strong> a otro servidor DNS (<strong>nssub.es.example.org</strong>). Veamos la configuraci&oacute;n de los servidores:</p> 
+<h3>Configuraci&oacute;n del servidor DNS del dominio principal (example.org)</h3> 
+<p>La zona est&aacute; definida en el fichero /var/cache/bind/db.example.org, donde tendremos que indicar cual es el servidor DNS con autoridad para el subdominio, es decir indicaremos el servidor DNS al que vamos a delegar la gesti&oacute;n del subdominio <strong>es.example.org</strong>, que en nuestro caso ser&aacute; <strong>nssub.es.example.org</strong>. Indicamos en negrita la configuraci&oacute;n necesaria:</p> 
+<pre>$TTL    86400
+@       IN      SOA     ns1 mail (
+                              4         
+                         604800    
+                          86400     
+                        2419200   
+                          86400 )   
+
+                NS      ns1
+
+ns1     IN      A       10.0.10.2
+www     IN      A       10.0.10.1
+
+<strong>$ORIGIN es.example.org.</strong>
+<strong>@       IN      NS      nssub</strong>
+<strong>nssub   IN      A       10.0.10.6</strong></pre> 
+<p>Como podemos observar el servidor DNS con autoridad sobre la zona <strong>es.example.org</strong>, ser&aacute; <strong>nssub.es.example.org</strong> que se encuentra en la direcci&oacute;n <strong>10.0.10.6</strong>.</p> 
+<h3>Configuraci&oacute;n del servidor DNS del subdominio (es.example.org)</h3> 
+<p>Ahora configuramos el segundo servidor DNS (<strong>nssub.es.example.org</strong>), al que vamos a delegar la gesti&oacute;n del dominio<strong> es.example.org.</strong> Lo primero que tenemos que hacer es definir la zona que corresponde con el subdominio en el fichero /etc/bind/named.conf.local:</p> 
+<pre>zone &quot;es.example.org&quot; {
+  type master;
+  file &quot;db.es.example.org&quot;;
+};</pre> 
+<p>Y el fichero /var/cache/bind/db.es.example.org, quedar&iacute;a:</p> 
+<pre>$TTL    86400
+@       IN      SOA     nssub mail (
+                              4         
+                         604800    
+                          86400     
+                        2419200   
+                          86400 )   
+
+                  NS      nssub
+nssub     IN      A       10.0.10.6
+www       IN      A       10.0.10.3</pre> 
+<p>Ya estamos en disposici&oacute;n de consultar nombres de nuestro subdominio:</p> 
+<pre># dig @10.0.10.2 www.es.example.org
+
+; &lt;&lt;&gt;&gt; DiG 9.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; @10.0.10.2 www.es.example.org
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16747
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.es.example.org.		IN	A
+
+;; ANSWER SECTION:
+www.es.example.org.	86400	IN	A	10.0.10.3
+
+;; AUTHORITY SECTION:
+es.example.org.		86400	IN	NS	nssub.es.example.org.
+
+;; Query time: 704 msec
+;; SERVER: 10.0.10.2#53(10.0.10.2)
+;; WHEN: Thu Nov 21 16:09:58 2013
+;; MSG SIZE  rcvd: 72</pre> 
+<p>Donde de nuevo comprobamos que la resoluci&oacute;n se hace de forma adecuada, pero en esta ocasi&oacute;n la est&aacute; haciendo el servidor con autoridad sobre el subdominio, en este caso nssub.es.example.org.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9" st_title="Configurar subdominios en bind9 | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 462,
+      "url" : "http://www.blogstack.info/post/pledin/2013/11/configurar-subdominios-en-bind9"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "pledin",
+      "name" : "PLEDIN"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
