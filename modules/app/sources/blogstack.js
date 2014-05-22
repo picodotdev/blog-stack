@@ -7,12 +7,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "Chakra y yo"
     },
     {
-      "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
-      "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
       "title" : "Pienso, luego existo... e instalo Chakra Descartes"
+    },
+    {
+      "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
+      "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
     },
     {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
