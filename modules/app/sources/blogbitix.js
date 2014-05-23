@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
+      "title" : "Página de excepción de Grails"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry",
       "title" : "Presentación sobre Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/servidor-de-aplicaciones-jboss-wildfly",
-      "title" : "Servidor de aplicaciones JBoss/WildFly"
     }
   ]
 }

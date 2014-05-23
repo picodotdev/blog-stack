@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
+      "title" : "Página de excepción de Grails"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
       "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
-      "title" : "Virtualizando con KVM"
     }
   ]
 }
