@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev",
+      "title" : "Java y Flexibilidad para (GenbetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/javascript-thread-y-ajax",
       "title" : "Javascript Thread y Ajax"
     },

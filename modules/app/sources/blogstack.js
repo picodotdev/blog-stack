@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev",
+      "title" : "Java y Flexibilidad para (GenbetaDev)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
       "title" : "Home Inventory \u2013 Productividad"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry",
       "title" : "Android TAG y  el principio DRY"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
-      "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
     }
   ]
 }
