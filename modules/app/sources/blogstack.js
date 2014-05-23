@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
+      "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev",
       "title" : "Java y Flexibilidad para (GenbetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry",
-      "title" : "Android TAG y  el principio DRY"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
+      "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
       "title" : "Explicando los comandos de consola de manera sencilla"
     },
