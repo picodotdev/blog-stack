@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
+      "title" : "Home Inventory \u2013 Productividad"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
       "title" : "Identity vs GUID"
     },

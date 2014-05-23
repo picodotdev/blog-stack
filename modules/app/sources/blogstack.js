@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
+      "title" : "Home Inventory \u2013 Productividad"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
       "title" : "Chakra y yo"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
       "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/instalar-en-opensuse-dianara-cliente-para-redes-pump-io",
-      "title" : "Instalar en openSUSE Dianara, cliente para redes Pump.io"
     }
   ]
 }
