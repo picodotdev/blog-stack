@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/java-iterator-vs-foreach",
+      "title" : "Java Iterator vs ForEach"
+    },
+    {
+      "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-ii-escribiendo-tests-comodamente",
+      "title" : "Tests de integración con Entity Framework (II): Escribiendo tests cómodamente"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
       "title" : "Página de excepción de Grails"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-158",
       "title" : "Enlaces interesantes 158"
-    },
-    {
-      "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno",
-      "title" : "Tests de integración con Entity Framework (I): Preparando el entorno"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
-      "title" : "Arquitectura y hospedaje de Blog Stack"
     }
   ]
 }
