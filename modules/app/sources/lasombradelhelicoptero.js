@@ -3,16 +3,16 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
+      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
       "title" : "Chakra y yo"
     },
     {
       "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
       "title" : "Pienso, luego existo... e instalo Chakra Descartes"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
-      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
     },
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/camino-a-la-libertad-openmailbox-y-owncloud",

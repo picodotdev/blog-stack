@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
+      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/java-iterator-vs-foreach",
       "title" : "Java Iterator vs ForEach"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/javascript-thread-y-ajax",
       "title" : "Javascript Thread y Ajax"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-158",
-      "title" : "Enlaces interesantes 158"
     }
   ]
 }
