@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
+      "title" : "¿Cómo es la estrella de tu proyecto?"
+    },
+    {
       "url" : "/post/navegapolis/2014/05/nueva-revision-del-libro-gestion-de-proyectos-scrum-manager",
       "title" : "Nueva revisión del libro Gestión de proyectos Scrum Manager"
     },

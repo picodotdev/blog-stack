@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
+      "title" : "¿Cómo es la estrella de tu proyecto?"
+    },
+    {
       "url" : "/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap",
       "title" : "Error 404 en archivo .woff usando Bootstrap"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
       "title" : "Pienso, luego existo... e instalo Chakra Descartes"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
-      "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
     }
   ]
 }
