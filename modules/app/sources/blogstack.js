@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
+      "title" : "Relaciones ternarias (GenbetaDev)"
+    },
+    {
       "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
       "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
       "title" : "Identity vs GUID"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio",
-      "title" : "Sidewaffle, gran pack de plantillas para Visual Studio"
     }
   ]
 }

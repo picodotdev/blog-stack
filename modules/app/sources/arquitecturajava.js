@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
+      "title" : "Relaciones ternarias (GenbetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/java-iterator-vs-foreach",
       "title" : "Java Iterator vs ForEach"
     },
