@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/05/videos-sobre-openstack",
+      "title" : "Vídeos sobre OpenStack"
+    },
+    {
       "url" : "/post/pledin/2014/04/curso-fundamentos-de-cloud-computing-con-openstack-y-openshift",
       "title" : "Curso: \u201cFundamentos de Cloud Computing con OpenStack y OpenShift\u201d"
     },

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/05/videos-sobre-openstack",
+      "title" : "Vídeos sobre OpenStack"
+    },
+    {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-159",
       "title" : "Enlaces interesantes 159"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
       "title" : "LFTP , transferencia de archivos desde la consola de comandos"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
-      "title" : "Explicando los comandos de consola de manera sencilla"
     }
   ]
 }
