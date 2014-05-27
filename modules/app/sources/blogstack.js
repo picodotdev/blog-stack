@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
+      "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
+    },
+    {
       "url" : "/post/pledin/2014/05/videos-sobre-openstack",
       "title" : "Vídeos sobre OpenStack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio",
       "title" : "Sidewaffle, gran pack de plantillas para Visual Studio"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
-      "title" : "LFTP , transferencia de archivos desde la consola de comandos"
     }
   ]
 }

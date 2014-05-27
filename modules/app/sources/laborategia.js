@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
+      "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
+    },
+    {
       "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },
