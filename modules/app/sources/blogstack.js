@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap",
+      "title" : "Error 404 en archivo .woff usando Bootstrap"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
       "title" : "Relaciones ternarias (GenbetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
       "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
-      "title" : "Identity vs GUID"
     }
   ]
 }
