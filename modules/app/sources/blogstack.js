@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
-      "title" : "Navegador web Lynx. Un lince en la línea de comandos"
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
       "title" : "La jauría humana"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
+      "title" : "Navegador web Lynx. Un lince en la línea de comandos"
     },
     {
       "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
