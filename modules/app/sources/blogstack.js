@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
+      "title" : "JQuery Mobile Arquitectura"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
       "title" : "Navegador web Lynx. Un lince en la línea de comandos"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev",
       "title" : "Java y Flexibilidad para (GenbetaDev)"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
-      "title" : "Home Inventory \u2013 Productividad"
     }
   ]
 }

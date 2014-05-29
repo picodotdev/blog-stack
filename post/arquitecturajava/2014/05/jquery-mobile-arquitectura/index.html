@@ -1,0 +1,195 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>JQuery Mobile Arquitectura | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/05/jquery-mobile-arquitectura"><span itemprop="headline">JQuery Mobile Arquitectura</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/jquery-mobile-arquitectura/"><span itemprop="sameAs">entrada original</span></a></span></div><div><span datetime="2014-05-29T13:34" itemprop="datePublished">Publicado el jueves, 29 de mayo de 2014 a las 13:34 UTC</span></div><div><span>
+Etiquetado como
+mobile, jquery</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Cada d&iacute;a desarrollamos mas en entornos m&oacute;viles y uno de los frameworks de referencia a la hora de abordar proyectos de este tipo <strong>es JQuery Mobile</strong> . Se trata de un framework construido por la gente de JQuery que facilita sobremanera el desarrollo de aplicaciones orientadas a m&oacute;viles. <strong>El framework se apoya en data-atributos de html5 para generar una presentaci&oacute;n orientada al movil.</strong></p> 
+<pre>
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot;
+ href=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css&quot; /&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script
+ src=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div data-role=&quot;page&quot;&gt;
+&lt;div data-role=&quot;header&quot;&gt;
+&lt;h6&gt;Cabecera de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+
+&lt;div data-role=&quot;content&quot;&gt;&lt;a
+ href=&quot;pagina2.html&quot; data-role=&quot;button&quot;&gt;
+ Ir a la pagina 2&lt;/a&gt;
+
+&lt;/div&gt;
+
+&lt;div data-role=&quot;footer&quot;&gt;
+&lt;h6&gt;Pie de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+<p>&nbsp;</p> 
+<h2>JQuery Mobile Data-Atributos</h2> 
+<p><strong>JQuery Mobile utiliza el atributo data-role para asignar diferentes roles a las diferentes partes de la p&aacute;gina</strong>. En este caso tenemos los roles de p&aacute;gina, cabecera,contenido y pie. Si cargamos la p&aacute;gina en un navegador veremos lo siguiente .</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile1.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile1.png" alt="jquery-mobile1" width="504" height="394" /></a></p> 
+<p>El c&oacute;digo de la p&aacute;gina dos es muy similar al de la primera con la &uacute;nica diferencia que tiene un bot&oacute;n de volver que permite cargar la p&aacute;gina anterior:</p> 
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot;
+ href=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css&quot; /&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script
+ src=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div data-role=&quot;page&quot;&gt;
+&lt;div data-role=&quot;header&quot;&gt;
+&lt;h6&gt;Cabecera de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+
+&lt;div data-role=&quot;content&quot;&gt;
+&lt;a href=&quot;pagina3.html&quot; data-role=&quot;button&quot;&gt;Ir a la
+pagina 3&lt;/a&gt; &lt;a href=&quot;#&quot; data-role=&quot;button&quot; data-rel=&quot;back&quot;&gt;Volver&lt;/a&gt;&lt;/div&gt;
+
+&lt;div data-role=&quot;footer&quot;&gt;
+&lt;h6&gt;Pie de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre> 
+<p>El navegador nos muestra lo siguiente :</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile2.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile2.png" alt="jquery-mobile2" width="502" height="396" /></a></p> 
+<p>La p&aacute;gina 3 es pr&aacute;cticamente id&eacute;ntica a la p&aacute;gina 2 salvo que cambiamos el mensaje</p> 
+<pre>
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel=&quot;stylesheet&quot;
+href=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css&quot; /&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script
+src=&quot;http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div data-role=&quot;page&quot;&gt;
+&lt;div data-role=&quot;header&quot;&gt;
+&lt;h6&gt;Cabecera de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+
+&lt;div data-role=&quot;content&quot;&gt;
+Pagina final
+&lt;a href=&quot;#&quot; data-role=&quot;button&quot; data-rel=&quot;back&quot;&gt;Volver&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div data-role=&quot;footer&quot;&gt;
+&lt;h6&gt;Pie de la pagina&lt;/h6&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre> 
+<p>El navegador muestra :</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile3.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/jquery-mobile3.png" alt="jquery-mobile3" width="505" height="394" /></a></p> 
+<p>Todo lo que hemos hecho es muy muy sencillo y podemos ver la potencia que tiene el framework</p> 
+<h2>&iquest;Es JQuery Mobile Sencillo?</h2> 
+<p>Lamentablemente las cosas no son tan sencillas como parecen de entrada . Si nos fijamos en como <strong>JQuery Mobile ha cargado cada una de las p&aacute;ginas veremos que ha elegido un modelo de <a title="Arquitecturas SPA (I)" href="http://www.arquitecturajava.com/arquitecturas-spa-1/">SPA</a></strong>&nbsp;.Esto quiere decir lo siguiente .Cuando solicitamos la segunda p&aacute;gina desde la primera ,se muestra en el navegador la segunda p&aacute;gina pero&nbsp;no hemos cambiado de p&aacute;gina realmente sino que se ha cargado via AJAX el contenido de la segunda p&aacute;gina en la primera . Hecho esto JQuery Mobile ha escondido el contenido de la primera p&aacute;gina y ha mostrado unicamente el de la segunda.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/spa.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/spa.gif" alt="spa" width="315" height="229" /></a></p> 
+<p>Algo similar sucedera cuando desde la segunda p&aacute;gina solicitemos la tercera .En este caso se descargar&aacute; la p&aacute;gina2 de memoria y se cargar&aacute; la 3.</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/spa2.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/spa2.gif" alt="spa2" width="319" height="310" /></a></p> 
+<p>Aunque JQuery Mobile parezca un framework muy sencillo de manejar cuando realizamos el ejemplo de hola mundo ,es quizas uno de los frameworks que mas cuesta a los desarrolladores entender su funcionamiento real. Si en alg&uacute;n momento tenemos que trabajar con el …<strong> hay que tomarselo con calma,ya que convertirse en experto no es trivial.</strong></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/jquery-mobile-arquitectura/">JQuery Mobile Arquitectura</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura" st_title="JQuery Mobile Arquitectura | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 479,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/05/jquery-mobile-arquitectura"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
