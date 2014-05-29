@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
+      "title" : "Navegador web Lynx. Un lince en la línea de comandos"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
+      "title" : "La jauría humana"
+    },
+    {
       "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
       "title" : "¿Cómo es la estrella de tu proyecto?"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
       "title" : "Home Inventory \u2013 Productividad"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
-      "title" : "Chakra y yo"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/05/pienso-luego-existo-e-instalo-chakra-descartes",
-      "title" : "Pienso, luego existo... e instalo Chakra Descartes"
     }
   ]
 }

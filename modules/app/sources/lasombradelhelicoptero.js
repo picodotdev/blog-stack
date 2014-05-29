@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
+      "title" : "La jauría humana"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
       "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
     },
@@ -57,10 +61,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/01/resultados-de-la-encuesta-de-sistemas-operativos",
       "title" : "Resultados de la encuesta de sistemas operativos"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/12/linux-mint-16-petra-7-meses-de-excelencia",
-      "title" : "Linux Mint 16 Petra: 7 meses de excelencia"
     }
   ]
 }
