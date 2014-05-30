@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-05-23T21:18:32Z</updated>
+  <updated>2014-05-30T19:02:42Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-05-23T21:18:32Z</dc:date>
+  <dc:date>2014-05-30T19:02:42Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Detectar problema N+1 y obtener estadísticas de Hibernate con Grails</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="java" />
+    <category term="grails" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-05-30T18:30:00Z</updated>
+    <published>2014-05-30T18:30:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Una base de datos relacional guarda los datos de forma diferente al modelo orientado a objetos que utilizamos en lenguajes como &lt;a href="http://www.oracle.com/us/technologies/java/overview/index.html"&gt;Java&lt;/a&gt;, &lt;a href="http://www.microsoft.com/net"&gt;C#&lt;/a&gt; o &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. Los &lt;a href="http://en.wikipedia.org/wiki/Object-relational_mapping"&gt;ORM (Object-relational mapping)&lt;/a&gt; tratan de hacer una correspondencia entre los dos modelos, el relacional de las bases de datos y el orientado a objetos de los lenguajes. Una de las ventajas de usar en una aplicaci&amp;oacute;n un ORM para acceder a la base de datos es que podemos hacer una correspondencia entre los datos de una base de datos relacional y trabajar con esos datos utilizando el modelo orientado a objetos del lenguaje de programaci&amp;oacute;n que usemos.&lt;/p&gt; 
+&lt;p&gt;Sin embargo, el ORM env&amp;iacute;a sentencias SQL para recuperar los datos de la base de datos relacional seg&amp;uacute;n vamos navegando con los m&amp;eacute;todos de acceso a otros objetos y sus relaciones. Depende de como el ORM haga las consultas para recuperar los datos de la base de datos relacional puede generar muchas SQL, producir un bajo rendimiento en la aplicaci&amp;oacute;n y una carga de trabajo considerable para la base de datos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-05-30T18:30:00Z</dc:date>
+  </entry>
   <entry>
     <title>Página de excepción de Grails</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/pagina-de-excepcion-de-grails" />
@@ -19,7 +42,7 @@
     <author>
       <name>pico.dev</name>
     </author>
-    <updated>2014-05-23T21:00:00Z</updated>
+    <updated>2014-05-30T18:00:00Z</updated>
     <published>2014-05-23T18:00:19Z</published>
     <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
  &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
@@ -56,29 +79,6 @@
     <dc:date>2014-05-16T15:21:55Z</dc:date>
   </entry>
   <entry>
-    <title>Firefox sigue mejorando la experiencia de navegación de los usuarios</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios" />
-    <category term="navegadores" />
-    <category term="blog-stack" />
-    <category term="analisis" />
-    <category term="software" />
-    <category term="firefox" />
-    <author>
-      <name>Ricardo Barra</name>
-    </author>
-    <updated>2014-05-07T21:47:09Z</updated>
-    <published>2013-03-13T21:49:05Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Soy un fan declarado de Firefox porque es uno de los mejores software creados por el hombre, y adem&amp;aacute;s porque es responsable de cambiar, para siempre, la forma en que navegamos. Probablemente Chrome no ser&amp;iacute;a lo que es sin la influencia de Firefox.&lt;/p&gt; 
-&lt;p&gt;En las pr&amp;oacute;ximas actualizaciones de Firefox, &lt;a title="Firefox vuelve a ser el navegador m&amp;aacute;s r&amp;aacute;pido. Opera segundo, Chrome tercero." href="http://placerdigital.net/firefox-vuelve-a-ser-el-navegador-mas-rapido-opera-segundo-chrome-tercero/"&gt;actualmente el navegador m&amp;aacute;s r&amp;aacute;pido y completo del planeta&lt;/a&gt;, podr&amp;aacute;n apreciar 2 excelentes mejoras. La primera es &amp;uacute;til para leer archivos de texto plano (.txt). S&amp;eacute; que no es algo que ocurra muy seguido, pero cuando tenemos la mala suerte de pinchar en un link que lleva a un archivo de texto, la experiencia de leer algo como esto no es algo muy c&amp;oacute;modo, especialmente con ese scroll horizontal tan molesto:&lt;/p&gt; 
-&lt;div style="width: 447px"&gt; 
- &lt;a href="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png"&gt;&lt;img alt="Archivo de texto con scroll horizontal" src="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png" width="437" height="271" /&gt;&lt;/a&gt; 
- &lt;p&gt;Archivo de texto con scroll horizontal&lt;/p&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Con la nueva funcionalidad, ser&amp;aacute; muy distinto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Ricardo Barra</dc:creator>
-    <dc:date>2013-03-13T21:49:05Z</dc:date>
-  </entry>
-  <entry>
     <title>¡Felices 15 años, Mozilla! Gracias por cambiar el mundo</title>
     <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo" />
     <category term="aniversario" />
@@ -104,6 +104,29 @@
 &lt;p&gt;Con el apoyo de todos, Mozilla ha recorrido un largo camino. &lt;strong&gt;Medio bill&amp;oacute;n de personas&lt;/strong&gt; usan el navegador que ellos crearon: Firefox. Ahora, se aprontan a afrontar un pr&amp;oacute;ximo desaf&amp;iacute;o con el lanzamiento de una plataforma m&amp;oacute;vil abierta y basada en la Web: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Ricardo Barra</dc:creator>
     <dc:date>2013-03-31T14:10:14Z</dc:date>
+  </entry>
+  <entry>
+    <title>Firefox sigue mejorando la experiencia de navegación de los usuarios</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios" />
+    <category term="navegadores" />
+    <category term="blog-stack" />
+    <category term="analisis" />
+    <category term="software" />
+    <category term="firefox" />
+    <author>
+      <name>Ricardo Barra</name>
+    </author>
+    <updated>2014-05-07T21:47:09Z</updated>
+    <published>2013-03-13T21:49:05Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Soy un fan declarado de Firefox porque es uno de los mejores software creados por el hombre, y adem&amp;aacute;s porque es responsable de cambiar, para siempre, la forma en que navegamos. Probablemente Chrome no ser&amp;iacute;a lo que es sin la influencia de Firefox.&lt;/p&gt; 
+&lt;p&gt;En las pr&amp;oacute;ximas actualizaciones de Firefox, &lt;a title="Firefox vuelve a ser el navegador m&amp;aacute;s r&amp;aacute;pido. Opera segundo, Chrome tercero." href="http://placerdigital.net/firefox-vuelve-a-ser-el-navegador-mas-rapido-opera-segundo-chrome-tercero/"&gt;actualmente el navegador m&amp;aacute;s r&amp;aacute;pido y completo del planeta&lt;/a&gt;, podr&amp;aacute;n apreciar 2 excelentes mejoras. La primera es &amp;uacute;til para leer archivos de texto plano (.txt). S&amp;eacute; que no es algo que ocurra muy seguido, pero cuando tenemos la mala suerte de pinchar en un link que lleva a un archivo de texto, la experiencia de leer algo como esto no es algo muy c&amp;oacute;modo, especialmente con ese scroll horizontal tan molesto:&lt;/p&gt; 
+&lt;div style="width: 447px"&gt; 
+ &lt;a href="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png"&gt;&lt;img alt="Archivo de texto con scroll horizontal" src="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png" width="437" height="271" /&gt;&lt;/a&gt; 
+ &lt;p&gt;Archivo de texto con scroll horizontal&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Con la nueva funcionalidad, ser&amp;aacute; muy distinto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Ricardo Barra</dc:creator>
+    <dc:date>2013-03-13T21:49:05Z</dc:date>
   </entry>
   <entry>
     <title>Cómo saber qué tecnologías usa un sitio web</title>
@@ -672,37 +695,6 @@
 &lt;p&gt;Las tres opciones tienen la similitud que son muy f&amp;aacute;cilmente instalables (tambi&amp;eacute;n para alguien sin muchos conocimientos t&amp;eacute;cnicos) y que se basan en el programa &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/01/raspberry-pi-como-media-center-con-geexbox"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-01-03T19:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Usar el DNI electrónico con Firefox en Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux" />
-    <category term="planeta-codigo" />
-    <category term="software" />
-    <category term="planeta-arch-linux" />
-    <category term="planeta-linux" />
-    <category term="hardware" />
-    <category term="software-libre" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2013-12-21T11:00:00Z</updated>
-    <published>2013-12-06T13:07:58Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/archlinux.png" alt="Arch Linux" title="Arch Linux" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/dnie.jpg" alt="DNIe" title="DNIe" /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/firefox.png" alt="Firefox" title="Firefox" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Una vez hemos conseguido &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/11/instalar-un-lector-de-tarjetas-inteligentes-en-arch-linux.html"&gt;instalar el DNIe en Linux&lt;/a&gt; correctamente podemos empezar a darle alguna utilidad m&amp;aacute;s all&amp;aacute; de cuando se nos require para acreditar nuestra identidad. Como veremos en esta entrada podemos usar el DNI electr&amp;oacute;nico para hacer varios tr&amp;aacute;mites administrativos y consultas con la administraci&amp;oacute;n p&amp;uacute;blica, empresas o entidades que en su web soporten el DNIe como medio de autenticaci&amp;oacute;n.&lt;/p&gt; 
-&lt;p&gt;En esta entrada explicar&amp;eacute; como usar el DNIe electr&amp;oacute;nico con la combinaci&amp;oacute;n del navegador &lt;a href="http://www.mozilla.org/es-ES/"&gt;Firefox&lt;/a&gt; y &lt;a href="http://www.linux.com/"&gt;Linux&lt;/a&gt;. Para ello primeramente debemos hacer que Firefox detecte el lector de tarjetas inteligentes, desde el men&amp;uacute; de Firefox vamos a &amp;laquo;Preferencias &amp;gt; Avanzado &amp;gt; Certificados &amp;gt; Dispositivos de seguridad&amp;raquo;.&lt;/p&gt; 
-&lt;div style="text-align: center;"&gt; 
- &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/preferencias-firefox.png" title="Preferencias de Firefox"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/preferencias-firefox-thumb.png" alt="Preferencias de Firefox" title="Preferencias de Firefox" /&gt; &lt;/a&gt; 
- &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-1.png" title="Administrador de dispositivos (1)"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-1-thumb.png" alt="Administrador de dispositivos (1)" title="Administrador de dispositivos (1)" /&gt;&lt;/a&gt; 
- &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-2.png" title="Administrador de dispositivos (2)"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/1/administrador-dispositivos-2-thumb.png" alt="Administrador de dispositivos (2)" title="Administrador de dispositivos (2)" /&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En esta pantalla pulsamos el bot&amp;oacute;n &amp;laquo;Cargar&amp;raquo; e introducimos los siguientes datos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2013/12/usar-el-dni-electronico-con-firefox-en-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-12-06T13:07:58Z</dc:date>
   </entry>
 </feed>
 

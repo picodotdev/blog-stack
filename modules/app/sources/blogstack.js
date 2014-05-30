@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
+      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
+    },
+    {
+      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
+      "title" : "Página de excepción de Grails"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
       "title" : "JQuery Mobile Arquitectura"
     },
@@ -51,16 +59,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Tests de integración con Entity Framework (II): Escribiendo tests cómodamente"
     },
     {
-      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
-      "title" : "Página de excepción de Grails"
-    },
-    {
       "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
       "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev",
-      "title" : "Java y Flexibilidad para (GenbetaDev)"
     }
   ]
 }

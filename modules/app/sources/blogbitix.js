@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
+      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
       "title" : "Página de excepción de Grails"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry",
       "title" : "Libro sobre desarrollo de aplicaciones con Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry",
-      "title" : "Presentación sobre Apache Tapestry"
     }
   ]
 }
