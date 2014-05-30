@@ -15,6 +15,10 @@ define("app/sources/placerdigital", [], function() {
       "title" : "Firefox sigue mejorando la experiencia de navegación de los usuarios"
     },
     {
+      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
+      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
+    },
+    {
       "url" : "/post/placerdigital/2013/06/como-extrano-el-acuerdo-entre-google-y-twitter-para-resultados-en-tiempo-real",
       "title" : "Cómo extraño el acuerdo entre Google y Twitter para resultados en tiempo real"
     },
@@ -23,12 +27,12 @@ define("app/sources/placerdigital", [], function() {
       "title" : "Cómo saber qué tecnologías usa un sitio web"
     },
     {
-      "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
-      "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
-    },
-    {
       "url" : "/post/placerdigital/2014/04/como-bajar-o-disminuir-el-peso-de-una-o-varias-imagenes-de-forma-online",
       "title" : "Cómo bajar o disminuir el peso de una o varias imágenes de forma online"
+    },
+    {
+      "url" : "/post/placerdigital/2014/03/problema-de-accesibilidad-en-ventana-de-bloqueo-de-windows",
+      "title" : "Problema de accesibilidad en ventana de bloqueo de Windows"
     },
     {
       "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
@@ -37,10 +41,6 @@ define("app/sources/placerdigital", [], function() {
     {
       "url" : "/post/placerdigital/2014/02/por-que-el-gobierno-y-el-sistema-educativo-deben-preferir-software-libre",
       "title" : "Por qué el gobierno y el sistema educativo DEBEN preferir software libre"
-    },
-    {
-      "url" : "/post/placerdigital/2014/03/problema-de-accesibilidad-en-ventana-de-bloqueo-de-windows",
-      "title" : "Problema de accesibilidad en ventana de bloqueo de Windows"
     }
   ]
 }
