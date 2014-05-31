@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
+      "title" : "La jauría humana"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
       "title" : "Navegador web Lynx. Un lince en la línea de comandos"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
-      "title" : "La jauría humana"
     },
     {
       "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
