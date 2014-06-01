@@ -24,7 +24,7 @@ public class Globals {
 	public static final Integer NUMBER_PAGES_LABEL = 3;
 	public static final Integer NUMBER_POSTS_PAGE = 15;
 	public static final Integer NUMBER_ARTICLES_FEED = 30;
-	public static final Integer NUMBER_ARTICLES_SITEMAP = 100;
+	public static final Integer NUMBER_ARTICLES_SITEMAP = 200;
 	public static final Integer POST_EXCERPT_LENGHT = 750;
 	public static final Locale LOCALE = new Locale("es", "ES");
 	

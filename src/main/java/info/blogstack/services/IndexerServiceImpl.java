@@ -30,6 +30,7 @@ import com.sun.syndication.feed.synd.SyndCategory;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
+import com.sun.syndication.io.ParsingFeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
@@ -82,14 +83,15 @@ public class IndexerServiceImpl implements IndexerService {
 		for (Source source : sources) {
 			try {
 				URL url = new URL(source.getUrl());
-				URLConnection conexion = (URLConnection) url.openConnection();
-				XmlReader reader = new XmlReader(conexion.getInputStream());
+				URLConnection conection = (URLConnection) url.openConnection();
+				conection.setConnectTimeout(30 * 1000);
+				conection.setReadTimeout(30 * 1000);
+				XmlReader reader = new XmlReader(conection.getInputStream());
 				posts.addAll(index(indexation, source, reader));
-			} catch (IOException e) {
+			} catch (ParsingFeedException | IOException e) {
 				logger.error(e.getMessage(), e);
-			}			
+			}
 		}
-
 		return posts;
 	}
 	

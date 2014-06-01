@@ -376,4 +376,17 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="17" author="picodotdev">
+        <comment>Agregación de fuente (21-05-2014)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="PLEDIN"/>
+            <column name="alias" value="pledin"/>
+            <column name="pageUrl" value="http://www.josedomingo.org/pledin/"/>
+            <column name="url" value="http://www.josedomingo.org/pledin/feed/"/>
+            <column name="author" value="Jose Domingo"/>
+            <column name="email" value="clasinfo@gmail.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

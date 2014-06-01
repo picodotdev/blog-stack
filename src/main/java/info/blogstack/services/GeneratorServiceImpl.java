@@ -414,7 +414,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 		Pagination pagination = new Pagination(0, Globals.NUMBER_ARTICLES_SITEMAP, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
 		List<Post> posts = service.getPostDAO().findAll(pagination);
 
-		DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-MM-dd'T'hh:mm:ssZ");
+		DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-MM-dd'T'hh:mm:ssZZ");
 
 		int i = 0;
 		for (Post post : posts) {
@@ -424,7 +424,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 			
 			String loc = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post)).toAbsoluteURI();
 			String lastmod = formatter.print(post.getDate());
-			String changefreq = (post.getDate().isAfter(DateTime.now().plusDays(-7))) ? "daily" : "monthly";
+			String changefreq = (post.getDate().isAfter(DateTime.now().plusDays(-7))) ? "daily" : "weekly";
 			String priority = (i < 50) ? "0.9" : "0.6";
 			printSitemapUrl(writer, loc, lastmod, changefreq, priority);
 			i += 1;
