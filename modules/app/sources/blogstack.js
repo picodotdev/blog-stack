@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
+      "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
       "title" : "La jauría humana"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-ii-escribiendo-tests-comodamente",
       "title" : "Tests de integración con Entity Framework (II): Escribiendo tests cómodamente"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
-      "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
     }
   ]
 }

@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-01T12:21:33Z</updated>
+  <updated>2014-06-02T06:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-01T12:21:33Z</dc:date>
+  <dc:date>2014-06-02T06:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Ley de Demeter; Tell, Don’t Ask y God Object</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object" />
+    <category term="solid" />
+    <category term="design-patterns" />
+    <category term="development" />
+    <author>
+      <name>Juan María Hernández</name>
+    </author>
+    <updated>2014-06-02T05:06:15Z</updated>
+    <published>2014-06-02T05:06:15Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace un par de d&amp;iacute;as &lt;a href="https://twitter.com/panicoenlaxbox/status/472279782085099520"&gt;habl&amp;aacute;bamos en twitter&lt;/a&gt; sobre la Ley de Demeter, y es una de esas cosas en las que, depende del d&amp;iacute;a, tengo opiniones encontradas, as&amp;iacute; que me ha parecido una buena escusa para escribir un post y tratar de analizar sus puntos buenos y malos.&lt;/p&gt; 
+&lt;h3&gt;La Ley de Demeter&lt;/h3&gt; 
+&lt;p&gt;La &lt;a href="http://en.wikipedia.org/wiki/Law_of_Demeter"&gt;Ley de Demeter&lt;/a&gt; es un principio de dise&amp;ntilde;o que intenta limitar el acoplamiento entre componentes mediante la aplicaci&amp;oacute;n de unas reglas muy simples. Cuando hablamos de dise&amp;ntilde;o orientado a objetos, podr&amp;iacute;amos resumirla de la siguiente forma:&lt;/p&gt; 
+&lt;p&gt;Un m&amp;eacute;todo M de un objeto O, s&amp;oacute;lo puede invocar m&amp;eacute;todos en los siguientes objetos:&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;El propio objeto O, es decir, el objeto que contiene al m&amp;eacute;todo.&lt;/li&gt; 
+ &lt;li&gt;Los par&amp;aacute;metros que recibe el m&amp;eacute;todo.&lt;/li&gt; 
+ &lt;li&gt;Los objetos instanciados por el m&amp;eacute;todo, es decir, variables locales creadas en el m&amp;eacute;todo.&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Juan María Hernández</dc:creator>
+    <dc:date>2014-06-02T05:06:15Z</dc:date>
+  </entry>
   <entry>
     <title>La jauría humana</title>
     <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2014/05/la-jauria-humana" />
@@ -708,56 +731,6 @@ out.println(&amp;quot;hola&amp;quot;);
 &lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-05-15T14:41:31Z</dc:date>
-  </entry>
-  <entry>
-    <title>Android TAG y  el principio DRY</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry" />
-    <category term="mobile" />
-    <category term="android" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-05-15T07:16:09Z</updated>
-    <published>2014-05-15T07:16:09Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Android es una plataforma de desarrollo&lt;strong&gt; que empieza a tener el sobrenombre de INFINITA&lt;/strong&gt; &amp;nbsp;en cuanto a las cosas que se pueden hacer, conjunto de APIs soportadas etc . Sin embargo al ser tan grande muchas veces nos centramos en aprender los conceptos avanzados y nos olvidamos un poco de lo m&amp;aacute;s elemental. Vamos a ver un ejemplo sencillo que contiene 3 botones.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001138.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001138.png" alt="001" width="298" height="357" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Vamos a ver el c&amp;oacute;digo del Layout :&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;LinearLayout android:id=&amp;quot;@+id/zona&amp;quot;
- xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
- android:layout_width=&amp;quot;fill_parent&amp;quot;
- android:layout_height=&amp;quot;fill_parent&amp;quot; android:orientation=&amp;quot;vertical&amp;quot; &amp;gt;
-
- &amp;lt;TextView
- android:id=&amp;quot;@+id/texto_1&amp;quot;
- android:layout_width=&amp;quot;match_parent&amp;quot;
- android:layout_height=&amp;quot;wrap_content&amp;quot;
- /&amp;gt;
-
- &amp;lt;Button
- android:id=&amp;quot;@+id/boton_1&amp;quot;
- android:layout_width=&amp;quot;match_parent&amp;quot;
- android:layout_height=&amp;quot;wrap_content&amp;quot;
- android:text=&amp;quot;@string/boton_1&amp;quot; /&amp;gt;
-
- &amp;lt;Button
- android:id=&amp;quot;@+id/boton_2&amp;quot;
- android:layout_width=&amp;quot;match_parent&amp;quot;
- android:layout_height=&amp;quot;wrap_content&amp;quot;
- android:text=&amp;quot;@string/boton_2&amp;quot; /&amp;gt;
-
- &amp;lt;Button
- android:id=&amp;quot;@+id/boton_3&amp;quot;
- android:layout_width=&amp;quot;match_parent&amp;quot;
- android:layout_height=&amp;quot;wrap_content&amp;quot;
- android:text=&amp;quot;@string/boton_3&amp;quot; /&amp;gt;
-
-&amp;lt;/LinearLayout&amp;gt;
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-05-15T07:16:09Z</dc:date>
   </entry>
 </feed>
 

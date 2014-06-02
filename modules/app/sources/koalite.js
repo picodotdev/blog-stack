@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
+      "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
+    },
+    {
       "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-ii-escribiendo-tests-comodamente",
       "title" : "Tests de integración con Entity Framework (II): Escribiendo tests cómodamente"
     },
