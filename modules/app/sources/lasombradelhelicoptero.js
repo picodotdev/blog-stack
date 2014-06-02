@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/06/redfox-software-de-gestion-de-pymes-de-codigo-abierto",
+      "title" : "RedFox: software de gestión de PYMES de código abierto"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
       "title" : "La jauría humana"
     },
@@ -57,10 +61,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/01/pesadilla-antes-de-navidad",
       "title" : "Pesadilla antes de Navidad"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/01/resultados-de-la-encuesta-de-sistemas-operativos",
-      "title" : "Resultados de la encuesta de sistemas operativos"
     }
   ]
 }
