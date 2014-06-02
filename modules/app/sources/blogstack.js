@@ -15,10 +15,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
     },
     {
-      "url" : "/post/lasombradelhelicoptero/2014/05/la-jauria-humana",
-      "title" : "La jauría humana"
-    },
-    {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     },
@@ -61,6 +57,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
       "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/05/java-iterator-vs-foreach",
+      "title" : "Java Iterator vs ForEach"
     }
   ]
 }
