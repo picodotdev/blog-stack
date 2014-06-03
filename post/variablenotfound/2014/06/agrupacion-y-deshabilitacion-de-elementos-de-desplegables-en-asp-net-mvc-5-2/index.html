@@ -1,0 +1,159 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2"><span itemprop="headline">Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/xbRITyWbWSg/agrupacion-y-deshabilitacion-de.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-03T11:59" itemprop="datePublished">Publicado el martes, 03 de junio de 2014 a las 11:59 UTC</span></div><div><span datetime="2014-06-03T11:59" itemprop="dateModified">Actualizado el martes, 03 de junio de 2014 a las 11:59 UTC</span></div><div><span>
+Etiquetado como
+novedades, aspnetmvc</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET MVC" src="http://lh4.ggpht.com/-gox8-gN4EQI/U4r5Jn4PHzI/AAAAAAAADec/nnKR6x05R7k/ASPNETMVC2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC" width="142" />La revisi&oacute;n 5.2 de ASP.NET MVC, cuya 
+<em><a href="http://blogs.msdn.com/b/webdev/archive/2014/05/27/release-candidates-for-asp-net-mvc-5-2-web-api-2-2-and-web-pages-3-2.aspx">release candidate acaba de anunciarse</a></em>, introduce algunas peque&ntilde;as mejoras en los helpers de generaci&oacute;n de listas desplegables de esas que, aunque no son imprescindibles, s&iacute; nos simplifican un poco la vida a la hora de construir formularios. Estos cambios son:
+<br />
+<ul>
+ <li>La capacidad de agrupar elementos en una lista usando el tag <code>&lt;optgroup&gt;</code> de HTML. </li>
+ <li>La posibilidad de deshabilitar elementos individuales, de forma que aunque aparezcan en la lista no puedan ser seleccionados. </li>
+</ul>Vamos a verlas en detalle.
+<br />
+<a></a>
+<br />
+<h4><img align="right" alt="El tag optgroup en acci&oacute;n" src="http://lh4.ggpht.com/-BZxCBZ0ZbZ8/U4r5KbGYPFI/AAAAAAAADek/5KztYTBbTzw/image72.png?imgmax=800" height="126" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="El tag optgroup en acci&oacute;n" width="186" />1. Agrupaci&oacute;n de elementos con &lt;optgroup&gt;</h4>El tag HTML 
+<code>&lt;optgroup&gt;</code> es de mucha utilidad para agrupar elementos en los desplegables de nuestros formularios, como podemos observar en la porci&oacute;n de captura de pantalla adjunta. 
+<br />El c&oacute;digo para generar en pantalla este resultado podr&iacute;a ser el siguiente:
+<br />
+<pre>&lt;label for=&quot;color&quot;&gt;Select color:&lt;/label&gt;<br />&lt;select id=&quot;color&quot;&gt;<br />    &lt;optgroup label=&quot;Light&quot;&gt;<br />        &lt;option&gt;White&lt;/option&gt;<br />        &lt;option&gt;Yellow&lt;/option&gt;<br />    &lt;/optgroup&gt;<br />    &lt;optgroup label=&quot;Dark&quot;&gt;<br />        &lt;option&gt;Black&lt;/option&gt;<br />        &lt;option&gt;Navy&lt;/option&gt;<br />    &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>Hasta ahora, ASP.NET MVC no dispon&iacute;a de soporte para este elemento en los 
+<em>helpers</em> de creaci&oacute;n de desplegables y ten&iacute;amos que ingeni&aacute;rnoslas para generar de forma manual esta estructura, pero la nueva versi&oacute;n 5.2&nbsp; va a hacer mucho m&aacute;s sencillo aportar este extra de clasificaci&oacute;n a nuestras, a veces demasiado extensas, listas de selecci&oacute;n.
+<br />
+<br />Para ello, en primer lugar se ha a&ntilde;adido la nueva clase 
+<code>SelectListGroup</code> para representar las categor&iacute;as o grupos en los que clasificaremos los elementos del desplegable, para asignarlos posteriormente a cada elemento de la lista. As&iacute;, para conseguir un resultado similar al visto algo m&aacute;s arriba, podr&iacute;amos escribir el siguiente c&oacute;digo:
+<br />
+<pre>@{<br />    var light = new SelectListGroup() { Name = &quot;Light&quot; };<br />    var white = new SelectListItem() { Text = &quot;White&quot;, Group = light };<br />    var yellow = new SelectListItem() { Text = &quot;Yellow&quot;, Group = light };<br /><br />    var dark = new SelectListGroup() { Name = &quot;Dark&quot; };<br />    var black = new SelectListItem() { Text = &quot;Black&quot;, Group = dark };<br />    var navy = new SelectListItem() { Text = &quot;Navy&quot;, Group = dark };<br />}<br />@Html.Label(&quot;color&quot;, &quot;Select color:&quot;)<br />@Html.DropDownList(&quot;color&quot;, new[] { white, yellow, black, navy })</pre>
+<img align="right" alt="El tag optgroup en acci&oacute;n" src="http://lh4.ggpht.com/-BZxCBZ0ZbZ8/U4r5KbGYPFI/AAAAAAAADes/qR2gaoRyxvQ/image7%25255B1%25255D.png?imgmax=800" height="113" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="El tag optgroup en acci&oacute;n" width="167" />Observad que se ha a&ntilde;adido una propiedad 
+<code>Group</code> en la clase 
+<code>SelectListItem</code> para poder indicar el grupo al que pertenece cada elemento. El resultado en ejecuci&oacute;n, como es previsible, es exactamente el mismo que el anterior.
+<br />
+<br />Y para terminar con este punto, es interesante a&ntilde;adir un par de observaciones.
+<br />
+<br />En primer lugar, no es necesario que los elementos de un mismo grupo se a&ntilde;adan secuencialmente a la lista, pues internamente se reordenar&aacute;n para que aparezcan todos juntos. Por tanto, si hubi&eacute;ramos llamado al 
+<i>helper</i> 
+<code>DropDownList()</code>&nbsp; con los elementos definidos en el orden 
+<code>{ white, black, yellow, navy }</code>, el resultado obtenido ser&iacute;a exactamente el mismo.
+<br />
+<br />
+<img align="right" alt="Grupos repetidos" src="http://lh5.ggpht.com/-YkH5i5GF29s/U4r5LJpiF9I/AAAAAAAADe0/1sgs7dIGqMU/image%25255B7%25255D.png?imgmax=800" height="113" style="margin: 0px 0px 10px 10px;" title="Grupos repetidos" width="176" />En segundo, es conveniente tener en cuenta que dos objetos 
+<code>SelectListGroup</code> distintos, a&uacute;n teniendo el mismo nombre, son considerados como grupos distintos. A la derecha pod&eacute;is ver el resultado de ejecutar un c&oacute;digo como el siguiente:
+<br />
+<pre>@{<br />    var light1 = new SelectListGroup() { Name = &quot;Light&quot; };<br />    var white = new SelectListItem()<br />    {<br />        Text = &quot;White&quot;,<br />        Group = light1<br />    };<br /><br />    var light2 = new SelectListGroup() { Name = &quot;Light&quot; };<br />    var yellow = new SelectListItem()<br />    {<br />        Text = &quot;Yellow&quot;,<br />        Group = light2<br />    };<br /><br />    [...]<br />}<br />@Html.Label(&quot;color&quot;, &quot;Select color:&quot;) &amp;nbsp; &amp;nbsp;<br />@Html.DropDownList(&quot;color&quot;, new[] { white, yellow, black, navy })</pre>
+<h4>2. Deshabilitaci&oacute;n de elementos</h4>
+<img align="right" alt="Elementos deshabilitados en el desplegable" src="http://lh5.ggpht.com/-_7WWzZipOrA/U4r5Lg5ErlI/AAAAAAAADe8/Y1D5_9UmvP8/image%25255B11%25255D.png?imgmax=800" height="100" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Elementos deshabilitados en el desplegable" width="175" />Otra de las novedades interesantes que acompa&ntilde;an a la revisi&oacute;n 5.2 de ASP.NET MVC es la posibilidad de deshabilitar elementos del desplegable para que no puedan ser seleccionados, algo que en HTML ya pod&iacute;amos conseguir utilizando el atributo 
+<code>disabled</code> sobre los mismos, pero no de forma directa desde los 
+<em>helpers</em>.
+<br />
+<br />Para ello, se ha introducido en la clase 
+<code>SelectListItem</code> una nueva propiedad llamada 
+<code>Disabled</code>, que seguro pod&eacute;is intuir para qu&eacute; sirve ;-)
+<br />
+<pre>@{<br />    var white = new SelectListItem()  { Text = &quot;White&quot; };<br />    var yellow = new SelectListItem() { Text = &quot;Yellow&quot; };<br />    var black = new SelectListItem()  { Text = &quot;Black&quot;, Disabled = true };<br />    var navy = new SelectListItem()   { Text = &quot;Navy&quot;, Disabled = true };<br />}<br />@Html.Label(&quot;color&quot;, &quot;Select color:&quot;)<br />@Html.DropDownList(&quot;color&quot;, new[] { white, yellow, black, navy })</pre>
+<img align="right" alt="image" src="http://lh4.ggpht.com/-kN5yuksyXVg/U4r5MPRlQlI/AAAAAAAADfE/RM_xaeiv2mw/image%25255B15%25255D.png?imgmax=800" height="105" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="155" />Y como extra, esta propiedad est&aacute; tambi&eacute;n disponible en la clase 
+<code>SelectListGroup</code>, por lo que podremos deshabilitar igualmente un grupo completo:
+<br />
+<pre>var dark = new SelectListGroup() { Name = &quot;Dark&quot;, Disabled = true };</pre>
+<h4>3. &iquest;Y puedo usar a d&iacute;a de hoy estas novedades?</h4>La forma m&aacute;s segura de hacerlo es esperar a que se publique la versi&oacute;n 5.2. Aunque no se conoce la fecha oficial, no debe tardar mucho porque no se tratan de cambios de gran calado.
+<br />
+<br />Pero mientras estemos en RC podemos ver y usar ya esta caracter&iacute;sticas actualizando el paquete Nuget de MVC:
+<br />
+<br />
+<pre>PM&gt; Update-Package microsoft.aspnet.mvc -Version 5.2.0-rc -Pre</pre>
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=xbRITyWbWSg:CrW5UZLn2DA:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=xbRITyWbWSg:CrW5UZLn2DA:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=xbRITyWbWSg:CrW5UZLn2DA:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=xbRITyWbWSg:CrW5UZLn2DA:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/xbRITyWbWSg" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" st_title="Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 484,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
