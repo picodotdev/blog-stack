@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
+      "title" : "Uso de Java Generics  (I)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2",
       "title" : "Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-159",
       "title" : "Enlaces interesantes 159"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
-      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
     }
   ]
 }

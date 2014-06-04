@@ -3,10 +3,70 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-03T21:02:14Z</updated>
+  <updated>2014-06-04T06:02:26Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-03T21:02:14Z</dc:date>
+  <dc:date>2014-06-04T06:02:26Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Uso de Java Generics  (I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/06/uso-de-java-generics-i" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-06-04T05:49:10Z</updated>
+    <published>2014-06-04T05:49:10Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Uno de los temas que mas quebraderos de cabeza da a los desarrolladores es la construcci&amp;oacute;n Java Generics o simplemente clases Gen&amp;eacute;ricas.Vamos a escribir&amp;nbsp;algunos art&amp;iacute;culos hablando de este tema .Para empezar con ello vamos a construir&amp;nbsp;&amp;nbsp;la clase Bolsa que es una clase sencilla que nos permitir&amp;aacute; almacenar objetos de varios tipos.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/bolsa.jpg"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/bolsa-239x300.jpg" alt="bolsa" width="239" height="300" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Esta clase tendr&amp;aacute; un l&amp;iacute;mite de objetos a almacenar . Alcanzado el limite no se podr&amp;aacute;n a&amp;ntilde;adir mas .Vamos a ver su c&amp;oacute;digo fuente:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Bolsa implements Iterable{
+
+private ArrayList lista= new ArrayList();
+private int tope;
+
+public Bolsa(int tope) {
+super();
+this.tope = tope;
+}
+public void add(Object objeto ) {
+if (lista.size()&amp;lt;=tope) {
+
+lista.add(objeto);
+}else {
+
+throw new RuntimeException(&amp;quot;no caben mas&amp;quot;);
+}
+
+}
+
+public Iterator iterator() {
+return lista.iterator();
+}
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/06/uso-de-java-generics-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-06-04T05:49:10Z</dc:date>
+  </entry>
   <entry>
     <title>Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2</title>
     <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2" />
@@ -716,25 +776,6 @@ out.println(&amp;quot;hola&amp;quot;);
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/05/enlaces-interesantes-158"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-05-19T11:56:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tests de integración con Entity Framework (I): Preparando el entorno</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno" />
-    <category term="orm" />
-    <category term="development" />
-    <category term="tdd" />
-    <category term="entity-framework" />
-    <category term="testing" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-05-19T05:06:50Z</updated>
-    <published>2014-05-19T05:06:50Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En mi &amp;uacute;ltimo post explicaba los &lt;a href="http://blog.koalite.com/2014/05/conceptos-basicos-para-testear-una-base-de-datos/" title="Conceptos b&amp;aacute;sicos para testear una base de datos"&gt;conceptos b&amp;aacute;sicos para escribir tests de integraci&amp;oacute;n contra una base de datos&lt;/a&gt;, pero me quedaba en eso, conceptos, y aunque siempre insistir&amp;eacute; en &lt;a href="http://blog.koalite.com/2011/08/%c2%bfhacen-los-frameworks-tontos-a-los-desarrolladores/" title="&amp;iquest;Hacen los frameworks tontos a los desarrolladores?"&gt;lo importante que es conocer las bases&lt;/a&gt;, un ejemplo siempre viene bien para dejar m&amp;aacute;s claro c&amp;oacute;mo aplicar la teor&amp;iacute;a al mundo real. &lt;/p&gt; 
-&lt;p&gt;En los pr&amp;oacute;ximos posts vamos a ver un ejemplo completo de c&amp;oacute;mo podemos escribir tests de integraci&amp;oacute;n contra una base de datos sin sufrir demasiado. Como tecnolog&amp;iacute;a de acceso a datos usaremos &lt;a href="http://msdn.microsoft.com/en-us/data/ef.aspx"&gt;Entity Framework&lt;/a&gt; por emplear algo familiar a la mayor&amp;iacute;a de vosotros, aunque las ideas son aplicables a otros ORMs o, en general, a cualquier estrategia de persistencia.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;OJO:&lt;/strong&gt; Aunque llevo mucho tiempo &lt;a href="http://blog.koalite.com/2014/04/por-que-sigo-usando-un-orm/" title="Por qu&amp;eacute; sigo usando un ORM"&gt;trabajando con ORMs&lt;/a&gt;, no soy un experto en Entity Framework y hay partes de su filosof&amp;iacute;a que no me acaban de gustar, por lo que puede que el c&amp;oacute;digo resulte un poco extra&amp;ntilde;o o que, directamente, est&amp;eacute; mal. Estar&amp;eacute; encantado de recibir correcciones en los comentarios.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-05-19T05:06:50Z</dc:date>
   </entry>
 </feed>
 

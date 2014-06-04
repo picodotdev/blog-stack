@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
+      "title" : "Uso de Java Generics  (I)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
       "title" : "JQuery Mobile Arquitectura"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/04/java-servletcontextlistener",
       "title" : "Java ServletContextListener"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/04/nosql-y-documentos-cantabriatic",
-      "title" : "NoSQL y documentos (CantabriaTic)"
     }
   ]
 }
