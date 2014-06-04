@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
+      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
       "title" : "Uso de Java Generics  (I)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/05/videos-sobre-openstack",
       "title" : "Vídeos sobre OpenStack"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-159",
-      "title" : "Enlaces interesantes 159"
     }
   ]
 }
