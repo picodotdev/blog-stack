@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
+      "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
       "title" : "Uso de Java Generics  (I)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga",
       "title" : "Introducción a JMeter y pruebas de carga"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/04/java-servletcontextlistener",
-      "title" : "Java ServletContextListener"
     }
   ]
 }

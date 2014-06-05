@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
+      "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
+    },
+    {
       "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
       "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
       "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
-    },
-    {
-      "url" : "/post/pledin/2014/05/videos-sobre-openstack",
-      "title" : "Vídeos sobre OpenStack"
     }
   ]
 }
