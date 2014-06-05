@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
+      "title" : "BlogStack generando Sinergia"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
       "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
       "title" : "Relaciones ternarias (GenbetaDev)"
-    },
-    {
-      "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
-      "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
     }
   ]
 }

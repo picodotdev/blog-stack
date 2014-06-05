@@ -3,6 +3,10 @@ define("app/sources/elblogdejose", [], function() {
   "name" : "El blog de Jose",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
+      "title" : "BlogStack generando Sinergia"
+    },
+    {
       "url" : "/post/elblogdejose/2014/03/mejorando-mi-blog-wordpress-parte-ii",
       "title" : "Mejorando mi blog WordPress, Parte II"
     },
