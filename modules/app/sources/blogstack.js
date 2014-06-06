@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
+      "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
       "title" : "El patrón fachada  (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
       "title" : "¿Cómo es la estrella de tu proyecto?"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap",
-      "title" : "Error 404 en archivo .woff usando Bootstrap"
     }
   ]
 }

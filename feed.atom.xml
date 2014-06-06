@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-06T09:02:18Z</updated>
+  <updated>2014-06-06T20:02:20Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-06T09:02:18Z</dc:date>
+  <dc:date>2014-06-06T20:02:20Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-06-06T18:58:25Z</updated>
+    <published>2014-06-06T18:58:25Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/wildfly.png" alt="WildFly" title="WildFly" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Los class loaders del &lt;a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/"&gt;servidor de aplicaciones JBoss)/WildFly&lt;/a&gt; habitualmente han dado alg&amp;uacute;n problema en la ejecuci&amp;oacute;n de las aplicaciones y la carga de clases. En versiones antiguas como la 4 se pod&amp;iacute;an producir conflictos entre las librer&amp;iacute;as de las aplicaciones y las librer&amp;iacute;as instaladas en el servidor ya que en &lt;a href="http://jbossas.jboss.org/"&gt;JBoss&lt;/a&gt; se buscaba las clases por defecto y primero en el class loader del servidor en vez de en el classloader de la aplicaci&amp;oacute;n (war). Ya en las &amp;uacute;ltimas versiones como JBoss 7 y &lt;a href="http://wildfly.org/"&gt;WildFly&lt;/a&gt; la forma de cargar las clases es m&amp;aacute;s parecido al modelo habitual que se sigue en las aplicaciones Java EE y en servidores como Tomcat buscando primero en el directorio classes WEB-INF/classes y entre las librer&amp;iacute;as de la carpeta WEB-INF/lib del archivo war. Adem&amp;aacute;s, con la inclusi&amp;oacute;n de JBoss Modules se puede seguir un esquema OSGi con lo que incluso podr&amp;iacute;amos usar simultaneamente en el servidor diferentes versiones de la misma librer&amp;iacute;a.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-06-06T18:58:25Z</dc:date>
+  </entry>
   <entry>
     <title>El patrón fachada  (GenBetaDev)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev" />
@@ -712,37 +735,6 @@ lista.add(&amp;quot;Pedro&amp;quot;);
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/05/identity-vs-guid"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Guille</dc:creator>
     <dc:date>2014-05-21T12:10:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Sidewaffle, gran pack de plantillas para Visual Studio</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio" />
-    <category term="visualstudio" />
-    <category term="extensiones" />
-    <category term="herramientas" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-05-21T07:01:55Z</updated>
-    <published>2014-05-20T12:03:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="SideWaffle" src="http://lh3.ggpht.com/-jR0rVCeRv9s/U2ZM_kOa7uI/AAAAAAAADa0/DD2uNxkHM1g/image10.png?imgmax=800" height="105" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="SideWaffle" width="109" /&gt;Hace tiempo que vengo oyendo hablar de 
-&lt;a href="http://sidewaffle.com/"&gt;SideWaffle&lt;/a&gt;, y siempre refiri&amp;eacute;ndose a esta extensi&amp;oacute;n como un complemento imprescindible para aumentar nuestra productividad trabajando con Visual Studio en la creaci&amp;oacute;n de aplicaciones web, por lo que ya iba siendo hora de echarle un vistazo. 
-&lt;br /&gt; 
-&lt;br /&gt;SideWaffle es una extensi&amp;oacute;n para Visual Studio 2012 y 2013 que a&amp;ntilde;ade a &amp;eacute;ste un buen conjunto de plantillas tanto de proyectos de completos ( 
-&lt;em&gt;Add &amp;gt; New Project&lt;/em&gt;) como de elementos ( 
-&lt;em&gt;Add &amp;gt; New item&lt;/em&gt;), as&amp;iacute; como algunos 
-&lt;em&gt;snippets&lt;/em&gt; de c&amp;oacute;digo listos para usar. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Es un complemento gratuito, 
-&lt;a href="https://github.com/ligershark/side-waffle"&gt;open source&lt;/a&gt;, y est&amp;aacute; totalmente liderado por la comunidad de desarrolladores, donde encontramos figuras como 
-&lt;a href="http://madskristensen.net/"&gt;Mads Kristensen&lt;/a&gt;, 
-&lt;a href="http://www.johnpapa.net/"&gt;John Papa&lt;/a&gt; o 
-&lt;a href="http://sedodream.com/"&gt;Sayed Hasmini&lt;/a&gt;. 
-&lt;br /&gt; 
-&lt;br /&gt;La instalaci&amp;oacute;n se realiza desde el gestor de extensiones del propio Visual Studio; localizamos SideWaffle usando el buscador, y descargamos e instalamos el complemento:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/05/sidewaffle-gran-pack-de-plantillas-para-visual-studio"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-05-20T12:03:00Z</dc:date>
   </entry>
 </feed>
 

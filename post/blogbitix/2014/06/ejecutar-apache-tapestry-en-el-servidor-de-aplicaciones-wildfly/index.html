@@ -1,0 +1,257 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly"><span itemprop="headline">Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-06T18:58" itemprop="datePublished">Publicado el viernes, 06 de junio de 2014 a las 18:58 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/wildfly.png" alt="WildFly" title="WildFly" /> 
+</div> 
+<p>Los class loaders del <a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/">servidor de aplicaciones JBoss)/WildFly</a> habitualmente han dado alg&uacute;n problema en la ejecuci&oacute;n de las aplicaciones y la carga de clases. En versiones antiguas como la 4 se pod&iacute;an producir conflictos entre las librer&iacute;as de las aplicaciones y las librer&iacute;as instaladas en el servidor ya que en <a href="http://jbossas.jboss.org/">JBoss</a> se buscaba las clases por defecto y primero en el class loader del servidor en vez de en el classloader de la aplicaci&oacute;n (war). Ya en las &uacute;ltimas versiones como JBoss 7 y <a href="http://wildfly.org/">WildFly</a> la forma de cargar las clases es m&aacute;s parecido al modelo habitual que se sigue en las aplicaciones Java EE y en servidores como Tomcat buscando primero en el directorio classes WEB-INF/classes y entre las librer&iacute;as de la carpeta WEB-INF/lib del archivo war. Adem&aacute;s, con la inclusi&oacute;n de JBoss Modules se puede seguir un esquema OSGi con lo que incluso podr&iacute;amos usar simultaneamente en el servidor diferentes versiones de la misma librer&iacute;a.</p> 
+<p>Sin embargo, a pesar de seguir el esquema est&aacute;ndar de buscar las clases y usar OSGi para que Tapestry encuentre los archivos que necesita, como plantillas, im&aacute;genes, literales que pueden estar embebidos en los archivos jar de librer&iacute;as es necesario hacer algunas modificaciones. En una <a href="http://wiki.apache.org/tapestry/HowToRunTapestry5OnJBoss7Dot1">gu&iacute;a de uso de Tapestry con JBoss</a> se explica como conseguir hacer funcionar una aplicaci&oacute;n Tapestry tanto en JBoss 7 como en WildFly 8. La soluci&oacute;n consiste en proporcionar una clase para que encuentre correctamente los archivos que Tapestry necesita y esta clase ser&aacute; la que veremos en el siguiente ejemplo.</p> 
+<p>Con la clase que permite funcionar las aplicaciones Tapestry en JBoss/WildFly junto con un poco de configuraci&oacute;n para el contenedor de dependencias definido en un m&oacute;dulo ser&aacute; suficiente. La clase es la siguiente:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/5f3a8aa3e2dc8b7f86e4.js?file=WildFlyClasspathURLConverter.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.misc;
+
+import java.io.File;
+import java.net.URL;
+import java.net.URLConnection;
+
+import org.apache.tapestry5.ioc.services.ClasspathURLConverter;
+import org.jboss.vfs.VFSUtils;
+import org.jboss.vfs.VirtualFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class WildFlyClasspathURLConverter implements ClasspathURLConverter {
+
+	private static final Logger logger = LoggerFactory.getLogger(WildFlyClasspathURLConverter.class);
+
+	@Override
+	public URL convert(final URL url) {
+		if (url != null &amp;&amp; url.getProtocol().startsWith(&quot;vfs&quot;)) {
+			try {
+				final URL realURL;
+				final String urlString = url.toString();
+				// If the virtual URL involves a JAR file,
+				// we have to figure out its physical URL ourselves because
+				// in JBoss 7.0.2 the JAR files exploded into the VFS are empty
+				// (see https://issues.jboss.org/browse/JBAS-8786).
+				// Our workaround is that they are available, unexploded,
+				// within the otherwise exploded WAR file.
+				if (urlString.contains(&quot;.jar&quot;)) {
+					// An example URL:
+					// &quot;vfs:/devel/jboss-as-7.1.1.Final/standalone/deployments/myapp.ear/myapp.war/WEB-INF/\
+					// lib/tapestry-core-5.3.2.jar/org/apache/tapestry5/corelib/components/&quot;
+					// Break the URL into its WAR part, the JAR part,
+					// and the Java package part.
+					final int warPartEnd = urlString.indexOf(&quot;.war&quot;) + 4;
+					final String warPart = urlString.substring(0, warPartEnd);
+					final int jarPartEnd = urlString.indexOf(&quot;.jar&quot;) + 4;
+					final String jarPart = urlString.substring(warPartEnd, jarPartEnd);
+					final String packagePart = urlString.substring(jarPartEnd);
+					// Ask the VFS where the exploded WAR is.
+					final URL warURL = new URL(warPart);
+					final URLConnection warConnection = warURL.openConnection();
+					final VirtualFile jBossVirtualWarDir = (VirtualFile) warConnection.getContent();
+					final File physicalWarDir = jBossVirtualWarDir.getPhysicalFile();
+					final String physicalWarDirStr = physicalWarDir.toURI().toString();
+					// Return a &quot;jar:&quot; URL constructed from the parts
+					// eg.
+					// &quot;jar:file:/devel/jboss-as-7.1.1.Final/standalone/tmp/vfs/deployment40a6ed1db5eabeab/\
+					// myapp.war-43e2c3dfa858f4d2/WEB-INF/lib/tapestry-core-5.3.2.jar!/org/apache/tapestry5/corelib/components/&quot;.
+					final String actualJarPath = &quot;jar:&quot; + physicalWarDirStr + jarPart + &quot;!&quot; + packagePart;
+					return new URL(actualJarPath);
+				} else {
+					// Otherwise, ask the VFS what the physical URL is...
+					final URLConnection connection = url.openConnection();
+					final VirtualFile virtualFile = (VirtualFile) connection.getContent();
+					realURL = VFSUtils.getPhysicalURL(virtualFile);
+				}
+				return realURL;
+			} catch (final Exception e) {
+				logger.error(&quot;Unable to convert URL&quot;, e);
+			}
+		}
+		return url;
+	}
+}
+</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>La configuraci&oacute;n adicional para el contenedor de dependencias es para que Tapestry use esta nueva clase:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/5f3a8aa3e2dc8b7f86e4.js?file=AppModule.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.services;
+...
+public class AppModule {
+	...
+	public static void contributeServiceOverride(MappedConfiguration&lt;Class, Object&gt; configuration, @Local HibernateSessionSource hibernateSessionSource) {
+		configuration.add(HibernateSessionSource.class, hibernateSessionSource);
+		
+		if (isServidorJBoss(ContextListener.SERVLET_CONTEXT)) {
+			configuration.add(ClasspathURLConverter.class, new WildFlyClasspathURLConverter());			
+		}
+	}
+	...
+	private static boolean isServidorJBoss(ServletContext context) {
+		String si = context.getServerInfo();
+
+		if (si.contains(&quot;WildFly&quot;) || si.contains(&quot;JBoss&quot;)) {
+			return true;
+		}
+		
+		return false;
+	}
+	...
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>El ContextListener que nos permite acceder al ServletContext es el siguiente:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/5f3a8aa3e2dc8b7f86e4.js?file=ContextListener.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.misc;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+public class ContextListener implements ServletContextListener {
+
+	public static ServletContext SERVLET_CONTEXT;
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		SERVLET_CONTEXT = sce.getServletContext();
+	}
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+	}
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Adem&aacute;s hemos de incluir en el proyecto un par de librer&iacute;as y usar al menos la versi&oacute;n 16 de guava si se incluye como dependencia en el war:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/5f3a8aa3e2dc8b7f86e4.js?file=build.gradle"></script> 
+ <noscript>
+  <pre><code>dependencies {
+	...
+	compile 'com.google.guava:guava:16.0.1'
+	providedCompile 'org.jboss:jboss-vfs:3.2.1.Final'
+	runtime 'org.jboss.logging:jboss-logging:3.1.4.GA'
+	...
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>En la <a href="https://github.com/picodotdev/elblogdepicodev/tree/master/PlugInTapestry">aplicaci&oacute;n de ejemplo</a> tambi&eacute;n deberemos actualizar la versi&oacute;n de guava al menos a la versi&oacute;n 16. Y esta clase y configuraci&oacute;n es suficiente para que “m&aacute;gicamente” se solucionen los problemas de las aplicaciones Tapestry con el servidor de aplicaciones JBoss/WildFly. Si no usamos lo indicado en este art&iacute;culo al acceder a al aplicaci&oacute;n Tapestry al acceder a la aplicaci&oacute;n fallar&iacute;a con una excepci&oacute;n.</p> 
+<p>Si te interesa Tapestry probablemente tambi&eacute;n te interese el <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">libro PlugIn Tapestry</a>, un libro con m&aacute;s de 250 p&aacute;ginas de documentaci&oacute;n en el que se explica de forma m&aacute;s detallada como desarrollar con este framework Java, y adem&aacute;s es &iexcl;gratuito!.</p> 
+<p>Referencia:<br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">Libro PlugIn Tapestry</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/">Servidor de aplicaciones JBoss/WildFly</a><br /> <a href="http://wiki.apache.org/tapestry/HowToRunTapestry5OnJBoss7Dot1">http://wiki.apache.org/tapestry/HowToRunTapestry5OnJBoss7Dot1</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" st_title="Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 500,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

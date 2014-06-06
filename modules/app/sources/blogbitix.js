@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
+      "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl",
       "title" : "Generar y convertir claves y certificados con OpenSSL"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry",
-      "title" : "Libro sobre desarrollo de aplicaciones con Apache Tapestry"
     }
   ]
 }
