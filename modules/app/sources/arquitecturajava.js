@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
+      "title" : "El patrón fachada  (GenBetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
       "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/04/flexibilidad-en-jpa-persistence-xml-y-orm-xml",
       "title" : "Flexibilidad en JPA persistence.xml y orm.xml"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/04/introduccion-a-jmeter-y-pruebas-de-carga",
-      "title" : "Introducción a JMeter y pruebas de carga"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
+      "title" : "El patrón fachada  (GenBetaDev)"
+    },
+    {
       "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
       "title" : "BlogStack generando Sinergia"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap",
       "title" : "Error 404 en archivo .woff usando Bootstrap"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
-      "title" : "Relaciones ternarias (GenbetaDev)"
     }
   ]
 }
