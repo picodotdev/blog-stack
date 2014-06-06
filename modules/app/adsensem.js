@@ -13,7 +13,7 @@ define("app/adsensem", ["jquery", "app/templates"], function($, templates) {
 		if (this.spec.ad != null) {
 			p1 = random(0, 1);
 			p2 = random(0, 1);
-			p3 = (p1 == p2) ? p1 : random(0, 1);
+			p3 = (p1 == p2) ? p1 : ramdom(0, 1);
 			p3 = (p3 == 0) ? 1 : 0;
 		}
 
