@@ -59,7 +59,7 @@ public class Archive {
 	}
 	
 	Object[] onPassivate() {
-		return (isGeneric()) ? null : getContext(year, month);
+		return (isGeneric()) ? null : getContextDate(year, month);
 	}
 	
 	public String getTitle() {
@@ -129,14 +129,18 @@ public class Archive {
 		return service.getPostDAO().findAllByYearMonth(year, month);
 	}
 	
-	public Object[] getContext(Integer year, Integer month) {
+	public Object[] getContextDate(Integer year, Integer month) {
 		String y = String.valueOf(year);
 		String m = StringUtils.leftPad(String.valueOf(month), 2, "0");
 		return new Object[] { y, m } ;
 	}
 	
-	public Object[] getContext(Post post) {
+	public Object[] getContextPost(Post post) {
 		return Utils.getContext(post);
+	}
+	
+	public Object[] getContextLabel(info.blogstack.entities.Label label) {
+		return Utils.getContext(label);
 	}
 	
 	public String getMonthName(Integer month) {
