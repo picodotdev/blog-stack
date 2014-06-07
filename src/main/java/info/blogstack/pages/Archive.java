@@ -1,9 +1,14 @@
 package info.blogstack.pages;
 
 import info.blogstack.entities.Post;
+import info.blogstack.entities.Source;
+import info.blogstack.misc.Feed;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
 import info.blogstack.services.MainService;
+import info.blogstack.services.dao.Direction;
+import info.blogstack.services.dao.Pagination;
+import info.blogstack.services.dao.Sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +23,7 @@ import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.lazan.t5.offline.services.OfflineRequestGlobals;
 
 public class Archive {
 
@@ -33,13 +39,16 @@ public class Archive {
 	private Integer i;
 	
 	@Property
-	private Map date;
+	private Map archive;
 	
 	@Property
 	private Post post;
 	
 	@Inject
 	private MainService service;
+	
+	@Inject
+	private OfflineRequestGlobals requestGlobals;
 
 	void onActivate() {		
 	}
@@ -62,9 +71,9 @@ public class Archive {
 	}
 
 	public Map getDates() {
-		List<Map> dates = service.getPostDAO().getArchive();
+		List<Map> archive = service.getPostDAO().getArchiveByDates();
 		TreeMap<Integer, List<Map>> m = new TreeMap<>();
-		for (Map date : dates) {
+		for (Map date : archive) {
 			Integer year = (Integer) date.get("year");
 			List<Map> yl = m.get(year);
 			if (yl == null) {
@@ -74,6 +83,40 @@ public class Archive {
 			m.put(year, yl);
 		}
 		return m.descendingMap();
+	}
+
+	public List<Map> getLabels() {
+		return service.getPostDAO().getArchiveByLabels();
+	}
+	
+	public List<Map> getSources() {
+		return service.getPostDAO().getArchiveBySources();
+	}
+	
+	public info.blogstack.entities.Label getLabel() {
+		return (info.blogstack.entities.Label) archive.get("label");
+	}
+	
+	public Source getSource() {
+		return (Source) archive.get("source");
+	}
+	
+	public Post getLabelPost() {
+		List<Sort> sort = new ArrayList<>();
+		sort.add(new Sort("date", Direction.DESCENDING));
+		Pagination pagination = new Pagination(0, 1, sort);
+		return service.getPostDAO().findAllByLabel(getLabel(), pagination).get(0);
+	}
+	
+	public Feed getLabelFeed() {
+		return new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss(getLabel()).getPath(), String.format("Fuente de la etiqueta %s", getLabel().getName()));
+	}
+	
+	public Post getSourcePost() {
+		List<Sort> sort = new ArrayList<>();
+		sort.add(new Sort("date", Direction.DESCENDING));
+		Pagination pagination = new Pagination(0, 1, sort);
+		return service.getPostDAO().findAllBySource(getSource(), pagination).get(0);
 	}
 	
 	/**

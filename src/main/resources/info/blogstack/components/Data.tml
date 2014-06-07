@@ -15,13 +15,13 @@
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<span class="number">
 					${data.get('sources')}
-					<span>bitácoras</span>
+					<span><a t:type="pagelink" page="archive" context="[]" anchor="sources">bitácoras</a></span>
 				</span>
 			</div>
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<span class="number">
 					${data.get('labels')}
-					<span>etiquetas</span>
+					<span><a t:type="pagelink" page="archive" context="[]" anchor="labels">etiquetas</a></span>
 				</span>
 			</div>
 			<div class="col-xs-6 col-sm-3 col-md-3">
@@ -45,7 +45,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div>
-					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">entrada original</span></a></span>
+					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">artículo original</span></a></span>
 				</div>
 				<t:if test="postData.get('publishDate')">
 					<div>
@@ -81,7 +81,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
 				<div>
-					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">entrada original</span></a></span>
+					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">artículo original</span></a></span>
 				</div>
 				<t:if test="labels">
 					<div>

@@ -2,6 +2,7 @@ package info.blogstack.components;
 
 import info.blogstack.entities.Label;
 import info.blogstack.entities.Post;
+import info.blogstack.misc.Feed;
 import info.blogstack.services.MainService;
 
 import java.util.ArrayList;
@@ -48,32 +49,5 @@ public class Feeds {
 		} else {
 			feeds.add(new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss().getPath(), "Fuente de la portada de Blog Stack"));
 		}
-	}
-	
-	public class Feed {
-		
-		private String url;
-		private String name;
-		
-		public Feed(String url, String name) {
-			this.url = url;
-			this.name = name;
-		}
-
-		public String getUrl() {
-			return url;
-		}
-
-		public void setUrl(String url) {
-			this.url = url;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}		
 	}
 }

@@ -389,4 +389,31 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="18" author="picodotdev">
+        <comment>Ocultación de artículo</comment>
+        <update tableName="post" schemaName="${schema}">
+            <column name="visible" valueBoolean="false"/>
+            <where>id = 478</where>
+        </update>
+    </changeSet>
+    <changeSet id="19" author="picodotdev">
+        <comment>Agregación de fuente (04-06-2014)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-1282205667414046" />
+            <column name="adsenseSlotBigRectangle" value="2014526355" />
+            <column name="adsenseSlotWideSkycraper" value="2014526355" />
+            <column name="adsenseSlotHorizontalSkycraper" value="2014526355" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="El blog de Jose"/>
+            <column name="alias" value="elblogdejose"/>
+            <column name="pageUrl" value="http://josedeveloper.com/"/>
+            <column name="url" value="http://josedeveloper.com/feed/atom/"/>
+            <column name="author" value="José Antonio Rodríguez"/>
+            <column name="email" value="josearodriguezd@gmail.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

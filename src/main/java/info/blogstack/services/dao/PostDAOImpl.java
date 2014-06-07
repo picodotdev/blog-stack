@@ -115,8 +115,20 @@ public class PostDAOImpl extends GenericDAOImpl<Post> implements PostDAO {
 	}
 	
 	@Override
-	public List<Map> getArchive() {
+	public List<Map> getArchiveByDates() {
 		Query query = sessionFactory.getCurrentSession().createQuery("select new map(year(p.publishDate) as year, month(p.publishDate) as month, count(*) as posts) from Post p where p.visible = true group by year(p.publishDate), month(p.publishDate) order by year(p.publishDate) desc, month(p.publishDate) desc");
+		return (List<Map>) query.list();
+	}
+	
+	@Override
+	public List<Map> getArchiveByLabels() {
+		Query query = sessionFactory.getCurrentSession().createQuery("select new map(l as label, count(*) as posts) from Label l inner join l.posts as p where l.enabled = true and p.visible = true group by l.id order by l.name");
+		return (List<Map>) query.list();
+	}
+	
+	@Override
+	public List<Map> getArchiveBySources() {
+		Query query = sessionFactory.getCurrentSession().createQuery("select new map(s as source, count(*) as posts) from Source s inner join s.posts as p where p.visible = true group by s.id order by s.name");
 		return (List<Map>) query.list();
 	}
 }

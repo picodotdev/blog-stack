@@ -5,15 +5,30 @@
 <section class="archive">
 	<t:if test="generic">
 		<div class="col-xs-12 col-sm-12 col-md-12">
+			<a id="archive"></a>
 			<h1>Archivo</h1>
 			<ul class="list-unstyled">
 				<t:loop source="dates.keySet()" value="i">
 					<li><h2>${i}</h2></li>
 					<ul class="list-unstyled list-inline">
-						<t:loop source="dates.get(i)" value="date">
-							<li><a t:type="pagelink" page="archive" context="getContext(date.get('year'), date.get('month'))" title="${date.get('posts')} artículos">${getMonthName(date.get('month'))} <small>x ${date.get('posts')}</small></a></li>
+						<t:loop source="dates.get(i)" value="archive">
+							<li><a t:type="pagelink" page="archive" context="getContext(archive.get('year'), archive.get('month'))" title="${archive.get('posts')} artículos">${getMonthName(archive.get('month'))}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
 						</t:loop>
 					</ul>
+				</t:loop>
+			</ul>
+			<a id="labels"></a>
+			<h2>Etiquetas</h2>
+			<ul class="list-unstyled list-inline">
+				<t:loop source="labels" value="archive">
+					<li><a href="${labelFeed.url}"><span class="fa fa-rss"></span></a>&nbsp;<a t:type="pagelink" page="post" context="getContext(labelPost)" title="${archive.get('posts')} artículos, ${labelPost.title}">${label.name}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
+				</t:loop>
+			</ul>
+			<a id="sources"></a>
+			<h2>Bitácoras</h2>
+			<ul class="list-unstyled list-inline">
+				<t:loop source="sources" value="archive">
+					<li><a t:type="pagelink" page="post" context="getContext(sourcePost)" title="${archive.get('posts')} artículos, ${sourcePost.title}">${source.name}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
 				</t:loop>
 			</ul>
 		</div>

@@ -36,5 +36,11 @@ public interface PostDAO extends GenericDAO<Post> {
 	Long countAuthors();
 
 	@Transactional(readOnly = true)
-	List<Map> getArchive();
+	List<Map> getArchiveByDates();
+	
+	@Transactional(readOnly = true)
+	List<Map> getArchiveByLabels();
+	
+	@Transactional(readOnly = true)
+	List<Map> getArchiveBySources();
 }
