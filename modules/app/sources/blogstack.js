@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/06/defiende-la-privacidad-en-tu-correo-electronico-usa-gnupg",
+      "title" : "Defiende la privacidad en tu correo electrónico. Usa GnuPG"
+    },
+    {
       "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
       "title" : "Guía para la creación de un blog con Octopress"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
       "title" : "JQuery Mobile Arquitectura"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
-      "title" : "Navegador web Lynx. Un lince en la línea de comandos"
     }
   ]
 }
