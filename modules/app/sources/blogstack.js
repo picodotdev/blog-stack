@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
+      "title" : "Guía para la creación de un blog con Octopress"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
       "title" : "Navegador web Lynx. Un lince en la línea de comandos"
-    },
-    {
-      "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
-      "title" : "¿Cómo es la estrella de tu proyecto?"
     }
   ]
 }

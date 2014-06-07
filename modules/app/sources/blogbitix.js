@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
+      "title" : "Guía para la creación de un blog con Octopress"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
     },
@@ -45,10 +49,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8",
       "title" : "Novedades y nuevas características de Java 8"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
-      "title" : "Guía para la creación de un blog con Octopress"
     },
     {
       "url" : "/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms",
