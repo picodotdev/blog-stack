@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-161",
+      "title" : "Enlaces interesantes 161"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
       "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
       "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
-      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     }
   ]
 }
