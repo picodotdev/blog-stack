@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
+      "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii",
       "title" : "Singletons en C++. Intentando que sean seguros en hilos (thread safety) II"
     },
@@ -57,10 +61,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento",
       "title" : "Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/lo-bueno-de-programar-es-que-le-puedes-poner-el-nombre-que-quieras-a-las-variables",
-      "title" : "Lo bueno de programar es que le puedes poner el nombre que quieras a las variables"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure",
+      "title" : "Polimorfismo fuera de OOP: Multimétodos en clojure"
+    },
+    {
       "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
       "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
     },

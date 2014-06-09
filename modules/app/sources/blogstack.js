@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
+      "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
+    },
+    {
+      "url" : "/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure",
+      "title" : "Polimorfismo fuera de OOP: Multimétodos en clojure"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/06/defiende-la-privacidad-en-tu-correo-electronico-usa-gnupg",
       "title" : "Defiende la privacidad en tu correo electrónico. Usa GnuPG"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
-      "title" : "Página de excepción de Grails"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
-      "title" : "JQuery Mobile Arquitectura"
     }
   ]
 }

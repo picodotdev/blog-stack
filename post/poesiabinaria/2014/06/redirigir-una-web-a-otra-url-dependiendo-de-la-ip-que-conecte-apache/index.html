@@ -1,0 +1,319 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache"><span itemprop="headline">Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/06/redirigir-una-web-otra-url-dependiendo-de-la-ip-que-conecte-apache/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-09T05:27" itemprop="datePublished">Publicado el lunes, 09 de junio de 2014 a las 05:27 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/apache"><span itemprop="articleSection">apache</span></a>, general, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, ip, construccion, visitante, script, redirigir, mantenimiento, direccion, <a href="/label/php"><span itemprop="articleSection">php</span></a>, dinamica, conexion, servidores</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9yZWRpcmVjdC5qcGc="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/redirect.jpg" alt="" title="redirect" width="500" height="333" /></a></p> 
+<p>La necesidad surge en un primer momento cuando, desde diferentes lugares se est&aacute; desarrollando un sitio web. En ocasiones disponemos de un test.minuevositioweb.com (por ejemplo), pero hay veces que la migraci&oacute;n puede resultar dif&iacute;cil, o lenta, dependiendo de nuestras posibilidades; y queremos tener el sitio operativo en la direcci&oacute;n web definitiva tanto para nosotros como para nuestros clientes (que a veces quieren ver c&oacute;mo va el tema).</p> 
+<p>Para esto, podemos optar por varias soluciones, por ejemplo modificando la programaci&oacute;n del sitio web para detectar la direcci&oacute;n IP del usuario y, si esta no est&aacute; permitida nos redirigir la conexi&oacute;n a otro lugar. </p> 
+<p>Aunque tambi&eacute;n podemos hacer esto mismo con Apache y mod_rewrite (aunque necesitamos acceso a /etc/apache/ para seguir por completo esta gu&iacute;a, por ejemplo podemos hacerlo si montamos un VPS… d&eacute;jame recomendarte uno (ya puestos, hago publi)), de la siguiente manera:</p> 
+<p>Editamos el archivo /etc/apache/sites-available/nuestro-sitio o /etc/apache/sites-available/nuestro-sitio.conf (dependiendo de la versi&oacute;n de Apache) lo malo es que no lo podemos poner en .htaccess, aunque s&iacute; podremos poner una ristra de IPs en ese archivo, queda mucho mejor con una lista de acceso</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      &lt;VirtualHost *:80&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ServerAdmin webmaster@localhost
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ServerName miweb.com
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ServerAlias www.miweb.com
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; DocumentRoot /var/www
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp;&lt;IfModule mod_rewrite.c&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteEngine On
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteMap &nbsp; &nbsp;hosts-deny &nbsp;txt:/home/usuario/access_list
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteCond &nbsp; ${hosts-deny:%{REMOTE_ADDR}|NOT-FOUND} =NOT-FOUND
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteRule &nbsp;^.*$ http://pagina_redirigida.com/ [L]
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/IfModule&gt;
+      <br /> 
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;Directory /&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Options FollowSymLinks
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AllowOverride None
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Directory&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;Directory /home/www/&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Options Indexes FollowSymLinks MultiViews
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AllowOverride All
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Order allow,deny
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; allow from all
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Directory&gt;
+      <br /> &lt;/VirtualHost&gt;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Con especial atenci&oacute;n al fragmento de mod_rewrite &lt;IfModule mod_rewrite.c&gt;&lt;/IfModule&gt;. Ahora s&oacute;lo tenemos que crear /home/usuario/access_list donde en cada l&iacute;nea debemos poner dos cadenas separadas por un espacio, la primera ser&aacute; la IP y la segunda, lo que queramos. Por ejemplo, a mi me gusta poner la fecha en la que di de alta dicha direcci&oacute;n IP.</p> 
+<p>Con esta configuraci&oacute;n si una IP est&aacute; dentro de la access_list entrar&aacute; a la p&aacute;gina web directamente, pero si no, ir&aacute; a http://pagina_redirigida.com/. Por otra parte, podremos actualizar la lista de acceso en cualquier momento sin problema, la lista se recarga a cada acceso que hagamos a la p&aacute;gina, por lo que podemos modificar el archivo y a&ntilde;adir las direcciones IP que queramos, cuando queramos.</p> 
+<p>Por otro lado, estar&iacute;a interesante disponer de un peque&ntilde;o script que a&ntilde;adiera direcciones IP, aqu&iacute; voy a poner s&oacute;lo un ejemplo, no es para usar en producci&oacute;n, pero es para hacernos una idea. Primero, haremos una peque&ntilde;a modificaci&oacute;n al archivo anterior /etc/apache/sites-available/nuestro-sitio para a&ntilde;adir un script permitido dentro de miweb.com que vamos a llamar addip.php; con lo que el bloque de mod_rewrite, quedar&aacute; as&iacute;:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      &nbsp; &nbsp; &nbsp; &nbsp;&lt;IfModule mod_rewrite.c&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteEngine On
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteCond &nbsp; %{REQUEST_URI} ^/addip$
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteRule ^/addip$ /addip.php [QSA,L,E]
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteMap &nbsp; &nbsp;hosts-deny &nbsp;txt:/home/usuario/access_list
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteCond &nbsp; ${hosts-deny:%{REMOTE_ADDR}|NOT-FOUND} =NOT-FOUND
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; RewriteRule &nbsp;^.*$ http://pagina_redirigida.com/ [L]
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp;&lt;/IfModule&gt;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Y el archivo addip.php que colocaremos en el directorio ra&iacute;z de nuestra web puede ser (es un ejemplo, para hacernos una idea, el siguiente):</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      &lt;?
+      <br /> function getIp()
+      <br /> {
+      <br /> &nbsp; if ( 
+      <a href="http://www.php.net/isset">isset</a>($_SERVER['HTTP_CLIENT_IP']) &amp;&amp; ! 
+      <a href="http://www.php.net/empty">empty</a>($_SERVER['HTTP_CLIENT_IP'])) {
+      <br /> &nbsp; &nbsp; $ip = $_SERVER['HTTP_CLIENT_IP'];
+      <br /> &nbsp; } elseif ( 
+      <a href="http://www.php.net/isset">isset</a>($_SERVER['HTTP_X_FORWARDED_FOR']) &amp;&amp; ! 
+      <a href="http://www.php.net/empty">empty</a>($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      <br /> &nbsp; &nbsp; $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+      <br /> &nbsp; } else {
+      <br /> &nbsp; &nbsp; $ip = (
+      <a href="http://www.php.net/isset">isset</a>($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+      <br /> &nbsp; }
+      <br /> 
+      <br /> &nbsp; $ip = 
+      <a href="http://www.php.net/filter_var">filter_var</a>($ip, FILTER_VALIDATE_IP);
+      <br /> &nbsp; $ip = ($ip === false) ? '0.0.0.0' : $ip;
+      <br /> &nbsp; return $ip;
+      <br /> }
+      <br /> 
+      <br /> function pv($v, $default = false)
+      <br /> {
+      <br /> &nbsp; return (
+      <a href="http://www.php.net/isset">isset</a>($_POST[$v]))?$_POST[$v]:$default;
+      <br /> }
+      <br /> 
+      <br /> if ($ip == '0.0.0.0')
+      <br /> &nbsp; &nbsp;
+      <a href="http://www.php.net/die">die</a>('No se puede obtener IP');
+      <br /> 
+      <br /> if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      <br /> {
+      <br /> &nbsp; $pass = pv ('clave');
+      <br /> &nbsp; if ($pass!='PASSWORD') // Aqu&iacute; pon tu password
+      <br /> &nbsp; &nbsp; &nbsp;
+      <a href="http://www.php.net/die">die</a>(&quot;Clave incorrecta&quot;);
+      <br /> 
+      <br /> &nbsp; if (
+      <a href="http://www.php.net/file_put_contents">file_put_contents</a>('/home/usuario/access_list', getIp().' '.
+      <a href="http://www.php.net/time">time</a>().'_'.
+      <a href="http://www.php.net/date">date</a>('d/m/Y_H:i:s').&quot;\n&quot;, FILE_APPEND))
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.php.net/die">die</a> (&quot;Lista de acceso actualizada&quot;);
+      <br /> &nbsp; else
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.php.net/die">die</a> (&quot;Hubo un problema, habla con el departamento t&eacute;cnico&quot;);
+      <br /> } else {
+      <br /> &nbsp; echo &quot;Tu IP es: &quot;.getIp();
+      <br /> ?&gt;
+      <br /> &nbsp; &lt;form action=&quot;&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;&quot; method=&quot;post&quot;&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;label for=&quot;clave&quot;&gt;Introduce la clave&lt;/label&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;text&quot; name=&quot;clave&quot; id=&quot;rqp&quot; /&gt;
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;input type=&quot;submit&quot; value=&quot;Enviar&quot; /&gt;
+      <br /> &nbsp; &lt;/form&gt;
+      <br /> &lt;?php
+      <br /> }
+      <br /> ?&gt;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Ahora cuando entramos en http://miweb.com/addip nos preguntar&aacute; una contrase&ntilde;a que, especific&aacute;ndola, a&ntilde;adir&aacute; nuestra IP a la lista de acceso y podremos ver la web que tenemos en construcci&oacute;n. Es interesante que, junto con la direcci&oacute;n IP, acompa&ntilde;o la fecha y la hora, y ya que muchas personas tienen una IP din&aacute;mica, podemos hacer peri&oacute;dicamente una limpieza de las IPs permitidas dejando s&oacute;lo las generadas pasada una fecha dada, as&iacute; evitamos que alguien ajeno pueda entrar en la web. (Es normal que se renueve una IP de nuestra conexi&oacute;n y al rato esa misma IP la tenga un vecino, dependiendo del proveedor).</p> 
+<p>Esto tambi&eacute;n es muy &uacute;til cuando un sitio est&aacute; en mantenimiento, as&iacute; s&oacute;lo puede ver el sitio web el equipo de mantenimiento, mientras los usuarios pueden ser redirigidos a una web especial indicando que se est&aacute; haciendo una tarea de mantenimiento.</p> 
+<p>Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly93d3cuZmxpY2tyLmNvbS9waG90b3MvZWx6ZXkvNjYxMDExMzQxMS9pbi9waG90b2xpc3QtYjU3eXFCLWJUaVl6ZS01N3lwMWgtYzNtRVhOLTN0MWRqeC1oS1pDRWgtZGZvQTZ2LWUyVXZjLTIxOTN1LVRSY3AtZHI0d3FTLWpCZ1h5Zy1rNmNKRHItYWh3OG0zLTZCOGlWZC1iamNadVgtN2gzOUFQLTlHRmFHRi05R0oyWjEtOWVnOUx1LWFqOEExRC00R25IZUItN3JLeDg3LWE2YXZDdS05cVM5QWUtYldiWExHLWJ3ZHplUC1iV2VZeWYtNnhKWTFXLThiNUxCai1jaVZFZWYtOEQya1ZuLWZOWTFtbS1oQVpIdkstaU1HbWVZLXJCYVhkLTZ4SlhTVS02eHFBc2ctYUdnN2pSLWQ2SExROS1nczl0c0ItNm5qUXdXLWQ4bXhhai1lN1F0RmMtOWpBYnZyLWdLYUJ5Mi1nSzlwcHEtOHlLQ1FRLWhtZFR6cy1lanR5SmY=">Richard Elzey</a> (Flickr CC-by a 7/6/2014)</p> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F06%2Fredirigir-una-web-otra-url-dependiendo-de-la-ip-que-conecte-apache%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2293" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/06/redirigir-una-web-otra-url-dependiendo-de-la-ip-que-conecte-apache/">Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache" st_title="Redirigir una web a otra URL dependiendo de la IP que conecte [Apache] | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/apache/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta apache</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/php/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta php</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 503,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
