@@ -1,0 +1,143 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Como instalar y configurar Conky en Ubuntu | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu"><span itemprop="headline">Como instalar y configurar Conky en Ubuntu</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/como-instalar-y-configurar-conky-en-ubuntu/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-04-20T08:51" itemprop="datePublished">Publicado el domingo, 20 de abril de 2014 a las 08:51 UTC</span></div><div><span datetime="2014-04-20T09:46" itemprop="dateModified">Actualizado el domingo, 20 de abril de 2014 a las 09:46 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, instalar, conky, tips</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>Una de mis man&iacute;as cuando uso el ordenador es tener informaci&oacute;n acerca de el lo mas a mano posible. Esto lo hago sobre todo en el port&aacute;til, ya que esta mas limitado que el ordenador de sobremesa. Esta muy bien poder ver de un golpe de vista varias cosas sobre el ordenador como la temperatura de los procesadores, el espacio disponible en disco, la intensidad de la se&ntilde;al wifi, el uso de la RAM y otras cosas y todo esto y mucho mas lo conseguimos con <strong>Conky</strong>, una aplicaci&oacute;n realmente genial, por lo cual os voy a mostrar como instalarlo y configurarlo en <strong>Ubuntu.</strong></p>
+ <p>Os voy a mostrar una captura de mi escritorio en el port&aacute;til para que pod&aacute;is ver a que me refiero por si no conoc&eacute;is el <strong>Conky</strong>:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/mi-escritorio.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/mi-escritorio.jpg" alt="mi-escritorio" width="800" height="500" /></a></p>
+ <p>&nbsp;</p>
+ <p>En mi caso, en el port&aacute;til estoy usando <strong>Ubuntu 12.04</strong>, el <strong>Conky</strong> es toda la informaci&oacute;n que podemos ver en la parte derecha de la pantalla, como pod&eacute;is ver ah&iacute; puedo ver mucha informaci&oacute;n sobre el ordenador de un solo vistazo y muy r&aacute;pido. Toda esa informaci&oacute;n esta en una ventana, aunque no lo parezca, pero esa ventana tiene unos atributos para que parezca que esta pegado al escritorio, y as&iacute; sea mas amigable a la vista, y todo esto es gracias al <strong>Conky</strong>.</p>
+ <p>Por si no lo conoc&eacute;is tambi&eacute;n os comento que tengo instalado Cairo Dock, que es el lanzador que hay en la parte de abajo y que esta muy bien, por si os gusta aqu&iacute; os dejo un enlace a un articulo en el cual os digo que son los docks y como <strong>instalar</strong> los mejores que tenemos en Linux:</p>
+ <ul>
+  <li><a href="http://elblogdeliher.com/que-son-los-docks-y-como-instalarlos-en-ubuntu/">Que son los docks y como instalarlos en Ubuntu</a></li>
+ </ul>
+ <p>Yo uso Cairo Dock ya que es el mejor dock que hay en Linux, en mi opini&oacute;n, y ademas cuando lo instalamos nos crear una sesi&oacute;n con la que podemos iniciar<strong> Ubuntu sin Unity</strong>.</p>
+ <p>Bueno, vamos al contenido del articulo en si mismo, Conky. Instalar Conky en Ubuntu es muy facil solo tenemos que abrir una Terminal y escribir lo siguiente:</p>
+ <pre>sudo apt-get install conky-all</pre>
+ <p>Con esto solo instalaremos el<strong> Conky en Ubuntu</strong>, para poder ver la temperatura de los dispositivos como el procesador tendremos que <strong>instalar</strong> otra aplicaci&oacute;n con el siguiente comando:</p>
+ <pre>sudo apt-get install lm-sensors</pre>
+ <p>Una vez instalados estos dos paquetes, que ocupan muy poco espacio, tenemos que ejecutar un comando para que el programa “lm-sensors” detecte todos los dispositivos de nuestro ordenador de la siguiente forma:</p>
+ <pre>sudo sensors-detect</pre>
+ <p>Cuando ejecutemos este comando el programa ira detectando los dispositivos de nuestro ordenador y en cada paso nos pedir&aacute; que confirmemos cada escaneo, tendremos que decir siempre que si para que todo funcione, poniendo la letra “Y” hasta el final. Casi todas las preguntas que nos hace tienen por defecto el “YES”, por lo que podr&iacute;amos pulsar la tecla Enter todo el rato, pero hay alguna pregunta que no viene as&iacute;, por lo que sera mejor fijarse para que pongamos lo correcto, “yes”, &nbsp;en todas las opciones. Son unas cuantas preguntas, pero no nos llevara mas de un minuto hacerlo, solo hay que poner “yes” o “y” en todas y listo.</p>
+ <p>Ahora ya tenemos el <strong>Conky</strong> instalado en Ubuntu y los sensores activados, pero falta hacer un script para que el Conky se ejecute al inicio en nuestros ordenador. Para ello tecleamos en la Terminal lo siguiente:</p>
+ <pre>sudo gedit /usr/bin/inicio-conky</pre>
+ <p>Ahora se abrir&aacute; el editor de textos con una archivo vaci&oacute;, en dicho archivo tenemos que poner el siguiente texto:</p>
+ <pre>#!/bin/bash
+sleep 10 &amp;&amp; conky;</pre>
+ <p>Ahora guardamos el archivo y tenemos que darle permisos de ejecuci&oacute;n para que se ejecute cuando encendamos nuestro ordenador. Esto lo haremos con el siguiente comando:</p>
+ <pre>sudo chmod a+x /usr/bin/inicio-conky</pre>
+ <p>Ahora tenemos que a&ntilde;adir este script a “Aplicaciones al inicio” de la siguiente forma. Buscamos en el Dash de <strong>Ubuntu</strong> “Aplicaciones al inicio” y hacemos click en el y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/aplicaciones-inicio-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/aplicaciones-inicio-ubuntu.jpg" alt="aplicaciones-inicio-ubuntu" width="591" height="474" /></a></p>
+ <p>&nbsp;</p>
+ <p>En mi caso tengo ya puesto el <strong>Conky</strong> como pod&eacute;is ver, es la segunda opci&oacute;n. La primera en un indicador de brillo de pantalla. Como vosotros no lo tendr&eacute;is ten&eacute;is que hacer click en el bot&oacute;n “A&ntilde;adir” y ver&eacute;is lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/a&ntilde;adir-script-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/a&ntilde;adir-script-ubuntu.jpg" alt="a&ntilde;adir-script-ubuntu" width="383" height="198" /></a></p>
+ <p>&nbsp;</p>
+ <p>Aqu&iacute; haremos lo siguiente, donde pone “Nombre” pod&eacute;is poner el nombre que quer&aacute;is, pero es aconsejable poner algo que haga referencia al script, en mi caso pongo “Conky”. Donde pone “Orden” tenemos que poner el nombre del archivo que hemos creado antes y que contiene los comandos para ejecutar el Conky, en este ejemplo que estoy usando es “inicio-conky”, podemos ese texto tal cual. Podemos ponerle un comentario, yo no lo pongo ya que el nombre me parece bastante explicativo en si mismo y finalmente pulsamos en “A&ntilde;adir”.</p>
+ <p>Ahora cuando arranquemos el ordenador y hayamos iniciado sesi&oacute;n, a los 10 segundos se iniciara el Conky y se quedara en el escritorio mostr&aacute;ndonos la informaci&oacute;n que nosotros queramos de nuestro ordenador. El tema de <strong>Conky</strong> por defecto es algo as&iacute;:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/conky-por-defecto.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/conky-por-defecto.jpg" alt="conky-por-defecto" width="278" height="293" /></a></p>
+ <p>&nbsp;</p>
+ <p>Pero todav&iacute;a no hemos terminado. Falta la apariencia del <a href="http://conky.sourceforge.net/">Conky</a>, para ello hay muchos “temas” de Conky en Internet, los hay de much&iacute;simos tipos, se le pueden poner im&aacute;genes, barras, cambiar las fuentes, y muchas cosas mas, yo he visto algunos muy currados, pero a mi me gusta el <strong>Conky</strong> como yo soy, simple y sencillo, que le vamos a hacer. Si sois como yo, o simplemente quer&eacute;is tener un Conky sencillo para empezar os dejo el mio en el siguiente enlace para que los descargu&eacute;is:</p>
+ <ul>
+  <li><a href="https://drive.google.com/file/d/0B5SbU97RmIjPcjZRU0N2NFkzcEU/edit?usp=sharing">Mi plantilla de Conky</a></li>
+ </ul>
+ <p>Si no sab&eacute;is como usar este archivo os lo voy a mostrar, es f&aacute;cil. La apariencia del <strong>Conky</strong> se guarda en un archivo llamado “.conkyrc”, este archivo es un archivo oculto y debe estar en el directorio personal de nuestro usuario. El archivo que os he puesto para descargar se llama “conkyrc”, solo ten&eacute;is que descargarlo, tardara muy poco ya que es un archivo de texto peque&ntilde;o, y cuando lo teng&aacute;is en vuestro ordenador le cambi&aacute;is el nombre “conkyrc” por “.conkyrc”, solo hay que a&ntilde;adirle un punto delante del nombre para que sea un archivo oculto, si hac&eacute;is esto y lo copi&aacute;is en el directorio personal de vuestro usuario, donde est&aacute;n “Descargas”, “Documentos” y dem&aacute;s, entonces tendr&eacute;is el mismo Conky que yo, el que se ve en la captura de mi escritorio al principio del articulo.</p>
+ <p>Si abr&iacute;s este archivo, ver&eacute;is unas cuantas lineas de texto, he puesto algunos comentarios es castellano para que pod&aacute;is entender un poco como cambiarlo, si ten&eacute;is algunos conocimientos de CSS os resultara familiar su contenido. Cuando hag&aacute;is alg&uacute;n cambio tendr&eacute;is que cerrar sesi&oacute;n y volver a iniciarla, no es necesario reiniciar, para ver los resultados.</p>
+ <p>Si quer&eacute;is mas plantillas de <strong>Conky</strong> son muy f&aacute;ciles de encontrar en Internet, hay much&iacute;simas y casi todas son mucho mas vistosas que la que yo he creado, pero como ya os he dicho antes, yo soy muy simple ;D.</p>
+ <p>&iquest;Que os ha parecido? &iquest;Os gusta el Conky? &iquest;Lo vais a probar? Yo, desde que lo puse la primera vez se ha convertido en indispensable. Un saludo.</p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu" st_title="Como instalar y configurar Conky en Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 577,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-y-configurar-conky-en-ubuntu"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>

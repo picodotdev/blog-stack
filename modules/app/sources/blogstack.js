@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
+      "title" : "Ya se esta arreglando la cosa"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-161",
       "title" : "Enlaces interesantes 161"
     },
@@ -27,8 +31,20 @@ define("app/sources/blogstack", [], function() {
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
     },
     {
+      "url" : "/post/elblogdeliher/2014/06/no-es-una-cuestion-de-envidia-ni-mucho-menos",
+      "title" : "No es una cuestión de envidia, ni mucho menos"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
       "title" : "El patrón fachada  (GenBetaDev)"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/como-seleccionar-con-que-programa-abrir-por-defecto-un-archivo-en-ubuntu",
+      "title" : "Como seleccionar con que programa abrir por defecto un archivo en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/cambio-de-portatil-y-de-distro-principal",
+      "title" : "Cambio de portatil y de distro principal"
     },
     {
       "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
@@ -39,28 +55,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
     },
     {
+      "url" : "/post/elblogdeliher/2014/06/como-instalar-atom-en-ubuntu-mediante-ppa",
+      "title" : "Como instalar Atom en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
       "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
-      "title" : "Uso de Java Generics  (I)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/agrupacion-y-deshabilitacion-de-elementos-de-desplegables-en-asp-net-mvc-5-2",
-      "title" : "Agrupación y deshabilitación de elementos de desplegables en ASP.NET MVC 5.2"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-16",
-      "title" : "Enlaces interesantes 160"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/06/redfox-software-de-gestion-de-pymes-de-codigo-abierto",
-      "title" : "RedFox: software de gestión de PYMES de código abierto"
-    },
-    {
-      "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
-      "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
     }
   ]
 }

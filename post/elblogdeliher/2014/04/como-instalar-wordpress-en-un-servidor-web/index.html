@@ -1,0 +1,169 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Como instalar WordPress en un servidor web | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web"><span itemprop="headline">Como instalar WordPress en un servidor web</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/como-instalar-wordpress-en-un-servidor-web/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-04-10T11:58" itemprop="datePublished">Publicado el jueves, 10 de abril de 2014 a las 11:58 UTC</span></div><div><span datetime="2014-04-10T11:58" itemprop="dateModified">Actualizado el jueves, 10 de abril de 2014 a las 11:58 UTC</span></div><div><span>
+Etiquetado como
+web, instalar, servidor-web, wordpress</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>En otros art&iacute;culos os mostr&eacute; como crear un <strong>servidor web</strong> virtual que podr&iacute;ais usar para alojar las paginas web que hag&aacute;is en el con el fin de probarlas desde distintos navegadores y as&iacute; comprobar como funcionan. Hoy os voy a mostrar <strong>como instalar WordPress</strong> en ese servidor web virtual, esta forma tambi&eacute;n se puede usar para instalar WordPress en un servidor real, en un hosting, aunque cuando contratas un hosting tienen paneles de control, como <a href="https://cpanel.net/">CPanel</a> o <a href="http://www.parallels.com/es/products/plesk/">Plesk</a>, &nbsp;desde los cuales es muy f&aacute;cil hacerlo con unos pocos clicks de rat&oacute;n.</p>
+ <p>Como el servidor web virtual que os ense&ntilde;e a crear no tiene panel de control, aunque os mostrare en otro articulo como ponerle uno, la instalaci&oacute;n de <strong>WordPress</strong> hay que hacerla de forma manual, es un proceso sencillo, aunque si no lo has hecho nunca hay que aprender a hacerlo, es como todo en la vida, la primera vez cuesta un poco :D.</p>
+ <p>Si ten&eacute;is la maquina virtual creada con el <strong>servidor web</strong>, lo primero que ten&eacute;is que hacer es arrancarla e iniciar sesi&oacute;n en ella. Si no ten&eacute;is la maquina virtual y quer&eacute;is aprender a crearla aqu&iacute; os dejo un enlace a la pagina de este blog en la cual est&aacute;n los enlaces a los art&iacute;culos para hacerlo y tambi&eacute;n ten&eacute;is un enlace para descargar el servidor web que yo he hecho durante los art&iacute;culos, esta en Google Drive:</p>
+ <ul>
+  <li><a href="http://elblogdeliher.com/crear-servidor-web">Como crear un servidor web virtual</a></li>
+ </ul>
+ <p><strong>Todo</strong> lo que vamos a hacer lo haremos <strong>dentro</strong> de la propia maquina virtual. Ahora abrimos el navegador web y buscamos la palabra “wordpress”. En mi caso lo he buscado en Google y aparece la tercera opci&oacute;n, que es la que tenemos que seleccionar como os muestro en la imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress.jpg"><img alt="descargar-wordpress" src="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress.jpg" width="700" height="526" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Hay que hacer click en el enlace que esta rodeado con la linea roja. En esa pagina encontraremos el archivo necesario para <strong>instalar WordPress</strong> en el servidor web. Hay que elegir esa opcion ya que esta en espa&ntilde;ol y si eligi&eacute;semos la pagina de WordPress.com no podr&iacute;amos descargar el WordPress. Una vez que hagamos click en el enlace accederemos a la siguiente pagina:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress2.jpg"><img alt="descargar-wordpress2" src="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress2.jpg" width="700" height="484" /></a></p>
+ <p>&nbsp;</p>
+ <p>En esta pagina tenemos un bot&oacute;n de color azul que pone “Descargar WordPress 3.8.2.zip – 6.5 MB”, si pinchamos en ese bot&oacute;n nos descargara la versi&oacute;n actual de WordPress comprimido en un archivo ZIP, justo debajo esta rodeado con un circulo rojo, esta tambi&eacute;n comprimido para descargarlo en formato TAR.GZ, que es un formato de compresi&oacute;n en Linux, hay que hacer click en esa precisamente, la que esta rodeada con un circulo rojo, la otra tambi&eacute;n valdr&iacute;a, aunque como el servidor web esta hecho con Linux recomiendo la que esta comprimida con formato de Linux.</p>
+ <p>Entonces se descargara el archivo, sera r&aacute;pido ya que son solo 6 MB. Una vez descargado estar&aacute; en el directorio de descargas de nuestro usuario, abrimos el administrador de archivos, que es el icono que se&ntilde;ala la flecha, y en nuestro directorio podremos ver lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress3.jpg"><img alt="descargar-wordpress3" src="http://elblogdeliher.com/wp-content/uploads/2014/04/descargar-wordpress3.jpg" width="694" height="534" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>En el recuadro de la derecha tenemos el archivo descargado con el <a href="https://es.wordpress.org/"><strong>WordPress</strong></a>. Ahora tenemos que hacer click con el bot&oacute;n derecho del rat&oacute;n sobre el archivo y pinchar en la opci&oacute;n que pone “Extraer aqu&iacute;”. Entonces se descomprimir&aacute; el archivo y veremos un directorio nuevo llamado “wordpress”. De momento dejamos ese directorio ah&iacute; y os explico algo.</p>
+ <p>Cuando instalamos WordPress tenemos que tener en cuenta donde lo vamos a poner. Cuando tecleamos la IP para acceder al servidor web, el navegador por defecto va a buscar dentro del directorio “/var/www” un archivo llamado “index.html” o “index.php”. Seria conveniente que dentro del directorio mencionado cre&aacute;semos otro para instalar el WordPress en el, de tal forma que luego para acceder a el tendremos que teclear algo as&iacute; como “http://192.168.1.101/wordpress”, de esa forma tendremos un directorio en el que tendremos nuestro WordPress sin interceder con otras paginas, mas que nada es por organizaci&oacute;n. Yo os voy a mostrar como instalarlo en un directorio.</p>
+ <p>Explicado lo anterior, abrimos la Terminal y tecleamos “su”, ponemos la contrase&ntilde;a de “root” de Debian que indicamos en la instalaci&oacute;n y entonces escribiremos “thunar” para abrir el administrador de archivos de Debian como superusuario. En la parte de la izquierda vemos un icono con el siguiente texto a su derecha “Sistema de archivos”, hacemos click en el y a la derecha aparecer&aacute;n los directorios que est&aacute;n en la ra&iacute;z de Debian, buscamos uno que se llama “var” y hacemos doble click en el, luego buscamos uno que se llama “www” y hacemos doble click en el. Ahora, dentro de “www” vamos a crear un directorio llamado “blog” o como quer&aacute;is, pero os ten&eacute;is que acordar del nombre. Bien, ahora hac&eacute;is click otra vez en “Sistema de archivos” y a la derecha busc&aacute;is “home” y hac&eacute;is doble click en el, luego busc&aacute;is vuestro nombre de usuario y hac&eacute;is doble click en el, entonces busc&aacute;is el directorio de descargas en el cual estar&aacute; el archivo que nos hemos descargado con el WordPress y el directorio que se ha creado al descomprimirlo. Entonces hac&eacute;is doble click sobre el directorio llamado “wordpress” y ver&eacute;is mas directorio y archivos. Seleccion&aacute;is todo y con el bot&oacute;n derecho del rat&oacute;n elegir “Copiar”. Ahora vais otra vez al directorio que hab&eacute;is creado dentro de “www” y hac&eacute;is doble click en el, ver&eacute;is que esta vac&iacute;o, all&iacute; ten&eacute;is que hacer click con el bot&oacute;n derecho del rat&oacute;n y dar en la opci&oacute;n “Pegar” para que los archivos del WordPress queden all&iacute;.</p>
+ <p>Puede parece un poco complicado, pero no lo es, mas abajo os dejare un v&iacute;deo con todo el proceso y ver&eacute;is que es mas f&aacute;cil de lo que parece. Entonces cerramos el administrador de archivos y en la Terminal tecleamos el siguiente comando:</p>
+ <pre>cd /var/www</pre>
+ <p>Ahora tecleamos este otro, para dar todos los permisos a los archivos y directorios para que no haya ning&uacute;n problema de acceso:</p>
+ <p>&nbsp;</p>
+ <pre>chmod &nbsp;-R 777 *</pre>
+ <p>Bien, ahora ya tenemos el WordPress en el servidor. Necesitamos saber la IP del servidor para acceder a el, esto lo hacemos desde la Terminal, escribimos “su” y la contrase&ntilde;a de “root”, entonces escribir “ifconfig” y nos saldr&aacute; algo como lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/03/debian-ip1.jpg"><img alt="debian-ip" src="http://elblogdeliher.com/wp-content/uploads/2014/03/debian-ip1.jpg" width="700" height="382" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Tenemos que fijarnos en lo que esta rodeado de blanco, cogemos ese numero, que es la IP y ponemos, en mi caso, esto en la barra de direcciones del navegador:</p>
+ <pre>http://192.168.1.105/blog</pre>
+ <p>Como no hemos configurado la base de datos ni el archivo de configuraci&oacute;n del propio <strong>WordPress</strong> deber&iacute;amos ver lo siguiente al intentar acceder:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/comprobacion-wordpress.jpg"><img alt="comprobacion-wordpress" src="http://elblogdeliher.com/wp-content/uploads/2014/04/comprobacion-wordpress.jpg" width="600" height="216" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>No pinchamos en nada, dejamos esta pantalla y vamos a ponerlo en orden. Abrimos el administrador de archivos y vamos al directorio “/var/www/blog”, “blog” es el directorio que yo he creado para poner los archivos del WordPress all&iacute;, tendr&iacute;ais que cambiar por el nombre que le hay&aacute;is puesto, y una vez all&iacute; busc&aacute;is un archivo que se llama “wp-config.sample.php”. Ahora hac&eacute;is click sobre el con el bot&oacute;n derecho del rat&oacute;n y pinch&aacute;is en “Renombrar” y el nombre del archivo deber&iacute;a quedar as&iacute; “wp-config.php”. Una vez que le hay&aacute;is cambiado el nombre hay que abrirlo haciendo doble click en el y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/configuracion-wordpress.jpg"><img alt="configuracion-wordpress" src="http://elblogdeliher.com/wp-content/uploads/2014/04/configuracion-wordpress.jpg" width="700" height="483" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Este es el archivo de configuraci&oacute;n del WordPress. Como pod&eacute;is ver esta perfectamente comentado en castellano para que sepamos para que sirve cada linea del documento. Aqu&iacute; hay que cambiar tres cosas:</p>
+ <ul>
+  <li>Donde pone ‘nombredetubasededatos’ en la linea 19 hay que indicar el nombre de la base de datos que va a usar WordPress, todav&iacute;a no la hemos creado, luego lo haremos. Para no complicar el tema la voy a llamar “blog”. Cambi&aacute;is lo que hay entre las comillas simples y pon&eacute;is el nombre que quer&aacute;is usar.</li>
+  <li>Donde pone ‘nombredeusuario’ en la linea 22, hay que poner el nombre de usuario de PHPMyadmin que elegimos cuando creamos el servidor virtual, yo puse “usuario” como nombre de usuario para todo, de esta forma no te confundes ;D. Ponemos el nombre de usuario entre las comillas.</li>
+  <li>Donde pone ‘contrase&ntilde;a’ en la linea 25 ponemos la contrase&ntilde;a del usuario de PHPMyadmin entre las comillas.</li>
+ </ul>
+ <p>Ahora guardamos el documento para que los cambios se queden grabados y cerramos el administrador de archivos. Ahora falta lo ultimo, crear la base de datos en PHPMyadmin. Abrimos el navegador web y tecleamos la IP de nuestro servidor seguido de “phpmyadmin” de esta forma:</p>
+ <pre>http://192.168.1.105/phpmyadmin</pre>
+ <p>Entonces tecleamos nuestro nombre de usuario y su contrase&ntilde;a y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/crear-basedatos.jpg"><img alt="crear-basedatos" src="http://elblogdeliher.com/wp-content/uploads/2014/04/crear-basedatos.jpg" width="700" height="449" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>La flecha indica donde ten&eacute;is que hacer click para crear la base datos de WordPress. Hac&eacute;is click en ese bot&oacute;n y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/crear-basedatos2.jpg"><img alt="crear-basedatos2" src="http://elblogdeliher.com/wp-content/uploads/2014/04/crear-basedatos2.jpg" width="700" height="435" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Debajo de donde pone “Crear nueva base de datos” hay un rect&aacute;ngulo en blanco, pon&eacute;is el nombre de la base de datos que pusisteis en el archivo “wp-config.php” y dais al bot&oacute;n que pone “Crear”. Ahora ya tenemos la base de datos de <strong>WordPress</strong> creada.</p>
+ <p>Para acceder al blog de WordPress solo tenemos que poner la direcci&oacute;n IP con el nombre del directorio como antes:</p>
+ <pre>http://192.168.1.105/blog</pre>
+ <p>Entonces os aparecer&aacute; la siguiente pantalla:</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/wordpress-instalado.jpg"><img alt="wordpress-instalado" src="http://elblogdeliher.com/wp-content/uploads/2014/04/wordpress-instalado.jpg" width="700" height="663" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Aqu&iacute; solo ten&eacute;is que poner los datos y dar al bot&oacute;n de abajo del todo que pone “Instalar WordPress”, se instalara y ya estar&aacute; listo para usar. El proceso parece muy largo, pero es mas sencillo de lo que parece. En el siguiente v&iacute;deo os muestro como hacerlo, es mas ameno que leerse todo el articulo:<br /> <iframe src="//www.youtube.com/embed/kniep733cOo" height="360" width="640" allowfullscreen="" frameborder="0"></iframe><br /> &iquest;Que os ha parecido el proceso? &iquest;Dificil? Si ten&eacute;is alguna duda decidmelo y os ayudare, un saludo.</p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web" st_title="Como instalar WordPress en un servidor web | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 587,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/04/como-instalar-wordpress-en-un-servidor-web"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>

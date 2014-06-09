@@ -1,0 +1,159 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Que es y como añadir un origen de software en Ubuntu | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu"><span itemprop="headline">Que es y como añadir un origen de software en Ubuntu</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/que-es-y-como-anadir-un-origen-de-software-en-ubuntu/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-05-14T15:22" itemprop="datePublished">Publicado el miércoles, 14 de mayo de 2014 a las 15:22 UTC</span></div><div><span datetime="2014-05-14T15:22" itemprop="dateModified">Actualizado el miércoles, 14 de mayo de 2014 a las 15:22 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, origen-de-software, origen, origen-software</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>En este articulo os voy a explicar lo que es un <strong>origen de software</strong> y <strong>como a&ntilde;adir y quitar uno</strong> de nuestro ordenador en <strong>Ubuntu</strong>. El proceso lo he hecho en Ubuntu 12.04 y Ubuntu 14.04 y en los dos casos el procedimiento es pr&aacute;cticamente id&eacute;ntico salvo las peque&ntilde;as diferencias gr&aacute;ficas.</p>
+ <p>Lo primero es saber <strong>que es un origen de software</strong>. Un origen de software es un repositorio o PPA, es decir, un sitio desde el cual podemos descargarnos programas o aplicaciones para instalarlas posteriormente en nuestro ordenador. Todas las distribuciones Linux los usan, algunas tienen los suyos propios y otras distribuciones usan repositorios de terceros. Ademas tambi&eacute;n podemos a&ntilde;adir mas <strong>or&iacute;genes de software</strong> si queremos de una forma bastante sencilla, las razones principales por las que nos puede interesar a&ntilde;adir un origen de software a <strong>Ubuntu</strong> o cualquier distribuci&oacute;n Linux son:</p>
+ <ul>
+  <li>Queremos instalar un programa que no se encuentra en los repositorios oficiales de la distribuci&oacute;n que usemos</li>
+  <li>Queremos instalar un programa pero queremos tener la ultima versi&oacute;n disponible del mismo y los repositorios oficiales de la distribuci&oacute;n no se actualizan al ritmo que queremos.</li>
+ </ul>
+ <p>Para solucionar las dos situaciones anteriores tenemos la posibilidad de agregar un <strong>origen de software</strong> y as&iacute; dispondremos del programa deseado o de una versi&oacute;n mas actualizada de alg&uacute;n programa que usemos.</p>
+ <p>En este articulo os voy a mostrar <strong>como a&ntilde;adir</strong> un origen de software en <strong>Ubuntu</strong> sin tocar la Terminal y os dejo un enlace de otro articulo de este blog en el cual detallo paso a paso como a&ntilde;adir un origen de software o PPA desde la Terminal, de esta forma podr&eacute;is ver las diferencias entre un proceso y otro y as&iacute; podr&eacute;is elegir cual os gusta mas:</p>
+ <ul>
+  <li><a href="http://elblogdeliher.com/como-anadir-un-repositorio-desde-la-terminal-en-ubuntu/">Como a&ntilde;adir un repositorio desde la Terminal de Ubuntu</a></li>
+ </ul>
+ <p>Para a&ntilde;adir un <strong>origen de software</strong> necesitamos saber de que programa lo queremos, en este ejemplo voy a usar jDownloader, que es el mismo programa que use para el articulo en el cual describ&iacute; como hacerlo desde la Terminal. Entonces abrimos el navegador y tecleamos en la barra de direcciones la siguiente direcci&oacute;n web:</p>
+ <pre>https://launchpad.net/</pre>
+ <p>En esta web es donde podremos encontrar todos los PPA u or&iacute;genes de software que queramos, si es que existen. Una vez que accedemos a la pagina veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-1.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-1.jpg" alt="origen-software-1" width="700" height="452" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>En esta pagina tenemos que introducir el nombre del programa del que queremos encontrar el <strong>origen de software</strong>, esto lo hacemos poniendo el nombre en el cuadro de b&uacute;squeda que hay en la parte superior derecha y que tiene a su lado derecho un bot&oacute;n que pone “Search Launchpad”. En este caso ponemos “jdownloader” y pulsamos dicho bot&oacute;n. Obtendremos una pagina con los resultados de b&uacute;squeda como la siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/a&ntilde;adir-origen-software-2.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/a&ntilde;adir-origen-software-2.jpg" alt="a&ntilde;adir-origen-software-2" width="632" height="599" /></a></p>
+ <p>&nbsp;</p>
+ <p>Lo que esta rodeado es el resultado que busc&aacute;bamos, por un general cuando buscamos un programa en Launchpad, en los resultados de b&uacute;squeda la primera opci&oacute;n suele llevar “PPA” como pod&eacute;is ver en la imagen, entonces hacemos click en el y nos llevara a la siguiente pagina:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-3.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-3.jpg" alt="origen-software-3" width="700" height="569" /></a></p>
+ <p>&nbsp;</p>
+ <p>En esta pagina tenemos informaci&oacute;n a la que tenemos que prestar atenci&oacute;n. Lo primero que yo suelo mirar cuando instalo un programa por primera vez si a&ntilde;ado su PPA es la periodicidad con la que se actualiza, en este caso “jdownloader” se actualizo por ultima vez hace 5 semanas, esto lo pod&eacute;is ver rodeado de color rojo en la imagen. Este dato os da una idea de si es un proyecto activo o esta abandonado, es decir, si la ultima actualizaci&oacute;n de este programa hubiese sido hace 70 semanas, posiblemente estar&iacute;amos hablando de un programa que su desarrollador ha abandonado y que puede darnos problemas o ser inseguro ademas de que puede que no tengamos el PPA para nuestra versi&oacute;n de <strong>Ubuntu</strong>, que es lo siguiente que vamos a comprobar. Si os fij&aacute;is en la imagen pod&eacute;is ver un texto de color verde rodeado con una linea negra. Ah&iacute; tenemos mas informaci&oacute;n, al hacer click en ese texto veremos si tenemos <strong>un origen de software</strong> valido para nuestra versi&oacute;n de Ubuntu o no y tambi&eacute;n tendremos el texto necesario que tendremos que a&ntilde;adir a la lista de repositorios. Entonces hacemos click en el texto verde y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-4.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-4.jpg" alt="origen-software-4" width="605" height="423" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>En esta pagina podemos ver, dentro de un rect&aacute;ngulo, el texto necesario para a&ntilde;adir el <strong>origen de software</strong>. Pero primero, antes de copiar ese texto hay que hacer click donde pone “Choose your Ubuntu version” y se abrir&aacute; un desplegable con las versiones con las que este PPA es compatible. Al darle a ese bot&oacute;n ver&eacute;is que este origen de software es compatible con Ubuntu 12.04, 13.10 y 14.04, solo ten&eacute;is que hacer click en la versi&oacute;n que teng&aacute;is instalada de <strong>Ubuntu</strong> en vuestro ordenador y el texto dentro del recuadro cambiara, yo he seleccionado Ubuntu 14.04 y quedar&iacute;a as&iacute;:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-5.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-5.jpg" alt="origen-software-5" width="497" height="180" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora tenemos el texto personalizado para nuestra versi&oacute;n de Ubuntu, solo ten&eacute;is que fijaros en el texto que esta dentro del rect&aacute;ngulo en esta imagen y la anterior y lo ver&eacute;is. Ahora dejamos esta pagina, no la cerramos, y abrimos el gestor de actualizaciones de <strong>Ubuntu</strong> tal que as&iacute;:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-6.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-6.jpg" alt="origen-software-6" width="476" height="136" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora pulsamos en el bot&oacute;n “Configuraci&oacute;n” y veremos la siguiente pantalla:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-7.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-7.jpg" alt="origen-software-7" width="700" height="456" /></a></p>
+ <p>&nbsp;</p>
+ <p>Por defecto veremos el contenido de la pesta&ntilde;a “Actualizaciones”, seleccionamos la pesta&ntilde;a “Otro software” y veremos algo muy parecido a lo de la imagen que os he puesto. Aqu&iacute; aparecen los or&iacute;genes de software que tenemos en <strong>Ubuntu</strong>. Los que est&aacute;n marcados son lo que estamos usando. De la lista no hay que tocar nada, tenemos que pulsar en el bot&oacute;n que hay en la parte inferior izquierda y que pone “A&ntilde;adir”, entonces nos aparecer&aacute; la siguiente ventana:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-8.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-8.jpg" alt="origen-software-8" width="630" height="226" /></a></p>
+ <p>&nbsp;</p>
+ <p>Aqu&iacute; nos esta pidiendo el<strong> origen de software</strong> que queremos a&ntilde;adir. Entonces tenemos que ir a la pagina de Launchpad que dejamos abierta antes, esta :</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-5.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-5.jpg" alt="origen-software-5" width="497" height="180" /></a></p>
+ <p>&nbsp;</p>
+ <p>Tenemos que seleccionar, de las lineas que hay dentro del rect&aacute;ngulo, la de arriba, hacemos click con el bot&oacute;n derecho del rat&oacute;n y pulsamos en “Copiar”, ahora vamos a la anterior ventana y donde pone “Linea de APT” pegamos ese texto y pulsamos “A&ntilde;adir origen”. Entonces tendremos que teclear nuestra contrase&ntilde;a y ya estar&aacute; a&ntilde;adido el origen de software. Os saldr&aacute; este mensaje:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-9.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-9.jpg" alt="origen-software-9" width="627" height="228" /></a></p>
+ <p>&nbsp;</p>
+ <p>En este mensaje ten&eacute;is que hacer click en “Recargar”, para que <strong>Ubuntu</strong> reconozca el nuevo <strong>origen de software</strong> y sepa que contiene.</p>
+ <p>Todo este proceso es para a&ntilde;adir un origen de software, si queremos eliminar uno que ya tengamos es muy sencillo, donde pod&eacute;is ver la lista de repositorios que ten&eacute;is, en la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-7.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/origen-software-7.jpg" alt="origen-software-7" width="700" height="456" /></a></p>
+ <p>&nbsp;</p>
+ <p>Solo ten&eacute;is que hacer click en uno de ellos y pulsar en el bot&oacute;n que pone “Quitar”, en esta imagen esta inhabilitado porque no hay ninguno seleccionado pero si seleccion&aacute;is uno se habilitara. Tambi&eacute;n os pedir&aacute; la contrase&ntilde;a y habr&aacute; que recargar como cuando queremos a&ntilde;adir uno.</p>
+ <p>&iquest;Que os ha parecido el proceso? Yo prefiero hacer esto desde la Terminal, es mas f&aacute;cil y r&aacute;pido, &iquest;y vosotros? Un saludo <img src="http://elblogdeliher.com/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" /></p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu" st_title="Que es y como añadir un origen de software en Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 537,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/05/que-es-y-como-anadir-un-origen-de-software-en-ubuntu"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>

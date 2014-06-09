@@ -1,0 +1,140 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9"><span itemprop="headline">Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/como-crear-un-servidor-web-virtual-con-xubuntu-14-04-paso-9/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-05-22T17:04" itemprop="datePublished">Publicado el jueves, 22 de mayo de 2014 a las 17:04 UTC</span></div><div><span datetime="2014-05-22T17:04" itemprop="dateModified">Actualizado el jueves, 22 de mayo de 2014 a las 17:04 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, servidor-web-virtual, servidor, xubuntu-14-4, servidor-web</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>En el articulo 8 de esta serie de art&iacute;culos en la cual os muestro como crear un<strong> servidor web virtual con Xubuntu 14.04</strong> comente que daba por terminado el servidor de forma preliminar. Se me hab&iacute;a olvidado hacer una serie de ajustes que son sencillos y r&aacute;pidos de hacer y es lo que vamos a hacer ahora. Los ajustes que vamos a hacer en el <strong>servidor web virtual</strong> son los siguientes:</p>
+ <ul>
+  <li>Vamos a activar la visualizaci&oacute;n de errores PHP, esto nos servir&aacute; para que si hacemos un tema de WordPress desde cero o modificamos uno tocando el c&oacute;digo PHP, en el caso de haber errores de sintaxis en el c&oacute;digo PHP nos salga un mensaje en la ventana de navegador informando del tipo de error y ademas la linea del c&oacute;digo y el archivo en donde esta dicho fallo. Esto es muy &uacute;til y nos ahorrara tiempo buscando esos fallos.</li>
+  <li>Vamos a modificar el tama&ntilde;o m&aacute;ximo de los archivos que podemos subir mediante PHP, algo muy &uacute;til cuando tengamos WordPress instalado en el <strong>servidor</strong>, ya que por defecto ese limite es de 2MB. Para im&aacute;genes es mas que suficiente, pero seria aconsejable que fuese mas alto. Yo me he encontrado con ese problema al subir alg&uacute;n tema.</li>
+  <li>Solucionaremos un peque&ntilde;o fallo en Apache, no es demasiado importante. De hecho Apache funciona sin problemas, pero cuando reiniciamos el servicio nos podemos encontrar con un mensaje de error. Repito que no es importante, pero me molesta a la vista <img src="http://elblogdeliher.com/wp-includes/images/smilies/icon_biggrin.gif" alt=":D" /></li>
+ </ul>
+ <p>No vamos a hacer nada mas que estas tres cosas, son muy sencillas como podr&eacute;is ver. Otra cosa que hacia antes es poner por defecto al <strong>servidor web virtual</strong> la codificaci&oacute;n de caracteres “UTF-8″ para que no tuviese problemas de visualizaci&oacute;n con los acentos y la letra “&ntilde;”, pero he decidido no hacerlo ya que esto lo tenemos que hacer en las web que creemos, es mas recomendable, de esta forma habr&aacute; menos problemas.</p>
+ <p>Lo primero que vamos a hacer es arrancar el <strong>servidor web virtual</strong>, luego iniciamos sesi&oacute;n y abrimos la Terminal. Entonces tenemos que teclear el siguiente comando:</p>
+ <pre>sudo mousepad /etc/php5/apache2/php.ini</pre>
+ <p>Despu&eacute;s tecleamos la contrase&ntilde;a y se nos abrir&aacute; el “mousepad”, que es el editor de texto sencillo que viene instalado en <strong>Xubuntu 14.04</strong> por defecto con el archivo de configuraci&oacute;n del PHP como podemos ver en la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/activar-errores-php.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/activar-errores-php.jpg" alt="activar-errores-php" width="700" height="372" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora tenemos que ir a la linea 479 de este documento, para ello hacemos click en el men&uacute; “Navegaci&oacute;n” que vemos desplegado en la imagen y pinchamos en la ultima opci&oacute;n que pone “Ir a…”, entonces veremos una ventana peque&ntilde;a en la cual podremos escribir el numero de linea 479. Le damos al bot&oacute;n que pone “Ir a” con el numero de linea escrito y nos encontraremos en la linea indicada en este documento de tal forma que el texto que aparece en dicha linea sera el siguiente:</p>
+ <pre>display_errors = Off</pre>
+ <p>Por defecto esta as&iacute;, desactivado. Tenemos que ponerlo as&iacute;:</p>
+ <pre>display_errors = On</pre>
+ <p>Es en este archivo tambi&eacute;n donde debemos modificar el tama&ntilde;o m&aacute;ximo de los archivos que podemos subir al <strong>servidor web</strong>, por defecto esta en 2MB. Para modificar esto tenemos que ir a la linea 805 y veremos este texto en dicha linea:</p>
+ <pre>upload_max_filesize = 2M</pre>
+ <p>Aqu&iacute; vamos cambiar tambi&eacute;n su valor y lo dejaremos as&iacute;:</p>
+ <pre>upload_max_filesize = 20M</pre>
+ <p>Con este tama&ntilde;o sera mas que suficiente. Ahora guardamos el archivo y lo cerramos. Lo siguiente que tenemos que hacer es teclear el siguiente comando en la Terminal para reiniciar el servicio de Apache:</p>
+ <pre>sudo /etc/init.d/apache2 restart</pre>
+ <p>Entonces veremos lo siguiente en la Terminal:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/reinicar-apache.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/reinicar-apache.jpg" alt="reinicar-apache" width="560" height="93" /></a></p>
+ <p>&nbsp;</p>
+ <p>Como pod&eacute;is ver he introducido el comando y ha salido un mensaje, es un error no muy importante ya que todo funciona como veis en la parte inferior derecha de la imagen, el [OK], pero no me gusta ver ese mensaje, me hace da&ntilde;o a la lista :D. Para solucionarlo es muy sencillo, tecleamos en la Terminal el siguiente comando:</p>
+ <pre>hostname</pre>
+ <p>Entonces nos mostrara el nombre de nuestra maquina virtual, en mi caso es “virtual” como pod&eacute;is ver en la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/nombre-sistema.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/nombre-sistema.jpg" alt="nombre-sistema" width="257" height="79" /></a></p>
+ <p>&nbsp;</p>
+ <p>Entonces tenemos que editar el archivo de configuraci&oacute;n de Apache con el siguiente comando:</p>
+ <pre>sudo mousepad /etc/apache2/apache2.conf</pre>
+ <p>Ahora vamos hasta el final del archivo y en la ultima linea puls&aacute;is la tecla “Enter” y escrib&iacute;s lo siguiente:</p>
+ <pre>ServerName virtual</pre>
+ <p>En mi caso es as&iacute; porque cuando he tecleado el comando “hotname” antes me ha salido “virtual”, en vuestro caso ten&eacute;is que cambiar “virtual” por lo que os haya salido a vosotros. Luego guard&aacute;is el archivo y lo cerr&aacute;is. Entonces volvemos a teclear el comando para reiniciar el servicio Apache y ahora deber&iacute;ais ver esto:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/reinicar-apache2.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/reinicar-apache2.jpg" alt="reinicar-apache2" width="558" height="62" /></a></p>
+ <p>&nbsp;</p>
+ <p>Como pod&eacute;is observar ya no aparece el mensaje de error, simplemente se reinicia el servicio Apache y ya esta.</p>
+ <p>Ya hemos terminado con estos peque&ntilde;os ajustes, mas que nada son aconsejables de cara a instalar y trabajar con WordPress en este <strong>servidor web virtual con Xubuntu 14.04</strong>. Ha sido sencillo, &iquest;no?, Un saludo.</p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9" st_title="Como crear un servidor web virtual con Xubuntu 14.04 – Paso 9 | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 522,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/05/como-crear-un-servidor-web-virtual-con-xubuntu-14-4-paso-9"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>

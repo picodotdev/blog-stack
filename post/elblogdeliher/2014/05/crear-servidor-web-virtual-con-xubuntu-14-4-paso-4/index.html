@@ -1,0 +1,146 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4"><span itemprop="headline">Crear servidor web virtual con Xubuntu 14.04 – Paso 4</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/crear-servidor-web-virtual-con-xubuntu-14-04-paso-4/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-05-15T09:30" itemprop="datePublished">Publicado el jueves, 15 de mayo de 2014 a las 09:30 UTC</span></div><div><span datetime="2014-05-15T09:30" itemprop="dateModified">Actualizado el jueves, 15 de mayo de 2014 a las 09:30 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, virtual, servidor, xubuntu-14-4, servidor-web, xubuntu</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>Si hab&eacute;is seguido los art&iacute;culos anteriores ya tendr&eacute;is creada la maquina virtual e instalado <strong>Xubuntu 14.04</strong> en ella. Los art&iacute;culos anteriores han sido un poco largos y se puede hacer un poco pesado seguirlos, por lo cual voy a intentar que los siguientes sean mas cortos. En este post voy a mostraros un poco como es el escritorio de <strong>Xubuntu 14.04</strong> y vamos a instalar las Guest Additions. Para los que no sepais que son las Guest Addition, de aqu&iacute; en adelante me referire a ellas como GA, son un conjunto de “drivers” que har&aacute;n posible, conjuntamente con el Extension Pack que detalle como instalar en otro articulo de esta serie, que podamos entre otras cosas:</p>
+ <ul>
+  <li>Usar USB dentro de la maquina virtual</li>
+  <li>Mejorar los gr&aacute;ficos en la maquina virtual</li>
+  <li>Usar las carpetas compartidas para intercambiar archivos entre el sistema anfitri&oacute;n y el hu&eacute;sped</li>
+ </ul>
+ <p>Primero vamos a dejar Xubuntu 14.04 actualizado. Esto es muy sencillo, arrancamos la maquina <strong>virtual</strong> y despu&eacute;s de iniciar sesi&oacute;n veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-xubuntu-12.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-xubuntu-12.jpg" alt="instalar-xubuntu-12" width="639" height="479" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Si intent&aacute;is cambiar el tama&ntilde;o de la ventana ver&eacute;is que la maquina <strong>virtual</strong> no se cambia, tranquilos esto lo solucionaremos con las GA. Si os fij&aacute;is en la imagen, en la parte superior tenemos una barra de lado a lado, ah&iacute; tenemos en la parte izquierda el bot&oacute;n del men&uacute; (el circulo azul con un rat&oacute;n blanco dentro) y en la derecha tenemos el indicador de conexi&oacute;n a Internet, el volumen y la fecha. A la derecha del bot&oacute;n del men&uacute; tenemos un mensaje que dice “Actualizaci&oacute;n de software”, es el gestor de actualizaciones de Xubuntu, tenemos que hacer click en el y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/actualizar-xubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/actualizar-xubuntu.jpg" alt="actualizar-xubuntu" width="526" height="196" /></a></p>
+ <p>&nbsp;</p>
+ <p>Aqu&iacute; solo tenemos que hacer click donde pone “Instalar ahora”, nos pedir&aacute; la contrase&ntilde;a y se actualizara el sistema. Dejamos que este proceso termine y nos pedir&aacute; reiniciar, lo hacemos y volvemos a ver el escritorio de Xubuntu. Ahora vamos a crearnos unos accesos directos de aplicaciones o utilidades que es mejor tener muy a mano. Hacemos click en el bot&oacute;n del men&uacute; y buscamos “Emulador de Terminal”, pinchamos sobre el y lo arrastramos a la derecha del bot&oacute;n del men&uacute; y soltamos, entonces nos aparecer&aacute; un mensaje con dos botones, uno “Cancelar” y el otro “Crear lanzador”, hacemos click en “Crear lanzador” y tendremos el icono mas a mano. Hacemos lo mismo con “Administrador de archivos”, que esta tambi&eacute;n en el men&uacute;. Si us&aacute;is un poco el men&uacute; y abr&iacute;s algunas aplicaciones ver&eacute;is que el uso y comportamiento es similar a Windows, lo digo para los que no est&eacute;n familiarizados con Linux. Para los que no hayan usado nunca Linux, seria conveniente que se moviesen un poco por esta maquina virtual y vean los elementos del men&uacute;, pero no es necesario, solo os comento esto por si ten&eacute;is curiosidad.</p>
+ <p>Lo siguiente que vamos a hacer es instalar las GA. Para ello tenemos que hacer click en el men&uacute;, en la opci&oacute;n “Dispositivos” y en las opciones que aparecen pulsar en la opci&oacute;n resaltada de la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA1.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA1.jpg" alt="instalar-GA1" width="632" height="547" /></a></p>
+ <p>&nbsp;</p>
+ <p>Hacemos click en “Insertar imagen de CD de las Guest Additions”. Se descargaran unos archivos y finalmente ver&eacute;is lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA2.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA2.jpg" alt="instalar-GA2" width="636" height="545" /></a></p>
+ <p>&nbsp;</p>
+ <p>Esta ventana ten&eacute;is que cerrarla, para ello ten&eacute;is que hacer click en la “x” que hay en la parte superior derecha y ver&eacute;is el escritorio de <strong>Xubuntu 14.04</strong> otra vez, pero hay un icono que antes no estaba, es el icono de las GA. Os lo muestro en la sigueinte imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA3.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA3.jpg" alt="instalar-GA3" width="633" height="549" /></a></p>
+ <p>&nbsp;</p>
+ <p>El icono del que os hablo es el que esta en la parte inferior izquierda de la imagen. La flecha amarilla indica el icono en el que ten&eacute;is que hacer click para el siguiente paso. Hac&eacute;is click en el y se abrir&aacute; la Terminal, en ella escrib&iacute;s el siguiente comando:</p>
+ <pre>sudo thunar</pre>
+ <p>Os pedir&aacute; la contrase&ntilde;a, parece que no escrib&iacute;s nada porque no se mueve el cursor, pero vosotros escribid la contrase&ntilde;a y pulsar la tecla “Enter”, es una medida de seguridad por si alguien nos esta mirando lo que hacemos en el ordenador, si apareciese un asterisco o un circulo por cada car&aacute;cter esa persona sabr&iacute;a cuantos caracteres tiene la contrase&ntilde;a y seria mas f&aacute;cil que la adivinase.</p>
+ <p>Una vez que puls&eacute;is “Enter” se abrir&aacute; el navegador de archivos de Xubuntu, se llama Thunar y hemos escrito “sudo thunar” para abrirlo como root, ya que es necesario hacerlo as&iacute;, necesitamos tener privilegios de root para instalar un programa en Linux. Si pinch&aacute;semos sobre el icono de administrador de archivos que hemos colocado antes en la barra superior abrir&iacute;amos Thunar como un usuario normal y no podr&iacute;amos hacer lo que vamos a hacer. Bueno, una vez escrib&aacute;is el comando anterior veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA4.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA4.jpg" alt="instalar-GA4" width="635" height="547" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Tenemos que hacer click en el texto que se&ntilde;ala la flecha, que es el icono que apareci&oacute; antes en el escritorio y veremos su contenido en la parte derecha de la pantalla, despu&eacute;s de hacer click donde se&ntilde;ala la flecha veremos lo siguiente en la parte derecha:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA5.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA5.jpg" alt="instalar-GA5" width="633" height="540" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora hay que hacer click en el icono que esta rodeado con un circulo negro en la imagen. Entonces se abrir&aacute; una terminal y se instalaran las GA, Cuando el proceso haya terminado, durara un minuto mas o menos, veremos un mensaje dentro de esa Terminal indicado que pulsemos la tecla “Enter” para cerrarla como pod&eacute;is ver en la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA6.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/05/instalar-GA6.jpg" alt="instalar-GA6" width="575" height="423" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora solo tenemos que pulsar la tecla “Enter” y se cerrara la Terminal. Luego cerramos Thunar haciendo click en la “x” que hay en la parte superior derecha y finalmente reiniciamos la maquina <strong>virtual</strong>. Cuando reinicies notareis la diferencia, para comprobar que las GA se han instalado y funcionan bien solo tienes que cambiar el tama&ntilde;o de la ventana de la maquina virtual y veras que el contenido de la ventana cambia de forma proporcionada.</p>
+ <p>Bueno, hasta aqu&iacute; este cuarto articulo sobre la creaci&oacute;n del <strong>servidor web virtual</strong>, al final ha sido tambi&eacute;n un articulo un poco largo y eso que no me he explayado explicando como usar el entorno de <strong>Xubuntu 14.04</strong>, pero es muy f&aacute;cil de usar como podr&eacute;is haber comprobado si os hab&eacute;is movido un poco por el y hab&eacute;is investigado :D.</p>
+ <p>En el siguiente paso para la creaci&oacute;n del servidor web virtual vamos a ver como configurar una IP est&aacute;tica, de tal forma que siempre accedamos al servidor con la misma IP y as&iacute; tambi&eacute;n evitemos posibles problemas que podamos tener con WordPress, por ejemplo.</p>
+ <p>&iquest;Hab&eacute;is tenido alg&uacute;n problema para seguir el articulo? Seguro que no, pero si lo hab&eacute;is tenido no dud&eacute;is en dejar un comentario y os ayudare, un saludo :D.</p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4" st_title="Crear servidor web virtual con Xubuntu 14.04 – Paso 4 | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 534,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/05/crear-servidor-web-virtual-con-xubuntu-14-4-paso-4"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>

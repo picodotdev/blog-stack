@@ -1,0 +1,167 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu"><span itemprop="headline">Como moverse por los directorios en la Terminal de Ubuntu</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-04-21T08:16" itemprop="datePublished">Publicado el lunes, 21 de abril de 2014 a las 08:16 UTC</span></div><div><span datetime="2014-04-21T08:16" itemprop="dateModified">Actualizado el lunes, 21 de abril de 2014 a las 08:16 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, conceptos-basicos, terminal, sistema, directorios</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
+ <p>En este articulo os voy a mostrar <strong>como movernos por los directorios</strong> de nuestro sistema de archivos, como ver su contenido y como crearlos o borrarlos en <strong>Ubuntu</strong> usando solo comandos en la <strong>Terminal</strong>. Lo primero que tenemos que hacer es abrir la Terminal, esto lo haremos presionando a la vez “CTRL” + “ALT” + “t”. Una vez que se abra la Terminal veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg" alt="inicio-terminal-ubuntu" width="500" height="263" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora vamos a fijarnos un poco en lo que tenemos en la Terminal. En mi caso vemos lo siguiente:</p>
+ <pre>liher@toshiba:~$</pre>
+ <p>Esto tan sencillo nos esta mostrando la siguiente informaci&oacute;n:</p>
+ <p>“liher” –&gt; es nuestro nombre de usuario<br /> “toshiba” –&gt; nos muestra el nombre del equipo<br /> “~” –&gt; esto es nuestra ubicaci&oacute;n dentro del sistema de ficheros, este s&iacute;mbolo indica que estamos en nuestro directorio personal, ese directorio es “/home/liher”, en mi caso, en vuestro ordenador cambiara a “/home/nombre-usuario”, donde “nombre-usuario” se substituye por vuestro nombre de usuario. Si cambiamos de directorio, como veremos mas adelante en lugar de “~” aparecer&aacute; nuestra ubicaci&oacute;n.<br /> “$” –&gt; nos indica que esta esperando que introduzcamos alg&uacute;n comando para llevar a cabo alguna tarea.</p>
+ <p>Ahora os voy a mostrar como usar dos comandos, “pwd” y “cd”, el primero sirve para que nos muestre nuestra ubicaci&oacute;n actual mostrando toda la ruta de directorios. Puede sernos muy &uacute;til en caso de estar usando la <strong>Terminal</strong> durante un rato y que no sepamos exactamente en que directorio estamos, solo tenemos que teclearlo y nos mostrara la ruta, como podemos ver en la siguiente imagen:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/directorio-actual-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/directorio-actual-ubuntu.jpg" alt="directorio-actual-ubuntu" width="455" height="137" /></a></p>
+ <p>&nbsp;</p>
+ <p>Antes de seguir vamos a echar un vistazo a la estructura de <strong>directorios</strong> de Linux para saber como usar el siguiente comando de forma correcta. En la siguiente imagen vemos los directorios que hay en la ra&iacute;z del sistema de archivos:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/raiz-sistema-archivos.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/raiz-sistema-archivos.jpg" alt="raiz-sistema-archivos" width="205" height="534" /></a></p>
+ <p>&nbsp;</p>
+ <p>Como pod&eacute;is ver en la imagen tenemos arriba del todo “Sistema de archivos”, que es la ra&iacute;z o “/”, de ese punto cuelgan todos los <strong>directorios</strong> de Linux, cada uno tiene su funci&oacute;n, no las voy a explicar en este articulo, eso lo dejaremos para otro momento, ya que solo os voy a mostrar como movernos por ellos, como ver su contenido y como crear o borrar directorios seg&uacute;n nuestras necesidades.</p>
+ <p>En este <strong>sistema de directorios</strong> cuando nos movemos por ellos hablaremos de “subir” o “bajar” en funci&oacute;n de lo siguiente:</p>
+ <ul>
+  <li>&nbsp;Si estamos en un directorio y nos movemos a otro que esta mas cerca de la ra&iacute;z o “/”, estaremos hablando de subir en la estructura de directorios.</li>
+  <li>&nbsp;Si estamos en un directorio y nos movemos a otro que esta mas lejos de la ra&iacute;z o “/”, entonces estaremos hablando de bajar en la estructura de directorios.</li>
+ </ul>
+ <p>Esto puede resultar un poco confuso y con la siguiente imagen y la explicaci&oacute;n posterior podr&eacute;is entenderlo mejor:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/distintos-niveles.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/distintos-niveles.jpg" alt="distintos-niveles" width="228" height="675" /></a></p>
+ <p>&nbsp;</p>
+ <p>En esta imagen vemos la lista de <strong>directorios</strong> otra vez, pero ahora vemos los directorios que est&aacute;n dentro de otros directorios. Si os fij&aacute;is en la imagen vemos un directorio en la ra&iacute;z llamado “home”, ese es el directorio en el cual se guardan nuestros archivos personales, entre otras cosas. Justo debajo y un poco mas a su derecha tenemos otro directorios llamado “liher”, ese es el directorio de mi usuario, que se llama “liher”. Justo debajo de “liher” y un poco mas a la derecha tenemos una lista de <strong>directorios</strong>, esta “Descargas”, “Documentos” y algunos mas. En ese nivel esta un directorios llamado “Mis archivos” que yo tengo creado, justo debajo y un poco a la derecha tenemos “Galerias”. Bueno, ahora supongamos que estamos en el directorios “Galerias” y queremos cambiar de directorio con el comando que os mostrare despues y que queremos ir a “Descargas”, si hacemos eso estaremos subiendo un nivel en la estructura. Puede parecer complicado a simple vista, pero no lo es.</p>
+ <p>Ahora abrimos la Terminal y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg" alt="inicio-terminal-ubuntu" width="500" height="263" /></a></p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>Por defecto, cuando abrimos la terminal estaremos en el directorio del usuario con en el que estemos logeados, y all&iacute; tendremos nuestros directorios de “Descargas”, “Documentos”, “Imagenes” y dem&aacute;s. Si queremos ver el contenido de este directorio lo podemos hacer con un comando que se llama “ls”, lo ponemos, pulsamos Enter y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/comando-ls1.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/comando-ls1.jpg" alt="comando-ls1" width="600" height="87" /></a></p>
+ <p>&nbsp;</p>
+ <p>Como pod&eacute;is ver, este comando nos muestra el contenido de la carpeta personal del usuario. El comando “ls” tiene varias opciones, alunas de ellas son:</p>
+ <ul>
+  <li>ls -a : nos muestra tambi&eacute;n los archivos o directorios ocultos.</li>
+  <li>ls -l : esto mostrara toda la informaci&oacute;n completa de cada archivo.</li>
+  <li>ls -R : con este veremos tambi&eacute;n los subdirectorios que tenga cada directorio.</li>
+ </ul>
+ <p>El comando es “ls” y las opciones que van despu&eacute;s son par&aacute;metros, que con combinables entre si de la siguiente forma:</p>
+ <pre>ls -laR</pre>
+ <p>Ahora que ya conocemos “ls” y sabemos como ver el contenido de los directorios,vamos a ver como es el funcionamiento de un comando que es bastante sencillo de usar, pero si no conoc&eacute;is sus opciones no lo estar&eacute;is aprovechando bien. El comando en cuesti&oacute;n es “cd”, este comando nos sirve para ir de un directorio a otro. Supongamos que acabamos de abrir la Terminal y vemos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/inicio-terminal-ubuntu.jpg" alt="inicio-terminal-ubuntu" width="500" height="263" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora vamos a ver el contenido con “ls” y veremos lo siguiente:</p>
+ <p>&nbsp;</p>
+ <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/comando-ls1.jpg"><img src="http://elblogdeliher.com/wp-content/uploads/2014/04/comando-ls1.jpg" alt="comando-ls1" width="600" height="87" /></a></p>
+ <p>&nbsp;</p>
+ <p>Ahora queremos cambiar de directorio y vamos a ir a “Descargas”, para acceder a dicho directorio tendr&iacute;amos que teclear lo siguiente:</p>
+ <pre>cd Descargas</pre>
+ <p>Tenemos que tener cuidado con el nombre y ponerlo tal como es, con sus min&uacute;sculas o may&uacute;sculas. En el caso de que queramos acceder a un directorio que tenga un espacio en el nombre como, por ejemplo, “Mis archivos” tendr&iacute;amos que poner el nombre del directorio entre comillas de la siguiente forma:</p>
+ <pre>cd &quot;Mis archivos&quot;</pre>
+ <p>Si queremos acceder a la ra&iacute;z del sistema de archivos lo haremos de la siguiente forma:</p>
+ <pre>cd /</pre>
+ <p>Si tecleamos solamente el comando “cd” iremos a nuestro directorio personal. Si queremos subir un nivel, es decir, si estamos en el directorio “Descargas” y queremos ir al directorio en el que esta tendr&iacute;amos que teclear lo siguiente:</p>
+ <pre>cd ..</pre>
+ <p>Si queremos ir a un directorio y sabemos la ruta de acceso podremos hacerlo as&iacute;:</p>
+ <pre>cd /home/liher/Descargas</pre>
+ <p>Ahora vamos a ver como crear un directorio, esto lo haremos con el siguiente comando:</p>
+ <pre>mkdir fotos</pre>
+ <p>Este comando crear&iacute;a un directorio llamado “fotos” en el directorio en el que nos encontremos en ese momento.&nbsp;Si queremos borrar un directorio solo tenemos que poner el siguiente comando:</p>
+ <pre>rm fotos</pre>
+ <p>Este comando solo borrara el directorio “fotos” si esta vac&iacute;o, si tiene otros <strong>directorios</strong> dentro o archivos y queremos borrarlo todo tendr&iacute;amos que hacerlo as&iacute;:</p>
+ <pre>rm -r fotos</pre>
+ <p>Bueno, creo que con estos comandos podemos movernos por el sistema de ficheros, ver el contenido de los directorios, crear directorios y borrarlos, y as&iacute; familiarizarnos con el uso de la <strong>Terminal</strong> en <strong>Ubuntu</strong>.</p>
+ <p>&iquest;Que os ha parecido? &iquest;Ten&eacute;is alguna duda? Es sencillo pero si no est&aacute;is acostumbrados al uso de la Terminal es normal tener alguna duda. Un saludo.</p>
+</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu" st_title="Como moverse por los directorios en la Terminal de Ubuntu | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 574,
+      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/04/como-moverse-por-los-directorios-en-la-terminal-de-ubuntu"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeliher",
+      "name" : "El blog de Liher"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-5967896416715365",
+        "adSlotHorizontalSkycraper" : "6843955321",
+        "adSlotBigRectangle" : "6843955321",
+        "adSlotWideSkycraper" : "6843955321"
+      }
+    }
+  ]
+]); });</script></body></html>
