@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
+      "title" : "The Deep Web; ¿los suburbios de Internet?"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
       "title" : "Ejecutar tareas en segundo plano en ASP.NET 4.5.2"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
       "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-instalar-atom-en-ubuntu-mediante-ppa",
-      "title" : "Como instalar Atom en Ubuntu mediante PPA"
     }
   ]
 }
