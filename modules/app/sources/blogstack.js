@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
+      "title" : "Ejecutar tareas en segundo plano en ASP.NET 4.5.2"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
       "title" : "Ya se esta arreglando la cosa"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-instalar-atom-en-ubuntu-mediante-ppa",
       "title" : "Como instalar Atom en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
-      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
     }
   ]
 }
