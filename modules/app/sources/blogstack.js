@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
+      "title" : "EntityManager, EntityManagerFactory  y Singletons"
+    },
+    {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
       "title" : "BlogStack generando Sinergia"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
-      "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
     }
   ]
 }

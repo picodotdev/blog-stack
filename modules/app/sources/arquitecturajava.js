@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
+      "title" : "EntityManager, EntityManagerFactory  y Singletons"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
       "title" : "El patrón fachada  (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/spring-expression-language",
       "title" : "Spring Expression Language"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/04/flexibilidad-en-jpa-persistence-xml-y-orm-xml",
-      "title" : "Flexibilidad en JPA persistence.xml y orm.xml"
     }
   ]
 }
