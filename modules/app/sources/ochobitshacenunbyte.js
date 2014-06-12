@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
+      "title" : "Montar un servidor FTP desde 0, con PROFTPD"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
       "title" : "LFTP , transferencia de archivos desde la consola de comandos"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/una-tabla-de-elementos-con-mucho-humor",
       "title" : "Una tabla de elementos con mucho humor"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/cambiar-la-hora-y-la-fecha-en-gnu-linux",
-      "title" : "Cambiar la hora y la fecha en GNU/Linux"
     }
   ]
 }

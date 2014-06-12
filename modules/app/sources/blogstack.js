@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
+      "title" : "Montar un servidor FTP desde 0, con PROFTPD"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
       "title" : "EntityManager, EntityManagerFactory  y Singletons"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/cambio-de-portatil-y-de-distro-principal",
       "title" : "Cambio de portatil y de distro principal"
-    },
-    {
-      "url" : "/post/elblogdejose/2014/06/blogstack-generando-sinergia",
-      "title" : "BlogStack generando Sinergia"
     }
   ]
 }
