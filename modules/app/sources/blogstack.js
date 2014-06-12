@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "¿Mejor gestión basada en procesos, o agilidad?"
     },
     {
+      "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
+      "title" : "Mis experiencias y recomendaciones con los ordenadores"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
       "title" : "Montar un servidor FTP desde 0, con PROFTPD"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
       "title" : "El patrón fachada  (GenBetaDev)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-seleccionar-con-que-programa-abrir-por-defecto-un-archivo-en-ubuntu",
-      "title" : "Como seleccionar con que programa abrir por defecto un archivo en Ubuntu"
     }
   ]
 }

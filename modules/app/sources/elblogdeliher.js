@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
+      "title" : "Mis experiencias y recomendaciones con los ordenadores"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
       "title" : "Ya se esta arreglando la cosa"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/05/ubuntu-14-4-aio-los-principales-sabores-en-una-sola-iso",
       "title" : "Ubuntu 14.04 AIO, los principales sabores en una sola ISO"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/que-es-wordpress",
-      "title" : "Que es WordPress"
     }
   ]
 }
