@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
+      "title" : "¿Mejor gestión basada en procesos, o agilidad?"
+    },
+    {
       "url" : "/post/navegapolis/2014/05/como-es-la-estrella-de-tu-proyecto",
       "title" : "¿Cómo es la estrella de tu proyecto?"
     },

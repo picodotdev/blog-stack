@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
+      "title" : "¿Mejor gestión basada en procesos, o agilidad?"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
       "title" : "Montar un servidor FTP desde 0, con PROFTPD"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-seleccionar-con-que-programa-abrir-por-defecto-un-archivo-en-ubuntu",
       "title" : "Como seleccionar con que programa abrir por defecto un archivo en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/cambio-de-portatil-y-de-distro-principal",
-      "title" : "Cambio de portatil y de distro principal"
     }
   ]
 }
