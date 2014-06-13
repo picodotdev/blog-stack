@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
+      "title" : "The Deep Web; ¿los suburbios de Internet?"
+    },
+    {
       "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
       "title" : "¿Mejor gestión basada en procesos, o agilidad?"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
       "title" : "EntityManager, EntityManagerFactory  y Singletons"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
-      "title" : "The Deep Web; ¿los suburbios de Internet?"
     },
     {
       "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
