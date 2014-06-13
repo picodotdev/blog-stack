@@ -3,10 +3,56 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-09T19:20:12Z</updated>
+  <updated>2014-06-13T17:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-09T19:20:12Z</dc:date>
+  <dc:date>2014-06-13T17:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Página Dashboard de Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-06-13T15:37:24Z</updated>
+    <published>2014-06-13T15:37:24Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Con la versi&amp;oacute;n 5.4 de Tapestry las &lt;a href="http://elblogdepicodev.blogspot.com.es/2012/08/paginas-pagecatalog-servicestatus-e.html"&gt;p&amp;aacute;ginas PageCatalog, ServiceStatus e HibernateStaticstis&lt;/a&gt; han sido unificadas en la p&amp;aacute;gina T5Dashboard por lo que ahora en una s&amp;oacute;la p&amp;aacute;gina tendremos toda la informaci&amp;oacute;n. Una de las caracter&amp;iacute;sticas m&amp;aacute;s importantes de Tapestry es ser muy informativo proporcionando mucha y descriptiva informaci&amp;oacute;n, esto se nota con la p&amp;aacute;gina de &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/07/personalizar-la-pagina-de-informe-de-error.html"&gt;informe de error incluso para las peticiones ajax&lt;/a&gt;, los mensajes de logging y con est&amp;aacute;s p&amp;aacute;ginas de informaci&amp;oacute;n de estado.&lt;/p&gt; 
+&lt;p&gt;La p&amp;aacute;gina &lt;a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/pages/T5Dashboard.html"&gt;T5Dashboard&lt;/a&gt; est&amp;aacute; incluida en el propio core de &lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt; y disponible en todas las aplicaciones en modo desarrollo y accediendo de forma local al servidor de aplicaciones. Si se incluye en la aplicaci&amp;oacute;n la dependencia tapestry-hibernate adem&amp;aacute;s en T5Dashboard podremos ver estad&amp;iacute;sticas de uso de Hibernate. La p&amp;aacute;gina T5Dashboard nos puede resultar muy &amp;uacute;til ya que nos proporciona mucha informaci&amp;oacute;n y alguna acci&amp;oacute;n interesante.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-06-13T15:37:24Z</dc:date>
+  </entry>
+  <entry>
+    <title>Detectar problema N+1 y obtener estadísticas de Hibernate con Grails</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="java" />
+    <category term="grails" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-06-13T14:00:00Z</updated>
+    <published>2014-05-30T18:30:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Una base de datos relacional guarda los datos de forma diferente al modelo orientado a objetos que utilizamos en lenguajes como &lt;a href="http://www.oracle.com/us/technologies/java/overview/index.html"&gt;Java&lt;/a&gt;, &lt;a href="http://www.microsoft.com/net"&gt;C#&lt;/a&gt; o &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. Los &lt;a href="http://en.wikipedia.org/wiki/Object-relational_mapping"&gt;ORM (Object-relational mapping)&lt;/a&gt; tratan de hacer una correspondencia entre los dos modelos, el relacional de las bases de datos y el orientado a objetos de los lenguajes. Una de las ventajas de usar en una aplicaci&amp;oacute;n un ORM para acceder a la base de datos es que podemos hacer una correspondencia entre los datos de una base de datos relacional y trabajar con esos datos utilizando el modelo orientado a objetos del lenguaje de programaci&amp;oacute;n que usemos.&lt;/p&gt; 
+&lt;p&gt;Sin embargo, el ORM env&amp;iacute;a sentencias SQL para recuperar los datos de la base de datos relacional seg&amp;uacute;n vamos navegando con los m&amp;eacute;todos de acceso a otros objetos y sus relaciones. Depende de como el ORM haga las consultas para recuperar los datos de la base de datos relacional puede generar muchas SQL, producir un bajo rendimiento en la aplicaci&amp;oacute;n y una carga de trabajo considerable para la base de datos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-05-30T18:30:00Z</dc:date>
+  </entry>
   <entry>
     <title>Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" />
@@ -89,29 +135,6 @@ return lista.iterator();
 &lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/06/uso-de-java-generics-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-06-04T05:49:10Z</dc:date>
-  </entry>
-  <entry>
-    <title>Detectar problema N+1 y obtener estadísticas de Hibernate con Grails</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="grails" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-05-30T18:30:00Z</updated>
-    <published>2014-05-30T18:30:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Una base de datos relacional guarda los datos de forma diferente al modelo orientado a objetos que utilizamos en lenguajes como &lt;a href="http://www.oracle.com/us/technologies/java/overview/index.html"&gt;Java&lt;/a&gt;, &lt;a href="http://www.microsoft.com/net"&gt;C#&lt;/a&gt; o &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. Los &lt;a href="http://en.wikipedia.org/wiki/Object-relational_mapping"&gt;ORM (Object-relational mapping)&lt;/a&gt; tratan de hacer una correspondencia entre los dos modelos, el relacional de las bases de datos y el orientado a objetos de los lenguajes. Una de las ventajas de usar en una aplicaci&amp;oacute;n un ORM para acceder a la base de datos es que podemos hacer una correspondencia entre los datos de una base de datos relacional y trabajar con esos datos utilizando el modelo orientado a objetos del lenguaje de programaci&amp;oacute;n que usemos.&lt;/p&gt; 
-&lt;p&gt;Sin embargo, el ORM env&amp;iacute;a sentencias SQL para recuperar los datos de la base de datos relacional seg&amp;uacute;n vamos navegando con los m&amp;eacute;todos de acceso a otros objetos y sus relaciones. Depende de como el ORM haga las consultas para recuperar los datos de la base de datos relacional puede generar muchas SQL, producir un bajo rendimiento en la aplicaci&amp;oacute;n y una carga de trabajo considerable para la base de datos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-05-30T18:30:00Z</dc:date>
   </entry>
   <entry>
     <title>Página de excepción de Grails</title>
@@ -838,88 +861,6 @@ return lista.iterator();
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/01/pasando-argumentos-a-un-timertask-en-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2014-01-22T09:00:49Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción a Timer y TimerTask en Java.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/01/introduccion-a-timer-y-timertask-en-java" />
-    <category term="periodicidad" />
-    <category term="periodica" />
-    <category term="example" />
-    <category term="task" />
-    <category term="timer" />
-    <category term="timertask" />
-    <category term="toc" />
-    <category term="time" />
-    <category term="java" />
-    <category term="tic" />
-    <category term="tarea" />
-    <category term="temporizador" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2014-01-08T09:35:28Z</updated>
-    <published>2014-01-08T09:35:28Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMS9wb21vZG9yby5qcGc="&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/01/pomodoro.jpg" alt="" title="pomodoro" width="500" height="375" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Los timers son una herramienta muy &amp;uacute;til para lanzar una tarea cada cierto tiempo, por ejemplo, si estamos conectados a un servidor, podemos enviar informaci&amp;oacute;n de estado para no desconectarnos, o lanzar una tarea a una hora determinada, o incluso puede servir para crear una animaci&amp;oacute;n (ya que con el tiempo va variando aquello que hayamos dibujado, o va cambiando el fotograma).&lt;br /&gt; El ejemplo m&amp;aacute;s sencillo de un timer puede ser lo siguiente:&lt;/p&gt; 
-&lt;div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"&gt; 
- &lt;table&gt; 
-  &lt;tbody&gt; 
-   &lt;tr&gt; 
-    &lt;td&gt; 
-     &lt;div&gt;
-       1 
-      &lt;br /&gt;2 
-      &lt;br /&gt;3 
-      &lt;br /&gt;4 
-      &lt;br /&gt;5 
-      &lt;br /&gt;6 
-      &lt;br /&gt;7 
-      &lt;br /&gt;8 
-      &lt;br /&gt;9 
-      &lt;br /&gt;10 
-      &lt;br /&gt;11 
-      &lt;br /&gt;12 
-      &lt;br /&gt;13 
-      &lt;br /&gt;14 
-      &lt;br /&gt;15 
-      &lt;br /&gt;16 
-      &lt;br /&gt;17 
-      &lt;br /&gt;18 
-      &lt;br /&gt;19 
-      &lt;br /&gt;20 
-      &lt;br /&gt;21 
-      &lt;br /&gt;22 
-      &lt;br /&gt;23 
-      &lt;br /&gt;24 
-      &lt;br /&gt;25 
-      &lt;br /&gt; 
-     &lt;/div&gt;&lt;/td&gt; 
-    &lt;td&gt; 
-     &lt;div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"&gt;
-       import java.util.Timer; 
-      &lt;br /&gt; import java.util.TimerTask; 
-      &lt;br /&gt; 
-      &lt;br /&gt; class TimerEx { 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; public static void main( 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Astring+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;String&lt;/a&gt; arglist[]) { 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimer+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;Timer&lt;/a&gt; timer; 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; timer = new 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimer+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;Timer&lt;/a&gt;(); 
-      &lt;br /&gt; 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimertask+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;TimerTask&lt;/a&gt; task = new 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimertask+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;TimerTask&lt;/a&gt;() { 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; int tic=0; 
-      &lt;br /&gt; 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; @Override 
-     &lt;/div&gt;&lt;/td&gt;
-   &lt;/tr&gt;
-  &lt;/tbody&gt;
- &lt;/table&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/01/introduccion-a-timer-y-timertask-en-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2014-01-08T09:35:28Z</dc:date>
   </entry>
 </feed>
 

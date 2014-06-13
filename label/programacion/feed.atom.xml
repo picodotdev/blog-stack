@@ -3,10 +3,56 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-09T19:20:16Z</updated>
+  <updated>2014-06-13T17:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-09T19:20:16Z</dc:date>
+  <dc:date>2014-06-13T17:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Página Dashboard de Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-06-13T15:37:24Z</updated>
+    <published>2014-06-13T15:37:24Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Con la versi&amp;oacute;n 5.4 de Tapestry las &lt;a href="http://elblogdepicodev.blogspot.com.es/2012/08/paginas-pagecatalog-servicestatus-e.html"&gt;p&amp;aacute;ginas PageCatalog, ServiceStatus e HibernateStaticstis&lt;/a&gt; han sido unificadas en la p&amp;aacute;gina T5Dashboard por lo que ahora en una s&amp;oacute;la p&amp;aacute;gina tendremos toda la informaci&amp;oacute;n. Una de las caracter&amp;iacute;sticas m&amp;aacute;s importantes de Tapestry es ser muy informativo proporcionando mucha y descriptiva informaci&amp;oacute;n, esto se nota con la p&amp;aacute;gina de &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/07/personalizar-la-pagina-de-informe-de-error.html"&gt;informe de error incluso para las peticiones ajax&lt;/a&gt;, los mensajes de logging y con est&amp;aacute;s p&amp;aacute;ginas de informaci&amp;oacute;n de estado.&lt;/p&gt; 
+&lt;p&gt;La p&amp;aacute;gina &lt;a href="http://tapestry.apache.org/5.4/apidocs/org/apache/tapestry5/corelib/pages/T5Dashboard.html"&gt;T5Dashboard&lt;/a&gt; est&amp;aacute; incluida en el propio core de &lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt; y disponible en todas las aplicaciones en modo desarrollo y accediendo de forma local al servidor de aplicaciones. Si se incluye en la aplicaci&amp;oacute;n la dependencia tapestry-hibernate adem&amp;aacute;s en T5Dashboard podremos ver estad&amp;iacute;sticas de uso de Hibernate. La p&amp;aacute;gina T5Dashboard nos puede resultar muy &amp;uacute;til ya que nos proporciona mucha informaci&amp;oacute;n y alguna acci&amp;oacute;n interesante.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-06-13T15:37:24Z</dc:date>
+  </entry>
+  <entry>
+    <title>Detectar problema N+1 y obtener estadísticas de Hibernate con Grails</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="java" />
+    <category term="grails" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-06-13T14:00:00Z</updated>
+    <published>2014-05-30T18:30:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Una base de datos relacional guarda los datos de forma diferente al modelo orientado a objetos que utilizamos en lenguajes como &lt;a href="http://www.oracle.com/us/technologies/java/overview/index.html"&gt;Java&lt;/a&gt;, &lt;a href="http://www.microsoft.com/net"&gt;C#&lt;/a&gt; o &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. Los &lt;a href="http://en.wikipedia.org/wiki/Object-relational_mapping"&gt;ORM (Object-relational mapping)&lt;/a&gt; tratan de hacer una correspondencia entre los dos modelos, el relacional de las bases de datos y el orientado a objetos de los lenguajes. Una de las ventajas de usar en una aplicaci&amp;oacute;n un ORM para acceder a la base de datos es que podemos hacer una correspondencia entre los datos de una base de datos relacional y trabajar con esos datos utilizando el modelo orientado a objetos del lenguaje de programaci&amp;oacute;n que usemos.&lt;/p&gt; 
+&lt;p&gt;Sin embargo, el ORM env&amp;iacute;a sentencias SQL para recuperar los datos de la base de datos relacional seg&amp;uacute;n vamos navegando con los m&amp;eacute;todos de acceso a otros objetos y sus relaciones. Depende de como el ORM haga las consultas para recuperar los datos de la base de datos relacional puede generar muchas SQL, producir un bajo rendimiento en la aplicaci&amp;oacute;n y una carga de trabajo considerable para la base de datos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-05-30T18:30:00Z</dc:date>
+  </entry>
   <entry>
     <title>Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly" />
@@ -29,29 +75,6 @@
 &lt;p&gt;Los class loaders del &lt;a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/"&gt;servidor de aplicaciones JBoss)/WildFly&lt;/a&gt; habitualmente han dado alg&amp;uacute;n problema en la ejecuci&amp;oacute;n de las aplicaciones y la carga de clases. En versiones antiguas como la 4 se pod&amp;iacute;an producir conflictos entre las librer&amp;iacute;as de las aplicaciones y las librer&amp;iacute;as instaladas en el servidor ya que en &lt;a href="http://jbossas.jboss.org/"&gt;JBoss&lt;/a&gt; se buscaba las clases por defecto y primero en el class loader del servidor en vez de en el classloader de la aplicaci&amp;oacute;n (war). Ya en las &amp;uacute;ltimas versiones como JBoss 7 y &lt;a href="http://wildfly.org/"&gt;WildFly&lt;/a&gt; la forma de cargar las clases es m&amp;aacute;s parecido al modelo habitual que se sigue en las aplicaciones Java EE y en servidores como Tomcat buscando primero en el directorio classes WEB-INF/classes y entre las librer&amp;iacute;as de la carpeta WEB-INF/lib del archivo war. Adem&amp;aacute;s, con la inclusi&amp;oacute;n de JBoss Modules se puede seguir un esquema OSGi con lo que incluso podr&amp;iacute;amos usar simultaneamente en el servidor diferentes versiones de la misma librer&amp;iacute;a.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-06-06T18:58:25Z</dc:date>
-  </entry>
-  <entry>
-    <title>Detectar problema N+1 y obtener estadísticas de Hibernate con Grails</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="grails" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-05-30T18:30:00Z</updated>
-    <published>2014-05-30T18:30:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/grails.png" alt="Grails" title="Grails" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Una base de datos relacional guarda los datos de forma diferente al modelo orientado a objetos que utilizamos en lenguajes como &lt;a href="http://www.oracle.com/us/technologies/java/overview/index.html"&gt;Java&lt;/a&gt;, &lt;a href="http://www.microsoft.com/net"&gt;C#&lt;/a&gt; o &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt;. Los &lt;a href="http://en.wikipedia.org/wiki/Object-relational_mapping"&gt;ORM (Object-relational mapping)&lt;/a&gt; tratan de hacer una correspondencia entre los dos modelos, el relacional de las bases de datos y el orientado a objetos de los lenguajes. Una de las ventajas de usar en una aplicaci&amp;oacute;n un ORM para acceder a la base de datos es que podemos hacer una correspondencia entre los datos de una base de datos relacional y trabajar con esos datos utilizando el modelo orientado a objetos del lenguaje de programaci&amp;oacute;n que usemos.&lt;/p&gt; 
-&lt;p&gt;Sin embargo, el ORM env&amp;iacute;a sentencias SQL para recuperar los datos de la base de datos relacional seg&amp;uacute;n vamos navegando con los m&amp;eacute;todos de acceso a otros objetos y sus relaciones. Depende de como el ORM haga las consultas para recuperar los datos de la base de datos relacional puede generar muchas SQL, producir un bajo rendimiento en la aplicaci&amp;oacute;n y una carga de trabajo considerable para la base de datos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-05-30T18:30:00Z</dc:date>
   </entry>
   <entry>
     <title>Página de excepción de Grails</title>
@@ -681,26 +704,6 @@
 &lt;/div&gt;Generar trazas en una aplicaci&amp;oacute;n es muy barato y simple comparado con la informaci&amp;oacute;n que puede proporcionar, su utilidad y tiempo que puede ahorrar a la hora de descubrir problemas. B&amp;aacute;sicamente, las trazas que queremos generar las insertamos dentro del propio c&amp;oacute;digo de la aplicaci&amp;oacute;n que est&amp;aacute;n compuestas del mensaje que queremos emitir, el nivel de la traza y la categor&amp;iacute;a a la misma. El mensaje puede ser cualquier cadena que queramos que creamos que nos puede ser &amp;uacute;til pudiendo contener datos procedentes de variables o cualquier otra cosa de la que pueda disponer el programa. Los niveles de las trazas en muchos sistemas son las siguientes por orden de relevancia de mayor a menor: fatal, error, warn, info, debug. Estos niveles de las trazas nos pemitir&amp;aacute;n utilizalos posteriormente para en tiempo de ejecuci&amp;oacute;n y mendiante la configuraci&amp;oacute;n del sistema de logging filtrar las mismas por el nivel que queramos pudiendo obtener &amp;uacute;nicamente las trazas de nivel warn o superior. Las categor&amp;iacute;as representan la pieza dentro de nuestro sistema que emite la traza que tambi&amp;eacute;n podremos utilizar para filtrar los mensajes que queramos. Por supuesto, podremos utilizar las combinaciones de nivel y categor&amp;iacute;a que queramos teniendo en nuestras manos un sistema muy flexible para obtener la informaci&amp;oacute;n que queramos y que genere la aplicaci&amp;oacute;n.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/04/librerias-de-logging-para-java-slf4j-log4j-java-util-logging-logback-mentalog"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2012-04-26T18:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Logging usando marcadores con slf4j y logback</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-01-31T16:10:17Z</updated>
-    <published>2014-01-31T16:10:17Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Un sistema de logging en una aplicaci&amp;oacute;n es indispensable para saber lo que est&amp;aacute; sucediendo en la aplicaci&amp;oacute;n en el mismo momento o pasado un tiempo. Es de gran utilidad tanto para en el momento de desarrollar la aplicaci&amp;oacute;n como para una vez puesta en producci&amp;oacute;n. Con el registro de las trazas podemos obtener informaci&amp;oacute;n que nos permitir&amp;aacute; descubrir un error o averiguar m&amp;aacute;s f&amp;aacute;cilmente y r&amp;aacute;pidamente porque sucede alg&amp;uacute;n comportamiento que no es como se espera.&lt;/p&gt; 
-&lt;p&gt;En Java hay varios sistemas de logging entre los m&amp;aacute;s utilizados est&amp;aacute;n &lt;a href="http://logging.apache.org/log4j/1.2/"&gt;log4j&lt;/a&gt;, &lt;a href="http://logback.qos.ch/"&gt;logback&lt;/a&gt;, &lt;a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html"&gt;java.util.logging&lt;/a&gt; y la capa de abstracci&amp;oacute;n &lt;a href="http://www.slf4j.org/"&gt;slf4j&lt;/a&gt; sobre varios de estas librer&amp;iacute;as. En estas librer&amp;iacute;as de logging las trazas se emiten a trav&amp;eacute;s de un logger que normalmente se corresponde con el nombre de la clase en la que se emite la traza. De esta forma las trazas se pueden filtrar por el nivel de importancia de la traza (debug, info, warn, …) y por el nombre del logger de forma que podemos obtener un registro de las trazas emitidas por los loggers que deseamos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-01-31T16:10:17Z</dc:date>
   </entry>
 </feed>
 

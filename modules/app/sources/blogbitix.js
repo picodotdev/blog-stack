@@ -3,16 +3,20 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
+      "title" : "Página Dashboard de Apache Tapestry"
+    },
+    {
+      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
+      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
+    },
+    {
       "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
       "title" : "Guía para la creación de un blog con Octopress"
     },
     {
       "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
-      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     },
     {
       "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache",
       "title" : "Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl",
-      "title" : "Generar y convertir claves y certificados con OpenSSL"
     }
   ]
 }

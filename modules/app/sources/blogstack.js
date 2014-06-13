@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
+      "title" : "Página Dashboard de Apache Tapestry"
+    },
+    {
+      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
+      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
+    },
+    {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/no-es-una-cuestion-de-envidia-ni-mucho-menos",
-      "title" : "No es una cuestión de envidia, ni mucho menos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
-      "title" : "El patrón fachada  (GenBetaDev)"
     }
   ]
 }
