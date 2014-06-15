@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/que-son-los-controladores-privativos-o-adicionales-en-ubuntu",
+      "title" : "Que son los controladores privativos o adicionales en Ubuntu"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
       "title" : "Ejecutar tareas en segundo plano en ASP.NET 4.5.2"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
       "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
-    },
-    {
-      "url" : "/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure",
-      "title" : "Polimorfismo fuera de OOP: Multimétodos en clojure"
     }
   ]
 }
