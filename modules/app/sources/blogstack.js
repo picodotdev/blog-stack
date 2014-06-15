@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/05/fondos-de-escritorio-7",
+      "title" : "Fondos de escritorio 7"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/fondos-de-escritorio-1",
+      "title" : "Fondos de escritorio 10"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/como-desactivar-el-bluetooth-al-inicio-en-ubuntu",
+      "title" : "Como desactivar el Bluetooth al inicio en Ubuntu"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
       "title" : "Página Dashboard de Apache Tapestry"
     },
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure",
       "title" : "Polimorfismo fuera de OOP: Multimétodos en clojure"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/06/defiende-la-privacidad-en-tu-correo-electronico-usa-gnupg",
-      "title" : "Defiende la privacidad en tu correo electrónico. Usa GnuPG"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
-      "title" : "Guía para la creación de un blog con Octopress"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
-      "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
     }
   ]
 }
