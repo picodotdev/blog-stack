@@ -1,0 +1,196 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Interfaces + Extension Methods = Protocolos de Clojure | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure"><span itemprop="headline">Interfaces + Extension Methods = Protocolos de Clojure</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/C3ST0J9TcKg/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-16T05:06" itemprop="datePublished">Publicado el lunes, 16 de junio de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+clojure, design-patterns, development, <a href="/label/c"><span itemprop="articleSection">c</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En el post anterior vimos c&oacute;mo los <a href="http://blog.koalite.com/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure/" title="Polimorfismo fuera de OOP: Multim&eacute;todos en clojure">multim&eacute;todos de clojure</a> permit&iacute;an resolver problemas t&iacute;picos de una forma diferente a c&oacute;mo lo har&iacute;amos en un lenguaje orientado a objetos como Java y C#. En este post vamos a otra herramienta de clojure para aplicar polimorfismo, los <a href="http://clojure.org/protocols">protocolos</a>.</p> 
+<h3>El problema de ejemplo</h3> 
+<p>Nuevamente vamos a empezar por definir un problema de ejemplo que nos permita tener un poco de contexto a la hora de analizar las distintas soluciones ofrecidas por un lenguaje y otro. El problema en cuesti&oacute;n forma parte de lo que se conoce como el <a href="http://en.wikipedia.org/wiki/Expression_problem">problema de expresi&oacute;n</a> y consiste en tener que a&ntilde;adir operaciones a una jerarqu&iacute;a de tipos ya existente.</p> 
+<p>Supongamos que tenemos una estructura de clases para representar controles en pantalla, similar a la que encontramos en Windows Forms o WPF:</p> 
+<pre>
+public class Control
+{
+  public string Text { get; set; }
+  public Color Color { get; set; }
+}
+
+public class TextBox : Control
+{
+  public int MaxLength { get; set; }
+}
+
+public class Button : Control
+{
+  public ButtonStyle Style { get; set; }
+}
+</pre> 
+<p>Sobre esta jerarqu&iacute;a de clases, queremos implementar nuevas operaciones que nos permitan guardar el estado de un control para poder recuperarlo posteriormente (algo as&iacute; como implementar un Undo/Redo). </p> 
+<p>Para ello necesitamos implementar los m&eacute;todos <code>void PersistState(IWriter writer)</code> y <code>void RestoreState(IReader reader)</code> para poder tratar las distintas clases de forma homog&eacute;nea dentro de nuestra aplicaci&oacute;n, pero <em>no podemos modificar las clases</em> ya que no las controlamos nosotros, sino que forman parte del framework.</p> 
+<h3>La soluci&oacute;n OOP: Adapters</h3> 
+<p>Una soluci&oacute;n t&iacute;pica en un lenguaje orientado a objetos pasa por utilizar el <a href="http://en.wikipedia.org/wiki/Adapter_pattern">patr&oacute;n adapter</a>, y tener algo as&iacute;:</p> 
+<pre>
+public interface IPersistentControl
+{
+  void PersistState(IWriter writer);
+  void RestoreState(IReader reader);
+}
+
+public class PersistentTextBox : IPersistentControl
+{
+  private readonly TextBox textBox;
+  
+  public PersistentTextBox(TextBox textBox)
+  {
+    this.textBox = textBox;
+  }
+  
+  public void PersistState(IWriter writer)
+  {
+    // guardar el estado sobre writer
+  }
+
+  public void RestoreState(IReader reader)
+  {
+    // recuperar el estado ley&eacute;ndolo del reader
+  }
+}
+
+// Implementaciones similares para el resto de controles
+</pre> 
+<p>El patr&oacute;n adapter nos permite dotar a los controles de un nuevo interface con las operaciones que necesitamos, y a la hora de utilizarlos dentro de nuestra aplicaci&oacute;n, podemos encapsular los controles dentro de sus adapters correspondientes y tratarlos de manera uniforme como <code>IPersistentControls</code>.</p> 
+<p>Esta soluci&oacute;n nos obliga a escribir bastante c&oacute;digo, aunque es verdad que con un IDE adecuado gran parte de este c&oacute;digo “se escribe solo”. El mayor problema radica en que cuando encapsulamos una instancia de <code>TextBox</code> dentro de un <code>IPersistentControl</code>, conseguimos que cumpla el contrato de <code>IPersistentControl</code> pero perdemos el contrato de <code>Control</code>, por lo que no podemos tener a la vez un objeto que cumpla ambos contratos, lo que puede ser bastante molesto.</p> 
+<h3>La soluci&oacute;n clojure: Protocolos</h3> 
+<p>En clojure, un protocolo es muy similar a un interface en cuanto a que define un contrato, es decir, un conjunto de operaciones que debe cumplir un tipo determinado. La diferencia fundamental con un interface de C# o Java, es que podemos implementar protocolos sobre tipos que ya existen. Mientras que en C# una clase s&oacute;lo puede indicar qu&eacute; interfaces implementa en el momento de su declaraci&oacute;n, con los protocolos de clojure podemos a&ntilde;adir a posteriori una implementaci&oacute;n del protocolo para tipos que ya existen. </p> 
+<p>En el ejemplo anterior, tendr&iacute;amos algo as&iacute;:</p> 
+<pre>
+(deftype Control [text color])
+(deftype TextBox [text color max-length])
+(deftype Button [text color button-style])
+
+(defprotocol PersistentControl
+  (persist-state [this writer])
+  (restore-state [this reader]))
+
+(extend-type TextBox
+  PersistentControl 
+  (persist-state [this writer]
+    (println &quot;guardando estado&quot;))
+  (restore-state [this reader]
+    (println &quot;recuperando estado&quot;)))
+</pre> 
+<p>El protocolo se define con <code>defprotocol</code>, indicando las funciones que forman parte de &eacute;l, y se implementa con <code>extend</code> o <code>extend-type</code> (como en el caso del ejemplo) indicando el tipo y protocolo que queremos extender, y la implementaci&oacute;n de las operaciones del protocolo.</p> 
+<p>La principal ventaja de esta forma de trabajar es que podemos decidir implementar protocolos sobre tipos que ya han sido definidos anteriormente sin necesidad de modificar la declaraci&oacute;n de los tipos.</p> 
+<p>A cambio, vemos en el ejemplo una limitaci&oacute;n de clojure (o de mi conocimiento de clojure) y es que no podemos hacer que un tipo herede de otro si usamos <code>deftype</code>. Eso hace que exista cierta duplicidad entre los constructores de <code>Control</code>, <code>Button</code> y <code>TextBox</code>. Se puede solventar utilizando clases de java, pero si vamos por esa v&iacute;a empezamos a perder parte de la claridad y concisi&oacute;n de clojure.</p> 
+<h3>Interfaces y extension methods</h3> 
+<p>Si has llegado hasta aqu&iacute; y no has abandonado al ver los par&eacute;ntesis de clojure, seguramente te hayas dado cuenta de que los protocolos de clojure podr&iacute;amos verlos como una mezcla entre interfaces (la definici&oacute;n del protocolo) y extension methods (la implementaci&oacute;n del protocolo). </p> 
+<p>Es una buena forma de verlo, ya que la implementaci&oacute;n del protocolo, al igual que los extension methods, s&oacute;lo tiene acceso a las operaciones p&uacute;blicas del tipo sobre el que est&aacute; implementando el protocolo. </p> 
+<p>La diferencia es que en C#, aunque podamos a&ntilde;adir los extension methods necesarios para implementar un interface, eso no va a hacer que la clase implemente el interface. Ser&iacute;a genial si pudi&eacute;semos hacer algo as&iacute; (<strong>OJO, sintaxis inventada</strong>):</p> 
+<pre>
+public static class PersistentTextBoxExtensions
+{
+  public static void IPersistentControl.PersistState(this TextBox textBox, IWriter writer) 
+  {
+    // Guardar estado
+  }
+  
+  public static void IPersistentControl.RestoreState(this TextBox textBox, IReader reader) 
+  {
+    // Recuperar estado
+  }
+}
+</pre> 
+<p>Desgraciadamente eso no es posible hoy en d&iacute;a, y debemos conformarnos con soluciones como la descrita anteriormente con los adapters o cruzar la l&iacute;nea de la generaci&oacute;n din&aacute;mica de c&oacute;digo y empezar a <a href="http://blog.koalite.com/2012/12/implementar-interfaces-con-objetos-anonimos-en-csharp/">jugar con interceptores como en este tipo de soluciones</a>.</p> 
+<h3>Conclusiones</h3> 
+<p>Los protocolos en clojure son una manera interesante de extender el comportamiento de tipos ya existentes para poder implementar algoritmos polim&oacute;rficos. En C# (de momento) no existe una construcci&oacute;n parecida, pero eso no quiere decir que el problema no se pueda resolver, aunque las soluciones pueden no ser tan c&oacute;modas.</p> 
+<p>Nuevamente quiero dejar claro que esto no se trata de decidir <a href="http://blog.koalite.com/2013/07/como-elegir-un-lenguaje-de-programacion/" title="C&oacute;mo elegir un lenguaje de programaci&oacute;n">qu&eacute; lenguaje es mejor</a> ya que para eso hay que tener en cuenta muchos factores (y algunos mucho m&aacute;s importantes que este tipo de cosas), sino de conocer otras formas de resolver los mismos problemas.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2012/07/diseno-de-apis-con-interfaces-y-extension-methods/" title="Dise&ntilde;o de APIs con interfaces y extension methods">Dise&ntilde;o de APIs con interfaces y extension methods</a></li> 
+ <li><a href="http://blog.koalite.com/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure/" title="Polimorfismo fuera de OOP: Multim&eacute;todos en clojure">Polimorfismo fuera de OOP: Multim&eacute;todos en clojure</a></li> 
+ <li><a href="http://blog.koalite.com/2012/12/implementar-interfaces-con-objetos-anonimos-en-csharp/" title="Implementar interfaces con objetos an&oacute;nimos en C#">Implementar interfaces con objetos an&oacute;nimos en C#</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/C3ST0J9TcKg" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" st_title="Interfaces + Extension Methods = Protocolos de Clojure | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 615,
+      "url" : "http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

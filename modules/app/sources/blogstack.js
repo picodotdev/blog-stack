@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
+      "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/que-son-los-controladores-privativos-o-adicionales-en-ubuntu",
       "title" : "Que son los controladores privativos o adicionales en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-161",
       "title" : "Enlaces interesantes 161"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
-      "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
     }
   ]
 }
