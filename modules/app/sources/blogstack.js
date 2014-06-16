@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/java-websockets",
+      "title" : "Java WebSockets"
+    },
+    {
       "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
       "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
       "title" : "Ya se esta arreglando la cosa"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-161",
-      "title" : "Enlaces interesantes 161"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/java-websockets",
+      "title" : "Java WebSockets"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
       "title" : "EntityManager, EntityManagerFactory  y Singletons"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/jmeter-test",
       "title" : "JMeter Test"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/spring-expression-language",
-      "title" : "Spring Expression Language"
     }
   ]
 }
