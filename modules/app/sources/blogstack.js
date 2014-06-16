@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
+      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
+    },
+    {
+      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
+      "title" : "The Deep Web; ¿los suburbios de Internet?"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/java-websockets",
       "title" : "Java WebSockets"
     },
@@ -39,10 +47,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     },
     {
-      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
-      "title" : "The Deep Web; ¿los suburbios de Internet?"
-    },
-    {
       "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
       "title" : "¿Mejor gestión basada en procesos, o agilidad?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
       "title" : "EntityManager, EntityManagerFactory  y Singletons"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
-      "title" : "Ya se esta arreglando la cosa"
     }
   ]
 }
