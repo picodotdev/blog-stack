@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
+      "title" : "The Deep Web; ¿los suburbios de Internet?"
+    },
+    {
       "url" : "/post/placerdigital/2014/06/acelerar-tu-pagina-web-retardando-la-carga-de-ciertos-contenidos-secundarios",
       "title" : "Acelerar tu página web retardando la carga de ciertos contenidos secundarios"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
       "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
-      "title" : "The Deep Web; ¿los suburbios de Internet?"
     },
     {
       "url" : "/post/arquitecturajava/2014/06/java-websockets",

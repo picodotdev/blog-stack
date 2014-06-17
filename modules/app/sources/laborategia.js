@@ -3,12 +3,12 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
-      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
-      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
-    },
-    {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
+    },
+    {
+      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
+      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
     },
     {
       "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
