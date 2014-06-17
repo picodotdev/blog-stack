@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/placerdigital/2014/06/acelerar-tu-pagina-web-retardando-la-carga-de-ciertos-contenidos-secundarios",
+      "title" : "Acelerar tu página web retardando la carga de ciertos contenidos secundarios"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
       "title" : "Enlaces interesantes 162"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
       "title" : "Mis experiencias y recomendaciones con los ordenadores"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
-      "title" : "Montar un servidor FTP desde 0, con PROFTPD"
     }
   ]
 }
