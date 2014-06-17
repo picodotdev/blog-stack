@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
+      "title" : "Enlaces interesantes 162"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
       "title" : "Ejecutar tareas en segundo plano en ASP.NET 4.5.2"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
       "title" : "Montar un servidor FTP desde 0, con PROFTPD"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
-      "title" : "EntityManager, EntityManagerFactory  y Singletons"
     }
   ]
 }
