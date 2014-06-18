@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Mayo 2014"
+    },
+    {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
       "title" : "¿Mejor gestión basada en procesos, o agilidad?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
-      "title" : "Mis experiencias y recomendaciones con los ordenadores"
     }
   ]
 }

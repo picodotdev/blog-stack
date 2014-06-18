@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Mayo 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/06/defiende-la-privacidad-en-tu-correo-electronico-usa-gnupg",
       "title" : "Defiende la privacidad en tu correo electrónico. Usa GnuPG"
     },
