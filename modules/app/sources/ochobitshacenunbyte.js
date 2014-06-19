@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
+      "title" : "Compartiendo con SAMBA"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
       "title" : "Montar un servidor FTP desde 0, con PROFTPD"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte I)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/una-tabla-de-elementos-con-mucho-humor",
-      "title" : "Una tabla de elementos con mucho humor"
     }
   ]
 }

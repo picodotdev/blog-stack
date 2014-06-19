@@ -1,0 +1,256 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Compartiendo con SAMBA | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba"><span itemprop="headline">Compartiendo con SAMBA</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/06/19/compartiendo-con-samba/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-19T19:42" itemprop="datePublished">Publicado el jueves, 19 de junio de 2014 a las 19:42 UTC</span></div><div><span datetime="2014-06-19T19:42" itemprop="dateModified">Actualizado el jueves, 19 de junio de 2014 a las 19:42 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, servicios, <a href="/label/microsoft"><span itemprop="articleSection">microsoft</span></a>, comandos, smb, samba, linus, krb5, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a>, kerberos</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif" alt="logo-samba" width="251" height="122" /></a>No hay mal que por bien no venga. La crisis est&aacute; haciendo cambiar de parecer a muchos directores de departamento de sistemas, sobre el enfoque que ten&iacute;an que darle a sus servidores, ahora que a muchos de ellos les tocaba actualizar el sistema operativo.</p> 
+<p>GNU/Linux es un sistema robusto y flexible, capaz de soportar gran carga de trabajo y miles de usuarios. Unido a ser un sistema libre, con unos costes muchos m&aacute;s bajos. Ha resultado ser la formula m&aacute;gica perfecta que muchos de los cabezas pensantes miraran hacia el <a title="GNU" href="http://es.wikipedia.org/wiki/GNU">&Ntilde;u</a> y el <a title="Linux" href="http://es.wikipedia.org/wiki/N%C3%BAcleo_Linux">Ping&uuml;ino</a>, para solucionar todos sus problemas.</p> 
+<p></p> 
+<p>Los servidores de ficheros son claves. Ya sea para una peque&ntilde;a oficina con unos cuantos empleados, como para una gran multinacional con miles de trabajadores y delegaciones.</p> 
+<p>En el siguiente art&iacute;culo trataremos la instalaci&oacute;n y configuraci&oacute;n de SAMBA. Un potente programa que faciltiar&aacute; la compartici&oacute;n de ficheros y directorios para todos los sistemas, ya sean Microsoft Windows, MAC, Unix o GNU/Linux.</p> 
+<p>Y queremos ir mucho m&aacute;s all&aacute; de la simple compartici&oacute;n de un par de carpetas, llegando incluso a la ocultaci&oacute;n de ficheros o carpetas seg&uacute;n los permisos que tengan los usuarios.</p> 
+<p><strong>Sobre SAMBA</strong></p> 
+<p>SAMBA, seg&uacute;n leemos en Wikipedia, es una implementaci&oacute;n libre del protocolo SMB, que actualmente ha pasado a llamarse CIFS, para sistemas de tipo UNIX.</p> 
+<p><strong>&iquest;C&oacute;mo funciona?</strong></p> 
+<p>SAMBA configura nuestras carpetas c&oacute;mo recursos compartidas a trav&eacute;s de la red.&nbsp; Se diferencian los permisos de los archivos a nivel local, de los configurados para la compartici&oacute;n.</p> 
+<p><strong>Ventajas sobre sus competidores</strong></p> 
+<p>Son muchas, y la escritora Carla Schroder, los lista estupendamente en su libro “Redes en Linux. Gu&iacute;a de referencia”</p> 
+<ul> 
+ <li>Integra f&aacute;cilmente hosts Linux en nuestra LAN</li> 
+ <li>Nos libra de esquemas de licencia caros y anticuados y del miedo a los vigilantes de licencias.</li> 
+ <li>Mayor estabilidad, fiabilidad y rendimiento.</li> 
+ <li>M&uacute;ltiples opciones de entorno de base de datos.</li> 
+ <li>Comunidad y soporte.</li> 
+ <li>Administraci&oacute;n remota segura son SSH.</li> 
+ <li>Sincronizaci&oacute;n fiable y eficiente de los servidores Samba de seguridad v&iacute;a rsync.</li> 
+</ul> 
+<p><strong>&iquest;Qu&eacute; sistema y paquetes base necesitaremos para usar SAMBA?</strong></p> 
+<ul> 
+ <li>GNU/Linux en cualquiera de sus variantes. Aqu&iacute; trateremos las basadas en Debian y las basadas en Red Hat.</li> 
+ <li>Samba 3 hacia delante.</li> 
+ <li>MIT Kerberos 1.4 hacia delante.</li> 
+ <li>OpenLDAP</li> 
+ <li>Winbind 3.0.20 o m&aacute;s reciente.</li> 
+</ul> 
+<p><strong>Comenzemos con la instalaci&oacute;n</strong></p> 
+<p>En los sistemas basados en Debian el comando es el siguiente:</p> 
+<pre>apt-get -y update
+apt-get -y install samba samba-common samba-doc smbclient winbind</pre> 
+<p>En los basados en Red Hat:</p> 
+<pre>yum -y update
+yum -y install samba samba-client samba-common</pre> 
+<p>Para comprobar la versi&oacute;n que tenemos instalada:</p> 
+<pre>#Tanto en basados en Debian como Red Hat
+/usr/sbin/smbd --version
+/usr/sbin/winbindd --version</pre> 
+<p>Para verificar la versi&oacute;n de Kerberos, los comandos son diferentes depende del sistema.</p> 
+<p>En Red Hat, Fedora o Centos</p> 
+<pre>rpm -q krb5-workstation</pre> 
+<p>En Debian o Ubuntu</p> 
+<pre>dpkg -l | grep krb5</pre> 
+<p>Os dejo una imagen de las comprobaciones en un sistema basado en Debian como Canaima:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/Instalando-Samba-Canaima.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/Instalando-Samba-Canaima-1024x575.jpg" alt="Instalando-Samba-Canaima" width="584" height="327" /></a>Vale, ahora antes de continuar, tendremos que abrir los puertos en el cortafuegos. Si los tienes abiertos (No puede seeer!) &eacute;sta parte del tutorial no te har&aacute; falta.</p> 
+<p>Puedes comprobarlo con el siguiente comando:</p> 
+<pre>iptables -L -n</pre> 
+<p>Si sale todo vac&iacute;o es que tienes todos los puertos abiertos.</p> 
+<p>Si tienes el Firewall habilitado en el siguiente paso abriremos los puertos:</p> 
+<ul> 
+ <li>135/tcp epmap</li> 
+ <li>137/tcp NetBIOS Servicio de nombres.</li> 
+ <li>138/tcp NetBIOS Servicio de nombres de datagramas.</li> 
+ <li>139/tcp NetBIOS Servicio de sesiones</li> 
+ <li>445/tcp para compartici&oacute;n de ficheros (Microsoft DS)</li> 
+</ul> 
+<p>Tendremos que aplicar las siguientes reglas:</p> 
+<pre>iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 135:139 -j ACCEPT
+iptables -A INPUT -m state --state NEW -m udp -p udp --dport 135:139 -j ACCEPT
+iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 445 -j ACCEPT</pre> 
+<p>Y guardamos.</p> 
+<pre>#En Debian
+iptables-save
+
+#En RedHat
+service iptables save</pre> 
+<p><strong>Iniciando los servicios</strong></p> 
+<p>En Debian cuando instalamos un servicio se activa autom&aacute;ticamente, pero no en Red Hat y similares. Los activaremos de la sigueinte manera:</p> 
+<pre>chkconfig smb on
+chkconfig nmb on</pre> 
+<p>Para parar, iniciar o reiniciar el servicio es de la siguiente manera:</p> 
+<pre>#Iniciar en Red Hat
+service smb start 
+
+#Parar en Red Hat
+service smb stop
+
+#Reiniciar en Red Hat
+service smb restart
+
+#Iniciar en Debian
+service samba start
+
+#Parar en Debian
+service samba stop
+
+#Reiniciar en Debian
+service samba restart
+
+</pre> 
+<p><strong>Creando usuarios y grupos</strong></p> 
+<p>Vamos a crear los usuarios y grupos de ejemplo que se acceder&aacute;n a los recursos compartidos.</p> 
+<p>Empezaremos creando un usuario root de Samba com el comando <strong><em>smbpasswd</em></strong>. Por seguridad recomendamos que se no se use la misma contrase&ntilde;a de usuario root del sistema.</p> 
+<pre>smbpasswd -a</pre> 
+<p>Y creamos un grupo de trabajo</p> 
+<pre>groupadd userbits</pre> 
+<p>Ahora a&ntilde;adimos un usuario:</p> 
+<pre>useradd --no-create-home -s /bin/false user1</pre> 
+<p>De esta manera hacemos que el usuario no pueda acceder a la consola del servidor, adem&aacute;s de no crearle carpeta dentro de home.</p> 
+<p>Le asignamos la contrase&ntilde;a:</p> 
+<pre>smbpasswd -a user1</pre> 
+<p>Para asignarle al grupo que hemos creado antes:</p> 
+<pre>adduser user1 userbits</pre> 
+<p>Cuando ya tengamos una buena lista de usuario creados, podemos reiniciar el servicio.</p> 
+<p><strong>Configurado SAMBA y creando los primeros recursos compartidos</strong></p> 
+<p>Cuando instalamos los programas al inicio del art&iacute;culo se creo el archivo de configuraci&oacute;n smb.conf, dentro de la carpeta /etc/samba, por motivos de seguridad vamos mover el archivo a otro, para as&iacute; empezar de 0.</p> 
+<pre>mv /etc/samba/smb.conf /etc/samba/smb.conf.original</pre> 
+<p>Ahora crearemos uno, paso a paso, os indicar&eacute; la configuraci&oacute;n b&aacute;sica para que todo funcione correctamente.</p> 
+<pre>#Aqu&iacute; usar&eacute; vim, pero usad vuestro editor preferido.
+vim /etc/samba/smb.conf</pre> 
+<p>Como dir&iacute;a Jack, vamos por partes:</p> 
+<blockquote> 
+ <p>[global]</p> 
+ <p>workgroup = ochobitsdomain #Llamad al grupo de trabajo como gust&eacute;is</p> 
+ <p>netbios name = SambaSF #El nombre que desees</p> 
+ <p>server string = Samba File Server #El nombre del servidor de ficheros, poned el nombre que quer&aacute;is.</p> 
+ <p>domain master = yes #Configuraremos SAMBA como controlador de dominio.</p> 
+ <p>os level = 64 #Cuanto m&aacute;s alto sea el n&uacute;mero m&aacute;s “poder” tendr&aacute; en la red c&oacute;mo servidor de ficheros. Pod&eacute;is obtener m&aacute;s informaci&oacute;n <a title="SAMBA os level" href="https://www.samba.org/samba/docs/using_samba/ch07.html">aqu&iacute;</a>.</p> 
+ <p>preferred master = yes</p> 
+ <p>passdb backend = tdbsam #usaremos esta base de datos de usuarios en vez de /etc/passwd</p> 
+ <p>security = user #seguridad a nivel de usuario</p> 
+ <p>encrypted password = yes # los env&iacute;os de las contrase&ntilde;as de los usarios ir&aacute;n encriptados.</p> 
+ <p>log file = /var/log/samba/log #El archivo donde guardaremos los logs.</p> 
+ <p>log level = 2 #Cuanto m&aacute;s mayor sea el n&uacute;mero m&aacute;s nivel de detalle tendremos en el log.</p> 
+ <p>max log size = 50 # Tama&ntilde;o m&aacute;ximo del log.</p> 
+ <p>hosts allow = 127.&nbsp; 192.168.1. #Aqu&iacute; indicaremos las redes y equipos que tendr&aacute;n acceso al servidor. Por ejemplo, si tu IP es 192.168.143.20, puedes a&ntilde;adir 192.168.143. para que todas las IP de tu red tengan acceso.</p> 
+ <p>wins support = yes #significa que Samba funcionar&aacute; como servidor wins.</p> 
+</blockquote> 
+<p>Hemos configurado las variables globales del servidor. Ahora comenzemos a compartir directorios.</p> 
+<p>Creamos algunos directorios para jugar:</p> 
+<pre>mkdir /mnt/Contabilidad
+mkdir /mnt/Personal
+mkdir /mnt/Recursos</pre> 
+<p>Ahora configuraremos las comparticiones en el archivo smb.conf, a continuaci&oacute;n.</p> 
+<blockquote> 
+ <p>[Contabilidad]</p> 
+ <p>comment = Departamento Contabilidad</p> 
+ <p>path = /mnt/Contabilidad</p> 
+ <p>browseable = No</p> 
+ <p>writeable = Yes</p> 
+ <p>valid users = user1, @userbits</p> 
+ <p>[Personal]</p> 
+ <p>comment = Departamento Personal</p> 
+ <p>path = /mnt/Personal</p> 
+ <p>browseable = No</p> 
+ <p>writeable = yes</p> 
+ <p>valid users = user1, @userbits</p> 
+ <p>[Recursos]</p> 
+ <p>comment = Recursos</p> 
+ <p>path = /mnt/Recursos</p> 
+ <p>public = yes</p> 
+ <p>browseable = yes</p> 
+ <p>writeable = no</p> 
+</blockquote> 
+<p>C&oacute;mo vemos los dos primeros directorios son accesibles s&oacute;lo para el usuario user1 y el grupo userbits. Y el &uacute;ltimo es p&uacute;blico, es decir, puede acceder todo el mundo, pero no se puede escribir en el.</p> 
+<p>Salimos y reiniciamos el servicio. S&oacute;lo nos queda conectar.</p> 
+<p>Para comprovar que todo ha ido bien, pod&eacute;is usar los comando <strong><em>testparm</em> </strong>y <strong><em>smbstatus</em></strong>.</p> 
+<p>En la segunda parte profundizaremos a&uacute;n m&aacute;s, no os lo perd&aacute;is!</p> 
+<p>No dud&eacute;is en comentar!</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" st_title="Compartiendo con SAMBA | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li><li><a href="/label/microsoft/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta microsoft</a></li><li><a href="/label/gnu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 622,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>
