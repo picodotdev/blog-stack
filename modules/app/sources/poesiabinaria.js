@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
+      "title" : "Experimentos: Instalando Magento desde SSH"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/06/redirigir-una-web-a-otra-url-dependiendo-de-la-ip-que-conecte-apache",
       "title" : "Redirigir una web a otra URL dependiendo de la IP que conecte [Apache]"
     },
@@ -57,10 +61,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/concurrencia-posix-threads-y-variables-compartidas-en-c",
       "title" : "Concurrencia, POSIX threads y variables compartidas en C"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento",
-      "title" : "Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento"
     }
   ]
 }

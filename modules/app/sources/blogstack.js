@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
+      "title" : "Experimentos: Instalando Magento desde SSH"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
       "title" : "JavaScript JsPerf"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
       "title" : "Página Dashboard de Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
-      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     }
   ]
 }
