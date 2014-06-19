@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
+      "title" : "JavaScript JsPerf"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Mayo 2014"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
-    },
-    {
-      "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
-      "title" : "¿Mejor gestión basada en procesos, o agilidad?"
     }
   ]
 }

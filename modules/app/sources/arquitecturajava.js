@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
+      "title" : "JavaScript JsPerf"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/java-websockets",
       "title" : "Java WebSockets"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/libro-arquitectura-java-jpa-domain-driven-design",
       "title" : "Libro:Arquitectura Java JPA (Domain Driven Design)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/jmeter-test",
-      "title" : "JMeter Test"
     }
   ]
 }
