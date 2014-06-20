@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
+      "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
+    },
+    {
       "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
       "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/java-websockets",
       "title" : "Java WebSockets"
-    },
-    {
-      "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
-      "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
     }
   ]
 }

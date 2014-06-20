@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
+      "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
       "title" : "Página Dashboard de Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms",
       "title" : "Introducción y ejemplo sencillo de Java Message Service (JMS)"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache",
-      "title" : "Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache"
     }
   ]
 }
