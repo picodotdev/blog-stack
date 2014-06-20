@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
+      "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
+    },
+    {
+      "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
+      "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
+    },
+    {
+      "url" : "/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector",
+      "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
       "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
     },
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
       "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/que-son-los-controladores-privativos-o-adicionales-en-ubuntu",
-      "title" : "Que son los controladores privativos o adicionales en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/fondos-de-escritorio-7",
-      "title" : "Fondos de escritorio 7"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/fondos-de-escritorio-1",
-      "title" : "Fondos de escritorio 10"
     }
   ]
 }
