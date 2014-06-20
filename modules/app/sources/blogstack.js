@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
+      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
       "title" : "Compartiendo con SAMBA"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/fondos-de-escritorio-1",
       "title" : "Fondos de escritorio 10"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-desactivar-el-bluetooth-al-inicio-en-ubuntu",
-      "title" : "Como desactivar el Bluetooth al inicio en Ubuntu"
     }
   ]
 }

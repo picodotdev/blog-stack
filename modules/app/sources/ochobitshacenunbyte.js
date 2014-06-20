@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
+      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
       "title" : "Compartiendo con SAMBA"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/openbsd-lanza-la-version-5-5",
       "title" : "OpenBSD lanza la version 5.5"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte I)"
     }
   ]
 }
