@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/06/vacaciones-indefinidas",
+      "title" : "Vacaciones indefinidas"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
+      "title" : "Linux supremo absoluto como SO entre los supercomputadores"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
       "title" : "Compartiendo con SAMBA"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
       "title" : "JavaScript JsPerf"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Mayo 2014"
-    },
-    {
-      "url" : "/post/placerdigital/2014/06/acelerar-tu-pagina-web-retardando-la-carga-de-ciertos-contenidos-secundarios",
-      "title" : "Acelerar tu página web retardando la carga de ciertos contenidos secundarios"
     }
   ]
 }
