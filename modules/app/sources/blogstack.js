@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
+      "title" : "Enlaces interesantes 163"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/06/vacaciones-indefinidas",
       "title" : "Vacaciones indefinidas"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
       "title" : "Experimentos: Instalando Magento desde SSH"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
-      "title" : "JavaScript JsPerf"
     }
   ]
 }

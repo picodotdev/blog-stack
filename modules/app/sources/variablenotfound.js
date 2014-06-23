@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
+      "title" : "Enlaces interesantes 163"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
       "title" : "Enlaces interesantes 162"
     },
@@ -57,10 +61,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-156",
       "title" : "Enlaces interesantes 156"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/04/enlaces-interesantes-155",
-      "title" : "Enlaces interesantes 155"
     }
   ]
 }
