@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar",
+      "title" : "La #OpenExpoDay 2014 esta muy cerca y estos son mis objetivos a la hora de participar"
+    },
+    {
       "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },

@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
+      "title" : "Compartiendo con SAMBA"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
+      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
+    },
+    {
+      "url" : "/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar",
+      "title" : "La #OpenExpoDay 2014 esta muy cerca y estos son mis objetivos a la hora de participar"
+    },
+    {
       "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
       "title" : "AngularJS, gracias por los servicios prestados"
     },
@@ -35,14 +47,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
-      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
-      "title" : "Compartiendo con SAMBA"
-    },
-    {
       "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
       "title" : "Experimentos: Instalando Magento desde SSH"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/placerdigital/2014/06/acelerar-tu-pagina-web-retardando-la-carga-de-ciertos-contenidos-secundarios",
       "title" : "Acelerar tu página web retardando la carga de ciertos contenidos secundarios"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
-      "title" : "Enlaces interesantes 162"
     }
   ]
 }

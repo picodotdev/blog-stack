@@ -3,12 +3,12 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
-      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
       "title" : "Compartiendo con SAMBA"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
+      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",

@@ -3,10 +3,91 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-23T06:02:34Z</updated>
+  <updated>2014-06-23T08:03:28Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-23T06:02:34Z</dc:date>
+  <dc:date>2014-06-23T08:03:28Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Compartiendo con SAMBA</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" />
+    <category term="blog-stack" />
+    <category term="sistemas-operativos" />
+    <category term="servicios" />
+    <category term="microsoft" />
+    <category term="comandos" />
+    <category term="smb" />
+    <category term="samba" />
+    <category term="linus" />
+    <category term="krb5" />
+    <category term="gnu" />
+    <category term="kerberos" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-06-23T07:59:09Z</updated>
+    <published>2014-06-19T19:42:02Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif" alt="logo-samba" width="251" height="122" /&gt;&lt;/a&gt;No hay mal que por bien no venga. La crisis est&amp;aacute; haciendo cambiar de parecer a muchos directores de departamento de sistemas, sobre el enfoque que ten&amp;iacute;an que darle a sus servidores, ahora que a muchos de ellos les tocaba actualizar el sistema operativo.&lt;/p&gt; 
+&lt;p&gt;GNU/Linux es un sistema robusto y flexible, capaz de soportar gran carga de trabajo y miles de usuarios. Unido a ser un sistema libre, con unos costes muchos m&amp;aacute;s bajos. Ha resultado ser la formula m&amp;aacute;gica perfecta que muchos de los cabezas pensantes miraran hacia el &lt;a title="GNU" href="http://es.wikipedia.org/wiki/GNU"&gt;&amp;Ntilde;u&lt;/a&gt; y el &lt;a title="Linux" href="http://es.wikipedia.org/wiki/N%C3%BAcleo_Linux"&gt;Ping&amp;uuml;ino&lt;/a&gt;, para solucionar todos sus problemas.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Los servidores de ficheros son claves. Ya sea para una peque&amp;ntilde;a oficina con unos cuantos empleados, como para una gran multinacional con miles de trabajadores y delegaciones.&lt;/p&gt; 
+&lt;p&gt;En el siguiente art&amp;iacute;culo trataremos la instalaci&amp;oacute;n y configuraci&amp;oacute;n de SAMBA. Un potente programa que faciltiar&amp;aacute; la compartici&amp;oacute;n de ficheros y directorios para todos los sistemas, ya sean Microsoft Windows, MAC, Unix o GNU/Linux.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-06-19T19:42:02Z</dc:date>
+  </entry>
+  <entry>
+    <title>Compartiendo con SAMBA, segunda parte, permisos ACL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="red-hat" />
+    <category term="sistemas-operativos" />
+    <category term="servicios" />
+    <category term="comandos" />
+    <category term="windows" />
+    <category term="acl" />
+    <category term="samba" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-06-23T07:55:36Z</updated>
+    <published>2014-06-20T12:52:54Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/linux-logo-new-tux-crystalized.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/linux-logo-new-tux-crystalized-150x150.png" alt="linux-logo-new-tux-crystalized" width="150" height="150" /&gt;&lt;/a&gt;Generalmente en la mayor&amp;iacute;a de art&amp;iacute;culos, tutoriales y gu&amp;iacute;as que encontramos por Internet, se quedan en la mera compartici&amp;oacute;n p&amp;uacute;blica de los recursos con SAMBA. Hoy hablaremos de los permisos ACL y de como usarlos en SAMBA. Con ellos podremos otorgar permisos de escritura y denegarlos, incluidos los de lectura y los de ejecuci&amp;oacute;n. Y al final veremos como ocultar carpetas sin tener que usar la ocultaci&amp;oacute;n con &lt;strong&gt;&lt;em&gt;dot&lt;/em&gt;&lt;/strong&gt; o punto.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Las listas de control de acceso o ACL, para quien nos las conozca, se usan en la seguridad inform&amp;aacute;tica para modificar los provilegios de usuarios y grupos sobre un elemento, ya sea fichero o carpeta. M&amp;aacute;s informaci&amp;oacute;n &lt;a title="Wikipedia ACL" href="http://es.wikipedia.org/wiki/Lista_de_control_de_acceso"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Usaremos la misma m&amp;aacute;quina, carpetas y usuarios que utilizamos en el &lt;a title="Compartiendo con SAMBA" href="http://www.ochobitshacenunbyte.com/2014/06/19/compartiendo-con-samba/"&gt;art&amp;iacute;culo anterior&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Instalaremos las ACL en Debian con el siguiente comando:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-06-20T12:52:54Z</dc:date>
+  </entry>
+  <entry>
+    <title>La #OpenExpoDay 2014 esta muy cerca y estos son mis objetivos a la hora de participar</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar" />
+    <category term="openexpo" />
+    <category term="blog-stack" />
+    <category term="copyleft" />
+    <category term="aktibismoa" />
+    <category term="en-castellano" />
+    <category term="cosas-que-hago" />
+    <category term="congreso" />
+    <category term="civicrm" />
+    <category term="emprendiendo" />
+    <category term="software-libre" />
+    <category term="productividad" />
+    <category term="crm" />
+    <category term="wordpress" />
+    <category term="eventos" />
+    <category term="colaboracion" />
+    <author>
+      <name>Dabid Martinez</name>
+    </author>
+    <updated>2014-06-23T07:11:55Z</updated>
+    <published>2014-06-23T07:11:55Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img src="http://laborategia.net/wp-content/uploads/2014/06/noticia-openexpo-logo-300x190.jpeg" alt="noticia-openexpo-logo-300x190" width="300" height="190" /&gt;Conoc&amp;iacute; la &lt;a href="http://www.openexpo.es/"&gt;Open Expo 2014&lt;/a&gt; all&amp;aacute; por enero, ni lo se muy bien, y me pareci&amp;oacute; un evento sobre software libre y comunidad muy interesante puesto que anteriormente ya hab&amp;iacute;a visto las micro-capsulas sobre temas espec&amp;iacute;ficos que organizan una vez al mes en Madrid; comercio electr&amp;oacute;nico, ERPs, publicaci&amp;oacute;n web… Desde el primer momento vi claro que me interesaba asistir, aprender y compartir conocimiento sobre diferentes temas, con especial entusiasmo en &lt;a href="https://civicrm.org/"&gt;Civi CRM&lt;/a&gt; (si no conoces el software creo que seria interesante que leyeras esta entrada: &lt;a title="[Libremente.cc] Administraci&amp;oacute;n basada en la relaci&amp;oacute;n con los clientes para organizaciones del 3. sector" href="http://libremente.cc/2014/02/administracion-basada-en-la-relacion-con-los-clientes-para-empresas-del-3-sector/"&gt;Administraci&amp;oacute;n basada en la relaci&amp;oacute;n con los clientes para organizaciones del 3. sector&lt;/a&gt;). Aunque es cierto que ya he hecho pruebas y un proyecto de I+D con este CRM y WordPress ahora me toca ponerlo en marcha de forma funcional dentro de la estructura de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Dabid Martinez</dc:creator>
+    <dc:date>2014-06-23T07:11:55Z</dc:date>
+  </entry>
   <entry>
     <title>AngularJS, gracias por los servicios prestados</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados" />
@@ -201,60 +282,6 @@
 &lt;p&gt;La inmensa mayor&amp;iacute;a de CRM o incluso ERPs trabajan con el concepto de cliente, ya que est&amp;aacute;n enfocados al modelo de negocio tradicional de empresa vertical donde;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Dabid Martinez</dc:creator>
     <dc:date>2014-06-16T11:03:18Z</dc:date>
-  </entry>
-  <entry>
-    <title>Compartiendo con SAMBA, segunda parte, permisos ACL</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl" />
-    <category term="blog-stack" />
-    <category term="debian" />
-    <category term="linux" />
-    <category term="sistemas-operativos" />
-    <category term="red-hat" />
-    <category term="servicios" />
-    <category term="comandos" />
-    <category term="acl" />
-    <category term="windows" />
-    <category term="samba" />
-    <category term="gnu" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-06-20T12:52:54Z</updated>
-    <published>2014-06-20T12:52:54Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/linux-logo-new-tux-crystalized.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/linux-logo-new-tux-crystalized-150x150.png" alt="linux-logo-new-tux-crystalized" width="150" height="150" /&gt;&lt;/a&gt;Generalmente en la mayor&amp;iacute;a de art&amp;iacute;culos, tutoriales y gu&amp;iacute;as que encontramos por Internet, se quedan en la mera compartici&amp;oacute;n p&amp;uacute;blica de los recursos con SAMBA. Hoy hablaremos de los permisos ACL y de como usarlos en SAMBA. Con ellos podremos otorgar permisos de escritura y denegarlos, incluidos los de lectura y los de ejecuci&amp;oacute;n. Y al final veremos como ocultar carpetas sin tener que usar la ocultaci&amp;oacute;n con &lt;strong&gt;&lt;em&gt;dot&lt;/em&gt;&lt;/strong&gt; o punto.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Las listas de control de acceso o ACL, para quien nos las conozca, se usan en la seguridad inform&amp;aacute;tica para modificar los provilegios de usuarios y grupos sobre un elemento, ya sea fichero o carpeta. M&amp;aacute;s informaci&amp;oacute;n &lt;a title="Wikipedia ACL" href="http://es.wikipedia.org/wiki/Lista_de_control_de_acceso"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Usaremos la misma m&amp;aacute;quina, carpetas y usuarios que utilizamos en el &lt;a title="Compartiendo con SAMBA" href="http://www.ochobitshacenunbyte.com/2014/06/19/compartiendo-con-samba/"&gt;art&amp;iacute;culo anterior&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Instalaremos las ACL en Debian con el siguiente comando:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-06-20T12:52:54Z</dc:date>
-  </entry>
-  <entry>
-    <title>Compartiendo con SAMBA</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba" />
-    <category term="blog-stack" />
-    <category term="sistemas-operativos" />
-    <category term="servicios" />
-    <category term="comandos" />
-    <category term="microsoft" />
-    <category term="smb" />
-    <category term="samba" />
-    <category term="linus" />
-    <category term="gnu" />
-    <category term="krb5" />
-    <category term="kerberos" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-06-20T08:09:41Z</updated>
-    <published>2014-06-19T19:42:02Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/logo-samba.gif" alt="logo-samba" width="251" height="122" /&gt;&lt;/a&gt;No hay mal que por bien no venga. La crisis est&amp;aacute; haciendo cambiar de parecer a muchos directores de departamento de sistemas, sobre el enfoque que ten&amp;iacute;an que darle a sus servidores, ahora que a muchos de ellos les tocaba actualizar el sistema operativo.&lt;/p&gt; 
-&lt;p&gt;GNU/Linux es un sistema robusto y flexible, capaz de soportar gran carga de trabajo y miles de usuarios. Unido a ser un sistema libre, con unos costes muchos m&amp;aacute;s bajos. Ha resultado ser la formula m&amp;aacute;gica perfecta que muchos de los cabezas pensantes miraran hacia el &lt;a title="GNU" href="http://es.wikipedia.org/wiki/GNU"&gt;&amp;Ntilde;u&lt;/a&gt; y el &lt;a title="Linux" href="http://es.wikipedia.org/wiki/N%C3%BAcleo_Linux"&gt;Ping&amp;uuml;ino&lt;/a&gt;, para solucionar todos sus problemas.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Los servidores de ficheros son claves. Ya sea para una peque&amp;ntilde;a oficina con unos cuantos empleados, como para una gran multinacional con miles de trabajadores y delegaciones.&lt;/p&gt; 
-&lt;p&gt;En el siguiente art&amp;iacute;culo trataremos la instalaci&amp;oacute;n y configuraci&amp;oacute;n de SAMBA. Un potente programa que faciltiar&amp;aacute; la compartici&amp;oacute;n de ficheros y directorios para todos los sistemas, ya sean Microsoft Windows, MAC, Unix o GNU/Linux.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-06-19T19:42:02Z</dc:date>
   </entry>
   <entry>
     <title>Experimentos: Instalando Magento desde SSH</title>
@@ -687,39 +714,6 @@
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-06-09T15:10:02Z</dc:date>
-  </entry>
-  <entry>
-    <title>Enlaces interesantes 161</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/06/enlaces-interesantes-161" />
-    <category term="enlaces" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-06-09T11:57:00Z</updated>
-    <published>2014-06-09T11:57:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Enlaces interesantes" src="http://lh3.ggpht.com/-P8SKyc6aCVE/U5RJYjeozaI/AAAAAAAADfU/pLlMP0o8VHc/enlaces23333333.png?imgmax=800" height="129" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Enlaces interesantes" width="172" /&gt;Ah&amp;iacute; van los enlaces recopilados durante la semana pasada, espero que os resulten interesantes ;-) 
-&lt;br /&gt; 
-&lt;h4&gt;.Net&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://ayende.com/blog/166913/mixing-sync-async-calls" title="Mixing Sync &amp;amp; Async calls"&gt;Mixing Sync &amp;amp; Async calls&lt;/a&gt; &lt;br /&gt;Ayende Rahien &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.syncfusion.com/resources/techportal/ebooks/neuralnetworks"&gt;Neural Networks Using C# Succinctly&lt;/a&gt; (Download ebook) &lt;br /&gt;James McCaffey&lt;a&gt;&lt;/a&gt; &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;h4&gt;ASP.NET&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/micl/archive/2014/06/07/how-to-debug-your-code-with-mvc-fresh-source-code.aspx"&gt;How to debug your code with MVC fresh source code&lt;/a&gt; &lt;br /&gt;Michael Lee &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/webdev/archive/2014/06/05/asp-net-identity-2-1-0-alpha1.aspx"&gt;ASP.NET Identity 2.1.0-alpha1&lt;/a&gt; &lt;br /&gt;Pranav Rastogi &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx"&gt;QueueBackgroundWorkItem to reliably schedule and run background processes in ASP.NET&lt;/a&gt; &lt;br /&gt;Rick Anderson &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.codeproject.com/Articles/781804/ASP-Net-MVC-Hyperlinks-Open-the-page-in-a-new-brow"&gt;ASP.Net MVC – Hyperlinks – Open the page in a new browser window&lt;/a&gt; &lt;br /&gt;Arun Ramachandran &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/webdev/archive/2014/06/03/asp-net-vnext-in-visual-studio-14-ctp.aspx"&gt;ASP.NET vNext in Visual Studio “14” CTP&lt;/a&gt; &lt;br /&gt;Pranav Rastogi &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/webdev/archive/2014/06/03/announcing-web-features-in-visual-studio-14-ctp.aspx"&gt;Announcing web features in Visual Studio “14” CTP&lt;/a&gt; &lt;br /&gt;Xinyang Qiu &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.codeproject.com/Articles/777733/ASP-NET-Identity-Change-Primary-Key"&gt;ASP.NET Identity 2.0 Change Primary Key from String to Integer&lt;/a&gt; &lt;br /&gt;S. M. Quamruzzaman Rahmani &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;h4&gt;Azure / Cloud&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/azuremobile/archive/2014/06/07/fresh-updates-to-azure-mobile-services-net.aspx"&gt;Fresh Updates to Azure Mobile Services .NET&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/enlaces-interesantes-161"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-06-09T11:57:00Z</dc:date>
   </entry>
 </feed>
 
