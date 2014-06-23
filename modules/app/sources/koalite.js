@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
+      "title" : "AngularJS, gracias por los servicios prestados"
+    },
+    {
       "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
       "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/03/el-fin-de-windows-xp-y-el-anclaje-tecnologico",
       "title" : "El fin de Windows XP y el anclaje tecnológico"
-    },
-    {
-      "url" : "/post/koalite/2014/03/cuanto-dano-han-hecho-los-arquitectos-de-software",
-      "title" : "Cuánto daño han hecho\u2026 los arquitectos de software"
     }
   ]
 }

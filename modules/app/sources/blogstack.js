@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
+      "title" : "AngularJS, gracias por los servicios prestados"
+    },
+    {
       "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
       "title" : "Enlaces interesantes 162"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2",
-      "title" : "Ejecutar tareas en segundo plano en ASP.NET 4.5.2"
     }
   ]
 }
