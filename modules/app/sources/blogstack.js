@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
+      "title" : "Destapando intrusos en nuestros sistemas con lsof"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
       "title" : "Linux supremo absoluto como SO entre los supercomputadores"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector",
       "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
-      "title" : "Experimentos: Instalando Magento desde SSH"
     }
   ]
 }
