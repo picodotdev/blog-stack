@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
+      "title" : "He ganado otro concurso, biennnnnn :D"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
+      "title" : "Cambiar la frecuencia del procesador en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
       "title" : "Destapando intrusos en nuestros sistemas con lsof"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
-      "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector",
-      "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
+      "title" : "He ganado otro concurso, biennnnnn :D"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
+      "title" : "Cambiar la frecuencia del procesador en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/que-son-los-controladores-privativos-o-adicionales-en-ubuntu",
       "title" : "Que son los controladores privativos o adicionales en Ubuntu"
     },
@@ -53,14 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/05/que-es-y-como-instalar-vlc-en-ubuntu-mediante-ppa",
       "title" : "Que es y como instalar VLC en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/como-convertir-un-cd-de-musica-en-mp3-con-asunder-en-ubuntu",
-      "title" : "Como convertir un CD de música en MP3 con Asunder en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
-      "title" : "Como instalar Spotify en Ubuntu 14.04"
     }
   ]
 }
