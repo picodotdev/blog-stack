@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
+      "title" : "Canonical actualiza el sitio web de Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
       "title" : "Diversión con pingüinos"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman",
       "title" : "gNewSense el sistema operativo que usa Richard Stallman"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i",
-      "title" : "Distribuciones cien por cien libres (Parte I)"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
+      "title" : "Canonical actualiza el sitio web de Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
       "title" : "Diversión con pingüinos"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
       "title" : "AngularJS, gracias por los servicios prestados"
-    },
-    {
-      "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
-      "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
     }
   ]
 }
