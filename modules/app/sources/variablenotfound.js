@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/novedades-de-signalr-2-1-i-hubs-tipados",
+      "title" : "Novedades de SignalR 2.1 (I): Hubs tipados"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
       "title" : "Enlaces interesantes 163"
     },
@@ -57,10 +61,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/attribute-routing-en-mvc-y-web-api-y-iii-restricciones-personalizadas",
       "title" : "Attribute routing en MVC y Web API (y III): restricciones personalizadas"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-156",
-      "title" : "Enlaces interesantes 156"
     }
   ]
 }

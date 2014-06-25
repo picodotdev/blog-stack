@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/donde-compartire-los-enlaces-de-interes-de-la-openexpoday",
+      "title" : "¿Donde compartiré los enlaces de interés de la #OpenExpoDay?"
+    },
+    {
       "url" : "/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar",
       "title" : "La #OpenExpoDay 2014 esta muy cerca y estos son mis objetivos a la hora de participar"
     },
