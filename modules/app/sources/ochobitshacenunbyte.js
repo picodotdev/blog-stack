@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
+      "title" : "Diversión con pingüinos"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
       "title" : "Destapando intrusos en nuestros sistemas con lsof"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-i",
       "title" : "Distribuciones cien por cien libres (Parte I)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii",
-      "title" : "Distribuciones cien por cien libres (Parte II)"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
+      "title" : "Diversión con pingüinos"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
       "title" : "He ganado otro concurso, biennnnnn :D"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
       "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
-      "title" : "The Deep Web; ¿los suburbios de Internet?"
     }
   ]
 }
