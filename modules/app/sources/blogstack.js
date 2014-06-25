@@ -3,16 +3,20 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
+      "title" : "Diversión con pingüinos"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/como-anadir-una-carpeta-a-los-marcadores-de-nautilus-en-ubuntu",
+      "title" : "Como añadir una carpeta a los marcadores de Nautilus en Ubuntu"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/novedades-de-signalr-2-1-i-hubs-tipados",
       "title" : "Novedades de SignalR 2.1 (I): Hubs tipados"
     },
     {
       "url" : "/post/laborategia/2014/06/donde-compartire-los-enlaces-de-interes-de-la-openexpoday",
       "title" : "¿Donde compartiré los enlaces de interés de la #OpenExpoDay?"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
-      "title" : "Diversión con pingüinos"
     },
     {
       "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/04/kde-connect-o-porque-cada-dia-siento-mas-amor-hacia-kde-y-sus-locos-desarrolladores",
       "title" : "KDE Connect: o porqué cada día siento mas amor hacia KDE y sus (locos) desarrolladores"
-    },
-    {
-      "url" : "/post/laborategia/2014/05/esteganografia-por-software-en-gnu-linux-oculta-ficheros-en-otros-ficheros",
-      "title" : "Esteganografía por software en GNU/Linux; Oculta ficheros en otros ficheros"
     }
   ]
 }
