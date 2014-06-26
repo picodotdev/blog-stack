@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
+      "title" : "EJB Singleton"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
       "title" : "JavaScript JsPerf"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
       "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/libro-arquitectura-java-jpa-domain-driven-design",
-      "title" : "Libro:Arquitectura Java JPA (Domain Driven Design)"
     }
   ]
 }

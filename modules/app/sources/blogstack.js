@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker",
+      "title" : "Localizar enlaces rotos con LinkChecker"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
+      "title" : "EJB Singleton"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
+      "title" : "Asi es mi escritorio"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
       "title" : "Canonical actualiza el sitio web de Ubuntu"
     },
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
       "title" : "Compartiendo con SAMBA"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
-      "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/la-openexpoday-2-14-esta-muy-cerca-y-estos-son-mis-objetivos-a-la-hora-de-participar",
-      "title" : "La #OpenExpoDay 2014 esta muy cerca y estos son mis objetivos a la hora de participar"
-    },
-    {
-      "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
-      "title" : "AngularJS, gracias por los servicios prestados"
     }
   ]
 }

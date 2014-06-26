@@ -3,10 +3,81 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-06-25T16:03:58Z</updated>
+  <updated>2014-06-26T07:35:51Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-06-25T16:03:58Z</dc:date>
+  <dc:date>2014-06-26T07:35:51Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Localizar enlaces rotos con LinkChecker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="web" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="4-4" />
+    <category term="linkchecker" />
+    <category term="servicios" />
+    <category term="comandos" />
+    <category term="xfce" />
+    <category term="wheezy" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-06-26T06:37:54Z</updated>
+    <published>2014-06-26T06:37:54Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/error-404-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/error-404-150.jpg" alt="error-404-150" width="150" height="125" /&gt;&lt;/a&gt;Realmente es muy embarazoso que un usuario de la web se encuentre con un mensaje de error “&lt;strong&gt;404 Not Found&lt;/strong&gt;“. Para evitarlo podemos contar con la herramienta &lt;strong&gt;LinkChecker&lt;/strong&gt;, que buscar&amp;aacute; en la web que indiquemos todos los enlaces rotos.&lt;/p&gt; 
+&lt;p&gt;Se encuentra en los repositorios de Debian, Ubuntu, LinuxMint, y otras distribuciones Linux. Tamb&amp;iacute;en lo podemos usar en sistemas MAC y Windows. Se puede descargar, configurar e instalar desde las &lt;a title="Linkchecker" href="http://wummel.github.io/linkchecker/"&gt;fuentes del proyecto&lt;/a&gt;, aunque para &amp;eacute;ste art&amp;iacute;culo usaremos los paquetes de los repositorios.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;h2&gt;&lt;strong&gt;La instalaci&amp;oacute;n y configuraci&amp;oacute;n&lt;/strong&gt;&lt;/h2&gt; 
+&lt;p&gt;Para el art&amp;iacute;culo he usado un Debian Wheezy con estritorio XFCE. Para la instalaci&amp;oacute;n debemos teclear:&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install linkchecker-gui&lt;/pre&gt; 
+&lt;p&gt;Una vez instalado, podemos cargar la interfaz gr&amp;aacute;fica, que tendr&amp;aacute; un aspecto parecido al siguiente:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-06-26T06:37:54Z</dc:date>
+  </entry>
+  <entry>
+    <title>EJB Singleton</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/06/ejb-singleton" />
+    <category term="ejb" />
+    <category term="patrones" />
+    <category term="jee" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-06-26T05:44:38Z</updated>
+    <published>2014-06-26T05:44:38Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En muchas ocasiones desarrollamos aplicaciones que pueden empaquetarse en un &lt;a title="Modulos de Java (II) Web Archive (WAR)" href="http://www.arquitecturajava.com/modulos-de-java-ii-war/"&gt;WAR&lt;/a&gt;&amp;nbsp;y es suficiente. En otras ocasiones tenemos que dise&amp;ntilde;ar una aplicaci&amp;oacute;n que contiene varios de estos m&amp;oacute;dulos. Es aqu&amp;iacute; donde nos encontramos con mayores problem&amp;aacute;ticas y donde los EJB Singleton nos pueden ser de ayuda.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/Wars.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/Wars.gif" alt="Wars" width="383" height="242" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;h2&gt;EJB Singleton&lt;/h2&gt; 
+&lt;p&gt;&lt;strong&gt;&amp;iquest;Para que sirve un EJB Singleton?&lt;/strong&gt; . Bueno se trata de un EJB disponible a partir de Java EE 6 que tiene la particularidad de que &lt;strong&gt;solo existe una instancia de &amp;eacute;l para toda nuestra aplicaci&amp;oacute;n Enterprise&lt;/strong&gt;. Puede servir para acceder a datos que est&amp;eacute;n &lt;strong&gt;compartidos entre varias aplicaciones y se almacenen en el EJB como si se tratar&amp;aacute; de una peque&amp;ntilde;a cache&lt;/strong&gt;. Por ejemplo podr&amp;iacute;amos disponer de un conjunto de rutas a carpetas o algo similar. En este art&amp;iacute;culo vamos a crear el EJB Singleton de “Hola Mundo” que es el t&amp;iacute;pico contador que esta compartido entre varias aplicaciones. En este caso &amp;nbsp;nos apoyaremos en dos Servlets cada uno almacenado en un fichero WAR que ir&amp;aacute;n incrementando el contador.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/06/ejb-singleton"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-06-26T05:44:38Z</dc:date>
+  </entry>
+  <entry>
+    <title>Asi es mi escritorio</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/06/asi-es-mi-escritorio" />
+    <category term="opinion" />
+    <category term="escritorio" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-06-25T19:19:21Z</updated>
+    <published>2014-06-25T19:19:21Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;He le&amp;iacute;do en varias ocasiones en otros blogs linuxeros como muestran sus escritorios, el ultimo ha sido en &lt;a href="http://www.dmaciasblog.com/"&gt;DMaciasblog&lt;/a&gt;, quien por cierto se ha currado un &lt;strong&gt;escritorio&lt;/strong&gt; que me ha gustado mucho. Hab&amp;iacute;a pensado varias veces en hacer este articulo y ha llegado el momento.&lt;/p&gt; 
+ &lt;p&gt;Os voy a dejar una instant&amp;aacute;nea del mi escritorio y os voy a explicar un poco que tengo instalado para tenerlo as&amp;iacute;. Lo primero es lo primero:&lt;/p&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;p&gt;&lt;a href="http://elblogdeliher.com/wp-content/uploads/2014/06/mi-escritorio-ubuntu.jpg"&gt;&lt;img src="http://elblogdeliher.com/wp-content/uploads/2014/06/mi-escritorio-ubuntu.jpg" alt="mi-escritorio-ubuntu" width="1280" height="800" /&gt;&lt;/a&gt;&lt;/p&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;p&gt;Este es el escritorio de mi port&amp;aacute;til. En el tengo instalado Ubuntu 14.04, en su momento pens&amp;eacute; en instalar otras distribuciones tambi&amp;eacute;n en el disco duro pero al final me decid&amp;iacute; por usarlas en las maquina virtuales.&lt;/p&gt; 
+ &lt;p&gt;El fondo de &lt;strong&gt;escritorio&lt;/strong&gt; lo encontr&amp;eacute; en Google y lo he modificado con el Gimp, no le he cambiado gran cosa, solo le he a&amp;ntilde;adido una capa por encima de la imagen original para oscurecer la parte de arriba mediante un degradado con azul, ya que inicialmente la parte superior era de color gris muy claro.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/06/asi-es-mi-escritorio"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-06-25T19:19:21Z</dc:date>
+  </entry>
   <entry>
     <title>Canonical actualiza el sitio web de Ubuntu</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu" />
@@ -20,17 +91,17 @@
     <author>
       <name>ochobitshacenunbyte</name>
     </author>
-    <updated>2014-06-25T15:56:34Z</updated>
+    <updated>2014-06-25T16:08:48Z</updated>
     <published>2014-06-25T15:45:50Z</published>
     <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/ubuntu-linux-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/ubuntu-linux-150.jpg" alt="ubuntu-linux-150" width="150" height="120" /&gt;&lt;/a&gt;Canonical ha actualizado la web &lt;a title="Ubuntu.com" href="http://www.ubuntu.com/"&gt;ubuntu.com&lt;/a&gt;, para todas sus versiones, es decir, para sobremesa y dispotivios m&amp;oacute;viles. Se trata de una serie de mejoras sutiles pero significativas, y que dan pistas sobre su futuro.&lt;/p&gt; 
 &lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Como mejoras m&amp;aacute;s significativas:&lt;/p&gt; 
+&lt;h1&gt;&lt;strong&gt;Como novedades m&amp;aacute;s significativas:&lt;/strong&gt;&lt;/h1&gt; 
 &lt;ul&gt; 
- &lt;li&gt;Han lanzo la versi&amp;oacute;n de su sitio web para China: &lt;a title="Ubuntu China" href="http://www.ubuntu-china.cn/"&gt;ubuntu-china.cn&lt;/a&gt;, apliando su influencia en dicho pa&amp;iacute;s.&lt;/li&gt; 
+ &lt;li&gt;Han lanzado la versi&amp;oacute;n de su sitio web para China: &lt;a title="Ubuntu China" href="http://www.ubuntu-china.cn/"&gt;ubuntu-china.cn&lt;/a&gt;, ampliando su influencia en dicho pa&amp;iacute;s.&lt;/li&gt; 
  &lt;li&gt;Actualizan el apartado de documentaci&amp;oacute;n legal.&lt;/li&gt; 
  &lt;li&gt;Nueva versi&amp;oacute;n de &lt;a title="Ubuntu Insights" href="https://insights.ubuntu.com/"&gt;Ubuntu Insights&lt;/a&gt;, el portal de noticias del mundo de Ubuntu.&lt;/li&gt; 
 &lt;/ul&gt; 
-&lt;p&gt;Entre otras muchas cosas, tambi&amp;eacute;n est&amp;aacute;n trabajando en mejoras que llegar&amp;aacute;n en no mucho espacio de tiempo:&lt;/p&gt; 
+&lt;p&gt;Entre otras muchas cosas, tambi&amp;eacute;n est&amp;aacute;n &lt;strong&gt;trabajando en mejoras&lt;/strong&gt; que llegar&amp;aacute;n en no mucho espacio de tiempo:&lt;/p&gt; 
 &lt;ul&gt; 
  &lt;li&gt;Una nueva web para los &lt;a title="Ubuntu Partners" href="http://www.ubuntu.com/partners"&gt;Ubuntu Partners&lt;/a&gt;.&lt;/li&gt; 
  &lt;li&gt;Una serie sensible de cambios en el c&amp;oacute;digo y dise&amp;ntilde;o de la web, que mejorar&amp;aacute; mucho la experiencia del usuario.&lt;/li&gt; 
@@ -671,69 +742,6 @@ export PATH&lt;/pre&gt;
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/enlaces-interesantes-162"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-06-17T11:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ejecutar tareas en segundo plano en ASP.NET 4.5.2</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2" />
-    <category term="novedades" />
-    <category term="trucos" />
-    <category term="asp-net" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-06-17T06:57:59Z</updated>
-    <published>2014-06-10T12:10:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Microsoft ASP.NET" src="http://lh6.ggpht.com/-mH6-_IMLFg8/U5Si-5UiF6I/AAAAAAAADfk/kuu_-w0KQMM/image%25255B7%25255D.png?imgmax=800" height="54" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Microsoft ASP.NET" width="122" /&gt;Hay muchos escenarios, y relativamente habituales, en los que es interesante lanzar una tarea desatendida, en segundo plano, desde una aplicaci&amp;oacute;n ASP.NET: manipulaci&amp;oacute;n de archivos, env&amp;iacute;o de mensajes, acceso a recursos externos costosos, procesos de colas, generaci&amp;oacute;n de archivos, etc. 
-&lt;br /&gt; 
-&lt;br /&gt;En general, es un enfoque que puede interesarnos siempre que se trate de realizar un trabajo pesado, que no requiera intervenci&amp;oacute;n alguna por parte del usuario ni siquiera para darle feedback del progreso o terminaci&amp;oacute;n, y que pueda ejecutarse de forma independiente a las peticiones HTTP que acceden a la aplicaci&amp;oacute;n. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Imaginad una acci&amp;oacute;n como la siguiente, donde se recibe un texto y se llama al m&amp;eacute;todo 
-&lt;code&gt;SendEmailToAllMyContacts()&lt;/code&gt; para hac&amp;eacute;rselo llegar, por ejemplo, a 1.000 contactos:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-06-10T12:10:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java WebSockets</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/06/java-websockets" />
-    <category term="java-ee" />
-    <category term="jee" />
-    <category term="java-web" />
-    <category term="websocket" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-06-16T08:33:24Z</updated>
-    <published>2014-06-16T08:33:24Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Cada d&amp;iacute;a tenemos una mayor necesidad de utilizar las caracter&amp;iacute;sticas que tiene HTML5 en nuestras aplicaciones. &lt;strong&gt;Pero quiz&amp;aacute; si hay una que destaca por encima de todas es el uso de los WebSockets&lt;/strong&gt;. Java WebSockets es una de las especificaciones de Java EE 7 y vamos a introducirla en este art&amp;iacute;culo.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/Javaee.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/Javaee.png" alt="Javaee" width="311" height="318" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;&amp;iquest;Que es un WebSocket?&lt;/h2&gt; 
-&lt;p&gt;&lt;strong&gt;Es una conexi&amp;oacute;n bidireccional punto a punto entre un navegador y su servidor,&lt;/strong&gt;&amp;nbsp;de tal manera que ambas partes se puedan enviar mensajes. Para la parte del cliente no resulta ninguna innovaci&amp;oacute;n pero para la parte del servidor s&amp;iacute; ya que &lt;strong&gt;permite enviar informaci&amp;oacute;n al cliente sin obligar a este a realizar peticiones AJAX cada x segundos.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/Websocket01.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/Websocket01.png" alt="Websocket01" width="519" height="303" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Java &amp;nbsp;WebSockets&lt;/h2&gt; 
-&lt;p&gt;&lt;strong&gt;En Java, los WebSockets vienen como estandar a partir de Java EE 7 en la especificaci&amp;oacute;n JSR 356.&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/06/java-websockets"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-06-16T08:33:24Z</dc:date>
-  </entry>
-  <entry>
-    <title>Interfaces + Extension Methods = Protocolos de Clojure</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" />
-    <category term="clojure" />
-    <category term="design-patterns" />
-    <category term="development" />
-    <category term="c" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-06-16T05:06:51Z</updated>
-    <published>2014-06-16T05:06:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En el post anterior vimos c&amp;oacute;mo los &lt;a href="http://blog.koalite.com/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure/" title="Polimorfismo fuera de OOP: Multim&amp;eacute;todos en clojure"&gt;multim&amp;eacute;todos de clojure&lt;/a&gt; permit&amp;iacute;an resolver problemas t&amp;iacute;picos de una forma diferente a c&amp;oacute;mo lo har&amp;iacute;amos en un lenguaje orientado a objetos como Java y C#. En este post vamos a otra herramienta de clojure para aplicar polimorfismo, los &lt;a href="http://clojure.org/protocols"&gt;protocolos&lt;/a&gt;.&lt;/p&gt; 
-&lt;h3&gt;El problema de ejemplo&lt;/h3&gt; 
-&lt;p&gt;Nuevamente vamos a empezar por definir un problema de ejemplo que nos permita tener un poco de contexto a la hora de analizar las distintas soluciones ofrecidas por un lenguaje y otro. El problema en cuesti&amp;oacute;n forma parte de lo que se conoce como el &lt;a href="http://en.wikipedia.org/wiki/Expression_problem"&gt;problema de expresi&amp;oacute;n&lt;/a&gt; y consiste en tener que a&amp;ntilde;adir operaciones a una jerarqu&amp;iacute;a de tipos ya existente.&lt;/p&gt; 
-&lt;p&gt;Supongamos que tenemos una estructura de clases para representar controles en pantalla, similar a la que encontramos en Windows Forms o WPF:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-06-16T05:06:51Z</dc:date>
   </entry>
 </feed>
 

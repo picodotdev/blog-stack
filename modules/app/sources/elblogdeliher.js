@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
+      "title" : "Asi es mi escritorio"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/como-anadir-una-carpeta-a-los-marcadores-de-nautilus-en-ubuntu",
       "title" : "Como añadir una carpeta a los marcadores de Nautilus en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/sobre-la-comunidad-linuxera",
       "title" : "Sobre la comunidad linuxera"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/propiedad-margin-en-css",
-      "title" : "Propiedad margin en CSS"
     }
   ]
 }

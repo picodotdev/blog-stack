@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker",
+      "title" : "Localizar enlaces rotos con LinkChecker"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
       "title" : "Canonical actualiza el sitio web de Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix",
       "title" : "Como configurar un relay de correo para nuestra empresa con Postfix"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/gnewsense-el-sistema-operativo-que-usa-richard-stallman",
-      "title" : "gNewSense el sistema operativo que usa Richard Stallman"
     }
   ]
 }
