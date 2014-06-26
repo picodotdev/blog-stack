@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
+      "title" : "Eclipse Luna ya está disponible"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker",
       "title" : "Localizar enlaces rotos con LinkChecker"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/06/vacaciones-indefinidas",
       "title" : "Vacaciones indefinidas"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
-      "title" : "Compartiendo con SAMBA"
     }
   ]
 }

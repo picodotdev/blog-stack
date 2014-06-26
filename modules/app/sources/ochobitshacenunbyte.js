@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
+      "title" : "Eclipse Luna ya está disponible"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker",
       "title" : "Localizar enlaces rotos con LinkChecker"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/personalizando-la-shell",
       "title" : "Personalizando la shell"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2012/07/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix",
-      "title" : "Como configurar un relay de correo para nuestra empresa con Postfix"
     }
   ]
 }
