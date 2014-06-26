@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
+      "title" : "Código Linux, un documental que no te debes perder."
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
       "title" : "Eclipse Luna ya está disponible"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
       "title" : "Enlaces interesantes 163"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/06/vacaciones-indefinidas",
-      "title" : "Vacaciones indefinidas"
     }
   ]
 }

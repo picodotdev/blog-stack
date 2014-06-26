@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
+      "title" : "Código Linux, un documental que no te debes perder."
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
       "title" : "Eclipse Luna ya está disponible"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/zentyal-lanza-un-nuevo-service-pack",
       "title" : "Zentyal lanza un nuevo Service Pack"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/personalizando-la-shell",
-      "title" : "Personalizando la shell"
     }
   ]
 }
