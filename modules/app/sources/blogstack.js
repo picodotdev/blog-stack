@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",
+      "title" : "Ad unum omnes; tecnologías para el empoderamiento y participación colectiva en la #OpenExpoDay 2014"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
       "title" : "Código Linux, un documental que no te debes perder."
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
       "title" : "Linux supremo absoluto como SO entre los supercomputadores"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
-      "title" : "Enlaces interesantes 163"
     }
   ]
 }

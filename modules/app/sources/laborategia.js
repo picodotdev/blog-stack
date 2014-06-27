@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",
+      "title" : "Ad unum omnes; tecnologías para el empoderamiento y participación colectiva en la #OpenExpoDay 2014"
+    },
+    {
       "url" : "/post/laborategia/2014/06/donde-compartire-los-enlaces-de-interes-de-la-openexpoday",
       "title" : "¿Donde compartiré los enlaces de interés de la #OpenExpoDay?"
     },
