@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
+      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
+    },
+    {
       "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",
       "title" : "Ad unum omnes; tecnologías para el empoderamiento y participación colectiva en la #OpenExpoDay 2014"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
       "title" : "Destapando intrusos en nuestros sistemas con lsof"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
-      "title" : "Linux supremo absoluto como SO entre los supercomputadores"
     }
   ]
 }
