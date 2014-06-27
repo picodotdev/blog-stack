@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/hemeroteca-5",
+      "title" : "Hemeroteca #5"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
       "title" : "Cambiar la frecuencia del procesador en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
-      "title" : "Destapando intrusos en nuestros sistemas con lsof"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/06/hemeroteca-5",
+      "title" : "Hemeroteca #5"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
       "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8",
       "title" : "Novedades y nuevas características de Java 8"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms",
-      "title" : "Introducción y ejemplo sencillo de Java Message Service (JMS)"
     }
   ]
 }
