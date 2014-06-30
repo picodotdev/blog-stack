@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
+      "title" : "Enlaces interesantes 164"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
       "title" : "Navegando por los océanos de la shell"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
       "title" : "Asi es mi escritorio"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
-      "title" : "Canonical actualiza el sitio web de Ubuntu"
     }
   ]
 }
