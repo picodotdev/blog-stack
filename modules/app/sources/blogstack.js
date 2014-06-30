@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
+      "title" : "Navegando por los océanos de la shell"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/06/creando-un-primer-plugin-para-magento-hola-mundo-en-magento",
+      "title" : "Creando un primer plugin para Magento (hola mundo en Magento)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
       "title" : "REST JSON y Java"
     },
@@ -17,10 +25,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
       "title" : "Código Linux, un documental que no te debes perder."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
-      "title" : "Navegando por los océanos de la shell"
     },
     {
       "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
       "title" : "Canonical actualiza el sitio web de Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
-      "title" : "Diversión con pingüinos"
     }
   ]
 }

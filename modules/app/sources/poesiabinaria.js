@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/06/creando-un-primer-plugin-para-magento-hola-mundo-en-magento",
+      "title" : "Creando un primer plugin para Magento (hola mundo en Magento)"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh",
       "title" : "Experimentos: Instalando Magento desde SSH"
     },
@@ -57,10 +61,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/ci-xxiv-ataques-de-red-lasicos-intel-edison-representacion-de-pi-rsync-entrevista-de-trabajo-face-substitution",
       "title" : "CI XXIV: Ataques de red lásicos, Intel Edison, representación de PI, RSYNC, entrevista de trabajo, face substitution"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/concurrencia-posix-threads-y-variables-compartidas-en-c",
-      "title" : "Concurrencia, POSIX threads y variables compartidas en C"
     }
   ]
 }

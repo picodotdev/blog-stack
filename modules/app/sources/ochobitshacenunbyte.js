@@ -3,12 +3,12 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
       "title" : "Navegando por los océanos de la shell"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
+      "title" : "Código Linux, un documental que no te debes perder."
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
