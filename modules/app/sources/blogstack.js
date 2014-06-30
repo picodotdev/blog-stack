@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
+      "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
       "title" : "Enlaces interesantes 164"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
       "title" : "EJB Singleton"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
-      "title" : "Asi es mi escritorio"
     }
   ]
 }

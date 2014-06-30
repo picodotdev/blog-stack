@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
+      "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
       "title" : "Que es una distribucion Rolling Release en Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/cambio-de-portatil-y-de-distro-principal",
       "title" : "Cambio de portatil y de distro principal"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-instalar-atom-en-ubuntu-mediante-ppa",
-      "title" : "Como instalar Atom en Ubuntu mediante PPA"
     }
   ]
 }
