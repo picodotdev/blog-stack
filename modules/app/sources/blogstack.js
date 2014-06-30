@@ -3,6 +3,22 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
+      "title" : "Consumiendo el API Rest de Marvel desde Clojure"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
+      "title" : "Código Linux, un documental que no te debes perder."
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
+      "title" : "Navegando por los océanos de la shell"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
+      "title" : "Que es una distribucion Rolling Release en Linux"
+    },
+    {
       "url" : "/post/blogbitix/2014/06/hemeroteca-5",
       "title" : "Hemeroteca #5"
     },
@@ -13,10 +29,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",
       "title" : "Ad unum omnes; tecnologías para el empoderamiento y participación colectiva en la #OpenExpoDay 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/novedades-de-signalr-2-1-i-hubs-tipados",
       "title" : "Novedades de SignalR 2.1 (I): Hubs tipados"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/donde-compartire-los-enlaces-de-interes-de-la-openexpoday",
-      "title" : "¿Donde compartiré los enlaces de interés de la #OpenExpoDay?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
-      "title" : "He ganado otro concurso, biennnnnn :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
-      "title" : "Cambiar la frecuencia del procesador en Ubuntu"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
+      "title" : "Consumiendo el API Rest de Marvel desde Clojure"
+    },
+    {
       "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
       "title" : "AngularJS, gracias por los servicios prestados"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/03/datomic-una-base-de-datos-diferente",
       "title" : "Datomic, una base de datos diferente"
-    },
-    {
-      "url" : "/post/koalite/2014/03/el-fin-de-windows-xp-y-el-anclaje-tecnologico",
-      "title" : "El fin de Windows XP y el anclaje tecnológico"
     }
   ]
 }
