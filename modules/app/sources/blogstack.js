@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
+      "title" : "Autonomía, maestría y propósito: hay que ganárselos"
+    },
+    {
       "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
       "title" : "Consumiendo el API Rest de Marvel desde Clojure"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-anadir-una-carpeta-a-los-marcadores-de-nautilus-en-ubuntu",
       "title" : "Como añadir una carpeta a los marcadores de Nautilus en Ubuntu"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/novedades-de-signalr-2-1-i-hubs-tipados",
-      "title" : "Novedades de SignalR 2.1 (I): Hubs tipados"
     }
   ]
 }
