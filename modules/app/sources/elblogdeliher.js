@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
+      "title" : "Que es una distribucion Rolling Release en Linux"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
       "title" : "Asi es mi escritorio"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-instalar-atom-en-ubuntu-mediante-ppa",
       "title" : "Como instalar Atom en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/sobre-la-comunidad-linuxera",
-      "title" : "Sobre la comunidad linuxera"
     }
   ]
 }

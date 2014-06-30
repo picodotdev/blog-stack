@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
+      "title" : "REST JSON y Java"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
       "title" : "EJB Singleton"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/arquitecturas-moviles-y-breakpoints-cantabriatic",
       "title" : "Arquitecturas Móviles y Breakpoints (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/jpa-domain-driven-design-1-ventas-amazon-es-en-programacion",
-      "title" : "JPA Domain Driven Design (1º Ventas Amazon.es en programación)"
     }
   ]
 }

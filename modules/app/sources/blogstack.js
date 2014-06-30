@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
+      "title" : "REST JSON y Java"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
       "title" : "Autonomía, maestría y propósito: hay que ganárselos"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
       "title" : "Diversión con pingüinos"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-anadir-una-carpeta-a-los-marcadores-de-nautilus-en-ubuntu",
-      "title" : "Como añadir una carpeta a los marcadores de Nautilus en Ubuntu"
     }
   ]
 }
