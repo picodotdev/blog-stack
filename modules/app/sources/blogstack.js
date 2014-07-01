@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/microsoft-mvp-4",
+      "title" : "Microsoft MVP * 4"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
       "title" : "Encripta las fotos de tus vacaciones"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/hemeroteca-5",
       "title" : "Hemeroteca #5"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
     }
   ]
 }
