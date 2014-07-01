@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
+      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
       "title" : "Evento: Sevilla Mobility Day"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",
       "title" : "Ad unum omnes; tecnologías para el empoderamiento y participación colectiva en la #OpenExpoDay 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
-      "title" : "Eclipse Luna ya está disponible"
     }
   ]
 }
