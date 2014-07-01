@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
+      "title" : "Encripta las fotos de tus vacaciones"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
       "title" : "Navegando por los océanos de la shell"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/descubrimos-trisquel-el-buque-insignia-de-las-distribuciones-libres",
       "title" : "Descubrimos Trisquel, el buque insignia de las distribuciones libres"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/se-descubre-vulnerabilidad-critica-en-el-kernel-de-linux",
-      "title" : "Se descubre vulnerabilidad crítica en el kernel de Linux"
     }
   ]
 }
