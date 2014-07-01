@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/stress",
+      "title" : "Stress"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
       "title" : "Autonomía, maestría y propósito: hay que ganárselos"
     },

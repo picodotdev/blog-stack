@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
+      "title" : "Evento: Sevilla Mobility Day"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/07/stress",
+      "title" : "Stress"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
       "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
       "title" : "Eclipse Luna ya está disponible"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/localizar-enlaces-rotos-con-linkchecker",
-      "title" : "Localizar enlaces rotos con LinkChecker"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
-      "title" : "EJB Singleton"
     }
   ]
 }

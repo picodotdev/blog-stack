@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
+      "title" : "Evento: Sevilla Mobility Day"
+    },
+    {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
       "title" : "Enlaces interesantes 164"
     },
@@ -57,10 +61,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/ocho-anos-que-se-dice-pronto",
       "title" : "Ocho años, que se dice pronto\u2026"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-157",
-      "title" : "Enlaces interesantes 157"
     }
   ]
 }
