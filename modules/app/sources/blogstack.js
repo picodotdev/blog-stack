@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
+      "title" : "Código Linux, un documental que no te debes perder."
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/microsoft-mvp-4",
       "title" : "Microsoft MVP * 4"
     },
@@ -49,10 +53,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
       "title" : "Consumiendo el API Rest de Marvel desde Clojure"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
     },
     {
       "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
