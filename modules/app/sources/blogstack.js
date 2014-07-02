@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
+      "title" : "Realización de diagramas con Dia"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
       "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
       "title" : "Consumiendo el API Rest de Marvel desde Clojure"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
-      "title" : "Que es una distribucion Rolling Release en Linux"
     }
   ]
 }
