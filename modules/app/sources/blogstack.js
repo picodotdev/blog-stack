@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
+      "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
       "title" : "Código Linux, un documental que no te debes perder."
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
       "title" : "Que es una distribucion Rolling Release en Linux"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/hemeroteca-5",
-      "title" : "Hemeroteca #5"
     }
   ]
 }

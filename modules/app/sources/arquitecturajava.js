@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
+      "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
       "title" : "REST JSON y Java"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/android-tag-y-el-principio-dry",
       "title" : "Android TAG y  el principio DRY"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/arquitecturas-moviles-y-breakpoints-cantabriatic",
-      "title" : "Arquitecturas Móviles y Breakpoints (CantabriaTIC)"
     }
   ]
 }
