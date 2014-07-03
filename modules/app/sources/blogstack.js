@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer",
+      "title" : "Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
       "title" : "Realización de diagramas con Dia"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
       "title" : "Autonomía, maestría y propósito: hay que ganárselos"
-    },
-    {
-      "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
-      "title" : "Consumiendo el API Rest de Marvel desde Clojure"
     }
   ]
 }
