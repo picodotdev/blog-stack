@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
+      "title" : "Palabras (I)"
+    },
+    {
       "url" : "/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer",
       "title" : "Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
       "title" : "REST JSON y Java"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
-      "title" : "Autonomía, maestría y propósito: hay que ganárselos"
     }
   ]
 }

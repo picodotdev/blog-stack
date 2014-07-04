@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
+      "title" : "Palabras (I)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/stress",
       "title" : "Stress"
     },
