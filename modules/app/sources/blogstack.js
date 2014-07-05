@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
+      "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard",
+      "title" : "Java Generics (II) uso  de WildCard"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
       "title" : "Palabras (I)"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
       "title" : "Navegando por los océanos de la shell"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/06/creando-un-primer-plugin-para-magento-hola-mundo-en-magento",
-      "title" : "Creando un primer plugin para Magento (hola mundo en Magento)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
-      "title" : "REST JSON y Java"
     }
   ]
 }

@@ -3,10 +3,53 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-03T21:03:19Z</updated>
+  <updated>2014-07-05T00:02:33Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-03T21:03:19Z</dc:date>
+  <dc:date>2014-07-05T00:02:33Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java Generics (II) uso  de WildCard</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" />
+    <category term="genericos" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-07-04T13:18:28Z</updated>
+    <published>2014-07-04T13:18:28Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En este art&amp;iacute;culo vamos a cubrir una de las dudas m&amp;aacute;s habituales que se producen con el manejo &amp;nbsp;Java Generics, el uso del caracter “?” al que se le suele denominar wildcard&amp;nbsp;. Vamos a suponer un ejemplo sencillo en el que tenemos dos clases. La clase Persona y la clase Deportista.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/personadeportista1.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/personadeportista1.gif" alt="personadeportista" width="191" height="285" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Podemos crearnos una lista de&amp;nbsp;Personas la cual tenemos que recorrer e imprimir por pantalla. El programa Java ser&amp;iacute;a as&amp;iacute; de sencillo :&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrincipalDeportista {
+public static void main(String[] args) {
+
+List&amp;lt;Persona&amp;gt; listaPersonas=new ArrayList&amp;lt;Persona&amp;gt;();
+listaPersonas.add(new Persona(&amp;quot;pepe&amp;quot;));
+listaPersonas.add(new Persona(&amp;quot;maria&amp;quot;));
+imprimir(listaPersonas);
+}
+public static void imprimir(List&amp;lt;Persona&amp;gt; lista) {
+
+for(Persona p:lista) {
+
+System.out.println(p.getNombre());
+}
+
+}
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-07-04T13:18:28Z</dc:date>
+  </entry>
   <entry>
     <title>Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer" />
@@ -786,34 +829,6 @@ return lista.iterator();
 &lt;p&gt;En Java hay varios sistemas de logging entre los m&amp;aacute;s utilizados est&amp;aacute;n &lt;a href="http://logging.apache.org/log4j/1.2/"&gt;log4j&lt;/a&gt;, &lt;a href="http://logback.qos.ch/"&gt;logback&lt;/a&gt;, &lt;a href="http://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html"&gt;java.util.logging&lt;/a&gt; y la capa de abstracci&amp;oacute;n &lt;a href="http://www.slf4j.org/"&gt;slf4j&lt;/a&gt; sobre varios de estas librer&amp;iacute;as. En estas librer&amp;iacute;as de logging las trazas se emiten a trav&amp;eacute;s de un logger que normalmente se corresponde con el nombre de la clase en la que se emite la traza. De esta forma las trazas se pueden filtrar por el nivel de importancia de la traza (debug, info, warn, …) y por el nombre del logger de forma que podemos obtener un registro de las trazas emitidas por los loggers que deseamos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/01/logging-usando-marcadores-con-slf4j-y-logback"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-01-31T16:10:17Z</dc:date>
-  </entry>
-  <entry>
-    <title>Como devolver un archivo con Apache Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software-libre" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-01-30T18:07:53Z</updated>
-    <published>2012-11-10T13:20:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /&gt; 
-&lt;/div&gt;En esta entrada voy a explicar como enviar un archivo al cliente desde el servidor usando el framework Apache Tapestry. Esto es necesario si por ejemplo nuestra aplicaci&amp;oacute;n necesita generar un informe ya sea en formato txt, excel, pdf, 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2012/10/crear-un-archivo-zip-con-java.html"&gt;un archivo comprimido&lt;/a&gt; o de cualquier otro tipo. 
-&lt;br /&gt; 
-&lt;br /&gt;En tapestry el proceso no es muy complicado, tan solo deberemos devolver un objeto que implemente la 
-&lt;a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/StreamResponse.html"&gt;interfaz StreamResponse&lt;/a&gt; en el manejador de evento (&amp;laquo;event handler&amp;raquo;) que procesa la petici&amp;oacute;n. 
-&lt;br /&gt; 
-&lt;br /&gt;Aqu&amp;iacute; el c&amp;oacute;digo de parte de un manejador de evento que construye y devuelve un objeto que implementa la interfaz StreamResponse: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;script src="https://gist.github.com/4051027.js?file=Page.java"&gt;&lt;/script&gt; Una posible implementaci&amp;oacute;n de la clase StreamResponse podr&amp;iacute;a ser la siguiente que podr&amp;iacute;amos reutilizar siempre que tengamos que devolver un archivo:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2012/11/como-devolver-un-archivo-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2012-11-10T13:20:00Z</dc:date>
   </entry>
 </feed>
 

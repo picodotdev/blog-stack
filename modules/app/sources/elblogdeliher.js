@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
+      "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
       "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-seleccionar-con-que-programa-abrir-por-defecto-un-archivo-en-ubuntu",
       "title" : "Como seleccionar con que programa abrir por defecto un archivo en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/cambio-de-portatil-y-de-distro-principal",
-      "title" : "Cambio de portatil y de distro principal"
     }
   ]
 }

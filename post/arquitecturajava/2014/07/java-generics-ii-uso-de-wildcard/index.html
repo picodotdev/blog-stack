@@ -1,0 +1,210 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Java Generics (II) uso  de WildCard | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard"><span itemprop="headline">Java Generics (II) uso  de WildCard</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/java-generics-uso-de-wildcard/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-07-04T13:18" itemprop="datePublished">Publicado el viernes, 04 de julio de 2014 a las 13:18 UTC</span></div><div><span>
+Etiquetado como
+genericos, <a href="/label/java"><span itemprop="articleSection">java</span></a>, java-basico</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En este art&iacute;culo vamos a cubrir una de las dudas m&aacute;s habituales que se producen con el manejo &nbsp;Java Generics, el uso del caracter “?” al que se le suele denominar wildcard&nbsp;. Vamos a suponer un ejemplo sencillo en el que tenemos dos clases. La clase Persona y la clase Deportista.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/personadeportista1.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/personadeportista1.gif" alt="personadeportista" width="191" height="285" /></a></p> 
+<p>Podemos crearnos una lista de&nbsp;Personas la cual tenemos que recorrer e imprimir por pantalla. El programa Java ser&iacute;a as&iacute; de sencillo :</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrincipalDeportista {
+public static void main(String[] args) {
+
+List&lt;Persona&gt; listaPersonas=new ArrayList&lt;Persona&gt;();
+listaPersonas.add(new Persona(&quot;pepe&quot;));
+listaPersonas.add(new Persona(&quot;maria&quot;));
+imprimir(listaPersonas);
+}
+public static void imprimir(List&lt;Persona&gt; lista) {
+
+for(Persona p:lista) {
+
+System.out.println(p.getNombre());
+}
+
+}
+}
+
+</pre> 
+<p>Mostramos tambien la clase:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+&amp;nbsp;
+
+private String nombre;
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+
+public Persona(String nombre) {
+super();
+this.nombre = nombre;
+}
+
+}
+
+</pre> 
+<p>El programa simplemente construye una lista de Personas la rellena y luego la recorre.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/listaPersonas.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/listaPersonas.gif" alt="listaPersonas" width="294" height="153" /></a></p> 
+<p>Esto es f&aacute;cil de hacer. Ahora bien que pasar&iacute;a si realiz&aacute;ramos una modificaci&oacute;n a la lista y esta lista fuera de Deportistas. El c&oacute;digo quedar&iacute;a de la siguiente forma:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+public static void main(String[] args) {
+
+List&lt;Deportista&gt; listaPersonas=new ArrayList&lt;Deportista&gt;();
+listaPersonas.add(new Deportista(&quot;pepe&quot;,&quot;futbol&quot;));
+listaPersonas.add(new Deportista(&quot;maria&quot;,&quot;tenis&quot;));
+imprimir(listaPersonas);
+}
+public static void imprimir(List&lt;Persona&gt; lista) {
+
+for(Persona p:lista) {
+
+System.out.println(p.getNombre());
+}
+
+}
+}
+
+</pre> 
+<p>Lamentablemente este c&oacute;digo no compila y da el siguiente error:</p> 
+<p><strong>The method imprimir(List&lt;Persona&gt;) in the type Principal is not applicable for the arguments (List&lt;Deportista&gt;)</strong></p> 
+<p>Parece extra&ntilde;o ya que estamos pasando una lista de Deportista que tambi&eacute;n son Personas . Sin embargo tenemos que darnos cuenta de lo siguiente. <strong>Una lista de Personas y una lista de Deportistas son dos tipos diferentes y no est&aacute;n relacionados. Aunque los objetos que ellos almacenen si lo est&eacute;n.</strong></p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/relacion.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/relacion.gif" alt="relacion" width="477" height="332" /></a></p> 
+<p>&nbsp;</p> 
+<p>As&iacute; pues al tratarse de dos tipos de objetos que realmente no est&aacute;n relacionados por herencia<strong> no nos podemos apoyar en el polimorfismo para gestionarles de forma com&uacute;n.</strong> Vamos a ver una soluci&oacute;n.</p> 
+<h2>Java Generics y Wildcard (?)</h2> 
+<p>El caracter Wildcard(?) aporta una soluci&oacute;n y &nbsp;nos vale para decirle al lenguaje Java que cuando usemos un tipo gen&eacute;rico se puede aplicar cualquier tipo al par&aacute;metro lista</p> 
+<p>vamos a verlo:</p> 
+<pre>
+
+public static void imprimir(List&lt;?&gt; lista) {
+
+for(Persona p:lista) {
+
+System.out.println(p.getNombre());
+}
+
+}
+</pre> 
+<p>De esta forma a&ntilde;adiremos flexibilidad ya que podemos pasar cualquier tipo como par&aacute;metro gen&eacute;rico. Sin embargo tenemos <strong>todavia un problema al recorrer la lista de Personas estamos obligando a que la clase sea de tipo Persona cosa que el caracter de Wildcard no obliga.</strong> As&iacute; pues seguiremos con problemas de compilaci&oacute;n, para evitar esto podemos a&ntilde;adir al Wildcard una restricci&oacute;n.</p> 
+<pre>
+
+public static void imprimir(List&lt;? extends Persona&gt; lista) {
+
+ for(Persona p:lista) {
+
+ System.out.println(p.getNombre());
+ }
+
+ }
+</pre> 
+<p>Ahora s&iacute; que podremos trabajar tranquilos con los gen&eacute;ricos y los tipos.</p> 
+<p>Otros art&iacute;culos : <a title="Uso de Java Generics  (I)" href="http://www.arquitecturajava.com/uso-de-java-generics/">Java Generics</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/java-generics-uso-de-wildcard/">Java Generics (II) uso de WildCard</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard" st_title="Java Generics (II) uso  de WildCard | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 665,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
