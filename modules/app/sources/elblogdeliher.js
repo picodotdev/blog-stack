@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
+      "title" : "Mi experiencia en el hosting Vigunu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
       "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/no-es-una-cuestion-de-envidia-ni-mucho-menos",
       "title" : "No es una cuestión de envidia, ni mucho menos"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-seleccionar-con-que-programa-abrir-por-defecto-un-archivo-en-ubuntu",
-      "title" : "Como seleccionar con que programa abrir por defecto un archivo en Ubuntu"
     }
   ]
 }
