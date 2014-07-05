@@ -416,4 +416,24 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="20" author="picodotdev">
+        <comment>Agregación de fuente (09-06-2014)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-5967896416715365" />
+            <column name="adsenseSlotBigRectangle" value="6843955321" />
+            <column name="adsenseSlotWideSkycraper" value="6843955321" />
+            <column name="adsenseSlotHorizontalSkycraper" value="6843955321" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="El blog de Liher"/>
+            <column name="alias" value="elblogdeliher"/>
+            <column name="pageUrl" value="http://elblogdeliher.com/"/>
+            <column name="url" value="http://elblogdeliher.com/feed/atom/"/>
+            <column name="author" value="Liher Sanchez"/>
+            <column name="email" value="liher@mail.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

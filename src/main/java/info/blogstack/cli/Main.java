@@ -297,8 +297,17 @@ public class Main {
 			adminServer = Undertow.builder().addHttpListener(amdinPort, host).setHandler(adminHandler).build();
 
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
-			server.start();
-			adminServer.start();
+			while (true) {
+				try {
+					server.start();
+					adminServer.start();
+				} catch (Exception e) {
+					logger.error(e.getMessage(), e);					
+					server.stop();
+					adminServer.stop();					
+					Thread.sleep(5000);
+				}
+			}
 		}
 
 		if (serverOption) {
@@ -320,7 +329,15 @@ public class Main {
 			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
 
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
-			server.start();
+			while (true) {
+				try {
+					server.start();
+				} catch (Exception e) {
+					logger.error(e.getMessage(), e);
+					server.stop();
+					Thread.sleep(5000);
+				}				
+			}
 		}
 
 		if (stop) {
