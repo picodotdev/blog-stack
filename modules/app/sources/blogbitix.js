@@ -3,10 +3,6 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
-      "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
-      "title" : "Modelo «push» contra modelo «pull» en frameworks web"
-    },
-    {
       "url" : "/post/blogbitix/2014/06/hemeroteca-5",
       "title" : "Hemeroteca #5"
     },
@@ -61,6 +57,10 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-84-evo-25-gb",
       "title" : "Desempaquetado y análisis Samsung SSD 840 EVO 250 GB"
+    },
+    {
+      "url" : "/post/blogbitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8",
+      "title" : "Novedades y nuevas características de Java 8"
     }
   ]
 }
