@@ -334,6 +334,11 @@ public class Main {
 		}
 
 		if (stop) {
+			if (!isStarted()) {
+				logger.info("Server already stoped");
+				return;
+			}
+			
 			logger.info("Stoping server...");
 
 			String host = getHost();
