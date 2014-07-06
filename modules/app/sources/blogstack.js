@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
+      "title" : "Modelo «push» contra modelo «pull» en frameworks web"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
       "title" : "Mi experiencia en el hosting Vigunu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
       "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
-      "title" : "Enlaces interesantes 164"
     }
   ]
 }

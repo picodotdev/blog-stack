@@ -1,0 +1,216 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web"><span itemprop="headline">Modelo «push» contra modelo «pull» en frameworks web</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-07-06T08:58" itemprop="datePublished">Publicado el domingo, 06 de julio de 2014 a las 08:58 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" />
+ <br /> 
+</div> 
+<p>En la mayor&iacute;a de frameworks de desarrollo de aplicaciones o p&aacute;ginas web para producir el contenido HTML que se env&iacute;a al cliente se emplea un modelo en el que el controlador proporciona los datos que combinados con una plantilla producen el HTML. Este modelo tambi&eacute;n es el empleado habitualmente en muchos motores de plantillas (thymeleaf, mustache, …). Sin embargo, hay dos modelos que se pueden seguir para producir un texto como resultado dada una plantilla y datos:</p> 
+<ul> 
+ <li>Push: este es el modelo comentado. El controlador recupera de antemano todos los datos que necesita la vista, el controlador tambi&eacute;n determina la vista o plantilla que se usar. Combinando los datos y la plantilla se produce el resultado.</li> 
+</ul> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-push.png" title="Modelo push"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-push.png" /></a> 
+</div> 
+<p>Los pasos que se siguen en este modelo son:</p> 
+<ol> 
+ <li>La petici&oacute;n llega al servidor</li> 
+ <li>El dispatcher redirige la petici&oacute;n al controlador</li> 
+ <li>El controlador solicita los datos a la base de datos</li> 
+ <li>El controlador obtiene los datos de la base de datos</li> 
+ <li>El controlador redirige a la vista y le env&iacute;a los datos que necesita</li> 
+ <li>La vista genera el contenido y se env&iacute;a al cliente</li> 
+</ol> 
+<ul> 
+ <li>Pull: en este modelo el controlador no conoce los datos que usar&aacute; la vista y es esta la que los solicita seg&uacute;n necesita. La vista tira del controlador, el controlador solo debe ofrecer el soporte par que la vista pueda recuperar los datos que necesite.</li> 
+</ul> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-pull.png" title="Modelo pull"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-pull.png" /></a> 
+</div> 
+<p>Los pasos que se siguen en este modelo var&iacute;an ligeramente del modelo push pero de forma importante, son:</p> 
+<ol> 
+ <li>La petici&oacute;n llega al servidor</li> 
+ <li>El dispatcher redirige la petici&oacute;n al controlador</li> 
+ <li>El controlador redirige a la vista</li> 
+ <li>La vista pide los datos que necesita al controlador y el controlador los pide a la base de datos</li> 
+ <li>La vista obtiene los datos que ha pedido del controlador</li> 
+ <li>La vista genera el contenido y se env&iacute;a al cliente</li> 
+</ol> 
+<p>El modelo push es empleado en muchos de los frameworks web m&aacute;s usados, algunos ejemplos son <a href="http://symfony.com/">Symfony</a>, <a href="https://www.djangoproject.com/">Django</a>, <a href="http://grails.org/">Grails</a> o <a href="http://www.asp.net/mvc">ASP.NET MVC</a>. En la categor&iacute;a de frameworks que usan un modelo pull est&aacute; <a href="http://tapestry.apache.org/">Apache Tapestry</a>.</p> 
+<p>Al modelo push le encuentro algunos problemas. Un problema es que el controlador debe conocer que datos necesita la vista y si la vista tiene cierta l&oacute;gica esta la tendremos duplicada tanto en en controlador como en la vista. Supongamos que en una aplicaci&oacute;n tenemos un usuario y direcci&oacute;n con una relaci&oacute;n de 1 a 1 entre ambos y que debemos mostrar en una p&aacute;gina el usuario y su direcci&oacute;n solo si solo si es un usuario VIP. En el controlador tendremos que recuperar el usuario, comprobar si es VIP y si lo es recuperar su direcci&oacute;n. El problema est&aacute; que en la vista deberemos hacer tambi&eacute;n una comprobaci&oacute;n si el cliente es VIP o al menos si a la vista se le ha proporcionado una direcci&oacute;n, como resultado la comprobaci&oacute;n la tendremos duplicada tanto en el controlador como en la vista, como sabemos la duplicaci&oacute;n de c&oacute;digo y l&oacute;gica habitualmente no es buena idea ya que a la larga dificulta el mantenimiento de la aplicaci&oacute;n.</p> 
+<p>En Grails (pero podr&iacute;a ser cualquier otro framework o motor de plantillas push) podr&iacute;amos visualizar el usuario y su direcci&oacute;n si es VIP de la siguiente forma:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/aa41c0fdfaeb4662ca0a.js?file=push.txt"></script> 
+ <noscript>
+  <pre><code>// Grails
+// Controlador (groovy)
+def showUsuario() {
+    def usuario = Usuario.get(params.long('id'))
+    def direccion = null
+    if (usuario.isVIP()) {
+        direccion = usuario.direccion
+    }
+    render(view:'show', model: [usuario:usuario, direccion:direccion])
+}
+
+// Vista (gsp)
+Nombre: ${usuario.nombre}
+&lt;g:if test=&quot;${usuario.vip}&quot;&gt;
+    Direcci&oacute;n: ${direccion.toString()}
+&lt;/g:if&gt;</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Si usamos <a href="http://hibernate.org/">hibernate</a> la recuperaci&oacute;n de la direcci&oacute;n podemos hacerla navegando la relaci&oacute;n pero he querido recuperarla en el controlador expresamente para el ejemplo, si no pudi&eacute;semos usar hibernate para recuperar el dato relacionado probablemente lo que har&iacute;amos es recuperar el dato en el controlador como en el ejemplo.</p> 
+<p>Otro problema del modelo push es que si la vista es usada en m&uacute;ltiples controladores, y precisamente la separaci&oacute;n entre vistas y controladores uno de sus motivos es para esto, todos estos controladores van a compartir el c&oacute;digo para recuperar los datos que necesite la vista, dependiendo del n&uacute;mero de datos y de veces que empleemos una vista en m&uacute;ltiples controladores quiz&aacute; debamos hacer una clase asociada a la vista que recupere los datos para evitar tener c&oacute;digo duplicado (y exactamente esto es lo que se hace en Tapestry).</p> 
+<p>En el modelo pull el controlador no debe conocer que datos necesita la vista y si hay l&oacute;gica para mostrar ciertos datos est&aacute; l&oacute;gica solo la tendremos en la vista. Aunque el controlador no deba conocer que datos en concreto necesite la vista si debe ofrecer el soporte para que la vista los recupere cuando necesite. Como se puede ver el c&oacute;digo en el siguiente ejemplo la comprobaci&oacute;n de si el usuario es VIP solo est&aacute; en la vista. En Tapestry cada vista tiene asociado una clase Java que es la encargada de ofrecer el soporte para que la vista pueda recuperar los datos, el conjunto de controlador m&aacute;s vista es lo que en Tapestry se conoce como componente, si el componente se usa varias veces en el mismo proyecto no necesitamos duplicar c&oacute;digo.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/aa41c0fdfaeb4662ca0a.js?file=pull.txt"></script> 
+ <noscript>
+  <pre><code>// Tapestry
+// Controlador (java)
+public Usuario getUsuario() {
+    return usuarioDAO.get(id);
+}
+
+public Direccion getDirecion() {
+    return getUsuario().getDireccion();
+}
+
+// Vista (tml)
+Nombre: ${usuario.nombre}
+&lt;t:if test=&quot;usuario.vip&quot;&gt;
+    Direccion: ${direccion.toString()}
+&lt;t:if&gt;</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>&iquest;Podemos emplear un modelo pull en un framework que normalmente se suele usar un modelo push? S&iacute;, basta que en el modelo de la vista pasemos un objeto que le permita recuperar los datos que necesite. En Grails empleando un modelo pull el c&oacute;digo podr&iacute;a quedarnos de la siguiente forma:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/aa41c0fdfaeb4662ca0a.js?file=pull-in-push.txt"></script> 
+ <noscript>
+  <pre><code>// Grails
+// Controlador (groovy)
+def showUsuario() {
+    render(view:'show', model: [controller:this])
+}
+
+def getUsuario() {
+    return Usuario.get(params.long('id'))
+}
+
+def getDireccion() {
+    return usuario.direccion
+}
+
+// Vista (gsp)
+Nombre: ${usuario.nombre}
+&lt;g:if test=&quot;${usuario.vip}&quot;&gt;
+    Direcci&oacute;n: ${direccion.toString()}
+&lt;/g:if&gt;</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Como se ve el if de comprobaci&oacute;n en el controlador desaparece, a pesar de todo si la vista fuese usada por varios controladores deber&iacute;amos crear algo para evitar tener duplicado el c&oacute;digo que permite recuperar los datos a la vista. Aunque esto es perfectamente posible no es la forma habitual de usar los modelos push.</p> 
+<p>Este ejemplo es muy sencillo y empleando cualquiera de los dos modelos es viable, pero cuando el n&uacute;mero de datos a recuperar en las vistas y el n&uacute;mero de veces que se reutiliza una vista aumenta (y en teor&iacute;a la separaci&oacute;n entro controlador y vista uno de sus motivos es posiblemente para reutilizarlas) el modelo push presenta los problemas que he comentado que el modelo pull no tiene.</p> 
+<p>Referencia:<br /> <a href="http://www.guyrutenberg.com/2008/04/26/pull-vs-push-mvc-architecture/">Pull vs. Push MVC Architecture</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">Libro PlugIn Tapestry</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" st_title="Modelo «push» contra modelo «pull» en frameworks web | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Modelo «push» contra modelo «pull» en frameworks web";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 668,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
