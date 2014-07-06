@@ -2,3 +2,6 @@
 cd $OPENSHIFT_DATA_DIR/blogstack/
 ./main.sh -index -generate
 ./deploy.sh
+
+#
+nohup ./main.sh -preview -r _public > misc/logs/server.log 2>&1 &

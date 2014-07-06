@@ -15,6 +15,9 @@ import io.undertow.util.Headers;
 import io.undertow.util.MimeMappings;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -272,6 +275,11 @@ public class Main {
 		}
 
 		if (preview) {
+			if (isStarted()) {
+				logger.info("Server already started");
+				return;
+			}
+			
 			logger.info("Stating server...");
 
 			String host = getHost();
@@ -296,18 +304,10 @@ public class Main {
 			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
 			adminServer = Undertow.builder().addHttpListener(amdinPort, host).setHandler(adminHandler).build();
 
+			server.start();
+			adminServer.start();
+			
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
-			while (true) {
-				try {
-					server.start();
-					adminServer.start();
-				} catch (Exception e) {
-					logger.error(e.getMessage(), e);					
-					server.stop();
-					adminServer.stop();					
-					Thread.sleep(5000);
-				}
-			}
 		}
 
 		if (serverOption) {
@@ -328,16 +328,9 @@ public class Main {
 
 			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
 
+			server.start();
+			
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
-			while (true) {
-				try {
-					server.start();
-				} catch (Exception e) {
-					logger.error(e.getMessage(), e);
-					server.stop();
-					Thread.sleep(5000);
-				}				
-			}
 		}
 
 		if (stop) {
@@ -366,6 +359,16 @@ public class Main {
 		@Override
 		public void run() {
 			main.shutdown();
+		}
+	}
+	
+	private boolean isStarted() {
+		try {
+			ServerSocket socket = new ServerSocket(getPort(), 0, InetAddress.getByName(getHost()));
+			socket.close();
+			return false;
+		} catch (Exception e) {
+			return true;
 		}
 	}
 
