@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
+      "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
+      "title" : "Fondos de escritorio 11"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
       "title" : "Mi experiencia en el hosting Vigunu"
     },
@@ -53,14 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
       "title" : "Mis experiencias y recomendaciones con los ordenadores"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/ya-se-esta-arreglando-la-cosa",
-      "title" : "Ya se esta arreglando la cosa"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/no-es-una-cuestion-de-envidia-ni-mucho-menos",
-      "title" : "No es una cuestión de envidia, ni mucho menos"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
+      "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
+      "title" : "Fondos de escritorio 11"
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-165",
       "title" : "Enlaces interesantes 165"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
       "title" : "Encripta las fotos de tus vacaciones"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
-      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
-      "title" : "Evento: Sevilla Mobility Day"
     }
   ]
 }
