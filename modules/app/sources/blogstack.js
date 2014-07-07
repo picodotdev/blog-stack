@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
+      "title" : "Palabras (II)"
+    },
+    {
       "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
       "title" : "Por favor, comenta el código"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/stress",
       "title" : "Stress"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
-      "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
     }
   ]
 }

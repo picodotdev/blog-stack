@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
+      "title" : "Palabras (II)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
       "title" : "Palabras (I)"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2012/12/retrospectiva-personal-2-12",
       "title" : "Retrospectiva personal 2012"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2012/11/creacion-de-objetos-eficiente-en-javascript",
-      "title" : "Creación de objetos eficiente en JavaScript"
     }
   ]
 }
