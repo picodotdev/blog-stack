@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-165",
+      "title" : "Enlaces interesantes 165"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
       "title" : "Palabras (II)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
       "title" : "Evento: Sevilla Mobility Day"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/stress",
-      "title" : "Stress"
     }
   ]
 }
