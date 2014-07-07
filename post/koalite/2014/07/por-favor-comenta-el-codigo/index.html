@@ -1,0 +1,174 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Por favor, comenta el código | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/07/por-favor-comenta-el-codigo"><span itemprop="headline">Por favor, comenta el código</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/oCDHem50T5A/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-07-07T05:06" itemprop="datePublished">Publicado el lunes, 07 de julio de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+development, software-development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Recuerdo que cuando empec&eacute; a programar en la carrera (hace ya unos cuantos a&ntilde;os), una de las cosas en la que m&aacute;s nos insist&iacute;an los profesores era en que us&aacute;semos comentarios en nuestro c&oacute;digo. Muchos comentarios. Pr&aacute;cticamente uno por cada l&iacute;nea. Visto con perspectiva, es posible que s&oacute;lo trataran de averiguar la intenci&oacute;n que hab&iacute;a detr&aacute;s de ese c&oacute;digo tan enrevesado que escrib&iacute;amos para cualquier cosa, o de obligarnos a pensar lo que quer&iacute;amos hacer antes de empezar a escribir cada l&iacute;nea de c&oacute;digo. </p> 
+<p>El hecho es que esa filosof&iacute;a de sobreabundancia de comentarios llevaba escribir c&oacute;digo de este estilo:</p> 
+<pre>
+// suma los elementos de un vector
+// param: vector con los datos a sumar
+// return: suma de los elementos
+int sumaVector(int[] vector) {
+  // Variable para almacenar la suma de los elementos
+  int suma = 0; 
+  // Recorremos el vector 
+  for (int i = 0; i &lt; vector.length; i++) {
+    // Obtenemos el elemento i-&eacute;simo del vector
+    int elem = vector[i];
+    // Actualizamos la suma
+    suma = suma + elem;
+  }
+  return suma;
+}
+</pre> 
+<p>Seguro que m&aacute;s de uno ha escrito c&oacute;digo as&iacute; m&aacute;s de una vez cuando estaba empezando. Lo malo de este tipo de comentarios es que no a&ntilde;aden gran cosa al c&oacute;digo e introducen mucho ruido, consiguiendo el efecto contrario al deseado: <strong>no ayudan a entender mejor el c&oacute;digo, sino que lo hacen m&aacute;s dif&iacute;cil</strong>. Adem&aacute;s, existe el riesgo de que los comentarios se “desincronicen” y no digan lo mismo que el c&oacute;digo, contribuyendo a la confusi&oacute;n.</p> 
+<p>Afortunadamente, en cuanto se adquiere algo de experiencia, se deja de usar este estilo de comentarios, pero entonces llega la fase de la “documentaci&oacute;n autom&aacute;tica”. Muchos lenguajes tienen herramientas para generar documentaci&oacute;n a partir de determinados comentarios, y esa documentaci&oacute;n luego queda muy bonita en el autocompletado del IDE o en un HTML autogenerado, as&iacute; que acabamos escribiendo cosas como &eacute;sta:</p> 
+<pre>
+/// &lt;summary&gt;
+/// Clase para representar una persona
+/// &lt;/summary&gt;
+public class Person
+{
+  /// &lt;summary&gt;
+  /// Obtiene o establece el nombre de la persona
+  /// &lt;/summary&gt;
+  public string Name { get; set; }
+}
+</pre> 
+<p>Con esto hemos pasado del nivel aprendiz al nivel consultor. Ahora tenemos un mont&oacute;n de ruido en el c&oacute;digo con comentarios que s&oacute;lo dicen obviedades, pero &eacute;ste est&aacute; escrito siguiendo el manual de buenas pr&aacute;cticas de la empresa de turno. </p> 
+<p>Esto se puede “mejorar” introduciendo en cada fichero un aviso de copyright, o llevar un nivel extremo haciendo que en la cabecera de cada clase o m&eacute;todo se introduzcan el autor y el historial de modificaciones (supongo que para no tener que fiarse de control de versiones). Suena exagerado, pero existe c&oacute;digo as&iacute;.</p> 
+<p>Todo este (ab)uso de los comentarios acaba provocando la reacci&oacute;n l&oacute;gica: <strong><a href="http://aventuraspuntonet.wordpress.com/2014/06/30/mi-cruzada-contra-los-comentarios-en-el-codigo/">matemos los comentarios</a></strong>. </p> 
+<p>Adem&aacute;s lleva a una situaci&oacute;n curiosa y es que los comentarios, que deber&iacute;an servir para <em>destacar</em> cosas importantes del c&oacute;digo, la mayor&iacute;a de las veces quedan ocultos en regiones de los editores de c&oacute;digo o coloreados de forma que resalten menos sobre el fondo.</p> 
+<h3>Escribe c&oacute;digo autoexplicativo</h3> 
+<p>Cuando se empieza la cr&iacute;tica feroz hacia los comentarios se suele incidir en que un comentario es una justificaci&oacute;n para un c&oacute;digo mal escrito, y que es mejor reescribir el c&oacute;digo de manera que no haga falta ese comentario.</p> 
+<p>Este es un argumento perfectamente v&aacute;lido y es algo que debemos cuidar especialmente. En lugar de escribir este c&oacute;digo:</p> 
+<pre>
+// Procesa un pedido aplicando descuentos a clientes preferentes
+public void Process(Order order)
+{
+  // Si es un cliente preferente...
+  if (order.Customer.OrderCount &gt; 5 &amp;&amp; order.Customer.PurchasedAmount &gt; 1000) 
+  {
+    // ...aplicamos un descuento del 5%
+    order.Total = order.Total * 0.95m;
+  }
+}
+</pre> 
+<p>Podemos escribir este otro c&oacute;digo y ahorrarnos los comentarios:</p> 
+<pre>
+public void ApplyDiscounts(Order order)
+{
+  if (order.Customer.IsPreferred) 
+    order.ApplyDiscountPercentage(5m);
+}
+</pre> 
+<p>En estos casos, las refactorizaciones “extraer m&eacute;todo”, “introducir variable”, “renombrar m&eacute;todo”, “renombrar variable” y compa&ntilde;&iacute;a, son el camino a seguir para obtener para obtener un c&oacute;digo m&aacute;s f&aacute;cil de entender y mantener.</p> 
+<h3>Los comentarios necesarios</h3> 
+<p>Donde se nos empieza a ir la cosa de las manos es cuando empezamos a pervertir la idea de evitar comentarios redundantes y pasamos a renunciar a escribir cualquier tipo de comentario. Por mucho que queramos, <strong>hay que cosas que no podemos capturar con el c&oacute;digo</strong> y en las que un comentario nos puede ayudar a evitar problemas en el futuro. </p> 
+<p>Por ejemplo, hay veces en las que decidimos usar un algoritmo con una <a href="http://blog.koalite.com/2013/09/eficiencia-de-distintos-tipos-de-colecciones/" title="Eficiencia de distintos tipos de colecciones">complejidad mayor</a> en caso promedio, pero que para el tipo de datos que esperamos se comporta mejor:</p> 
+<pre>
+// Usamos ordenaci&oacute;n por selecci&oacute;n en lugar de mergesort o quicksort
+// porque los datos de entrada estar&aacute;n casi ordenadas y el coste es O(N)
+var sorted = InsertSort(input);
+</pre> 
+<p>Si no estuviese ese comentario, es f&aacute;cil que quien mantenga nuestro c&oacute;digo en el futuro (probablemente nosotros mismos) cuando vea que estamos usando un algoritmo “ineficiente” decida “optimizarlo” provocando al final una p&eacute;rdida de rendimiento. Cuando tomamos una decisi&oacute;n que, a simple vista, resulta poco ortodoxa (pero razonada), dejarla documentada con un comentario es importante.</p> 
+<p>Esto mismo es aplicable a los casos en que escribimos un algoritmo complicado y queremos dejar constancia de la idea general o de las estructuras de datos que estamos empleando y por qu&eacute;.</p> 
+<p>Es cierto que seguimos teniendo el problema de que los comentarios pueden mentir y no ajustarse a la realidad del c&oacute;digo. Ese es un riesgo real y requiere disciplina para tratar de mitigarlo, pero no comentar el c&oacute;digo suele ser peor.</p> 
+<p>Lo importante, en todo caso, es <strong>comentar el por qu&eacute;, m&aacute;s que comentar el qu&eacute; o el c&oacute;mo</strong>. El <em>c&oacute;mo</em> ya lo estoy viendo, es el c&oacute;digo. El <em>qu&eacute;</em> no deber&iacute;a ser necesario si escribes c&oacute;digo autoexplicativo, pero el <em>por qu&eacute;</em> has decidido hacerlo as&iacute; a sabiendas de que resulta extra&ntilde;o, eso s&iacute; que deber&iacute;as explicarlo.</p> 
+<p>Existen otro tipo de comentarios que me duele mucho escribir pero que llega un momento en que son necesarios: los <strong>comentarios de documentaci&oacute;n en lenguajes din&aacute;micos</strong>. </p> 
+<p>Cuando utilizas un lenguaje est&aacute;tico puedes aprovechar el sistema de tipos y los nombres de las variables (o par&aacute;metros) para transmitir mucha informaci&oacute;n sobre el c&oacute;digo, lo que ayuda a hacerlo m&aacute;s comprensible y hace que, como ve&iacute;amos al principio del post, muchos comentarios de documentaci&oacute;n sean poco &uacute;tiles.</p> 
+<p>En un lenguaje din&aacute;mico se pierde parte de esa informaci&oacute;n y nos quedamos s&oacute;lo con los nombres de las variables y funciones para indicar el tipo esperado. Esto se puede paliar utilizando tests como documentaci&oacute;n, pero hay veces que tampoco eso es excesivamente pr&aacute;ctico, ya que para averiguar c&oacute;mo funciona una funci&oacute;n nos obliga a ir a revisar sus tests (que pueden ser muchos) y a navegar por distintas &aacute;reas del c&oacute;digo, saltando de la definici&oacute;n de la funci&oacute;n a sus tests.</p> 
+<p>El uso de comentarios en estos casos para documentar el interfaz de la funci&oacute;n es una gran ayuda (aunque seguimos corriendo el riesgo de que acaben desincronizados con el c&oacute;digo, cosa que con los tests no pasa) y en lenguajes como Python o Clojure incluso forman parte de la sintaxis de definici&oacute;n de funciones.</p> 
+<h3>Conclusiones</h3> 
+<p>Los comentarios en el c&oacute;digo se han ganado durante mucho tiempo mala fama debido al mal uso que se ha hecho de ellos. Eso ha llevado a una reacci&oacute;n exagerada anti-comentarios que acaba siendo contraproducente.</p> 
+<p>Nunca debemos olvidar que casi todo el c&oacute;digo que escribimos hay que mantenerlo despu&eacute;s, y eso implica poder comprenderlo dentro de un tiempo. Para ello lo fundamental es escribir un c&oacute;digo que sea lo m&aacute;s autoexplicativo posible, pero hay consideraciones externas al c&oacute;digo que pueden ser tan importantes como el propio c&oacute;digo, y los comentarios son una buena forma de documentar esas decisiones.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2013/02/es-peligroso-duplicar-conceptos-no-codigo/" title="Es peligroso duplicar conceptos, no c&oacute;digo">Es peligroso duplicar conceptos, no c&oacute;digo</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/oCDHem50T5A" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo" st_title="Por favor, comenta el código | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 669,
+      "url" : "http://www.blogstack.info/post/koalite/2014/07/por-favor-comenta-el-codigo"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

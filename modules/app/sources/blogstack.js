@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
+      "title" : "Por favor, comenta el código"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
       "title" : "Mi experiencia en el hosting Vigunu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
       "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
-      "title" : "Enlaces interesantes 164"
     }
   ]
 }

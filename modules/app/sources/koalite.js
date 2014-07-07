@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
+      "title" : "Por favor, comenta el código"
+    },
+    {
       "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
       "title" : "Consumiendo el API Rest de Marvel desde Clojure"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/03/datomic-esquema-y-datos",
       "title" : "Datomic: esquema y datos"
-    },
-    {
-      "url" : "/post/koalite/2014/03/datomic-una-base-de-datos-diferente",
-      "title" : "Datomic, una base de datos diferente"
     }
   ]
 }
