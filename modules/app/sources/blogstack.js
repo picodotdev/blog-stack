@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
+      "title" : "Modelo «push» contra modelo «pull» en frameworks web"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
       "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/microsoft-mvp-4",
       "title" : "Microsoft MVP * 4"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
-      "title" : "Encripta las fotos de tus vacaciones"
     }
   ]
 }
