@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
+      "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente",
+      "title" : "Novedades de SignalR 2.1 (II): desconexión del cliente"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-iii",
       "title" : "Palabras (III)"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
       "title" : "Realización de diagramas con Dia"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
-      "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
     }
   ]
 }
