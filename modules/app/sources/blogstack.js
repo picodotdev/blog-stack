@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-iii",
+      "title" : "Palabras (III)"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
       "title" : "Modelo «push» contra modelo «pull» en frameworks web"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
       "title" : "Código Linux, un documental que no te debes perder."
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/microsoft-mvp-4",
-      "title" : "Microsoft MVP * 4"
     }
   ]
 }

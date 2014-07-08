@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/palabras-iii",
+      "title" : "Palabras (III)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
       "title" : "Palabras (II)"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2013/02/algunos-pensamientos-sobre-story-points",
       "title" : "Algunos pensamientos sobre Story Points"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2012/12/retrospectiva-personal-2-12",
-      "title" : "Retrospectiva personal 2012"
     }
   ]
 }
