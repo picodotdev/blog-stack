@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
+      "title" : "Arquitectura WebSocket y Threads"
+    },
+    {
       "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
       "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer",
       "title" : "Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
-      "title" : "Realización de diagramas con Dia"
     }
   ]
 }

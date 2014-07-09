@@ -1,0 +1,222 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Arquitectura WebSocket y Threads | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads"><span itemprop="headline">Arquitectura WebSocket y Threads</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/arquitectura-websocket-y-threads/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-07-09T07:00" itemprop="datePublished">Publicado el miércoles, 09 de julio de 2014 a las 07:00 UTC</span></div><div><span>
+Etiquetado como
+jee, websocket, java-web</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En el art&iacute;culo anterior de <a title="Java WebSockets" href="http://www.arquitecturajava.com/java-websockets/">introducci&oacute;n a WebSocket</a>&nbsp;vimos como construir un WebSocket sencillo con Java y como cada navegador se convert&iacute;a en un cliente para el Servidor que conten&iacute;a un EndPoint de WebSocket. Ahora bien <strong>&iquest;c&oacute;mo funciona exactamente este sistema a nivel de programaci&oacute;n?</strong>. Si echamos un vistazo a lo que hemos construido nos dir&aacute; poco ya que simplemente tenemos un navegador y un EndPoint.</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/general.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/general.png" alt="general" width="540" height="343" /></a></p> 
+<h2>Threads y WebSockets</h2> 
+<p>Ahora bien <strong>&iquest;como se construye esta relaci&oacute;n realmente? . </strong>La realidad es que Tomcat asigna un Thread para cada una de las conexiones de WebSocket que generemos. As&iacute; pues cada uno de los clientes de Websocket est&aacute;n ligados a&nbsp;un Thread concreto. El diagrama ser&iacute;a mas cercano a lo siguiente.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/threads1.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/threads1.png" alt="threads" width="541" height="428" /></a></p> 
+<p>Esto parece m&aacute;s l&oacute;gico ya que cada Thread se encargar&aacute; de estar pendiente de los mensajes que llegan por cada conexi&oacute;n de WebSoket.</p> 
+<h2>WebSocket Program&aacute;ticos y Threads</h2> 
+<p>En el art&iacute;culo anterior de WebSockets hemos construido un WebSocket orientado a anotaciones. Vamos a construir ahora un WebSocket sin anotaciones para cubrir el otro estilo de programaci&oacute;n. Eso s&iacute; en este caso vamos a construir una arquitectura de WebSocket que trabaje con Threads y nos permita enviar desde el servidor mensajes de forma continua al cliente una vez que este haya abierto una conexi&oacute;n.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+
+import javax.websocket.Endpoint;
+import javax.websocket.EndpointConfig;
+import javax.websocket.Session;
+
+public final class MiWebSocketEndPoint extends Endpoint {
+
+@Override
+public void onOpen(Session session, EndpointConfig configuracion) {
+
+final Session misesion = session;
+
+Thread hilo = new Thread(new Runnable() {
+
+@Override
+public void run() {
+try {
+while(true) {
+
+misesion.getBasicRemote().sendText(&quot;datos de la bolsa&quot;);
+Thread.sleep(5000);
+}
+
+} catch (IOException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+} catch (InterruptedException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+
+}
+
+});
+hilo.start();
+}
+
+}
+
+</pre> 
+<p>En este caso el WebSocket no usa anotaciones sino que extiende de WebSocket. En este caso simplemente sobrecargamos el m&eacute;todo open. Como ya sabemos que cada&nbsp;conexi&oacute;n de WebSocket es gestionada por un Thread, <strong>abrimos otro nuevo Thread que env&iacute;e cada 5 segundos un mensaje al cliente escribiendo el texto de “datos de la bolsa”</strong> . <strong>Para que este WebSocket funcione correctamente tendremos que indicar un mapeo de URL</strong>. Esto se hace con la siguiente clase que lo configura y registra.</p> 
+<p>&nbsp;</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.websocket.Endpoint;
+import javax.websocket.server.ServerApplicationConfig;
+import javax.websocket.server.ServerEndpointConfig;
+
+public class ConfiguradorWebSocket implements ServerApplicationConfig {
+
+@Override
+public Set&lt;Class&lt;?&gt;&gt; getAnnotatedEndpointClasses(Set&lt;Class&lt;?&gt;&gt; arg0) {
+// TODO Auto-generated method stub
+return null;
+}
+
+@Override
+public Set&lt;ServerEndpointConfig&gt; getEndpointConfigs(
+Set&lt;Class&lt;? extends Endpoint&gt;&gt; arg0) {
+return new HashSet&lt;ServerEndpointConfig&gt;() {
+{
+add(ServerEndpointConfig.Builder.create(
+MiWebSocketEndPoint.class, &quot;/miwebsocket&quot;).build());
+}
+};
+}
+
+}
+
+</pre> 
+<p>Realizadas ambas operaciones hemos registrado un nuevo EndPoint que por cada WebSocket &nbsp;que se conecte emitir&aacute; un mensaje cada 5 segundos &nbsp;al cliente.En &uacute;ltimo lugar podemos ver el c&oacute;digo del cliente que se conecta al WebSocket :</p> 
+<pre>
+
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-1.11.0.js&quot;&gt;
+
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+$(document).ready(function() {
+
+var uriWS=&quot;ws://localhost:8080/WebSocketHolaMundo2/miwebsocket&quot;;
+var miWebsocket= new WebSocket(uriWS);
+console.log (miWebsocket);
+
+miWebsocket.onopen=function(evento) {
+console.log(&quot;abierto&quot;);
+miWebsocket.send(&quot;hola&quot;);
+}
+
+miWebsocket.onmessage=function(evento) {
+
+console.log(evento.data);
+}
+
+});
+&lt;/script&gt;
+
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre> 
+<p>Los mensajes se van guardando en la consola cada 5 segundos:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/websockets.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/websockets.png" alt="websockets" width="728" height="115" /></a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/arquitectura-websocket-y-threads/">Arquitectura WebSocket y Threads</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" st_title="Arquitectura WebSocket y Threads | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 677,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

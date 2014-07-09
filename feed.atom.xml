@@ -3,10 +3,31 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-08T12:02:30Z</updated>
+  <updated>2014-07-09T08:02:33Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-08T12:02:30Z</dc:date>
+  <dc:date>2014-07-09T08:02:33Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Arquitectura WebSocket y Threads</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" />
+    <category term="jee" />
+    <category term="websocket" />
+    <category term="java-web" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-07-09T07:00:45Z</updated>
+    <published>2014-07-09T07:00:45Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En el art&amp;iacute;culo anterior de &lt;a title="Java WebSockets" href="http://www.arquitecturajava.com/java-websockets/"&gt;introducci&amp;oacute;n a WebSocket&lt;/a&gt;&amp;nbsp;vimos como construir un WebSocket sencillo con Java y como cada navegador se convert&amp;iacute;a en un cliente para el Servidor que conten&amp;iacute;a un EndPoint de WebSocket. Ahora bien &lt;strong&gt;&amp;iquest;c&amp;oacute;mo funciona exactamente este sistema a nivel de programaci&amp;oacute;n?&lt;/strong&gt;. Si echamos un vistazo a lo que hemos construido nos dir&amp;aacute; poco ya que simplemente tenemos un navegador y un EndPoint.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/general.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/general.png" alt="general" width="540" height="343" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;h2&gt;Threads y WebSockets&lt;/h2&gt; 
+&lt;p&gt;Ahora bien &lt;strong&gt;&amp;iquest;como se construye esta relaci&amp;oacute;n realmente? . &lt;/strong&gt;La realidad es que Tomcat asigna un Thread para cada una de las conexiones de WebSocket que generemos. As&amp;iacute; pues cada uno de los clientes de Websocket est&amp;aacute;n ligados a&amp;nbsp;un Thread concreto. El diagrama ser&amp;iacute;a mas cercano a lo siguiente.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/threads1.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/threads1.png" alt="threads" width="541" height="428" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Esto parece m&amp;aacute;s l&amp;oacute;gico ya que cada Thread se encargar&amp;aacute; de estar pendiente de los mensajes que llegan por cada conexi&amp;oacute;n de WebSoket.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-07-09T07:00:45Z</dc:date>
+  </entry>
   <entry>
     <title>The hidden services II: como poner en marcha nuestros propios servicios ocultos</title>
     <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos" />
@@ -696,25 +717,6 @@ yum install lynx&lt;/pre&gt;
 &lt;h3&gt;El API REST de Marvel&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2014-06-30T05:06:50Z</dc:date>
-  </entry>
-  <entry>
-    <title>Que es una distribucion Rolling Release en Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux" />
-    <category term="conceptos-basicos" />
-    <category term="rolling-release" />
-    <category term="linux" />
-    <category term="distribucion" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-06-29T16:30:23Z</updated>
-    <published>2014-06-29T16:30:23Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;En este art&amp;iacute;culo os voy a explicar un poco uno de esos t&amp;eacute;rminos que se usan en &lt;strong&gt;Linux&lt;/strong&gt; para aquellos usuarios que se est&amp;eacute;n adentrando en este mundillo. Os voy a hablar de que es una &lt;strong&gt;distribuci&amp;oacute;n&lt;/strong&gt; &lt;strong&gt;Rolling&lt;/strong&gt; &lt;strong&gt;Release&lt;/strong&gt; en Linux. Antes me gustar&amp;iacute;a hablar un poco de como trabajan la mayor&amp;iacute;a de las distribuciones y para ello me voy a centrar en Ubuntu, que es la distribuci&amp;oacute;n de la cual mejor conozco el tema de las versiones.&lt;/p&gt; 
- &lt;p&gt;En Ubuntu se libera o publica una nueva versi&amp;oacute;n de la &lt;strong&gt;distribuci&amp;oacute;n&lt;/strong&gt; cada 6 meses y una de cada 4 es una versi&amp;oacute;n LTS. Las versiones de Ubuntu que no son LTS ofrecen actualizaciones durante 9 meses y las LTS dan actualizaciones durante 5 a&amp;ntilde;os. En mi caso voy “saltando” de una LTS a otra, por lo cual solo tengo que formatear mi ordenador cada dos a&amp;ntilde;os, que es el tiempo entre una LTS y otra.&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-06-29T16:30:23Z</dc:date>
   </entry>
 </feed>
 
