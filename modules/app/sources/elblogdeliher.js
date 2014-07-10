@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
+      "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
       "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/como-desactivar-el-bluetooth-al-inicio-en-ubuntu",
       "title" : "Como desactivar el Bluetooth al inicio en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/mis-experiencias-y-recomendaciones-con-los-ordenadores",
-      "title" : "Mis experiencias y recomendaciones con los ordenadores"
     }
   ]
 }
