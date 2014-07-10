@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet",
+      "title" : "¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet"
+    },
+    {
       "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
       "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
     },

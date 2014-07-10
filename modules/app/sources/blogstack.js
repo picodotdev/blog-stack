@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet",
+      "title" : "¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
       "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard",
       "title" : "Java Generics (II) uso  de WildCard"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
-      "title" : "Palabras (I)"
     }
   ]
 }
