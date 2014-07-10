@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
+      "title" : "Webempresa, un buen hosting para WordPress"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
       "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
       "title" : "Mi experiencia en el hosting Vigunu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
-      "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
     }
   ]
 }

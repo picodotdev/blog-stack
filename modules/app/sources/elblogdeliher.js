@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
+      "title" : "Webempresa, un buen hosting para WordPress"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
       "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/fondos-de-escritorio-1",
       "title" : "Fondos de escritorio 10"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-desactivar-el-bluetooth-al-inicio-en-ubuntu",
-      "title" : "Como desactivar el Bluetooth al inicio en Ubuntu"
     }
   ]
 }
