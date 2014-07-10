@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
+      "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
       "title" : "Arquitectura WebSocket y Threads"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-i",
       "title" : "Palabras (I)"
-    },
-    {
-      "url" : "/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer",
-      "title" : "Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer"
     }
   ]
 }
