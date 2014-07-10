@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
+      "title" : "Arquitectura y hospedaje de Blog Stack"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
       "title" : "Por favor, comenta el código"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
-      "title" : "Mi experiencia en el hosting Vigunu"
     }
   ]
 }
