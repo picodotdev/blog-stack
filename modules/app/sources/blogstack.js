@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Adaptación al medio: evolución y mutación"
     },
     {
+      "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
+      "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-165",
       "title" : "Enlaces interesantes 165"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
-      "title" : "Palabras (II)"
     }
   ]
 }

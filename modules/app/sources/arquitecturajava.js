@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
+      "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
       "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
       "title" : "Relaciones ternarias (GenbetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/java-iterator-vs-foreach",
-      "title" : "Java Iterator vs ForEach"
     }
   ]
 }
