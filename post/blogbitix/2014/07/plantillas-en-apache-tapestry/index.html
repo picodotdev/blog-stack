@@ -1,0 +1,372 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Plantillas en Apache Tapestry | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/07/plantillas-en-apache-tapestry"><span itemprop="headline">Plantillas en Apache Tapestry</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/07/plantillas-en-apache-tapestry/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-07-11T18:54" itemprop="datePublished">Publicado el viernes, 11 de julio de 2014 a las 18:54 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" />
+ <br /> 
+</div> 
+<p>Una p&aacute;gina web est&aacute; formada por un conjunto de p&aacute;ginas enlazadas entre ellas. Cada p&aacute;gina est&aacute; formado por un html diferente pero normalmente todas las p&aacute;ginas de una misma web comparten el mismo aspecto variando solo una secci&oacute;n donde est&aacute; el contenido propio de la p&aacute;gina. La cabecera de la p&aacute;gina, el pie de la p&aacute;gina o los men&uacute;s de navegaci&oacute;n suelen estar presentes en todas las p&aacute;ginas de la web y suelen ser los mismos.</p> 
+<p>En este art&iacute;culo voy a explicar como crear un componente que nos de a todas las p&aacute;ginas un aspecto com&uacute;n de una aplicaci&oacute;n usando apache Tapestry como framework web de tal forma que esa parte com&uacute;n no est&eacute; duplicada en la aplicaci&oacute;n y pueda ser reutilizada f&aacute;cilmente. En el caso de <a href="http://www.blogstack.info">Blog Stack</a> las p&aacute;ginas se componen de las siguientes partes.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/31/plantilla-blog-stack.png" title="Plantilla de Blog Stack"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/31/plantilla-blog-stack-thumb.png" /></a> 
+</div> 
+<p>El esquema de la plantilla ser&aacute; una cabecera, una barra de navegaci&oacute;n con enlaces a diferentes secciones de la web, un men&uacute; lateral con contenido variable seg&uacute;n la p&aacute;gina, el contenido que variar&aacute; seg&uacute;n la p&aacute;gina y un pie de p&aacute;gina. Como todo componente de <a href="http://tapestry.apache.org/">Apache Tapestry</a> est&aacute; formado de una clase Java y una plantilla. El componente puede tener diferentes par&aacute;metros, y en el caso del de la plantilla muchos para poder variar el contenido por defecto de las diferentes secciones de la p&aacute;gina, estos son aside1, aside2, aside3, aside4.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/b9c5edc4929273f69a43.js?file=Layout.java"></script> 
+ <noscript>
+  <pre><code>package info.blogstack.components;
+
+import info.blogstack.entities.Adsense;
+
+import org.apache.tapestry5.BindingConstants;
+import org.apache.tapestry5.Block;
+import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.annotations.Import;
+import org.apache.tapestry5.annotations.Parameter;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.joda.time.DateTime;
+
+@Import(stack = &quot;blogstack&quot;, module = &quot;app/analytics&quot;)
+public class Layout {
+
+	@Parameter(defaultPrefix = BindingConstants.LITERAL)
+	@Property(read = false)
+	private String title;
+	
+	@Parameter(defaultPrefix = BindingConstants.LITERAL)
+	@Property(read = false)
+	private String subtitle;
+	
+	@Parameter(defaultPrefix = BindingConstants.BLOCK)
+	@Property
+	private Block aside1;
+	
+	@Parameter(defaultPrefix = BindingConstants.BLOCK)
+	@Property
+	private Block aside2;
+	
+	@Parameter(defaultPrefix = BindingConstants.BLOCK)
+	@Property
+	private Block aside3;
+	
+	@Parameter(defaultPrefix = BindingConstants.BLOCK)
+	@Property
+	private Block aside4;
+	
+	@Parameter
+	@Property
+	private Adsense adsense;
+
+	@Property
+	private String page;	
+	
+	@Inject
+	ComponentResources resources;
+
+	void setupRender() {
+		page = resources.getPageName();
+	}
+	
+	public int getYear() {
+		return DateTime.now().getYear();
+	}
+	
+	public String getTitle() {
+		if (title == null) {
+			return String.format(&quot;%s&quot;, getSubtitle());			
+		} else {
+			return String.format(&quot;%s | %s&quot;, title, getSubtitle());
+		}
+	}
+	
+	public String getSubtitle() {
+		return (subtitle == null) ? &quot;Blog Stack&quot; : subtitle; 
+	}
+	
+	public String getContentClass() {
+		return (isAside()) ? &quot;col-xs-12 col-sm-12 col-md-8 content&quot; : &quot;col-xs-12 col-sm-12 col-md-12 content&quot;;
+	}
+	
+	public boolean isAside() {
+		return (aside1 != null || aside2 != null || aside3 != null || aside4 != null);
+	}
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>El archivo tml asociado al componente plantilla ser&aacute; el que genere el contenido html que se enviar&aacute; al navegador del usuario. En esta plantilla se incluye una cabecera con el logo de la aplicaci&oacute;n y una frase que lo describe, posteriormente est&aacute; una barra de navegaci&oacute;n con varios enlaces, con &lt;t:body/&gt; se incluye el contenido propio de la p&aacute;gina que usa el componente plantilla y las etiquetas &lt;t:delegate/&gt; se incluye el contenido de los diferentes bloques aside si se han personalizado en el uso de la plantilla, con &lt;t:if test=“aside”&gt; se comprueba si hay alg&uacute;n aside us&aacute;ndose el m&eacute;todo isAside de la java Layout asociada al componente plantilla y del tml. Finalmente, est&aacute; el pie que ser&aacute; com&uacute;n a todas las p&aacute;ginas que usen este componente.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/b9c5edc4929273f69a43.js?file=Layout.tml"></script> 
+ <noscript>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xmlns:t=&quot;http://tapestry.apache.org/schema/tapestry_5_4.xsd&quot; xmlns:p=&quot;tapestry:parameter&quot;&gt;
+&lt;head&gt;
+	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+	&lt;meta t:type=&quot;any&quot; t:pagina=&quot;${page}&quot; /&gt;
+	&lt;title&gt;${title}&lt;/title&gt;
+	&lt;!-- Resources --&gt;
+	&lt;link href=&quot;//fonts.googleapis.com/css?family=Open+Sans:400,700&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;
+	&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;	
+	&lt;link href=&quot;/feed.atom.xml&quot; rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;Portada&quot;/&gt;
+	&lt;link href=&quot;${context:images/favicon.png}&quot; rel=&quot;icon&quot; type=&quot;image/png&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;header&gt;
+		&lt;div class=&quot;container-fluid&quot;&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;div class=&quot;col-xs-12 col-sm-12 col-md-4&quot;&gt;
+					&lt;h1&gt;&lt;a t:type=&quot;pagelink&quot; page=&quot;index&quot; class=&quot;blogstack&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-th&quot;&gt;&lt;/span&gt; Blog &lt;span class=&quot;stack&quot;&gt;Stack&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;
+				&lt;/div&gt;
+				&lt;div id=&quot;horizontalSkycraper&quot; class=&quot;col-xs-12 col-sm-12 col-md-8&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;div  class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+					&lt;h4&gt;Un poco m&aacute;s que un agregador/planeta de bit&aacute;coras sobre programaci&oacute;n, desarrollo, software libre, gnu/linux, tecnolog&iacute;a, ...&lt;/h4&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/header&gt;
+
+	&lt;div class=&quot;container-fluid&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+				&lt;nav role=&quot;navigation&quot;&gt;
+					&lt;ul class=&quot;nav nav-pills menu&quot;&gt;
+						&lt;li&gt;&lt;a t:type=&quot;pagelink&quot; page=&quot;index&quot;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a t:type=&quot;pagelink&quot; page=&quot;archive&quot; context=&quot;[]&quot;&gt;Archivo&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a t:type=&quot;pagelink&quot; page=&quot;faq&quot;&gt;Preguntas frecuentes&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/nav&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;container-fluid&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div t:type=&quot;any&quot; class=&quot;prop:contentClass&quot;&gt;&lt;t:body /&gt;&lt;/div&gt;
+			&lt;t:if test=&quot;aside&quot;&gt;
+				&lt;aside class=&quot;col-xs-12 col-sm-12 col-md-4&quot;&gt;
+					&lt;t:socialnetworks/&gt;
+					&lt;t:if test=&quot;aside1&quot;&gt;
+       					&lt;t:delegate to=&quot;aside1&quot;/&gt;
+					&lt;/t:if&gt;
+					&lt;div id=&quot;bigRectangle&quot;&gt;&lt;/div&gt;
+					&lt;t:if test=&quot;aside2&quot;&gt;
+						&lt;t:delegate to=&quot;aside2&quot;/&gt;
+					&lt;/t:if&gt;
+					&lt;div class=&quot;row&quot;&gt;
+						&lt;div class=&quot;col-xs-3 col-md-2&quot;&gt;
+   							&lt;div id=&quot;wideSkycraper&quot;&gt;&lt;/div&gt;
+   						&lt;/div&gt;
+						&lt;t:if test=&quot;aside3&quot;&gt;
+							&lt;div class=&quot;col-xs-3 col-md-2&quot;&gt;
+								&lt;t:delegate to=&quot;aside3&quot;/&gt;
+							&lt;/div&gt;
+						&lt;/t:if&gt;
+					&lt;/div&gt;
+	   				&lt;t:if test=&quot;aside4&quot;&gt;
+						&lt;t:delegate to=&quot;aside4&quot;/&gt;
+					&lt;/t:if&gt;
+				&lt;/aside&gt;
+			&lt;/t:if&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;footer&gt;
+		&lt;div class=&quot;container-fluid&quot;&gt;
+			&lt;div class=&quot;row&quot;&gt;
+				&lt;div class=&quot;col-xs-12 col-sm-12 col-md-12&quot;&gt;
+					&lt;div class=&quot;footer&quot;&gt;
+						&lt;a t:type=&quot;pagelink&quot; page=&quot;index&quot;&gt;Blog Stack&lt;/a&gt; por &lt;a href=&quot;https://twitter.com/picodotdev/&quot;&gt;pico.dev&lt;/a&gt; est&aacute; publicado bajo la licencia de software libre &lt;a href=&quot;http://www.gnu.org/licenses/agpl-3.0.html&quot;&gt;GNU Affero General Public&lt;/a&gt;.&lt;br/&gt;
+						El contenido agregado conserva la licencia de su bit&aacute;cora.&lt;br/&gt;
+						&laquo;Powered by&raquo; &lt;a href=&quot;https://github.com/picodotdev/blogstack&quot;&gt;Blog Stack&lt;/a&gt;, &lt;a href=&quot;http://tapestry.apache.org/&quot;&gt;Apache Tapestry&lt;/a&gt;, &lt;a href=&quot;https://www.openshift.com/&quot;&gt;OpenShift&lt;/a&gt;, &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt;, &lt;a href=&quot;http://www.oracle.com/es/technologies/java/overview/index.html&quot;&gt;Java&lt;/a&gt; y m&aacute;s software libre o de c&oacute;digo abierto, inspirado en &lt;a href=&quot;http://octopress.org/&quot;&gt;Octopress&lt;/a&gt;.&lt;br/&gt;
+						&lt;span class=&quot;copyleft&quot;&gt;&amp;copy;&lt;/span&gt; pico.dev ${year}
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/footer&gt;
+	
+	&lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;
+	&lt;t:ads adsense=&quot;adsense&quot;/&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Para terminar nos queda ver como ser&iacute;a usar este componente en una p&aacute;gina donde queremos usarlo. En la etiqueta html se usa la plantilla con t:type para indicar que esa etiqueta es un componente de Tapestry y se le pasan los aside1 y aside2 que en esta p&aacute;gina tienen contenido propio. El contenido de la etiqueta html se sustituir&aacute; por la etiqueta &lt;t:body/&gt; de la plantilla, el contenido generado en los &lt;t:block/&gt; aunque est&eacute; dentro de la etiqueta html solo se mostrar&aacute; cuando se haga uso de un &lt;t:delegate/&gt;, como se hace el componente plantilla. Este es el caso de la p&aacute;gina &iacute;ndice de <a href="http://www.blogstack.info">Blog Stack</a>. A pesar de todo el contenido que genera y solo consta de 34 l&iacute;neas de c&oacute;digo, esto muestra lo f&aacute;cil que es en Tapestry dividir las diferentes partes de una p&aacute;gina en componentes que puede ser reutilizados.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/b9c5edc4929273f69a43.js?file=Index.tml"></script> 
+ <noscript>
+  <pre><code>&lt;html t:type=&quot;layout&quot; t:aside1=&quot;aside1&quot; t:aside2=&quot;aside2&quot; xmlns:t=&quot;http://tapestry.apache.org/schema/tapestry_5_4.xsd&quot; xmlns:p=&quot;tapestry:parameter&quot;&gt;
+
+&lt;t:data/&gt;
+
+&lt;t:loop source=&quot;posts&quot; value=&quot;post&quot;&gt;
+	&lt;t:postcomponent post=&quot;post&quot; excerpt=&quot;true&quot;/&gt;
+&lt;/t:loop&gt;
+
+&lt;section class=&quot;index-pagination&quot;&gt;
+	&lt;div class=&quot;container-fluid&quot;&gt;
+		&lt;div class=&quot;row&quot;&gt;
+			&lt;div class=&quot;col-xs-4 col-sm-4 col-md-4&quot;&gt;
+				&lt;t:if test=&quot;!lastPage&quot;&gt;
+					&lt;a t:type=&quot;pagelink&quot; page=&quot;index&quot; context=&quot;nextContext&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-arrow-left&quot;&gt;&lt;/span&gt; M&aacute;s antiguo&lt;/a&gt;
+				&lt;/t:if&gt;
+			&lt;/div&gt;	
+			&lt;div class=&quot;col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right&quot;&gt;
+				&lt;t:if test=&quot;!firstPage&quot;&gt;
+					&lt;a t:type=&quot;pagelink&quot; page=&quot;index&quot; context=&quot;previusContext&quot;&gt;M&aacute;s nuevo &lt;span class=&quot;glyphicon glyphicon-arrow-right&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+				&lt;/t:if&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;t:block id=&quot;aside1&quot;&gt;
+	&lt;t:feeds/&gt;
+&lt;/t:block&gt;
+
+&lt;t:block id=&quot;aside2&quot;&gt;
+	&lt;t:lastposts/&gt;
+	&lt;t:lastsourceswithposts/&gt;
+&lt;/t:block&gt;
+&lt;/html&gt;</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Usando el mismo componente podemos darle un aspecto com&uacute;n pero variando el contenido de las diferentes secciones. En este caso usamos la misma plantilla donde se muestra la misma cabecera, enlaces de navegaci&oacute;n y pie de p&aacute;gina pero sin el contenido lateral como en el caso de la p&aacute;gina de preguntas frecuentes de <a href="http://www.blogstack.info/faq">Blog Stack</a>, en este caso no usamos los componentes aside.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/b9c5edc4929273f69a43.js?file=Faq.tml"></script> 
+ <noscript>
+  <pre><code>&lt;html t:type=&quot;layout&quot; t:title=&quot;Preguntas frecuentes&quot; xmlns:t=&quot;http://tapestry.apache.org/schema/tapestry_5_4.xsd&quot; xmlns:p=&quot;tapestry:parameter&quot;&gt;
+
+&lt;article class=&quot;text-justify&quot;&gt;
+	&lt;header&gt;
+		&lt;h1&gt;Preguntas frecuentes&lt;/h1&gt;
+	&lt;/header&gt;
+
+	&lt;h2&gt;&iquest;Qu&eacute; es Blog Stack?&lt;/h2&gt;
+
+	&lt;p&gt;Blog Stack (BS) es una agregador, planeta, o fuente de informaci&oacute;n de bit&aacute;coras sobre programaci&oacute;n, desarrollo, desarrollo &aacute;gil, software, software libre, hardware,
+		gnu/linux o en general temas relacionados con la tecnolog&iacute;a.&lt;/p&gt;
+
+	&lt;h2&gt;&iquest;Por qu&eacute; otro agregador?&lt;/h2&gt;
+
+	&lt;p&gt;
+		Hay varios motivos, la semilla es que quer&iacute;a hacer un proyecto personal con cierta utilidad para otras personas empleando de alguna forma el framework para el desarrollo de
+		aplicaciones web &lt;a href=&quot;http://tapestry.apache.org/&quot;&gt;Apache Tapestry&lt;/a&gt;.
+	&lt;/p&gt;
+
+	...
+&lt;/article&gt;
+
+&lt;/html&gt;
+</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Por supuesto, podemos crear tantos componentes plantilla como necesitemos en una aplicaci&oacute;n y usar uno o otro en funci&oacute;n del tipo de p&aacute;gina.</p> 
+<p>Referencia:<br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">Libro PlugIn Tapestry</a><br /> <a href="http://elblogdepicodev.blogspot.com.es/2010/05/documentacion-sobre-apache-tapestry.html">Documentaci&oacute;n sobre Apache Tapestry</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" st_title="Plantillas en Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Plantillas en Apache Tapestry";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/07/plantillas-en-apache-tapestry/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 684,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

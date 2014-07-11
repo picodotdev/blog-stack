@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
+      "title" : "Plantillas en Apache Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript",
       "title" : "Usar Grunt para ejecutar teses unitarios de código Javascript"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/desempaquetado-y-analisis-samsung-ssd-84-evo-25-gb",
-      "title" : "Desempaquetado y análisis Samsung SSD 840 EVO 250 GB"
     }
   ]
 }

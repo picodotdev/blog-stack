@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
+      "title" : "Plantillas en Apache Tapestry"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
       "title" : "Adaptación al medio: evolución y mutación"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
       "title" : "Fondos de escritorio 11"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-165",
-      "title" : "Enlaces interesantes 165"
     }
   ]
 }
