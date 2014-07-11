@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
+      "title" : "Adaptación al medio: evolución y mutación"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-iii",
       "title" : "Palabras (III)"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2013/04/sobre-colegios-de-ingenieria-informatica",
       "title" : "Sobre Colegios de Ingeniería Informática"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2013/02/algunos-pensamientos-sobre-story-points",
-      "title" : "Algunos pensamientos sobre Story Points"
     }
   ]
 }

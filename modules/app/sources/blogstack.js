@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
+      "title" : "Adaptación al medio: evolución y mutación"
+    },
+    {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/palabras-ii",
       "title" : "Palabras (II)"
-    },
-    {
-      "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
-      "title" : "Por favor, comenta el código"
     }
   ]
 }
