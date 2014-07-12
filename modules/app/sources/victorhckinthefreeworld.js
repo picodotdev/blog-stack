@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Junio 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
       "title" : "Linux supremo absoluto como SO entre los supercomputadores"
     },

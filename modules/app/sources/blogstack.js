@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Junio 2014"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
       "title" : "Plantillas en Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
       "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
-      "title" : "Fondos de escritorio 11"
     }
   ]
 }
