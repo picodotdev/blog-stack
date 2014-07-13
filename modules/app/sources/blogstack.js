@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
+      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Junio 2014"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
       "title" : "Modelo «push» contra modelo «pull» en frameworks web"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
-      "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
     }
   ]
 }

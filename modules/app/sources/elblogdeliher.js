@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
+      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/05/fondos-de-escritorio-7",
       "title" : "Fondos de escritorio 7"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/fondos-de-escritorio-1",
-      "title" : "Fondos de escritorio 10"
     }
   ]
 }
