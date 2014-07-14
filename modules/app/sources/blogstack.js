@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
+      "title" : "Como instalar Spotify en Ubuntu 14.04"
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-166",
       "title" : "Enlaces interesantes 166"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
       "title" : "Arquitectura WebSocket y Threads"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
-      "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
     }
   ]
 }
