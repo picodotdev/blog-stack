@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-166",
+      "title" : "Enlaces interesantes 166"
+    },
+    {
       "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
       "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
       "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente",
-      "title" : "Novedades de SignalR 2.1 (II): desconexión del cliente"
     }
   ]
 }
