@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
+      "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
+    },
+    {
+      "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
+      "title" : "El lado oscuro de los gestores de paquetes"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente",
       "title" : "Novedades de SignalR 2.1 (II): desconexión del cliente"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/palabras-iii",
-      "title" : "Palabras (III)"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
-      "title" : "Modelo «push» contra modelo «pull» en frameworks web"
     }
   ]
 }

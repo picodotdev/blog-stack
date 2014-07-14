@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
+      "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
+    },
+    {
       "url" : "/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet",
       "title" : "¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet"
     },

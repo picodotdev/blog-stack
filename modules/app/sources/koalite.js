@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
+      "title" : "El lado oscuro de los gestores de paquetes"
+    },
+    {
       "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
       "title" : "Por favor, comenta el código"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/03/datomic-consultas",
       "title" : "Datomic: consultas"
-    },
-    {
-      "url" : "/post/koalite/2014/03/datomic-esquema-y-datos",
-      "title" : "Datomic: esquema y datos"
     }
   ]
 }
