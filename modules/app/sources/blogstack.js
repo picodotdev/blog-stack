@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones",
+      "title" : "Novedades de SignalR 2.1 (y III): progreso de acciones"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
       "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet",
-      "title" : "¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet"
     }
   ]
 }

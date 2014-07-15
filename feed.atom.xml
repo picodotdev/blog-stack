@@ -3,10 +3,31 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-15T09:03:40Z</updated>
+  <updated>2014-07-15T13:02:50Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-15T09:03:40Z</dc:date>
+  <dc:date>2014-07-15T13:02:50Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Novedades de SignalR 2.1 (y III): progreso de acciones</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones" />
+    <category term="novedades" />
+    <category term="signalr" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-07-15T11:50:00Z</updated>
+    <published>2014-07-15T11:50:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="image[2]" src="http://lh5.ggpht.com/-JLZ-lnHPo90/U4IOAITqZaI/AAAAAAAADd8/i_jDRVLMxk0/image23.png?imgmax=800" height="106" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image[2]" width="106" /&gt;La revisi&amp;oacute;n 2.1 de SignalR ha incluido otra caracter&amp;iacute;stica que puede ser interesante en determinados escenarios: la posibilidad de 
+&lt;strong&gt;notificar al cliente del progreso de la ejecuci&amp;oacute;n de una acci&amp;oacute;n invocada en el &lt;em&gt;hub&lt;/em&gt;&lt;/strong&gt;. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt;Aunque en los m&amp;eacute;todos que normalmente implementamos no tiene demasiada utilidad, s&amp;iacute; puede ayudar a mejorar la interacci&amp;oacute;n y experiencia de usuario cuando se trate de ejecutar m&amp;eacute;todos costosos como el siguiente: 
+&lt;br /&gt; 
+&lt;pre&gt;public class GodsOfTheForest: Hub&lt;br /&gt;{&lt;br /&gt;    [...]&lt;br /&gt;    public async Task&amp;lt;int&amp;gt; GetTheAnswerToLifeTheUniverseAndEverything()&lt;br /&gt;    {&lt;br /&gt;        for (var i = 0; i &amp;lt; 10; i++)&lt;br /&gt;        {&lt;br /&gt;            await Task.Delay(1000);&lt;br /&gt;            // Do something very important here&lt;br /&gt;&amp;nbsp; }&lt;br /&gt;        return 42;&lt;br /&gt;    }&lt;br /&gt;}&lt;/pre&gt;Hasta ahora, si desde el cliente llam&amp;aacute;bamos a este m&amp;eacute;todo del 
+&lt;em&gt;hub&lt;/em&gt;, s&amp;oacute;lo pod&amp;iacute;amos tomar el control cuando la llamaba finalizaba, bien obteniendo el resultado si todo hab&amp;iacute;a ido bien, o bien capturando el error producido. Por ejemplo, en Javascript lo consegu&amp;iacute;amos con un c&amp;oacute;digo como el siguiente:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-07-15T11:50:00Z</dc:date>
+  </entry>
   <entry>
     <title>Como configurar el prompt de la Terminal de Ubuntu</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu" />
@@ -683,24 +704,6 @@ System.out.println(p.getNombre());
 &lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-07-04T13:18:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Palabras (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/palabras-i" />
-    <category term="desarrollo-de-software" />
-    <author>
-      <name>Luis Artola</name>
-    </author>
-    <updated>2014-07-04T06:53:44Z</updated>
-    <published>2014-07-04T06:53:44Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Aquel que me conozca sabr&amp;aacute; que tengo un punto bastante pedante-busca-palabras. Necesito verbalizarlo todo. Muchas veces discurro invent&amp;aacute;ndome di&amp;aacute;logos conmigo mismo o como si le explicara las cosas a otro… (s&amp;iacute;, estoy un poco pa&amp;acute;all&amp;aacute;… :-P). El caso es que me doy cuenta mientras hablo de que muchas veces confundo simple con f&amp;aacute;cil o complicado con complejo. Independientemente de lo tiquismiquis que uno se quiera poner con el idioma, creo que eso tiene consecuencias a la hora de entender a qu&amp;eacute; estamos cuando trabajamos. Pero primero, veamos la definici&amp;oacute;n de cada t&amp;eacute;rmino:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;f&amp;aacute;cil&lt;/strong&gt;: que cuesta poco trabajo. Que puede ocurrir con mucha probabilidad.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;dif&amp;iacute;cil&lt;/strong&gt;: que no se logra sin mucho trabajo.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;simple&lt;/strong&gt;: sin complicaci&amp;oacute;n. Formado&amp;nbsp;por un solo elemento o por pocos. De f&amp;aacute;cil comprensi&amp;oacute;n.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/palabras-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Luis Artola</dc:creator>
-    <dc:date>2014-07-04T06:53:44Z</dc:date>
   </entry>
 </feed>
 

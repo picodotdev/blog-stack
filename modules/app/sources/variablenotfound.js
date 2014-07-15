@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones",
+      "title" : "Novedades de SignalR 2.1 (y III): progreso de acciones"
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-166",
       "title" : "Enlaces interesantes 166"
     },
@@ -57,10 +61,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap",
       "title" : "Error 404 en archivo .woff usando Bootstrap"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-159",
-      "title" : "Enlaces interesantes 159"
     }
   ]
 }
