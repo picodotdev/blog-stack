@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
+      "title" : "Java 8 Lambda Expressions (I)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
       "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
       "title" : "JQuery Mobile Arquitectura"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/relaciones-ternarias-genbetadev",
-      "title" : "Relaciones ternarias (GenbetaDev)"
     }
   ]
 }

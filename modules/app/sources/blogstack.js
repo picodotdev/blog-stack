@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
+      "title" : "Java 8 Lambda Expressions (I)"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
       "title" : "Como instalar Spotify en Ubuntu 14.04"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
       "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
-      "title" : "Arquitectura WebSocket y Threads"
     }
   ]
 }

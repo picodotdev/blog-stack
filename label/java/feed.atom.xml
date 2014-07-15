@@ -3,10 +3,47 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-11T20:03:12Z</updated>
+  <updated>2014-07-15T08:02:57Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-11T20:03:12Z</dc:date>
+  <dc:date>2014-07-15T08:02:57Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 Lambda Expressions (I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-8-lambda-expressions-i" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-07-15T06:51:44Z</updated>
+    <published>2014-07-15T06:51:44Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Poco a poco Java 8 se va dando a conocer como plataforma de desarrollo e incluye una serie de novedades. Entre las cuales hay que destacar &lt;strong&gt;las lambda expresions (Expresiones Lambda)&lt;/strong&gt; que se echaban bastante ya que otros lenguajes como C# ya soportaban estructuras similares. El uso de Expresiones Lambda nos permitir&amp;aacute; simplificar de forma muy clara algunos de los bloques de c&amp;oacute;digo que constru&amp;iacute;amos hasta ahora. Bloques que en muchos casos hac&amp;iacute;an uso de clases an&amp;oacute;nimas para solventar problemas que una expresi&amp;oacute;n lambda expresa de una forma mucho mas directa. Vamos a ver un sencillo bloque de c&amp;oacute;digo que usa un Comparador para ordenar una lista de Personas.&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Persona {
+
+ private String nombre;
+
+public String getNombre() {
+ return nombre;
+ }
+
+public void setNombre(String nombre) {
+ this.nombre = nombre;
+ }
+
+public Persona(String nombre) {
+ super();
+ this.nombre = nombre;
+ }
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-8-lambda-expressions-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-07-15T06:51:44Z</dc:date>
+  </entry>
   <entry>
     <title>Plantillas en Apache Tapestry</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/plantillas-en-apache-tapestry" />
@@ -752,96 +789,6 @@ return lista.iterator();
 &lt;p&gt;Fue una charla simplemente como cultura general ya que el framework y el lenguaje que usamos como pila tecnol&amp;oacute;gica es &lt;a href="http://grails.org/"&gt;Grails&lt;/a&gt; y &lt;a href="http://groovy.codehaus.org/"&gt;Groovy&lt;/a&gt; y eso es complicado que cambie. Otro motivo fue poder compartir el conocimiento de este framework para el desarrollo de aplicaciones y p&amp;aacute;ginas web que a mi me gusta mucho. Si est&amp;aacute;s suscrito al &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-02-14T15:05:53Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cancelando y reanudando una tarea con Timer y TimerTask en Java</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java" />
-    <category term="almacen" />
-    <category term="cancelar" />
-    <category term="info" />
-    <category term="clases" />
-    <category term="task" />
-    <category term="timer" />
-    <category term="timertask" />
-    <category term="programar" />
-    <category term="reanudar" />
-    <category term="java" />
-    <category term="schedule" />
-    <category term="store" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2014-02-12T09:05:05Z</updated>
-    <published>2014-02-12T09:05:05Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wMS9jYW5jZWwuanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/01/cancel.jpg" alt="" title="cancel" width="500" height="281" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Hemos estado viendo &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAxL2ludHJvLXRpbWVydGFzay1qYXZhLw=="&gt;c&amp;oacute;mo utilizar TimerTask&lt;/a&gt; para programar tareas en el tiempo y &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAxL3Bhc2FuZG8tYXJndW1lbnRvcy1hLXVuLXRpbWVydGFzay1lbi1qYXZhLw=="&gt;c&amp;oacute;mo pasarle argumentos&lt;/a&gt; para hacer una funcionalidad m&amp;aacute;s completa. Ahora vamos a ver c&amp;oacute;mo podemos cancelar una tarea peri&amp;oacute;dica que ha sido programada (eso es f&amp;aacute;cil), pero pueden surgir problemas a la hora de reanudar la tarea, para lo cual propongo algunas ideas.&lt;/p&gt; 
-&lt;p&gt;Lo primero, es tener un c&amp;oacute;digo b&amp;aacute;sico para lanzar una tarea y cancelarla:&lt;br /&gt; TimerEx.java&lt;/p&gt; 
-&lt;div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"&gt; 
- &lt;table&gt; 
-  &lt;tbody&gt; 
-   &lt;tr&gt; 
-    &lt;td&gt; 
-     &lt;div&gt;
-       1 
-      &lt;br /&gt;2 
-      &lt;br /&gt;3 
-      &lt;br /&gt;4 
-      &lt;br /&gt;5 
-      &lt;br /&gt;6 
-      &lt;br /&gt;7 
-      &lt;br /&gt;8 
-      &lt;br /&gt;9 
-      &lt;br /&gt;10 
-      &lt;br /&gt;11 
-      &lt;br /&gt;12 
-      &lt;br /&gt;13 
-      &lt;br /&gt;14 
-      &lt;br /&gt;15 
-      &lt;br /&gt;16 
-      &lt;br /&gt;17 
-      &lt;br /&gt;18 
-      &lt;br /&gt;19 
-      &lt;br /&gt;20 
-      &lt;br /&gt;21 
-      &lt;br /&gt;22 
-      &lt;br /&gt;23 
-      &lt;br /&gt;24 
-      &lt;br /&gt;25 
-      &lt;br /&gt;26 
-      &lt;br /&gt;27 
-      &lt;br /&gt;28 
-      &lt;br /&gt;29 
-      &lt;br /&gt;30 
-      &lt;br /&gt;31 
-      &lt;br /&gt;32 
-      &lt;br /&gt; 
-     &lt;/div&gt;&lt;/td&gt; 
-    &lt;td&gt; 
-     &lt;div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"&gt;
-       import java.util.Timer; 
-      &lt;br /&gt; import java.util.TimerTask; 
-      &lt;br /&gt; 
-      &lt;br /&gt; class TimerEx 
-      &lt;br /&gt; { 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; public static void main( 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Astring+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;String&lt;/a&gt; arglist[]) 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; { 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimer+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;Timer&lt;/a&gt; timer; 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; timer = new 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimer+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;Timer&lt;/a&gt;(); 
-      &lt;br /&gt; 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimertask+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;TimerTask&lt;/a&gt; task = new 
-      &lt;a href="http://www.google.com/search?hl=en&amp;amp;q=allinurl%3Atimertask+java.sun.com&amp;amp;btnI=I%27m%20Feeling%20Lucky"&gt;TimerTask&lt;/a&gt;() 
-      &lt;br /&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; { 
-     &lt;/div&gt;&lt;/td&gt;
-   &lt;/tr&gt;
-  &lt;/tbody&gt;
- &lt;/table&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2014-02-12T09:05:05Z</dc:date>
   </entry>
 </feed>
 
