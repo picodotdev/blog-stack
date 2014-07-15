@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
+      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
+      "title" : "Unos prompt de ejemplo"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
       "title" : "Java 8 Lambda Expressions (I)"
     },
@@ -21,10 +29,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
       "title" : "El lado oscuro de los gestores de paquetes"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
-      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet",
       "title" : "¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
-      "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
     }
   ]
 }

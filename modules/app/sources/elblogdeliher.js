@@ -3,12 +3,16 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
-      "title" : "Como instalar Spotify en Ubuntu 14.04"
-    },
-    {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
+      "title" : "Unos prompt de ejemplo"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
+      "title" : "Como instalar Spotify en Ubuntu 14.04"
     },
     {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
       "title" : "Cambiar la frecuencia del procesador en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/que-son-los-controladores-privativos-o-adicionales-en-ubuntu",
-      "title" : "Que son los controladores privativos o adicionales en Ubuntu"
     }
   ]
 }
