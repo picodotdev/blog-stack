@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
+      "title" : "HTML5 Almacenamiento (CantabriaTIC)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
       "title" : "Java 8 Lambda Expressions (I)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
       "title" : "Uso de Java Generics  (I)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/05/jquery-mobile-arquitectura",
-      "title" : "JQuery Mobile Arquitectura"
     }
   ]
 }

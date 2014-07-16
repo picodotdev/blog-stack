@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
+      "title" : "HTML5 Almacenamiento (CantabriaTIC)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones",
       "title" : "Novedades de SignalR 2.1 (y III): progreso de acciones"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
-      "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
     }
   ]
 }
