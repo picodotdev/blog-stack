@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/cynefin-complejo-o-complicado",
+      "title" : "Cynefin: ¿complejo o complicado?"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
       "title" : "Adaptación al medio: evolución y mutación"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2013/05/valladolid-1-de-junio-programania-from-the-trenches",
       "title" : "Valladolid, 1 de Junio: Programania from the trenches"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2013/04/sobre-colegios-de-ingenieria-informatica",
-      "title" : "Sobre Colegios de Ingeniería Informática"
     }
   ]
 }

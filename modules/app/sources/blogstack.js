@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/cynefin-complejo-o-complicado",
+      "title" : "Cynefin: ¿complejo o complicado?"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
       "title" : "HTML5 Almacenamiento (CantabriaTIC)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
       "title" : "Arquitectura y hospedaje de Blog Stack"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
-      "title" : "Webempresa, un buen hosting para WordPress"
     }
   ]
 }
