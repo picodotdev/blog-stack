@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
+      "title" : "EJB 3.2 y Flexibilidad"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/cynefin-complejo-o-complicado",
       "title" : "Cynefin: ¿complejo o complicado?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
       "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
-      "title" : "Arquitectura y hospedaje de Blog Stack"
     }
   ]
 }

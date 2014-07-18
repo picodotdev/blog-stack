@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
+      "title" : "EJB 3.2 y Flexibilidad"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
       "title" : "HTML5 Almacenamiento (CantabriaTIC)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
       "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/uso-de-java-generics-i",
-      "title" : "Uso de Java Generics  (I)"
     }
   ]
 }
