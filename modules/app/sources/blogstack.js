@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
+      "title" : "Anotación Cached de Apache Tapestry"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
       "title" : "EJB 3.2 y Flexibilidad"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
       "title" : "Adaptación al medio: evolución y mutación"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
-      "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
     }
   ]
 }
