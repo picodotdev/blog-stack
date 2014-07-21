@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
+      "title" : "Linux y GNU están de moda"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
       "title" : "Realización de diagramas con Dia"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos",
       "title" : "LFTP , transferencia de archivos desde la consola de comandos"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
-      "title" : "Virtualizando con KVM"
     }
   ]
 }

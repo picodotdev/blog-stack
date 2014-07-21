@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
+      "title" : "Linux y GNU están de moda"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
       "title" : "Anotación Cached de Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
       "title" : "Plantillas en Apache Tapestry"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/adaptacion-al-medio-evolucion-y-mutacion",
-      "title" : "Adaptación al medio: evolución y mutación"
     }
   ]
 }
