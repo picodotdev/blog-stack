@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/panel-time-control",
+      "title" : "Panel Time Control"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/cynefin-complejo-o-complicado",
       "title" : "Cynefin: ¿complejo o complicado?"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2013/12/automatizar-la-gestion-y-aprovisionamiento-de-tu-infraestructura",
       "title" : "Automatizar la gestión y aprovisionamiento de tu infraestructura"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2013/05/valladolid-1-de-junio-programania-from-the-trenches",
-      "title" : "Valladolid, 1 de Junio: Programania from the trenches"
     }
   ]
 }

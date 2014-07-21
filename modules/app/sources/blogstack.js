@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/panel-time-control",
+      "title" : "Panel Time Control"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
       "title" : "Linux y GNU están de moda"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Junio 2014"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
-      "title" : "Plantillas en Apache Tapestry"
     }
   ]
 }
