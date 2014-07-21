@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
+      "title" : "Tres años de Koalite"
+    },
+    {
       "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
       "title" : "El lado oscuro de los gestores de paquetes"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/04/testeando-sitios-web-con-f-y-canopy",
       "title" : "Testeando sitios web con F# y Canopy"
-    },
-    {
-      "url" : "/post/koalite/2014/03/datomic-consultas",
-      "title" : "Datomic: consultas"
     }
   ]
 }

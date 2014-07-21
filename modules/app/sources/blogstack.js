@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
+      "title" : "Tres años de Koalite"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/panel-time-control",
       "title" : "Panel Time Control"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
       "title" : "El lado oscuro de los gestores de paquetes"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/07/fundacion-de-software-libre-recopilacion-de-noticias-de-junio-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Junio 2014"
     }
   ]
 }
