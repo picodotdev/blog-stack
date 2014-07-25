@@ -3,6 +3,18 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
+      "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
+      "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
+      "title" : "Como escuchar la radio en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     },
@@ -49,18 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/06/asi-es-mi-escritorio",
       "title" : "Asi es mi escritorio"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/como-anadir-una-carpeta-a-los-marcadores-de-nautilus-en-ubuntu",
-      "title" : "Como añadir una carpeta a los marcadores de Nautilus en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/he-ganado-otro-concurso-biennnnnn-d",
-      "title" : "He ganado otro concurso, biennnnnn :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/cambiar-la-frecuencia-del-procesador-en-ubuntu",
-      "title" : "Cambiar la frecuencia del procesador en Ubuntu"
     }
   ]
 }

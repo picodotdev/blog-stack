@@ -3,10 +3,128 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-19T20:03:45Z</updated>
+  <updated>2014-07-25T02:12:58Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-19T20:03:45Z</dc:date>
+  <dc:date>2014-07-25T02:12:58Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Introducción a la clase Objects</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects" />
+    <category term="programacion" />
+    <category term="java-se" />
+    <category term="util" />
+    <category term="objects" />
+    <category term="java-util-objects" />
+    <category term="class" />
+    <category term="java-7" />
+    <category term="java" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2014-07-24T22:02:25Z</updated>
+    <published>2014-07-24T22:01:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace algunos meses atr&amp;aacute;s estudiando para la certificaci&amp;oacute;n de java 7, me entere de la existencia de la clase &lt;a title="clase Objects" href="http://docs.oracle.com/javase/7/docs/api/java/util/Objects.html"&gt;java.util.Objects&lt;/a&gt;, esta es una clase utilitaria compuesta en su totalidad de m&amp;eacute;todos est&amp;aacute;ticos que&amp;nbsp;aunque lucen bastante simples, si que resultan de ayuda ahorr&amp;aacute;ndonos algo de trabajo (tedioso), entre estos encontramos algunos para realizar comparaciones as&amp;iacute; como para el calculo del hash de un objeto, o&amp;nbsp;tambi&amp;eacute;n&amp;nbsp;para evitar asignar null a objetos.&lt;/p&gt; 
+&lt;p&gt;En este caso creo que no hay mejor forma que verlo en el c&amp;oacute;digo para que podamos apreciar su utilidad.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;pre&gt;import java.util.Objects;
+
+public class ObjectsClassExample {
+	
+	static class Persona {
+		
+		private String nombre;
+		private int edad;
+		
+		Persona() {
+		}
+		
+		Persona(String nombre, int edad) {
+			this.nombre = Objects.requireNonNull(nombre); //Arroja NullPointerException
+			this.edad = edad;							// si el parametro nombre es null
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+						//Arroja NullPointerException si el parametro nombre es null
+						//siendo este el mensaje de la exception
+			this.nombre = Objects.requireNonNull(nombre, &amp;quot;Es estrictamente necesario pasar un Nombre&amp;quot;);
+		}
+
+		public int getEdad() {
+			return edad;
+		}
+
+		public void setEdad(int edad) {
+			this.edad = edad;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			
+			Persona persona = (Persona)obj;
+			if (edad != persona.edad)
+				return false;
+			if (!Objects.equals(this.nombre, persona.nombre)) //Compara si ambos objetos son iguales
+				return false;
+			
+			return true;
+		}
+		
+		@Override
+		public int hashCode() {
+			return Objects.hash(nombre, edad); //calcula el valor hash del conjunto de valores
+												//en nuestro caso los atributos nombre y edad
+		}
+		
+		@Override
+		public String toString() { //Si el atributo nombre es null entonces 
+									//muestra la cadena &amp;quot;Sin Nombre&amp;quot;
+			return &amp;quot;{Nombre: &amp;quot; + Objects.toString(nombre, &amp;quot;Sin Nombre&amp;quot;) + &amp;quot; , Edad: &amp;quot; + edad;
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Persona p1 = new Persona ();
+		Persona p2 = new Persona (&amp;quot;Maria&amp;quot;, 20);
+		
+		System.out.println(&amp;quot;p1.toString(): &amp;quot; + p1);
+		System.out.println(&amp;quot;p2.toString(): &amp;quot; + p2);
+		System.out.println(&amp;quot;p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;p1.hashCode(): &amp;quot; + p1.hashCode());
+		System.out.println(&amp;quot;p2.hashCode(): &amp;quot; + p2.hashCode());
+		
+		p1.setNombre(&amp;quot;Maria&amp;quot;);
+		p1.setEdad(20);
+		
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt; p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt;  p1.hashCode(): &amp;quot; + p1.hashCode());
+		
+		try {
+			p1 = new Persona(null, 20);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+		
+		try {
+			p2.setNombre(null);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+	}
+
+}&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2014-07-24T22:01:01Z</dc:date>
+  </entry>
   <entry>
     <title>Anotación Cached de Apache Tapestry</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry" />
@@ -762,32 +880,6 @@ return lista.iterator();
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/07/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-07-24T17:06:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Libro sobre desarrollo de aplicaciones con Apache Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-02-14T19:10:34Z</updated>
-    <published>2014-02-14T19:10:34Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Hace unos meses publiqu&amp;eacute; el libro PlugIn Tapestry, un libro acerca del desarrollo de aplicaciones y p&amp;aacute;ginas web en el lenguaje Java y con el framework &lt;a href="http://tapestry.apache.org/"&gt;Apache Tapestry&lt;/a&gt;.&lt;/p&gt; 
-&lt;h2&gt;PlugIn Tapestry&lt;/h2&gt; 
-&lt;p&gt;Apache Tapestry es un framework orientado a componentes para crear aplicaciones web r&amp;aacute;pidas, din&amp;aacute;micas, robustas y altamente escalables en la plataforma Java. Al basarse en componentes es distinto de los muchos basados en acciones similares en esencia a Struts que podemos encontrar en la plataforma Java como &lt;a href="http://projects.spring.io/spring-framework/"&gt;Spring&lt;/a&gt;, &lt;a href="http://grails.org/"&gt;Grails&lt;/a&gt; y &lt;a href="http://www.playframework.com/"&gt;Play!&lt;/a&gt; y tambi&amp;eacute;n de los muchos otros en los que la principal diferencia es el lenguaje como &lt;a href="https://www.djangoproject.com/"&gt;Django&lt;/a&gt; (Python), &lt;a href="http://symfony.com/"&gt;Symfony&lt;/a&gt; (PHP), &lt;a href="http://www.asp.net/mvc"&gt;ASP.NET MVC&lt;/a&gt; (C#) o &lt;a href="http://rubyonrails.org/"&gt;Ruby On Rails&lt;/a&gt; (Ruby).&lt;/p&gt; 
-&lt;div style="text-align: center;"&gt; 
- &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry.png" title="Libro sobre Apache Tapestry"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/12/portada-PugInTapestry-thumb.png" /&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Incluyendo la descripci&amp;oacute;n de las caracter&amp;iacute;sticas del framework el libro trata la mayor&amp;iacute;a de aspectos que puede necesitar una aplicaci&amp;oacute;n o p&amp;aacute;gina web, entre ellos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-02-14T19:10:34Z</dc:date>
   </entry>
 </feed>
 

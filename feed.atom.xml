@@ -3,10 +3,304 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-21T08:02:44Z</updated>
+  <updated>2014-07-25T02:12:55Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-21T08:02:44Z</dc:date>
+  <dc:date>2014-07-25T02:12:55Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Introducción a la clase Objects</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects" />
+    <category term="programacion" />
+    <category term="java-se" />
+    <category term="util" />
+    <category term="objects" />
+    <category term="java-util-objects" />
+    <category term="class" />
+    <category term="java-7" />
+    <category term="java" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2014-07-24T22:02:25Z</updated>
+    <published>2014-07-24T22:01:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace algunos meses atr&amp;aacute;s estudiando para la certificaci&amp;oacute;n de java 7, me entere de la existencia de la clase &lt;a title="clase Objects" href="http://docs.oracle.com/javase/7/docs/api/java/util/Objects.html"&gt;java.util.Objects&lt;/a&gt;, esta es una clase utilitaria compuesta en su totalidad de m&amp;eacute;todos est&amp;aacute;ticos que&amp;nbsp;aunque lucen bastante simples, si que resultan de ayuda ahorr&amp;aacute;ndonos algo de trabajo (tedioso), entre estos encontramos algunos para realizar comparaciones as&amp;iacute; como para el calculo del hash de un objeto, o&amp;nbsp;tambi&amp;eacute;n&amp;nbsp;para evitar asignar null a objetos.&lt;/p&gt; 
+&lt;p&gt;En este caso creo que no hay mejor forma que verlo en el c&amp;oacute;digo para que podamos apreciar su utilidad.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;pre&gt;import java.util.Objects;
+
+public class ObjectsClassExample {
+	
+	static class Persona {
+		
+		private String nombre;
+		private int edad;
+		
+		Persona() {
+		}
+		
+		Persona(String nombre, int edad) {
+			this.nombre = Objects.requireNonNull(nombre); //Arroja NullPointerException
+			this.edad = edad;							// si el parametro nombre es null
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+						//Arroja NullPointerException si el parametro nombre es null
+						//siendo este el mensaje de la exception
+			this.nombre = Objects.requireNonNull(nombre, &amp;quot;Es estrictamente necesario pasar un Nombre&amp;quot;);
+		}
+
+		public int getEdad() {
+			return edad;
+		}
+
+		public void setEdad(int edad) {
+			this.edad = edad;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			
+			Persona persona = (Persona)obj;
+			if (edad != persona.edad)
+				return false;
+			if (!Objects.equals(this.nombre, persona.nombre)) //Compara si ambos objetos son iguales
+				return false;
+			
+			return true;
+		}
+		
+		@Override
+		public int hashCode() {
+			return Objects.hash(nombre, edad); //calcula el valor hash del conjunto de valores
+												//en nuestro caso los atributos nombre y edad
+		}
+		
+		@Override
+		public String toString() { //Si el atributo nombre es null entonces 
+									//muestra la cadena &amp;quot;Sin Nombre&amp;quot;
+			return &amp;quot;{Nombre: &amp;quot; + Objects.toString(nombre, &amp;quot;Sin Nombre&amp;quot;) + &amp;quot; , Edad: &amp;quot; + edad;
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Persona p1 = new Persona ();
+		Persona p2 = new Persona (&amp;quot;Maria&amp;quot;, 20);
+		
+		System.out.println(&amp;quot;p1.toString(): &amp;quot; + p1);
+		System.out.println(&amp;quot;p2.toString(): &amp;quot; + p2);
+		System.out.println(&amp;quot;p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;p1.hashCode(): &amp;quot; + p1.hashCode());
+		System.out.println(&amp;quot;p2.hashCode(): &amp;quot; + p2.hashCode());
+		
+		p1.setNombre(&amp;quot;Maria&amp;quot;);
+		p1.setEdad(20);
+		
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt; p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt;  p1.hashCode(): &amp;quot; + p1.hashCode());
+		
+		try {
+			p1 = new Persona(null, 20);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+		
+		try {
+			p2.setNombre(null);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+	}
+
+}&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2014-07-24T22:01:01Z</dc:date>
+  </entry>
+  <entry>
+    <title>Como instalar Grive en Ubuntu y trabajar con Google Drive</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive" />
+    <category term="ubuntu" />
+    <category term="grive" />
+    <category term="google-drive" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-07-24T15:54:49Z</updated>
+    <published>2014-07-24T15:54:49Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;En este articulo os voy a hablar sobre un programa llamado &lt;strong&gt;Grive&lt;/strong&gt; para &lt;strong&gt;Ubuntu&lt;/strong&gt;, que nos va a hacer mas f&amp;aacute;cil usar &lt;strong&gt;Google Drive&lt;/strong&gt;. Para aquellos que aun no conozcan Google Drive os voy a explicar que es. Cuando creamos una cuenta de Gmail de Google tenemos acceso a una serie de herramientas o tecnolog&amp;iacute;as que pone a nuestro servicio de forma gratuita y una de ellas es Google Drive, que es un disco duro virtual en la nube con 15 GB de espacio para lo que nosotros queramos usar. Tenemos la posibilidad de tener mas espacio pero tendr&amp;iacute;amos que pagar.&lt;/p&gt; 
+ &lt;p&gt;Cada vez que queremos subir archivos a Google Drive tenemos que abrirlo en el navegador, eso esta muy bien pero estar&amp;iacute;a aun mejor tener un directorio en nuestro ordenador de tal forma que cada vez que pongamos un archivo en dicho directorio se suba autom&amp;aacute;ticamente a nuestra unidad de Google Drive o, si borramos un archivo de ese directorio tambi&amp;eacute;n se borre de Google Drive, es decir, que un directorio de nuestro ordenador este sincronizado con nuestra unidad de Google Drive, &amp;iquest;verdad? Exactamente eso es lo que vamos a conseguir con &lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-07-24T15:54:49Z</dc:date>
+  </entry>
+  <entry>
+    <title>Para GenBetaDev (JPA y Javascript)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript" />
+    <category term="jpa" />
+    <category term="jee" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-07-24T08:03:59Z</updated>
+    <published>2014-07-24T08:03:59Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;He escrito estas &amp;uacute;ltimas semanas dos art&amp;iacute;culos para GenBetaDev . El primero esta ligado de forma muy clara a la plataforma Java y trata sobre las diferencias existentes entre &lt;a href="http://www.genbetadev.com/frameworks/jpa-vs-hibernate"&gt;JPA e Hibernate&lt;/a&gt;. El Segundo esta m&amp;aacute;s orientado a &lt;a href="http://www.genbetadev.com/desarrollo-web/javascript-funciones-y-expresiones"&gt;conceptos fundamentales del Lenguage JavaScript &lt;/a&gt;y como las funciones trabajan en &amp;eacute;l.&lt;/p&gt; 
+&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/ultimos-articulos-para-genbetadev-jpa-y-javascript/"&gt;Para GenBetaDev (JPA y Javascript)&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-07-24T08:03:59Z</dc:date>
+  </entry>
+  <entry>
+    <title>Arquitecturas MVC y REST</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest" />
+    <category term="spring" />
+    <category term="jee" />
+    <category term="spring-mvc" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-07-23T09:45:20Z</updated>
+    <published>2014-07-23T09:45:20Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Video en el que se hace una comparativa entre los distintos modelos de Arquitecturas MVC y los servicios REST&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;iframe width="500" height="281" src="https://www.youtube.com/embed/qyt2Ct0hWqU?feature=oembed" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;&lt;/p&gt; 
+&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/arquitecturas-mvc-y-rest/"&gt;Arquitecturas MVC y REST&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-07-23T09:45:20Z</dc:date>
+  </entry>
+  <entry>
+    <title>Accidental versus essential complexity</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity" />
+    <category term="desarrollo-de-software" />
+    <author>
+      <name>Luis Artola</name>
+    </author>
+    <updated>2014-07-23T07:02:48Z</updated>
+    <published>2014-07-23T07:02:48Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&amp;iquest;Cu&amp;aacute;ntas veces te pasa que, al tener implementada la soluci&amp;oacute;n a un problema, te das cuenta de que el problema era mucho m&amp;aacute;s f&amp;aacute;cil de lo que parec&amp;iacute;a y que ahora podr&amp;iacute;as implementar una soluci&amp;oacute;n mucho m&amp;aacute;s sencilla? &amp;iquest;Cu&amp;aacute;nta de la complejidad de una soluci&amp;oacute;n es inherente al propio problema y cu&amp;aacute;nta se produce por la propia soluci&amp;oacute;n planteada?&lt;/p&gt; 
+&lt;p&gt;La complejidad intr&amp;iacute;nseca de un problema es dif&amp;iacute;cil de abordar. No la has creado t&amp;uacute;. Tienes que convivir con ella. No puedes actuar sobre ella a corto plazo. Es verdad que con el paso de los a&amp;ntilde;os, van surgiendo t&amp;eacute;cnicas que ayudan a disminuirla. Pero s&amp;oacute;lo con el paso de las d&amp;eacute;cadas se dan mejoras significativas.&lt;/p&gt; 
+&lt;p&gt;La complejidad accidental de un problema es mucho m&amp;aacute;s f&amp;aacute;cil de abordar. La has creado t&amp;uacute; (o tu organizaci&amp;oacute;n, o tu cliente…). Puedes actuar sobre ella a corto plazo y disminuirla de manera significativa.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Luis Artola</dc:creator>
+    <dc:date>2014-07-23T07:02:48Z</dc:date>
+  </entry>
+  <entry>
+    <title>Como añadir una emisora a Great Little Radio Player en Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu" />
+    <category term="ubuntu" />
+    <category term="anadir" />
+    <category term="radio" />
+    <category term="emisora" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-07-22T18:54:20Z</updated>
+    <published>2014-07-22T18:54:20Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;En el &lt;a href="http://elblogdeliher.com/como-escuchar-la-radio-en-ubuntu/"&gt;anterior articulo&lt;/a&gt; os hable de un programa que esta muy bien llamado &lt;strong&gt;Great Little Radio Player&lt;/strong&gt;, dicho programa sirve para poder escuchar distintas &lt;strong&gt;emisoras&lt;/strong&gt; de radio mientras estamos usando &lt;strong&gt;Ubuntu&lt;/strong&gt;. Por defecto vienen muchas emisoras preconfiguradas, pero puede que queramos &lt;strong&gt;a&amp;ntilde;adir&lt;/strong&gt; alguna y eso es precisamente lo que os quiero mostrar en este articulo.&lt;/p&gt; 
+ &lt;p&gt;En mi caso para mostraros el proceso he elegido una emisora que ha creado el archiconocido &lt;a href="http://yoyo308.com/"&gt;Yoyo&lt;/a&gt;, y que pod&amp;eacute;is encontrar en la siguiente pagina:&lt;/p&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt;&lt;a href="http://killallradio.blogspot.com.es/"&gt;Pagina de Killall Radio de Yoyo&lt;/a&gt;&lt;/li&gt; 
+ &lt;/ul&gt; 
+ &lt;p&gt;Esta reci&amp;eacute;n creada pero como todo lo que hace Yoyo seguro que nos brindara horas de entretenimiento, aprendizaje, buen rollo y buen humor. En este caso, lo que tenemos que buscar para a&amp;ntilde;adir a GLRP (a partir de ahora me referir&amp;eacute; as&amp;iacute; al programa, es que soy muy vago ;D), esta muy a la vista, es muy f&amp;aacute;cil de encontrar, en otras webs puede que nos cueste mas. Al acceder a la web de Killall Radio ver&amp;eacute;is lo siguiente:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-07-22T18:54:20Z</dc:date>
+  </entry>
+  <entry>
+    <title>#if DEBUG en Javascript (bueno, o algo así)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi" />
+    <category term="trucos" />
+    <category term="asp-net" />
+    <category term="depuracion" />
+    <category term="javascript" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-07-22T11:55:00Z</updated>
+    <published>2014-07-22T11:55:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="Debug" src="http://lh4.ggpht.com/-Ox2wyj3ZYSU/U8LGWzoGCtI/AAAAAAAADh0/ZB26rBsBkE0/image2.png?imgmax=800" height="128" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Debug" width="128" /&gt;Hay veces que desde Javascript nos interesa ejecutar un c&amp;oacute;digo u otro en funci&amp;oacute;n de si la ejecuci&amp;oacute;n se est&amp;aacute; produciendo en un servidor de desarrollo o en uno de producci&amp;oacute;n. Por ejemplo, en el primer caso suele ser interesante disponer de 
+&lt;em&gt;logs&lt;/em&gt; o herramientas de ayuda a la depuraci&amp;oacute;n, mientras que en el segundo lo normal es que queramos introducir c&amp;oacute;digo m&amp;aacute;s eficiente y sin este tipo de condimentos. 
+&lt;br /&gt; 
+&lt;br /&gt;En este post vamos a ver algunas t&amp;eacute;cnicas muy b&amp;aacute;sicas que nos permitir&amp;aacute;n ejecutar un c&amp;oacute;digo u otro en el lado cliente de aplicaciones ASP.NET MVC (o ASP.NET en general) en funci&amp;oacute;n del modo de compilaci&amp;oacute;n. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt; 
+&lt;h3&gt;1. El lado servidor&lt;/h3&gt;En el lado servidor es bastante f&amp;aacute;cil de conseguir porque disponemos de directivas de compilaci&amp;oacute;n que nos permiten detectar si estamos generando los binarios en modo depuraci&amp;oacute;n:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-07-22T11:55:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Un entorno productivo en pareja</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja" />
+    <category term="desarrollo-de-software" />
+    <author>
+      <name>Luis Artola</name>
+    </author>
+    <updated>2014-07-22T07:16:01Z</updated>
+    <published>2014-07-22T07:16:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.programania.net/wp-content/uploads/IMG_1711.jpg"&gt;&lt;img src="http://www.programania.net/wp-content/uploads/IMG_1711-1024x342.jpg" alt="IMG_1711" width="802" height="268" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;Eacute;sta foto tiene ya un tiempo. Es de finales de 2013 (ya me cuesta publicar art&amp;iacute;culos, a ver si cojo un poco de inercia… :-P). En esa &amp;eacute;poca a &lt;a href="https://twitter.com/ggalmazor"&gt;Guille&lt;/a&gt; y a m&amp;iacute; nos cay&amp;oacute; la primera versi&amp;oacute;n de un potente software no-tan-big data, a hacer&amp;nbsp;con AngularJS/Javascript, Elastic Search y AKKA, alrededor de un dominio que desconoc&amp;iacute;amos completamente y donde ten&amp;iacute;amos dif&amp;iacute;cil encontrar a alguien que nos lo explicara, con una deadline inminente.&lt;/p&gt; 
+&lt;p&gt;Si en un escenario aplica lo de&lt;a href="http://sebastianlab.com/post/140303165/typing-is-not-the-bottleneck"&gt; typing is not the bottleneck&lt;/a&gt;, creo que es en &amp;eacute;ste. Con lo que decidimos que en lugar de estar levant&amp;aacute;ndonos de nuestro sitio cada cinco minutos a preguntarnos cosas el uno al otro o tomar decisiones t&amp;eacute;cnicas sin contrastar, &amp;iacute;bamos a &lt;strong&gt;hacer todo el trabajo en pareja&lt;/strong&gt;&amp;nbsp;y favorecer el ancho de banda de la comunicaci&amp;oacute;n entre nosotros muy por encima del ancho de banda de tecleo.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Luis Artola</dc:creator>
+    <dc:date>2014-07-22T07:16:01Z</dc:date>
+  </entry>
+  <entry>
+    <title>Como escuchar la radio en Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu" />
+    <category term="ubuntu" />
+    <category term="radio" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-07-21T18:04:25Z</updated>
+    <published>2014-07-21T18:04:25Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;En este articulo os voy a hablar de una peque&amp;ntilde;a pero genial aplicaci&amp;oacute;n que servir&amp;aacute; para que pod&amp;aacute;is escuchar la &lt;strong&gt;radio&lt;/strong&gt; en vuestro ordenador de una forma muy sencilla mientras us&amp;aacute;is &lt;strong&gt;Ubuntu&lt;/strong&gt;. El programa en cuesti&amp;oacute;n se llama &lt;strong&gt;Great Little Radio Player&lt;/strong&gt;, os voy a hablar un poco de sus bondades y mas abajo os dejare un enlace a su pagina en la cual pod&amp;eacute;is descargar el archivo instalador para vuestro Ubuntu, aunque tambi&amp;eacute;n hay disponibles versiones para otras distribuciones de Linux. Yo lo he usado en Ubuntu 12.04 y 14.04 y funciona perfecto, ademas su manejo es muy sencillo.&lt;/p&gt; 
+ &lt;p&gt;El programa en si pesa unas 8 MB, una vez descargado lo podr&amp;eacute;is instalar solo con hacer doble click sobre el archivo con extensi&amp;oacute;n “deb” que os descargu&amp;eacute;is. Una vez que lo teng&amp;aacute;is instalado solo ten&amp;eacute;is que buscar el icono se&amp;ntilde;alado en la siguiente imagen dentro del Dash de Ubuntu:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-07-21T18:04:25Z</dc:date>
+  </entry>
+  <entry>
+    <title>Enlaces interesantes 167</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/07/enlaces-interesantes-167" />
+    <category term="enlaces" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-07-21T14:26:28Z</updated>
+    <published>2014-07-21T14:26:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="Enlaces interesantes" src="http://lh4.ggpht.com/-4ygzCWkpEg0/U8v-VuXCzpI/AAAAAAAADiE/4KtNsV7dzBk/enlaces23333333333333.png?imgmax=800" height="129" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Enlaces interesantes" width="172" /&gt;Ah&amp;iacute; van los enlaces recopilados durante la semana pasada, espero que os resulten interesantes ;-) 
+&lt;br /&gt; 
+&lt;h4&gt;.Net&lt;/h4&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a href="http://blog.jetbrains.com/dotnet/2014/07/17/unusual-ways-of-boosting-up-app-performance-strings/"&gt;Unusual Ways of Boosting Up App Performance. Strings&lt;/a&gt; &lt;br /&gt;Alexey Totin &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://www.codeproject.com/Tips/798140/Switch-statement-alternative"&gt;Switch statement alternative&lt;/a&gt; &lt;br /&gt;Nitin Sawant &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://www.charlascylon.com/post/91933019083/covarianza-y-contravarianza-en-c" title="Covarianza y contravarianza en C#"&gt;Covarianza y contravarianza en C#&lt;/a&gt; &lt;br /&gt;Rubenfa&lt;a&gt;&lt;/a&gt; &lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;h4&gt;ASP.NET&lt;/h4&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a href="http://blog.developers.ba/8-ways-improve-asp-net-web-api-performance/"&gt;8 ways to improve ASP.NET Web API performance&lt;/a&gt; &lt;br /&gt;Radenko Zec &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://bitoftech.net/2014/07/16/enable-oauth-refresh-tokens-angularjs-app-using-asp-net-web-api-2-owin/"&gt;Enable OAuth Refresh Tokens in AngularJS App using ASP .NET Web API 2, and Owin&lt;/a&gt; &lt;br /&gt;Taiseer Joudeh &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://geeks.ms/blogs/fernandezja/archive/2014/07/14/aspnet-nuevo-proveedor-de-session-state-para-sql-server-2014-in-memory-oltp-sqlinmemoryprovider.aspx" title="[ASPNET] Nuevo proveedor de Session State para SQL Server 2014 In-Memory OLTP - SqlInMemoryProvi"&gt;[ASPNET] Nuevo proveedor de Session State para SQL Server 2014 In-Memory OLTP – SqlInMemoryProvider&lt;/a&gt; &lt;br /&gt;Jos&amp;eacute; A. Fern&amp;aacute;ndez &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://sebys.com.ar/2014/07/16/razor-helpers/"&gt;Razor Helpers&lt;/a&gt; &lt;br /&gt;Sebasti&amp;aacute;n Henzenn &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://geeks.ms/blogs/lruiz/archive/2014/07/15/signalr-autenticaci-243-n-json-web-token-jwt-en-hubs-de-signalr.aspx"&gt;[SignalR] Autenticaci&amp;oacute;n JSON Web Token (JWT) en hubs de SignalR&lt;/a&gt; &lt;br /&gt;Luis Ruiz Pav&amp;oacute;n &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://geeks.ms/blogs/etomas/archive/2014/07/14/asp-net-vnext-model-binding.aspx"&gt;ASP.NET vNext–Model Binding&lt;/a&gt; &lt;br /&gt;Eduard Tom&amp;aacute;s &lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://odetocode.com/blogs/scott/archive/2013/07/01/on-the-coexistence-of-asp-net-mvc-and-webapi.aspx"&gt;On The Coexistence of ASP.NET MVC and WebAPI&lt;/a&gt; &lt;br /&gt;K. Scott Allen&amp;nbsp; &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/enlaces-interesantes-167"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-07-21T14:26:00Z</dc:date>
+  </entry>
   <entry>
     <title>Tres años de Koalite</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/07/tres-anos-de-koalite" />
@@ -449,214 +743,6 @@ public Persona(String nombre) {
 &lt;p&gt;Blog Stack (BS) es una agregador, planeta, o fuente de informaci&amp;oacute;n de bit&amp;aacute;coras sobre programaci&amp;oacute;n, desarrollo, desarrollo &amp;aacute;gil, software, software libre, hardware, gnu/linux o en general temas relacionados con la tecnolog&amp;iacute;a, en definitiva es un servicio que est&amp;aacute; disponible en una direcci&amp;oacute;n de internet, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-05-16T15:21:55Z</dc:date>
-  </entry>
-  <entry>
-    <title>Webempresa, un buen hosting para WordPress</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress" />
-    <category term="opinion" />
-    <category term="hosting" />
-    <category term="webempresa" />
-    <category term="wordpress" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-07-10T17:17:21Z</updated>
-    <published>2014-07-10T17:17:21Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;El otro d&amp;iacute;a os hable de un &lt;strong&gt;hosting&lt;/strong&gt; que uso para algunos prop&amp;oacute;sitos llamado Vigunu. En esta ocasi&amp;oacute;n os quiero hablar del hosting que uso actualmente para este blog, &lt;strong&gt;Webempresa&lt;/strong&gt;. Despu&amp;eacute;s de crear este blog llego un momento en que las visitas empezaron a subir y que requer&amp;iacute;a un hosting mas adecuado y especializado en &lt;strong&gt;WordPress&lt;/strong&gt;, estuve buscando y me costo decidirme pero le&amp;iacute; varias opiniones muy buenas de Webempresa y me decid&amp;iacute; por contratarlo con ellos.&lt;/p&gt; 
- &lt;p&gt;Este articulo tiene mas prop&amp;oacute;sitos aparte de hablaros de este &lt;strong&gt;hosting&lt;/strong&gt;, cuando lo contrate hace unos 4 mese me ofrecieron la posibilidad de hacerme afiliado y, por aquel entonces decline esta opci&amp;oacute;n ya que no tenia experiencia con ellos y no me parec&amp;iacute;a honesto recomendarlo sin conocerlo. Pero han pasado unos 4 meses mas o menos y la experiencia esta siendo mas que positiva, por lo cual el otro prop&amp;oacute;sito de este articulo es recomendarlo y proporcionar a todo aquel que desee contratarlo un descuento mediante mi enlace de afiliado, de esa forma vosotros pod&amp;eacute;is conseguir este &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-07-10T17:17:21Z</dc:date>
-  </entry>
-  <entry>
-    <title>Que es y como instalar Wine mediante PPA en Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu" />
-    <category term="ubuntu" />
-    <category term="ppa" />
-    <category term="instalar" />
-    <category term="wine" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-07-10T16:36:51Z</updated>
-    <published>2014-07-10T16:36:51Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;En esta ocasi&amp;oacute;n os voy a hablar de una aplicaci&amp;oacute;n que podemos &lt;strong&gt;instalar&lt;/strong&gt; en &lt;strong&gt;Ubuntu&lt;/strong&gt; y que puede ser de mucha utilidad para aquellos usuarios que provienen de Windows y todav&amp;iacute;a necesiten usar algunas aplicaciones de ese sistema operativo. El programa en cuesti&amp;oacute;n se llama &lt;strong&gt;Wine&lt;/strong&gt;, os voy a hablar un poco de el y despu&amp;eacute;s os mostrare como instalar su ultima versi&amp;oacute;n disponible mediante &lt;strong&gt;PPA&lt;/strong&gt; en Ubuntu, tengo que decir que este PPA sirve para todas las versiones de Ubuntu, incluso ya funciona para Ubuntu 14.10.&lt;/p&gt; 
- &lt;p&gt;Si queremos usar alguna aplicaci&amp;oacute;n de Windows en Ubuntu tenemos algunas opciones, hay algunos programas que tienen su versi&amp;oacute;n oficial para Windows y Linux, pero otros no. Cuando nos encontramos en la situaci&amp;oacute;n en que no tenemos una versi&amp;oacute;n oficial del programa deseado de Windows para &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-07-10T16:36:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Cómo obtener la información de un ordenador que no conocemos? El proceso de @Reciclanet</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet" />
-    <category term="blog-stack" />
-    <category term="aktibismoa" />
-    <category term="linux" />
-    <category term="en-castellano" />
-    <category term="emprendiendo" />
-    <category term="colaboracion" />
-    <category term="hackinbadakigu" />
-    <category term="howto" />
-    <category term="cosas-que-veo" />
-    <category term="seguridad" />
-    <author>
-      <name>Dabid Martinez</name>
-    </author>
-    <updated>2014-07-10T11:37:21Z</updated>
-    <published>2014-07-10T11:37:21Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.reciclanet.org/"&gt;&lt;img src="http://laborategia.net/wp-content/uploads/2014/07/reciclanet_logo-77840.png" alt="reciclanet_logo-77840" width="380" height="250" /&gt;Reciclanet&lt;/a&gt;, es una Asociaci&amp;oacute;n ecologista, educativa, independiente y laica, formada por voluntarios. Son la &amp;uacute;nica Asociaci&amp;oacute;n de Euskal Herria que combina la difusi&amp;oacute;n del&lt;strong&gt; software libre&lt;/strong&gt; con la&lt;strong&gt; ecolog&amp;iacute;&amp;shy;a&lt;/strong&gt;, la &lt;strong&gt;educaci&amp;oacute;n&lt;/strong&gt; y la &lt;strong&gt;solidaridad&lt;/strong&gt; desde el a&amp;ntilde;o 2000.&lt;/p&gt; 
-&lt;p&gt;Me encontraba colaborando con la ONG, cuando recibieron una donaci&amp;oacute;n de la escuela La Salle de Bilbo y pude ver todo el proceso de recepci&amp;oacute;n y etiquetado de material.&lt;/p&gt; 
-&lt;p&gt;El proceso de etiquetado me pareci&amp;oacute; lo suficientemente interesante como para documentarlo &lt;img src="http://laborategia.net/wp-includes/images/smilies/icon_wink.gif" alt=";-)" /&gt; &lt;/p&gt; 
-&lt;p&gt;Lo primero que tenemos que saber es que &lt;a href="http://www.sysresccd.org/SystemRescueCd_Homepage"&gt;SystemRescueCD&lt;/a&gt;, una distribuci&amp;oacute;n Linux que nos permite ademas de reparar multitud de problemas inform&amp;aacute;ticos obtener toda la informaci&amp;oacute;n que el proceso de etiquetado de Reciclanet necesita.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://laborategia.net/wp-content/uploads/2014/07/SystemRescueCd1.png"&gt;&lt;img src="http://laborategia.net/wp-content/uploads/2014/07/SystemRescueCd1.png" alt="SystemRescueCd1" width="640" height="480" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Una vez descargada la ISO y cargada en un pendrive simplemente tendremos que arrancar el ordenador a trav&amp;eacute;s de ese USB. Con unos simples comando obtendremos las respuestas que necesitamos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/07/como-obtener-la-informacion-de-un-ordenador-que-no-conocemos-el-proceso-de-reciclanet"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Dabid Martinez</dc:creator>
-    <dc:date>2014-07-10T11:37:21Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Como funciona Node.js?  para (GenBetaDev)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev" />
-    <category term="sin-categoria" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-07-10T08:26:06Z</updated>
-    <published>2014-07-10T08:26:06Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Ayer he escrito un nuevo art&amp;iacute;culo para la gente de &lt;a href="http://www.genbetadev.com/"&gt;GenBetaDev&lt;/a&gt; que trata sobre la propia arquitectura de Node.js que creo que puede ser interesante para otros lectores. Podeis acceder al art&amp;iacute;culo &lt;a href="http://www.genbetadev.com/frameworks/como-funciona-node-js"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/como-funciona-nodejs-para-genbetadev/"&gt;&amp;iquest;Como funciona Node.js? para (GenBetaDev)&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-07-10T08:26:06Z</dc:date>
-  </entry>
-  <entry>
-    <title>Arquitectura WebSocket y Threads</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads" />
-    <category term="jee" />
-    <category term="java-web" />
-    <category term="websocket" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-07-09T07:00:45Z</updated>
-    <published>2014-07-09T07:00:45Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En el art&amp;iacute;culo anterior de &lt;a title="Java WebSockets" href="http://www.arquitecturajava.com/java-websockets/"&gt;introducci&amp;oacute;n a WebSocket&lt;/a&gt;&amp;nbsp;vimos como construir un WebSocket sencillo con Java y como cada navegador se convert&amp;iacute;a en un cliente para el Servidor que conten&amp;iacute;a un EndPoint de WebSocket. Ahora bien &lt;strong&gt;&amp;iquest;c&amp;oacute;mo funciona exactamente este sistema a nivel de programaci&amp;oacute;n?&lt;/strong&gt;. Si echamos un vistazo a lo que hemos construido nos dir&amp;aacute; poco ya que simplemente tenemos un navegador y un EndPoint.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/general.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/general.png" alt="general" width="540" height="343" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Threads y WebSockets&lt;/h2&gt; 
-&lt;p&gt;Ahora bien &lt;strong&gt;&amp;iquest;como se construye esta relaci&amp;oacute;n realmente? . &lt;/strong&gt;La realidad es que Tomcat asigna un Thread para cada una de las conexiones de WebSocket que generemos. As&amp;iacute; pues cada uno de los clientes de Websocket est&amp;aacute;n ligados a&amp;nbsp;un Thread concreto. El diagrama ser&amp;iacute;a mas cercano a lo siguiente.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/threads1.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/threads1.png" alt="threads" width="541" height="428" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Esto parece m&amp;aacute;s l&amp;oacute;gico ya que cada Thread se encargar&amp;aacute; de estar pendiente de los mensajes que llegan por cada conexi&amp;oacute;n de WebSoket.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-07-09T07:00:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>The hidden services II: como poner en marcha nuestros propios servicios ocultos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos" />
-    <category term="sin-categoria" />
-    <category term="blog-stack" />
-    <category term="internet" />
-    <category term="aktibismoa" />
-    <category term="hackinbadakigu" />
-    <category term="privacidad" />
-    <category term="tor" />
-    <author>
-      <name>Dabid Martinez</name>
-    </author>
-    <updated>2014-07-08T11:57:48Z</updated>
-    <published>2014-07-08T11:57:48Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Esto es la continuaci&amp;oacute;n del master de la Internet profunda:&lt;/strong&gt; &lt;a href="http://laborategia.net/2014/06/the-deep-web-los-suburbios-de-internet/"&gt;The Deep Web; &amp;iquest;los suburbios de Internet?&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;La gente que busca preservar el anonimato de su identidad en la red (tanto si es en la onion web como en la Internet comercial) usa servicios que est&amp;aacute;n en la red TOR. Todas y cada una de nosotras tenemos la posibilidad de desplegar servicios ocultos en nuestros servidores con una relativa facilidad.&lt;/p&gt; 
-&lt;p&gt;A la hora de instalar un Hidden Service web tenemos que hacer una configuraciones muy simples en los ficheros de configuraci&amp;oacute;n de TOR. En este ejemplo solo explicare como montar un servidor web b&amp;aacute;sico para poder servir HTML dentro de la red TOR, pero pod&amp;eacute;is usar las gu&amp;iacute;as de vuestros sistemas operativos libres favoritos para poner servicios tales como blogs, (s)FTP, wikis…, o cualquier otra cosa que se os pueda ocurrir.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Dabid Martinez</dc:creator>
-    <dc:date>2014-07-08T11:57:48Z</dc:date>
-  </entry>
-  <entry>
-    <title>Novedades de SignalR 2.1 (II): desconexión del cliente</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente" />
-    <category term="novedades" />
-    <category term="signalr" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-07-08T11:55:00Z</updated>
-    <published>2014-07-08T11:55:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="SignalR" src="http://lh5.ggpht.com/-cx_vCvWZkGc/U4HhsolNKeI/AAAAAAAADds/UlRNxkEOfhc/image%25255B2%25255D.png?imgmax=800" height="106" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="SignalR" width="106" /&gt;Otra de las novedades que acompa&amp;ntilde;an a la versi&amp;oacute;n 2.1 de SignalR, y que sin duda puede resultar interesante en muchos escenarios, es la capacidad de tener desde los 
-&lt;em&gt;hubs&lt;/em&gt; una pista sobre el motivo por el que se desconect&amp;oacute; un cliente, cosa que hasta ahora no era posible utilizando las herramientas que nos proporcionaba el framework de forma directa. 
-&lt;br /&gt; 
-&lt;br /&gt;En versiones previas de SignalR, cuando en un 
-&lt;em&gt;hub&lt;/em&gt; recibimos el evento 
-&lt;code&gt;OnDisconnected()&lt;/code&gt; en realidad no sabemos si este cierre ha sido “educado”, es decir, provocado expl&amp;iacute;citamente por el cliente como consecuencia de una acci&amp;oacute;n, como puede ser que el usuario haya decidido salir de la aplicaci&amp;oacute;n, o bien se ha debido a un problema en el software o comunicaciones (imaginad, por ejemplo, que se cae la conexi&amp;oacute;n a internet).&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-07-08T11:55:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Palabras (III)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/palabras-iii" />
-    <category term="desarrollo-de-software" />
-    <author>
-      <name>Luis Artola</name>
-    </author>
-    <updated>2014-07-08T06:52:04Z</updated>
-    <published>2014-07-08T06:52:04Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Si nos preguntan: &amp;iquest;quieres ser eficiente? &amp;iquest;eficaz? &amp;iquest;productivo? &amp;iquest;rentable? R&amp;aacute;pidamente responder&amp;iacute;amos a todo que s&amp;iacute;. &amp;nbsp;Veamos qu&amp;eacute; significa (copipegado todo de la Wikipedia):&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;Eficiencia&lt;/strong&gt;: la capacidad de disponer de alguien o de algo para conseguir un objetivo determinado con el &lt;strong&gt;m&amp;iacute;nimo de recursos&lt;/strong&gt; posibles viable.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;Eficacia:&lt;/strong&gt;&amp;nbsp;es la capacidad de lograr un efecto deseado, esperado o anhelado.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;P&lt;/strong&gt;&lt;b&gt;roductividad:&lt;/b&gt;&amp;nbsp;es la relaci&amp;oacute;n entre la cantidad de productos obtenida por un sistema productivo y los recursos utilizados para obtener dicha producci&amp;oacute;n.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;R&lt;/strong&gt;&lt;b&gt;entabilidad:&lt;/b&gt;&amp;nbsp;es la capacidad de producir o generar un beneficio (econ&amp;oacute;mico, social…) adicional sobre la inversi&amp;oacute;n o esfuerzo realizado.&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;&lt;strong&gt;La diferencia entre eficiencia y eficaz&lt;/strong&gt; la saco tambi&amp;eacute;n de la wikipedia: matar una&amp;nbsp;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/palabras-iii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Luis Artola</dc:creator>
-    <dc:date>2014-07-08T06:52:04Z</dc:date>
-  </entry>
-  <entry>
-    <title>Modelo «push» contra modelo «pull» en frameworks web</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-07-07T18:00:00Z</updated>
-    <published>2014-07-06T08:58:10Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En la mayor&amp;iacute;a de frameworks de desarrollo de aplicaciones o p&amp;aacute;ginas web para producir el contenido HTML que se env&amp;iacute;a al cliente se emplea un modelo en el que el controlador proporciona los datos que combinados con una plantilla producen el HTML. Este modelo tambi&amp;eacute;n es el empleado habitualmente en muchos motores de plantillas (&lt;a href="http://www.thymeleaf.org/"&gt;thymeleaf&lt;/a&gt;, &lt;a href="http://mustache.github.io/"&gt;mustache&lt;/a&gt;, …). Sin embargo, hay dos modelos que se pueden seguir para producir un texto como resultado dada una plantilla y datos:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Push: este es el modelo comentado. El controlador recupera de antemano todos los datos que necesita la vista, el controlador tambi&amp;eacute;n determina la vista o plantilla que se usar. Combinando los datos y la plantilla se produce el resultado.&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;div style="text-align: center;"&gt; 
- &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-push.png" title="Modelo push"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/30/modelo-push.png" /&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Los pasos que se siguen en este modelo son:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-07-06T08:58:10Z</dc:date>
-  </entry>
-  <entry>
-    <title>Que es I-Nex y como instalar en Ubuntu mediante PPA</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa" />
-    <category term="ubuntu" />
-    <category term="ppa" />
-    <category term="instalar" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-07-07T17:00:16Z</updated>
-    <published>2014-07-07T16:02:20Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Este tema ya lo he tratado en otras ocasiones, el de obtener informaci&amp;oacute;n de nuestro PC y de nuestra distribuci&amp;oacute;n, pero el otro d&amp;iacute;a me encontr&amp;eacute; en una pagina con este programa y me pareci&amp;oacute; digno de hacer un articulo. La pagina en cuesti&amp;oacute;n se llama &lt;a href="http://trastetes.blogspot.com.es/"&gt;Trastetes&lt;/a&gt; y pod&amp;eacute;is acceder a ella pinchando en el nombre, recomiendo su lectura, esta muy bien. En este caso hablaba sobre&lt;strong&gt; I-Nex&lt;/strong&gt;, un programa que nos dar&amp;aacute; mucha informaci&amp;oacute;n de nuestro ordenador y de el &lt;strong&gt;Ubuntu&lt;/strong&gt; que tengamos instalado. Os voy a mostrar algunas capturas y al final os dir&amp;eacute; como lo podemos &lt;strong&gt;instalar&lt;/strong&gt; a&amp;ntilde;adiendo el &lt;strong&gt;PPA&lt;/strong&gt; correspondiente. Tengo que decir que es un proyecto activo, incluso han sacado ya la versi&amp;oacute;n del programa correspondiente a Ubuntu 14.10.&lt;/p&gt; 
- &lt;p&gt;El programa en si esta dividido en pesta&amp;ntilde;as y cada una representa una secci&amp;oacute;n en la cual podr&amp;eacute;is ver informaci&amp;oacute;n muy detallada. Os muestro unas capturas que he tomado despu&amp;eacute;s de instalarlo en mi Ubuntu 14.04:&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-07-07T16:02:20Z</dc:date>
   </entry>
 </feed>
 

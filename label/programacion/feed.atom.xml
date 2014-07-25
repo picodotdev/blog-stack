@@ -3,10 +3,128 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-19T20:03:42Z</updated>
+  <updated>2014-07-25T02:12:57Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-19T20:03:42Z</dc:date>
+  <dc:date>2014-07-25T02:12:57Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Introducción a la clase Objects</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects" />
+    <category term="programacion" />
+    <category term="java-se" />
+    <category term="util" />
+    <category term="objects" />
+    <category term="java-util-objects" />
+    <category term="class" />
+    <category term="java-7" />
+    <category term="java" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2014-07-24T22:02:25Z</updated>
+    <published>2014-07-24T22:01:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace algunos meses atr&amp;aacute;s estudiando para la certificaci&amp;oacute;n de java 7, me entere de la existencia de la clase &lt;a title="clase Objects" href="http://docs.oracle.com/javase/7/docs/api/java/util/Objects.html"&gt;java.util.Objects&lt;/a&gt;, esta es una clase utilitaria compuesta en su totalidad de m&amp;eacute;todos est&amp;aacute;ticos que&amp;nbsp;aunque lucen bastante simples, si que resultan de ayuda ahorr&amp;aacute;ndonos algo de trabajo (tedioso), entre estos encontramos algunos para realizar comparaciones as&amp;iacute; como para el calculo del hash de un objeto, o&amp;nbsp;tambi&amp;eacute;n&amp;nbsp;para evitar asignar null a objetos.&lt;/p&gt; 
+&lt;p&gt;En este caso creo que no hay mejor forma que verlo en el c&amp;oacute;digo para que podamos apreciar su utilidad.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;pre&gt;import java.util.Objects;
+
+public class ObjectsClassExample {
+	
+	static class Persona {
+		
+		private String nombre;
+		private int edad;
+		
+		Persona() {
+		}
+		
+		Persona(String nombre, int edad) {
+			this.nombre = Objects.requireNonNull(nombre); //Arroja NullPointerException
+			this.edad = edad;							// si el parametro nombre es null
+		}
+
+		public String getNombre() {
+			return nombre;
+		}
+
+		public void setNombre(String nombre) {
+						//Arroja NullPointerException si el parametro nombre es null
+						//siendo este el mensaje de la exception
+			this.nombre = Objects.requireNonNull(nombre, &amp;quot;Es estrictamente necesario pasar un Nombre&amp;quot;);
+		}
+
+		public int getEdad() {
+			return edad;
+		}
+
+		public void setEdad(int edad) {
+			this.edad = edad;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			
+			Persona persona = (Persona)obj;
+			if (edad != persona.edad)
+				return false;
+			if (!Objects.equals(this.nombre, persona.nombre)) //Compara si ambos objetos son iguales
+				return false;
+			
+			return true;
+		}
+		
+		@Override
+		public int hashCode() {
+			return Objects.hash(nombre, edad); //calcula el valor hash del conjunto de valores
+												//en nuestro caso los atributos nombre y edad
+		}
+		
+		@Override
+		public String toString() { //Si el atributo nombre es null entonces 
+									//muestra la cadena &amp;quot;Sin Nombre&amp;quot;
+			return &amp;quot;{Nombre: &amp;quot; + Objects.toString(nombre, &amp;quot;Sin Nombre&amp;quot;) + &amp;quot; , Edad: &amp;quot; + edad;
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Persona p1 = new Persona ();
+		Persona p2 = new Persona (&amp;quot;Maria&amp;quot;, 20);
+		
+		System.out.println(&amp;quot;p1.toString(): &amp;quot; + p1);
+		System.out.println(&amp;quot;p2.toString(): &amp;quot; + p2);
+		System.out.println(&amp;quot;p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;p1.hashCode(): &amp;quot; + p1.hashCode());
+		System.out.println(&amp;quot;p2.hashCode(): &amp;quot; + p2.hashCode());
+		
+		p1.setNombre(&amp;quot;Maria&amp;quot;);
+		p1.setEdad(20);
+		
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt; p1.equals(p2): &amp;quot; + p1.equals(p2));
+		System.out.println(&amp;quot;Despues de asignar valores  -&amp;amp;gt;  p1.hashCode(): &amp;quot; + p1.hashCode());
+		
+		try {
+			p1 = new Persona(null, 20);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+		
+		try {
+			p2.setNombre(null);
+		} catch (NullPointerException e) {
+			System.err.println(&amp;quot;Mensaje: &amp;quot; + e.getMessage());
+		}
+	}
+
+}&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2014/07/introduccion-a-la-clase-objects"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2014-07-24T22:01:01Z</dc:date>
+  </entry>
   <entry>
     <title>Anotación Cached de Apache Tapestry</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry" />
@@ -695,27 +813,6 @@
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/02/musica-para-programar"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-02-27T16:42:43Z</dc:date>
-  </entry>
-  <entry>
-    <title>Generar y convertir claves y certificados con OpenSSL</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="planeta-arch-linux" />
-    <category term="planeta-linux" />
-    <category term="software-libre" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-02-21T16:36:21Z</updated>
-    <published>2014-02-21T16:36:21Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/openssl.png" alt="OpenSSL" title="OpenSSL" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Para un uso personal como enviar correos o archivos cifrados o firmados digitalmente usar &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/11/introduccion-la-criptografia-e-inicio-con-gpg.html"&gt;GnuPG&lt;/a&gt; es una buena opci&amp;oacute;n. En Internet los servidores tambi&amp;eacute;n se aprovechan del uso de criptograf&amp;iacute;a para realizar comunicaciones seguras entre el usuario y el servidor.&lt;/p&gt; 
-&lt;p&gt;Para hacer uso en un servidor de una comunicaci&amp;oacute;n https donde los datos viajan cifrados y sin que otras partes salvo el usuario y el servidor puedan acceder a los datos necesitamos un certificado digital. Un certificado es un archivo que contiene la clave p&amp;uacute;blica sirvi&amp;eacute;ndonos para verificar su autenticidad. Un certificado autofirmado es un certificado firmado con la misma clave privada asociada a la clave p&amp;uacute;blica que contiene el certificado. Un certificado autofirmado es suficiente para un entorno de pruebas pero en un servidor para proporcionar confianza a los usuarios deberemos solicitar que una autoridad de certificados que nos firme con su clave nuestro certificado, si el usuario conf&amp;iacute;a en esa autoridad de certificado puede de esta manera confiar en nuestro certificado y clave p&amp;uacute;blica.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-02-21T16:36:21Z</dc:date>
   </entry>
 </feed>
 

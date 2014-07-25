@@ -3,6 +3,46 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
+      "title" : "Introducción a la clase Objects"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
+      "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript",
+      "title" : "Para GenBetaDev (JPA y Javascript)"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest",
+      "title" : "Arquitecturas MVC y REST"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity",
+      "title" : "Accidental versus essential complexity"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
+      "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi",
+      "title" : "#if DEBUG en Javascript (bueno, o algo así)"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja",
+      "title" : "Un entorno productivo en pareja"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
+      "title" : "Como escuchar la radio en Ubuntu"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-167",
+      "title" : "Enlaces interesantes 167"
+    },
+    {
       "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
       "title" : "Tres años de Koalite"
     },
@@ -21,46 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
       "title" : "EJB 3.2 y Flexibilidad"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/cynefin-complejo-o-complicado",
-      "title" : "Cynefin: ¿complejo o complicado?"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
-      "title" : "HTML5 Almacenamiento (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones",
-      "title" : "Novedades de SignalR 2.1 (y III): progreso de acciones"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
-      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
-      "title" : "Unos prompt de ejemplo"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
-      "title" : "Java 8 Lambda Expressions (I)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
-      "title" : "Como instalar Spotify en Ubuntu 14.04"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-166",
-      "title" : "Enlaces interesantes 166"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
-      "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
-    },
-    {
-      "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
-      "title" : "El lado oscuro de los gestores de paquetes"
     }
   ]
 }

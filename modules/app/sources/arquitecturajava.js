@@ -3,6 +3,14 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript",
+      "title" : "Para GenBetaDev (JPA y Javascript)"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest",
+      "title" : "Arquitecturas MVC y REST"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
       "title" : "EJB 3.2 y Flexibilidad"
     },
@@ -53,14 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
       "title" : "EntityManager, EntityManagerFactory  y Singletons"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/el-patron-fachada-genbetadev",
-      "title" : "El patrón fachada  (GenBetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/frameworks-css-less-y-sass-para-cantabriatic",
-      "title" : "Frameworks CSS Less y Sass para  (CantabriaTic)"
     }
   ]
 }

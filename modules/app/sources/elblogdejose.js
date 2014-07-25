@@ -3,6 +3,10 @@ define("app/sources/elblogdejose", [], function() {
   "name" : "El blog de Jose",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
+      "title" : "Introducción a la clase Objects"
+    },
+    {
       "url" : "/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer",
       "title" : "Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer"
     },

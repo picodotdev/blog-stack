@@ -3,6 +3,14 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity",
+      "title" : "Accidental versus essential complexity"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja",
+      "title" : "Un entorno productivo en pareja"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/panel-time-control",
       "title" : "Panel Time Control"
     },
@@ -53,14 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/03/utilizando-vagrant-para-tener-entornos-de-pruebas-lamp",
       "title" : "Utilizando vagrant para tener entornos de pruebas (LAMP)"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/02/amazon-ec2-instancias-reservadas-y-precios",
-      "title" : "Amazon EC2, instancias reservadas y precios."
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2013/12/automatizar-la-gestion-y-aprovisionamiento-de-tu-infraestructura",
-      "title" : "Automatizar la gestión y aprovisionamiento de tu infraestructura"
     }
   ]
 }
