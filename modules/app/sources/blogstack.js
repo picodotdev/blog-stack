@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
+      "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
+    },
+    {
       "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
       "title" : "Introducción a la clase Objects"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
       "title" : "Anotación Cached de Apache Tapestry"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
-      "title" : "EJB 3.2 y Flexibilidad"
     }
   ]
 }
