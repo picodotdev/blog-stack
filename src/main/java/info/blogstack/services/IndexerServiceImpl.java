@@ -189,7 +189,7 @@ public class IndexerServiceImpl implements IndexerService {
 			post.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
 			
 			post = service.getPostDAO().findByHash(Utils.getHash(post));
-			if (!source.equals(post.getSource())) {
+			if (post != null && !source.equals(post.getSource())) {
 				logger.warn(String.format("Article with same hash and different source (post: %s, source: %s, post source: %s)", post.getId(), source.getName(), post.getSource().getName()));
 				post = null;
 			}
