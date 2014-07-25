@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -172,11 +173,27 @@ public class IndexerServiceImpl implements IndexerService {
 			return null;
 		}
 
+		// Search by url
 		Post post = service.getPostDAO().findByURL(entry.getLink());
 
+		// Search by hash
 		DateTime now = DateTime.now();
 		DateTime publishDate = (entry.getPublishedDate() == null) ? null : new DateTime(entry.getPublishedDate());
 		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
+		
+		if (post == null) {
+			post = new Post();
+			post.setSource(source);
+			post.setUpdateDate(updateDate);
+			post.setPublishDate(publishDate);
+			post.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
+			
+			post = service.getPostDAO().findByHash(Utils.getHash(post));
+			if (!source.equals(post.getSource())) {
+				logger.warn(String.format("Article with same hash and different source (post: %s, source: %s, post source: %s)", post.getId(), source.getName(), post.getSource().getName()));
+				post = null;
+			}
+		}
 
 		if (!forceIndex 
 				&& !forceImport
@@ -186,6 +203,8 @@ public class IndexerServiceImpl implements IndexerService {
 			// La articulo ya estaba indexada y la fecha de actualizacion es anterior
 			return null;
 		} else if (post == null) {
+			logger.info("Indexing {} post...", entry.getTitle());
+			
 			post = new Post();
 			post.setCreationDate(now);
 			post.setVisible(true);
