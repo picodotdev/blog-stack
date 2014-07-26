@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
+      "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/07/crunchbang-un-debian-ligero-para-equipos-de-pocos-recursos",
+      "title" : "Crunchbang, un Debian ligero para equipos de pocos recursos"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
       "title" : "Fondos de escritorio 12"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
       "title" : "Tres años de Koalite"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/panel-time-control",
-      "title" : "Panel Time Control"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
-      "title" : "Linux y GNU están de moda"
     }
   ]
 }

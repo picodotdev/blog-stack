@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
+      "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
       "title" : "Anotación Cached de Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/04/introduccion-a-elasticsearch",
       "title" : "Introducción a Elasticsearch"
-    },
-    {
-      "url" : "/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react",
-      "title" : "Ejemplo lista de tareas con Backbone y React"
     }
   ]
 }
