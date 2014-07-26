@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
+      "title" : "Fondos de escritorio 12"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
       "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
       "title" : "Linux y GNU están de moda"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
-      "title" : "Anotación Cached de Apache Tapestry"
     }
   ]
 }
