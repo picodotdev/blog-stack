@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
+      "title" : "Spring Framework y aislamiento"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript",
       "title" : "Para GenBetaDev (JPA y Javascript)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/java-websockets",
       "title" : "Java WebSockets"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/entitymanager-entitymanagerfactory-y-singletons",
-      "title" : "EntityManager, EntityManagerFactory  y Singletons"
     }
   ]
 }

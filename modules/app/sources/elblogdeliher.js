@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
+      "title" : "Sobre el nuevo canon AEDE"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux",
+      "title" : "Los editores de texto predeterminados en Linux"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
       "title" : "Fondos de escritorio 12"
     },
@@ -53,14 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
       "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/abrir-como-root-un-archivo-en-ubuntu-de-forma-sencilla",
-      "title" : "Abrir como root un archivo en Ubuntu de forma sencilla"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/06/que-es-una-distribucion-rolling-release-en-linux",
-      "title" : "Que es una distribucion Rolling Release en Linux"
     }
   ]
 }

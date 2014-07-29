@@ -3,19 +3,74 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-25T11:03:03Z</updated>
+  <updated>2014-07-29T12:03:03Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-25T11:03:03Z</dc:date>
+  <dc:date>2014-07-29T12:03:03Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Los editores de texto predeterminados en Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux" />
+    <category term="ubuntu" />
+    <category term="conceptos-basicos" />
+    <category term="texto" />
+    <category term="linux" />
+    <category term="editor" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-07-28T12:39:45Z</updated>
+    <published>2014-07-28T12:39:45Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;Haces unos d&amp;iacute;as un usuario llamado Zock me dejo un comentario en un articulo en el cual describo como instalar Spotify en Ubuntu diciendo que hab&amp;iacute;a tenido problemas para seguir el articulo debido a que era usuario de Lubuntu y yo hab&amp;iacute;a explicado el proceso desde Ubuntu. En uno de los pasos puse una orden que hab&amp;iacute;a que ejecutar en la Terminal tal que as&amp;iacute;:&lt;/p&gt; 
+ &lt;pre&gt;sudo gedit conf&lt;/pre&gt; 
+ &lt;p&gt;Esta orden indica que queremos abrir un archivo llamado “conf”, que queremos abrirlo con el programa “gedit” y que queremos hacerlo con privilegios de root. El problema del usuario radicaba en que al querer ejecutar este comando no pod&amp;iacute;a abrirse el programa “gedit” debido a que no lo tenia instalado en Lubuntu y este articulo es para explicar como “arreglar” este problema.&lt;/p&gt; 
+ &lt;p&gt;Antes de seguir me gustar&amp;iacute;a pedir disculpas a Zock y a todos aquellos a los que les haya pasado lo mismo, los art&amp;iacute;culos que escribo en este blog van destinados a los usuarios de Ubuntu y no hab&amp;iacute;a tenido en cuenta hasta ahora las diferencias entre Ubuntu y Lubuntu, por poner un ejemplo. Tambi&amp;eacute;n es cierto que es dif&amp;iacute;cil en ocasiones tener en cuenta todos los factores a la hora de escribir un articulo, pero gracias a este usuario me he dado cuenta del error y quiero subsanarlo.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-07-28T12:39:45Z</dc:date>
+  </entry>
+  <entry>
+    <title>Crear copias de seguridad de manera sencilla con tar</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="bash" />
+    <category term="sistemas-operativos" />
+    <category term="crontab" />
+    <category term="backup" />
+    <category term="comandos" />
+    <category term="script" />
+    <category term="tar" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-07-28T10:42:17Z</updated>
+    <published>2014-07-28T10:37:27Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/07/image-backup.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/07/image-backup.jpg" alt="image-backup" width="150" height="145" /&gt;&lt;/a&gt;Perder toda la informaci&amp;oacute;n de nuestro sistema e intentar recuperarla puede ser un aut&amp;eacute;ntico quebradero de cabeza. Los sistemas basados en &lt;strong&gt;UNIX&lt;/strong&gt; como &lt;strong&gt;Linux&lt;/strong&gt; disponen de un amplio abanico de comandos para facilitarnos las cosas.&lt;/p&gt; 
+&lt;p&gt;Uno de ellos es &lt;strong&gt;&lt;em&gt;tar&lt;/em&gt;&lt;/strong&gt; (Tape ARchiver), una herramienta de f&amp;aacute;cil manejo que encontramos en todas las versiones de Linux y UNIX, que nos permitir&amp;aacute; copiar ficheros y directorios a un s&amp;oacute;lo fichero, que podr&amp;aacute; ser comprimido.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Los par&amp;aacute;metros m&amp;aacute;s importantes son los siguientes:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;strong&gt;c&lt;/strong&gt;, crea un nuevo archivo o contenedor.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;d&lt;/strong&gt;, calcula las diferentes entre el archivo y el sistema de archivos.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;x&lt;/strong&gt;, extrae ficheros de un archivo o contenedor.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;t&lt;/strong&gt;, testeo los archivos almacenados en el fichero.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;v&lt;/strong&gt;, modo verbose o detallado.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;f&lt;/strong&gt;, especifica el nombre del contenedor.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-07-28T10:37:27Z</dc:date>
+  </entry>
   <entry>
     <title>Edubuntu acaba de lanzar su versión LTS 14.04.1</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1" />
-    <category term="ubuntu" />
     <category term="blog-stack" />
+    <category term="ubuntu" />
     <category term="linux" />
     <category term="sistemas-operativos" />
-    <category term="lts" />
     <category term="noticias" />
+    <category term="lts" />
     <category term="edubuntu" />
     <author>
       <name>ochobitshacenunbyte</name>
@@ -765,50 +820,6 @@ export PATH&lt;/pre&gt;
 &lt;p&gt;Detr&amp;aacute;s del proyecto existe una comunidad de usuarios y programadores. Inicialmente el proyecto lo comenz&amp;oacute; Gilberto Gorges, y actualmente es coordinado por Marcos Germ&amp;aacute;n Guglielmetti, aunque en el peso del proyecto tambi&amp;eacute;n contribuyen un n&amp;uacute;cleo de programadores de diferentes pa&amp;iacute;ses como Argentina, Uruguay, Espa&amp;ntilde;a, M&amp;eacute;xico o Estados Unidos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/distribuciones-cien-por-cien-libres-parte-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-05-05T14:53:35Z</dc:date>
-  </entry>
-  <entry>
-    <title>Anexo a la guía de instalación y del principiante de Arch Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="linux" />
-    <category term="software" />
-    <category term="planeta-arch-linux" />
-    <category term="planeta-linux" />
-    <category term="software-libre" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-05-02T17:09:56Z</updated>
-    <published>2014-05-02T17:09:56Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/archlinux.png" alt="Arch Linux" title="Arch Linux" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Antes de migrar a una distribuci&amp;oacute;n como &lt;a href="https://www.archlinux.org/"&gt;Arch Linux&lt;/a&gt; es recomendable ver si esta distribuci&amp;oacute;n GNU/Linux es la adecuada para nosotros en funci&amp;oacute;n de su &lt;a href="https://wiki.archlinux.org/index.php/The_Arch_Way"&gt;filosof&amp;iacute;a (The Arch Way)&lt;/a&gt;, sus &lt;a href="https://wiki.archlinux.org/index.php/Arch_Linux"&gt;pricipales caracter&amp;iacute;sticas&lt;/a&gt; y las &lt;a href="https://wiki.archlinux.org/index.php/FAQ"&gt;preguntas frecuentes&lt;/a&gt;. Arch Linux es una distribuci&amp;oacute;n orientada a personas que no les importa dedicar un tiempo a aprender como instalarla y posteriormente mantenerla actualizada, esto tampoco debe asustarnos, la &lt;a href="https://wiki.archlinux.org/"&gt;wiki de arch&lt;/a&gt; es de las mejores fuentes de informaci&amp;oacute;n que hay para cualquier cosa que necesitemos. Si la wiki no es suficiente ayuda en los &lt;a href="https://bbs.archlinux.org/"&gt;foros&lt;/a&gt; muy posiblemente encontraremos la soluci&amp;oacute;n. Pero para alguien que vaya a &lt;a href="http://elblogdepicodev.blogspot.com.es/2010/03/de-windows-arch-linux.html"&gt;migrar de Windows o Mac a Linux&lt;/a&gt; creo que es m&amp;aacute;s recomendable empezar con alguna distribuci&amp;oacute;n que lo pone m&amp;aacute;s f&amp;aacute;cil para empezar con unos pocos clics, las m&amp;aacute;s conocidas son &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-05-02T17:09:56Z</dc:date>
-  </entry>
-  <entry>
-    <title>He ganado, bieennnn :D</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/05/he-ganado-bieennnn-d" />
-    <category term="linux" />
-    <category term="noticias" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-05-02T08:59:30Z</updated>
-    <published>2014-05-02T08:59:30Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Durante el mes de Abril se llevo a cabo un concurso en &lt;a href="http://www.ubuntizando.com/"&gt;Ubuntizando&lt;/a&gt;, una muy buena pagina sobre Linux y Ubuntu, que fue organizado por Miguel Parada, su creador, desde a qui un saludo :D. Participar en dicho concurso era bastante sencillo, Miguel hacia una pregunta y todos los usuarios que visitan dicho blog ten&amp;iacute;an que escribir una respuesta, de entre todas las respuestas Miguel escoger&amp;iacute;a las 10 mas originales, o que mas le gustasen a el que para eso lo organizaba :P.&lt;/p&gt; 
- &lt;p&gt;Pues resulta que tuve la suerte de ser uno de los ganadores, he aqu&amp;iacute; la lista de los ganadores de las chapas:&lt;/p&gt; 
- &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
- &lt;p&gt;&lt;a href="http://elblogdeliher.com/wp-content/uploads/2014/05/ganadores-linux-inside.jpg"&gt;&lt;img src="http://elblogdeliher.com/wp-content/uploads/2014/05/ganadores-linux-inside.jpg" alt="ganadores-linux-inside" width="481" height="243" /&gt;&lt;/a&gt;&lt;/p&gt; 
- &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
- &lt;p&gt;No puedo estar mas contento al respecto ya que figuro en el primer puesto, ademas ya he recibido la chapa esta semana y ya la he puesto en mi ordenador, aunque me ha costado mucho ponerla ya que la pantalla esta dura y hacer el agujero ha sido una tarea dificil ;D, pero lo he conseguido, aqu&amp;iacute; os dejo una imagen en la que la pod&amp;eacute;is ver:&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/05/he-ganado-bieennnn-d"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-05-02T08:59:30Z</dc:date>
   </entry>
 </feed>
 

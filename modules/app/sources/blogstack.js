@@ -3,6 +3,26 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
+      "title" : "Sobre el nuevo canon AEDE"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux",
+      "title" : "Los editores de texto predeterminados en Linux"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/07/vacaciones",
+      "title" : "<Vacaciones>"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar",
+      "title" : "Crear copias de seguridad de manera sencilla con tar"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
+      "title" : "Spring Framework y aislamiento"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
       "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
     },
@@ -41,26 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
       "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi",
-      "title" : "#if DEBUG en Javascript (bueno, o algo así)"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja",
-      "title" : "Un entorno productivo en pareja"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
-      "title" : "Como escuchar la radio en Ubuntu"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-167",
-      "title" : "Enlaces interesantes 167"
-    },
-    {
-      "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
-      "title" : "Tres años de Koalite"
     }
   ]
 }

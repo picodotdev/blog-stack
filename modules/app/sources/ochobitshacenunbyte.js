@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar",
+      "title" : "Crear copias de seguridad de manera sencilla con tar"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
       "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba-segunda-parte-permisos-acl",
       "title" : "Compartiendo con SAMBA, segunda parte, permisos ACL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd",
-      "title" : "Montar un servidor FTP desde 0, con PROFTPD"
     }
   ]
 }
