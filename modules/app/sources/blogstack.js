@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
+      "title" : "Usar Apache Tapestry en una aplicación «standalone»"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
       "title" : "Saber cuanto ocupa un fichero o directorio con du"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest",
       "title" : "Arquitecturas MVC y REST"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity",
-      "title" : "Accidental versus essential complexity"
     }
   ]
 }
