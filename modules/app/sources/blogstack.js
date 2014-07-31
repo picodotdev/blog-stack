@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
+      "title" : "Saber cuanto ocupa un fichero o directorio con du"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
       "title" : "Sobre el nuevo canon AEDE"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity",
       "title" : "Accidental versus essential complexity"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
-      "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
     }
   ]
 }
