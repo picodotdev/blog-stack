@@ -3,6 +3,14 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/analisis-paralisis",
+      "title" : "Análisis parálisis"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/08/speed-in-software-development",
+      "title" : "Speed in software development"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/07/accidental-versus-essential-complexity",
       "title" : "Accidental versus essential complexity"
     },
@@ -53,14 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/04/the-eye-of-the-storm",
       "title" : "The eye of the storm"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/03/vagrant-chef-solo-para-crear-un-entorno-de-desarrollo-lamp",
-      "title" : "Vagrant + Chef solo para crear un entorno de desarrollo LAMP"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/03/utilizando-vagrant-para-tener-entornos-de-pruebas-lamp",
-      "title" : "Utilizando vagrant para tener entornos de pruebas (LAMP)"
     }
   ]
 }

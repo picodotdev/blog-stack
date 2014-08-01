@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/analisis-paralisis",
+      "title" : "Análisis parálisis"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/08/speed-in-software-development",
+      "title" : "Speed in software development"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
       "title" : "Usar Apache Tapestry en una aplicación «standalone»"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
       "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript",
-      "title" : "Para GenBetaDev (JPA y Javascript)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest",
-      "title" : "Arquitecturas MVC y REST"
     }
   ]
 }
