@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
+      "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/analisis-paralisis",
       "title" : "Análisis parálisis"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
       "title" : "Introducción a la clase Objects"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
-      "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
     }
   ]
 }

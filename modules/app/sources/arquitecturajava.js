@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
+      "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
       "title" : "Spring Framework y aislamiento"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
       "title" : "JavaScript JsPerf"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/java-websockets",
-      "title" : "Java WebSockets"
     }
   ]
 }
