@@ -3,8 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
+      "title" : "Por qué no voy a usar Chef (por ahora)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
       "title" : "Mi página web va lenta"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/08/guia-de-la-fundacion-de-software-libre-para-proteger-la-privacidad-de-tu-correo",
+      "title" : "Guía de la Fundación de Software Libre para proteger la privacidad de tu correo"
     },
     {
       "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/07/crunchbang-un-debian-ligero-para-equipos-de-pocos-recursos",
       "title" : "Crunchbang, un Debian ligero para equipos de pocos recursos"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
-      "title" : "Fondos de escritorio 12"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
-      "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
     }
   ]
 }

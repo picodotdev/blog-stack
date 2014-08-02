@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
+      "title" : "Por qué no voy a usar Chef (por ahora)"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
       "title" : "Mi página web va lenta"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
       "title" : "Home Inventory \u2013 Productividad"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
-      "title" : "Identity vs GUID"
     }
   ]
 }
