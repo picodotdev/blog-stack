@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
+      "title" : "Mi página web va lenta"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
       "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
       "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
-    },
-    {
-      "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
-      "title" : "Introducción a la clase Objects"
     }
   ]
 }

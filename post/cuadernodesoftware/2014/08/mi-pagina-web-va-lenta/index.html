@@ -1,0 +1,96 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Mi página web va lenta | Cuaderno de software</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta"><span itemprop="headline">Mi página web va lenta</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">David González</span> en la bitácora <a href="http://www.programania.net/">Cuaderno de software</a>, <a href="http://www.programania.net/diseno-de-software/mi-pagina-web-va-lenta/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-08-02T09:47" itemprop="datePublished">Publicado el sábado, 02 de agosto de 2014 a las 09:47 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/desarrollo-de-software"><span itemprop="articleSection">desarrollo-de-software</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.programania.net/wp-content/uploads/IMG_20140802_110438.jpg"><img src="http://www.programania.net/wp-content/uploads/IMG_20140802_110438-300x225.jpg" alt="IMG_20140802_110438" width="300" height="225" /></a></p> 
+<p>Repaso en voz alta los diferentes pasos a la hora de servir una web (lo siento pero no soy capaz de dibujar con un ordenador con la misma comodidad que lo hago con papel y boli):</p> 
+<p><strong>t0:</strong> tiempo de env&iacute;o de la petici&oacute;n desde el navegador al servidor, desde que hacemos click hasta que dicha petici&oacute;n llega al servidor, este factor es ajeno a la web como tal, pero hay que saber identificarlo porque el problema estar&aacute; en la conexi&oacute;n del usuario y por lo tanto no tendr&aacute; que ver con nuestra aplicaci&oacute;n directamente.<br /> <strong>t1:</strong> tiempo de procesado de la petici&oacute;n, primera fase de la petici&oacute;n, recepci&oacute;n de petici&oacute;n, cookies y dem&aacute;s informaci&oacute;n, procesado de esta, checkeo de la correcci&oacute;n, los factores que pueden influenciar en ella son: c&oacute;digo que es demasiado lento o hardware que no soporta el n&uacute;mero de peticiones o tipo de peticiones que se reciben.<br /> <strong>t2:</strong> tiempo para enviar la petici&oacute;n desde el c&oacute;digo hasta el sistema de persistencia (generalmente una BBDD). Es habitual que el c&oacute;digo y la informaci&oacute;n no est&eacute;n en la misma m&aacute;quina, en ese momento la conectividad entre estas es un punto mas a medir, es un problema de red.<br /> <strong>t3:</strong> tiempo de procesado de los datos en el sistema de persistencia. &iquest;Que tipo de consultas hacemos a la BBDD? &iquest;pedimos s&oacute;lo lo que necesitamos? &iquest;est&aacute; la consulta hecha de la mejor manera? &iquest;est&aacute;n los datos estructurados de la mejor manera? Si recibo los datos con frecuencia de quince minutos pero solo permito consultarlos por franjas horarias (el datepicker de la interfaz no hila mas fino) &iquest;tiene sentido almacenar un registro por cada 15 minutos?</p> 
+<p>timestamp0,16:00,v0<br /> timestamp1,16:15,v1<br /> timestamp2,16:30,v2<br /> timestamp3,16:45,v3</p> 
+<p>Vs.</p> 
+<p>timestamp0,16:00,{v0,v1,v2,v3}</p> 
+<p>En este sencillo ejemplo, en la segunda estructura se “bucear&aacute;” entre 1/4 del n&uacute;mero de registros (extrapolemos el mismo caso para registros minutales o segundales) para obtener la misma informaci&oacute;n que si se bucease en la primera. Esta decisi&oacute;n est&aacute; relacionada con las estructuras de la informaci&oacute;n (inferidas de un entendimiento claro de la soluci&oacute;n que queremos dar al cliente), de una consulta correcta al sistema de persistencia y por &uacute;ltimo del hardware.<br /> <strong>t4:</strong> devoluci&oacute;n de datos al c&oacute;digo, aqu&iacute; entran dos factores, la red, como en el momento del env&iacute;o de la query y por otro lado el vol&uacute;men de datos que se devuelvan (v4), si volvemos al ejemplo del punto <strong>t3</strong> el vol&uacute;men de datos a transferir ser&aacute; menor. Aqu&iacute; tendremos que buscar la relaci&oacute;n correcta entre lo que cueste conseguir los datos lo mas filtrados posible y el volumen que nos permita transferir el ancho de banda en un tiempo aceptable.<br /> <strong>t5:</strong> procesado de datos para generar la respuesta, se trata de un problema de c&oacute;digo intimamente relacionado con el volumen de datos que haya llegado del sistema de persistencia, habr&aacute; ocasiones en las que traer mas datos y procesarlos por c&oacute;digo sea mas interesante que traer los datos estrictamente necesarios a costa de haber trasladado demasiada carga al sistema de persistencia, es un problema de c&oacute;digo y hardware.<br /> <strong>t6:</strong> tiempo de devoluci&oacute;n de datos, se trata del volumen de informaci&oacute;n (v6) que se env&iacute;a al navegador, cuanto menor mejor evidentemente, aqu&iacute; influye nuestro c&oacute;digo y tambi&eacute;n el ancho de banda.<br /> <strong>t7:</strong> tiempo de renderizado en el navegador, si enviamos mucha informaci&oacute;n al navegador en un formato que depu&eacute;s deba ser procesada (una librer&iacute;a de graficado JS a la que servimos listas de puntos) tendremos esa sensaci&oacute;n de “la p&aacute;gina ha cargado pero no veo nada”.<br /> <strong>#:</strong> n&uacute;mero de consultas al sistema de persistencia que se realizan para poder obtener toda la informaci&oacute;n del sistema de persistencia, aqu&iacute; hay que realizar las pertinentes pruebas para cada caso, hay veces que 5 consultas sencillas ser&aacute;n mas r&aacute;pidas que una consulta compleja (cl&aacute;sicos JOIN en BBDD relacionales que unen tablas de tama&ntilde;os bestiales para ahorrar hacer unas pocas queries contra tabla &uacute;nica). He marcado este punto en rojo porque aqu&iacute; hay un problema serio con el c&oacute;digo, la utilizaci&oacute;n de grandes librerias de acceso a datos a veces genera una “niebla” sobre lo que realmente ocurre con nuestra BBDD. Un caso real es el del borrado de todos los hombres de una tabla usuarios que dispone de celda sexo que se realiz&oacute; obteniendo los id &uacute;nicos de cada usuario de sexo hombre para realizar el borrado en lugar de un simple borrado por sexo.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" st_title="Mi página web va lenta | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/desarrollo-de-software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo-de-software</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 811,
+      "url" : "http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "cuadernodesoftware",
+      "name" : "Cuaderno de software"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

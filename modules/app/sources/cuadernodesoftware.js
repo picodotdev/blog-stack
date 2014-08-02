@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
+      "title" : "Mi página web va lenta"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/analisis-paralisis",
       "title" : "Análisis parálisis"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
       "title" : "Identity vs GUID"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/04/the-eye-of-the-storm",
-      "title" : "The eye of the storm"
     }
   ]
 }
