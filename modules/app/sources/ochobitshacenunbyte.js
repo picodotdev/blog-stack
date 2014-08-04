@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
+      "title" : "Editando particiones con cfdisk"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
       "title" : "Saber cuanto ocupa un fichero o directorio con du"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
       "title" : "Destapando intrusos en nuestros sistemas con lsof"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/compartiendo-con-samba",
-      "title" : "Compartiendo con SAMBA"
     }
   ]
 }

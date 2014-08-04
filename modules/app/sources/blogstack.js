@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
+      "title" : "Editando particiones con cfdisk"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
       "title" : "Por qué no voy a usar Chef (por ahora)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
       "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/07/crunchbang-un-debian-ligero-para-equipos-de-pocos-recursos",
-      "title" : "Crunchbang, un Debian ligero para equipos de pocos recursos"
     }
   ]
 }
