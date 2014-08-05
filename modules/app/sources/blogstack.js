@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
+      "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/08/deadlock-bloqueo-mutuo-abrazo-mortal-o-como-colgar-un-proceso-con-esperas-infinitas",
       "title" : "Deadlock, bloqueo mutuo, abrazo mortal o cómo colgar un proceso con esperas infinitas. ☠ ☠ ☠"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar",
       "title" : "Crear copias de seguridad de manera sencilla con tar"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
-      "title" : "Spring Framework y aislamiento"
     }
   ]
 }

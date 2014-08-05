@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
+      "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
       "title" : "Editando particiones con cfdisk"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
       "title" : "Diversión con pingüinos"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/destapando-intrusos-en-nuestros-sistemas-con-lsof",
-      "title" : "Destapando intrusos en nuestros sistemas con lsof"
     }
   ]
 }
