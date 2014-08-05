@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/08/deadlock-bloqueo-mutuo-abrazo-mortal-o-como-colgar-un-proceso-con-esperas-infinitas",
+      "title" : "Deadlock, bloqueo mutuo, abrazo mortal o cómo colgar un proceso con esperas infinitas. ☠ ☠ ☠"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/06/creando-un-primer-plugin-para-magento-hola-mundo-en-magento",
       "title" : "Creando un primer plugin para Magento (hola mundo en Magento)"
     },
@@ -57,10 +61,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/pasando-argumentos-a-un-timertask-en-java",
       "title" : "Pasando argumentos a un TimerTask en Java"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/ci-xxiv-ataques-de-red-lasicos-intel-edison-representacion-de-pi-rsync-entrevista-de-trabajo-face-substitution",
-      "title" : "CI XXIV: Ataques de red lásicos, Intel Edison, representación de PI, RSYNC, entrevista de trabajo, face substitution"
     }
   ]
 }

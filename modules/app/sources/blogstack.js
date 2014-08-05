@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/08/deadlock-bloqueo-mutuo-abrazo-mortal-o-como-colgar-un-proceso-con-esperas-infinitas",
+      "title" : "Deadlock, bloqueo mutuo, abrazo mortal o cómo colgar un proceso con esperas infinitas. ☠ ☠ ☠"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
       "title" : "Editando particiones con cfdisk"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
       "title" : "Spring Framework y aislamiento"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
-      "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
     }
   ]
 }
