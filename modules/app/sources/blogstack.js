@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
+      "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
+      "title" : "Crea la nota perfecta con MyNotex"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
       "title" : "JQuery Ajax y Eventos Globales"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
       "title" : "Saber cuanto ocupa un fichero o directorio con du"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
-      "title" : "Sobre el nuevo canon AEDE"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux",
-      "title" : "Los editores de texto predeterminados en Linux"
     }
   ]
 }

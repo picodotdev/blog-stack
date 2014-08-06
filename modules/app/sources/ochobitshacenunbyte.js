@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
+      "title" : "Crea la nota perfecta con MyNotex"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
       "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/canonical-actualiza-el-sitio-web-de-ubuntu",
       "title" : "Canonical actualiza el sitio web de Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/diversion-con-pinguinos",
-      "title" : "Diversión con pingüinos"
     }
   ]
 }

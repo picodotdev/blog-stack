@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
+      "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
       "title" : "Sobre el nuevo canon AEDE"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
       "title" : "Mi experiencia en el hosting Vigunu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/desde-los-14-hasta-hoy-en-dia-fito-for-ever",
-      "title" : "Desde los 14 hasta hoy en dia, Fito for ever"
     }
   ]
 }
