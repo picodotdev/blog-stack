@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
+      "title" : "El problema al escribir"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
       "title" : "Por qué no voy a usar Chef (por ahora)"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
       "title" : "Autonomía, maestría y propósito: hay que ganárselos"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
-      "title" : "Home Inventory \u2013 Productividad"
     }
   ]
 }

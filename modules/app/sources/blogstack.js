@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
+      "title" : "El problema al escribir"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
       "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/vacaciones",
       "title" : "<Vacaciones>"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar",
-      "title" : "Crear copias de seguridad de manera sencilla con tar"
     }
   ]
 }
