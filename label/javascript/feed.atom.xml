@@ -3,10 +3,53 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-25T02:12:56Z</updated>
+  <updated>2014-08-06T08:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-25T02:12:56Z</dc:date>
+  <dc:date>2014-08-06T08:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>JQuery Ajax y Eventos Globales</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales" />
+    <category term="html5" />
+    <category term="jquery" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-08-06T07:02:30Z</updated>
+    <published>2014-08-06T07:02:30Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Ajax es una tecnolog&amp;iacute;a con la que trabajamos en el d&amp;iacute;a a d&amp;iacute;a pero que siempre tiene cosas que quedan por aprender. En este caso vamos a hablar de JQuery y como maneja los eventos de Ajax a nivel global. Para ello vamos a poner en ejemplo sencillo en el que usamos JQuery para hacer dos peticiones Ajax.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery-2.1.1.min.js&amp;quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+$(document).ready(function() {
+
+$.get(&amp;quot;/hola&amp;quot;,function(datos) {
+
+alert(datos);
+alert(&amp;quot;peticion finalizada&amp;quot;);
+
+});
+$.get(&amp;quot;/hola2&amp;quot;,function(datos) {
+
+alert(datos);
+alert(&amp;quot;peticion finalizada&amp;quot;);
+});
+
+});
+
+&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/pre&gt; 
+&lt;p&gt;Como podemos se trata de un programa que realiza dos peticiones Ajax y se trae unos datos usando $.get() . Despu&amp;eacute;s de realizar esta operaci&amp;oacute;n nos saca a traves de un alert los datos y un mensaje de petici&amp;oacute;n finalizada.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-08-06T07:02:30Z</dc:date>
+  </entry>
   <entry>
     <title>Para GenBetaDev (JPA y Javascript)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript" />
@@ -674,32 +717,6 @@ console.log( uno == undefined);
 &lt;/div&gt;Tener un conjunto de pruebas unitarias sobre el c&amp;oacute;digo de la aplicaci&amp;oacute;n que desarrollamos es importante para tener m&amp;aacute;s seguridad de que lo que hacemos funciona como se espera y no introducimos errores en funcionalidades que ya exist&amp;iacute;an al hacer modificaciones, adem&amp;aacute;s de que en el caso de que haya errores estos ser&amp;aacute;n m&amp;aacute;s f&amp;aacute;cilmente descubiertos y resueltos en menos tiempo lo que har&amp;aacute; que seamos m&amp;aacute;s productivos. Si en una aplicaci&amp;oacute;n web es posible que ya hagamos pruebas unitarias sobre el c&amp;oacute;digo del lado del servidor, &amp;iquest;por que no hacerlo tambi&amp;eacute;n en el lado del cliente? Si la aplicaci&amp;oacute;n tiene un peso importante de javascript en el lado del cliente, y esa es la tendencia, es recomendable tener tambi&amp;eacute;n teses unitarios de esta parte del c&amp;oacute;digo.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/05/ejemplo-de-pruebas-unitarias-en-javascript-con-jasmine-y-sinon"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-05-03T19:27:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción y ejemplo de Mustache</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="software-libre" />
-    <category term="javascript" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2013-05-03T19:29:58Z</updated>
-    <published>2013-03-22T17:04:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;br /&gt; 
- &lt;img alt="Mustache" height="96" src="http://3.bp.blogspot.com/-c5az8LIB6ko/UUyJKk-lvYI/AAAAAAAACc0/B46DEgkNjh0/s200/mustache.png" title="Mustache" width="200" /&gt; 
-&lt;/div&gt;Como comentaba en la 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;Introducci&amp;oacute;n y ejemplo sobre RequireJS&lt;/a&gt; el lado cliente est&amp;aacute;n tomando cada vez m&amp;aacute;s responsabilidad y peso en las aplicaciones. El lado cliente con los navegadores ya no se limitan a mostrar el html que se genera en el servidor de forma din&amp;aacute;mica sino que son ellos mismos que obteniendo los datos en formato JSON probablemente mediante un servicio REST se encarga de transformar esos datos en el html que finalmente se ha de mostrar en la p&amp;aacute;gina. Generar el html en el cliente en vez de en el servidor tiene las siguientes ventajas: 
-&lt;br /&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Se reduce la carga del servidor.&lt;/li&gt; 
- &lt;li&gt;La cantidad de datos devueltos es menor ya que el tama&amp;ntilde;o de la plantilla y los datos podr&amp;aacute;n ser menor que el html final generado por la combinaci&amp;oacute;n de ambos si una plantilla puede aplicarse varias veces sobre alguna lista de los datos.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-mustache"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-03-22T17:04:00Z</dc:date>
   </entry>
 </feed>
 

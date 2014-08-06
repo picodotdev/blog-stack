@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
+      "title" : "JQuery Ajax y Eventos Globales"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
       "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
       "title" : "EJB Singleton"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/javascript-jsperf",
-      "title" : "JavaScript JsPerf"
     }
   ]
 }

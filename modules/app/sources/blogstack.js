@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
+      "title" : "JQuery Ajax y Eventos Globales"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
       "title" : "El problema al escribir"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux",
       "title" : "Los editores de texto predeterminados en Linux"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/vacaciones",
-      "title" : "<Vacaciones>"
     }
   ]
 }

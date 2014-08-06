@@ -3,10 +3,53 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-08-06T07:02:36Z</updated>
+  <updated>2014-08-06T08:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-08-06T07:02:36Z</dc:date>
+  <dc:date>2014-08-06T08:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>JQuery Ajax y Eventos Globales</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales" />
+    <category term="html5" />
+    <category term="jquery" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-08-06T07:02:30Z</updated>
+    <published>2014-08-06T07:02:30Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Ajax es una tecnolog&amp;iacute;a con la que trabajamos en el d&amp;iacute;a a d&amp;iacute;a pero que siempre tiene cosas que quedan por aprender. En este caso vamos a hablar de JQuery y como maneja los eventos de Ajax a nivel global. Para ello vamos a poner en ejemplo sencillo en el que usamos JQuery para hacer dos peticiones Ajax.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery-2.1.1.min.js&amp;quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+$(document).ready(function() {
+
+$.get(&amp;quot;/hola&amp;quot;,function(datos) {
+
+alert(datos);
+alert(&amp;quot;peticion finalizada&amp;quot;);
+
+});
+$.get(&amp;quot;/hola2&amp;quot;,function(datos) {
+
+alert(datos);
+alert(&amp;quot;peticion finalizada&amp;quot;);
+});
+
+});
+
+&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/pre&gt; 
+&lt;p&gt;Como podemos se trata de un programa que realiza dos peticiones Ajax y se trae unos datos usando $.get() . Despu&amp;eacute;s de realizar esta operaci&amp;oacute;n nos saca a traves de un alert los datos y un mensaje de petici&amp;oacute;n finalizada.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-08-06T07:02:30Z</dc:date>
+  </entry>
   <entry>
     <title>El problema al escribir</title>
     <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/08/el-problema-al-escribir" />
@@ -717,23 +760,6 @@ public class ObjectsClassExample {
 &lt;p&gt;Si en un escenario aplica lo de&lt;a href="http://sebastianlab.com/post/140303165/typing-is-not-the-bottleneck"&gt; typing is not the bottleneck&lt;/a&gt;, creo que es en &amp;eacute;ste. Con lo que decidimos que en lugar de estar levant&amp;aacute;ndonos de nuestro sitio cada cinco minutos a preguntarnos cosas el uno al otro o tomar decisiones t&amp;eacute;cnicas sin contrastar, &amp;iacute;bamos a &lt;strong&gt;hacer todo el trabajo en pareja&lt;/strong&gt;&amp;nbsp;y favorecer el ancho de banda de la comunicaci&amp;oacute;n entre nosotros muy por encima del ancho de banda de tecleo.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/07/un-entorno-productivo-en-pareja"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Luis Artola</dc:creator>
     <dc:date>2014-07-22T07:16:01Z</dc:date>
-  </entry>
-  <entry>
-    <title>Como escuchar la radio en Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu" />
-    <category term="ubuntu" />
-    <category term="radio" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-07-21T18:04:25Z</updated>
-    <published>2014-07-21T18:04:25Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;En este articulo os voy a hablar de una peque&amp;ntilde;a pero genial aplicaci&amp;oacute;n que servir&amp;aacute; para que pod&amp;aacute;is escuchar la &lt;strong&gt;radio&lt;/strong&gt; en vuestro ordenador de una forma muy sencilla mientras us&amp;aacute;is &lt;strong&gt;Ubuntu&lt;/strong&gt;. El programa en cuesti&amp;oacute;n se llama &lt;strong&gt;Great Little Radio Player&lt;/strong&gt;, os voy a hablar un poco de sus bondades y mas abajo os dejare un enlace a su pagina en la cual pod&amp;eacute;is descargar el archivo instalador para vuestro Ubuntu, aunque tambi&amp;eacute;n hay disponibles versiones para otras distribuciones de Linux. Yo lo he usado en Ubuntu 12.04 y 14.04 y funciona perfecto, ademas su manejo es muy sencillo.&lt;/p&gt; 
- &lt;p&gt;El programa en si pesa unas 8 MB, una vez descargado lo podr&amp;eacute;is instalar solo con hacer doble click sobre el archivo con extensi&amp;oacute;n “deb” que os descargu&amp;eacute;is. Una vez que lo teng&amp;aacute;is instalado solo ten&amp;eacute;is que buscar el icono se&amp;ntilde;alado en la siguiente imagen dentro del Dash de Ubuntu:&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-07-21T18:04:25Z</dc:date>
   </entry>
 </feed>
 
