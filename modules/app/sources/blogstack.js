@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
+      "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
       "title" : "WordStar, el rey de los editores de texto en los ochenta"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/08/speed-in-software-development",
       "title" : "Speed in software development"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
-      "title" : "Usar Apache Tapestry en una aplicación «standalone»"
     }
   ]
 }
