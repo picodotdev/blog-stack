@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
+      "title" : "WordStar, el rey de los editores de texto en los ochenta"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
       "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
       "title" : "Usar Apache Tapestry en una aplicación «standalone»"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
-      "title" : "Saber cuanto ocupa un fichero o directorio con du"
     }
   ]
 }
