@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
       "title" : "Probamos FreeBSD 10"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
       "title" : "Mi página web va lenta"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/08/guia-de-la-fundacion-de-software-libre-para-proteger-la-privacidad-de-tu-correo",
-      "title" : "Guía de la Fundación de Software Libre para proteger la privacidad de tu correo"
     }
   ]
 }
