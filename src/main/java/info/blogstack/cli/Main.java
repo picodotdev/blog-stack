@@ -335,11 +335,11 @@ public class Main {
 
 		if (stop) {
 			if (!isStarted()) {
-				logger.info("Server already stoped");
+				logger.info("Server already stopped");
 				return;
 			}
 			
-			logger.info("Stoping server...");
+			logger.info("Stopping server...");
 
 			String host = getHost();
 			int adminPort = getAdminPort();
