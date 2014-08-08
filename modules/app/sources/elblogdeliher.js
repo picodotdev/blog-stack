@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
+      "title" : "Como saber la lista de programas instalados en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
       "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
       "title" : "Fondos de escritorio 11"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
-      "title" : "Mi experiencia en el hosting Vigunu"
     }
   ]
 }

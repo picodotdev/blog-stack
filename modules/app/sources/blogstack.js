@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
+      "title" : "Como saber la lista de programas instalados en Ubuntu"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
       "title" : "Por qué no voy a usar Chef (por ahora)"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta",
-      "title" : "Mi página web va lenta"
     }
   ]
 }
