@@ -1,0 +1,159 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Probamos FreeBSD 10 | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1"><span itemprop="headline">Probamos FreeBSD 10</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/08/08/probamos-freebsd-10/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-08-08T08:23" itemprop="datePublished">Publicado el viernes, 08 de agosto de 2014 a las 08:23 UTC</span></div><div><span datetime="2014-08-08T08:36" itemprop="dateModified">Actualizado el viernes, 08 de agosto de 2014 a las 08:36 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, <a href="/label/unix"><span itemprop="articleSection">unix</span></a>, berkeley, freebsd, bsd, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg" alt="freebsd-logo-150" width="150" height="158" /></a>Hace tiempo que quiero probar <a title="FreeBSD Web" href="https://www.freebsd.org/es/">FreeBSD</a>, sus bondades anunciadas por sus usuarios son muchas, la buena gesti&oacute;n de la red, usar pocos recursos del sistema y es muy ligero, la compatibilidad de paquetes con sistemas descendientes de <strong>UNIX</strong>, y la curva de aprendizaje de usuarios que vienen de <strong>Linux</strong> como yo.</p> 
+<p><strong>FreeBSD</strong> es un sistema operativo libre, que soporte una larga lista de arquitecturas, entre las que se encuentra<strong> x86</strong> compatibles y <strong>amd64</strong> compatibles. Es un derivado de <a title="BSD Wikipedia" href="http://es.wikipedia.org/wiki/BSD">BSD</a>, versi&oacute;n de UNIX, desarrollada por la Universidad de California, Berkeley. Es un sistema operativo libre, lanzado usando la licencia<a title="Licencia BSD Wikipedia" href="http://es.wikipedia.org/wiki/Licencia_BSD"> BSD</a>.</p> 
+<p></p> 
+<p>En el tutorial veremos c&oacute;mo montar e instalar <strong>FreeBSD</strong> en una m&aacute;quina virtual.</p> 
+<h1></h1> 
+<h1>Instalando FreeBSD</h1> 
+<p>&nbsp;</p> 
+<p>Primero de todo nos tenemos que ir a la p&aacute;gina oficial de descargas, <a title="FreeBSD Descargas" href="https://www.freebsd.org/es/where.html">aqu&iacute;</a>.</p> 
+<p>Nos podemos bajar la imagen del CD de instalaci&oacute;n en formato .ISO</p> 
+<p>Al arrancar la instalaci&oacute;n tenemos que ver una imagen similar a la siguiente:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-1.jpg" alt="freebsd-bsd-1" width="723" height="401" /></a>Seleccionamos la opci&oacute;n 1 y pulsamos la tecla [Enter]</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-2.jpg" alt="freebsd-bsd-2" width="722" height="402" /></a>C&oacute;mo vemos nos indica que podemos hacer tres cosas, abrir la shell, usar la funci&oacute;n de “Live CD” e Instalar, que es la que utilizamos.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-3.jpg" alt="freebsd-bsd-3" width="717" height="401" /></a>Por defecto el driver de idioma de la consola es el de Estados Unidos. C&oacute;mo se ve en la imagen he utilizado el “Spanish ISO-8859-15″</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-4.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-4.jpg" alt="freebsd-bsd-4" width="720" height="403" /></a>Debemos decirle al instalador como queremos que se llame nuestra m&aacute;quina o host.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-5.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-5.jpg" alt="freebsd-bsd-5" width="720" height="402" /></a>Podemos a&ntilde;adir componentes opcionales al sistema, yo s&oacute;lo he a&ntilde;adido la documentaci&oacute;n adicional.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-6.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-6.jpg" alt="freebsd-bsd-6" width="723" height="401" /></a>Llegamos al punto de definir la configuraci&oacute;n de particiones. C&oacute;mo es la primera vez que hago una instalaci&oacute;n de FreeBSD usar&eacute; la guiada.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-7.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-7.jpg" alt="freebsd-bsd-7" width="723" height="402" /></a>Nos pregunta: &iquest;Queremos usar todo el disco para FreeBSD o en cambio lo usaremos con otros sistemas operativos? En nuestro caso s&oacute;lo usaremos el sistema del demonio rojo, por lo tanto contestamos “Entire Disk”</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-8.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-8.jpg" alt="freebsd-bsd-8" width="721" height="404" /></a>La selecci&oacute;n de particiones predefinida es similar a las de GNU/Linux. Una partici&oacute;n transaccional o SWAP, otra para el arranque o boot y la &uacute;ltima para el resto, que es la que tiene la mayor&iacute;a de la capacidad del disco.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-9.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-bsd-9.jpg" alt="freebsd-bsd-9" width="723" height="402" /></a>Creamos la contrase&ntilde;a de root.</p> 
+<h2><strong>Configurando la red</strong></h2> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-1.jpg" alt="freebsd-unix-red-1" width="720" height="402" /></a>Seleccionamos la tarjeta de red que tenemos disponible.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-2.jpg" alt="freebsd-unix-red-2" width="718" height="402" /></a>Nos pregunta si queremos configurar el protocolo IPv4 para la interfaz, le decimos que s&iacute;.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-3.jpg" alt="freebsd-unix-red-3" width="725" height="401" /></a>Le indicamos que queremos configurar la red con DHCP. Si se tratase de un servidor lo m&aacute;s conveniente ser&iacute;a definir una configuraci&oacute;n est&aacute;tica.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-4.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-red-4.jpg" alt="freebsd-unix-red-4" width="722" height="401" /></a>Respecto al protocolo IPv6 le decimos que de momento NO lo queremos configurar.</p> 
+<p>En la siguiente pantalla nos dar&aacute; informaci&oacute;n detallada del dominio de busqueda y los dos servidores DNS utilizados.</p> 
+<p>En la imagen a continuaci&oacute;n seleccionamos la zona horario para nuestro sistema.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-utc-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-utc-1.jpg" alt="freebsd-unix-utc-1" width="722" height="399" /></a>Yo he elegido Europa y Espa&ntilde;a.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-utc-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-utc-2.jpg" alt="freebsd-unix-utc-2" width="716" height="396" /></a>Cuando hemos acabado de configurar la zona horaria y el pa&iacute;s, nos toca pasar a la secci&oacute;n de instalaci&oacute;n de servicios.</p> 
+<h2><strong>Instalando servicios y usuarios adicionales</strong></h2> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-services-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-services-1.jpg" alt="freebsd-unix-services-1" width="718" height="401" /></a>Dejo los que vienen por defecto, muy importante el servicio sshd, para poder conectarme v&iacute;a remota.</p> 
+<p>En ventana siguiente nos pregunta si queremos a&ntilde;adir un usuario, le decimos que s&iacute;, para no tener que usar root.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-add-user-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-add-user-1.jpg" alt="freebsd-unix-add-user-1" width="721" height="399" /></a>Nos pregunta el nombre, la contrase&ntilde;a y el grupo entre otras cosas.</p> 
+<p>Cuando hayamos finalizado veremos la siguiente pantalla:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-final.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-final.jpg" alt="freebsd-unix-final" width="713" height="398" /></a>Aqu&iacute; podemos modificar la configuraci&oacute;n por si ha &uacute;ltima hora hay algo que cambiar. En nuestro caso pulsamos “Exit” y se reiniciar&aacute; la m&aacute;quina.</p> 
+<h2><strong>Trabajando desde la shell</strong></h2> 
+<p>Ahora que se ha arrancado la m&aacute;quina con el sistema instalado nos queda trabajo por hacer. Vamos a actualizar el sistema e instalar un escritorio con Gnome.</p> 
+<p>Un captura de pantalla donde vemos la versi&oacute;n del sistema operativo y el Kernel, adem&aacute;s de la informaci&oacute;n de las particiones actuales.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-shell-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-unix-shell-1.jpg" alt="freebsd-unix-shell-1" width="727" height="138" /></a>Actualizando el sistema</p> 
+<p>El proceso en FreeBSD para actualizar los paquetes de seguridad est&aacute; simplificado con el comando<strong><em> freebsd-update</em></strong></p> 
+<pre>#Con freebsd-update actualizamos la informaci&oacute;n de los 
+#paquetes
+freebsd-update fetch
+
+#Con el siguiente comando aplicamos los parques
+freebsd-update install</pre> 
+<p>Instalando gnome</p> 
+<p>Una vez actualizado el sistema instalamos el escritorio gnome, usaremos el programa <strong><em>pkg</em></strong> para instalarlo.</p> 
+<pre>pkg install gnome2</pre> 
+<p>Tambi&eacute;n podemos compilarlo desde el c&oacute;digo fuente, es decir, como port.</p> 
+<pre>cd /usr/ports/x11/gnome2
+make install clean</pre> 
+<p>Cuando lo tengamos instalado, tenemos que decirle al servidor X como iniciar GNOME, para que sea el gestor de ventanas predeterminado.&nbsp; GNOME requiere que el fichero /proc est&eacute; montado, por lo tanto deberemos a&ntilde;adir la siguiente l&iacute;nea al fichero /etc/fstab.</p> 
+<p><strong>proc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /proc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; procfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0</strong></p> 
+<p>Para que arranque al inicio deberemos modificar el fichero /etc/rc.conf y a&ntilde;adir:</p> 
+<p><strong>gmd_enable=”YES”</strong></p> 
+<p><strong>gnome_enable=”YES”</strong></p> 
+<p>El segundo m&eacute;todo para que arranque GNOME desde la l&iacute;nea de ordenes es configurando el fichero .xinitrc, tendremos que teclear lo siguiente desde la l&iacute;nea de comandos:</p> 
+<pre>% echo &quot;/usr/local/bin/gnome-session&quot; &gt; ~/.xinitrc</pre> 
+<p>Ahora reiniciamos la m&aacute;quina.</p> 
+<p>Si todo ha ido bien ya tendremos nuestro FreeBSD con GNOME funcionando.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-linux-image-desktop.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-linux-image-desktop.jpg" alt="freebsd-linux-image-desktop" width="600" height="451" /></a>Espero que el art&iacute;culo haya sido de inter&eacute;s. En pr&oacute;ximas entradas en la web iremos a&ntilde;adiendo caracter&iacute;sticas y programas.</p> 
+<p>He obtenido la informaci&oacute;nd desde las fuentes de FreeBSD:</p> 
+<p><a title="Manual FreeBSD castellano" href="http://www.freebsd.org/doc/es/books/handbook/">Manual de FreeBSD en castellano</a></p> 
+<p> </p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" st_title="Probamos FreeBSD 10 | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li><li><a href="/label/unix/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta unix</a></li><li><a href="/label/gnu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 823,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

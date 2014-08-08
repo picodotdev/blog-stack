@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/08/scrum-o-kanban",
+      "title" : "¿Scrum o Kanban?"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
       "title" : "El problema al escribir"
     },
@@ -57,10 +61,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/07/stress",
       "title" : "Stress"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
-      "title" : "Autonomía, maestría y propósito: hay que ganárselos"
     }
   ]
 }

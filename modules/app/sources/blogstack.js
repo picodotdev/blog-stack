@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
+      "title" : "Probamos FreeBSD 10"
+    },
+    {
+      "url" : "/post/cuadernodesoftware/2014/08/scrum-o-kanban",
+      "title" : "¿Scrum o Kanban?"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
+      "title" : "Java EE JSON y procesamiento (JSR 353)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
       "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
     },
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/08/guia-de-la-fundacion-de-software-libre-para-proteger-la-privacidad-de-tu-correo",
       "title" : "Guía de la Fundación de Software Libre para proteger la privacidad de tu correo"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
-      "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/analisis-paralisis",
-      "title" : "Análisis parálisis"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/speed-in-software-development",
-      "title" : "Speed in software development"
     }
   ]
 }

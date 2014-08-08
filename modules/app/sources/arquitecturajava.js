@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
+      "title" : "Java EE JSON y procesamiento (JSR 353)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
       "title" : "JQuery Ajax y Eventos Globales"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
       "title" : "REST JSON y Java"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/ejb-singleton",
-      "title" : "EJB Singleton"
     }
   ]
 }

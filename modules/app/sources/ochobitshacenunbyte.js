@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
+      "title" : "Probamos FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
       "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible",
-      "title" : "Eclipse Luna ya está disponible"
     }
   ]
 }
