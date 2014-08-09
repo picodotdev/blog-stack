@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
+      "title" : "De Arch Linux a Arch Linux"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
       "title" : "Usar Apache Tapestry en una aplicación «standalone»"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
       "title" : "Presentación de Blog Stack"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/anexo-a-la-guia-de-instalacion-y-del-principiante-de-arch-linux",
-      "title" : "Anexo a la guía de instalación y del principiante de Arch Linux"
     }
   ]
 }

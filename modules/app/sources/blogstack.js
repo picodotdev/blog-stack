@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
+      "title" : "De Arch Linux a Arch Linux"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
       "title" : "Editando particiones con cfdisk"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora",
-      "title" : "Por qué no voy a usar Chef (por ahora)"
     }
   ]
 }
