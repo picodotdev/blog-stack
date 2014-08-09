@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
+      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/08/deadlock-bloqueo-mutuo-abrazo-mortal-o-como-colgar-un-proceso-con-esperas-infinitas",
       "title" : "Deadlock, bloqueo mutuo, abrazo mortal o cómo colgar un proceso con esperas infinitas. ☠ ☠ ☠"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
-      "title" : "Editando particiones con cfdisk"
     }
   ]
 }
