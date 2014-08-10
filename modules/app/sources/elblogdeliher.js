@@ -3,12 +3,12 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
-      "title" : "Tengo un admirador secreto :D"
-    },
-    {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
+      "title" : "Tengo un admirador secreto :D"
     },
     {
       "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
+      "title" : "Como saber la lista de programas instalados en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
       "title" : "Tengo un admirador secreto :D"
     },
@@ -13,10 +17,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
-      "title" : "Como saber la lista de programas instalados en Ubuntu"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
