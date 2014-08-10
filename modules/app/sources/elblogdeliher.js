@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
+      "title" : "Tengo un admirador secreto :D"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
       "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
-      "title" : "Fondos de escritorio 11"
     }
   ]
 }
