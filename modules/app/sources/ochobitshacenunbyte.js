@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
+      "title" : "Controla la shell con Terminator"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
       "title" : "Encripta las fotos de tus vacaciones"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/navegando-por-los-oceanos-de-la-shell",
-      "title" : "Navegando por los océanos de la shell"
     }
   ]
 }

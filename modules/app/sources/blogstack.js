@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
+      "title" : "Controla la shell con Terminator"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
       "title" : "El problema al escribir"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
-      "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
     }
   ]
 }
