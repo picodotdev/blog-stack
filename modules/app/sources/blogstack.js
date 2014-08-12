@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
+      "title" : "Problema con bateria en portátil Dell solucionado"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
       "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
       "title" : "Crea la nota perfecta con MyNotex"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
-      "title" : "JQuery Ajax y Eventos Globales"
     }
   ]
 }

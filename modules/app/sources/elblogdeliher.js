@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
+      "title" : "Problema con bateria en portátil Dell solucionado"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
       "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
-      "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
     }
   ]
 }
