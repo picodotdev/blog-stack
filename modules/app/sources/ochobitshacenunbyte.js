@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
+      "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
       "title" : "Controla la shell con Terminator"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
       "title" : "Código Linux, un documental que no te debes perder."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/encripta-las-fotos-de-tus-vacaciones",
-      "title" : "Encripta las fotos de tus vacaciones"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
+      "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
       "title" : "Controla la shell con Terminator"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
       "title" : "JQuery Ajax y Eventos Globales"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/el-problema-al-escribir",
-      "title" : "El problema al escribir"
     }
   ]
 }
