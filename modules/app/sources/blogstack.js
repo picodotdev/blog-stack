@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
+      "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
       "title" : "Java 8 Lambda y forEach (II)"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
       "title" : "WordStar, el rey de los editores de texto en los ochenta"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
-      "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
+      "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
       "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
       "title" : "Realización de diagramas con Dia"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
     }
   ]
 }
