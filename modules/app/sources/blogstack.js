@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
+      "title" : "Como activar reiniciar las X en Ubuntu 14.04"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
       "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
-      "title" : "WordStar, el rey de los editores de texto en los ochenta"
     }
   ]
 }

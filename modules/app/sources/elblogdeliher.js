@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
+      "title" : "Como activar reiniciar las X en Ubuntu 14.04"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
       "title" : "Problema con bateria en portátil Dell solucionado"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
-      "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
     }
   ]
 }
