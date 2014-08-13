@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
+      "title" : "Java 8 Lambda y forEach (II)"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
       "title" : "Problema con bateria en portátil Dell solucionado"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
       "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
-      "title" : "Crea la nota perfecta con MyNotex"
     }
   ]
 }

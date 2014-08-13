@@ -3,10 +3,51 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-07-31T13:05:01Z</updated>
+  <updated>2014-08-13T08:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-07-31T13:05:01Z</dc:date>
+  <dc:date>2014-08-13T08:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 Lambda y forEach (II)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii" />
+    <category term="java8" />
+    <category term="lambda" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-08-13T07:19:11Z</updated>
+    <published>2014-08-13T07:19:11Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Poco a poco las expresiones Lambda se comienzan a utilizar. Una de las novedades es el uso de iteradores forEach en Java 8 . Vamos a explicar como estos funcionan. Para ello vamos a partir de un ejemplo con un bucle forEach cl&amp;aacute;sico que recorre una colecci&amp;oacute;n de Personas:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+
+public class Principal4 {
+
+ public static void main(String[] args) {
+
+ ArrayList&amp;lt;Persona&amp;gt; milista= new ArrayList&amp;lt;Persona&amp;gt;();
+ milista.add(new Persona(&amp;quot;Miguel&amp;quot;));
+ milista.add(new Persona(&amp;quot;Alicia&amp;quot;));
+
+ for (Persona p: milista) {
+
+ System.out.println(p.getNombre());
+ }
+
+ }
+
+}
+
+&lt;/pre&gt; 
+&lt;p&gt;Esta operaci&amp;oacute;n la podemos realizar de similar forma utilizando el m&amp;eacute;todo forEach de Java 8 que las colecciones soportan a trav&amp;eacute;s del interface Iterable. As&amp;iacute; pues el nuevo c&amp;oacute;digo ser&amp;iacute;a :&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-08-13T07:19:11Z</dc:date>
+  </entry>
   <entry>
     <title>Usar Apache Tapestry en una aplicación «standalone»</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone" />
@@ -858,25 +899,6 @@ return lista.iterator();
 &lt;p&gt;Adem&amp;aacute;s es cuesti&amp;oacute;n de revisar ofertas de trabajo para ver como cada vez piden mas el conocer Maven como requisito indispensable o como poco un requisito deseado a poseer por parte del candidato. Dada esta introducci&amp;oacute;n quiero compartir con ustedes lo poco que se y he aprendido de maven con la finalidad de que pueda serles de utilidad o al menos como incentivo a aprender mas de esta poderosa herramienta.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>admin</dc:creator>
     <dc:date>2012-07-19T23:20:37Z</dc:date>
-  </entry>
-  <entry>
-    <title>Componente AjaxSpinner para Tapestry 5</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5" />
-    <category term="programacion" />
-    <category term="planeta-arch-linux" />
-    <category term="planeta-linux" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-03-06T08:46:40Z</updated>
-    <published>2011-09-09T19:09:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="Apache Tapestry" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" height="133" title="Apache Tapestry" width="320" /&gt; 
-&lt;/div&gt;Hoy en d&amp;iacute;a las aplicaciones web que hace peticiones de forma as&amp;iacute;ncrona con AJAX son la mayor&amp;iacute;a ya que es una t&amp;eacute;cnica que permite obtener &amp;uacute;nicamente los datos que se necesitan sin tener que hacer una cargar entera de la p&amp;aacute;gina web en el navegador. Esta t&amp;eacute;cnica hace que las peticiones al devolver &amp;uacute;nicamente los datos necesarios (y no toda la p&amp;aacute;gina) y los recursos para procesar la petici&amp;oacute;n sean menos, tambi&amp;eacute;n hace que el resultado de las peticiones sean m&amp;aacute;s peque&amp;ntilde;os con lo que el tiempo de carga tambi&amp;eacute;n se reduce al generar menos tŕafico de red, asi mismo el usuario nota un aumento de tiempo de respuesta. Tambi&amp;eacute;n hace que en ciertos casos las aplicaciones sean m&amp;aacute;s f&amp;aacute;ciles de desarrollar por no tener que tratar en el servidor en cada petici&amp;oacute;n el estado concreto de cada cliente.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2011/09/componente-ajaxspinner-para-tapestry-5"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2011-09-09T19:09:00Z</dc:date>
   </entry>
 </feed>
 

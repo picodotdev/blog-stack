@@ -3,10 +3,51 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-08-12T19:02:59Z</updated>
+  <updated>2014-08-13T08:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-08-12T19:02:59Z</dc:date>
+  <dc:date>2014-08-13T08:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 Lambda y forEach (II)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii" />
+    <category term="java8" />
+    <category term="lambda" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-08-13T07:19:11Z</updated>
+    <published>2014-08-13T07:19:11Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Poco a poco las expresiones Lambda se comienzan a utilizar. Una de las novedades es el uso de iteradores forEach en Java 8 . Vamos a explicar como estos funcionan. Para ello vamos a partir de un ejemplo con un bucle forEach cl&amp;aacute;sico que recorre una colecci&amp;oacute;n de Personas:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+
+public class Principal4 {
+
+ public static void main(String[] args) {
+
+ ArrayList&amp;lt;Persona&amp;gt; milista= new ArrayList&amp;lt;Persona&amp;gt;();
+ milista.add(new Persona(&amp;quot;Miguel&amp;quot;));
+ milista.add(new Persona(&amp;quot;Alicia&amp;quot;));
+
+ for (Persona p: milista) {
+
+ System.out.println(p.getNombre());
+ }
+
+ }
+
+}
+
+&lt;/pre&gt; 
+&lt;p&gt;Esta operaci&amp;oacute;n la podemos realizar de similar forma utilizando el m&amp;eacute;todo forEach de Java 8 que las colecciones soportan a trav&amp;eacute;s del interface Iterable. As&amp;iacute; pues el nuevo c&amp;oacute;digo ser&amp;iacute;a :&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-08-13T07:19:11Z</dc:date>
+  </entry>
   <entry>
     <title>Problema con bateria en portátil Dell solucionado</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado" />
@@ -691,28 +732,6 @@ deb-src http://http.debian.net/debian/ squeeze-lts main contrib non-free&lt;/pre
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-07-28T16:09:23Z</dc:date>
-  </entry>
-  <entry>
-    <title>Los editores de texto predeterminados en Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux" />
-    <category term="conceptos-basicos" />
-    <category term="ubuntu" />
-    <category term="texto" />
-    <category term="linux" />
-    <category term="editor" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-07-28T12:39:45Z</updated>
-    <published>2014-07-28T12:39:45Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Haces unos d&amp;iacute;as un usuario llamado Zock me dejo un comentario en un articulo en el cual describo como instalar Spotify en Ubuntu diciendo que hab&amp;iacute;a tenido problemas para seguir el articulo debido a que era usuario de Lubuntu y yo hab&amp;iacute;a explicado el proceso desde Ubuntu. En uno de los pasos puse una orden que hab&amp;iacute;a que ejecutar en la Terminal tal que as&amp;iacute;:&lt;/p&gt; 
- &lt;pre&gt;sudo gedit conf&lt;/pre&gt; 
- &lt;p&gt;Esta orden indica que queremos abrir un archivo llamado “conf”, que queremos abrirlo con el programa “gedit” y que queremos hacerlo con privilegios de root. El problema del usuario radicaba en que al querer ejecutar este comando no pod&amp;iacute;a abrirse el programa “gedit” debido a que no lo tenia instalado en Lubuntu y este articulo es para explicar como “arreglar” este problema.&lt;/p&gt; 
- &lt;p&gt;Antes de seguir me gustar&amp;iacute;a pedir disculpas a Zock y a todos aquellos a los que les haya pasado lo mismo, los art&amp;iacute;culos que escribo en este blog van destinados a los usuarios de Ubuntu y no hab&amp;iacute;a tenido en cuenta hasta ahora las diferencias entre Ubuntu y Lubuntu, por poner un ejemplo. Tambi&amp;eacute;n es cierto que es dif&amp;iacute;cil en ocasiones tener en cuenta todos los factores a la hora de escribir un articulo, pero gracias a este usuario me he dado cuenta del error y quiero subsanarlo.&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-07-28T12:39:45Z</dc:date>
   </entry>
 </feed>
 

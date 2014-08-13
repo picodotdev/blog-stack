@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
+      "title" : "Java 8 Lambda y forEach (II)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
       "title" : "Java EE JSON y procesamiento (JSR 353)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
       "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
-      "title" : "REST JSON y Java"
     }
   ]
 }
