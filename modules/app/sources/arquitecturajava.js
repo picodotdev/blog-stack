@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
+      "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
       "title" : "Java 8 Lambda y forEach (II)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard",
       "title" : "Java Generics (II) uso  de WildCard"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
-      "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
     }
   ]
 }

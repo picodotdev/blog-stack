@@ -3,12 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
-      "title" : "Como activar reiniciar las X en Ubuntu 14.04"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
+      "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
+      "title" : "Como activar reiniciar las X en Ubuntu 14.04"
     },
     {
       "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
       "title" : "Java EE JSON y procesamiento (JSR 353)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
-      "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
     }
   ]
 }
