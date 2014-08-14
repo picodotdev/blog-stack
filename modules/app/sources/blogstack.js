@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
+      "title" : "KDEdu, el proyecto de educación de KDE"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/08/scrum-o-kanban",
       "title" : "¿Scrum o Kanban?"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
-      "title" : "Java EE JSON y procesamiento (JSR 353)"
     }
   ]
 }

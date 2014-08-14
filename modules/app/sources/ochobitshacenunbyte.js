@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
+      "title" : "KDEdu, el proyecto de educación de KDE"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
       "title" : "Linux y GNU están de moda"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
-      "title" : "Realización de diagramas con Dia"
     }
   ]
 }
