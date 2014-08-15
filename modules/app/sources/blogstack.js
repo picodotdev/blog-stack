@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/08/sabias-que-el-uso-de-la-annotation-override-nos-advierte-de-errores-en-el-codigo",
+      "title" : "Sabias que el uso de la annotation override nos advierte de errores en el código"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
-      "title" : "Probamos FreeBSD 10"
     }
   ]
 }

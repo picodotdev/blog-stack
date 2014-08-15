@@ -3,6 +3,10 @@ define("app/sources/elblogdejose", [], function() {
   "name" : "El blog de Jose",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2014/08/sabias-que-el-uso-de-la-annotation-override-nos-advierte-de-errores-en-el-codigo",
+      "title" : "Sabias que el uso de la annotation override nos advierte de errores en el código"
+    },
+    {
       "url" : "/post/elblogdejose/2014/07/introduccion-a-la-clase-objects",
       "title" : "Introducción a la clase Objects"
     },
