@@ -7,6 +7,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "De Arch Linux a Arch Linux"
     },
     {
+      "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
+      "title" : "Experiencia instalando sistema operativo a ordenador viejo"
+    },
+    {
       "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
       "title" : "Usar Apache Tapestry en una aplicación «standalone»"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
       "title" : "Página de excepción de Grails"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/presentacion-de-blog-stack",
-      "title" : "Presentación de Blog Stack"
     }
   ]
 }

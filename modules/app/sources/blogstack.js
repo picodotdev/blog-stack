@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
+      "title" : "De Arch Linux a Arch Linux"
+    },
+    {
+      "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
+      "title" : "Experiencia instalando sistema operativo a ordenador viejo"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
       "title" : "KDEdu, el proyecto de educación de KDE"
     },
@@ -47,20 +55,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     },
     {
-      "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
-      "title" : "De Arch Linux a Arch Linux"
-    },
-    {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
       "title" : "Probamos FreeBSD 10"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/08/scrum-o-kanban",
-      "title" : "¿Scrum o Kanban?"
     }
   ]
 }
