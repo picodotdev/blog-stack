@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
+      "title" : "Spring Anotaciones vs XML"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
       "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
       "title" : "Arquitectura WebSocket y Threads"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard",
-      "title" : "Java Generics (II) uso  de WildCard"
     }
   ]
 }

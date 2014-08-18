@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
+      "title" : "Spring Anotaciones vs XML"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap",
       "title" : "Se cumplen 10 años de OpenStreetMap"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
       "title" : "Tengo un admirador secreto :D"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
-      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     }
   ]
 }

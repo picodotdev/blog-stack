@@ -3,16 +3,57 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-08-16T20:02:27Z</updated>
+  <updated>2014-08-18T10:03:08Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-08-16T20:02:27Z</dc:date>
+  <dc:date>2014-08-18T10:03:08Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Spring Anotaciones vs XML</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml" />
+    <category term="flexibilidad" />
+    <category term="anotaciones" />
+    <category term="spring" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-08-18T09:37:35Z</updated>
+    <published>2014-08-18T09:37:35Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Muchas veces la gente me pregunta si es mejor usar Anotaciones o ficheros XML a nivel de framework Spring&lt;/strong&gt; . En un primer momento es m&amp;aacute;s que evidente que el uso de ficheros XML hace que a veces la &amp;nbsp;propia aplicaci&amp;oacute;n sea un poco inmanejable. Esto es debido a que cada uno de los Beans que utilizamos debe registrarse en el fichero XML.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/intro2.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/intro2.png" alt="intro" width="538" height="351" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Cuantos m&amp;aacute;s beans tengamos m&amp;aacute;s inmanejable ser&amp;aacute; el fichero Applicati&amp;oacute;nContext.xml .Imaginemonos que tenemos los siguientes Beans (ServicioA,ServicioB) a continuaci&amp;oacute;n se muestra el fichero ApplicationContext.xml.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;
+xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot;
+xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+
+
+http://www.springframework.org/schema/context
+
+
+http://www.springframework.org/schema/context/spring-context.xsd&amp;quot;&amp;gt;
+
+&amp;lt;bean id=&amp;quot;servicioA&amp;quot; class=&amp;quot;com.arquitecturajava.ServicioA&amp;quot;&amp;gt;
+&amp;lt;/bean&amp;gt;
+&amp;lt;bean id=&amp;quot;servicioB&amp;quot; class=&amp;quot;com.arquitecturajava.ServicioB&amp;quot;&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;/beans&amp;gt;
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-08-18T09:37:35Z</dc:date>
+  </entry>
   <entry>
     <title>Se cumplen 10 años de OpenStreetMap</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap" />
     <category term="blog-stack" />
-    <category term="openstreetmap" />
     <category term="comunidad-open-source" />
+    <category term="openstreetmap" />
     <category term="noticias" />
     <category term="gps" />
     <author>
@@ -763,21 +804,6 @@ deb-src http://http.debian.net/debian/ squeeze-lts main contrib non-free&lt;/pre
 &lt;p&gt;Te invito a hacerte estas preguntas, que yo me hice demasiado tarde:&lt;br /&gt; -&amp;iquest;Cada cuanto tiempo levantas un servidor nuevo?&lt;br /&gt; Nosotros usamos Amazon AWS, si, es cloud, pero eso no quiere decir que andemos escalando y desescalando nuestra arquitectura cada 15 minutos. Adem&amp;aacute;s, cuando necesito un servidor igual que el de producci&amp;oacute;n levanto una imagen del propio servidor de producci&amp;oacute;n. Adem&amp;aacute;s nuestras aplicaciones no est&amp;aacute;n preparadas para escalar horizontalmente por ahora, nuestros servidores no son servidores stateless.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/08/por-que-no-voy-a-usar-chef-por-ahora"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>David González</dc:creator>
     <dc:date>2014-08-02T10:14:57Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mi página web va lenta</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta" />
-    <category term="desarrollo-de-software" />
-    <author>
-      <name>David González</name>
-    </author>
-    <updated>2014-08-02T09:47:31Z</updated>
-    <published>2014-08-02T09:47:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.programania.net/wp-content/uploads/IMG_20140802_110438.jpg"&gt;&lt;img src="http://www.programania.net/wp-content/uploads/IMG_20140802_110438-300x225.jpg" alt="IMG_20140802_110438" width="300" height="225" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Repaso en voz alta los diferentes pasos a la hora de servir una web (lo siento pero no soy capaz de dibujar con un ordenador con la misma comodidad que lo hago con papel y boli):&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;t0:&lt;/strong&gt; tiempo de env&amp;iacute;o de la petici&amp;oacute;n desde el navegador al servidor, desde que hacemos click hasta que dicha petici&amp;oacute;n llega al servidor, este factor es ajeno a la web como tal, pero hay que saber identificarlo porque el problema estar&amp;aacute; en la conexi&amp;oacute;n del usuario y por lo tanto no tendr&amp;aacute; que ver con nuestra aplicaci&amp;oacute;n directamente.&lt;br /&gt; &lt;strong&gt;t1:&lt;/strong&gt; tiempo de procesado de la petici&amp;oacute;n, primera fase de la petici&amp;oacute;n, recepci&amp;oacute;n de petici&amp;oacute;n, cookies y dem&amp;aacute;s informaci&amp;oacute;n, procesado de esta, checkeo de la correcci&amp;oacute;n, los factores que pueden influenciar en ella son: c&amp;oacute;digo que es demasiado lento o hardware que no soporta el n&amp;uacute;mero de peticiones o tipo de peticiones que se reciben.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/cuadernodesoftware/2014/08/mi-pagina-web-va-lenta"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>David González</dc:creator>
-    <dc:date>2014-08-02T09:47:31Z</dc:date>
   </entry>
 </feed>
 
