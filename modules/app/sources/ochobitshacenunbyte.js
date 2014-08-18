@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel",
+      "title" : "Virtualización con KVM y Trisquel"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap",
       "title" : "Se cumplen 10 años de OpenStreetMap"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/crear-copias-de-seguridad-de-manera-sencilla-con-tar",
       "title" : "Crear copias de seguridad de manera sencilla con tar"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
-      "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
     }
   ]
 }

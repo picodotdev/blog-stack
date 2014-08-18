@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel",
+      "title" : "Virtualización con KVM y Trisquel"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
       "title" : "Spring Anotaciones vs XML"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
       "title" : "Como saber la lista de programas instalados en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
-      "title" : "Tengo un admirador secreto :D"
     }
   ]
 }
