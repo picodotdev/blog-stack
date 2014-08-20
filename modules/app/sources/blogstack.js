@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/fondos-de-escritorio-13",
+      "title" : "Fondos de escritorio 13"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
+      "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel",
       "title" : "Virtualización con KVM y Trisquel"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
       "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
-      "title" : "Controla la shell con Terminator"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-saber-la-lista-de-programas-instalados-en-ubuntu",
-      "title" : "Como saber la lista de programas instalados en Ubuntu"
     }
   ]
 }
