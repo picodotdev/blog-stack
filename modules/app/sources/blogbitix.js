@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
+      "title" : "Forzar el uso del protocolo https en Apache Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
       "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/pagina-de-excepcion-de-grails",
-      "title" : "Página de excepción de Grails"
     }
   ]
 }

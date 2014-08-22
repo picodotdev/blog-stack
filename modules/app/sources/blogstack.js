@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
+      "title" : "Forzar el uso del protocolo https en Apache Tapestry"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
       "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
       "title" : "Problema con bateria en portátil Dell solucionado"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
-      "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
     }
   ]
 }

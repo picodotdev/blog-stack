@@ -1,0 +1,208 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry"><span itemprop="headline">Forzar el uso del protocolo https en Apache Tapestry</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-08-22T09:09" itemprop="datePublished">Publicado el viernes, 22 de agosto de 2014 a las 09:09 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" />
+ <br /> 
+</div> 
+<p>El <a href="http://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure">protocolo seguro https</a> hace que los datos que viajan entre el servidor y el cliente a trav&eacute;s de internet est&eacute;n cifrados de modo que nadie m&aacute;s pueda saber cual es es la informaci&oacute;n intercambiada ni se pueda alterar sin el conocimiento entre las dos partes. Estas propiedades nos son de inter&eacute;s para ciertas partes de una aplicaci&oacute;n o en algunos casos la aplicaci&oacute;n entera. &iquest;Cuales son estos casos? Son aquellos en los que queramos garantizar una mayor seguridad, estos pueden ser para proteger usuarios y contrase&ntilde;as de autenticaci&oacute;n para iniciar sesi&oacute;n, ciertos datos sensibles como datos personales, datos de tarjetas de cr&eacute;dito, … evitando que una tercera parte los obtenga y los utilice para su provecho propio y supongan un problema de seguridad en la aplicaci&oacute;n.</p> 
+<p>Es casi obligatorio forzar a que ciertas p&aacute;ginas de una aplicaci&oacute;n o p&aacute;gina web funcionen mediante el protocolo seguro https como las p&aacute;ginas de inicio de sesi&oacute;n donde los usuarios se autentican normalmente introduciendo su usuario y contrase&ntilde;a, p&aacute;ginas de compra donde los usuarios introducen los datos de su tarjeta de cr&eacute;dito o algunas secciones de una aplicaci&oacute;n como las secciones de las cuentas de los usuarios o un backoffice.</p> 
+<p>En <a href="http://tapestry.apache.org">Apache Tapestry</a> hay varias formas de forzar a que una determinada p&aacute;gina use el protocolo seguro de modo que si se accede por el <a href="http://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol">protocolo no seguro http</a> la aplicaci&oacute;n obligue a usar https haciendo una redirecci&oacute;n. Una de ellas es utilizar la anotaci&oacute;n <a href="http://tapestry.apache.org/5.3/apidocs/org/apache/tapestry5/annotations/Secure.html">@Secure</a> en las p&aacute;ginas que queramos obligar a usar https. Basta con anotar las clases de las p&aacute;ginas con @Secure y Tapestry autom&aacute;ticamente har&aacute; la redirecci&oacute;n al protocolo https cuando se acceda con http a la p&aacute;gina.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/6c28ea0e096d90c6aa9f.js?file=Login.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.pages;
+
+...
+
+@Secure
+public class Login {
+    ...
+}
+</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Probablemente nos interese configurar el puerto y el host que usar&aacute; Tapestry al hacer la redirecci&oacute;n para que coincidan con el usado en el servidor al que accede el usuario, sobre todo si en la aplicaci&oacute;n usamos un servidor web proxy como <a href="http://httpd.apache.org/">apache</a>, <a href="http://www.lighttpd.net/">lighttpd</a> o <a href="http://nginx.org/">nginx</a> delante del servidor de aplicaciones donde realmente se ejecuta la aplicaci&oacute;n web. El puerto seguro del protocolo https predeterminado es 443 pero en el servidor de aplicaciones tomcat por defecto es 8443. Esto en tapestry lo indicamos configurando con ciertos s&iacute;mbolos.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/6c28ea0e096d90c6aa9f.js?file=AppModule-1.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.services;
+
+...
+
+public class AppModule {
+
+	public static void contributeApplicationDefaults(MappedConfiguration&lt;String, Object&gt; configuration) {
+		...
+	
+		configuration.add(SymbolConstants.SECURE_ENABLED, true);
+		configuration.add(SymbolConstants.HOSTPORT, 8080);
+		configuration.add(SymbolConstants.HOSTPORT_SECURE, 8443);
+
+		...
+	}
+
+	...
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Para probar mientras desarrollamos, al menos en nuestro equipo, que la redirecci&oacute;n se hace correctamente empleando el plugin de gradle para tomcat podemos hacer que el servidor de desarrollo se inicie con el puerto https disponible. <a href="http://picodotdev.github.io/blog-bitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl/">Para usar https se necesita un certificado digital</a> que el <a href="https://github.com/bmuschko/gradle-tomcat-plugin">plugin de gradle para tomcat</a> se encarga de generar al iniciar la aplicaci&oacute;n, aunque sea autofirmado y el navegador alerte que no lo reconoce como firmado un una autoridad en la que conf&iacute;e, si lo aceptamos podemos acceder a la aplicaci&oacute;n sin m&aacute;s problema. Empleando gradle la configuraci&oacute;n que podemos emplear es:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/6c28ea0e096d90c6aa9f.js?file=build.gradle"></script> 
+ <noscript>
+  <pre><code>...
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()        
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.2.4'
+    }
+}
+
+...
+
+tomcat {
+    httpPort = 8080
+    httpsPort = 8443
+    enableSSL = true
+}
+
+...</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>La anotaci&oacute;n @Secure en Tapestry es suficiente pero podemos hacer lo mismo empleando <a href="http://shiro.apache.org/">Shiro</a>. <a href="http://elblogdepicodev.blogspot.com.es/2013/05/seguridad-en-aplicacion-web-con-apache.html">Integrando Shiro con Tapestry nos permite realizar autenticaci&oacute;n y autorizaci&oacute;n</a>, pero adem&aacute;s empleando Shiro tambi&eacute;n podemos obligar a usar el protocolo https del mismo modo que lo hacemos con la anotaci&oacute;n Secure. Cualquiera de las dos formas es perfectamente v&aacute;lida y depende m&aacute;s de cual prefiramos. Con la anotaci&oacute;n @Secure deberemos anotar cada p&aacute;gina con Shiro podemos tener centralizado en un &uacute;nico punto en que p&aacute;ginas requerimos https. Con Shiro la configuraci&oacute;n se hace con una contribuci&oacute;n al servicio SecurityConfiguration y usando el m&eacute;todo contributeSecurityConfiguration del m&oacute;dulo y la clase SecurityFilterChainFactory y su m&eacute;todo ssl(). Un ejemplo es el siguiente:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/6c28ea0e096d90c6aa9f.js?file=AppModule-2.java"></script> 
+ <noscript>
+  <pre><code>package es.com.blogspot.elblogdepicodev.plugintapestry.services;
+
+...
+
+public class AppModule {
+
+	....
+
+	public static void contributeSecurityConfiguration(Configuration&lt;SecurityFilterChain&gt; configuration, SecurityFilterChainFactory factory) {
+		configuration.add(factory.createChain(&quot;/admin/**&quot;).add(factory.authc()).add(factory.ssl()).build());
+	}
+
+	....
+}
+</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>En cualquiera de los dos casos mostrados en este ejemplo se obliga a usar https en la p&aacute;gina de login:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/38/plugin-tapestry-https.png" title="PlugIn Tapestry con https"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/38/plugin-tapestry-https-thumb.png" /></a> 
+</div> 
+<p>El ejemplo completo puede encontrarse en la <a href="https://github.com/picodotdev/elblogdepicodev/tree/master/PlugInTapestry">aplicaci&oacute;n del libro PlugIn Tapestry</a> que puedes descargar y probar de <a href="https://github.com/picodotdev">mi repositorio de GitHub</a>. Por supuesto tambi&eacute;n puedes <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">descargar el libro PlugIn Tapestry</a> si quieres conocer de forma m&aacute;s profunda cuales son las caracter&iacute;sticas y como funciona <a href="http://tapestry.apache.org">Apache Tapestry</a>.</p> 
+<p>Referencia:<br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-apache/">Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl/">Generar y convertir claves y certificados con OpenSSL</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry/">Libro PlugIn Tapestry</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" st_title="Forzar el uso del protocolo https en Apache Tapestry | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Forzar el uso del protocolo https en Apache Tapestry";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 846,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
