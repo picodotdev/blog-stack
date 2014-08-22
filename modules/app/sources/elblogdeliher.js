@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
+      "title" : "Buena publicidad :D"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
       "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
       "title" : "Como escuchar la radio en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
-      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     }
   ]
 }

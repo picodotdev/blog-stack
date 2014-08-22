@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
+      "title" : "Buena publicidad :D"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
       "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
       "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
-      "title" : "Como activar reiniciar las X en Ubuntu 14.04"
     }
   ]
 }
