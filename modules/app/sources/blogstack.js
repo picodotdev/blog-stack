@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
+      "title" : "SQL Buddy, una gran herramienta MySQL"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
       "title" : "Buena publicidad :D"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
-      "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
     }
   ]
 }
