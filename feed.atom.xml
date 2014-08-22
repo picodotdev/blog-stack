@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-08-22T12:03:20Z</updated>
+  <updated>2014-08-22T16:02:52Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-08-22T12:03:20Z</dc:date>
+  <dc:date>2014-08-22T16:02:52Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Como solucionar el problema del header no encontrado en Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu" />
+    <category term="actualizar" />
+    <category term="ubuntu" />
+    <category term="problema" />
+    <category term="tips" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-08-22T15:46:05Z</updated>
+    <published>2014-08-22T15:46:05Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;Recientemente me encontr&amp;eacute; con un &lt;strong&gt;problema&lt;/strong&gt; al hacer querer actualizar mi&lt;strong&gt; Ubuntu 14.04&lt;/strong&gt; desde la Terminal, dicho problema me mostraba lo siguiente en la pantalla:&lt;/p&gt; 
+ &lt;pre&gt;&amp;iexcl;Error! E: Encountered a section with no Package: header
+E: Problem with MergeList /var/lib/apt/lists/ ...*... 
+E: No se pudieron analizar o abrir las listas de paquetes o el archivo de estado lists&lt;/pre&gt; 
+ &lt;p&gt;Concretamente yo ve&amp;iacute;a esto en la Terminal de &lt;strong&gt;Ubuntu&lt;/strong&gt; cuando el comando “sudo apt-get update” terminaba la revisi&amp;oacute;n de los repositorios. Os adjunto una imagen en la que lo pod&amp;eacute;is ver:&lt;/p&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;p&gt;&lt;a href="http://elblogdeliher.com/wp-content/uploads/2014/08/fallo-apt.jpg"&gt;&lt;img src="http://elblogdeliher.com/wp-content/uploads/2014/08/fallo-apt.jpg" alt="fallo-apt" width="636" height="105" /&gt;&lt;/a&gt;&lt;/p&gt; 
+ &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+ &lt;p&gt;Tambi&amp;eacute;n me aparec&amp;iacute;a un indicador en la zona de indicadores de mi Cairo que me indicaba el problema. Al ejecutar nuevamente el comando me volv&amp;iacute;a a salir el error y decid&amp;iacute; buscar informaci&amp;oacute;n en Internet. Por suerte, despu&amp;eacute;s de estar buscando un rato me encontr&amp;eacute; con un articulo en &lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-08-22T15:46:05Z</dc:date>
+  </entry>
   <entry>
     <title>¿Que es Spring Framework? y un poco de Javascript para GenBetaDev</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev" />
@@ -760,49 +786,6 @@ sudo apt-get install terminator&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http:/
 &lt;p&gt;&lt;a title="Descargas MyNotex" href="https://sites.google.com/site/mynotex/files"&gt;Descargas MyNotex&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-08-06T08:11:14Z</dc:date>
-  </entry>
-  <entry>
-    <title>JQuery Ajax y Eventos Globales</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales" />
-    <category term="html5" />
-    <category term="jquery" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-08-06T07:02:30Z</updated>
-    <published>2014-08-06T07:02:30Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Ajax es una tecnolog&amp;iacute;a con la que trabajamos en el d&amp;iacute;a a d&amp;iacute;a pero que siempre tiene cosas que quedan por aprender. En este caso vamos a hablar de JQuery y como maneja los eventos de Ajax a nivel global. Para ello vamos a poner en ejemplo sencillo en el que usamos JQuery para hacer dos peticiones Ajax.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;html&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery-2.1.1.min.js&amp;quot;&amp;gt;
-&amp;lt;/script&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-$(document).ready(function() {
-
-$.get(&amp;quot;/hola&amp;quot;,function(datos) {
-
-alert(datos);
-alert(&amp;quot;peticion finalizada&amp;quot;);
-
-});
-$.get(&amp;quot;/hola2&amp;quot;,function(datos) {
-
-alert(datos);
-alert(&amp;quot;peticion finalizada&amp;quot;);
-});
-
-});
-
-&amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/pre&gt; 
-&lt;p&gt;Como podemos se trata de un programa que realiza dos peticiones Ajax y se trae unos datos usando $.get() . Despu&amp;eacute;s de realizar esta operaci&amp;oacute;n nos saca a traves de un alert los datos y un mensaje de petici&amp;oacute;n finalizada.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-08-06T07:02:30Z</dc:date>
   </entry>
 </feed>
 

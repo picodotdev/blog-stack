@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
+      "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
       "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
-      "title" : "Unos prompt de ejemplo"
     }
   ]
 }

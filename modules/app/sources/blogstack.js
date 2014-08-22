@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
+      "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
       "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/como-activar-reiniciar-las-x-en-ubuntu-14-4",
       "title" : "Como activar reiniciar las X en Ubuntu 14.04"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
-      "title" : "Java 8 Lambda y forEach (II)"
     }
   ]
 }
