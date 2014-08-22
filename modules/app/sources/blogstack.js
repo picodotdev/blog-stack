@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
+      "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
       "title" : "Forzar el uso del protocolo https en Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
       "title" : "Java 8 Lambda y forEach (II)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/problema-con-bateria-en-portatil-dell-solucionado",
-      "title" : "Problema con bateria en portátil Dell solucionado"
     }
   ]
 }

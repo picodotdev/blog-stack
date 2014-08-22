@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
+      "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
       "title" : "Spring Anotaciones vs XML"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
       "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
-      "title" : "Arquitectura WebSocket y Threads"
     }
   ]
 }
