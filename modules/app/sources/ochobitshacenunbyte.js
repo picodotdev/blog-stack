@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
+      "title" : "Calibre lanza la versión 2.0"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
       "title" : "SQL Buddy, una gran herramienta MySQL"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
       "title" : "Editando particiones con cfdisk"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du",
-      "title" : "Saber cuanto ocupa un fichero o directorio con du"
     }
   ]
 }

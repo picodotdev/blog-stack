@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
+      "title" : "Calibre lanza la versión 2.0"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
       "title" : "SQL Buddy, una gran herramienta MySQL"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
       "title" : "KDEdu, el proyecto de educación de KDE"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
-      "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
     }
   ]
 }
