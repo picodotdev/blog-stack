@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
+      "title" : "Utilizar Chart.js con Knockout.js"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
       "title" : "Experiencia instalando sistema operativo a ordenador viejo"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
-      "title" : "KDEdu, el proyecto de educación de KDE"
     }
   ]
 }

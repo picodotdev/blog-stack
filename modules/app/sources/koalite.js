@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
+      "title" : "Utilizar Chart.js con Knockout.js"
+    },
+    {
       "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
       "title" : "Tres años de Koalite"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/04/por-que-sigo-usando-un-orm",
       "title" : "Por qué sigo usando un ORM"
-    },
-    {
-      "url" : "/post/koalite/2014/04/testeando-sitios-web-con-f-y-canopy",
-      "title" : "Testeando sitios web con F# y Canopy"
     }
   ]
 }
