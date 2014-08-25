@@ -3,16 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
+      "title" : "Calibre lanza la versión 2.0"
+    },
+    {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
       "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
     },
     {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
-      "title" : "Calibre lanza la versión 2.0"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
