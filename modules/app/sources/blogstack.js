@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
+      "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
+    },
+    {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
-      "title" : "Experiencia instalando sistema operativo a ordenador viejo"
     }
   ]
 }
