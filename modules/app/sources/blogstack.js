@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
+      "title" : "Instala y actualiza paquetes en FreeBSD"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
       "title" : "JSF, Spring MVC y Java EE 8"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap",
       "title" : "Se cumplen 10 años de OpenStreetMap"
-    },
-    {
-      "url" : "/post/elblogdejose/2014/08/sabias-que-el-uso-de-la-annotation-override-nos-advierte-de-errores-en-el-codigo",
-      "title" : "Sabias que el uso de la annotation override nos advierte de errores en el código"
     }
   ]
 }

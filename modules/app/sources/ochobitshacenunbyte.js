@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
+      "title" : "Instala y actualiza paquetes en FreeBSD"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
       "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
-      "title" : "Editando particiones con cfdisk"
     }
   ]
 }
