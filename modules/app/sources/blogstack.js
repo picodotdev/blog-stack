@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
+      "title" : "JSF, Spring MVC y Java EE 8"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2014/08/sabias-que-el-uso-de-la-annotation-override-nos-advierte-de-errores-en-el-codigo",
       "title" : "Sabias que el uso de la annotation override nos advierte de errores en el código"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
-      "title" : "De Arch Linux a Arch Linux"
     }
   ]
 }

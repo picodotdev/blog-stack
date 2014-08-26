@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
+      "title" : "JSF, Spring MVC y Java EE 8"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
       "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
     },
@@ -57,10 +61,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
       "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
-      "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
     }
   ]
 }
