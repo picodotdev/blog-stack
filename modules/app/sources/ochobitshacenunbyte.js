@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
+      "title" : "Administra gran cantidad de datos con Adminer"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
       "title" : "Instala y actualiza paquetes en FreeBSD"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
       "title" : "Crea la nota perfecta con MyNotex"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
-      "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
     }
   ]
 }

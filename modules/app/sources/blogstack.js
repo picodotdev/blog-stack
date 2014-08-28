@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
+      "title" : "Administra gran cantidad de datos con Adminer"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
       "title" : "Instala y actualiza paquetes en FreeBSD"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
       "title" : "Spring Anotaciones vs XML"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap",
-      "title" : "Se cumplen 10 años de OpenStreetMap"
     }
   ]
 }
