@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
+      "title" : "Doble barra de botones con Apache Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
       "title" : "Forzar el uso del protocolo https en Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
       "title" : "Guía para la creación de un blog con Octopress"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly",
-      "title" : "Ejecutar Apache Tapestry en el servidor de aplicaciones WildFly"
     }
   ]
 }

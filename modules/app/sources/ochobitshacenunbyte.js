@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
+      "title" : "Supervisando la red con ntop"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
       "title" : "Administra gran cantidad de datos con Adminer"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
       "title" : "WordStar, el rey de los editores de texto en los ochenta"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
-      "title" : "Crea la nota perfecta con MyNotex"
     }
   ]
 }

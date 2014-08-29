@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-08-22T11:02:49Z</updated>
+  <updated>2014-08-29T19:03:02Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-08-22T11:02:49Z</dc:date>
+  <dc:date>2014-08-29T19:03:02Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Doble barra de botones con Apache Tapestry</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="tapestry" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-08-29T11:04:52Z</updated>
+    <published>2014-08-29T11:04:52Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Por motivos de usabiliad en algunas p&amp;aacute;ginas se incluyen dos barra de botones, una antes de una larga secci&amp;oacute;n y otra despu&amp;eacute;s. El motivo de la doble barra de botones inicial es que no sea necesario hacer &amp;laquo;scroll&amp;raquo; hasta el final de la p&amp;aacute;gina para acceder a los botones y realizar la acci&amp;oacute;n que permitan. Por el contrario, inlcuir la barra de botones al final de la p&amp;aacute;gina permite que una vez seleccionados los elementos o revisado el contenido de la secci&amp;oacute;n hacer disponibles las acciones que es probable que se quieran realizar.&lt;/p&gt; 
+&lt;div style="text-align: center;"&gt; 
+ &lt;a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/39/doble-barra-botones.png" title="Doble barra de botones"&gt;&lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/39/doble-barra-botones-thumb.png" /&gt;&lt;/a&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Dependiendo del framework web que utilicemos podremos hacerlo de una o varias formas pero de lo que estamos seguros es que copiar y pegar haciendo que el c&amp;oacute;digo est&amp;eacute; duplicado no es una buena idea por los problemas de mantenimiento que puede suponer. Pero crear una peque&amp;ntilde;a plantilla o archivo exclusivo para incluir la barra de botones tampoco es la soluci&amp;oacute;n ideal, &amp;iquest;por que? pues porque creando un archivo espec&amp;iacute;fico con la botonera puede que nos ocasione un problema que denominar&amp;eacute; de &amp;laquo;microgesti&amp;oacute;n&amp;raquo;, es decir, nos obliga a crear un mont&amp;oacute;n de peque&amp;ntilde;os archivos peque&amp;ntilde;itos y hacer referencia o utilizar el mecanismo de inclusi&amp;oacute;n que dispongamos para usar el contenido en unos de otros. En una aplicaci&amp;oacute;n grande esta microgesti&amp;oacute;n si nos vemos obligados a ella puede llegar a ser molesta al desarrollar cuanto menos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-08-29T11:04:52Z</dc:date>
+  </entry>
   <entry>
     <title>Forzar el uso del protocolo https en Apache Tapestry</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry" />
@@ -726,32 +752,6 @@
 &lt;/ul&gt;El problema de los scaffoldings viene cuando la funcionalidad que proporcionan no es suficiente, no se adapta a lo que necesitamos o no nos gusta lo que se genera y nos vemos en la obligaci&amp;oacute;n de personalizarlo, los scaffolding son tan b&amp;aacute;sicos que si tenemos una aplicaci&amp;oacute;n un poco compleja probablemente deberemos adaptarlos. En ese caso no nos quedar&amp;aacute; m&amp;aacute;s remedio que programar lo que necesitemos. Algunos frameworks permiten generar un c&amp;oacute;digo inicial a partir del que comenzar la programaci&amp;oacute;n. Esto es el caso de Grails y el c&amp;oacute;digo generado deja bastante que desear (en mi humilde opini&amp;oacute;n), el CRUD de una tabla tiene cinco gsp, entre ellas una para el alta y otra para la modificaci&amp;oacute;n que son pr&amp;aacute;cticamente iguales con lo que contiene bastante c&amp;oacute;digo repetido tambi&amp;eacute;n en el controlador para las acciones save y update que para luego mantenerlo supone problemas. Una vez que el c&amp;oacute;digo est&amp;aacute; generado y lo hemos personalizado con alguna modificaci&amp;oacute;n al salir una nueva versi&amp;oacute;n del framework (y tarde o temprano saldr&amp;aacute;) tendremos la duda de si el c&amp;oacute;digo que se nos gener&amp;oacute; con una versi&amp;oacute;n anterior se ha quedado obsoleto en la nueva versi&amp;oacute;n, dudaremos si partir del c&amp;oacute;digo inicial que genera la nueva versi&amp;oacute;n e incorporar las cambios que hicimos o si adaptamos el c&amp;oacute;digo que tenemos con los nuevos cambios.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/06/mantenimiento-crud-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-06-14T16:10:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Seguridad en aplicación web con Apache Tapestry (II)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2013-06-07T19:48:04Z</updated>
-    <published>2013-05-31T16:15:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" /&gt; 
-&lt;/div&gt; 
-&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt;&lt;/div&gt;Si en la anterior entrada hablaba de la seguridad sobre los aspectos de la&amp;nbsp; 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/05/seguridad-en-aplicacion-web-con-apache.html"&gt;autenticaci&amp;oacute;n y autorizaci&amp;oacute;n de las acciones que puede realizar los usuarios&lt;/a&gt;&amp;nbsp;en una aplicaci&amp;oacute;n web en esta hablar&amp;eacute; como protegerse de otro tipo de fallos de seguridad, XSS e inyecci&amp;oacute;n de Sql. 
-&lt;br /&gt; 
-&lt;br /&gt;Otros dos aspectos muy a tener en cuenta desde el inicio y durante el desarrollo de una aplicaci&amp;oacute;n web son los siguientes: 
-&lt;br /&gt; 
-&lt;ul&gt; 
- &lt;li&gt;XSS (&lt;a href="http://es.wikipedia.org/wiki/Cross-site_scripting"&gt;Cross site scripting&lt;/a&gt;): es una vulnerabilidad que pueden sufrir las aplicaciones por b&amp;aacute;sicamente no controlar los datos que un usuario env&amp;iacute;a a trav&amp;eacute;s de formularios o como par&amp;aacute;metros en las URL. Por ejemplo, supongamos una aplicaci&amp;oacute;n recibe un formulario con un nombre que se escupe tal cual se envi&amp;oacute; en otra p&amp;aacute;gina de la aplicaci&amp;oacute;n y que otros usuarios pueden visualizar en sus navegadores posteriormente cuando accedan a las p&amp;aacute;ginas que los muestran. Una posible situaci&amp;oacute;n puede darse cuando los datos enviados se guardan en una base de datos, un usuario los env&amp;iacute;a se guardan en la base de datos y otro usuario los ve. Ese dato puede ser una cadena inofensiva como el nombre que se pide pero un usuario malicioso puede enviar c&amp;oacute;digo javascript o una imagen con una URL que puede recolectar&amp;nbsp;con cualquier prop&amp;oacute;sito la informaci&amp;oacute;n de los usuario que la ven en su navegador. Un usuario enviando los datos adecuados puede explotar esta vulnerabilidad y conseguir desde obtener la sesi&amp;oacute;n de otro usuario y hacer cualquier tipo de acci&amp;oacute;n como si fuera ese otro usuario, hasta obtener datos y distribuir virus a los usuarios a trav&amp;eacute;s de nuestra propia p&amp;aacute;gina web.&amp;nbsp; &lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/05/seguridad-en-aplicacion-web-con-apache-tapestry-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-05-31T16:15:00Z</dc:date>
   </entry>
 </feed>
 

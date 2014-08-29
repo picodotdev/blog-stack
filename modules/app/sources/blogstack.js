@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
+      "title" : "Supervisando la red con ntop"
+    },
+    {
+      "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
+      "title" : "Doble barra de botones con Apache Tapestry"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
       "title" : "Administra gran cantidad de datos con Adminer"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/fondos-de-escritorio-13",
       "title" : "Fondos de escritorio 13"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel",
-      "title" : "Virtualización con KVM y Trisquel"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
-      "title" : "Spring Anotaciones vs XML"
     }
   ]
 }
