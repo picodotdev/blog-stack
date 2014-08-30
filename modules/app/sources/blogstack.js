@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
+      "title" : "Actualización del libro PlugIn Tapestry"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
       "title" : "Supervisando la red con ntop"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
       "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/fondos-de-escritorio-13",
-      "title" : "Fondos de escritorio 13"
     }
   ]
 }

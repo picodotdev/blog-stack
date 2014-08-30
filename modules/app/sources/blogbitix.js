@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
+      "title" : "Actualización del libro PlugIn Tapestry"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
       "title" : "Doble barra de botones con Apache Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
       "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
-    },
-    {
-      "url" : "/post/blogbitix/2014/03/guia-para-la-creacion-de-un-blog-con-octopress",
-      "title" : "Guía para la creación de un blog con Octopress"
     }
   ]
 }
