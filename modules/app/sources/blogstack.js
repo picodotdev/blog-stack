@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
+      "title" : "Tocan a su fin"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
       "title" : "Actualización del libro PlugIn Tapestry"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
       "title" : "Forzar el uso del protocolo https en Apache Tapestry"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
-      "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
     }
   ]
 }

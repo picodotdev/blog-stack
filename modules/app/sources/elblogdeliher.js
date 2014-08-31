@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
+      "title" : "Tocan a su fin"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
       "title" : "Buena publicidad :D"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
       "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
-      "title" : "Como escuchar la radio en Ubuntu"
     }
   ]
 }
