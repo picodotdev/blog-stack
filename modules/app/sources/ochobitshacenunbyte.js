@@ -3,6 +3,14 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
+      "title" : "Crea contraseñas con pwgen"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/08/krita-el-editor-de-pintura-digital",
+      "title" : "Krita, el editor de pintura digital"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
       "title" : "Supervisando la red con ntop"
     },
@@ -53,14 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
       "title" : "Probamos FreeBSD 10"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/instalar-el-cliente-owncloud-en-debian-wheezy-con-gnome-shell",
-      "title" : "Instalar el cliente ownCloud en Debian Wheezy con Gnome Shell"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
-      "title" : "WordStar, el rey de los editores de texto en los ochenta"
     }
   ]
 }

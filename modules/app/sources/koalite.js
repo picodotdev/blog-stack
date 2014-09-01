@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
+      "title" : "No subestimes el poder de un log"
+    },
+    {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
     },
@@ -57,10 +61,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/04/gusenet-2-14-extraordinario-un-ano-mas",
       "title" : "Gusenet 2014, extraordinario un año más"
-    },
-    {
-      "url" : "/post/koalite/2014/04/por-que-sigo-usando-un-orm",
-      "title" : "Por qué sigo usando un ORM"
     }
   ]
 }

@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
+      "title" : "Crea contraseñas con pwgen"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/08/krita-el-editor-de-pintura-digital",
+      "title" : "Krita, el editor de pintura digital"
+    },
+    {
+      "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
+      "title" : "No subestimes el poder de un log"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
       "title" : "Tocan a su fin"
     },
@@ -49,18 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
       "title" : "Buena publicidad :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
-      "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
-      "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
-      "title" : "Forzar el uso del protocolo https en Apache Tapestry"
     }
   ]
 }
