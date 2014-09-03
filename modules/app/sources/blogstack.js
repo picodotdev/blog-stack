@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
+      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
       "title" : "MediaGoblin, la plataforma audiovisual libre"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
       "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
-    },
-    {
-      "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
-      "title" : "Utilizar Chart.js con Knockout.js"
     }
   ]
 }
