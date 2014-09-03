@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
+      "title" : "Fondos de escritorio 14"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
+      "title" : "Linux AIO, la evolucion de Ubuntu AIO"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
       "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
     },
@@ -53,14 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
       "title" : "Sobre el nuevo canon AEDE"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/los-editores-de-texto-predeterminados-en-linux",
-      "title" : "Los editores de texto predeterminados en Linux"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
-      "title" : "Fondos de escritorio 12"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
+      "title" : "Fondos de escritorio 14"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
+      "title" : "Linux AIO, la evolucion de Ubuntu AIO"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
       "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
     },
@@ -53,14 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
       "title" : "Instala y actualiza paquetes en FreeBSD"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
-      "title" : "JSF, Spring MVC y Java EE 8"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
-      "title" : "Calibre lanza la versión 2.0"
     }
   ]
 }
