@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
+      "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
       "title" : "MAC no, Iphone si, ¿por que?"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
       "title" : "Fondos de escritorio 12"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
-      "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
     }
   ]
 }

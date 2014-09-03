@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
+      "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
-    },
-    {
-      "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
-      "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
     }
   ]
 }
