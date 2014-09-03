@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
+      "title" : "MediaGoblin, la plataforma audiovisual libre"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
       "title" : "Crea contraseñas con pwgen"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
-      "title" : "Probamos FreeBSD 10"
     }
   ]
 }

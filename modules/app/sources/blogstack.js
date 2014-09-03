@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
+      "title" : "MediaGoblin, la plataforma audiovisual libre"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
       "title" : "MAC no, Iphone si, ¿por que?"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
-      "title" : "SQL Buddy, una gran herramienta MySQL"
     }
   ]
 }

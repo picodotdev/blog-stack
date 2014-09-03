@@ -1,0 +1,202 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre"><span itemprop="headline">MediaGoblin, la plataforma audiovisual libre</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/09/02/mediagoblin-la-plataforma-audiovisual-libre/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-02T07:01" itemprop="datePublished">Publicado el martes, 02 de septiembre de 2014 a las 07:01 UTC</span></div><div><span datetime="2014-09-03T07:38" itemprop="dateModified">Actualizado el miércoles, 03 de septiembre de 2014 a las 07:38 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/debian"><span itemprop="articleSection">debian</span></a>, blog-stack, comunidad-open-source, apache2, <a href="/label/fsf"><span itemprop="articleSection">fsf</span></a>, mediagoblin, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a>, nginx</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-avatar-150.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-avatar-150.jpg" alt="mediagoblin-avatar-150" width="150" height="150" /></a>Todos usamos las redes sociales y accedemos a los contenidos audiovisuales de Internet, en las diversas opciones disponibles, ya sea para ver v&iacute;deos, escuchar m&uacute;sica, estar al tanto de las noticias o conectarnos a las redes sociales. El problema en la mayor&iacute;a de los casos es que estamos usando plataformas privativas que no respestan nuestras libertades, y que para m&aacute;s inri juegan con nuestra informaci&oacute;n privada.</p> 
+<p><strong>GNU MediaGoblin</strong> es software libre, una alternativa descentralizada a productos como Youtube, Flickr o SoundCloud, que nos permitir&aacute; alojar y compartir multimedia digital.</p> 
+<p></p> 
+<p>En el presente art&iacute;culo vamos a ver como instalarlo en un servidor con <strong>Debian 7 Wheezy</strong>, para as&iacute; poder testearlo correctamente.</p> 
+<h2>Requisitos</h2> 
+<p>Necesitamos un servidor con un sistema operativo GNU/Linux, con los siguientes requisitos:</p> 
+<ul> 
+ <li>Python 2.6 o 2.7</li> 
+ <li>python-lxml</li> 
+ <li>git</li> 
+ <li>SQLite o PostgreSQL</li> 
+ <li>Python Imaging Library (PIL)</li> 
+ <li>virtualenv</li> 
+</ul> 
+<h2>Instalaci&oacute;n</h2> 
+<p>Como usamos un sistema operativo Debian Wheezy, la orden de instalaci&oacute;n del software necesario, es el siguiente:</p> 
+<pre>sudo apt-get install git-core python python-dev python-lxml \
+python-imaging python-virtualenv</pre> 
+<p>Para el resto de distribuciones, como <strong>OpenSuse</strong> o <strong>CentOS</strong>:</p> 
+<pre>yum install python-paste-deploy python-paste-script \
+    git-core python python-devel python-lxml python-imaging \
+    python-virtualenv</pre> 
+<h2>Respecto a la base de datos</h2> 
+<p>Por defecto <strong>GNU MediaGoblin</strong> utiliza <strong>SQLite</strong>, realmente para hacer &eacute;ste art&iacute;culo tenemos m&aacute;s que suficiente, pero vamos a ir m&aacute;s all&aacute;. En un entorno productivo es m&aacute;s l&oacute;gico, si vamos a tener bastantes usuarios o visitas, usar <strong>PostgreSQL</strong>.</p> 
+<div>
+ <strong>PostgreSQL</strong>, se trata de un Sistema de Gesti&oacute;n de Base de Datos, orientado a objetos y libre. Usa la 
+ <strong>licencia BSD</strong>
+</div> 
+<h2></h2> 
+<h2>Instalamos PostgreSQL</h2> 
+<pre>apt-get install postgresql postgresql-client python-psycopg2</pre> 
+<p>Al instalar el software nos crear&aacute; un usuario llamado <strong><em>postgres</em></strong>, con el cual tendremos que operar.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-usuario-postgres.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-usuario-postgres.jpg" alt="mediagoblin-usuario-postgres" width="600" height="69" /></a>Ahora crearemos un nuevo usuario y una nueva base de datos:</p> 
+<pre>sudo -u postgres createuser -A -D mediagoblin</pre> 
+<p>Y la nueva base de datos:</p> 
+<pre>sudo -u postgres createdb -E UNICODE -O mediagoblin mediagoblin</pre> 
+<p>En la siguiente imagen podemos ver la base de datos creada:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-lista-bbdd-postgresql.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-lista-bbdd-postgresql.jpg" alt="mediagoblin-lista-bbdd-postgresql" width="600" height="305" /></a></p> 
+<h2>El usuario medigoblin</h2> 
+<p>Por defecto <strong>GNU MediaGoblin</strong> no requiere un usuario con permisos especiales o elevador para ejecutarse. Por lo tanto s&oacute;lo necesitamos un usuario del sistema sin privilegios especiales para ejecutar <strong>MediaGoblin</strong>.</p> 
+<p>Creamos un usuario llamado <strong><em>mediagoblin</em></strong>, del sistema, sin privilegios especiales:</p> 
+<pre>adduser --system mediagoblin</pre> 
+<p>Como es un usuario del sistema y no tiene asignada ninguna contrase&ntilde;a, para acceder al usuario:</p> 
+<pre>sudo -u mediagoblin /bin/bash</pre> 
+<p>Los comandos en la consola quedar&iacute;an de la siguiente manera:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-user-mediagoblin.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-user-mediagoblin.jpg" alt="mediagoblin-user-mediagoblin" width="600" height="95" /></a></p> 
+<h2>Creamos el directorio para MediaGoblin</h2> 
+<p>Debemos crear un directorio de trabajo para <strong>MediaGoblin</strong>, el directorio se usar&aacute; para el repositorio<strong><em> git</em></strong>, puedes usar el que a ti m&aacute;s te convenga.</p> 
+<pre>sudo mkdir -p /srv/mediagoblin.localhost.local &amp;&amp; sudo chown -hR \
+mediagoblin: /srv/mediagoblin.localhost.local</pre> 
+<p>Accedemos al directorio creado:</p> 
+<pre>cd /srv/mediagoblin.localhost.local</pre> 
+<p>La imagen en la consola ser&aacute; parecida a la siguiente:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-directorio-git.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-directorio-git.jpg" alt="mediagoblin-directorio-git" width="600" height="92" /></a>Ahora clonamos el repositorio mediante <strong><em>git</em></strong></p> 
+<div>
+ <strong>Git</strong>, es un software de control de versiones, creado por 
+ <strong>Linus Torvalds</strong>.
+</div> 
+<pre>git clone git://gitorious.org/mediagoblin/mediagoblin.git
+cd mediagoblin
+git submodule init &amp;&amp; git submodule update</pre> 
+<p>Y desempaquetamos <strong><em>virtualenv</em></strong></p> 
+<div>
+ <strong>virtualenv</strong>, es una herramienta de 
+ <strong>Python</strong>. Permite que se puedan instalar paquetes sin interferir entre si, ni con el sistema de paquetes de python.
+</div> 
+<pre>(virtualenv --python=python2 --system-site-packages . || virtualenv \ 
+--python=python2 .) &amp;&amp; ./bin/python setup.py develop</pre> 
+<p>Implementamos <strong>FastCGI</strong></p> 
+<div>
+ <strong>FastCGI</strong>, es un protocolo para interconectar programos interactivos con un servidor web.
+</div> 
+<pre>./bin/easy_install flup</pre> 
+<p>Parece ser que a veces la descarga no funciona bien, si eso pasa podemos probar con el siguiente comando:</p> 
+<pre>./bin/easy_install https://pypi.python.org/pypi/flup/1.0.3.dev-20110405</pre> 
+<p>Es recomendable que vayamos actualizando de <strong><em>git</em></strong> el producto:</p> 
+<pre>git submodule update &amp;&amp; ./bin/python setup.py develop --upgrade \
+ &amp;&amp; ./bin/gmg dbupdate</pre> 
+<h2>Implementar los servicios de MediaGoblin</h2> 
+<p>Comenzamos a configurar el software. Copiaremos el archivo mediagoblin.ini ya que lo editaremos, para que no se pierde la configuraci&oacute;n inicial.</p> 
+<pre>cp mediagoblin.ini mediagoblin_local.ini</pre> 
+<p>Modicaremos<strong><em> email_sender_address </em></strong>para que nos env&iacute;e correo a nuestra direcci&oacute;n.</p> 
+<p>Tambi&eacute;n hay que modificar <strong><em>direct_remote_path</em></strong>, <strong><em>base_dir</em></strong>, and <strong><em>base_url</em></strong> , para adaptar la configuraci&oacute;n a nuestro servidor.</p> 
+<h2>Configurar MediaGoblin en la base de datos PostgreSQL</h2> 
+<p>Usamos <strong>PostgreSQL</strong> para MediaGlobin, en vez de <strong>SQLite</strong>, por lo tanto debemos moficiar el archivo <strong><em>mediagoblin_local.ini </em></strong>con la siguiente informaci&oacute;n:</p> 
+<pre>sql_engine = postgresql:///mediagoblin</pre> 
+<p>Actualizaremos la base de datos con:</p> 
+<pre>./bin/gmg dbupdate</pre> 
+<p>Una vez finalizada &eacute;sta parte, probaremos que la configuraci&oacute;n sea correcta, arrancando el servidor:</p> 
+<pre>./lazyserver.sh --server-name=broadcast</pre> 
+<p>Y ya podremos ver el resultado, si escribmos la IP de nuestro servidor seguido de dos puntos y el puerto 6543 o localhost:6543 si nos encontramos dentro del mismo servidor.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-captura-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-captura-1.jpg" alt="mediagoblin-captura-1" width="600" height="302" /></a>Si vamos a iniciar sesi&oacute;n veremos la siguiente pantalla:</p> 
+<h2><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-iniciar-sesion.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-iniciar-sesion.jpg" alt="mediagoblin-iniciar-sesion" width="600" height="323" /></a>&iexcl;IMPORTANTE!</h2> 
+<p>Ahora mismo no tenemos ning&uacute;n usuario creado, as&iacute; que vamos a crearlos.</p> 
+<pre>cd /srv/mediagoblin.localhost.local/mediagoblin/
+./bin/gmg adduser</pre> 
+<div style="position: absolute; top: -1999px; left: -1988px;">
+ ./bin/gmg adduser
+</div> 
+<p>Y as&iacute; ya podemos entrar en la interfaz de usuario:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-interfaz-usuario.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-interfaz-usuario.jpg" alt="mediagoblin-interfaz-usuario" width="600" height="255" /></a>A modo de prueba voy a a&ntilde;adir una colecci&oacute;n:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-coleccion.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-coleccion.jpg" alt="mediagoblin-a&ntilde;adir-coleccion" width="600" height="340" /></a>Y nos quedar&aacute; la siguiente ventana:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-coleccion-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-coleccion-2.jpg" alt="mediagoblin-a&ntilde;adir-coleccion-2" width="600" height="334" /></a>Si le a&ntilde;adimos algo de “<strong><em>chicha</em></strong>” el aspecto es el siguiente:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-imagenes.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-a&ntilde;adir-imagenes.jpg" alt="mediagoblin-a&ntilde;adir-imagenes" width="600" height="319" /></a>Espero que haya sido el art&iacute;culo de vuestro inter&eacute;s. Creo que <strong>GNU Media Goblin</strong> tiene mucho futuro. Estoy pensando por ejemplo en centos educativos, donde los alumnos o profesores puedan a&ntilde;adir imagenes, documentos, v&iacute;deos. Tambi&eacute;n en peque&ntilde;as editoriales o profesionales del arte.</p> 
+<p>En breve segunda parte, donde explicaremos como hacer que corra sobre <strong>Nginx</strong> o <strong>Apache</strong>, adem&aacute;s de a&ntilde;adirle muchas cosas m&aacute;s para que soporte m&uacute;ltiples formatos de v&iacute;deo, archivos en formato pdf, etc&eacute;tera.</p> 
+<p>Para m&aacute;s info <a title="MediaGoblin" href="http://www.mediagoblin.org/">MediaGoblin</a></p> 
+<p><strong>FREE AS IN FREEDOM&nbsp;</strong></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre" st_title="MediaGoblin, la plataforma audiovisual libre | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/debian/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta debian</a></li><li><a href="/label/fsf/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta fsf</a></li><li><a href="/label/gnu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 865,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>
