@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
+      "title" : "Como desactivar el mensaje de error interno en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
       "title" : "Mi nuevo conky"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/tengo-un-admirador-secreto-d",
       "title" : "Tengo un admirador secreto :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
-      "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
     }
   ]
 }

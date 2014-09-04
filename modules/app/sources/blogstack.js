@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Gestión y procesos en empresas de software"
     },
     {
+      "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
+      "title" : "Como desactivar el mensaje de error interno en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
       "title" : "Actualización del libro PlugIn Tapestry"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
-      "title" : "Supervisando la red con ntop"
     }
   ]
 }
