@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
+      "title" : "Mi nuevo conky"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
       "title" : "MediaGoblin, la plataforma audiovisual libre"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
       "title" : "Administra gran cantidad de datos con Adminer"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
-      "title" : "Instala y actualiza paquetes en FreeBSD"
     }
   ]
 }

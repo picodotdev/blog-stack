@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
+      "title" : "Mi nuevo conky"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
       "title" : "Fondos de escritorio 14"
     },
@@ -57,10 +61,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/que-es-la-ram-y-para-que-sirve-la-swap-en-ubuntu",
       "title" : "Que es la RAM y para que sirve la SWAP en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/sobre-el-nuevo-canon-aede",
-      "title" : "Sobre el nuevo canon AEDE"
     }
   ]
 }
