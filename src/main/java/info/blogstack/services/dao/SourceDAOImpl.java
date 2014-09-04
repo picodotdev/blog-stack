@@ -33,7 +33,7 @@ public class SourceDAOImpl extends GenericDAOImpl<Source> implements SourceDAO {
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.createAlias("posts", "p");
 		criteria.addOrder(Order.desc("p.date"));
-		criteria.setMaxResults(120);
+		criteria.setMaxResults(60);
 		return criteria.list();
 	}
 	

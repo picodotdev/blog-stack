@@ -180,7 +180,7 @@ public class IndexerServiceImpl implements IndexerService {
 		DateTime now = DateTime.now();
 		DateTime publishDate = (entry.getPublishedDate() == null) ? null : new DateTime(entry.getPublishedDate());
 		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
-		
+
 		if (post == null) {
 			post = new Post();
 			post.setSource(source);
@@ -208,8 +208,10 @@ public class IndexerServiceImpl implements IndexerService {
 			post = new Post();
 			post.setCreationDate(now);
 			post.setVisible(true);
+		} else {
+			logger.info("Updating {} post...", entry.getTitle());
 		}
-
+		
 		Set<Label> labels = indexLabels(entry.getCategories());
 
 		post.setLabels(labels);
@@ -244,7 +246,7 @@ public class IndexerServiceImpl implements IndexerService {
 		whitelist.addAttribute("embed", "src", "^http[s]?://www.youtube.com/v/.*$");
 		String c = Jsoup.clean(postContent.toString(), source.getPageUrl(), whitelist);
 		post.setContent(c, service.getSessionFactory().getCurrentSession());
-		
+
 		if (post.getId() == null) {
 			post.setSource(source);
 			source.getPosts().add(post);

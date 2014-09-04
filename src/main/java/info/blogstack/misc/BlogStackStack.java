@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.tapestry5.Asset;
 import org.apache.tapestry5.services.AssetSource;
+import org.apache.tapestry5.services.javascript.JavaScriptAggregationStrategy;
 import org.apache.tapestry5.services.javascript.JavaScriptStack;
 import org.apache.tapestry5.services.javascript.StylesheetLink;
 
@@ -27,6 +28,11 @@ public class BlogStackStack implements JavaScriptStack {
 		List<String> r = new ArrayList<>();		
 		r.add("app/analytics");		
 		return r;
+	}
+	
+	@Override
+	public JavaScriptAggregationStrategy getJavaScriptAggregationStrategy() {
+		return JavaScriptAggregationStrategy.DO_NOTHING;
 	}
 
 	@Override
