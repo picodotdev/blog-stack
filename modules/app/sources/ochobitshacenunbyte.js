@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/descargar-videos-de-vimeo-o-youtube-con-movgrab",
+      "title" : "Descargar vídeos de Vimeo o Youtube con Movgrab"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
@@ -57,10 +61,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
-      "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
     }
   ]
 }

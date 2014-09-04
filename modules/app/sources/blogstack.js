@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Gestión y procesos en empresas de software"
     },
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/descargar-videos-de-vimeo-o-youtube-con-movgrab",
+      "title" : "Descargar vídeos de Vimeo o Youtube con Movgrab"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
       "title" : "Como desactivar el mensaje de error interno en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
       "title" : "Tocan a su fin"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
-      "title" : "Actualización del libro PlugIn Tapestry"
     }
   ]
 }
