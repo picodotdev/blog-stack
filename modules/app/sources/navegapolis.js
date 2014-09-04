@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
+      "title" : "Gestión y procesos en empresas de software"
+    },
+    {
       "url" : "/post/navegapolis/2014/06/mejor-gestion-basada-en-procesos-o-agilidad",
       "title" : "¿Mejor gestión basada en procesos, o agilidad?"
     },

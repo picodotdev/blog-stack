@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
+      "title" : "Gestión y procesos en empresas de software"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
       "title" : "Supervisando la red con ntop"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
-      "title" : "Doble barra de botones con Apache Tapestry"
     }
   ]
 }
