@@ -1,0 +1,155 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-3)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin"><span itemprop="headline">Instalar plugin de audio y pdf en MediaGoblin</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/09/04/instalar-plugin-de-audio-y-pdf-en-mediagoblin/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-04T08:15" itemprop="datePublished">Publicado el jueves, 04 de septiembre de 2014 a las 08:15 UTC</span></div><div><span datetime="2014-09-04T08:15" itemprop="dateModified">Actualizado el jueves, 04 de septiembre de 2014 a las 08:15 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/debian"><span itemprop="articleSection">debian</span></a>, blog-stack, comunidad-open-source, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, <a href="/label/fsf"><span itemprop="articleSection">fsf</span></a>, mediagoblin, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-avatar-150.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-avatar-150.jpg" alt="mediagoblin-avatar-150" width="150" height="150" /></a>En el tercer cap&iacute;tulo sobre la instalaci&oacute;n y configuraci&oacute;n de <strong>GNU MediaGoblin</strong>, descubriremos como instalar los plugins de audio y pdf. Para s&iacute; poder concluir la parte en lo que respecta a la instalaci&oacute;n de plugins. Con esto ya tendremos una plataforma completa, para compartir im&aacute;genes, v&iacute;deo, audio y documentos. M&aacute;s adelante veremos otros aspectos como la gesti&oacute;n de usuarios y permisos o los comentarios.</p> 
+<p></p> 
+<h2>Hasta ahora</h2> 
+<p>Os dejo una lista de los cap&iacute;tulos tratados:</p> 
+<p><a title="MediaGoblin, la plataforma audiovisual libre" href="http://www.ochobitshacenunbyte.com/2014/09/02/mediagoblin-la-plataforma-audiovisual-libre/">MediaGoblin, la plataforma audiovisual libre</a></p> 
+<p><a title="Instalar Nginx y plugin de v&iacute;deo en MediaGoblin" href="http://www.ochobitshacenunbyte.com/2014/09/03/instalar-nginx-y-plugin-de-video-en-mediagoblin/">Instalar Nginx y plugin de v&iacute;deo en MediaGoblin</a></p> 
+<h2>Instalar plugin de v&iacute;deo</h2> 
+<p>Al igual que en la parte de v&iacute;deo, debemos de instalar los paquetes <strong><em>gstreamer</em></strong> y <strong><em>python-gstreamer</em></strong>. Tambi&eacute;n los paquetes <strong><em>scipy</em> </strong>y n<strong><em>umpy</em></strong>, para los espectrogramas de audio.</p> 
+<pre>sudo apt-get install python-gst0.10 \
+ gstreamer0.10-plugins-{base,bad,good,ugly} \
+ gstreamer0.10-ffmpeg python-numpy python-scipy</pre> 
+<p>M&aacute;s adelante instalaremos el paquete <strong><em>scikits.audiolab</em></strong>. Depende del paquete <strong><em>libsndfile1-dev</em></strong>, que instalaremos ahora:</p> 
+<pre>sudo apt-get install libsndfile1-dev</pre> 
+<div style="text-align: justify;">
+ El paquete 
+ <strong><em>scikits.audiolab</em></strong> nos puede mostrar un aviso de error al compilarlo. Eso es debido a que usa 
+ <strong>soporte alsa</strong>. Realmente esto no es necesario para 
+ <strong>GNU Media Goblin</strong>. Pero si no queremos ver advertencias tambi&eacute;n debemos instalar el paquete 
+ <em><strong>libasound2-dev</strong></em>.
+</div> 
+<p>Para nuestro art&iacute;culo instalaremos ambos paquetes:</p> 
+<pre>apt-get install libasound2-dev</pre> 
+<p>Y despu&eacute;s:</p> 
+<pre>./bin/pip install scikits.audiolab</pre> 
+<p>Al igual que hemos hecho con el plugin de v&iacute;deo, a&ntilde;adiremos el texto: <strong>[[mediagoblin.media_types.audio]]</strong>, debajo de <strong>[plugins]</strong>, en el archivo <strong>mediagoblin_local.ini</strong></p> 
+<p>Despu&eacute;s iniciamos la actualizaci&oacute;n con el siguiente comando:</p> 
+<pre>./bin/gmg dbupdate</pre> 
+<p>Ahora probaremos si el plugin funciona bien. He descargado el tema “<strong>La canci&oacute;n del software libre (Free Software Song)</strong> de la p&aacute;gina de <a title="GNU Free Software Song" href="http://www.gnu.org/music/free-software-song.html"><strong>GNU</strong>.</a> Me va perfecto porque est&aacute; en formato <strong>ogg</strong>. En este momento de la instalaci&oacute;n <strong>MediaGoblin</strong> no es compatible con mp3.</p> 
+<p>Vemos una imagen de la ficha que he rellenado para importar el tema:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-audio-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-audio-1.jpg" alt="mediagoblin-audio-1" width="500" height="567" /></a>La importaci&oacute;n puede tardar unos minutos, depende de vuestra conexi&oacute;n. Cuando est&eacute; importado el archivo, ya podremos reproducir el audio.</p> 
+<h2><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-audio-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-audio-2.jpg" alt="mediagoblin-audio-2" width="600" height="362" /></a></h2> 
+<h2></h2> 
+<h2>Plugin de PDF</h2> 
+<p>Para poder utilizar el plugin debemos instalar los siguientes paquetes:</p> 
+<pre>apt-get install poppler-utils unoconv</pre> 
+<p>Ahora debemos instalar la librer&iacute;a pdf.js</p> 
+<div style="text-align: justify;">
+ La libreria 
+ <strong>pdf.js</strong>, aprovecha HTML5/Javascript, para visualizar ficheros 
+ <strong>pdf</strong>.
+</div> 
+<p>Instalamos:</p> 
+<pre>cd /srv/mediagoblin.valledeljerte3/mediagoblin</pre> 
+<pre>git submodule init</pre> 
+<pre>git submodule update</pre> 
+<p>Una alternativa es descargar el fichero directamente desde la p&aacute;gina del proyecto:</p> 
+<pre>wget https://github.com/mozilla/pdf.js/archive/master.zip</pre> 
+<p>Y lo descomprimimos en la ubicaci&oacute;n: <strong>/srv/mediagoblin.localhost.local/mediagoblin/mediagoblin/static/extlib </strong>. Una forma sencilla es, una vez descargado el fichero, copiarlo a la ubicaci&oacute;n, y descomprimirlo con el comando unzip, si no lo ten&eacute;is instalado, ser&iacute;a de la siguiente manera:</p> 
+<pre>apt-get install zip
+cp master.zip /srv/mediagoblin.localhost.local/mediagoblin/mediagoblin/static/extlib
+unzip master.zip</pre> 
+<p>Al igual que hemos hecho con los plugins de v&iacute;deo y audio, editamos el fichero <strong>mediaglobin_local.ini ,</strong> justo debajo de <strong>[plugins]</strong>, a&ntilde;adimos:</p> 
+<p><strong>[[mediagoblin.media_types.pdf]]</strong></p> 
+<p>Actualizamos:</p> 
+<pre>./bin/gmg dbupdate</pre> 
+<p>Y ya podemos probar si funciona. Si todo ha ido bien ya podemos ver el documento en la web:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-pdf-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/mediagoblin-pdf-1.jpg" alt="mediagoblin-pdf-1" width="600" height="323" /></a>Con esto ya hemos acabado por hoy.</p> 
+<p>En la cuarta y &uacute;ltima parte veremos c&oacute;mo administrar los usuarios entre otras cosas.</p> 
+<p>Pod&eacute;is saber m&aacute;s sobre los plugins en el siguiente <a title="MediaGoblin MediaTypes" href="http://mediagoblin.readthedocs.org/en/latest/siteadmin/media-types.html">enlace</a>.</p> 
+<p><strong>FREE AS IN FREEDOM</strong></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin" st_title="Instalar plugin de audio y pdf en MediaGoblin | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/debian/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta debian</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/fsf/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta fsf</a></li><li><a href="/label/gnu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta gnu</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 871,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

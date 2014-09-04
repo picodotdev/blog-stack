@@ -3,12 +3,20 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
-      "title" : "Mi nuevo conky"
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
+      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
       "title" : "MediaGoblin, la plataforma audiovisual libre"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin",
+      "title" : "Instalar plugin de audio y pdf en MediaGoblin"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
+      "title" : "Mi nuevo conky"
     },
     {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
@@ -21,10 +29,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
       "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
-      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
     {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
       "title" : "Doble barra de botones con Apache Tapestry"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/administra-gran-cantidad-de-datos-con-adminer",
-      "title" : "Administra gran cantidad de datos con Adminer"
     }
   ]
 }
