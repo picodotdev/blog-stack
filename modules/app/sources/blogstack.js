@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
+      "title" : "MediaGoblin, la plataforma audiovisual libre"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
       "title" : "Fondos de escritorio 14"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
-      "title" : "MediaGoblin, la plataforma audiovisual libre"
     },
     {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",

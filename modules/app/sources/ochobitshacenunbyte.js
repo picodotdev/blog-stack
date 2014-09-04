@@ -3,12 +3,12 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
-      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
       "title" : "MediaGoblin, la plataforma audiovisual libre"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
+      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
