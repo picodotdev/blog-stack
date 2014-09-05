@@ -61,6 +61,42 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/pasando-argumentos-a-un-timertask-en-java",
       "title" : "Pasando argumentos a un TimerTask en Java"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/ci-xxiv-ataques-de-red-lasicos-intel-edison-representacion-de-pi-rsync-entrevista-de-trabajo-face-substitution",
+      "title" : "CI XXIV: Ataques de red lásicos, Intel Edison, representación de PI, RSYNC, entrevista de trabajo, face substitution"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/concurrencia-posix-threads-y-variables-compartidas-en-c",
+      "title" : "Concurrencia, POSIX threads y variables compartidas en C"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento",
+      "title" : "Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/lo-bueno-de-programar-es-que-le-puedes-poner-el-nombre-que-quieras-a-las-variables",
+      "title" : "Lo bueno de programar es que le puedes poner el nombre que quieras a las variables"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/introduccion-a-timer-y-timertask-en-java",
+      "title" : "Introducción a Timer y TimerTask en Java."
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/ci-xxiii-maslow-fisica-puertos-abiertos-paradojas-google-mediamarkt-y-pedir-perdon",
+      "title" : "CI XXIII: Maslow, Física, puertos abiertos, paradojas, Google, MediaMarkt y pedir perdón"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/enfrentandote-con-los-fantasmas-de-tu-pasado",
+      "title" : "Enfrentándote con los fantasmas de tu pasado"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/01/pinceladas-de-concurrencia-y-hello-world-usando-pthreads",
+      "title" : "Pinceladas de concurrencia y Hello world usando pthreads"
+    },
+    {
+      "url" : "/post/poesiabinaria/2013/12/el-2-13-para-poesia-binaria",
+      "title" : "El 2013 para Poesía Binaria"
     }
   ]
 }
