@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/fundacion-de-software-libre-recopilacion-de-noticias-de-agosto-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de Agosto 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
     },
