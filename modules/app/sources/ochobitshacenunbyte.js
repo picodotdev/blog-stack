@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/usar-comandos-unix-en-windows-con-cygwin",
+      "title" : "Usar comandos UNIX en Windows con cygwin"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/descargar-videos-de-vimeo-o-youtube-con-movgrab",
       "title" : "Descargar vídeos de Vimeo o Youtube con Movgrab"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
       "title" : "Realización de diagramas con Dia"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/codigo-linux-un-documental-que-no-te-debes-perder",
-      "title" : "Código Linux, un documental que no te debes perder."
     }
   ]
 }
