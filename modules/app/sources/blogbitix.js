@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
+      "title" : "Procesador de documentos LyX"
+    },
+    {
       "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
       "title" : "Actualización del libro PlugIn Tapestry"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry",
       "title" : "Libro sobre desarrollo de aplicaciones con Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/presentacion-sobre-apache-tapestry",
-      "title" : "Presentación sobre Apache Tapestry"
     }
   ]
 }

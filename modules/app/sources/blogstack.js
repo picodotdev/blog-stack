@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Usar comandos UNIX en Windows con cygwin"
     },
     {
+      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
+      "title" : "Procesador de documentos LyX"
+    },
+    {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
       "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
       "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
-      "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
     }
   ]
 }
