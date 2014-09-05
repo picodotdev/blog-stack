@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
+      "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
+    },
+    {
+      "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
+      "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
+    },
+    {
       "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
       "title" : "Gestión y procesos en empresas de software"
     },
@@ -91,10 +99,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Calibre lanza la versión 2.0"
     },
     {
-      "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
-      "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
-    },
-    {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
       "title" : "Forzar el uso del protocolo https en Apache Tapestry"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-abrir-un-directorio-que-tiene-espacio-en-su-nombre-en-ubuntu",
-      "title" : "Como abrir un directorio que tiene espacio en su nombre en Ubuntu"
     }
   ]
 }
