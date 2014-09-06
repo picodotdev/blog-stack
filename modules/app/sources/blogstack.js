@@ -3,16 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
+      "title" : "Procesador de documentos LyX"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/09/fundacion-de-software-libre-recopilacion-de-noticias-de-agosto-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Agosto 2014"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/usar-comandos-unix-en-windows-con-cygwin",
       "title" : "Usar comandos UNIX en Windows con cygwin"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
-      "title" : "Procesador de documentos LyX"
     },
     {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
