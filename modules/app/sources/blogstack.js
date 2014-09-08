@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
+      "title" : "Navegando por Mageia 4.1"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
       "title" : "Enlaces interesantes 168"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
-    },
-    {
-      "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
-      "title" : "Utilizar Chart.js con Knockout.js"
     }
   ]
 }

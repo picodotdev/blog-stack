@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
+      "title" : "Navegando por Mageia 4.1"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/usar-comandos-unix-en-windows-con-cygwin",
       "title" : "Usar comandos UNIX en Windows con cygwin"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
       "title" : "Linux y GNU están de moda"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/realizacion-de-diagramas-con-dia",
-      "title" : "Realización de diagramas con Dia"
     }
   ]
 }
