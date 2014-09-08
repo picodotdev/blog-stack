@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
+      "title" : "Enlaces interesantes 168"
+    },
+    {
       "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
       "title" : "ReactJS: un enfoque diferente"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
-      "title" : "SQL Buddy, una gran herramienta MySQL"
     }
   ]
 }
