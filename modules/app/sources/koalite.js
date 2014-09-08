@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
+      "title" : "ReactJS: un enfoque diferente"
+    },
+    {
       "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
       "title" : "No subestimes el poder de un log"
     },

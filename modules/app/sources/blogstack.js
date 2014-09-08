@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
+      "title" : "ReactJS: un enfoque diferente"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
       "title" : "Procesador de documentos LyX"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
       "title" : "SQL Buddy, una gran herramienta MySQL"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
-      "title" : "Buena publicidad :D"
     }
   ]
 }
