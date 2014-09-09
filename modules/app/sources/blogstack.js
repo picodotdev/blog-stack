@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
+      "title" : "La FSF y Debian unen fuerzas"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
       "title" : "Navegando por Mageia 4.1"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
       "title" : "JSF, Spring MVC y Java EE 8"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
-      "title" : "Calibre lanza la versión 2.0"
     }
   ]
 }

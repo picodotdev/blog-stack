@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
+      "title" : "La FSF y Debian unen fuerzas"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
       "title" : "Navegando por Mageia 4.1"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/07/edubuntu-acaba-de-lanzar-su-version-lts-14-4-1",
       "title" : "Edubuntu acaba de lanzar su versión LTS 14.04.1"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/07/linux-y-gnu-estan-de-moda",
-      "title" : "Linux y GNU están de moda"
     }
   ]
 }
