@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
+      "title" : "Iconos Potenza, pack muy completo y vistoso"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
       "title" : "Gestiona tu servidor con Ajenti"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/supervisando-la-red-con-ntop",
       "title" : "Supervisando la red con ntop"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
-      "title" : "Doble barra de botones con Apache Tapestry"
     }
   ]
 }

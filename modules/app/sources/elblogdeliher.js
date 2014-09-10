@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
+      "title" : "Iconos Potenza, pack muy completo y vistoso"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
       "title" : "Como desactivar el mensaje de error interno en Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
       "title" : "Fondos de escritorio 11"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/mi-experiencia-en-el-hosting-vigunu",
-      "title" : "Mi experiencia en el hosting Vigunu"
     }
   ]
 }
