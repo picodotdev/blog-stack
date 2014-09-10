@@ -1,0 +1,274 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii"><span itemprop="headline">Instalar y configurar Nagios en servidor Debian 7 (Parte III)</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/09/10/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-10T09:53" itemprop="datePublished">Publicado el miércoles, 10 de septiembre de 2014 a las 09:53 UTC</span></div><div><span datetime="2014-09-10T09:53" itemprop="dateModified">Actualizado el miércoles, 10 de septiembre de 2014 a las 09:53 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/debian"><span itemprop="articleSection">debian</span></a>, blog-stack, nrpe, nagios, smtp, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, servicios</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png" alt="Nagios_Logo" width="212" height="50" /></a>Seguimos con el tercer cap&iacute;tulo de la gu&iacute;a de instalaci&oacute;n y configuraci&oacute;n del servidor de monitorizaci&oacute;n <strong>Nagios</strong>, en un sistema operativo <strong>GNU/Linux</strong> <strong>Debian 7</strong>. En el cap&iacute;tulo que trataremos hoy hablaremos de c&oacute;mo se conecta Nagios con un cliente Linux con el plugin <strong>NRPE</strong>, adem&aacute;s de configurar servicios como el <strong>SMTP</strong>.</p> 
+<p></p> 
+<h2>Recapitulemos</h2> 
+<p>En la primera parte de la gu&iacute;a tratamos de instalaci&oacute;n y configuraci&oacute;n b&aacute;sica del servidor, <a title="Instalar y configurar Nagios en servidor Debian 7 (Parte I)" href="http://www.ochobitshacenunbyte.com/2014/04/30/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i/">aqu&iacute;</a>. En la segunda parte de la creaci&oacute;n de un cliente windows, concretamente un Windows Server 2008, y posteriormente de la instalaci&oacute;n del programa de conexi&oacute;n en dicho servidor, <a title="Instalar y configurar Nagios en servidor Debian 7 (Parte I)" href="http://www.ochobitshacenunbyte.com/2014/04/30/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i/">aqu&iacute;</a>.</p> 
+<h2>Instalar el add-on NRPE</h2> 
+<p>Para poder monitorizar m&aacute;quinas Linux debemos de instalar en el servidor el Add-on NRPE, que&nbsp; se encargar&aacute; de ello. Desde el siguiente <a title="NRPE Nagios" href="http://exchange.nagios.org/directory/Addons/Monitoring-Agents/NRPE--2D-Nagios-Remote-Plugin-Executor/details">enlace</a> pod&eacute;is encontr&aacute;r m&aacute;s detalles.</p> 
+<p>En el siguiente esquema pod&eacute;is ver su funcionamiento:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nrpe-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nrpe-1.jpg" alt="nrpe-1" width="600" height="148" /></a>Descargamos el add-on:</p> 
+<pre>wget http://sourceforge.net/projects/nagios/files/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz</pre> 
+<p>Una vez descargado, lo descomprimimos, accedemos al directorio y compilamos el c&oacute;digo fuente.</p> 
+<pre>cd nrpe-2.15
+./configure
+make all
+make install-plugin</pre> 
+<p>Si nos da el siguiente error:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-3-ochobits-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-3-ochobits-1.jpg" alt="nagios-3-ochobits-1" width="600" height="103" /></a>El mensaje “<strong><em>Checking for SSL headers… configure: error: Cannot find ssl headers</em></strong>“, lo podemos solucionar de la siguiente manera:</p> 
+<pre>apt-get install libssl-dev</pre> 
+<p>As&iacute; instalamos las librer&iacute;as ssl, y ahora el comando configure a&ntilde;adiendo par&aacute;metros:</p> 
+<pre>./configure --with-ssl=/usr/bin/openssl --with-ssl-lib=/usr/lib/x86_64-linux-gnu</pre> 
+<p>La soluci&oacute;n al error lo he encontrado en la web: <a title="askubuntu.com" href="http://askubuntu.com/questions/133184/nagios-nrpe-installation-errorconfigure-error-cannot-find-ssl-libraries">askubuntu.com</a></p> 
+<p>Y ejecutamos los comandos que van a continuaci&oacute;n, es decir: <strong><em>make alll</em></strong> y <strong><em>make install-plugin</em></strong></p> 
+<p>Ya hemos instalado el plugin en el servidor, ahora haremos lo mismo en el cliente.</p> 
+<h2>Instalar Nagios Plugins y&nbsp; NRPE en el cliente</h2> 
+<p>Voy a usar como cliente un servidor <strong>Debian 7</strong> que tiene instalado un servicio de relay de correo con <strong>Postfix</strong>, que usa <strong>SMTP</strong></p> 
+<p>Antes de empezar creamos un usuario que se llame nagios, con la contrase&ntilde;a igual que el nombre.</p> 
+<pre>useradd nagios
+passwd nagios</pre> 
+<p>Y descamos el paquete nagios-plugin:</p> 
+<pre>wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz</pre> 
+<p>Una vez descargado, lo descomprimimos y accedemos a la carpeta:</p> 
+<pre>tar xvfz nagios-plugins-2.0.3.tar.gz
+cd nagios-plugins-2.0.3</pre> 
+<p>Y ya podemos compilar:</p> 
+<pre>export LDFLAGS=-ldl
+./configure --with-nagios-user=nagios --with-nagios-group=nagios --enable-redhat-pthread-workaround
+make
+make install</pre> 
+<p>Cambiamos los propietarios de las carpetas de Nagios en el cliente:</p> 
+<pre>chown nagios.nagios /usr/local/nagios
+chown -R nagios.nagios /usr/local/nagios/libexec/</pre> 
+<p>Ahora nos toca instalar<strong> NRPE</strong> en el cliente:</p> 
+<p>Nos descargamos el add-on NRPE otra vez, pero ahora en cliente:</p> 
+<pre>wget http://sourceforge.net/projects/nagios/files/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz</pre> 
+<p>Descomprimimos y entramos dentro del directorio rec&iacute;en creado:</p> 
+<pre>tar xvfz nrpe-2.15.tar.gz
+cd nrpe-2.15</pre> 
+<p>Compilamos el c&oacute;digo fuente:</p> 
+<pre>./configure
+make all
+make install-plugins
+make install-daemon
+make install-daemon-config
+make install-xinetd</pre> 
+<p>Si nos da el mismo error <strong>SSL</strong>, s&oacute;lo tenemos que seguir las instrucciones de cuando instalamos el software en el servidor Nagios.</p> 
+<p>Otro error que nos puede dar es al instalar xinetd. Tenemos que tener el daemon xinetd instalado, simplemente lo instalamos con el comando:</p> 
+<pre>apt-get -y install xinetd</pre> 
+<h2></h2> 
+<h2>Configurar NRPE en el demonio del cliente</h2> 
+<p>Modificar el archivo de configuraci&oacute;n de NRPE dentro de xinetd, para indicar que admitimos conexiones desde nuestro servidor Nagios</p> 
+<pre>nano /etc/xinetd.d/nrpe</pre> 
+<p>Y a&ntilde;adimos en la l&iacute;nea:</p> 
+<pre>  only_from       = 127.0.0.1 192.168.1.x</pre> 
+<p>Donde la x es la IP de nuestro servidor nagios.</p> 
+<p>Modificamos el archivo /etc/services, y a&ntilde;adimos al final:</p> 
+<pre>nrpe 5666/tcp # NRPE</pre> 
+<h2></h2> 
+<h2>El archivo /usrc/local/nagios/etc/nrpe.cfg</h2> 
+<p>Los comandos que se usan para monitorizar se configuran en el archivo <strong>nrpe.cfg</strong>. Si lo editaremos veremos varios comandos de ejemplo.</p> 
+<p>Si echamos un ojo a los par&aacute;metros veremos que la “w” es Warning, es decir, advertencia, y “c” es sin&oacute;nimo de cr&iacute;tico. Podemos modificar el comando check_disk, si el espacio disponibles es menor al 20 % lanza una advertencia, si queda menos del 10 % de espacio Nagios nos enviar&aacute; un mensaj&eacute; cr&iacute;tico.</p> 
+<pre>ommand[check_disk]=/usr/local/nagios/libexec/check_disk -w 20% -c 10% -p /dev/hda1</pre> 
+<h2></h2> 
+<h2>Creamos client y servicio en el servidor Nagios</h2> 
+<p>Ya hemos instalado los plugins necesarios, tanto en el servidor Nagios como en el servidor remoto a monitorizar.</p> 
+<p>Para ello creamos un archivo desde cero, con los datos del host remoto y sus servicios. En muchas gu&iacute;as recomiendan copiar el archivo localhost.cfg y modificarlo. Creo que es mejor crearlo nuevo, para evitar errores.<strong><br /> </strong></p> 
+<p>Creamos<strong> /usr/local/nagios/etc/objects/linux.cfg</strong></p> 
+<p>Con el siguiente template, que servir&aacute; de base:</p> 
+<pre>define host{
+     name                       linux-box
+     use                        generic-host
+     check_period               24x7
+     check_interval             5
+     retry_interval             1
+     max_check_attempts         10
+     check_command              check-host-alive
+     notification_period        24x7
+     notification_interval      30
+     notification_options       d,r
+     contact_groups             admin
+     register                   0  ;  ES UNA PLANTILLA
+}</pre> 
+<p>A&ntilde;adimos el host que llamaremos RelayCorreo</p> 
+<pre>define host{
+      use                  linx-box
+      host_name            RelayCorreo
+      alias                Debian 7 
+      address              192.168.1.x
+     }</pre> 
+<p>Y la definici&oacute;n de servicio:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              Root Partition
+check_command                    check_nrpe!check_load
+}</pre> 
+<p>Los comandos que estamos definiendo recuerda que est&aacute;n configurados en el archivo <strong>/usr/local/nagios/etc/nrpe.cfg</strong> del remote host, que en nuestro caso se llamana RelayCorreo.</p> 
+<p>A&ntilde;adimos cuatro servicios m&aacute;s, que se encargar&aacute;n de revisar el espacio de disco, el “log” de los usuarios, el total de los procesos y de los procesos “zombie”</p> 
+<p>Control de disco:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              /dev/hda1 Free Space
+check_command                    check_nrpe!check_hda1
+}</pre> 
+<p>Control de usuarios:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              Current Users
+check_command                    check_nrpe!check_users
+}</pre> 
+<p>Control de los procesos:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              Total Processes
+check_command                    check_nrpe!check_total_procs
+}</pre> 
+<p>Control de los procesos “zombie”</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              Zombie Processes
+check_command                    check_nrpe!check_zombie_procs
+}</pre> 
+<p>Modificamos el archivo <strong>nagios.cfg</strong>, para a&ntilde;adir el nuevo archivo.</p> 
+<p>A&ntilde;adiendo la l&iacute;nea:</p> 
+<pre># A&ntilde;adimos el fichero linux.cfg
+cfg_file=/usr/local/nagios/etc/objects/linux.cfg</pre> 
+<p>&iexcl;IMPORTANTE! Para que funcione el plugin tenemos que modificar el fichero <strong>/usr/local/nagios/etc/objects/commands.cfg</strong> y a&ntilde;adir:</p> 
+<pre># Plugin nrpe para los servidores Linux remotos
+define command{
+        command_name  check_nrpe
+        command_line  $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+        }</pre> 
+<p>Ahora ya podemos reiniciar el servicio nagios</p> 
+<pre>service nagios restart</pre> 
+<p>Si todo ha todo bien veremos los servicios OK en la interfaz de Nagios:</p> 
+<h2><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-1.jpg" alt="nagios-nrpe-1" width="900" height="444" /></a>A&ntilde;adiendo nuevos comandos de control en NRPE</h2> 
+<p>El plugin NRPE permite a&ntilde;adir nuevas definiciones de comandos.Si listamos los archivos de /usr/local/nagios/libexec, veremos los comandos disponibles:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-2.jpg" alt="nagios-nrpe-2" width="800" height="116" /></a>Indicaremos a <strong>NRPE</strong> que queremos revisar el estado de la partici&oacute;n transaccional o swap de nuestro RelayCorreo. Donde nos avisar&aacute; que cuando quede menos del 20 % de espacio nos envi&eacute; un aviso y si queda menos 10% un aviso cr&iacute;tico.</p> 
+<p>Probarremos el comando en el remote host con el comando:</p> 
+<pre>/usr/local/nagios/libexec/check_swap -w 20% -c 10%</pre> 
+<p>Y obtendremos un mensaje similar al siguiente:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-3.jpg" alt="nagios-nrpe-3" width="600" height="23" /></a>A&ntilde;adimos el comando en el archivo del remote host /usr/local/nagios/etc/nrpe.cfg, justo debajo del resto de comandos:</p> 
+<pre>command[check_swap]=/usr/local/nagios/libexec/check_swap -w 20% -c 10%</pre> 
+<p>A&ntilde;adimos el servicio en nuestra configuraci&oacute;n del server Nagios en <strong>/usr/local/nagios/etc/objects/linux.cfg</strong>:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              Swap Usabe
+check_command                    check_nrpe!check_swap
+}</pre> 
+<p>C&oacute;mo &uacute;ltima parte de hoy a&ntilde;adiremos el control del servicio <strong>SMTP</strong></p> 
+<p>A&ntilde;adimos la siguiente l&iacute;nea en el archivo <strong>nrpe.cfg</strong> del remote host RelayCorreo.</p> 
+<pre>command[check_smtp]=/usr/local/nagios/libexec/check_smtp -w 1 -c 2</pre> 
+<p>Y a posteriori, al igual que hemos hecho con el servicio swap, a&ntilde;adimos el servicio SMTP en el servicios nagios:</p> 
+<pre>define service{
+use                              generic-service
+host_name                        RelayCorreo
+service_description              SMTP
+check_command                    check_nrpe!check_smtp
+}</pre> 
+<p>Reinciamos el servicio nagios:</p> 
+<pre>service nagios restart</pre> 
+<p>Y con esto y un bizcocho…,&nbsp; ya lo tenemos todo listo:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-4.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/nagios-nrpe-4.jpg" alt="nagios-nrpe-4" width="900" height="109" /></a>En el pr&oacute;ximo cap&iacute;tulo veremos como generar gr&aacute;ficos de los servicios con <a title="cacti nagios" href="http://www.cacti.net/">cacti</a>.</p> 
+<p>Si quer&eacute;is saber m&aacute;s sobre el plugin NRPE, os recomiendo las gu&iacute;as oficiales:</p> 
+<p><a title="NAGIOS NRPE Documentation" href="http://nagios.sourceforge.net/docs/nrpe/NRPE.pdf">Nagios NRPE Documentation (en ingl&eacute;s)</a></p> 
+<p><strong><em>See you soon!</em></strong></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" st_title="Instalar y configurar Nagios en servidor Debian 7 (Parte III) | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/debian/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta debian</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 882,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

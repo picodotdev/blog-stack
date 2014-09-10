@@ -3,20 +3,45 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-09T08:02:36Z</updated>
+  <updated>2014-09-10T10:02:53Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-09T08:02:36Z</dc:date>
+  <dc:date>2014-09-10T10:02:53Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Instalar y configurar Nagios en servidor Debian 7 (Parte III)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="nrpe" />
+    <category term="nagios" />
+    <category term="smtp" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="servicios" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-10T09:53:46Z</updated>
+    <published>2014-09-10T09:53:46Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/Nagios.png" alt="Nagios_Logo" width="212" height="50" /&gt;&lt;/a&gt;Seguimos con el tercer cap&amp;iacute;tulo de la gu&amp;iacute;a de instalaci&amp;oacute;n y configuraci&amp;oacute;n del servidor de monitorizaci&amp;oacute;n &lt;strong&gt;Nagios&lt;/strong&gt;, en un sistema operativo &lt;strong&gt;GNU/Linux&lt;/strong&gt; &lt;strong&gt;Debian 7&lt;/strong&gt;. En el cap&amp;iacute;tulo que trataremos hoy hablaremos de c&amp;oacute;mo se conecta Nagios con un cliente Linux con el plugin &lt;strong&gt;NRPE&lt;/strong&gt;, adem&amp;aacute;s de configurar servicios como el &lt;strong&gt;SMTP&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;h2&gt;Recapitulemos&lt;/h2&gt; 
+&lt;p&gt;En la primera parte de la gu&amp;iacute;a tratamos de instalaci&amp;oacute;n y configuraci&amp;oacute;n b&amp;aacute;sica del servidor, &lt;a title="Instalar y configurar Nagios en servidor Debian 7 (Parte I)" href="http://www.ochobitshacenunbyte.com/2014/04/30/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i/"&gt;aqu&amp;iacute;&lt;/a&gt;. En la segunda parte de la creaci&amp;oacute;n de un cliente windows, concretamente un Windows Server 2008, y posteriormente de la instalaci&amp;oacute;n del programa de conexi&amp;oacute;n en dicho servidor, &lt;a title="Instalar y configurar Nagios en servidor Debian 7 (Parte I)" href="http://www.ochobitshacenunbyte.com/2014/04/30/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i/"&gt;aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
+&lt;h2&gt;Instalar el add-on NRPE&lt;/h2&gt; 
+&lt;p&gt;Para poder monitorizar m&amp;aacute;quinas Linux debemos de instalar en el servidor el Add-on NRPE, que&amp;nbsp; se encargar&amp;aacute; de ello. Desde el siguiente &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-09-10T09:53:46Z</dc:date>
+  </entry>
   <entry>
     <title>La FSF y Debian unen fuerzas</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas" />
-    <category term="debian" />
     <category term="blog-stack" />
+    <category term="debian" />
     <category term="h-node" />
     <category term="bases-de-datos" />
     <category term="sistemas-operativos" />
-    <category term="fsf" />
     <category term="noticias" />
+    <category term="fsf" />
     <author>
       <name>ochobitshacenunbyte</name>
     </author>
@@ -678,28 +703,6 @@
 &lt;p&gt;Un paquete es un s&amp;oacute;lo fichero disponible para descargar en FreeBSD. Los paquetes contienen copia de los binarios precompilados de la aplicaci&amp;oacute;n, adem&amp;aacute;s de los ficheros de configuraci&amp;oacute;n y los archivos de documentaci&amp;oacute;n. Antiguamente podr&amp;iacute;amos manipular los archivos descargados con las herramientas de gesti&amp;oacute;n &lt;strong&gt;&lt;em&gt;pkg_add&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;pkg_delete&lt;/em&gt;&lt;/strong&gt; y &lt;strong&gt;&lt;em&gt;pkg_info&lt;/em&gt;&lt;/strong&gt;. Actualmente se utilizaba la herramienta &lt;strong&gt;&lt;em&gt;pkg&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-08-26T14:32:13Z</dc:date>
-  </entry>
-  <entry>
-    <title>JSF, Spring MVC y Java EE 8</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8" />
-    <category term="spring" />
-    <category term="spring-mvc" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-08-26T06:25:38Z</updated>
-    <published>2014-08-26T06:25:38Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Comparar JSF con Spring MVC es algo que ocurre muy habitualmente ya que son las dos tecnolog&amp;iacute;as de capa de presentaci&amp;oacute;n mas utilizadas en los proyectos Java EE. La &amp;uacute;ltima vez que le&amp;iacute;&lt;a href="http://www.javahispano.org/portada/2014/8/20/los-4-framework-web-java-mas-usados.html"&gt;&amp;nbsp;las estad&amp;iacute;sticas&lt;/a&gt;&amp;nbsp;Spring MVC ten&amp;iacute;a un 40% y JSF un 22% . Con lo que mas del 60% de las aplicaciones se realizan con estos dos frameworks.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/SpringJSF.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/SpringJSF.gif" alt="SpringJSF" width="478" height="200" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;JSF Servidor y Controles&lt;/h2&gt; 
-&lt;p&gt;JSF destaca por ser un framework orientado a controles y disponer de varias librer&amp;iacute;as de controles como RitchFaces, IceFaces y PrimeFaces cada una de las cuales aporta su enfoque particular. Eso s&amp;iacute; todas bajo el paraguas del standard y de como este funciona.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/JSF.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/JSF.gif" alt="JSF" width="283" height="272" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;La &amp;uacute;ltima evoluci&amp;oacute;n del standard ha aportado cosas muy interesantes como data-atributos y Stateless Views que permiten una gran integraci&amp;oacute;n con HTML5.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-08-26T06:25:38Z</dc:date>
   </entry>
 </feed>
 

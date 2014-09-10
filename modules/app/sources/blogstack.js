@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii",
+      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte III)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
       "title" : "La FSF y Debian unen fuerzas"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/instala-y-actualiza-paquetes-en-freebsd",
       "title" : "Instala y actualiza paquetes en FreeBSD"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
-      "title" : "JSF, Spring MVC y Java EE 8"
     }
   ]
 }
