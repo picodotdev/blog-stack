@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
+      "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
       "title" : "Iconos Potenza, pack muy completo y vistoso"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
       "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-11",
-      "title" : "Fondos de escritorio 11"
     }
   ]
 }
