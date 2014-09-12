@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
+      "title" : "Compilar y cargar de forma dinámica una clase Java"
+    },
+    {
       "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
       "title" : "¿La Casa Blanca se desmarca de CMMI?"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
       "title" : "Crea contraseñas con pwgen"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/krita-el-editor-de-pintura-digital",
-      "title" : "Krita, el editor de pintura digital"
     }
   ]
 }

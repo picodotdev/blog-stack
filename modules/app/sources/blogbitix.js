@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
+      "title" : "Compilar y cargar de forma dinámica una clase Java"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
       "title" : "Procesador de documentos LyX"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl",
       "title" : "Generar y convertir claves y certificados con OpenSSL"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/libro-sobre-desarrollo-de-aplicaciones-con-apache-tapestry",
-      "title" : "Libro sobre desarrollo de aplicaciones con Apache Tapestry"
     }
   ]
 }

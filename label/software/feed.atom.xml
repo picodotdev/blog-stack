@@ -3,10 +3,40 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-07T02:02:38Z</updated>
+  <updated>2014-09-12T19:03:39Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-07T02:02:38Z</dc:date>
+  <dc:date>2014-09-12T19:03:39Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Compilar y cargar de forma dinámica una clase Java</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="software" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-09-12T17:49:55Z</updated>
+    <published>2014-09-12T17:49:55Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Desde la versi&amp;oacute;n 1.6 del JDK de Java disponemos de una API para acceder al compilador desde un programa Java. En el ejemplo de este art&amp;iacute;culo utilizar&amp;eacute; varias clases de esa API para conseguir compilar un archivo con la definici&amp;oacute;n de una clase Java. En posteriores entradas comentar&amp;eacute; un ejemplo pr&amp;aacute;ctico y muy &amp;uacute;til con el que podemos sacar provecho de esta funcionalidad. Las clases que necesitaremos de esa API son:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;a href="http://docs.oracle.com/javase/7/docs/api/javax/tools/JavaCompiler.html"&gt;JavaCompiler&lt;/a&gt; que es la interfaz para acceder al compilador desde un programa Java.&lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://docs.oracle.com/javase/7/docs/api/javax/tools/JavaFileManager.html"&gt;JavaFileManager&lt;/a&gt; que es una abstracci&amp;oacute;n para gestionar los archivos fuente y las clases. Usaremos uno propio llamado ClassFileManager.&lt;/li&gt; 
+ &lt;li&gt;&lt;a href="http://docs.oracle.com/javase/7/docs/api/javax/tools/SimpleJavaFileObject.html"&gt;SimpleJavaFileObject&lt;/a&gt; clase que contiene el c&amp;oacute;digo fuente Java.&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;Y tambi&amp;eacute;n necesitaremos redefinir algunas:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;La clase ClassFileManager que extiende &lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-09-12T17:49:55Z</dc:date>
+  </entry>
   <entry>
     <title>Procesador de documentos LyX</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/09/procesador-de-documentos-lyx" />
@@ -494,29 +524,6 @@
     <dc:date>2014-05-14T15:22:40Z</dc:date>
   </entry>
   <entry>
-    <title>Firefox sigue mejorando la experiencia de navegación de los usuarios</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios" />
-    <category term="navegadores" />
-    <category term="blog-stack" />
-    <category term="analisis" />
-    <category term="software" />
-    <category term="firefox" />
-    <author>
-      <name>Ricardo Barra</name>
-    </author>
-    <updated>2014-05-07T21:47:09Z</updated>
-    <published>2013-03-13T21:49:05Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Soy un fan declarado de Firefox porque es uno de los mejores software creados por el hombre, y adem&amp;aacute;s porque es responsable de cambiar, para siempre, la forma en que navegamos. Probablemente Chrome no ser&amp;iacute;a lo que es sin la influencia de Firefox.&lt;/p&gt; 
-&lt;p&gt;En las pr&amp;oacute;ximas actualizaciones de Firefox, &lt;a title="Firefox vuelve a ser el navegador m&amp;aacute;s r&amp;aacute;pido. Opera segundo, Chrome tercero." href="http://placerdigital.net/firefox-vuelve-a-ser-el-navegador-mas-rapido-opera-segundo-chrome-tercero/"&gt;actualmente el navegador m&amp;aacute;s r&amp;aacute;pido y completo del planeta&lt;/a&gt;, podr&amp;aacute;n apreciar 2 excelentes mejoras. La primera es &amp;uacute;til para leer archivos de texto plano (.txt). S&amp;eacute; que no es algo que ocurra muy seguido, pero cuando tenemos la mala suerte de pinchar en un link que lleva a un archivo de texto, la experiencia de leer algo como esto no es algo muy c&amp;oacute;modo, especialmente con ese scroll horizontal tan molesto:&lt;/p&gt; 
-&lt;div style="width: 447px"&gt; 
- &lt;a href="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png"&gt;&lt;img alt="Archivo de texto con scroll horizontal" src="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png" width="437" height="271" /&gt;&lt;/a&gt; 
- &lt;p&gt;Archivo de texto con scroll horizontal&lt;/p&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Con la nueva funcionalidad, ser&amp;aacute; muy distinto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Ricardo Barra</dc:creator>
-    <dc:date>2013-03-13T21:49:05Z</dc:date>
-  </entry>
-  <entry>
     <title>¡Felices 15 años, Mozilla! Gracias por cambiar el mundo</title>
     <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo" />
     <category term="aniversario" />
@@ -542,6 +549,29 @@
 &lt;p&gt;Con el apoyo de todos, Mozilla ha recorrido un largo camino. &lt;strong&gt;Medio bill&amp;oacute;n de personas&lt;/strong&gt; usan el navegador que ellos crearon: Firefox. Ahora, se aprontan a afrontar un pr&amp;oacute;ximo desaf&amp;iacute;o con el lanzamiento de una plataforma m&amp;oacute;vil abierta y basada en la Web: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/felices-15-anos-mozilla-gracias-por-cambiar-el-mundo"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Ricardo Barra</dc:creator>
     <dc:date>2013-03-31T14:10:14Z</dc:date>
+  </entry>
+  <entry>
+    <title>Firefox sigue mejorando la experiencia de navegación de los usuarios</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios" />
+    <category term="navegadores" />
+    <category term="blog-stack" />
+    <category term="analisis" />
+    <category term="software" />
+    <category term="firefox" />
+    <author>
+      <name>Ricardo Barra</name>
+    </author>
+    <updated>2014-05-07T21:47:09Z</updated>
+    <published>2013-03-13T21:49:05Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Soy un fan declarado de Firefox porque es uno de los mejores software creados por el hombre, y adem&amp;aacute;s porque es responsable de cambiar, para siempre, la forma en que navegamos. Probablemente Chrome no ser&amp;iacute;a lo que es sin la influencia de Firefox.&lt;/p&gt; 
+&lt;p&gt;En las pr&amp;oacute;ximas actualizaciones de Firefox, &lt;a title="Firefox vuelve a ser el navegador m&amp;aacute;s r&amp;aacute;pido. Opera segundo, Chrome tercero." href="http://placerdigital.net/firefox-vuelve-a-ser-el-navegador-mas-rapido-opera-segundo-chrome-tercero/"&gt;actualmente el navegador m&amp;aacute;s r&amp;aacute;pido y completo del planeta&lt;/a&gt;, podr&amp;aacute;n apreciar 2 excelentes mejoras. La primera es &amp;uacute;til para leer archivos de texto plano (.txt). S&amp;eacute; que no es algo que ocurra muy seguido, pero cuando tenemos la mala suerte de pinchar en un link que lleva a un archivo de texto, la experiencia de leer algo como esto no es algo muy c&amp;oacute;modo, especialmente con ese scroll horizontal tan molesto:&lt;/p&gt; 
+&lt;div style="width: 447px"&gt; 
+ &lt;a href="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png"&gt;&lt;img alt="Archivo de texto con scroll horizontal" src="http://placerdigital.net/pdblog/wp-content/uploads/2013/03/firefox-archivo-de-texto-con-scroll-horizontal.png" width="437" height="271" /&gt;&lt;/a&gt; 
+ &lt;p&gt;Archivo de texto con scroll horizontal&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Con la nueva funcionalidad, ser&amp;aacute; muy distinto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/placerdigital/2013/03/firefox-sigue-mejorando-la-experiencia-de-navegacion-de-los-usuarios"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Ricardo Barra</dc:creator>
+    <dc:date>2013-03-13T21:49:05Z</dc:date>
   </entry>
   <entry>
     <title>Cómo saber qué tecnologías usa un sitio web</title>
@@ -696,34 +726,6 @@
 &lt;p&gt;En anteriores entradas explicaba como hacer el t&amp;iacute;pico ejemplo que se suele usar como demostraci&amp;oacute;n en los framework MVC de Javascript que consiste en una lista de tareas en la que se pueden a&amp;ntilde;adir nuevas, marcarlas como completadas y eliminarlas. Realice este ejemplo en uno de ellos &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html"&gt;usando solo Backbone&lt;/a&gt; y posteriormente &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html"&gt;usando Marionette&lt;/a&gt;. Estos ejemplos eran parte de una serie de art&amp;iacute;culos sobre Javascript que la que mostaba como usar muchas otras herramientas como &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;Require JS&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html"&gt;Mustache&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html"&gt;logging con javscript&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html"&gt;capturar errores en javascript&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html"&gt;introducci&amp;oacute;n a Backbone&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html"&gt;lista de tarea con Backbone, RESTEasy y Tapestry&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html"&gt;pruebas unitarias con Jasmine y Sinon&lt;/a&gt;, &lt;a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/"&gt;Usar Grunt para ejecutar teses unitarios de c&amp;oacute;digo Javascript&lt;/a&gt; y que constituyen parte del actual &amp;laquo;estado del arte&amp;raquo; en cuanto a desarrollo con Javascript.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-04-11T14:33:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="tapestry" />
-    <category term="java" />
-    <category term="javascript" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-04-04T16:11:56Z</updated>
-    <published>2013-04-26T19:38:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /&gt; 
-&lt;/div&gt;Normalmente escribo art&amp;iacute;culos con ejemplos que tratan sobre una &amp;uacute;nica tecnolog&amp;iacute;a, al tratar cada tecnolog&amp;iacute;a por separado entender que puede ofrecer es m&amp;aacute;s sencillo pero en una aplicaci&amp;oacute;n real normalmente se usan varias tecnolog&amp;iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&amp;aacute;s parecido a lo que podr&amp;iacute;a ser una aplicaci&amp;oacute;n real que lo que he explicado durante las &amp;uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&amp;oacute;n de cosas por separado entre ellas 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;RequireJS&lt;/a&gt;,&amp;nbsp; 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html"&gt;Mustache&lt;/a&gt;,&amp;nbsp; 
-&lt;a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html"&gt;Backbone&lt;/a&gt;, 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html"&gt;servicios rest con Tapestry&lt;/a&gt; y 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html"&gt;RESTEasy&lt;/a&gt;. En esta entrada har&amp;eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&amp;aacute;s adicional como 
-&lt;a href="http://twitter.github.io/bootstrap/"&gt;twitter bootstrap&lt;/a&gt;. 
-&lt;br /&gt; 
-&lt;br /&gt;El ejemplo consiste en una lista de tareas, pudi&amp;eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&amp;eacute;n se podr&amp;aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&amp;uacute;mero de tareas completadas y de tareas totales.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-04-26T19:38:00Z</dc:date>
   </entry>
 </feed>
 
