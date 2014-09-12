@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
+      "title" : "Crea tu propia tienda online con OsCommerce"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
       "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
       "title" : "Tocan a su fin"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
-      "title" : "Actualización del libro PlugIn Tapestry"
     }
   ]
 }

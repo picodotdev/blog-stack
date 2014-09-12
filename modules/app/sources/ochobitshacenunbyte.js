@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
+      "title" : "Crea tu propia tienda online con OsCommerce"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
       "title" : "Gestiona tu servidor con Ajenti"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
       "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/editando-particiones-con-cfdisk",
-      "title" : "Editando particiones con cfdisk"
     }
   ]
 }
