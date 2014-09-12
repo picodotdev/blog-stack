@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
+      "title" : "¿La Casa Blanca se desmarca de CMMI?"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
       "title" : "Crea tu propia tienda online con OsCommerce"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
       "title" : "No subestimes el poder de un log"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
-      "title" : "Tocan a su fin"
     }
   ]
 }

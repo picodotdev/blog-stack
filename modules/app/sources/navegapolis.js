@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
+      "title" : "¿La Casa Blanca se desmarca de CMMI?"
+    },
+    {
       "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
       "title" : "Gestión y procesos en empresas de software"
     },
