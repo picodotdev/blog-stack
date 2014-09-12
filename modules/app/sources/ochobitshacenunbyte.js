@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
+      "title" : "Extiende la consola con Byobu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
       "title" : "Crea tu propia tienda online con OsCommerce"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
       "title" : "Crea la nota perfecta con MyNotex"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/actualiza-los-repositorios-de-tu-debian-squeeze-a-lts",
-      "title" : "Actualiza los repositorios de tu Debian Squeeze a LTS"
     }
   ]
 }

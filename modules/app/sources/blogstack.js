@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "¿La Casa Blanca se desmarca de CMMI?"
     },
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
+      "title" : "Extiende la consola con Byobu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
       "title" : "Crea tu propia tienda online con OsCommerce"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/krita-el-editor-de-pintura-digital",
       "title" : "Krita, el editor de pintura digital"
-    },
-    {
-      "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
-      "title" : "No subestimes el poder de un log"
     }
   ]
 }
