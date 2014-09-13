@@ -201,7 +201,7 @@ task deploy(dependsOn:'distZip') << {
 			commandLine 'scp', """${OPENSHIFT_SSH}:${db_openshift}""", db 
 		}
 		exec {
-			commandLine 'zip', backup, db
+			commandLine 'zip', backup, "${db}"
 		}
 		exec {
 			commandLine 'rm', db
