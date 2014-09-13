@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
+      "title" : "Bodhi Linux se queda sin el líder del proyecto"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
       "title" : "Compilar y cargar de forma dinámica una clase Java"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
       "title" : "MAC no, Iphone si, ¿por que?"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/crea-contrasenas-con-pwgen",
-      "title" : "Crea contraseñas con pwgen"
     }
   ]
 }
