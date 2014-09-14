@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
-      "title" : "Bodhi Linux se queda sin el líder del proyecto"
-    },
-    {
       "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
       "title" : "Compilar y cargar de forma dinámica una clase Java"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
+      "title" : "Bodhi Linux se queda sin el líder del proyecto"
     },
     {
       "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
