@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
+      "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
       "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
       "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-i-nex-y-como-instalar-en-ubuntu-mediante-ppa",
-      "title" : "Que es I-Nex y como instalar en Ubuntu mediante PPA"
     }
   ]
 }

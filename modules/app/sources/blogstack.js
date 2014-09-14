@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
+      "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
       "title" : "Compilar y cargar de forma dinámica una clase Java"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
       "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
-      "title" : "MAC no, Iphone si, ¿por que?"
     }
   ]
 }
