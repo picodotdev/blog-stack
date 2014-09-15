@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
+      "title" : "Enlaces interesantes 169"
+    },
+    {
       "url" : "/post/koalite/2014/09/crear-un-componente-con-reactjs",
       "title" : "Crear un componente con ReactJS"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
       "title" : "Fondos de escritorio 14"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
-      "title" : "Linux AIO, la evolucion de Ubuntu AIO"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
+      "title" : "Enlaces interesantes 169"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
       "title" : "Enlaces interesantes 168"
     },
@@ -117,10 +121,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/04/enlaces-interesantes-154",
       "title" : "Enlaces interesantes 154"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/04/back-to-my-roots-el-evento-de-gusenet-que-no-debes-perderte",
-      "title" : "Back to my roots, el evento de Gusenet que no debes perderte"
     }
   ]
 }
