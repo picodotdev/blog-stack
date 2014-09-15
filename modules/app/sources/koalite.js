@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/crear-un-componente-con-reactjs",
+      "title" : "Crear un componente con ReactJS"
+    },
+    {
       "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
       "title" : "ReactJS: un enfoque diferente"
     },

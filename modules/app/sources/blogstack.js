@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/crear-un-componente-con-reactjs",
+      "title" : "Crear un componente con ReactJS"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
       "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
       "title" : "Linux AIO, la evolucion de Ubuntu AIO"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
-      "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
     }
   ]
 }
