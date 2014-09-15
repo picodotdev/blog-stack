@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
+      "title" : "Joe, un editor de consola que no te esperabas"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
       "title" : "Enlaces interesantes 169"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
       "title" : "Mi nuevo conky"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
-      "title" : "Fondos de escritorio 14"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
+      "title" : "Joe, un editor de consola que no te esperabas"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
       "title" : "Extiende la consola con Byobu"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/wordstar-el-rey-de-los-editores-de-texto-en-los-ochenta",
       "title" : "WordStar, el rey de los editores de texto en los ochenta"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/crea-la-nota-perfecta-con-mynotex",
-      "title" : "Crea la nota perfecta con MyNotex"
     }
   ]
 }
