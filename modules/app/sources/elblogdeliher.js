@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
+      "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
       "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/que-es-y-como-instalar-wine-mediante-ppa-en-ubuntu",
-      "title" : "Que es y como instalar Wine mediante PPA en Ubuntu"
     }
   ]
 }

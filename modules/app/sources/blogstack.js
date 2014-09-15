@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
+      "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
       "title" : "Joe, un editor de consola que no te esperabas"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin",
       "title" : "Instalar plugin de audio y pdf en MediaGoblin"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
-      "title" : "Mi nuevo conky"
     }
   ]
 }
