@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
+      "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
       "title" : "Muchas gracias a todos, no me lo puedo creer"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
       "title" : "Como desactivar el mensaje de error interno en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
-      "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
     }
   ]
 }

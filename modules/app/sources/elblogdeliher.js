@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
+      "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
       "title" : "Muchas gracias a todos, no me lo puedo creer"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
       "title" : "Unos prompt de ejemplo"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
-      "title" : "Como instalar Spotify en Ubuntu 14.04"
     }
   ]
 }
