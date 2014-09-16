@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
+      "title" : "Muchas gracias a todos, no me lo puedo creer"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
       "title" : "Inicialización de propiedades en C# 6.0"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-nginx-y-plugin-de-video-en-mediagoblin",
       "title" : "Instalar Nginx y plugin de vídeo en MediaGoblin"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
-      "title" : "MediaGoblin, la plataforma audiovisual libre"
     }
   ]
 }

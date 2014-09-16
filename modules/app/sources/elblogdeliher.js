@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
+      "title" : "Muchas gracias a todos, no me lo puedo creer"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/05/como-instalar-spotify-en-ubuntu-14-4",
       "title" : "Como instalar Spotify en Ubuntu 14.04"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
-      "title" : "Webempresa, un buen hosting para WordPress"
     }
   ]
 }
