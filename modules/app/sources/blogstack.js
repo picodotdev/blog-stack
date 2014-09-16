@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
+      "title" : "Inicialización de propiedades en C# 6.0"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/mediagoblin-la-plataforma-audiovisual-libre",
       "title" : "MediaGoblin, la plataforma audiovisual libre"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-plugin-de-audio-y-pdf-en-mediagoblin",
-      "title" : "Instalar plugin de audio y pdf en MediaGoblin"
     }
   ]
 }

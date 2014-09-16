@@ -1,0 +1,140 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Inicialización de propiedades en C# 6.0 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6"><span itemprop="headline">Inicialización de propiedades en C# 6.0</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/bO0u-918ayU/inicializacion-de-propiedades-en-c-60.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-16T07:19" itemprop="datePublished">Publicado el martes, 16 de septiembre de 2014 a las 07:19 UTC</span></div><div><span datetime="2014-09-16T07:19" itemprop="dateModified">Actualizado el martes, 16 de septiembre de 2014 a las 07:19 UTC</span></div><div><span>
+Etiquetado como
+novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a>, <a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><a href="http://lh3.ggpht.com/-QIQYFfMQ5pI/VBV5yiZv1vI/AAAAAAAADjA/QRgmD5_tt6I/s1600-h/image%25255B10%25255D.png"><img align="right" alt="Novedades de C# 6.0" src="http://lh6.ggpht.com/-tcWG2kQAscs/VBV5zgRCYsI/AAAAAAAADjI/OOFKDrvm-W0/image_thumb%25255B4%25255D.png?imgmax=800" height="248" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Novedades de C# 6.0" width="197" /></a>Hace alg&uacute;n tiempo comentamos alguna de las novedades que se incluir&aacute;n en la pr&oacute;xima versi&oacute;n de C#, concretamente 
+<a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html">el nuevo operador de navegaci&oacute;n segura “?.”</a>, pero la cosa no acaba aqu&iacute;: se avecinan un buen n&uacute;mero de cambios que prometen seguir mejorando nuestro lenguaje favorito :-)
+<br />
+<br />Por ejemplo, una nueva caracter&iacute;stica que tendremos disponible es la inicializaci&oacute;n de propiedades autom&aacute;ticas, algo que antes tambi&eacute;n pod&iacute;amos hacer, aunque de forma menos directa.
+<br />
+<br />Es decir, hasta el momento para inicializar una propiedad autom&aacute;tica ten&iacute;amos que hacerlo en el constructor de la clase, como sigue:
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-G2W1mWI-gr8/VBV50F6_HbI/AAAAAAAADjM/k9ayghG2XCc/image%25255B22%25255D.png?imgmax=800" height="169" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="333" />
+<br />
+<br />Pues bien, en la nueva versi&oacute;n podremos usar una nueva construcci&oacute;n mucho m&aacute;s directa:
+<br />
+<br />
+<img alt="" src="http://lh3.ggpht.com/--k8YyyUHqsw/VBV50k_bZQI/AAAAAAAADjY/Y4zP_Ps1p6k/image%25255B23%25255D.png?imgmax=800" height="91" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="391" />
+<br />
+<br />Simplemente a&ntilde;adimos la expresi&oacute;n de igualdad tras la declaraci&oacute;n, y listo. Adem&aacute;s del obvio ahorro en pulsaciones de teclas, el resultado a nivel de c&oacute;digo es m&aacute;s expresivo y legible, puesto que mantiene unida la definici&oacute;n de la propiedad con su valor inicial.
+<br />
+<br />Los valores usados en la inicializaci&oacute;n son los que podr&iacute;amos suponer de forma intuitiva: constantes, miembros est&aacute;ticos o llamadas a m&eacute;todos est&aacute;ticos, nada de referencias a 
+<code>this</code> o a otros miembros de instancia de la clase. Vaya, igual que en la inicializaci&oacute;n de miembros privados de la clase de toda la vida.
+<br />
+<br />Y como era de esperar, la inicializaci&oacute;n se producir&aacute; antes de que la ejecuci&oacute;n pase por el constructor, por lo que en ese punto ya tendremos los valores cargados si los necesitamos para algo:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-vGCpVXbh4gc/VBV51VRZ47I/AAAAAAAADjc/OD7thMa_pL4/image%25255B20%25255D.png?imgmax=800" height="192" style="background-image: none; border: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="396" />
+<br />
+<br />Por supuesto, es algo que tambi&eacute;n podemos utilizar con propiedades en las que el setter es privado, puesto que la inicializaci&oacute;n es interna a la clase:
+<br />
+<br />
+<img alt="" src="http://lh3.ggpht.com/-8LEHR26binA/VBV51-iGSrI/AAAAAAAADjk/9n6EJESk1cE/image%25255B21%25255D.png?imgmax=800" height="81" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="464" />
+<br />
+<br />E incluso hace posible el uso de propiedades autom&aacute;ticas de s&oacute;lo lectura, algo que antes s&oacute;lo pod&iacute;amos conseguir usando propiedades con 
+<em>backing fields</em>:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-JVaAtjhoa_o/VBV52Vd9c2I/AAAAAAAADjw/G2kEokA8uV8/image%25255B24%25255D.png?imgmax=800" height="87" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="348" />
+<br />
+<br />En fin, que sin ser un cambio espectacular, se trata de uno de esos peque&ntilde;os detalles que nos har&aacute; la vida algo m&aacute;s f&aacute;cil cuando aterricen las 
+<strong>nuevas versiones de todo</strong> que se est&aacute;n cocinando.
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=bO0u-918ayU:lGm986c2kfg:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=bO0u-918ayU:lGm986c2kfg:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=bO0u-918ayU:lGm986c2kfg:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=bO0u-918ayU:lGm986c2kfg:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/bO0u-918ayU" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" st_title="Inicialización de propiedades en C# 6.0 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li><li><a href="/label/desarrollo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 896,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
