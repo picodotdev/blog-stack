@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
+      "title" : "Que es la particion Recovery"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
       "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-escuchar-la-radio-en-ubuntu",
       "title" : "Como escuchar la radio en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
-      "title" : "Como configurar el prompt de la Terminal de Ubuntu"
     }
   ]
 }

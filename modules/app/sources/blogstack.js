@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
+      "title" : "Que es la particion Recovery"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
       "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
       "title" : "Gestión y procesos en empresas de software"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/descargar-videos-de-vimeo-o-youtube-con-movgrab",
-      "title" : "Descargar vídeos de Vimeo o Youtube con Movgrab"
     }
   ]
 }
