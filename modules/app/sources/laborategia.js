@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/09/descubre-la-conexion-entre-tu-telefono-movil-y-la-violencia-en-el-congo",
+      "title" : "Descubre la conexión entre tu teléfono móvil y la violencia en el Congo"
+    },
+    {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
       "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
     },

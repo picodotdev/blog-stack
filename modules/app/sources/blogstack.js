@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
+      "title" : "Añadiendo imágenes a nuestro servidor Nagios"
+    },
+    {
+      "url" : "/post/laborategia/2014/09/descubre-la-conexion-entre-tu-telefono-movil-y-la-violencia-en-el-congo",
+      "title" : "Descubre la conexión entre tu teléfono móvil y la violencia en el Congo"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
       "title" : "Que es la particion Recovery"
     },
@@ -113,14 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/08/galtzagorri-centro-multimedia-con-software-y-hardware-libre-i",
       "title" : "Galtzagorri; centro multimedia con software y hardware libre (I)"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-conectamos-a-las-mas-de-5-personas-de-la-makerfairebio-con-solo-2-mb-de-internet",
-      "title" : "¿Cómo conectamos a las más de 500 personas de la @MakerFaireBio con (solo) 2 MB de Internet?"
-    },
-    {
-      "url" : "/post/navegapolis/2014/09/gestion-y-procesos-en-empresas-de-software",
-      "title" : "Gestión y procesos en empresas de software"
     }
   ]
 }
