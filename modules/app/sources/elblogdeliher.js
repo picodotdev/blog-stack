@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
+      "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
       "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-configurar-el-prompt-de-la-terminal-de-ubuntu",
       "title" : "Como configurar el prompt de la Terminal de Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/unos-prompt-de-ejemplo",
-      "title" : "Unos prompt de ejemplo"
     }
   ]
 }

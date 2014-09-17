@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
+      "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
       "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/descargar-videos-de-vimeo-o-youtube-con-movgrab",
       "title" : "Descargar vídeos de Vimeo o Youtube con Movgrab"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
-      "title" : "Como desactivar el mensaje de error interno en Ubuntu"
     }
   ]
 }
