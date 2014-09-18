@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
+      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
       "title" : "Aviso de seguridad de Paypal"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/fundacion-de-software-libre-recopilacion-de-noticias-de-agosto-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Agosto 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/usar-comandos-unix-en-windows-con-cygwin",
-      "title" : "Usar comandos UNIX en Windows con cygwin"
     }
   ]
 }
