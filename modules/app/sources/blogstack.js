@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
+      "title" : "Como eliminar la sesion de invitado en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
       "title" : "Procesador de documentos LyX"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/fundacion-de-software-libre-recopilacion-de-noticias-de-agosto-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Agosto 2014"
     }
   ]
 }

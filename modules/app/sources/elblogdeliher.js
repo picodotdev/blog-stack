@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
+      "title" : "Como eliminar la sesion de invitado en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
       "title" : "Aviso de seguridad de Paypal"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
       "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-anadir-una-emisora-a-great-little-radio-player-en-ubuntu",
-      "title" : "Como añadir una emisora a Great Little Radio Player en Ubuntu"
     }
   ]
 }
