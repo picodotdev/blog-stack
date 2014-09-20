@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
+      "title" : "Monitorizar archivos con Java"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
       "title" : "Compilar y cargar de forma dinámica una clase Java"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache",
       "title" : "Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/generar-y-convertir-claves-y-certificados-con-openssl",
-      "title" : "Generar y convertir claves y certificados con OpenSSL"
     }
   ]
 }

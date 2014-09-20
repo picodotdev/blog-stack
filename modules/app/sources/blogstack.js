@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
+      "title" : "Monitorizar archivos con Java"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
       "title" : "Como eliminar la sesion de invitado en Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
       "title" : "ReactJS: un enfoque diferente"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
-      "title" : "Procesador de documentos LyX"
     }
   ]
 }
