@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
+      "title" : "Una mano más"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/06/vacaciones-indefinidas",
       "title" : "Vacaciones indefinidas"
     },

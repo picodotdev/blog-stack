@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
+      "title" : "Una mano más"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
       "title" : "Monitorizar archivos con Java"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
       "title" : "Enlaces interesantes 168"
-    },
-    {
-      "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
-      "title" : "ReactJS: un enfoque diferente"
     }
   ]
 }
