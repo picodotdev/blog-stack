@@ -439,4 +439,11 @@
     <changeSet id="21" author="picodotdev">
         <dropTable tableName="source_post" schemaName="public"/>
     </changeSet>
+    <changeSet id="22" author="picodotdev">
+        <comment>Actualización de etiquetas (21-09-2014)</comment>
+        <update tableName="label" schemaName="${schema}">
+            <column name="enabled" valueBoolean="true"/>
+            <where>name in ('spring', 'libreoffice', 'iphone', 'mac', 'kde', 'bsd', 'virtualizacion', 'programas', 'asp-net')</where>
+        </update>
+    </changeSet>
 </databaseChangeLog>

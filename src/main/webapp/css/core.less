@@ -28,6 +28,21 @@ body > header > .container-fluid {
 	padding: 0px 25px;
 }
 
+body > header {
+	div.imagen-cabecera {
+		height: 200px;
+		margin-top: 10px;
+		
+		div.imagen {
+			height: 200px;
+			background-attachment: fixed;
+			background-position: center center;
+			background-size: cover;
+			background-image: url('/assets/images/cabecera.jpg');
+		}
+	}
+}
+
 body > footer {
 	margin-bottom: 50px;
 }
@@ -72,7 +87,6 @@ a.blogstack, a.blogstack:visited, a.blogstack:hover, a.blogstack:active {
 
 section.data {
 	background-color: @aside-color;
-	border-bottom: 1px solid @line-color;
 	padding: 40px 0px 0px 0px;
 	margin-left: -15px;
 	margin-right: -15px;
@@ -111,20 +125,51 @@ section.data {
 	}
 }
 
-section.post-data {
-	margin-bottom: 10px;
-	
-	span {		
-		font-size: 14px;
-	}
-}
-
-section.index-pagination {
-	margin: 25px 0px;
-}
-
 article {
 	padding: 0px 25px;
+
+	&.not-featured {
+		margin-left: -30px;
+	}
+	
+	img, video, .flash-video {
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+		-moz-box-sizing: border-box;
+		border: 5px solid #FFF;
+	}
+	
+	div.labels {
+		margin-top: -10px;
+		
+		img {
+			max-width: 125px;
+			max-heigth: 50px;
+		}
+	}
+	
+	section.post-data {
+		margin-top: -10px;
+		margin-bottom: 10px;
+		line-height: 1em;
+		
+		span {		
+			font-size: 14px;
+		}
+	}
+	
+	div.post-content {	
+		img {
+			max-width: 700px;
+		}
+		
+		img, video, .flash-video {
+			margin: 10px;
+		}
+	}
+	
+	section.index-pagination {
+		margin: 25px 0px;
+	}
 	
 	hr:last-of-type {
 		border-style: dotted none none;
@@ -139,21 +184,9 @@ section.archive h2 a, section.archive h2 a:visited, section.archive h2 a:hover, 
 	color: black;
 }
 
-article h4 a, article h4 a:visited, article h4 a:hover, article h4 a:active,
-section.archive h4 a, section.archive h4 a:visited, section.archive h4 a:hover, section.archive h4 a:active {
+article h3 a, article h3 a:visited, article h3 a:hover, article h3 a:active,
+section.archive h3 a, section.archive h3 a:visited, section.archive h3 a:hover, section.archive h3 a:active {
 	color: black;
-}
-
-article img, article video, article .flash-video {
-	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-	-moz-box-sizing: border-box;
-	border: 5px solid #FFF;
-	margin: 10px;
-}
-
-article img {
-	max-width: 700px;
-	height: auto;
 }
 
 article p:not([style]):not([class]) img, article div:not([style]):not([class]) img {
@@ -187,7 +220,6 @@ div.container-fluid {
 div.content {
 	border-top: 1px solid @line-color;
 	border-right: 1px solid @line-color;
-	background-color: @content-color;
 }
 
 div.share-this.only-twitter {

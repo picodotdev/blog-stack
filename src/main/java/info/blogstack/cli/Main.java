@@ -17,7 +17,6 @@ import io.undertow.util.MimeMappings;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.ServerSocket;
-import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

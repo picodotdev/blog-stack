@@ -3,6 +3,9 @@ package info.blogstack.components;
 import info.blogstack.entities.Label;
 import info.blogstack.entities.Post;
 import info.blogstack.misc.Utils;
+import info.blogstack.services.MainService;
+
+import java.util.List;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
@@ -10,11 +13,12 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.hibernate.Query;
 
 public class PostComponent {
 
 	enum Mode {
-		HOME, DEFAULT
+		HOME_FEATURED, HOME, DEFAULT
 	}
 	
 	@Parameter
@@ -45,6 +49,9 @@ public class PostComponent {
 	private Label label;
 	
 	@Inject
+	private MainService service;
+	
+	@Inject
 	private Block homeBlock;
 	
 	@Inject
@@ -56,11 +63,29 @@ public class PostComponent {
 	
 	public Block getBlock() {
 		switch (mode) {
+			case HOME_FEATURED:
 			case HOME:
 				return homeBlock;
 			default:
 				return defaultBlock;
 		}
+	}
+	
+	public String getHomeClasses() {
+		switch (mode) {
+			case HOME:
+				return "not-featured";
+			default:
+				return null;
+		}
+	}
+	
+	@Cached(watch = "post")
+	public List<Label> getLabels() {
+		Query query = service.getSessionFactory().getCurrentSession().createQuery("select l from Post p inner join p.labels as l where p = :post and l.enabled = true order by size(l.posts) desc");
+		query.setMaxResults(4);
+		query.setParameter("post", post);
+		return (List<Label>) query.list();
 	}
 	
 	public boolean isShare() {
@@ -74,5 +99,13 @@ public class PostComponent {
 	@Cached(watch = "post")
 	public boolean isContentExcerpted() {
 		return (excerpt && post.getContent().length() != post.getContentExcerpt().length());
+	}
+	
+	public Object[] getContextLabel(Label label) {
+		return Utils.getContext(label);
+	}
+
+	public String getImage() {
+		return String.format("/assets/images/labels/%s.png", label.getName());
 	}
 }

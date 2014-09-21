@@ -20,8 +20,17 @@
 				<div id="horizontalSkycraper" class="col-xs-12 col-sm-12 col-md-8"></div>
 			</div>
 			<div class="row">
-				<div  class="col-xs-12 col-sm-12 col-md-12">
+				<div class="col-xs-12 col-sm-12 col-md-12">
 					<h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="imagen-cabecera">
+  						<div class="imagen"></div>
+  					</div>
 				</div>
 			</div>
 		</div>
@@ -43,6 +52,11 @@
 
 	<div class="container-fluid">
 		<div class="row">
+			<t:if test="featured">
+				<div class="col-xs-12 col-sm-12">
+					<t:delegate to="featured"/>
+				</div>
+			</t:if>
 			<div t:type="any" class="prop:contentClass"><t:body /></div>
 			<t:if test="aside">
 				<aside class="col-xs-12 col-sm-12 col-md-4">

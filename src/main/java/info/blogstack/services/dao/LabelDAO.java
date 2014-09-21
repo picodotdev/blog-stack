@@ -1,8 +1,11 @@
 package info.blogstack.services.dao;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import info.blogstack.entities.Label;
+import info.blogstack.entities.Post;
+
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
 
 public interface LabelDAO extends GenericDAO<Label> {
 

@@ -323,7 +323,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Override
 	public File generateRss() throws Exception {
-		Pagination pagination = new Pagination(0, Globals.NUMBER_ARTICLES_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
 		List<Post> posts = service.getPostDAO().findAll(pagination);
 
 		return generateRss(new File(to, getToRss().getPath()), posts);
@@ -335,7 +335,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 			return null;
 		}
 		
-		Pagination pagination = new Pagination(0, Globals.NUMBER_ARTICLES_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
 		List<Post> posts = service.getPostDAO().findAllByLabel(label, pagination);
 
 		return generateRss(new File(to, getToRss(label).getPath()), posts);
@@ -411,7 +411,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 		writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		writer.println("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
 
-		Pagination pagination = new Pagination(0, Globals.NUMBER_ARTICLES_SITEMAP, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_SITEMAP, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
 		List<Post> posts = service.getPostDAO().findAll(pagination);
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-MM-dd'T'hh:mm:ssZZ");

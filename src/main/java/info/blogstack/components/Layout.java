@@ -22,6 +22,10 @@ public class Layout {
 	@Parameter(defaultPrefix = BindingConstants.LITERAL)
 	@Property(read = false)
 	private String subtitle;
+
+	@Parameter(defaultPrefix = BindingConstants.BLOCK)
+	@Property
+	private Block featured;
 	
 	@Parameter(defaultPrefix = BindingConstants.BLOCK)
 	@Property
