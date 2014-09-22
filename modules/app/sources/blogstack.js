@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
+      "title" : "Un par de chistes informaticos para amenizar el lunes"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
       "title" : "Enlaces interesantes 170"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
       "title" : "Gestiona tu servidor con Ajenti"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
     }
   ]
 }

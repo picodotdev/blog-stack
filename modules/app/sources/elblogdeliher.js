@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
+      "title" : "Un par de chistes informaticos para amenizar el lunes"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
       "title" : "Como eliminar la sesion de invitado en Ubuntu"
     },
@@ -117,10 +121,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/fondos-de-escritorio-12",
       "title" : "Fondos de escritorio 12"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/como-instalar-grive-en-ubuntu-y-trabajar-con-google-drive",
-      "title" : "Como instalar Grive en Ubuntu y trabajar con Google Drive"
     }
   ]
 }
