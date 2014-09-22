@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
+      "title" : "Enlaces interesantes 170"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
+      "title" : "Inicialización de propiedades en C# 6.0"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
       "title" : "Ahora que empiezan el cole, OpenSuse Education"
     },
@@ -59,10 +67,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Muchas gracias a todos, no me lo puedo creer"
     },
     {
-      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
-      "title" : "Inicialización de propiedades en C# 6.0"
-    },
-    {
       "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte III)"
     }
   ]
 }

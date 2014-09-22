@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
+      "title" : "Enlaces interesantes 170"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
       "title" : "Inicialización de propiedades en C# 6.0"
     },
@@ -117,10 +121,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-156",
       "title" : "Enlaces interesantes 156"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/04/enlaces-interesantes-155",
-      "title" : "Enlaces interesantes 155"
     }
   ]
 }
