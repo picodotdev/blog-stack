@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
+      "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
+    },
+    {
       "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
       "title" : "Cómo utilizar ReactJS con Browserify"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
       "title" : "La FSF y Debian unen fuerzas"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
-      "title" : "Navegando por Mageia 4.1"
     }
   ]
 }

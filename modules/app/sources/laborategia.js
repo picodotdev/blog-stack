@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
+      "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
+    },
+    {
       "url" : "/post/laborategia/2014/09/descubre-la-conexion-entre-tu-telefono-movil-y-la-violencia-en-el-congo",
       "title" : "Descubre la conexión entre tu teléfono móvil y la violencia en el Congo"
     },
