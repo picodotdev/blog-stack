@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
+      "title" : "Ahora que empiezan el cole, OpenSuse Education"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
-      "title" : "Probamos FreeBSD 10"
     }
   ]
 }

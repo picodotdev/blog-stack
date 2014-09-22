@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
+      "title" : "Ahora que empiezan el cole, OpenSuse Education"
+    },
+    {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte III)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
-      "title" : "La FSF y Debian unen fuerzas"
     }
   ]
 }
