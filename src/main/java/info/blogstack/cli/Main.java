@@ -153,6 +153,13 @@ public class Main {
 		options.addOption("iim", "iimport", false, "Reindex the content of the import sources");
 		options.addOption("g", "generate", false, "Generate the content changed since the last indexation");
 		options.addOption("gg", "ggenerate", false, "Regenerate all the content");
+		options.addOption("gi", "gindex", false, "Regenerate index pages");
+		options.addOption("gl", "glabels", false, "Regenerate label pages");
+		options.addOption("gf", "gfeed", false, "Regenerate feeds");
+		options.addOption("ga", "garchive", false, "Regenerate archive pages");
+		options.addOption("gs", "gstatics", false, "Regenerate statics");
+		options.addOption("gst", "gstyles", false, "Regenerate styles");
+		options.addOption("gsm", "gsitemap", false, "Regenerate sitemap");
 		options.addOption("p", "preview", false, "Preview the content");
 		options.addOption("s", "start", false, "Start the server");
 		options.addOption("ss", "stop", false, "Stop the server");
@@ -172,6 +179,13 @@ public class Main {
 		boolean iimportOption = cmd.hasOption("iim");
 		boolean generate = cmd.hasOption("g");
 		boolean ggenerate = cmd.hasOption("gg");
+		boolean gindex = cmd.hasOption("gi");
+		boolean glabels = cmd.hasOption("gl");
+		boolean gfeeds = cmd.hasOption("gf");
+		boolean garchive = cmd.hasOption("ga");
+		boolean gstatics = cmd.hasOption("gs");
+		boolean gstyles = cmd.hasOption("gst");
+		boolean gsitemap = cmd.hasOption("gsm");
 		boolean preview = cmd.hasOption("p");
 		boolean serverOption = cmd.hasOption("s");
 		boolean stop = cmd.hasOption("ss");
@@ -210,17 +224,21 @@ public class Main {
 			}
 		}
 
-		if (generate || ggenerate) {
+		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gstyles) {
 			initRegistry();
 			initSessionFactory();
 
 			MainService service = Globals.registry.getService(MainService.class);
-			posts = (ggenerate) ? service.getPostDAO().findAll() : posts;
-			labels = (ggenerate) ? service.getLabelDAO().findAll() : labels;
+			posts = (ggenerate || gindex || glabels || garchive) ? service.getPostDAO().findAll() : posts;
+			labels = (ggenerate || gindex || glabels || garchive) ? service.getLabelDAO().findAll() : labels;
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
-				List<File> pindex = service.getPublicGeneratorService().generateIndex();
-				List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));
+				if (ggenerate || gindex) {
+					List<File> pindex = service.getPublicGeneratorService().generateIndex();					
+				}
+				if (ggenerate || glabels) {
+					List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));					
+				}
 			}
 
 			if (ggenerate) {
@@ -241,24 +259,30 @@ public class Main {
 			}
 			
 			if (!posts.isEmpty()) {
-				logger.info("Generating archive...");
-				List<File> as = service.getPublicGeneratorService().generateArchive(posts);
+				if (ggenerate || garchive) {
+					logger.info("Generating archive...");
+					List<File> as = service.getPublicGeneratorService().generateArchive(posts);
+				}
 			}
 
 			if (!labels.isEmpty()) {
-				logger.info("Generating feeds...");
-				File mainAtom = service.getPublicGeneratorService().generateRss();
-				for (Label label : labels) {
-					File labelAtom = service.getPublicGeneratorService().generateRss(label);
+				if (ggenerate || gfeeds) {
+					logger.info("Generating feeds...");
+					File mainAtom = service.getPublicGeneratorService().generateRss();
+					for (Label label : labels) {
+						File labelAtom = service.getPublicGeneratorService().generateRss(label);
+					}
 				}
 			}
 
 			if (!posts.isEmpty()) {
-				logger.info("Generating sitemap...");
-				File sitemap = service.getPublicGeneratorService().generateSitemap();
+				if (ggenerate || gfeeds) {
+					logger.info("Generating sitemap...");
+					File sitemap = service.getPublicGeneratorService().generateSitemap();
+				}
 			}
 
-			if (ggenerate) {
+			if (ggenerate || gstatics) {
 				logger.info("Generating statics...");
 				WroConfiguration config = new WroConfiguration();
 				Context.set(Context.standaloneContext(), config);
