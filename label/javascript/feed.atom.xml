@@ -3,10 +3,29 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-15T06:02:36Z</updated>
+  <updated>2014-09-22T06:02:27Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-15T06:02:36Z</dc:date>
+  <dc:date>2014-09-22T06:02:27Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo utilizar ReactJS con Browserify</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" />
+    <category term="browserify" />
+    <category term="grunt" />
+    <category term="development" />
+    <category term="reactjs" />
+    <category term="javascript" />
+    <author>
+      <name>Juan María Hernández</name>
+    </author>
+    <updated>2014-09-22T05:06:01Z</updated>
+    <published>2014-09-22T05:06:01Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En los &amp;uacute;ltimos posts vimos &lt;a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente"&gt;qu&amp;eacute; nos ofrece ReactJS&lt;/a&gt; a otras librer&amp;iacute;as para desarrollar interfaces de usuario con Javascript y construimos un &lt;a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS"&gt;componente de ejemplo con ReactJS&lt;/a&gt; para hacernos una idea de c&amp;oacute;mo trabajar con ReactJS.&lt;/p&gt; 
+&lt;p&gt;Como ya vimos al crear el componente de ejemplo, ReactJS permite utilizar una sintaxis especial llamada JSX para generar las vistas, y es necesario realizar de alguna forma la conversi&amp;oacute;n de este JSX al c&amp;oacute;digo Javascript puro que se encargar&amp;aacute; de construir el DOM. Esto se puede hacer &lt;a href="http://facebook.github.io/react/docs/tooling-integration.html"&gt;directamente en el browser&lt;/a&gt;, pero es preferible hacerlo durante la “compilaci&amp;oacute;n” de la aplicaci&amp;oacute;n para minimizar el impacto en los clientes que accedan a nuestra aplicaci&amp;oacute;n web.&lt;/p&gt; 
+&lt;p&gt;En este post vamos a ver c&amp;oacute;mo podemos aprovechar &lt;a href="http://blog.koalite.com/2013/09/node-js-de-servidor-a-navaja-suiza/" title="Node.js, de servidor a navaja suiza"&gt;herramientas basadas en node.js&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Juan María Hernández</dc:creator>
+    <dc:date>2014-09-22T05:06:01Z</dc:date>
+  </entry>
   <entry>
     <title>Crear un componente con ReactJS</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/crear-un-componente-con-reactjs" />
@@ -680,26 +699,6 @@ console.log( uno == undefined);
 &lt;p&gt;Hasta la pr&amp;oacute;xima.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/tips-de-javascript-arrays-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>leonardo</dc:creator>
     <dc:date>2014-02-20T02:43:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tips de Javascript: Arrays</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/tips-de-javascript-arrays" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-02-17T02:56:00Z</updated>
-    <published>2014-02-17T02:56:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Vamos a ver algunas pocas caracter&amp;iacute;sticas sobre &lt;em&gt;arrays&lt;/em&gt; en &lt;em&gt;Javascript&lt;/em&gt;, cortitas, pero interesantes.&lt;/p&gt; 
-&lt;h3&gt;Los arrays son objetos&lt;/h3&gt; 
-&lt;p&gt;Esto es obvio, en un punto todo es un objeto, pero en el caso de los &lt;em&gt;arrays&lt;/em&gt; no hablamos de un objeto &lt;em&gt;array&lt;/em&gt; como en C#, sino que un &lt;em&gt;array&lt;/em&gt; es un objeto y cuando le agregamos elementos lo que estamos agregando son miembros del &lt;em&gt;array&lt;/em&gt;, por ejemplo&lt;/p&gt; 
-&lt;pre&gt;var a = [1, 2, 3];&lt;/pre&gt; 
-&lt;p&gt;Esto no nos dice mucho, pero esto nos da una pista:&lt;/p&gt; 
-&lt;pre&gt;var a = [1, &amp;quot;hola&amp;quot;, function() { console.log(&amp;quot;hola&amp;quot;);}];&lt;/pre&gt; 
-&lt;p&gt;Es por eso que no importa el tipo de cada elemento del array.&lt;/p&gt; 
-&lt;p&gt;Podemos decir que un &lt;em&gt;array&lt;/em&gt; es un objeto en el cual sus propiedades tienen por nombre el n&amp;uacute;mero de &amp;iacute;ndice del &lt;em&gt;array&lt;/em&gt;, es decir 0, 1, 2, 3; pero no podemos acceder a las propiedades con el punto (.) porque no est&amp;aacute; permitido que un identificado empiece con el mismo (a.1) , por eso hacemos&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/tips-de-javascript-arrays"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-02-17T02:56:00Z</dc:date>
   </entry>
 </feed>
 

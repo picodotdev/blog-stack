@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
+      "title" : "Cómo utilizar ReactJS con Browserify"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
       "title" : "Una mano más"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
       "title" : "Navegando por Mageia 4.1"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
-      "title" : "Enlaces interesantes 168"
     }
   ]
 }
