@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
+      "title" : "Compartiendo carpetas en red con NFS"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
       "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
       "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
-      "title" : "Iconos Potenza, pack muy completo y vistoso"
     }
   ]
 }

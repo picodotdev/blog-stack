@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
+      "title" : "Compartiendo carpetas en red con NFS"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
       "title" : "Ahora que empiezan el cole, OpenSuse Education"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator",
       "title" : "Controla la shell con Terminator"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
-      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     }
   ]
 }
