@@ -39,8 +39,24 @@ define("app/sources/blogstack", [], function() {
       "title" : "Una mano más"
     },
     {
+      "url" : "/post/jsitech/2014/09/dia-internacional-del-software-libre",
+      "title" : "Dia Internacional del Software Libre"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14",
+      "title" : "Avisos de Seguridad 20/09/2014"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
       "title" : "Monitorizar archivos con Java"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/foro-jsitech-foro-de-ayuda-en-linux",
+      "title" : "Foro JsiTech \u2013 Foro de Ayuda en Linux"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/phishing-y-como-protegernos",
+      "title" : "Phishing y como protegernos"
     },
     {
       "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
@@ -53,6 +69,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
       "title" : "Aviso de seguridad de Paypal"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/homenaje-a-enrique-bravo-la-sombra-del-helicoptero",
+      "title" : "Homenaje a Enrique Bravo, la Sombra del Helicoptero"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
@@ -71,6 +91,22 @@ define("app/sources/blogstack", [], function() {
       "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
     },
     {
+      "url" : "/post/jsitech/2014/09/prueba-de-concepto-vulnerabilidad-navegador-android-cve-2-14-6-41",
+      "title" : "Prueba de Concepto, Vulnerabilidad Navegador Android (CVE-2014-6041)"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/los-proyectos-buenos-se-dan-a-conocer-tuxifeed",
+      "title" : "Los proyectos Buenos se dan a conocer, TuxiFeed"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/fallo-de-seguridad-en-browser-android-cve-2-14-6-41",
+      "title" : "Fallo de Seguridad en Browser Android (CVE-2014-6041)"
+    },
+    {
+      "url" : "/post/jsitech/2014/09/bitnami-una-tienda-de-aplicaciones-para-servidores",
+      "title" : "Bitnami, Una tienda de Aplicaciones para Servidores"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
       "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
     },
@@ -83,44 +119,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
-      "title" : "Joe, un editor de consola que no te esperabas"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
-      "title" : "Enlaces interesantes 169"
-    },
-    {
-      "url" : "/post/koalite/2014/09/crear-un-componente-con-reactjs",
-      "title" : "Crear un componente con ReactJS"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
-      "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
-      "title" : "Compilar y cargar de forma dinámica una clase Java"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
-      "title" : "Bodhi Linux se queda sin el líder del proyecto"
-    },
-    {
-      "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
-      "title" : "¿La Casa Blanca se desmarca de CMMI?"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
-      "title" : "Extiende la consola con Byobu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
-      "title" : "Crea tu propia tienda online con OsCommerce"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
-      "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
+      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-15-9-2-14",
+      "title" : "Avisos de Seguridad 15/09/2014"
     }
   ]
 }
