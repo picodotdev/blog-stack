@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
+      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
       "title" : "Un par de chistes informaticos para amenizar el lunes"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
       "title" : "Iconos Potenza, pack muy completo y vistoso"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
-      "title" : "Gestiona tu servidor con Ajenti"
     }
   ]
 }

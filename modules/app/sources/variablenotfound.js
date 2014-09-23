@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
+      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
       "title" : "Enlaces interesantes 170"
     },
@@ -117,10 +121,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/05/attribute-routing-en-mvc-y-web-api-y-iii-restricciones-personalizadas",
       "title" : "Attribute routing en MVC y Web API (y III): restricciones personalizadas"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/05/enlaces-interesantes-156",
-      "title" : "Enlaces interesantes 156"
     }
   ]
 }
