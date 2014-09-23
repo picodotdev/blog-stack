@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
+      "title" : "Guardar nuestra colección de cd\u2019s con K3b"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
       "title" : "Compartiendo carpetas en red con NFS"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-15-9-2-14",
-      "title" : "Avisos de Seguridad 15/09/2014"
     }
   ]
 }
