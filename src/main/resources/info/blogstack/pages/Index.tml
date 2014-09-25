@@ -1,29 +1,40 @@
 <html t:type="layout" t:featured="prop:featured" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
 <t:block id="featured">
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			<t:postcomponent post="firstPost" mode="home_featured"/>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<t:data/>
+		</div>
+	</div>
 	<t:loop source="featuredPosts" value="post" index="i">
-		<t:if test="evenOpen"><t:outputraw value="tags.get('oddOpen')"/></t:if>
-		<t:if test="data">
-			<div class="col-xs-12 col-md-6">
-				<t:data/>
-			</div>
-		</t:if>
+		<t:if test="open"><t:outputraw value="tags.get('open')"/></t:if>
 		<div class="col-xs-12 col-md-6">
 			<t:postcomponent post="post" mode="home_featured"/>
 		</div>
-		<t:if test="evenClose"><t:outputraw value="tags.get('oddClose')"/></t:if>
+		<t:if test="close"><t:outputraw value="tags.get('close')"/></t:if>
 	</t:loop>
 </t:block>
 	
 <t:if test="firstPage">
 	<t:loop source="notFeaturedPosts" value="post">
-		<t:postcomponent post="post" mode="home"/>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<t:postcomponent post="post" mode="home"/>
+			</div>
+		</div>
 	</t:loop>
 </t:if>
 
 <t:if test="!firstPage">
 	<t:loop source="posts" value="post">
-		<t:postcomponent post="post" mode="home"/>
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<t:postcomponent post="post" mode="home"/>
+			</div>
+		</div>
 	</t:loop>
 </t:if>
 

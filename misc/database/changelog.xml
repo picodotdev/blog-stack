@@ -440,6 +440,26 @@
         <dropTable tableName="source_post" schemaName="public"/>
     </changeSet>
     <changeSet id="22" author="picodotdev">
+        <comment>Agregación de fuente (23-09-2014)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-3255217622954305" />
+            <column name="adsenseSlotBigRectangle" value="8776737477" />
+            <column name="adsenseSlotWideSkycraper" value="8776737477" />
+            <column name="adsenseSlotHorizontalSkycraper" value="8776737477" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="JsiTech"/>
+            <column name="alias" value="jsitech"/>
+            <column name="pageUrl" value="http://www.jsitech.com/"/>
+            <column name="url" value="http://www.jsitech.com/feed/"/>
+            <column name="author" value="Jason Soto"/>
+            <column name="email" value="jason_soto@jsitech.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+    <changeSet id="23" author="picodotdev">
         <comment>Actualización de etiquetas (21-09-2014)</comment>
         <update tableName="label" schemaName="${schema}">
             <column name="enabled" valueBoolean="true"/>

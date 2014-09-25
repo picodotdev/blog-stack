@@ -56,12 +56,16 @@ public class Index {
 		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 	
+	public Post getFirstPost() {
+		return getPosts(0, 1).get(0);
+	}
+	
 	public List<Post> getFeaturedPosts() {
-		return getPosts(0, Globals.NUMBER_POSTS_FEATURED);
+		return getPosts(1, Globals.NUMBER_POSTS_FEATURED_INDEX);
 	}
 	
 	public List<Post> getNotFeaturedPosts() {
-		return getPosts(5, Globals.NUMBER_POSTS_PAGE * (page + 1));
+		return getPosts(Globals.NUMBER_POSTS_FEATURED_INDEX, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 
 	public boolean isFirstPage() {
@@ -80,16 +84,12 @@ public class Index {
 		return (page + 1 > Globals.NUMBER_PAGES_INDEX) ? null : new Object[] { "page", page + 1 };
 	}
 	
-	public boolean isEvenOpen() {
-		return (i % 2) != 0;
+	public boolean isOpen() {
+		return (i % 2) == 0;
 	}
 	
-	public boolean isEvenClose() {
-		return (i % 2) == 0 || i + 1 == Globals.NUMBER_POSTS_FEATURED;
-	}
-	
-	public boolean isData() {
-		return i == 0;
+	public boolean isClose() {
+		return (i % 2) != 0 || i + 1 == getFeaturedPosts().size();
 	}
 	
 	public Block getFeatured() {
@@ -99,8 +99,8 @@ public class Index {
 	@Cached
 	public Map getTags() {
 		Map<String, String> m = new HashMap<>();
-		m.put("oddOpen", "<div class=\"row\">");
-		m.put("oddClose", "</div>");
+		m.put("open", "<div class=\"row\">");
+		m.put("close", "</div>");
 		return m;
 	}
 	

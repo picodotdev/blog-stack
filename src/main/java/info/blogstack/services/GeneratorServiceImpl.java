@@ -258,7 +258,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 			List<Sort> sort = Collections.singletonList(new Sort("date", Direction.DESCENDING));
 			List<Post> posts = null;
-			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_PAGE, sort);
+			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, sort);
 			if (source == null) {
 				posts = service.getPostDAO().findAll(pagination);
 			} else {

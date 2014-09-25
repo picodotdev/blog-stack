@@ -158,7 +158,7 @@ public class Main {
 		options.addOption("gf", "gfeed", false, "Regenerate feeds");
 		options.addOption("ga", "garchive", false, "Regenerate archive pages");
 		options.addOption("gs", "gstatics", false, "Regenerate statics");
-		options.addOption("gst", "gstyles", false, "Regenerate styles");
+		options.addOption("gp", "gpages", false, "Regenerate pages");
 		options.addOption("gsm", "gsitemap", false, "Regenerate sitemap");
 		options.addOption("p", "preview", false, "Preview the content");
 		options.addOption("s", "start", false, "Start the server");
@@ -184,7 +184,7 @@ public class Main {
 		boolean gfeeds = cmd.hasOption("gf");
 		boolean garchive = cmd.hasOption("ga");
 		boolean gstatics = cmd.hasOption("gs");
-		boolean gstyles = cmd.hasOption("gst");
+		boolean gpages = cmd.hasOption("go");
 		boolean gsitemap = cmd.hasOption("gsm");
 		boolean preview = cmd.hasOption("p");
 		boolean serverOption = cmd.hasOption("s");
@@ -194,12 +194,12 @@ public class Main {
 		if (hash) {
 			initRegistry();
 			initSessionFactory();
-			
+
 			MainService service = Globals.registry.getService(MainService.class);
-			
+
 			service.getIndexerService().hash();
 		}
-		
+
 		Collection<Post> posts = new LinkedHashSet<>();
 		Collection<Label> labels = new LinkedHashSet<>();
 		if (index || iindex || importOption || iimportOption) {
@@ -224,7 +224,7 @@ public class Main {
 			}
 		}
 
-		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gstyles) {
+		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gpages) {
 			initRegistry();
 			initSessionFactory();
 
@@ -234,30 +234,32 @@ public class Main {
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				if (ggenerate || gindex) {
-					List<File> pindex = service.getPublicGeneratorService().generateIndex();					
+					List<File> pindex = service.getPublicGeneratorService().generateIndex();
 				}
 				if (ggenerate || glabels) {
-					List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));					
+					List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));
 				}
 			}
 
-			if (ggenerate) {
+			if (ggenerate || gpages) {
 				File faqPage = service.getPublicGeneratorService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
 			}
 
-			if (!posts.isEmpty()) {
-				logger.info("Generating posts...");
-				List<File> ps = service.getPublicGeneratorService().generatePosts(new ArrayList(posts));
+			if (ggenerate || generate) {
+				if (!posts.isEmpty()) {
+					logger.info("Generating posts...");
+					List<File> ps = service.getPublicGeneratorService().generatePosts(new ArrayList(posts));
 
-				Set<Source> sources = new HashSet<>();
-				for (Post post : posts) {
-					sources.add(post.getSource());
+					Set<Source> sources = new HashSet<>();
+					for (Post post : posts) {
+						sources.add(post.getSource());
+					}
+					List<Source> s = new ArrayList(sources);
+					s.add(null);
+					List<File> ss = service.getPublicGeneratorService().generateLastPosts(s);
 				}
-				List<Source> s = new ArrayList(sources);
-				s.add(null);
-				List<File> ss = service.getPublicGeneratorService().generateLastPosts(s);
 			}
-			
+
 			if (!posts.isEmpty()) {
 				if (ggenerate || garchive) {
 					logger.info("Generating archive...");
@@ -276,7 +278,7 @@ public class Main {
 			}
 
 			if (!posts.isEmpty()) {
-				if (ggenerate || gfeeds) {
+				if (ggenerate || gsitemap) {
 					logger.info("Generating sitemap...");
 					File sitemap = service.getPublicGeneratorService().generateSitemap();
 				}
@@ -302,7 +304,7 @@ public class Main {
 				logger.info("Server already started");
 				return;
 			}
-			
+
 			logger.info("Stating server...");
 
 			String host = getHost();
@@ -329,7 +331,7 @@ public class Main {
 
 			server.start();
 			adminServer.start();
-			
+
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
 		}
 
@@ -352,7 +354,7 @@ public class Main {
 			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
 
 			server.start();
-			
+
 			logger.info(String.format("Server listening in http://%s:%d/", host, port));
 		}
 
@@ -361,7 +363,7 @@ public class Main {
 				logger.info("Server already stopped");
 				return;
 			}
-			
+
 			logger.info("Stopping server...");
 
 			String host = getHost();
@@ -389,7 +391,7 @@ public class Main {
 			main.shutdown();
 		}
 	}
-	
+
 	private boolean isStarted() {
 		try {
 			ServerSocket socket = new ServerSocket(getPort(), 0, InetAddress.getByName(getHost()));

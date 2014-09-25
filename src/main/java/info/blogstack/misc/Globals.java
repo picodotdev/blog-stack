@@ -22,8 +22,10 @@ public class Globals {
 	
 	public static final Integer NUMBER_PAGES_INDEX = 5;
 	public static final Integer NUMBER_PAGES_LABEL = 3;
-	public static final Integer NUMBER_POSTS_PAGE = 30;
-	public static final Integer NUMBER_POSTS_FEATURED = 7;
+	public static final Integer NUMBER_POSTS_PAGE = 20;
+	public static final Integer NUMBER_POSTS_LASTS = 20;
+	public static final Integer NUMBER_POSTS_FEATURED_INDEX = 7;
+	public static final Integer NUMBER_POSTS_FEATURED_LABEL = 8;
 	public static final Integer NUMBER_POSTS_FEED = 30;
 	public static final Integer NUMBER_POSTS_SITEMAP = 200;
 	public static final Integer POST_EXCERPT_LENGHT = 750;
