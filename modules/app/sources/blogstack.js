@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
+      "title" : "Xbox One Controller ya es soportado por Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/09/bitnami-una-tienda-de-aplicaciones-para-servidores",
       "title" : "Bitnami, Una tienda de Aplicaciones para Servidores"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
-      "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
     }
   ]
 }

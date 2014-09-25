@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
+      "title" : "Xbox One Controller ya es soportado por Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
       "title" : "KDEdu, el proyecto de educación de KDE"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
-      "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
     }
   ]
 }
