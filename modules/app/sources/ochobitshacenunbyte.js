@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
+      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/bigbluebutton-el-software-que-esperabas-para-la-ensenanza-a-distancia",
       "title" : "BigBlueButton, el software que esperabas para la enseñanza a distancia"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/manten-el-correo-de-tu-thunderbird-seguro-con-mozbackup",
-      "title" : "Manten el correo de tu Thunderbird seguro con MozBackup"
     }
   ]
 }

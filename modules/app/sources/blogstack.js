@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
+      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
+    },
+    {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
       "title" : "Vulnerabilidad de Seguridad Importante en Bash"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
       "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
-      "title" : "Muchas gracias a todos, no me lo puedo creer"
     }
   ]
 }
