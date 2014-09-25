@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
+      "title" : "Vulnerabilidad de Seguridad Importante en Bash"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
       "title" : "Muchas gracias a todos, no me lo puedo creer"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
-      "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
+      "title" : "Vulnerabilidad de Seguridad Importante en Bash"
+    },
+    {
       "url" : "/post/jsitech/2014/09/dia-internacional-del-software-libre",
       "title" : "Dia Internacional del Software Libre"
     },
