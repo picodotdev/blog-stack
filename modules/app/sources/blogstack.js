@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
+      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
+      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
       "title" : "El clásico juego Another World disponible para Steam"
     },
@@ -13,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
-      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     },
     {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/09/los-proyectos-buenos-se-dan-a-conocer-tuxifeed",
       "title" : "Los proyectos Buenos se dan a conocer, TuxiFeed"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/fallo-de-seguridad-en-browser-android-cve-2-14-6-41",
-      "title" : "Fallo de Seguridad en Browser Android (CVE-2014-6041)"
     }
   ]
 }
