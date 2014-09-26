@@ -3,24 +3,78 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-17T14:02:32Z</updated>
+  <updated>2014-09-26T13:02:57Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-17T14:02:32Z</dc:date>
+  <dc:date>2014-09-26T13:02:57Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Virtualizando con KVM</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
+    <category term="virtualbox" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="kvm" />
+    <category term="virsh" />
+    <category term="comandos" />
+    <category term="virtualizacion" />
+    <category term="xen" />
+    <category term="gnu" />
+    <category term="vmware" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-26T12:19:12Z</updated>
+    <published>2014-05-15T14:41:31Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-15T14:41:31Z</dc:date>
+  </entry>
+  <entry>
+    <title>Probamos FreeBSD 10</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="unix" />
+    <category term="berkeley" />
+    <category term="freebsd" />
+    <category term="bsd" />
+    <category term="gnu" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-26T12:15:12Z</updated>
+    <published>2014-08-08T08:23:08Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg" alt="freebsd-logo-150" width="150" height="158" /&gt;&lt;/a&gt;Hace tiempo que quiero probar &lt;a title="FreeBSD Web" href="https://www.freebsd.org/es/"&gt;FreeBSD&lt;/a&gt;, sus bondades anunciadas por sus usuarios son muchas, la buena gesti&amp;oacute;n de la red, usar pocos recursos del sistema y es muy ligero, la compatibilidad de paquetes con sistemas descendientes de &lt;strong&gt;UNIX&lt;/strong&gt;, y la curva de aprendizaje de usuarios que vienen de &lt;strong&gt;Linux&lt;/strong&gt; como yo.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;FreeBSD&lt;/strong&gt; es un sistema operativo libre, que soporte una larga lista de arquitecturas, entre las que se encuentra&lt;strong&gt; x86&lt;/strong&gt; compatibles y &lt;strong&gt;amd64&lt;/strong&gt; compatibles. Es un derivado de &lt;a title="BSD Wikipedia" href="http://es.wikipedia.org/wiki/BSD"&gt;BSD&lt;/a&gt;, versi&amp;oacute;n de UNIX, desarrollada por la Universidad de California, Berkeley. Es un sistema operativo libre, lanzado usando la licencia&lt;a title="Licencia BSD Wikipedia" href="http://es.wikipedia.org/wiki/Licencia_BSD"&gt; BSD&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;En el tutorial veremos c&amp;oacute;mo montar e instalar &lt;strong&gt;FreeBSD&lt;/strong&gt; en una m&amp;aacute;quina virtual.&lt;/p&gt; 
+&lt;h1&gt;&lt;/h1&gt; 
+&lt;h1&gt;Instalando FreeBSD&lt;/h1&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Primero de todo nos tenemos que ir a la p&amp;aacute;gina oficial de descargas, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-08-08T08:23:08Z</dc:date>
+  </entry>
   <entry>
     <title>Añadiendo imágenes a nuestro servidor Nagios</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios" />
-    <category term="debian" />
     <category term="blog-stack" />
-    <category term="nrpe" />
-    <category term="nagios" />
+    <category term="debian" />
     <category term="comunidad-open-source" />
+    <category term="nagios" />
+    <category term="nrpe" />
     <category term="linux" />
     <category term="sistemas-operativos" />
-    <category term="hostextinfo" />
     <category term="ofimatica" />
-    <category term="windows-server" />
+    <category term="hostextinfo" />
     <category term="gnu" />
+    <category term="windows-server" />
     <author>
       <name>ochobitshacenunbyte</name>
     </author>
@@ -278,33 +332,6 @@ sudo apt-get install terminator&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http:/
 &lt;p&gt;Adem&amp;aacute;s de tratar de difundir la filosof&amp;iacute;a del &lt;strong&gt;software libre,&lt;/strong&gt; y de crear licencias que permitan la difusi&amp;oacute;n de obras y conservando los derechos de autor&amp;iacute;as, tambi&amp;eacute;n llevan a cabo diversas campa&amp;ntilde;as de concienciaci&amp;oacute;n y para proteger derechos de los usuarios frentes a aquellos que quieren poner restricciones abusivas en cuestiones tecnol&amp;oacute;gicas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Victor Hck</dc:creator>
     <dc:date>2014-08-08T10:31:09Z</dc:date>
-  </entry>
-  <entry>
-    <title>Probamos FreeBSD 10</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1" />
-    <category term="blog-stack" />
-    <category term="linux" />
-    <category term="sistemas-operativos" />
-    <category term="unix" />
-    <category term="berkeley" />
-    <category term="freebsd" />
-    <category term="bsd" />
-    <category term="gnu" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-08-08T08:36:36Z</updated>
-    <published>2014-08-08T08:23:08Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/freebsd-logo-150.jpg" alt="freebsd-logo-150" width="150" height="158" /&gt;&lt;/a&gt;Hace tiempo que quiero probar &lt;a title="FreeBSD Web" href="https://www.freebsd.org/es/"&gt;FreeBSD&lt;/a&gt;, sus bondades anunciadas por sus usuarios son muchas, la buena gesti&amp;oacute;n de la red, usar pocos recursos del sistema y es muy ligero, la compatibilidad de paquetes con sistemas descendientes de &lt;strong&gt;UNIX&lt;/strong&gt;, y la curva de aprendizaje de usuarios que vienen de &lt;strong&gt;Linux&lt;/strong&gt; como yo.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;FreeBSD&lt;/strong&gt; es un sistema operativo libre, que soporte una larga lista de arquitecturas, entre las que se encuentra&lt;strong&gt; x86&lt;/strong&gt; compatibles y &lt;strong&gt;amd64&lt;/strong&gt; compatibles. Es un derivado de &lt;a title="BSD Wikipedia" href="http://es.wikipedia.org/wiki/BSD"&gt;BSD&lt;/a&gt;, versi&amp;oacute;n de UNIX, desarrollada por la Universidad de California, Berkeley. Es un sistema operativo libre, lanzado usando la licencia&lt;a title="Licencia BSD Wikipedia" href="http://es.wikipedia.org/wiki/Licencia_BSD"&gt; BSD&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;En el tutorial veremos c&amp;oacute;mo montar e instalar &lt;strong&gt;FreeBSD&lt;/strong&gt; en una m&amp;aacute;quina virtual.&lt;/p&gt; 
-&lt;h1&gt;&lt;/h1&gt; 
-&lt;h1&gt;Instalando FreeBSD&lt;/h1&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Primero de todo nos tenemos que ir a la p&amp;aacute;gina oficial de descargas, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-08-08T08:23:08Z</dc:date>
   </entry>
   <entry>
     <title>Crea la nota perfecta con MyNotex</title>
@@ -675,33 +702,6 @@ deb-src http://http.debian.net/debian/ squeeze-lts main contrib non-free&lt;/pre
 &lt;p&gt;Un ejemplo sencillo de su funcionamiento ser&amp;iacute;a la conexi&amp;oacute;n a un servidor, que es pr&amp;aacute;cticamente id&amp;eacute;ntica a la conexi&amp;oacute;n por &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/lftp-transferencia-de-archivos-desde-la-consola-de-comandos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-05-20T14:15:19Z</dc:date>
-  </entry>
-  <entry>
-    <title>Virtualizando con KVM</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
-    <category term="blog-stack" />
-    <category term="debian" />
-    <category term="virtualbox" />
-    <category term="kvm" />
-    <category term="comandos" />
-    <category term="virsh" />
-    <category term="virtualizacion" />
-    <category term="gnu" />
-    <category term="xen" />
-    <category term="vmware" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-05-15T17:34:55Z</updated>
-    <published>2014-05-15T14:41:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-05-15T14:41:31Z</dc:date>
   </entry>
   <entry>
     <title>Descubrimos Trisquel, el buque insignia de las distribuciones libres</title>

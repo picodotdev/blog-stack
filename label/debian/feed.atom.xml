@@ -3,15 +3,42 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-23T14:02:33Z</updated>
+  <updated>2014-09-26T13:02:58Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-23T14:02:33Z</dc:date>
+  <dc:date>2014-09-26T13:02:58Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Virtualizando con KVM</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
+    <category term="virtualbox" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="kvm" />
+    <category term="virsh" />
+    <category term="comandos" />
+    <category term="virtualizacion" />
+    <category term="xen" />
+    <category term="gnu" />
+    <category term="vmware" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-26T12:19:12Z</updated>
+    <published>2014-05-15T14:41:31Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-05-15T14:41:31Z</dc:date>
+  </entry>
   <entry>
     <title>Compartiendo carpetas en red con NFS</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs" />
-    <category term="debian" />
     <category term="blog-stack" />
+    <category term="debian" />
     <category term="sistemas-operativos" />
     <category term="comandos" />
     <category term="nfs" />
@@ -610,33 +637,6 @@ export PATH&lt;/pre&gt;
 &lt;p&gt;A mitad de la instalaci&amp;oacute;n nos preguntar&amp;aacute; c&amp;oacute;mo queremos que se ejecute el servicio, en modo “standalone” o desde inetd. La diferencia entre ambos radica en que desde inetd cada vez que se produzca una nueva conexi&amp;oacute;n se abrir&amp;aacute; un nuevo proceso, con la carga del sistema que conlleva. En modo “standalone” el servicio se ejecuta en un proceso independiente, de &amp;eacute;sta manera el proceso ya estar&amp;aacute; iniciado, y no har&amp;aacute; falta volverlo a iniciar. Por lo tanto elegimos “standalone”.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-06-12T11:32:46Z</dc:date>
-  </entry>
-  <entry>
-    <title>Virtualizando con KVM</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
-    <category term="blog-stack" />
-    <category term="debian" />
-    <category term="virtualbox" />
-    <category term="kvm" />
-    <category term="comandos" />
-    <category term="virsh" />
-    <category term="virtualizacion" />
-    <category term="gnu" />
-    <category term="xen" />
-    <category term="vmware" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-05-15T17:34:55Z</updated>
-    <published>2014-05-15T14:41:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-05-15T14:41:31Z</dc:date>
   </entry>
   <entry>
     <title>Descubrimos Trisquel, el buque insignia de las distribuciones libres</title>

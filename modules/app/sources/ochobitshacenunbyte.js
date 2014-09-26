@@ -3,6 +3,14 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
+      "title" : "Virtualizando con KVM"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
+      "title" : "Probamos FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     },
@@ -113,14 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/calibre-lanza-la-version-2",
       "title" : "Calibre lanza la versión 2.0"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/sql-buddy-una-gran-herramienta-mysql",
-      "title" : "SQL Buddy, una gran herramienta MySQL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel",
-      "title" : "Virtualización con KVM y Trisquel"
     }
   ]
 }

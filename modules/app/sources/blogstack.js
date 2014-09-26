@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
+      "title" : "Virtualizando con KVM"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
+      "title" : "Probamos FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     },
@@ -113,14 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
       "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/prueba-de-concepto-vulnerabilidad-navegador-android-cve-2-14-6-41",
-      "title" : "Prueba de Concepto, Vulnerabilidad Navegador Android (CVE-2014-6041)"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/los-proyectos-buenos-se-dan-a-conocer-tuxifeed",
-      "title" : "Los proyectos Buenos se dan a conocer, TuxiFeed"
     }
   ]
 }
