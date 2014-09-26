@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
+      "title" : "El clásico juego Another World disponible para Steam"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
@@ -117,10 +121,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/se-cumplen-1-anos-de-openstreetmap",
       "title" : "Se cumplen 10 años de OpenStreetMap"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/kdedu-el-proyecto-de-educacion-de-kde",
-      "title" : "KDEdu, el proyecto de educación de KDE"
     }
   ]
 }

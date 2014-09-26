@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
+      "title" : "El clásico juego Another World disponible para Steam"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/09/fallo-de-seguridad-en-browser-android-cve-2-14-6-41",
       "title" : "Fallo de Seguridad en Browser Android (CVE-2014-6041)"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/bitnami-una-tienda-de-aplicaciones-para-servidores",
-      "title" : "Bitnami, Una tienda de Aplicaciones para Servidores"
     }
   ]
 }
