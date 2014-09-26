@@ -3,6 +3,14 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
+      "title" : "Guardar nuestra colección de cd\u2019s con K3b"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
+      "title" : "El clásico juego Another World disponible para Steam"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     },
@@ -11,20 +19,12 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
-      "title" : "El clásico juego Another World disponible para Steam"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
-      "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
