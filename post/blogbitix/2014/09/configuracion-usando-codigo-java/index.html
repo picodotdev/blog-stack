@@ -1,0 +1,263 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Configuración usando código Java | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8" id="horizontalSkycraper"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div></header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="nav nav-pills menu"><li><a href="/">Inicio</a></li><li><a href="/archive">Archivo</a></li><li><a href="/faq">Preguntas frecuentes</a></li></ul></nav></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/09/configuracion-usando-codigo-java"><span itemprop="headline">Configuración usando código Java</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/09/configuracion-usando-codigo-java/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-26T17:18" itemprop="datePublished">Publicado el viernes, 26 de septiembre de 2014 a las 17:18 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" />
+ <br /> 
+</div> 
+<p>En las dos &uacute;ltimas entradas he explicado <a href="http://picodotdev.github.io/blog-bitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java/">como compilar un archivo de c&oacute;digo fuente Java desde una aplicaci&oacute;n</a> y como cargar esa clase compilada de forma din&aacute;mica para ser utilizada en un programa, la segunda entrada trataba el <a href="http://picodotdev.github.io/blog-bitix/2014/09/monitorizar-cambios-en-archivos-con-java/">como monitorizar un directorio o archivo para ver si han tenido cambios</a> con la nueva API que a partir de Java 7 disponemos.</p> 
+<p>En esta entrada quiero explicar un ejemplo de como aprovechar estas dos funcionalidades diferentes en un caso pr&aacute;ctico y que nos puede ser &uacute;til en alg&uacute;n caso. La idea del ejemplo es definir la configuraci&oacute;n de una aplicaci&oacute;n como podr&iacute;a ser una aplicaci&oacute;n web en un archivo de c&oacute;digo fuente Java y que cuando se produjese alg&uacute;n cambio se recargase de forma din&aacute;mica.</p> 
+<p>Algunas ventajas de definir la configuraci&oacute;n de la aplicaci&oacute;n de esta manera son las siguientes:</p> 
+<ul> 
+ <li>Al ser el archivo de configuraci&oacute;n c&oacute;digo Java que se compila podemos aprovecharnos de la validaci&oacute;n que hace el compilador para estar seguros de que est&aacute; libre de errores l&eacute;xicos y sint&aacute;cticos, el archivo solo se cargar&aacute; cuando est&aacute; libre de errores de compilaci&oacute;n. Al compilarlo el compilador nos advertir&aacute; de los errores que contenga de forma precisa.</li> 
+ <li>Por otra parte al ser c&oacute;digo en el archivo de configuraci&oacute;n podemos usar el lenguaje Java para hacer ciertas operaciones que en un xml u otro formato de archivo de texto plano no podemos hacer. Podr&iacute;amos hacer un c&aacute;lculo o conectarnos a la base de datos u otro sistema para recuperar cierta informaci&oacute;n. En algunos casos el lenguaje Java puede ser mejor opci&oacute;n para describir la configuraci&oacute;n que los archivos de texto, son los mismos <a href="http://elblogdepicodev.blogspot.com.es/2012/03/herramienta-de-construccion-gradle.html">problemas de ant y maven comparados con gradle</a>. Tambi&eacute;n el c&oacute;digo Java puede ser la forma m&aacute;s breve y &uacute;til para describir la configuraci&oacute;n de la aplicaci&oacute;n que archivos de texto, usando c&oacute;digo Java podremos devolver objetos, listas, … en vez de Strings o n&uacute;meros.</li> 
+ <li>La recarga del archivo de configuraci&oacute;n cuando se produzcan cambios en &eacute;l nos evitar&aacute; tener que reiniciar la aplicaci&oacute;n, simplemente haremos el cambio y la configuraci&oacute;n se aplicar&iacute;a. Esto puede ser &uacute;til en las aplicaciones web evit&aacute;ndonos tener que hacer un reinicio de la aplicaci&oacute;n.</li> 
+</ul> 
+<p>Una de las razones de la existencia de los archivos de configuraci&oacute;n es tener esa configuraci&oacute;n de forma externalizada a la aplicaci&oacute;n de tal forma que podamos cambiar la configuraci&oacute;n sin tener que modificar la aplicaci&oacute;n ni tener que recompilarla. Con la compilaci&oacute;n y carga din&aacute;mica de la clase Java de la configuraci&oacute;n podemos tener estas mismas propiedades de los archivos de configuraci&oacute;n. Si a esto le sumamos la recarga din&aacute;mica evitamos tener ca&iacute;das de servicio en la aplicaci&oacute;n por modificaciones en el archivo de configuraci&oacute;n.</p> 
+<p>Todo esto es algo que se comenta en el <a href="http://www.amazon.es/gp/product/020161622X/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=020161622X&amp;linkCode=as2&amp;tag=blobit-21">libro The Pragmatic Programmer</a><img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=020161622X" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" /> con las siguientes lineas:</p> 
+<blockquote>
+ <p>Many programs will scan such things only at startup, which is unfortunate. If you need to change the configuration, this forces you to restart the application. A more flexible approach is to write programs that can reload their configuration while they’re running. This flexibility comes at a cost: it is more complex to implement. If it is a long-running server process, you will want to provide some way to reread and apply metadata while the program is running.</p>
+</blockquote> 
+<p>Esta es la teor&iacute;a, veamos el c&oacute;digo del ejemplo de configuraci&oacute;n en Java con recarga din&aacute;mica. La mayor parte del c&oacute;digo est&aacute; en la clase ConfiguracionManager. Esta tiene dos m&eacute;todos que son usados en la clase Main de la aplicaci&oacute;n, el m&eacute;todo load carga la clase y la compila, y el m&eacute;todo monitor que monitoriza el archivo en busca de cambios y llama al m&eacute;todo load cuando los detecte.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/03199502551aa8038fcd.js?file=Main.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.blogbitix.config;
+
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+
+public class Main {
+
+	public static void main(String[] args) throws Exception {
+		Path path = FileSystems.getDefault().getPath(&quot;src/main/java/io/github/picodotdev/blogbitix/config/AppConfiguracion.java&quot;);
+		ConfiguracionManager manager = new ConfiguracionManager(&quot;io.github.picodotdev.blogbitix.config.AppConfiguracion&quot;, path).load().monitor();
+		
+		int n = 0;
+		while (n &lt; 20) {
+			Thread.sleep(2000);
+			System.out.println(manager.get());
+		}
+	}
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/03199502551aa8038fcd.js?file=ConfiguracionManager.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.blogbitix.config;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.StandardWatchEventKinds;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileManager;
+import javax.tools.JavaFileObject;
+import javax.tools.ToolProvider;
+
+public class ConfiguracionManager {
+
+	private String fullName;
+	private Path path;
+	private Configuracion configuracion;
+
+	private Thread thread;
+	private boolean closed;
+
+	public ConfiguracionManager(String fullName, Path path) {
+		this.fullName = fullName;
+		this.path = path;
+	}
+
+	public Configuracion getConfiguracion() {
+		return configuracion;
+	}
+
+	public Map get() {
+		return configuracion.get();
+	}
+
+	public ConfiguracionManager load() throws Exception {
+		List&lt;String&gt; l = Arrays.asList(fullName.split(&quot;\\.&quot;));
+		String name = l.get(l.size() - 1);
+		String source = loadSource();
+
+		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+		JavaFileManager manager = new ClassFileManager(compiler.getStandardFileManager(null, null, null));
+
+		List&lt;JavaFileObject&gt; files = new ArrayList&lt;JavaFileObject&gt;();
+		files.add(new CharSequenceJavaFileObject(fullName, source));
+
+		compiler.getTask(new NullWriter(), manager, null, null, null, files).call();
+		configuracion = (Configuracion) manager.getClassLoader(null).loadClass(fullName).newInstance();
+
+		return this;
+	}
+
+	public ConfiguracionManager monitor() throws Exception {
+		closed = false;
+
+		Runnable task = new Runnable() {
+			@Override
+			public void run() {
+				while (!closed) {
+					try (WatchService watchService = FileSystems.getDefault().newWatchService()) {
+						path.getParent().register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+						WatchKey watchKey = watchService.take();
+						if (watchKey == null) {
+							return;
+						}
+						for (WatchEvent&lt;?&gt; event : watchKey.pollEvents()) {
+							Path p = (Path) event.context();							
+							Path pp = path.getParent().resolve(p);
+							if (path.equals(pp)) {
+								load();
+							}
+						}
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+				}
+			}
+		};
+
+		thread = new Thread(task);
+		thread.setDaemon(true);
+		thread.start();
+
+		return this;
+	}
+
+	public void close() throws Exception {
+		closed = true;
+	}
+
+	private String loadSource() throws Exception {
+		StringBuffer source = new StringBuffer();
+		char[] buffer = new char[128 * 1024];
+		Reader reader = new FileReader(path.toFile());
+		int n = reader.read(buffer);
+		while (n != -1) {
+			source.append(buffer, 0, n);
+			n = reader.read(buffer);
+		}
+		return source.toString();
+	}
+}
+</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/43/main.png" title="Salida programa Main.java"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/43/main.png" /></a> 
+</div> 
+<p>Esta idea de no utilizar archivos de configuraci&oacute;n sino emplear c&oacute;digo como la mejor forma y m&aacute;s breve de definirla es algo que hace <a href="http://gradle.org/">gradle</a> con los archivos de configuraci&oacute;n del proyecto y <a href="http://tapestry.apache.org">apache tapestry</a> para definir los m&oacute;dulos y la configuraci&oacute;n del contenedor de inversi&oacute;n de control, parece una tendencia por el hecho de tener las propiedades y ventajas comentadas sobre otro tipo de archivos ya sean xml o sus sustitutos m&aacute;s recientes como yaml, json, … que son m&aacute;s compactos y legibles que xml pero que siguen adoleciendo de algunos de los mismos defectos.</p> 
+<p>El c&oacute;digo fuente completo puede encontrarse en el <a href="https://github.com/picodotdev/blog-ejemplos/tree/master/ConfiguracionJava">siguiente repositorio de GitHub</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" st_title="Configuración usando código Java | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Configuración usando código Java";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/09/configuracion-usando-codigo-java/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><aside class="col-xs-12 col-sm-12 col-md-4"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p><div class="social-networks"><!-- Facebook --><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="standard" data-href="http://www.blogstack.info/" class="fb-like"></div><!-- Google+ --><g:plusone size="standard" annotation="inline" href="http://www.blogstack.info/" width="310"></g:plusone></div></section><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section><div id="bigRectangle"></div><section id="lastPosts"></section><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><section id="lastPosts_0"></section></aside></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 930,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
+      "title" : "Configuración usando código Java"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
       "title" : "Monitorizar archivos con Java"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/03/introduccion-y-ejemplo-sencillo-de-java-message-service-jms",
       "title" : "Introducción y ejemplo sencillo de Java Message Service (JMS)"
-    },
-    {
-      "url" : "/post/blogbitix/2014/02/configurar-ssl-en-un-servidor-tomcat-jboss-wildfly-lighttpd-nginx-o-apache",
-      "title" : "Configurar SSL en un servidor Tomcat, JBoss, WildFly, Lighttpd, nginx o Apache"
     }
   ]
 }

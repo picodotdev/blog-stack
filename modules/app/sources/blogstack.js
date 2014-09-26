@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
+      "title" : "Configuración usando código Java"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
     },
@@ -117,10 +121,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
       "title" : "Que es la particion Recovery"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
-      "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
     }
   ]
 }
