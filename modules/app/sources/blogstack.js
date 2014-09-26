@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
+      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
       "title" : "Como eliminar la sesion de invitado en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
-      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
     {
       "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",

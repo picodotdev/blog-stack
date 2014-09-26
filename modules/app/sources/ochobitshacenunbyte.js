@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
+      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
     },
@@ -21,10 +25,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
       "title" : "Ahora que empiezan el cole, OpenSuse Education"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
-      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
