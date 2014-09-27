@@ -81,46 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/11/ubuntu-13-1-una-version-muy-buena",
       "title" : "Ubuntu 13.10: una versión muy buena"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/linux-lite-1-6-xubuntu-en-peso-pluma",
-      "title" : "Linux Lite 1.0.6: Xubuntu en peso pluma"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/un-blog-tranquilo",
-      "title" : "Un blog tranquilo"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/confesiones-de-un-distrohopper-y-iii",
-      "title" : "Confesiones de un distrohopper (y III)"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/actualizacion-a-kde-4-11-2-en-chakra",
-      "title" : "Actualización a KDE 4.11.2 en Chakra"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/09/chakra-fritz-ya-esta-aqui",
-      "title" : "Chakra Fritz ya está aquí"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/09/intervencion-manual-al-actualizar-chakra",
-      "title" : "Intervención manual al actualizar Chakra"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/09/persiguiendo-un-sueno-la-diversidad-en-gnu-linux",
-      "title" : "Persiguiendo un sueño: la diversidad en GNU/Linux"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/09/kde-connect-integra-tu-android-con-kde",
-      "title" : "KDE Connect: integra tu Android con KDE"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/08/kde-4-11-ya-esta-en-chakra",
-      "title" : "KDE 4.11 ya está en Chakra"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/08/algo-pasa-con-chakra-o-no",
-      "title" : "Algo pasa con Chakra... o no"
     }
   ]
 }

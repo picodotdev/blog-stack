@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/09/security-feed-feeds-de-seguridad-y-ethical-hacking-en-un-solo-lugar",
+      "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
+    },
+    {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
       "title" : "Vulnerabilidad de Seguridad Importante en Bash"
     },

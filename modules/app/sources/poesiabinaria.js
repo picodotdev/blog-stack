@@ -81,22 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/introduccion-a-timer-y-timertask-en-java",
       "title" : "Introducción a Timer y TimerTask en Java."
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/ci-xxiii-maslow-fisica-puertos-abiertos-paradojas-google-mediamarkt-y-pedir-perdon",
-      "title" : "CI XXIII: Maslow, Física, puertos abiertos, paradojas, Google, MediaMarkt y pedir perdón"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/enfrentandote-con-los-fantasmas-de-tu-pasado",
-      "title" : "Enfrentándote con los fantasmas de tu pasado"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/pinceladas-de-concurrencia-y-hello-world-usando-pthreads",
-      "title" : "Pinceladas de concurrencia y Hello world usando pthreads"
-    },
-    {
-      "url" : "/post/poesiabinaria/2013/12/el-2-13-para-poesia-binaria",
-      "title" : "El 2013 para Poesía Binaria"
     }
   ]
 }

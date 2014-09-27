@@ -81,46 +81,6 @@ define("app/sources/elblogdepicodev", [], function() {
     {
       "url" : "/post/elblogdepicodev/2013/11/integracion-y-transacciones-con-spring-en-apache-tapestry",
       "title" : "Integración y transacciones con Spring en Apache Tapestry "
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry",
-      "title" : "Transacciones en Apache Tapestry"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/10/solucion-al-doble-envio-de-peticiones-en-aplicaciones-web",
-      "title" : "Solución al doble envío de peticiones en aplicaciones web"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/10/solucion-al-problema-de-seguridad-csrf-en-apache-tapestry",
-      "title" : "Solución al problema de seguridad CSRF en Apache Tapestry"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/10/relaciones-jerarquicas-en-bases-de-datos-relacionales",
-      "title" : "Relaciones jerárquicas en bases de datos relacionales"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2012/07/pruebas-unitarias-con-spock-y-mockito",
-      "title" : "Pruebas unitarias con Spock y Mockito"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/10/archivo-de-log-de-sentencias-sql-en-mysql-o-mariadb",
-      "title" : "Archivo de log de sentencias SQL en MySQL o MariaDB"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2011/06/libros-de-ciencia-ficcion-y-fantasia",
-      "title" : "Libros de ciencia ficción y fantasía"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/09/trazas-en-un-gsp-de-grails",
-      "title" : "Trazas en un gsp de Grails"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/09/archivos-properties-con-codificacion-utf-8",
-      "title" : "Archivos properties con codificación UTF-8"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/01/autenticacion-ssh-con-clave-privada-y-publica",
-      "title" : "Autenticación SSH con clave privada y pública"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/09/security-feed-feeds-de-seguridad-y-ethical-hacking-en-un-solo-lugar",
+      "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
       "title" : "Configuración usando código Java"
     },
@@ -77,50 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
       "title" : "Una mano más"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/dia-internacional-del-software-libre",
-      "title" : "Dia Internacional del Software Libre"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14",
-      "title" : "Avisos de Seguridad 20/09/2014"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
-      "title" : "Monitorizar archivos con Java"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/foro-jsitech-foro-de-ayuda-en-linux",
-      "title" : "Foro JsiTech \u2013 Foro de Ayuda en Linux"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/phishing-y-como-protegernos",
-      "title" : "Phishing y como protegernos"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
-      "title" : "Como eliminar la sesion de invitado en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
-      "title" : "Aviso de seguridad de Paypal"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/homenaje-a-enrique-bravo-la-sombra-del-helicoptero",
-      "title" : "Homenaje a Enrique Bravo, la Sombra del Helicoptero"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
-      "title" : "Añadiendo imágenes a nuestro servidor Nagios"
-    },
-    {
-      "url" : "/post/laborategia/2014/09/descubre-la-conexion-entre-tu-telefono-movil-y-la-violencia-en-el-congo",
-      "title" : "Descubre la conexión entre tu teléfono móvil y la violencia en el Congo"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
-      "title" : "Que es la particion Recovery"
     }
   ]
 }

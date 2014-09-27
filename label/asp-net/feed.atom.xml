@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>Blog Stack</title>
+  <link rel="alternate" href="http://www.blogstack.info" />
+  <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
+  <updated>2014-09-27T01:43:13Z</updated>
+  <dc:creator>Blog Stack</dc:creator>
+  <dc:date>2014-09-27T01:43:13Z</dc:date>
+  <dc:language>es</dc:language>
+  <entry>
+    <title>#if DEBUG en Javascript (bueno, o algo así)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi" />
+    <category term="trucos" />
+    <category term="asp-net" />
+    <category term="depuracion" />
+    <category term="javascript" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-07-22T11:55:00Z</updated>
+    <published>2014-07-22T11:55:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="Debug" src="http://lh4.ggpht.com/-Ox2wyj3ZYSU/U8LGWzoGCtI/AAAAAAAADh0/ZB26rBsBkE0/image2.png?imgmax=800" height="128" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Debug" width="128" /&gt;Hay veces que desde Javascript nos interesa ejecutar un c&amp;oacute;digo u otro en funci&amp;oacute;n de si la ejecuci&amp;oacute;n se est&amp;aacute; produciendo en un servidor de desarrollo o en uno de producci&amp;oacute;n. Por ejemplo, en el primer caso suele ser interesante disponer de 
+&lt;em&gt;logs&lt;/em&gt; o herramientas de ayuda a la depuraci&amp;oacute;n, mientras que en el segundo lo normal es que queramos introducir c&amp;oacute;digo m&amp;aacute;s eficiente y sin este tipo de condimentos. 
+&lt;br /&gt; 
+&lt;br /&gt;En este post vamos a ver algunas t&amp;eacute;cnicas muy b&amp;aacute;sicas que nos permitir&amp;aacute;n ejecutar un c&amp;oacute;digo u otro en el lado cliente de aplicaciones ASP.NET MVC (o ASP.NET en general) en funci&amp;oacute;n del modo de compilaci&amp;oacute;n. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt; 
+&lt;h3&gt;1. El lado servidor&lt;/h3&gt;En el lado servidor es bastante f&amp;aacute;cil de conseguir porque disponemos de directivas de compilaci&amp;oacute;n que nos permiten detectar si estamos generando los binarios en modo depuraci&amp;oacute;n:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-07-22T11:55:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Ejecutar tareas en segundo plano en ASP.NET 4.5.2</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2" />
+    <category term="novedades" />
+    <category term="trucos" />
+    <category term="asp-net" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-06-17T06:57:59Z</updated>
+    <published>2014-06-10T12:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="Microsoft ASP.NET" src="http://lh6.ggpht.com/-mH6-_IMLFg8/U5Si-5UiF6I/AAAAAAAADfk/kuu_-w0KQMM/image%25255B7%25255D.png?imgmax=800" height="54" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Microsoft ASP.NET" width="122" /&gt;Hay muchos escenarios, y relativamente habituales, en los que es interesante lanzar una tarea desatendida, en segundo plano, desde una aplicaci&amp;oacute;n ASP.NET: manipulaci&amp;oacute;n de archivos, env&amp;iacute;o de mensajes, acceso a recursos externos costosos, procesos de colas, generaci&amp;oacute;n de archivos, etc. 
+&lt;br /&gt; 
+&lt;br /&gt;En general, es un enfoque que puede interesarnos siempre que se trate de realizar un trabajo pesado, que no requiera intervenci&amp;oacute;n alguna por parte del usuario ni siquiera para darle feedback del progreso o terminaci&amp;oacute;n, y que pueda ejecutarse de forma independiente a las peticiones HTTP que acceden a la aplicaci&amp;oacute;n. 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt; 
+&lt;br /&gt;Imaginad una acci&amp;oacute;n como la siguiente, donde se recibe un texto y se llama al m&amp;eacute;todo 
+&lt;code&gt;SendEmailToAllMyContacts()&lt;/code&gt; para hac&amp;eacute;rselo llegar, por ejemplo, a 1.000 contactos:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-06-10T12:10:00Z</dc:date>
+  </entry>
+</feed>
+

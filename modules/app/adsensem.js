@@ -17,17 +17,19 @@ define("app/adsensem", ["jquery", "app/templates"], function($, templates) {
 			p3 = (p3 == 0) ? 1 : 0;
 		}
 
-		var horizontalSkycraper = (p1 == 0) ? this.spec.blogstack : this.spec.ad;
-		var bigRectangle = (p2 == 0) ? this.spec.blogstack : this.spec.ad;
-		var wideSkycraper = (p3 == 0) ? this.spec.blogstack : this.spec.ad;
+		var ad1 = (p1 == 0) ? this.spec.blogstack : this.spec.ad;
+		var ad2 = (p2 == 0) ? this.spec.blogstack : this.spec.ad;
+		var ad3 = (p3 == 0) ? this.spec.blogstack : this.spec.ad;
 
 		var adsense = templates.adsense();
-		var adHorizontalSkycraper = adsense({dimensions: "width:728px;height:90px;", width: 728, height: 90, adClient: horizontalSkycraper.adClient, adSlot: horizontalSkycraper.adSlotHorizontalSkycraper });
-		var adBigRectangle = adsense({dimensions: "width:336px;height:280px;", width: 336, height: 280, adClient: bigRectangle.adClient, adSlot: bigRectangle.adSlotBigRectangle });
-		var adWideSkycraper = adsense({dimensions: "width:160px;height:600px;", width: 160, height: 600, adClient: wideSkycraper.adClient, adSlot: wideSkycraper.adSlotWideSkycraper });
+		var adBillboard = adsense({dimensions: "width:970px;height:250px;", width: 970, height: 250, adClient: ad1.adClient, adSlot: ad1.adSlotBillboard });
+		var adHorizontalSkycraper = adsense({dimensions: "width:728px;height:90px;", width: 728, height: 90, adClient: ad1.adClient, adSlot: ad1.adSlotHorizontalSkycraper });
+		var adBigRectangle = adsense({dimensions: "width:336px;height:280px;", width: 336, height: 280, adClient: ad2.adClient, adSlot: ad2.adSlotBigRectangle });
+		var adWideSkycraper = adsense({dimensions: "width:160px;height:600px;", width: 160, height: 600, adClient: ad3.adClient, adSlot: ad3.adSlotWideSkycraper });
 
 		try {
 			// Load the ad blocks with a delay, in Firefox they add a browser history entry (only in the archive)
+			setTimeout(function() { $("#billboard").html(adBillboard); }, 250);
 			setTimeout(function() { $("#horizontalSkycraper").html(adHorizontalSkycraper); }, 250);
 			setTimeout(function() { $("#bigRectangle").html(adBigRectangle); }, 500);
 			setTimeout(function() { $("#wideSkycraper").html(adWideSkycraper); }, 750);
