@@ -42,12 +42,12 @@ public class Feeds {
 				if (!l.getEnabled()) {
 					continue;
 				}
-				feeds.add(new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss(l).getPath(), String.format("Fuente de la etiqueta %s", l.getName())));
+				feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(l).getPath(), String.format("Fuente de la etiqueta %s", l.getName())));
 			}
 		} else if (label != null) {
-			feeds.add(new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss(label).getPath(), String.format("Fuente de la etiqueta %s", label.getName())));
+			feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(label).getPath(), String.format("Fuente de la etiqueta %s", label.getName())));
 		} else {
-			feeds.add(new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss().getPath(), "Fuente de la portada de Blog Stack"));
+			feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss().getPath(), "Fuente de la portada de Blog Stack"));
 		}
 	}
 }

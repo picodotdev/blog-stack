@@ -20,4 +20,3 @@ if [ -n "$OPENSHIFT_DATA_DIR" ]; then
 fi
 
 cd ..
-

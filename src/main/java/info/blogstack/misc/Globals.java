@@ -9,7 +9,12 @@ import org.apache.tapestry5.ioc.Registry;
 
 public class Globals {
 
+	public enum Environment {
+		DEVELOPMENT, PRODUCTION
+	}
+	
 	public static Registry registry;
+	public static Environment environment;
 	
 	public static final File PUBLIC = new File("_public");
 	public static final File DEPLOY = new File("_deploy");

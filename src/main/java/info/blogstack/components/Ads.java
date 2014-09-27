@@ -31,6 +31,7 @@ public class Ads {
 	private JSONObject toJSON(Adsense adsense) {
 		JSONObject json = new JSONObject();
 		json.put("adClient", adsense.getAdsenseAdClient());
+		json.put("adSlotBillboard", adsense.getAdsenseSlotHorizontalSkycraper());
 		json.put("adSlotHorizontalSkycraper", adsense.getAdsenseSlotHorizontalSkycraper());
 		json.put("adSlotBigRectangle", adsense.getAdsenseSlotBigRectangle());
 		json.put("adSlotWideSkycraper", adsense.getAdsenseSlotWideSkycraper());

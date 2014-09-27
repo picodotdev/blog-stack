@@ -1,5 +1,6 @@
 package info.blogstack.services;
 
+import info.blogstack.misc.Configuration;
 import info.blogstack.services.dao.ImportSourceDAO;
 import info.blogstack.services.dao.IndexationDAO;
 import info.blogstack.services.dao.LabelDAO;
@@ -7,7 +8,6 @@ import info.blogstack.services.dao.PostDAO;
 import info.blogstack.services.dao.RepositoryDAO;
 import info.blogstack.services.dao.SourceDAO;
 
-import org.apache.tapestry5.annotations.Service;
 import org.apache.tapestry5.services.PageRenderLinkSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,10 @@ public class MainServiceImpl implements MainService {
 	private SessionFactory sessionFactory;
 	private PageRenderLinkSource pageRenderLinkSource;
 	
-	private IndexerService indexerService;
-	private GeneratorService publicGeneradorService;
+	private Configuration configuration;
+	private IndexService indexService;
+	private GenerateService generateService;
+	private ShareService shareService;
 	
 	private PostDAO postDAO;
 	private LabelDAO labelDAO;
@@ -28,12 +30,14 @@ public class MainServiceImpl implements MainService {
 	private RepositoryDAO repositoryDAO;
 	
 	@Autowired
-	public MainServiceImpl(SessionFactory sessionFactory, PageRenderLinkSource pageRenderLinkSource, IndexerService indexadorService, @Service("publicGeneratorService") GeneratorService publicGeneratorService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, ImportSourceDAO importSourceDAO, IndexationDAO indextionDAO,  RepositoryDAO repositoryDAO) {
+	public MainServiceImpl(SessionFactory sessionFactory, PageRenderLinkSource pageRenderLinkSource, Configuration configuration, IndexService indexService, GenerateService generateService, ShareService shareService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, ImportSourceDAO importSourceDAO, IndexationDAO indextionDAO,  RepositoryDAO repositoryDAO) {
 		this.sessionFactory = sessionFactory;
 		this.pageRenderLinkSource = pageRenderLinkSource;
 		
-		this.indexerService = indexadorService;
-		this.publicGeneradorService = publicGeneratorService;
+		this.configuration = configuration;
+		this.indexService = indexService;
+		this.generateService = generateService;
+		this.shareService = shareService;
 		
 		this.postDAO = postDAO;
 		this.labelDAO = labelDAO;
@@ -54,13 +58,23 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public IndexerService getIndexerService() {
-		return indexerService;
+	public Configuration getConfiguracion() {
+		return configuration;
 	}
 
 	@Override
-	public GeneratorService getPublicGeneratorService() {
-		return publicGeneradorService;
+	public IndexService getIndexService() {
+		return indexService;
+	}
+
+	@Override
+	public GenerateService getGenerateService() {
+		return generateService;
+	}
+	
+	@Override
+	public ShareService getShareService() {
+		return shareService;
 	}
 
 	@Override

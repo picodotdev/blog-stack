@@ -64,9 +64,9 @@ import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.feed.synd.SyndFeedImpl;
 import com.sun.syndication.io.SyndFeedOutput;
 
-public class GeneratorServiceImpl implements GeneratorService {
+public class GenerateServiceImpl implements GenerateService {
 
-	private static Logger logger = LoggerFactory.getLogger(GeneratorServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(GenerateServiceImpl.class);
 
 	private static DateTimeFormatter LASTUPDATED_DATETIMEFORMAT = DateTimeFormat.forPattern("yyyyMMddHHmmZ");
 
@@ -76,7 +76,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	private Injector injector;
 
-	public GeneratorServiceImpl(MainService service, File to, List<File> statics) {
+	public GenerateServiceImpl(MainService service, File to, List<File> statics) {
 		this.service = service;
 		this.to = to;
 		this.statics = statics;

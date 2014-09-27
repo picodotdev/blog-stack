@@ -109,7 +109,7 @@ public class Archive {
 	}
 	
 	public Feed getLabelFeed() {
-		return new Feed(requestGlobals.getContextPath() + service.getPublicGeneratorService().getToRss(getLabel()).getPath(), String.format("Fuente de la etiqueta %s", getLabel().getName()));
+		return new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(getLabel()).getPath(), String.format("Fuente de la etiqueta %s", getLabel().getName()));
 	}
 	
 	public Post getSourcePost() {

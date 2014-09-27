@@ -28,19 +28,27 @@ body > header {
 body > header > .container-fluid {
 	color: white;
 	padding: 0px 25px;
+	
+	div.row {
+		display: flex;
+		align-items: center;
+	}
 }
 
 body > header {
 	div.imagen-cabecera {
-		height: 200px;
-		margin-top: 10px;
+		height: 250px;
+		margin-top: 20px;
+		text-align: center;
 		
 		div.imagen {
-			height: 200px;
+			height: 250px;
+/*
 			background-attachment: fixed;
 			background-position: center center;
 			background-size: cover;
 			background-image: @header-image;
+*/
 		}
 	}
 }
@@ -196,20 +204,33 @@ article p:not([style]):not([class]) img, article div:not([style]):not([class]) i
 }
 
 nav {
-	margin: 0px -15px;
-	padding: 10px 10px;	
-  	background-color: @navigation-color;
-}
-
-.nav-pills > li > a {
-	color: #6B6B6B;
 	font-weight: bold;
-}
-
-.nav-pills > li > a:hover,
-.nav-pills > li > a:focus {
-	color: black;
-	background-color: @content-color;
+    text-align: center;
+	
+	li {
+		a {
+			color: white !important;
+			padding: 10px 10px;
+			text-decoration: none !important;
+		}
+/*
+		a:before {
+    		content: "";
+    		bottom: 0px;
+    		height: 4px;
+    		position: absolute;
+    		width: 32px;
+    		background-color: white;
+		}
+*/
+		a:hover:before {
+    		background-color: @link-color !important;
+		}
+		
+		a:hover, a:focus {
+			color: @link-color !important;
+		}
+	}
 }
 
 div.container-fluid {

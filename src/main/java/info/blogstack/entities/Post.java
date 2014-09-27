@@ -106,6 +106,9 @@ public class Post implements Serializable {
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE }, fetch = FetchType.LAZY)
 	@JoinTable(name = "posts_labels", schema = Globals.SCHEMA, joinColumns = @JoinColumn(name = "post_id", referencedColumnName = "id", nullable = false), inverseJoinColumns = @JoinColumn(name = "label_id", referencedColumnName = "id", nullable = false))
 	private Set<Label> labels;
+	
+	@Transient
+	private Boolean fresh; // Indicates if is new
 
 	public Long getId() {
 		return id;
@@ -284,6 +287,14 @@ public class Post implements Serializable {
 
 	public void setDate(DateTime date) {
 		this.date = date;
+	}
+	
+	public Boolean isFresh() {
+		return fresh;
+	}
+
+	public void setFresh(Boolean fresh) {
+		this.fresh = fresh;
 	}
 
 	public void updateHash() {		

@@ -4,7 +4,8 @@ import info.blogstack.entities.Label;
 import info.blogstack.entities.Post;
 import info.blogstack.entities.Source;
 import info.blogstack.misc.Globals;
-import info.blogstack.services.GeneratorModule;
+import info.blogstack.misc.Globals.Environment;
+import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
@@ -132,7 +133,7 @@ public class Main {
 		ServletContext sc = new ServletContextImpl("/", "src/main/webapp");
 
 		RegistryBuilder builder = new RegistryBuilder();
-		builder.add(TapestryModule.class, HibernateCoreModule.class, HibernateModule.class, BeanValidatorModule.class, TapestryOfflineModule.class, GeneratorModule.class);
+		builder.add(TapestryModule.class, HibernateCoreModule.class, HibernateModule.class, BeanValidatorModule.class, TapestryOfflineModule.class, GenerateModule.class);
 		builder.add(new SpringModuleDef("applicationContext.xml"));
 
 		Registry registry = builder.build();
@@ -146,6 +147,7 @@ public class Main {
 
 	private CommandLine buildCommandLine(String[] args) throws ParseException {
 		Options options = new Options();
+		options.addOption("e", "environment", true, "Execution environment");
 		options.addOption("h", "hash", false, "Rehash the content");
 		options.addOption("i", "index", false, "Index the new content of all sources");
 		options.addOption("ii", "iindex", false, "Reindex al the content of all sources");
@@ -160,6 +162,7 @@ public class Main {
 		options.addOption("gs", "gstatics", false, "Regenerate statics");
 		options.addOption("gp", "gpages", false, "Regenerate pages");
 		options.addOption("gsm", "gsitemap", false, "Regenerate sitemap");
+		options.addOption("sh", "share", false, "Share new indexed content");
 		options.addOption("p", "preview", false, "Preview the content");
 		options.addOption("s", "start", false, "Start the server");
 		options.addOption("ss", "stop", false, "Stop the server");
@@ -172,6 +175,7 @@ public class Main {
 	}
 
 	private void processCommandLine(CommandLine cmd) throws Exception {
+		String environment = cmd.getOptionValue("e");
 		boolean hash = cmd.hasOption("h");
 		boolean index = cmd.hasOption("i");
 		boolean iindex = cmd.hasOption("ii");
@@ -184,12 +188,16 @@ public class Main {
 		boolean gfeeds = cmd.hasOption("gf");
 		boolean garchive = cmd.hasOption("ga");
 		boolean gstatics = cmd.hasOption("gs");
-		boolean gpages = cmd.hasOption("go");
+		boolean gpages = cmd.hasOption("gp");
 		boolean gsitemap = cmd.hasOption("gsm");
+		boolean share = cmd.hasOption("sh");
 		boolean preview = cmd.hasOption("p");
 		boolean serverOption = cmd.hasOption("s");
 		boolean stop = cmd.hasOption("ss");
 		String repository = cmd.getOptionValue("r");
+		
+		Globals.environment = (environment != null) ? Environment.valueOf(environment.toUpperCase()) : Environment.DEVELOPMENT;
+		logger.info("Executing in {}...", Globals.environment);
 
 		if (hash) {
 			initRegistry();
@@ -197,7 +205,7 @@ public class Main {
 
 			MainService service = Globals.registry.getService(MainService.class);
 
-			service.getIndexerService().hash();
+			service.getIndexService().hash();
 		}
 
 		Collection<Post> posts = new LinkedHashSet<>();
@@ -209,14 +217,14 @@ public class Main {
 			MainService service = Globals.registry.getService(MainService.class);
 
 			logger.info("Indexing...");
-			service.getIndexerService().setForceIndex(iindex);
-			service.getIndexerService().setForceImport(iimportOption);
+			service.getIndexService().setForceIndex(iindex);
+			service.getIndexService().setForceImport(iimportOption);
 			if (importOption || iimportOption) {
-				List<Post> p = service.getIndexerService().importSources();
+				List<Post> p = service.getIndexService().importSources();
 				posts.addAll(p);
 			}
 			if (index || iindex) {
-				List<Post> p = service.getIndexerService().index();
+				List<Post> p = service.getIndexService().index();
 				posts.addAll(p);
 			}
 			for (Post post : posts) {
@@ -234,21 +242,21 @@ public class Main {
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				if (ggenerate || gindex) {
-					List<File> pindex = service.getPublicGeneratorService().generateIndex();
+					List<File> pindex = service.getGenerateService().generateIndex();
 				}
 				if (ggenerate || glabels) {
-					List<File> plabels = service.getPublicGeneratorService().generateLabels(new ArrayList(labels));
+					List<File> plabels = service.getGenerateService().generateLabels(new ArrayList(labels));
 				}
 			}
 
 			if (ggenerate || gpages) {
-				File faqPage = service.getPublicGeneratorService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
+				File faqPage = service.getGenerateService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
 			}
 
 			if (ggenerate || generate) {
 				if (!posts.isEmpty()) {
 					logger.info("Generating posts...");
-					List<File> ps = service.getPublicGeneratorService().generatePosts(new ArrayList(posts));
+					List<File> ps = service.getGenerateService().generatePosts(new ArrayList(posts));
 
 					Set<Source> sources = new HashSet<>();
 					for (Post post : posts) {
@@ -256,23 +264,23 @@ public class Main {
 					}
 					List<Source> s = new ArrayList(sources);
 					s.add(null);
-					List<File> ss = service.getPublicGeneratorService().generateLastPosts(s);
+					List<File> ss = service.getGenerateService().generateLastPosts(s);
 				}
 			}
 
 			if (!posts.isEmpty()) {
 				if (ggenerate || garchive) {
 					logger.info("Generating archive...");
-					List<File> as = service.getPublicGeneratorService().generateArchive(posts);
+					List<File> as = service.getGenerateService().generateArchive(posts);
 				}
 			}
 
 			if (!labels.isEmpty()) {
 				if (ggenerate || gfeeds) {
 					logger.info("Generating feeds...");
-					File mainAtom = service.getPublicGeneratorService().generateRss();
+					File mainAtom = service.getGenerateService().generateRss();
 					for (Label label : labels) {
-						File labelAtom = service.getPublicGeneratorService().generateRss(label);
+						File labelAtom = service.getGenerateService().generateRss(label);
 					}
 				}
 			}
@@ -280,7 +288,7 @@ public class Main {
 			if (!posts.isEmpty()) {
 				if (ggenerate || gsitemap) {
 					logger.info("Generating sitemap...");
-					File sitemap = service.getPublicGeneratorService().generateSitemap();
+					File sitemap = service.getGenerateService().generateSitemap();
 				}
 			}
 
@@ -289,14 +297,29 @@ public class Main {
 				WroConfiguration config = new WroConfiguration();
 				Context.set(Context.standaloneContext(), config);
 				try {
-					service.getPublicGeneratorService().generateStatics(Globals.STATICS);
+					service.getGenerateService().generateStatics(Globals.STATICS);
 				} finally {
 					Context.unset();
 				}
 			}
 
 			logger.info("Generating last updated...");
-			service.getPublicGeneratorService().generateLastUpdated();
+			service.getGenerateService().generateLastUpdated();
+		}
+		
+		if (share) {
+			logger.info("Sharing...");
+			MainService service = Globals.registry.getService(MainService.class);
+			
+			// Share only fresh posts
+			Collection<Post> fp = new ArrayList<>();
+			for (Post p : posts) {
+				if (p.isFresh()) {
+					fp.add(p);
+				}
+			}
+			
+			service.getShareService().share(fp);
 		}
 
 		if (preview) {

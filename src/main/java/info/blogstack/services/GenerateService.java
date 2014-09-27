@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-public interface GeneratorService {
+public interface GenerateService {
 
 	File getTo();
 	File getToPage(String page, Object[] context, Map<String, String> params);

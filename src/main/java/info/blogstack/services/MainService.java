@@ -1,5 +1,6 @@
 package info.blogstack.services;
 
+import info.blogstack.misc.Configuration;
 import info.blogstack.services.dao.ImportSourceDAO;
 import info.blogstack.services.dao.IndexationDAO;
 import info.blogstack.services.dao.LabelDAO;
@@ -15,8 +16,10 @@ public interface MainService {
 	SessionFactory getSessionFactory();
 	PageRenderLinkSource getPageRenderLinkSource();
 	
-	IndexerService getIndexerService();
-	GeneratorService getPublicGeneratorService();
+	Configuration getConfiguracion();
+	IndexService getIndexService();
+	GenerateService getGenerateService();
+	ShareService getShareService();
 	
 	PostDAO getPostDAO();
 	LabelDAO getLabelDAO();

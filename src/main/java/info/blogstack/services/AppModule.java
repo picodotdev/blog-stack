@@ -1,6 +1,8 @@
 package info.blogstack.services;
 
+import info.blogstack.misc.AppConfiguration;
 import info.blogstack.misc.BlogStackStack;
+import info.blogstack.misc.Configuration;
 import info.blogstack.misc.Globals;
 import info.blogstack.services.hibernate.HibernateSessionSourceImpl;
 
@@ -21,12 +23,13 @@ public class AppModule {
 	private static final Logger logger = LoggerFactory.getLogger(AppModule.class);
 
 	public static void bind(ServiceBinder binder) {
-		binder.bind(IndexerService.class, IndexerServiceImpl.class);
+		binder.bind(IndexService.class, IndexServiceImpl.class);
+		binder.bind(ShareService.class, ShareServiceImpl.class);
 		binder.bind(MainService.class, MainServiceImpl.class);
 	}
 	
 	public static void contributeApplicationDefaults(MappedConfiguration<String, Object> config) {
-		config.add(SymbolConstants.APPLICATION_VERSION, "0.1");
+		config.add(SymbolConstants.APPLICATION_VERSION, "0.2");
 		config.add(SymbolConstants.APPLICATION_CATALOG, "/app.properties");
 		config.add(SymbolConstants.SUPPORTED_LOCALES, "es");
 		config.add(SymbolConstants.INCLUDE_CORE_STACK, false);
@@ -54,8 +57,12 @@ public class AppModule {
 			}
 		});
 	}
+	
+	public static Configuration buildConfiguration() {
+		return new AppConfiguration();
+	}
 
-	public static GeneratorService buildPublicGeneratorService(MainService service) {
-		return new GeneratorServiceImpl(service, Globals.PUBLIC, Globals.STATICS);
+	public static GenerateService buildGenerateService(MainService service) {
+		return new GenerateServiceImpl(service, Globals.PUBLIC, Globals.STATICS);
 	}
 }

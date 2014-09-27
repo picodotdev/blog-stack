@@ -36,15 +36,15 @@ import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
 @SuppressWarnings("rawtypes")
-public class IndexerServiceImpl implements IndexerService {
+public class IndexServiceImpl implements IndexService {
 
-	private static Logger logger = LoggerFactory.getLogger(IndexerServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(IndexServiceImpl.class);
 
 	private MainService service;
 	private boolean forceIndex;
 	private boolean forceImport;
 
-	public IndexerServiceImpl(MainService service) {
+	public IndexServiceImpl(MainService service) {
 		this.service = service;
 		this.forceIndex = false;
 		this.forceImport = false;
@@ -206,6 +206,7 @@ public class IndexerServiceImpl implements IndexerService {
 			logger.info("Indexing {} post...", entry.getTitle());
 			
 			post = new Post();
+			post.setFresh(true);
 			post.setCreationDate(now);
 			post.setVisible(true);
 		} else {

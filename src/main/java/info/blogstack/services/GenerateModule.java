@@ -6,16 +6,16 @@ import info.blogstack.misc.AppAssetPathConverter;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
-import org.apache.tapestry5.ioc.annotations.SubModule;
+import org.apache.tapestry5.ioc.annotations.ImportModule;
 import org.apache.tapestry5.services.AssetPathConverter;
 import org.lazan.t5.offline.services.OfflineComponentRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SubModule(value = AppModule.class)
-public class GeneratorModule {
+@ImportModule(value = AppModule.class)
+public class GenerateModule {
 
-	private static final Logger logger = LoggerFactory.getLogger(GeneratorModule.class);
+	private static final Logger logger = LoggerFactory.getLogger(GenerateModule.class);
 
 	public static void bind(ServiceBinder binder) {
 		binder.bind(OfflineComponentRenderer.class, OfflineComponentRendererImpl.class).withId("BlogStackOfflineComponentRenderer");
