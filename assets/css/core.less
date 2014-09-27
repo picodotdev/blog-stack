@@ -1,10 +1,11 @@
 @link-color: #569D2F;
+@body-color: #000000;
 @content-color: #F7F7F7;
 @aside-color: #F2F2F2;
 @line-color: #E0E0E0;
 @navigation-color: #CCC;
-@body-background: url('/assets/images/body-background.png');
-@content-background: url('/assets/images/content-background.png');
+@body-background: @body-color url('/assets/images/body-background.png');
+@content-background: @content-color url('/assets/images/content-background.png');
 @footer-background: url('/assets/images/footer-background.png');
 @header-image: url('/assets/images/cabecera.jpg');
 
@@ -36,6 +37,12 @@ body > header > .container-fluid {
 }
 
 body > header {
+	div.enlaces {
+		img {
+			margin-right: 10px;
+		}
+	}
+	
 	div.imagen-cabecera {
 		height: 250px;
 		margin-top: 20px;
@@ -317,7 +324,7 @@ div.gist div.line {
 }
 
 div.social-networks {
-	height: 50px;
+	height: 80px;
 }
 
 div.share-this {
