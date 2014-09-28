@@ -9,6 +9,38 @@
 @footer-background: url('/assets/images/footer-background.png');
 @header-image: url('/assets/images/cabecera.jpg');
 
+@font-face {
+    font-family: 'entypo';
+    src: url('/assets/fonts/entypo/entypo.eot');
+    src: url('/assets/fonts/entypo/entypo.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/entypo/entypo.woff') format('woff'),
+         url('/assets/fonts/entypo/entypo.ttf') format('truetype'),
+         url('/assets/fonts/entypo/entypo.svg#entypo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'entypo-social';
+    src: url('/assets/fonts/entypo-social/entypo-social.eot');
+    src: url('/assets/fonts/entypo-social/entypo-social.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/entypo-social/entypo-social.woff') format('woff'),
+         url('/assets/fonts/entypo-social/entypo-social.ttf') format('truetype'),
+         url('/assets/fonts/entypo-social/entypo-social.svg#entypo-social') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+span.entypo {
+	font-family: 'entypo';
+	font-size: 2em;
+}
+
+span.entypo-social {
+	font-family: 'entypo-social';
+	font-size: 2em;
+}
+
 body {
     background: @body-background;
     color: black;
@@ -39,7 +71,7 @@ body > header > .container-fluid {
 body > header {
 	div.enlaces {
 		img {
-			margin-right: 10px;
+			margin-right: 5px;
 		}
 	}
 	
@@ -83,23 +115,33 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
 	color: darken(@link-color, 10);
+	
+	&:visited {
+		color: @link-color;
+	}
+	
+	&:hover, &:active {
+		color: darken(@link-color, 10);
+	}
 }
 
-a:visited {
-	color: @link-color;
-}
-
-a:hover {
-	color: darken(@link-color, 10);
-}
-
-a:active {
-	color: darken(@link-color, 10);
-}
-
-a.blogstack, a.blogstack:visited, a.blogstack:hover, a.blogstack:active {
+a.blogstack, a.blogstack:visited {
 	color: white;
 	text-decoration: none;
+}
+
+a.header {
+	color: white;
+	text-decoration: none;
+	margin: 10px 10px;
+	
+	&:hover, &:active {
+		color: @link-color;
+	}
+}
+
+span.header.icon {
+	font-size: 6em;
 }
 
 article a.label {
@@ -213,31 +255,6 @@ article p:not([style]):not([class]) img, article div:not([style]):not([class]) i
 nav {
 	font-weight: bold;
     text-align: center;
-	
-	li {
-		a {
-			color: white !important;
-			padding: 10px 10px;
-			text-decoration: none !important;
-		}
-/*
-		a:before {
-    		content: "";
-    		bottom: 0px;
-    		height: 4px;
-    		position: absolute;
-    		width: 32px;
-    		background-color: white;
-		}
-*/
-		a:hover:before {
-    		background-color: @link-color !important;
-		}
-		
-		a:hover, a:focus {
-			color: @link-color !important;
-		}
-	}
 }
 
 div.container-fluid {
@@ -253,6 +270,16 @@ div.container-fluid.content {
 div.content {
 	border-top: 1px solid @line-color;
 	border-right: 1px solid @line-color;
+}
+
+div.social-networks {
+	text-align: center;
+	vertical-align: middle;
+
+	div.social-network {
+		float: left;
+		padding-right: 10px;
+	}
 }
 
 div.share-this.only-twitter {
@@ -321,10 +348,6 @@ div.gist .line-numbers, div.gist .line-data {
 
 div.gist div.line {
 	padding-left: 5px;
-}
-
-div.social-networks {
-	height: 80px;
 }
 
 div.share-this {

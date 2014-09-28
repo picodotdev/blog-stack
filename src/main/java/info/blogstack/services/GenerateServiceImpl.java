@@ -202,19 +202,24 @@ public class GenerateServiceImpl implements GenerateService {
 	public Collection<File> generateStatics(List<File> files) throws IOException {
 		logger.info("Copying statics...");
 		File dassets = new File(to, "assets");
-		File dimages = new File(dassets, "images");
 		File dcss = new File(dassets, "css");
+		File dfonts = new File(dassets, "fonts");
+		File dimages = new File(dassets, "images");
 		File dmodules = new File(to, "modules");
 		for (File st : statics) {
-			File images = new File(st, "images");
 			File css = new File(st, "css");
+			File fonts = new File(st, "fonts");
+			File images = new File(st, "images");
 			File assets = new File(st, "assets");
 			File modules = new File(st, "modules");
-			if (images.exists()) {
-				FileUtils.copyDirectory(images, dimages);
-			}
 			if (css.exists()) {
 				FileUtils.copyDirectory(css, dcss);
+			}
+			if (fonts.exists()) {
+				FileUtils.copyDirectory(fonts, dfonts);
+			}
+			if (images.exists()) {
+				FileUtils.copyDirectory(images, dimages);
 			}
 			if (assets.exists()) {
 				FileUtils.copyDirectory(assets, dassets);

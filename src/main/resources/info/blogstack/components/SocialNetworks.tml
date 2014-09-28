@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+
 <section>
 	<h3>Redes sociales</h3>
-	<p>¿Te gusta Blog Stack? ¡Compártelo con tus amigos!</p>
-
+	<p>¿Te gusta Blog Stack? ¡Compártelo!</p>
 	<div class="social-networks">
 		<!-- Facebook -->
-		<div class="fb-like" data-href="${url}" data-layout="standard" data-width="310" data-action="like" data-show-faces="false" data-share="true"></div>
+		<div class="social-network">
+			<div class="fb-like" data-href="${url}" data-layout="box_count" data-width="310" data-action="like" data-show-faces="false" data-share="true"></div>
+		</div>
 		<!-- Google+ -->	
-		<t:outputraw value="googleplus"/>
+		<div class="social-network">
+			<div t:type="any" class="g-plusone" data-size="tall" data-href="prop:url"></div>
+		</div>
 	</div>
 </section>
-</t:container>   
+
+</t:container>

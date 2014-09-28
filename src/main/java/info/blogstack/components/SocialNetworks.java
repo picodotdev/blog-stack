@@ -15,8 +15,4 @@ public class SocialNetworks {
 	public String getUrl() {
 		return source.createPageRenderLink(Index.class).toAbsoluteURI();
 	}
-	
-	public String getGoogleplus() {
-		return String.format("<g:plusone size=\"standard\" annotation=\"inline\" href=\"%s\" width=\"310\"></g:plusone>", getUrl());
-	}
 }
