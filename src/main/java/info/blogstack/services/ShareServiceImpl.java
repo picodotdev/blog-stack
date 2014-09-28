@@ -77,7 +77,7 @@ public class ShareServiceImpl implements ShareService {
 	}
 
 	private void twitter(Post post, String message) throws TwitterException {
-		logger.info("Tweeting {} as «{}»", post.getId(), message);
+		logger.info("Tweetting {} as «{}»", post.getId(), message);
 		
 		if (Globals.environment != Environment.PRODUCTION) {
 			return;

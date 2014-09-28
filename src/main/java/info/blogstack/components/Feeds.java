@@ -35,7 +35,7 @@ public class Feeds {
 	@Inject
 	private OfflineRequestGlobals requestGlobals;
 	
-	void beginRender() {
+	boolean setupRender() {
 		feeds = new ArrayList<>();
 		if (post != null) {
 			for (Label l : post.getLabels()) {
@@ -49,5 +49,7 @@ public class Feeds {
 		} else {
 			feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss().getPath(), "Fuente de la portada de Blog Stack"));
 		}
+		
+		return !feeds.isEmpty();
 	}
 }

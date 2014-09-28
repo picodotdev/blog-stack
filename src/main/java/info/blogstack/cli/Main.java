@@ -241,10 +241,10 @@ public class Main {
 			labels = (ggenerate || gindex || glabels || garchive) ? service.getLabelDAO().findAll() : labels;
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
-				if (ggenerate || gindex) {
+				if (generate || ggenerate || gindex) {
 					List<File> pindex = service.getGenerateService().generateIndex();
 				}
-				if (ggenerate || glabels) {
+				if (generate || ggenerate || glabels) {
 					List<File> plabels = service.getGenerateService().generateLabels(new ArrayList(labels));
 				}
 			}
@@ -253,7 +253,7 @@ public class Main {
 				File faqPage = service.getGenerateService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
 			}
 
-			if (ggenerate || generate) {
+			if (generate || ggenerate) {
 				if (!posts.isEmpty()) {
 					logger.info("Generating posts...");
 					List<File> ps = service.getGenerateService().generatePosts(new ArrayList(posts));
@@ -269,14 +269,14 @@ public class Main {
 			}
 
 			if (!posts.isEmpty()) {
-				if (ggenerate || garchive) {
+				if (generate|| ggenerate || garchive) {
 					logger.info("Generating archive...");
 					List<File> as = service.getGenerateService().generateArchive(posts);
 				}
 			}
 
 			if (!labels.isEmpty()) {
-				if (ggenerate || gfeeds) {
+				if (generate || ggenerate || gfeeds) {
 					logger.info("Generating feeds...");
 					File mainAtom = service.getGenerateService().generateRss();
 					for (Label label : labels) {
@@ -286,7 +286,7 @@ public class Main {
 			}
 
 			if (!posts.isEmpty()) {
-				if (ggenerate || gsitemap) {
+				if (generate || ggenerate || gsitemap) {
 					logger.info("Generating sitemap...");
 					File sitemap = service.getGenerateService().generateSitemap();
 				}
