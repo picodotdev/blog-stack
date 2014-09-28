@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
+      "title" : "Fondos de escritorio 15"
+    },
+    {
       "url" : "/post/jsitech/2014/09/security-feed-feeds-de-seguridad-y-ethical-hacking-en-un-solo-lugar",
       "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
       "title" : "Cómo utilizar ReactJS con Browserify"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
-      "title" : "Una mano más"
     }
   ]
 }

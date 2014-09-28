@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
+      "title" : "Fondos de escritorio 15"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
       "title" : "Un par de chistes informaticos para amenizar el lunes"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
       "title" : "Buena publicidad :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/como-solucionar-el-problema-del-header-no-encontrado-en-ubuntu",
-      "title" : "Como solucionar el problema del header no encontrado en Ubuntu"
     }
   ]
 }
