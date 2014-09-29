@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/reagent-una-liberia-para-usar-reactjs-desde-clojurescript",
+      "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
+    },
+    {
       "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
       "title" : "Cómo utilizar ReactJS con Browserify"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/04/por-que-sigo-usando-un-orm",
       "title" : "Por qué sigo usando un ORM"
-    },
-    {
-      "url" : "/post/koalite/2014/04/testeando-sitios-web-con-f-y-canopy",
-      "title" : "Testeando sitios web con F# y Canopy"
     }
   ]
 }

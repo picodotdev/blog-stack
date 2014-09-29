@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/09/reagent-una-liberia-para-usar-reactjs-desde-clojurescript",
+      "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
       "title" : "Fondos de escritorio 15"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
-    },
-    {
-      "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
-      "title" : "Cómo utilizar ReactJS con Browserify"
     }
   ]
 }
