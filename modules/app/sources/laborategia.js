@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
+      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
+    },
+    {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     },
@@ -25,10 +29,6 @@ define("app/sources/laborategia", [], function() {
     {
       "url" : "/post/laborategia/2014/07/the-hidden-services-ii-como-poner-en-marcha-nuestros-propios-servicios-ocultos",
       "title" : "The hidden services II: como poner en marcha nuestros propios servicios ocultos"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
-      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
     },
     {
       "url" : "/post/laborategia/2014/06/ad-unum-omnes-tecnologias-para-el-empoderamiento-y-participacion-colectiva-en-la-openexpoday-2-14",

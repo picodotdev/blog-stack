@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-171",
+      "title" : "Enlaces interesantes 171"
+    },
+    {
+      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
+      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
+    },
+    {
       "url" : "/post/koalite/2014/09/reagent-una-liberia-para-usar-reactjs-desde-clojurescript",
       "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
       "title" : "Inicialización de propiedades en C# 6.0"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
-      "title" : "Ahora que empiezan el cole, OpenSuse Education"
-    },
-    {
-      "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
-      "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     }
   ]
 }
