@@ -110,6 +110,10 @@ public class Post implements Serializable {
 	@Transient
 	private Boolean fresh; // Indicates if is new
 
+	public Post() {
+		fresh = Boolean.FALSE;
+	}
+	
 	public Long getId() {
 		return id;
 	}
