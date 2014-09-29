@@ -19,6 +19,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
+      "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
       "title" : "Fondos de escritorio 15"
     },
@@ -51,6 +55,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
+      "title" : "Cuidado si utilizas XFS en openSUSE Factory"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     },
@@ -63,24 +71,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Xbox One Controller ya es soportado por Linux"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
+      "title" : "Vulnerabilidad en Bash"
+    },
+    {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
       "title" : "Vulnerabilidad de Seguridad Importante en Bash"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
-      "title" : "Compartiendo carpetas en red con NFS"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
-      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
-      "title" : "Un par de chistes informaticos para amenizar el lunes"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
-      "title" : "Enlaces interesantes 170"
+      "url" : "/post/victorhckinthefreeworld/2014/09/la-familia-monster-cumple-5-anos-terrorificos",
+      "title" : "La Familia Monster cumple 50 años terroríficos"
     }
   ]
 }

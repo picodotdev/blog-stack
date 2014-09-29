@@ -3,6 +3,46 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
+      "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
+      "title" : "Cuidado si utilizas XFS en openSUSE Factory"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
+      "title" : "Vulnerabilidad en Bash"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/la-familia-monster-cumple-5-anos-terrorificos",
+      "title" : "La Familia Monster cumple 50 años terroríficos"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/deteccion-de-gestos-en-opensuse-13-1",
+      "title" : "Detección de gestos en openSUSE 13.1"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-13-2-beta-disponible-para-descargar",
+      "title" : "openSUSE 13.2 Beta disponible para descargar"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-13-2-beta-where-are-you",
+      "title" : "openSUSE 13.2 Beta. Where are you?"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/la-mano-en-la-sombra",
+      "title" : "La mano en la sombra"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/linux-for-hank-un-libro-para-ninos-sobre-linux",
+      "title" : "\u201cLinux for Hank\u201d un libro para niños sobre Linux"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-presente-en-akademy-2-14",
+      "title" : "openSUSE presente en Akademy 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
       "title" : "Bodhi Linux se queda sin el líder del proyecto"
     },
@@ -41,26 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
       "title" : "Navegador web Lynx. Un lince en la línea de comandos"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/linus-torvalds-entrevista-al-desarrollador-de-linux",
-      "title" : "Linus Torvalds, entrevista al desarrollador de Linux"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/explicando-los-comandos-de-consola-de-manera-sencilla",
-      "title" : "Explicando los comandos de consola de manera sencilla"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/instalar-en-opensuse-dianara-cliente-para-redes-pump-io",
-      "title" : "Instalar en openSUSE Dianara, cliente para redes Pump.io"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/indie-box-one-el-servidor-listo-para-usar",
-      "title" : "Indie Box one el servidor listo para usar"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/fundacion-de-software-libre-recopilacion-de-noticias-de-abril-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Abril 2014"
     }
   ]
 }
