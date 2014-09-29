@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
+      "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/navegando-por-mageia-4-1",
       "title" : "Navegando por Mageia 4.1"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/usar-comandos-unix-en-windows-con-cygwin",
-      "title" : "Usar comandos UNIX en Windows con cygwin"
     }
   ]
 }

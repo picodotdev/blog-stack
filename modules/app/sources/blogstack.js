@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
+      "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-171",
       "title" : "Enlaces interesantes 171"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
       "title" : "Enlaces interesantes 170"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
-      "title" : "Inicialización de propiedades en C# 6.0"
     }
   ]
 }
