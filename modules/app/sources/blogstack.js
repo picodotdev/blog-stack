@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
+      "title" : "Agregador Blog Stack rediseñado"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
-      "title" : "Vulnerabilidad en Bash"
     }
   ]
 }
