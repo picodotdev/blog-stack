@@ -18,7 +18,7 @@ import org.hibernate.Query;
 public class PostComponent {
 
 	enum Mode {
-		HOME_FEATURED, HOME, DEFAULT
+		HOME_FEATURED, HOME, ARCHIVE, DEFAULT
 	}
 	
 	@Parameter
@@ -52,7 +52,7 @@ public class PostComponent {
 	private MainService service;
 	
 	@Inject
-	private Block homeBlock;
+	private Block smallBlock;
 	
 	@Inject
 	private Block defaultBlock;
@@ -65,7 +65,8 @@ public class PostComponent {
 		switch (mode) {
 			case HOME_FEATURED:
 			case HOME:
-				return homeBlock;
+			case ARCHIVE:
+				return smallBlock;
 			default:
 				return defaultBlock;
 		}

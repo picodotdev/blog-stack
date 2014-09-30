@@ -1,7 +1,5 @@
 <html t:type="layout" t:title="prop:title" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
-<t:data/>
-
 <section class="archive">
 	<t:if test="generic">
 		<div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,20 +34,14 @@
 	<t:if test="!generic">
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			<h1>Archivo de ${getMonthName(month)} de ${year}</h1>
-			<ul class="list-unstyled">
-				<t:loop source="posts" value="post">
-					<li>
-						<h2><a t:type="pagelink" page="post" context="getContextPost(post)">${post.title}</a></h2>
-						<t:data object="post" archive="true"/>
-					</li>
-				</t:loop>
-			</ul>
+			<t:loop source="posts" value="post">
+					<t:postcomponent post="post" mode="archive"/>
+			</t:loop>
 		</div>
 	</t:if>
 </section>
 
 <t:block id="aside1">
-	<t:feeds/>
 </t:block>
 
 <t:block id="aside2">

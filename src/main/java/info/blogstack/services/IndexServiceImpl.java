@@ -10,16 +10,20 @@ import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
@@ -87,8 +91,7 @@ public class IndexServiceImpl implements IndexService {
 				URLConnection conection = (URLConnection) url.openConnection();
 				conection.setConnectTimeout(30 * 1000);
 				conection.setReadTimeout(30 * 1000);
-				XmlReader reader = new XmlReader(conection.getInputStream());
-				posts.addAll(index(indexation, source, reader));
+				posts.addAll(index(indexation, source, new InputStreamReader(conection.getInputStream())));
 			} catch (ParsingFeedException | IOException e) {
 				logger.error(e.getMessage(), e);
 			}
@@ -124,8 +127,7 @@ public class IndexServiceImpl implements IndexService {
 
 		for (Source source : sources) {
 			File f = new File(Globals.IMPORT, String.format("%s.xml", source.getAlias()));
-			XmlReader reader = new XmlReader(f);
-			posts.addAll(index(indexation, source, reader));
+			posts.addAll(index(indexation, source, new FileReader(f)));
 
 			ImportSource importSource = source.getImportSource();
 			if (importSource == null) {
@@ -141,10 +143,10 @@ public class IndexServiceImpl implements IndexService {
 		return posts;
 	}
 
-	private List<Post> index(Indexation indexation, Source source, XmlReader reader) throws Exception {
+	private List<Post> index(Indexation indexation, Source source, Reader reader) throws Exception {
 		logger.info("Indexing {} source...", source.getName());
-
-		SyndFeed feed = new SyndFeedInput().build(reader);
+		Reader fr = new XmlReader(IOUtils.toInputStream(IOUtils.toString(filterReader(reader))));
+		SyndFeed feed = new SyndFeedInput().build(fr);
 
 		return indexPosts(indexation, source, feed.getEntries());
 	}
@@ -283,5 +285,11 @@ public class IndexServiceImpl implements IndexService {
 			es.add(label);
 		}
 		return es;
+	}
+	
+	private Reader filterReader(Reader reader) throws IOException {
+		String s = IOUtils.toString(reader);
+		s = s.replaceAll(" async ", " async=\"async\" ");
+		return new StringReader(s);
 	}
 }
