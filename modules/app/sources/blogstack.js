@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
+      "title" : "Configuración de red en KVM en modo public bridge"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
       "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
       "title" : "Vulnerabilidad de Seguridad Importante en Bash"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/la-familia-monster-cumple-5-anos-terrorificos",
-      "title" : "La Familia Monster cumple 50 años terroríficos"
     }
   ]
 }

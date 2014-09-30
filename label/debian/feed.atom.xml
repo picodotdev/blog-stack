@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-28T10:57:58Z</updated>
+  <updated>2014-09-30T10:02:44Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-28T10:57:58Z</dc:date>
+  <dc:date>2014-09-30T10:02:44Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Configuración de red en KVM en modo public bridge</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="kvm" />
+    <category term="bridge" />
+    <category term="virtualizacion" />
+    <category term="redhat" />
+    <category term="opensuse" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-30T09:28:52Z</updated>
+    <published>2014-09-30T09:26:13Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;KVM&lt;/strong&gt; es una fant&amp;aacute;stica alternativa libre si deseamos crear una infraestructura de virtualizaci&amp;oacute;n con software no privativo.&lt;/p&gt; 
+&lt;p&gt;Hace ya un tiempo hablamos de su &lt;a title="Virtualizando con KVM" href="http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/"&gt;funcionamiento &lt;/a&gt;y de c&amp;oacute;mo &lt;a title="Virtualizaci&amp;oacute;n con KVM y Trisquel" href="http://www.ochobitshacenunbyte.com/2014/08/18/virtualizacion-con-kvm-y-trisquel/"&gt;crear&lt;/a&gt; una m&amp;aacute;quina virtual.&lt;/p&gt; 
+&lt;p&gt;Hoy trataremos la configuraci&amp;oacute;n de la red en KVM. Por defecto al instalar KVM en nuestro sistema nos crear&amp;aacute; una tarjeta de red virtual que usar&amp;aacute;n nuestras m&amp;aacute;quinas virtuales, usando un NAT para comunicarse con el exterior, con una red propia, diferente de nuestra red local.&lt;/p&gt; 
+&lt;p&gt;En la mayor&amp;iacute;a de los casos he necesitado configurar un &lt;strong&gt;&lt;em&gt;public bridge&lt;/em&gt;&lt;/strong&gt; para que las m&amp;aacute;quinas virtuales usen los rangos de IP de mi red local, ya sea para uso interno o DMZ.&lt;/p&gt; 
+&lt;p&gt;No es excesivamente compliado, supongamos que tenemos dos tarjetas de red (interfaces) instaladas en nuestro servidor de infraestructura (host), en la primera (eth0) nos comunicamos con la red interneta, y con la segunda (eth1) con la red DMZ.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-09-30T09:26:13Z</dc:date>
+  </entry>
   <entry>
     <title>Virtualizando con KVM</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
@@ -808,36 +831,6 @@ export PATH&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;vDebian1&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-04-01T09:58:31Z</dc:date>
-  </entry>
-  <entry>
-    <title>Trabajando con ventanas con OpenBox</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/trabajando-con-ventanas-con-openbox" />
-    <category term="debian" />
-    <category term="sistemas-operativos" />
-    <category term="gnu-linux" />
-    <category term="comandos" />
-    <category term="ofimatica" />
-    <category term="xorg" />
-    <category term="x11" />
-    <category term="startx" />
-    <category term="openbox" />
-    <category term="moc" />
-    <category term="feh" />
-    <category term="iceweasel" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-03-27T09:22:29Z</updated>
-    <published>2014-03-26T21:17:58Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/openbox.png"&gt;&lt;img alt="openbox" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/openbox.png" width="156" height="132" /&gt;&lt;/a&gt;&amp;Uacute;ltimamente mi port&amp;aacute;til Toshiba se est&amp;aacute; quedando un poco atr&amp;aacute;s en el rendimiento, as&amp;iacute; que he decidido cambiar el sistema operativo a algo m&amp;aacute;s ligero. Ahora misto tengo Ubuntu con XFCE.&amp;nbsp; Mi elecci&amp;oacute;n ha sido &lt;a title="Debian 7" href="https://www.debian.org/index.es.html"&gt;Debian 7&lt;/a&gt;, en su versi&amp;oacute;n x86, con &lt;a title="OpenBox" href="http://openbox.org/"&gt;OpenBox&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como me da un poco de respeto, ya que nunca he trabajado con OpenBox, primero lo voy a instalar en una m&amp;aacute;quina virtual, y as&amp;iacute; probarlo. As&amp;iacute; usar&amp;eacute; las capturas de la instalaci&amp;oacute;n para &amp;eacute;ste art&amp;iacute;culo.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Vamos al l&amp;iacute;o, lo primero instalar Debian 7&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox001.jpg"&gt;&lt;img alt="OpenBox001" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox001.jpg" width="640" height="480" /&gt;&lt;/a&gt;Elegiremos “Install” y para adelante.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox002.jpg"&gt;&lt;img alt="OpenBox002" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox002.jpg" width="800" height="600" /&gt;&lt;/a&gt;En este momento, s&amp;oacute;lo elegiremos las “Utilidades est&amp;aacute;ndar del sistema” ya que no queremos que nos instale ning&amp;uacute;n escritorio ni ning&amp;uacute;n servicio adicional.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox003.jpg"&gt;&lt;img alt="OpenBox003" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/OpenBox003.jpg" width="720" height="400" /&gt;&lt;/a&gt;C&amp;oacute;mo pod&amp;eacute;is observar en la captura anterior ya estamos dentro del sistema, y la pregunta es: &amp;iquest;Y ahora qu&amp;eacute;?&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/trabajando-con-ventanas-con-openbox"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-03-26T21:17:58Z</dc:date>
   </entry>
 </feed>
 

@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-29T18:02:29Z</updated>
+  <updated>2014-09-30T10:02:42Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-29T18:02:29Z</dc:date>
+  <dc:date>2014-09-30T10:02:42Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Configuración de red en KVM en modo public bridge</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="kvm" />
+    <category term="bridge" />
+    <category term="virtualizacion" />
+    <category term="redhat" />
+    <category term="opensuse" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-09-30T09:28:52Z</updated>
+    <published>2014-09-30T09:26:13Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;KVM&lt;/strong&gt; es una fant&amp;aacute;stica alternativa libre si deseamos crear una infraestructura de virtualizaci&amp;oacute;n con software no privativo.&lt;/p&gt; 
+&lt;p&gt;Hace ya un tiempo hablamos de su &lt;a title="Virtualizando con KVM" href="http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/"&gt;funcionamiento &lt;/a&gt;y de c&amp;oacute;mo &lt;a title="Virtualizaci&amp;oacute;n con KVM y Trisquel" href="http://www.ochobitshacenunbyte.com/2014/08/18/virtualizacion-con-kvm-y-trisquel/"&gt;crear&lt;/a&gt; una m&amp;aacute;quina virtual.&lt;/p&gt; 
+&lt;p&gt;Hoy trataremos la configuraci&amp;oacute;n de la red en KVM. Por defecto al instalar KVM en nuestro sistema nos crear&amp;aacute; una tarjeta de red virtual que usar&amp;aacute;n nuestras m&amp;aacute;quinas virtuales, usando un NAT para comunicarse con el exterior, con una red propia, diferente de nuestra red local.&lt;/p&gt; 
+&lt;p&gt;En la mayor&amp;iacute;a de los casos he necesitado configurar un &lt;strong&gt;&lt;em&gt;public bridge&lt;/em&gt;&lt;/strong&gt; para que las m&amp;aacute;quinas virtuales usen los rangos de IP de mi red local, ya sea para uso interno o DMZ.&lt;/p&gt; 
+&lt;p&gt;No es excesivamente compliado, supongamos que tenemos dos tarjetas de red (interfaces) instaladas en nuestro servidor de infraestructura (host), en la primera (eth0) nos comunicamos con la red interneta, y con la segunda (eth1) con la red DMZ.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-09-30T09:26:13Z</dc:date>
+  </entry>
   <entry>
     <title>La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada" />
@@ -331,8 +354,8 @@
     <title>Cuidado si utilizas XFS en openSUSE Factory</title>
     <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory" />
     <category term="noticias" />
-    <category term="factory" />
     <category term="desarrollo-de-software" />
+    <category term="factory" />
     <category term="opensuse" />
     <author>
       <name>Victor Hck</name>
@@ -713,25 +736,6 @@
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Dabid Martinez</dc:creator>
     <dc:date>2014-09-22T08:19:42Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo utilizar ReactJS con Browserify</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" />
-    <category term="browserify" />
-    <category term="grunt" />
-    <category term="development" />
-    <category term="reactjs" />
-    <category term="javascript" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-09-22T05:06:01Z</updated>
-    <published>2014-09-22T05:06:01Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En los &amp;uacute;ltimos posts vimos &lt;a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente"&gt;qu&amp;eacute; nos ofrece ReactJS&lt;/a&gt; a otras librer&amp;iacute;as para desarrollar interfaces de usuario con Javascript y construimos un &lt;a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS"&gt;componente de ejemplo con ReactJS&lt;/a&gt; para hacernos una idea de c&amp;oacute;mo trabajar con ReactJS.&lt;/p&gt; 
-&lt;p&gt;Como ya vimos al crear el componente de ejemplo, ReactJS permite utilizar una sintaxis especial llamada JSX para generar las vistas, y es necesario realizar de alguna forma la conversi&amp;oacute;n de este JSX al c&amp;oacute;digo Javascript puro que se encargar&amp;aacute; de construir el DOM. Esto se puede hacer &lt;a href="http://facebook.github.io/react/docs/tooling-integration.html"&gt;directamente en el browser&lt;/a&gt;, pero es preferible hacerlo durante la “compilaci&amp;oacute;n” de la aplicaci&amp;oacute;n para minimizar el impacto en los clientes que accedan a nuestra aplicaci&amp;oacute;n web.&lt;/p&gt; 
-&lt;p&gt;En este post vamos a ver c&amp;oacute;mo podemos aprovechar &lt;a href="http://blog.koalite.com/2013/09/node-js-de-servidor-a-navaja-suiza/" title="Node.js, de servidor a navaja suiza"&gt;herramientas basadas en node.js&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-09-22T05:06:01Z</dc:date>
   </entry>
 </feed>
 
