@@ -1,0 +1,262 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>JavaBeans , DTO y Dozer | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/09/javabeans-dto-y-dozer"><span itemprop="headline">JavaBeans , DTO y Dozer</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/javabeans-dto-y-dozer/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-24T14:14" itemprop="datePublished">Publicado el miércoles, 24 de septiembre de 2014 a las 14:14 UTC</span></div><div><span>
+Etiquetado como
+javabean, frameworks, jee</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Cuando programamos en Java utilizamos JavaBeans de forma continua. Sin embargo a veces nos encontramos con algunos problemas a la hora de trabajar con ellos. Uno de los problemas m&aacute;s habituales es la conversi&oacute;n de una estructura de JavaBeans en otra estructura diferente como pueden ser los DTO. Es habitual encontrarnos con situaciones de este estilo cuando usamos frameworks de Persistencia tipo Hibernate.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/blog3.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/blog3.gif" alt="blog3" width="493" height="307" /></a></p> 
+<h2>Dozer</h2> 
+<p>En muchas ocasiones recurrimos a una transformaci&oacute;n manual normalmente a nivel de una clase de Servicio que terminar&aacute; delegando en alg&uacute;n tipo de capa de presentaci&oacute;n remota.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/servicio.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/servicio.gif" alt="servicio" width="493" height="315" /></a></p> 
+<p>&nbsp;</p> 
+<p>Sin embargo cuando la situaci&oacute;n se repite de forma continuada puede acabar consumi&eacute;ndonos mucho tiempo. Una soluci&oacute;n a este problema es<a href="http://dozer.sourceforge.net/"> Dozer</a>&nbsp;un framework especializado en realizar este tipo de tareas y bastante sencillo de utilizar. Imaginemonos que tenemos una estructura de clases Java como la siguiente:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class PersonaDTO {
+
+ private String nombre;
+ private String edad;
+ private double importe;
+ public String getNombre() {
+ return nombre;
+ }
+ public void setNombre(String nombre) {
+ this.nombre = nombre;
+ }
+ public String getEdad() {
+ return edad;
+ }
+ public void setEdad(String edad) {
+ this.edad = edad;
+ }
+ public double getImporte() {
+ return importe;
+ }
+ public void setImporte(double importe) {
+ this.importe = importe;
+ }
+}
+
+package com.arquitecturajava;
+
+public class Persona {
+private String nombre;
+private String apellidos;
+private int edad;
+
+private Factura factura;
+
+public Factura getFactura() {
+ return factura;
+}
+public void setFactura(Factura factura) {
+ this.factura = factura;
+}
+public int getEdad() {
+ return edad;
+}
+public void setEdad(int edad) {
+ this.edad = edad;
+}
+public String getNombre() {
+ return nombre;
+}
+public void setNombre(String nombre) {
+ this.nombre = nombre;
+}
+public String getApellidos() {
+ return apellidos;
+}
+public void setApellidos(String apellidos) {
+ this.apellidos = apellidos;
+}
+
+}
+package com.arquitecturajava;
+
+public class Factura {
+ private int id;
+ private String concepto;
+ private double importe;
+
+ public int getId() {
+ return id;
+ }
+
+ public void setId(int id) {
+ this.id = id;
+ }
+
+ public String getConcepto() {
+ return concepto;
+ }
+
+ public void setConcepto(String concepto) {
+ this.concepto = concepto;
+ }
+
+ public double getImporte() {
+ return importe;
+ }
+
+ public void setImporte(double importe) {
+ this.importe = importe;
+ }
+}
+</pre> 
+<pre></pre> 
+<p>Como podemos ver se trata de tres clases muy sencillas (Persona y Factura) que son JavaBeans y PersonaDTO que almacena algunos de los datos que tenemos en las Facturas. Vamos a usar Dozer para definir un fichero de Mapeo que se encargue de definir cual es el tipo de conversi&oacute;n.</p> 
+<pre>Dozer.xml</pre> 
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;mappings xmlns=&quot;http://dozer.sourceforge.net&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xsi:schemaLocation=&quot;http://dozer.sourceforge.net
+
+http://dozer.sourceforge.net/schema/beanmapping.xsd&quot;&gt;
+
+ &lt;mapping&gt;
+ &lt;class-a&gt;com.arquitecturajava.Persona&lt;/class-a&gt;
+ &lt;class-b&gt;com.arquitecturajava.PersonaDTO&lt;/class-b&gt;
+ &lt;field&gt;
+ &lt;a&gt;nombre&lt;/a&gt;
+ &lt;b&gt;nombre&lt;/b&gt;
+ &lt;/field&gt;
+ &lt;field&gt;
+ &lt;a&gt;edad&lt;/a&gt;
+ &lt;b&gt;edad&lt;/b&gt;
+ &lt;/field&gt;
+ &lt;field&gt;
+ &lt;a&gt;factura.importe&lt;/a&gt;
+ &lt;b&gt;importe&lt;/b&gt;
+ &lt;/field&gt;
+ &lt;/mapping&gt;
+&lt;/mappings&gt;
+</pre> 
+<p>El fichero de mapeo es sencillo y simplemente nos dice que el nombre y la edad son mapeados de Persona a PersonaDTO mientras que&nbsp;el importe de la Factura&nbsp;es mapeado a PersonaDTO como un campo adicional. Una vez construido el mapeo generamos un sencillo programa principal que realiza la transformaci&oacute;n:</p> 
+<pre>package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.dozer.DozerBeanMapper;
+
+public class Principal {
+
+ public static void main(String[] args) {
+ 
+ Persona p= new Persona();
+ p.setNombre(&quot;maria&quot;);
+ p.setEdad(20);
+ p.setApellidos(&quot;gonzalez&quot;);
+ Factura f= new Factura();
+ f.setId(1);
+ f.setConcepto(&quot;nexus5&quot;);
+ f.setImporte(400);
+ p.setFactura(f);
+ 
+ DozerBeanMapper mapper = new DozerBeanMapper();
+ List lista = new ArrayList();
+ lista.add(&quot;dozer.xml&quot;);
+ mapper.setMappingFiles(lista);
+ PersonaDTO destino = 
+ mapper.map(p, PersonaDTO.class);
+ System.out.println(destino.getNombre());
+ System.out.println(destino.getEdad());
+ System.out.println(destino.getImporte());
+
+ }
+
+}</pre> 
+<p>De esta forma ser&aacute; Dozer el encargado de gestionarlo todo.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/resultado.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/resultado.gif" alt="resultado" width="493" height="315" /></a></p> 
+<p>El programa nos mostrar&aacute; la informaci&oacute;n del DTO por pantalla con la transformaci&oacute;n de datos realizada correctamente.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/datos.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/datos.png" alt="datos" width="666" height="198" /></a></p> 
+<p>&nbsp;</p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/javabeans-dto-y-dozer/">JavaBeans , DTO y Dozer</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer" st_title="JavaBeans , DTO y Dozer | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 950,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/09/javabeans-dto-y-dozer"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

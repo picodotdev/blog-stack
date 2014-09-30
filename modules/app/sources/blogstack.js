@@ -15,6 +15,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Configuración de red en KVM en modo public bridge"
     },
     {
+      "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
+      "title" : "JAX-RS Client y Servicios REST"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
       "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
-      "title" : "Xbox One Controller ya es soportado por Linux"
     }
   ]
 }

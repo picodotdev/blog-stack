@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-09-28T10:58:07Z</updated>
+  <updated>2014-09-30T19:02:54Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-09-28T10:58:07Z</dc:date>
+  <dc:date>2014-09-30T19:02:54Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Cómo utilizar ReactJS con Browserify</title>
@@ -27,6 +27,52 @@
     <dc:date>2014-09-22T05:06:01Z</dc:date>
   </entry>
   <entry>
+    <title>JavaScript Console y otros métodos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos" />
+    <category term="herramientas" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-17T13:03:14Z</updated>
+    <published>2014-09-17T13:03:14Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Cuando trabajamos con Javascript el uso de del objeto Console es cotidiano. Sin embargo algunos de los m&amp;eacute;todos de Javascript Console no son muy conocidos aunque s&amp;iacute; son ciertamente &amp;uacute;tiles. Vamos a echar un vistazo a algunos de ellos.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/consola.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/consola-300x289.gif" alt="consola" width="300" height="289" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;h2&gt;Consola y otros m&amp;eacute;todos&lt;/h2&gt; 
+&lt;p&gt;Quiz&amp;aacute; dos de los m&amp;eacute;todos mas &amp;uacute;tiles en algunos momentos son los dos siguientes :&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;&lt;strong&gt;console.time:&lt;/strong&gt; Inicializa una variable para almacenar el tiempo transcurrido.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;console.timeEnd:&lt;/strong&gt; Asigna un valor final a esta variable .&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;De esta forma podemos calcular el tiempo transcurrido entre un grupo de operaciones para hacernos una idea de forma r&amp;aacute;pida de cuanto le esta costando al motor de Javascript ejecutar un determinado bloque de c&amp;oacute;digo.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;html&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+console.time(&amp;quot;iniciando lista&amp;quot;);
+
+var lista= new Array(1000000);
+
+for(var i=0;i&amp;lt;1000000;i++) {
+
+lista[i]=i;
+
+}
+
+console.timeEnd(&amp;quot;iniciando lista&amp;quot;);
+&amp;lt;/script&amp;gt;
+
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-17T13:03:14Z</dc:date>
+  </entry>
+  <entry>
     <title>Crear un componente con ReactJS</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/crear-un-componente-con-reactjs" />
     <category term="development" />
@@ -46,6 +92,78 @@
     <dc:date>2014-09-15T05:06:57Z</dc:date>
   </entry>
   <entry>
+    <title>Angularjs Batarang y Scopes</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes" />
+    <category term="html5" />
+    <category term="mvc" />
+    <category term="angular-js" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-12T07:43:30Z</updated>
+    <published>2014-09-12T07:43:30Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Una de las cosas que no he explicado en el libro de Angular.js es como instalar y comenzar a utilizar &amp;nbsp;Google Batarang que es el plugin de Angular.js para google Chrome y que nos permitir&amp;aacute; trabajar de una forma m&amp;aacute;s sencilla con Angular.js permitiendonos ver el contenido de los objetos que se encuentran en los diferentes scopes y muchas m&amp;aacute;s cosas.&lt;/p&gt; 
+&lt;h2&gt;Instalaci&amp;oacute;n&lt;/h2&gt; 
+&lt;p&gt;Instalar el plugin de Batarang es muy sencillo simplemente vamos &lt;a href="https://chrome.google.com/webstore/category/apps?utm_campaign=en&amp;amp;utm_source=en-et-na-us-oc-webstrhm&amp;amp;utm_medium=et"&gt;a la Chrome Web Store&amp;nbsp;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/google-tienda.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/google-tienda.png" alt="google tienda" width="964" height="395" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Una vez estamos en la tienda buscamos el plugin de Batarang y lo instalamos:&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/batarang.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/batarang.png" alt="batarang" width="981" height="627" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;h2&gt;Angularjs Batarang y Scopes&lt;/h2&gt; 
+&lt;p&gt;Una vez instalado el plugin podemos comenzar a utilizar ya que es bastante sencillo. En la zona de inspectores nos aparecer&amp;aacute; una nueva pesta&amp;ntilde;a que se denomina Angular.js y que debemos activar.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/activar.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/activar.png" alt="activar" width="662" height="160" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Una vez activado podemos comenzar a utilizarlo y ver por ejemplo que objetos hay en cada uno de los diferentes $scopes de la aplicaci&amp;oacute;n:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-12T07:43:30Z</dc:date>
+  </entry>
+  <entry>
+    <title>Desarrollo Web con Angular.js  (nº1 en Amazon.es programación)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion" />
+    <category term="mobile" />
+    <category term="libros" />
+    <category term="angular-js" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-10T06:30:21Z</updated>
+    <published>2014-09-10T06:30:21Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace unos meses publiqu&amp;eacute; otro libro &lt;a href="http://www.arquitecturajava.com/libroarquitectura-java-jpa-domain-driven-design/"&gt;Arquitectura Java JPA Domain Driven Design&amp;nbsp;&lt;/a&gt;y que tambi&amp;eacute;n se puso numero 1 en la secci&amp;oacute;n de programaci&amp;oacute;n en Amazon.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/elmasvendido.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/elmasvendido.png" alt="elmasvendido" width="895" height="176" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Puedo estar contento de que los dos libros que he escrito en kindle est&amp;aacute;n teniendo &amp;eacute;xito. Aprovecho a agradecer a la gente que me lee el blog el inter&amp;eacute;s en este &amp;uacute;ltimo libro que no esta tan ligado a la plataforma Java. Pero me gustar&amp;iacute;a aprovechar para hacer una reflexi&amp;oacute;n sobre Angular.js. En este blog no he escrito nada sobre este framework (escribir&amp;eacute; a futuro) y sin embargo se est&amp;aacute;n vendiendo copias del libro &lt;img src="http://www.arquitecturajava.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" /&gt; . Eso quiere decir que poco a poco el framework va cogiendo empuje &lt;strong&gt;y que este pr&amp;oacute;ximo a&amp;ntilde;o se empezar&amp;aacute; a utilizar m&amp;aacute;s tengamoslo en cuenta.&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/desarrollo-web-con-angular-js-no1-en-amazon-programacion/"&gt;Desarrollo Web con Angular.js (n&amp;ordm;1 en Amazon.es programaci&amp;oacute;n)&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-10T06:30:21Z</dc:date>
+  </entry>
+  <entry>
+    <title>Libro: Arquitecturas Web y Angular js</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js" />
+    <category term="html5" />
+    <category term="angular-js" />
+    <category term="spa" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-08T07:32:04Z</updated>
+    <published>2014-09-08T07:32:04Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Cada d&amp;iacute;a Angular.js esta m&amp;aacute;s de moda , pero tambi&amp;eacute;n cada d&amp;iacute;a que pasa la aglomeraci&amp;oacute;n de art&amp;iacute;culos y tem&amp;aacute;ticas diferentes sobre el framework aumenta lo que hace dif&amp;iacute;cil entender como funciona . Este verano me he animado a escribir una gu&amp;iacute;a que sirva a la gente para asentar los conceptos fundamentales y perder el miedo a usar este framework tan interesante.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/portada1.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/portada1.png" alt="portada" width="190" height="245" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;h2&gt;Contenido&lt;/h2&gt; 
+&lt;p&gt;Como el t&amp;iacute;tulo indica, el libro &lt;strong&gt;esta muy orientado a entender los conceptos de Arquitectura que se encuentran detr&amp;aacute;s de este framework y el porqu&amp;eacute; de su enfoque tan innovador.&lt;/strong&gt; He hecho especial hincapi&amp;eacute; en que el libro le sea &amp;uacute;til a personas de cualquier plataforma ya que solo &lt;strong&gt;incluye c&amp;oacute;digo de JavaScript&lt;/strong&gt;. El libro como siempre empieza de cero. La tabla de contenidos es la siguiente: Tabla de Contenidos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-08T07:32:04Z</dc:date>
+  </entry>
+  <entry>
     <title>ReactJS: un enfoque diferente</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/reactjs-un-enfoque-diferente" />
     <category term="development" />
@@ -62,6 +180,38 @@
 &lt;p&gt;Lo interesante de ReactJS es que aporta un enfoque distinto al que podemos ver en otras herramientas como &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/reactjs-un-enfoque-diferente"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2014-09-08T05:06:50Z</dc:date>
+  </entry>
+  <entry>
+    <title>Arquitecturas y Modularidad</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/arquitecturas-y-modularidad" />
+    <category term="jee" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-05T08:12:53Z</updated>
+    <published>2014-09-05T08:12:53Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Video sobre Arquitecturas y Modularidad que compara las plataformas .NET , Java EE con Node.js&lt;/p&gt; 
+&lt;p&gt;&lt;iframe width="500" height="281" src="http://www.youtube.com/embed/wNZILxFpo18?feature=oembed" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;&lt;/p&gt; 
+&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/arquitecturas-y-modularidad/"&gt;Arquitecturas y Modularidad&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/arquitecturas-y-modularidad"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-05T08:12:53Z</dc:date>
+  </entry>
+  <entry>
+    <title>El soporte de HTML5 y Hammer.js Para GenBetaDev</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/el-soporte-de-html5-y-hammer-js-para-genbetadev" />
+    <category term="html5" />
+    <category term="frameworks-js" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-09-01T15:35:34Z</updated>
+    <published>2014-09-01T15:35:34Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;He escrito como siempre un par de art&amp;iacute;culos interesantes para la gente de GenBetaDev. Aqu&amp;iacute; os dejo un link a cada uno de ellos . El primero trata sobre los problemas de &lt;a href="http://bit.ly/1ox88AN"&gt;HTML5 y el soporte de los navegadores.&lt;/a&gt;&amp;nbsp;El segundo trata&lt;a href="http://bit.ly/1qO1KGV"&gt; sobre Hammer.js y eventos Touch&lt;/a&gt;&amp;nbsp;. Espero que os sean de utilizad.&lt;/p&gt; 
+&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/el-soporte-de-html5-y-javascript-eventostouch-para-genbetadev/"&gt;El soporte de HTML5 y Hammer.js Para GenBetaDev&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/el-soporte-de-html5-y-hammer-js-para-genbetadev"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-09-01T15:35:34Z</dc:date>
   </entry>
   <entry>
     <title>Utilizar Chart.js con Knockout.js</title>
@@ -537,168 +687,6 @@ var tareas = new Tareas(
 console.log(tareas.toJSON());&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-colecciones"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>leonardo</dc:creator>
     <dc:date>2014-03-30T17:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Backbonejs: La vista</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista" />
-    <category term="backbone-js" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-03-25T01:55:00Z</updated>
-    <published>2014-03-25T01:55:00Z</published>
-    <content type="html">&lt;p&gt;&lt;h3&gt;Qu&amp;eacute; es la vista?&lt;/h3&gt; 
-&lt;p&gt;En ella vamos a mostrar nuestro modelo, en este caso al tratarse de un navegador web ser&amp;aacute; en &lt;em&gt;HTML&lt;/em&gt;, y responder&amp;aacute; a la interacci&amp;oacute;n del usuario.&lt;/p&gt; 
-&lt;h3&gt;C&amp;oacute;mo creo una vista con Backbone?&lt;/h3&gt; 
-&lt;p&gt;Primero que nada utilizamos el mismo patr&amp;oacute;n que para crear un &lt;a href="http://www.leomicheloni.com/post/2014/03/20/Backbonejs-el-modelo.aspx"&gt;modelo&lt;/a&gt;, del siguiente modo:&lt;/p&gt; 
-&lt;pre&gt;var Vista = Backbone.View.extend({});&lt;/pre&gt; 
-&lt;p&gt;y luego para utilizarla&lt;/p&gt; 
-&lt;pre&gt;var vista = new Vista();&lt;/pre&gt; 
-&lt;h3&gt;Definiciones y cosas que tenemos por defecto&lt;/h3&gt; 
-&lt;p&gt;Si no hacemos m&amp;aacute;s nada que lo anterior nuestra vista no hace gran cosa, de hecho, no hace nada, lo que acabamos de lograr es extender la clase de &lt;em&gt;Backbone&lt;/em&gt; para tener algunos m&amp;eacute;todos y propiedades (que vamos a usar despu&amp;eacute;s) pero en s&amp;iacute;, por ahora, no hace mucho&lt;/p&gt; 
-&lt;h3&gt;El m&amp;eacute;todo render&lt;/h3&gt; 
-&lt;p&gt;Este m&amp;eacute;todo nos permitir&amp;aacute; imprimir nuestra vista sobre alg&amp;uacute;n otro elemento de la p&amp;aacute;gina, sin embargo &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-la-vista"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-03-25T01:55:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Backbonejs: el modelo</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo" />
-    <category term="javascript" />
-    <category term="backbone-js" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-03-20T12:33:00Z</updated>
-    <published>2014-03-20T12:33:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img src="http://ts1.mm.bing.net/th?id=HN.608021284466656241&amp;amp;pid=1.7" /&gt;&lt;/p&gt; 
-&lt;h3&gt;Qu&amp;eacute; es el modelo?&lt;/h3&gt; 
-&lt;p&gt;El modelo es la abstracci&amp;oacute;n que representa nuestro sistema, con sus datos y comportamiento, en principio deber&amp;iacute;a ser totalmente independiente de los dem&amp;aacute;s componentes de la aplicaci&amp;oacute;n (por ejemplo, deber&amp;iacute;a ser independiente de la &lt;em&gt;UI&lt;/em&gt;)&lt;/p&gt; 
-&lt;h3&gt;Creando un modelo con &lt;em&gt;backbone&lt;/em&gt;&lt;/h3&gt; 
-&lt;p&gt;Para crear un modelo en &lt;em&gt;backbone&lt;/em&gt; tenemos que hacer dos cosas:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Declarar una clase &lt;/li&gt; 
- &lt;li&gt;Instanciarla &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;Para crear la clase de nuestro modelo necesitamos extender una clase de &lt;em&gt;backbone&lt;/em&gt;, del siguiente modo:&lt;/p&gt; 
-&lt;pre&gt;var Task = Backbone.Model.extend();&lt;/pre&gt; 
-&lt;p&gt;con esto generamos una clase &lt;em&gt;Task&lt;/em&gt; que extiende la clase &lt;em&gt;Model&lt;/em&gt; de &lt;em&gt;backbone&lt;/em&gt;, esto nos permite utilizar su funcionalidad, por ejemplo podemos hacer:&lt;/p&gt; 
-&lt;pre&gt;var task = new Task({name: &amp;quot;hacer algo&amp;quot;});
-console.log(task.toJSON());&lt;/pre&gt; 
-&lt;p&gt;y obtenemos una representaci&amp;oacute;n &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/backbonejs-el-modelo"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-03-20T12:33:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción de Backbonejs</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs" />
-    <category term="javascript" />
-    <category term="backbone-js" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-03-16T22:41:00Z</updated>
-    <published>2014-03-16T22:41:00Z</published>
-    <content type="html">&lt;p&gt;&lt;h3&gt;&amp;nbsp;&lt;/h3&gt; 
-&lt;p&gt;&lt;img alt="Backbone.js" src="http://backbonejs.org/docs/images/backbone.png" width="696" height="129" /&gt;&lt;/p&gt; 
-&lt;h3&gt;introducci&amp;oacute;n&lt;/h3&gt; 
-&lt;p&gt;Si nuestra aplicaci&amp;oacute;n web “single page” es compleja del lado del cliente o empieza a serlo, m&amp;aacute;s tarde o m&amp;aacute;s temprano vamos a necesitar aplicar las mismas pr&amp;aacute;cticas de arquitectura que aplicamos del lado del servidor en &lt;em&gt;Javascript (MVC, MVP, etc.)&lt;/em&gt;, para esto hay varios patrones, bibliotecas y varios &lt;em&gt;frameworks&lt;/em&gt;, hoy vamos a hablar de &lt;a href="http://backbonejs.org/"&gt;Backbonejs&lt;/a&gt;.&lt;/p&gt; 
-&lt;h3&gt;Qu&amp;eacute; es Backbone?&lt;/h3&gt; 
-&lt;p&gt;Es 
- &lt;strike&gt;
-   un 
-  &lt;em&gt;framework&lt;/em&gt; 
- &lt;/strike&gt; una biblioteca para realizar aplicaciones en &lt;em&gt;Javascript&lt;/em&gt;, &lt;a href="http://en.wikipedia.org/wiki/Backbonejs"&gt;utiliza el patr&amp;oacute;n MVP&lt;/a&gt; (esta parte es discutible ya que no est&amp;aacute; tan claro) y posee ciertos componentes definidos, est&amp;aacute; pensado para trabajar sobre una &lt;a href="http://es.wikipedia.org/wiki/Representational_State_Transfer"&gt;API RESTFul&lt;/a&gt; pero nada impide no hacerlo, sus componentes son:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Modelo &lt;/li&gt; 
- &lt;li&gt;Vista &lt;/li&gt; 
- &lt;li&gt;Colecciones &lt;/li&gt; 
- &lt;li&gt;Rutas &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;h3&gt;Qui&amp;eacute;n lo usa?&lt;/h3&gt; 
-&lt;p&gt;Es usado en sitios que seguramente has visitado, nombro algunos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/introduccion-de-backbonejs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-03-16T22:41:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tips de Javascript: por qué se usa void(0)?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/tips-de-javascript-por-que-se-usa-void" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-03-11T18:17:00Z</updated>
-    <published>2014-03-11T18:17:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Muchas veces nos encontramos que en un elemento a (un link) se poner por defecto el valor del atributo &lt;em&gt;href = javascript: void(0)&lt;/em&gt;; lo cual es, al menos, llamativo, si no queremos hacer nada simplemente podr&amp;iacute;amos usar href= javascript:&lt;em&gt;undefined&lt;/em&gt;, o no?&lt;/p&gt; 
-&lt;p&gt;&lt;img src="http://www.planet-source-code.com/vb/2010Redesign/images/LangugeHomePages/Javascript.png" /&gt;&lt;/p&gt; 
-&lt;h3&gt;Undefined no siempre es lo que parece&lt;/h3&gt; 
-&lt;p&gt;Antes que nada vale aclarar que hay dos &lt;em&gt;undefined&lt;/em&gt; en &lt;em&gt;Javascript&lt;/em&gt;, el tipo, es decir, as&amp;iacute; como decimos que algo es un objeto, decimos que algo es &lt;em&gt;undefined&lt;/em&gt; y tambi&amp;eacute;n hay una variable global (una propiedad de &lt;em&gt;window, es decir window.undefined&lt;/em&gt;)&lt;/p&gt; 
-&lt;p&gt;Probemos este script&lt;/p&gt; 
-&lt;pre&gt;&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-
-undefined = 1;
-var uno = 1;
-
-console.log( uno == undefined);
-
-&amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;&lt;/pre&gt; 
-&lt;p&gt;Es claro que deber&amp;iacute;a dar false (es decir no podemos decir que &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/03/tips-de-javascript-por-que-se-usa-void"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-03-11T18:17:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Bower: manejador de paquetes para Javascript</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript" />
-    <category term="nodejs" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-02-21T23:43:00Z</updated>
-    <published>2014-02-21T23:43:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;A medida que las aplicaciones crecen, crecen tambi&amp;eacute;n en dependencias y muchas veces la tarea de comenzar una aplicaci&amp;oacute;n es tediosa y repetitiva al tener que agregar una y otra vez las mismas referencias o no.&lt;/p&gt; 
-&lt;p&gt;&lt;img alt="Bower logo" src="http://bob.yexley.net/content/images/2013/Dec/bower_logo.png" width="241" height="241" /&gt;&lt;/p&gt; 
-&lt;h3&gt;Primero que nada, tener Nodejs instalado&lt;/h3&gt; 
-&lt;p&gt;S&amp;iacute;, &lt;a href="http://bower.io/"&gt;Bower&lt;/a&gt; es un paquete de Nodejs, as&amp;iacute; que una vez que &lt;a href="http://www.leomicheloni.com/post/2012/08/05/Comenzando-con-NodeJS-en-Windows.aspx"&gt;tenemos Nodejs instalado&lt;/a&gt;, ejecutamos el siguiente comando:&lt;/p&gt; 
-&lt;pre&gt;npm install -g bower&lt;/pre&gt; 
-&lt;h3&gt;CERT_UNTRUSTED Error&lt;/h3&gt; 
-&lt;p&gt;Si esto ocurre lo m&amp;aacute;s simple es ejecutar el siguiente comando&lt;/p&gt; 
-&lt;pre&gt;npm config set ca &amp;quot;&amp;quot; &lt;/pre&gt; 
-&lt;p&gt;Si esto no funciona &lt;a href="https://groups.google.com/forum/#!topic/nodejs/aonVboqx8wM"&gt;ac&amp;aacute; hay un par de opciones m&amp;aacute;s&lt;/a&gt;&lt;/p&gt; 
-&lt;h3&gt;Tambi&amp;eacute;n es necesario git&lt;/h3&gt; 
-&lt;p&gt;&lt;em&gt;Bower&lt;/em&gt; permite instalar paquetes desde cualquier repositrio &lt;em&gt;git&lt;/em&gt; (incluso uno nuestro, remoto lo local) pero necesitamos tener &lt;em&gt;git&lt;/em&gt; instalado y en el path para que &lt;em&gt;Bower&lt;/em&gt; lo encuentre.&lt;/p&gt; 
-&lt;h3&gt;Ahora s&amp;iacute;, bower instalado, empecemos&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/bower-manejador-de-paquetes-para-javascript"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-02-21T23:43:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tips de Javascript: Arrays 2</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/tips-de-javascript-arrays-2" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-02-20T02:43:00Z</updated>
-    <published>2014-02-20T02:43:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Para completar por ahora &lt;a href="http://www.leomicheloni.com/post/2014/02/16/Tips-de-Javascript-Arrays.aspx"&gt;algunas peque&amp;ntilde;as cosas sobre arrays en Javascript&lt;/a&gt;&lt;em&gt;&lt;/em&gt;, vamos a ver unos detalles sobre c&amp;oacute;mo crearlos.&lt;/p&gt; 
-&lt;h3&gt;Siempre usar la notaci&amp;oacute;n literal []&lt;/h3&gt; 
-&lt;a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/1EF114FD/image.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/39317E21/image_thumb.png" width="189" height="109" /&gt;&lt;/a&gt; 
-&lt;p&gt;El resultado es el mismo si usamos&lt;em&gt; [1,2,3]&lt;/em&gt; o &lt;em&gt;new Array(3)&lt;/em&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/3A761700/image.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/1B33702D/image_thumb.png" width="190" height="108" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Pero, no es lo mismo&lt;em&gt; [3]&lt;/em&gt; que &lt;em&gt;new Array(3)&lt;/em&gt; como podemos ver, mientras que &lt;em&gt;[3]&lt;/em&gt; es coherente con el primer ejemplo (crea un &lt;em&gt;array&lt;/em&gt; con un elemento de valor 3) &lt;em&gt;new Array(3) &lt;/em&gt;crea un &lt;em&gt;array&lt;/em&gt; de tres elementos vac&amp;iacute;os!&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/5CAE2286/image.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="http://leomicheloni.com/image.axd?picture=Windows-Live-Writer/Tips-de-Javascript-Arrays-2/0B73DB29/image_thumb.png" width="190" height="62" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Esto es cierto, pero si el elemento que pasamos al constructor no es un entero se comporta igual que &lt;em&gt;[3]&lt;/em&gt;&lt;/p&gt; 
-&lt;h3&gt;por lo tanto&lt;/h3&gt; 
-&lt;p&gt;&lt;em&gt;Es conveniente usar siempre la notaci&amp;oacute;n literal ya que el constructor de la clase Array tiene un comportamiento extra&amp;ntilde;o (al menos para m&amp;iacute;)&lt;/em&gt;&lt;/p&gt; 
-&lt;p&gt;Hasta la pr&amp;oacute;xima.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/02/tips-de-javascript-arrays-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-02-20T02:43:00Z</dc:date>
   </entry>
 </feed>
 

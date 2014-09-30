@@ -3,6 +3,54 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
+      "title" : "JAX-RS Client y Servicios REST"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/javabeans-dto-y-dozer",
+      "title" : "JavaBeans , DTO y Dozer"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/spring-inject-cdi-y-standards",
+      "title" : "Spring @Inject  CDI y standards"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos",
+      "title" : "JavaScript Console y otros métodos"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes",
+      "title" : "Angularjs Batarang y Scopes"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/arquitectura-jpa-domain-driven-design-google-play",
+      "title" : "Arquitectura JPA Domain Driven Design (Google Play)"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion",
+      "title" : "Desarrollo Web con Angular.js  (nº1 en Amazon.es programación)"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js",
+      "title" : "Libro: Arquitecturas Web y Angular js"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/arquitecturas-y-modularidad",
+      "title" : "Arquitecturas y Modularidad"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/el-soporte-de-html5-y-hammer-js-para-genbetadev",
+      "title" : "El soporte de HTML5 y Hammer.js Para GenBetaDev"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/09/jpa-entity-listener",
+      "title" : "JPA Entity Listener"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/08/programacion-funcional-java-8-streams",
+      "title" : "Programación Funcional, Java 8 Streams"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
       "title" : "JSF, Spring MVC y Java EE 8"
     },
@@ -33,54 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
       "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/spring-framework-y-aislamiento",
-      "title" : "Spring Framework y aislamiento"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/para-genbetadev-jpa-y-javascript",
-      "title" : "Para GenBetaDev (JPA y Javascript)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/arquitecturas-mvc-y-rest",
-      "title" : "Arquitecturas MVC y REST"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/ejb-3-2-y-flexibilidad",
-      "title" : "EJB 3.2 y Flexibilidad"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/html5-almacenamiento-cantabriatic",
-      "title" : "HTML5 Almacenamiento (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/java-8-lambda-expressions-i",
-      "title" : "Java 8 Lambda Expressions (I)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/eclipse-timeout-servidor-tomcat-jboss-etc",
-      "title" : "Eclipse Timeout Servidor Tomcat/JBoss Etc"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/como-funciona-node-js-para-genbetadev",
-      "title" : "¿Como funciona Node.js?  para (GenBetaDev)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/arquitectura-websocket-y-threads",
-      "title" : "Arquitectura WebSocket y Threads"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard",
-      "title" : "Java Generics (II) uso  de WildCard"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/07/ultimos-articulos-para-genbetadev-ruby-y-css3",
-      "title" : "Últimos artículos para GenbetaDev (Ruby y CSS3)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/06/rest-json-y-java",
-      "title" : "REST JSON y Java"
     }
   ]
 }
