@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/09/the-original-hacker-no-9-fuera-de-lo-comun-puede-ser",
+      "title" : "The Original Hacker No. 9, Fuera de lo común? Puede ser"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
       "title" : "Agregador Blog Stack rediseñado"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
-      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     }
   ]
 }
