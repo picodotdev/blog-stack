@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
+      "title" : "Declaración de variables en expresiones de C# 6"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
       "title" : "Configuración de red en KVM en modo public bridge"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
       "title" : "Vulnerabilidad en Bash"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
-      "title" : "Vulnerabilidad de Seguridad Importante en Bash"
     }
   ]
 }

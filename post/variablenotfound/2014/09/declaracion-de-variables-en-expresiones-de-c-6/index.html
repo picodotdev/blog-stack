@@ -1,0 +1,166 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Declaración de variables en expresiones de C# 6 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6"><span itemprop="headline">Declaración de variables en expresiones de C# 6</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/YT0q6eIa0-k/declaracion-de-variables-en-expresiones-csharp.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-30T11:52" itemprop="datePublished">Publicado el martes, 30 de septiembre de 2014 a las 11:52 UTC</span></div><div><span datetime="2014-09-30T11:52" itemprop="dateModified">Actualizado el martes, 30 de septiembre de 2014 a las 11:52 UTC</span></div><div><span>
+Etiquetado como
+novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="C#" src="http://lh3.ggpht.com/-a9U16pQROIY/VCf2cZ26U0I/AAAAAAAADko/138a96ODvJU/image%25255B33%25255D.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" />Seguimos comentando novedades que encontraremos en la pr&oacute;xima versi&oacute;n de C#, y en esta ocasi&oacute;n vamos a ver una nueva caracter&iacute;stica que, sin resultar espectacular, s&iacute; nos va a proporcionar una f&oacute;rmula m&aacute;s c&oacute;moda y concisa para resolver algunos escenarios bastante habituales. 
+<br />
+<br />Seguro que os resulta familiar el siguiente c&oacute;digo, m&aacute;s que nada porque lo habr&eacute;is escrito decenas o cientos de veces: 
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-EI4avwcasxA/VChS1JU0B8I/AAAAAAAADm4/zDjbvD1QFkE/image%25255B2%25255D.png?imgmax=800" height="99" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="229" />
+<br />
+<a></a>Personalmente, la introducci&oacute;n de par&aacute;metros 
+<code>out</code> en las llamadas siempre me resulta inc&oacute;modo porque me hace volver atr&aacute;s para declarar una variable expresamente para la ocasi&oacute;n. Y hay otros casos en los que la sensaci&oacute;n de vuelta atr&aacute;s es igualmente molesta. 
+<br />
+<br />Pues la respuesta de C# a este frecuente escenario, y como veremos enseguida a otros m&aacute;s, son las llamadas 
+<em>declaration expressions</em>, que vendr&aacute; a traducirse como expresiones de declaraci&oacute;n o algo as&iacute;. Esta nueva caracter&iacute;stica permite introducir declaraciones de variables en el interior de expresiones, por lo que el ejemplo anterior podr&iacute;a implementarse de forma m&aacute;s concisa: 
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-QXMYGHaec2g/VChS1xQUGcI/AAAAAAAADnA/yn29nVhK-Dk/image%25255B5%25255D.png?imgmax=800" height="83" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="254" /> 
+<br />
+<br />Como podr&eacute;is observar, hemos introducido la declaraci&oacute;n de la variable en l&iacute;nea, justo en el lugar en el que la vamos a necesitar, lo que nos ahorra esa molesta vuelta atr&aacute;s para declararla. 
+<br />
+<br />Veamos otro ejemplo. Esta vez vamos a utilizar una expresi&oacute;n declarativa con un par&aacute;metro 
+<code>ref</code> que inicializamos tambi&eacute;n sobre la marcha: 
+<br />
+<br />
+<img alt="" src="http://lh6.ggpht.com/-Fyx_7Do6u34/VChS2cPAISI/AAAAAAAADnI/oVkKQjvtF5g/image%25255B8%25255D.png?imgmax=800" height="137" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="376" /> 
+<br />
+<br />&iquest;Interesante, verdad? Pues veamos otro ejemplo bastante frecuente: el uso de variables para almacenar temporalmente el resultado de una expresi&oacute;n que necesitamos reutilizar m&aacute;s adelante. Seguro que no son pocas las veces que os encontr&aacute;is con un escenario como el siguiente: 
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-Z-4RqwCoE04/VChS20eVJXI/AAAAAAAADnM/PETpZRU0eCE/image%25255B11%25255D.png?imgmax=800" height="99" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="467" /> 
+<br />
+<br />Por supuesto, a nadie se le ocurrir&iacute;a dejar ese c&oacute;digo as&iacute;; lo normal ser&iacute;a utilizar su equivalente m&aacute;s legible y eficiente: 
+<br />
+<br />
+<img alt="image" src="http://lh3.ggpht.com/-ZdKl_JMGaG0/VChS3S69qiI/AAAAAAAADnY/Tm0Yo--TbBM/image%25255B24%25255D.png?imgmax=800" height="115" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="462" /> 
+<br />
+<br />Pues bien, usando la declaraci&oacute;n en expresiones podr&iacute;amos obtener un c&oacute;digo como el siguiente: 
+<br />
+<br />
+<img alt="image" src="http://lh6.ggpht.com/-vgIouepSk0I/VChS31NuCaI/AAAAAAAADng/i2M3xlSoT8E/image%25255B25%25255D.png?imgmax=800" height="99" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="540" /> 
+<br />
+<br />Con esto, adem&aacute;s de no tener que volver atr&aacute;s para declarar la variable cuando estamos escribiendo el 
+<code>if</code>, habremos conseguido en efecto colateral bastante interesante: no polucionar el bloque de c&oacute;digo en el que nos encontramos con variables que s&oacute;lo tienen sentido en un &aacute;mbito interior. 
+<br />
+<br />Es decir, en el nuevo C# 
+<b>la declaraci&oacute;n de una variable en una expresi&oacute;n dar&aacute; a &eacute;sta visibilidad &uacute;nicamente en el interior del bloque de c&oacute;digo en el que la utilizamos</b>. Volviendo al ejemplo anterior, la variable 
+<code>index</code> s&oacute;lo ser&aacute; visible dentro del 
+<code>if</code>, que es precisamente donde la necesitamos. 
+<br />
+<br />Como ya habr&eacute;is adivinado, podemos utilizar este tipo de expresiones en cualquier punto de nuestro c&oacute;digo: pr&aacute;cticamente, en todos los lugares en los que podamos introducir expresiones, podremos declarar variables. Esto quiere decir que tambi&eacute;n tendremos capacidad de usar esta caracter&iacute;stica desde 
+<em>el lado oscuro de la legibilidad</em>: 
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-KLVLfI8JF_M/VChS4mm1jmI/AAAAAAAADno/Fx_XsQkOaO8/image%25255B26%25255D.png?imgmax=800" height="33" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="525" />
+<br />
+<br />Una &uacute;ltima observaci&oacute;n. Habr&eacute;is notado que no es necesario indicar expl&iacute;citamente el tipo de dato cuando declaramos variables de esta forma. Siempre que la inferencia de tipos tenga informaci&oacute;n para hacer bien su trabajo podremos usar 
+<code>var</code>, mientras que en otras ocasiones tendremos que ser m&aacute;s expl&iacute;citos. Vaya, que ser&aacute; exactamente igual que cuando declaramos variables de la forma tradicional. 
+<br />
+<br />En definitiva, creo que es una incorporaci&oacute;n interesante al lenguaje que agilizar&aacute; la codificaci&oacute;n en esos escenarios tan frecuentes y, como efecto colateral, nos ayudar&aacute; a que el &aacute;mbito de las variables sea m&aacute;s cercano a su punto de utilizaci&oacute;n. Pero como todo, &uacute;sese con sentido com&uacute;n ;-) 
+<br />
+<br />Y si quer&eacute;is conocer m&aacute;s sobre el C# que se avecina, no os perd&aacute;is los posts anteriores de la serie: 
+<br />
+<ul>
+ <li><a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html" title="El operador “-.” en C# y VB.NET, m&aacute;s cerca">El operador “-.” en C# y VB.NET, m&aacute;s cerca</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/inicializacion-de-propiedades-en-c-60.html" title="Inicializaci&oacute;n de propiedades en C# 6.0">Inicializaci&oacute;n de propiedades en C# 6.0</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/uso-de-miembros-estaticos-en-c-6-una.html" title="Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea-">Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea?</a></li>
+</ul>Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>. 
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=YT0q6eIa0-k:oAbQjUAHv6I:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=YT0q6eIa0-k:oAbQjUAHv6I:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=YT0q6eIa0-k:oAbQjUAHv6I:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=YT0q6eIa0-k:oAbQjUAHv6I:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/YT0q6eIa0-k" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6" st_title="Declaración de variables en expresiones de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 947,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
