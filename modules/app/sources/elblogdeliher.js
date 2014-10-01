@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
+      "title" : "Webempresa, un buen hosting para WordPress"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
       "title" : "Fondos de escritorio 15"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
       "title" : "Tocan a su fin"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/buena-publicidad-d",
-      "title" : "Buena publicidad :D"
     }
   ]
 }

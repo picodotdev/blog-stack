@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
+      "title" : "Webempresa, un buen hosting para WordPress"
+    },
+    {
       "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
       "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
-      "title" : "Probamos FreeBSD 10"
     }
   ]
 }
