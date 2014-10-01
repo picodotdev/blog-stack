@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
+      "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
+    },
+    {
       "url" : "/post/jsitech/2014/09/the-original-hacker-no-9-fuera-de-lo-comun-puede-ser",
       "title" : "The Original Hacker No. 9, Fuera de lo común? Puede ser"
     },

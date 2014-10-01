@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
+      "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
       "title" : "¿cuanto falta para la próxima versión de openSUSE?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
       "title" : "Probamos FreeBSD 10"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
-      "title" : "Guardar nuestra colección de cd\u2019s con K3b"
     }
   ]
 }
