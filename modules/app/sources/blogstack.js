@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
+      "title" : "¿cuanto falta para la próxima versión de openSUSE?"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
+      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
       "title" : "Reglas del aprendiz de hacker informático"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
-      "title" : "El clásico juego Another World disponible para Steam"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
-      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     }
   ]
 }
