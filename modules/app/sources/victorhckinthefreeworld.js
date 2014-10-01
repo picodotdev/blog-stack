@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
+      "title" : "Reglas del aprendiz de hacker informático"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
       "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/06/defiende-la-privacidad-en-tu-correo-electronico-usa-gnupg",
       "title" : "Defiende la privacidad en tu correo electrónico. Usa GnuPG"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/05/navegador-web-lynx-un-lince-en-la-linea-de-comandos",
-      "title" : "Navegador web Lynx. Un lince en la línea de comandos"
     }
   ]
 }

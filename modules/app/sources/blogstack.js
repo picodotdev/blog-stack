@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
+      "title" : "Reglas del aprendiz de hacker informático"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
       "title" : "Sublime Text editor y su exito para CantabriaTIC"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
-      "title" : "Cuidado si utilizas XFS en openSUSE Factory"
     }
   ]
 }
