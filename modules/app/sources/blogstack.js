@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
+      "title" : "Sublime Text editor y su exito para CantabriaTIC"
+    },
+    {
       "url" : "/post/jsitech/2014/09/the-original-hacker-no-9-fuera-de-lo-comun-puede-ser",
       "title" : "The Original Hacker No. 9, Fuera de lo común? Puede ser"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
       "title" : "Cuidado si utilizas XFS en openSUSE Factory"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
-      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     }
   ]
 }

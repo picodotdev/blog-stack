@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
+      "title" : "Sublime Text editor y su exito para CantabriaTIC"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
       "title" : "JAX-RS Client y Servicios REST"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
       "title" : "JQuery Ajax y Eventos Globales"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/rendimiento-movil-y-patrones-dao-genbetadev",
-      "title" : "Rendimiento Movil y Patrones DAO (GenBetaDev)"
     }
   ]
 }
