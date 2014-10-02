@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
+      "title" : "Me cambio a KDE en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
       "title" : "MAC no, Iphone si, ¿por que?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/08/tocan-a-su-fin",
-      "title" : "Tocan a su fin"
     }
   ]
 }

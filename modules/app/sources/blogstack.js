@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
+      "title" : "Me cambio a KDE en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/09/security-feed-feeds-de-seguridad-y-ethical-hacking-en-un-solo-lugar",
       "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
-    },
-    {
-      "url" : "/post/codecriticon/2014/09/funciones-en-scala-breve-introduccion",
-      "title" : "Funciones en Scala, breve introducción"
     }
   ]
 }
