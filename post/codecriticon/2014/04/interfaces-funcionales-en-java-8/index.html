@@ -1,0 +1,141 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Interfaces Funcionales en Java 8 | Codecriticon</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/codecriticon/2014/04/interfaces-funcionales-en-java-8"><span itemprop="headline">Interfaces Funcionales en Java 8</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Antonio</span> en la bitácora <a href="http://codecriticon.es">Codecriticon</a>, <a href="http://codecriticon.com/interfaces-funcionales-jdk8/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-04-01T19:15" itemprop="datePublished">Publicado el martes, 01 de abril de 2014 a las 19:15 UTC</span></div><div><span>
+Etiquetado como
+interfaz-funcional, java-8, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, lambda, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En esta nueva versi&oacute;n de la JDK se han realizada varias modificaciones en los interfaces. En el anterior art&iacute;culo explique los <a href="http://codecriticon.com/default-static-interfaces-jdk8/" title="Java 8 – M&eacute;todos Default y Static en Interfaces">m&eacute;todos default y static</a> y en este art&iacute;culo explicar&eacute; otra de las mejoras en los interfaces, los <strong>interfaces funcionales</strong>.</p> 
+<p>La mayor&iacute;a de los desarrolladores de Java hemos tenido que trabajar alguna vez con los interfaces <a href="http://download.java.net/jdk8/docs/api/java/lang/Runnable.html" title="Clase Runnable">Runnable</a>, <a href="http://download.java.net/jdk8/docs/api/java/awt/event/ActionListener.html" title="Clase ActionListener">ActionListener</a>, <a href="http://download.java.net/jdk8/docs/api/java/util/Comparator.html" title="Clase Comparator">Comparator</a> o <a href="http://download.java.net/jdk8/docs/api/java/util/concurrent/Callable.html" title="Clase Callable">Callable</a>. Estos interfaces tienen en una caracter&iacute;stica en com&uacute;n, &uacute;nicamente tienen un m&eacute;todo abstracto. A este tipo de interfaces se les conoce como <a href="http://www.infoq.com/news/2010/07/sambdas-in-java" title="SAMBas">Single Abstract Method Interfaces</a> o SAM Interfaces. La forma m&aacute;s com&uacute;n de utilizarlos es implement&aacute;ndolos mediante una clase an&oacute;nima. Un ejemplo puede ser la implementaci&oacute;n del m&eacute;todo compare (interfaz <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" title="Java 8 API - Comparator">Comparator</a>) para ordenar una lista de String por orden alfab&eacute;tico:</p> 
+<p></p> 
+<p></p>
+<pre>Collections.sort(lista, new Comparator() {
+    public int compare(Object o1, Object o2) {
+       if(o1 instanceof String &amp;&amp; o2 instanceof String) {
+          String elem1 = (String)o1;
+          String elem2 = (String)o2;
+
+          return elem1.compareTo(elem2);
+       } 
+       return 0;    
+    }
+});</pre>
+<p></p> 
+<p>En Java 8 un interfaz que tiene declarado un &uacute;nico m&eacute;todo abstracto se considera un <strong>interfaz funcional</strong> y esta representado por un <em>“Functional Descriptor”</em>. Cuando hablamos de <em>“Functional Descriptor”</em> de un interfaz nos referimos a la firma del m&eacute;todo abstracto, que est&aacute; compuesta por sus par&aacute;metros, el tipo de los par&aacute;metros, el tipo que devuelve el m&eacute;todo y las excepciones que lanza:</p> 
+<p></p>
+<pre>//Interfaz Runnable
+() -&gt; void
+ 
+//Interfaz Executor 
+(Runnable) -&gt; void</pre>
+<p></p> 
+<p>Los interfaces comentados anteriormente son considerados <strong>interfaces funcionales</strong>. Como por ejemplo, el interfaz Runnable que s&oacute;lo define un m&eacute;todo abstracto:</p> 
+<p></p>
+<pre>@FunctionalInterface
+public interface Runnable {
+    public abstract void run();
+}</pre>
+<p></p> 
+<p>Cuando miramos m&aacute;s a fondo el interfaz Comparator:</p> 
+<p></p>
+<pre>public interface Comparator { 
+    int compare(T o1, T o2); 
+
+    boolean equals(Object obj); 
+}</pre>
+<p></p> 
+<p> Vemos que el interfaz tiene declarados dos m&eacute;todos abstractos (adem&aacute;s de varios m&eacute;todos <em>est&aacute;ticos</em> y <em>default</em>). Uno de estos es el m&eacute;todo <em>compare</em> y otro es el m&eacute;todo <em>equals</em>, que sobrescribe el m&eacute;todo de la clase <em>Object</em>. &Eacute;ste interfaz no se ajustar&iacute;a a la anterior definici&oacute;n de <strong>interfaz funcional</strong> al tener dos m&eacute;todos abstractos, pero en la definici&oacute;n de <strong>interfaz funcional</strong> se indica que en un interfaz pueden existir m&uacute;ltiples m&eacute;todos abstractos siempre que todos menos uno sobrescriban un m&eacute;todo p&uacute;blico de la clase <em>Object</em>. </p> 
+<p>Ahora se pueden a&ntilde;adir m&eacute;todos <em>default</em> o <em>static</em> a los interfaces pero estos m&eacute;todos no son abstractos, de modo que un <strong>interfaz funcional</strong> podr&aacute; tener tantos m&eacute;todos de este tipo como se desee.</p> 
+<p>Adem&aacute;s, se ha creado una nueva anotaci&oacute;n, <strong>@FunctionalInterface</strong>, para indicar la intenci&oacute;n de ser un <strong>interfaz funcional</strong>, produciendo un error de compilaci&oacute;n si el interfaz no cumple las caracter&iacute;sticas de un interfaz funcional. Al igual que <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" title="@Override"><em>@Override</em></a>, esta notaci&oacute;n no es obligatoria pero es recomendable su uso para mejorar la legibilidad.</p> 
+<p>Los <strong>interfaces funcionales</strong> est&aacute;n muy relacionados con las expresiones lambdas. Cuando ejecutamos una expresi&oacute;n lambda esta es convertida a un <strong>interfaz funcional</strong>, donde el cuerpo de la expresi&oacute;n lambda es la implementaci&oacute;n del m&eacute;todo abstracto. En un siguiente articulo intentar&eacute; explicar mejor las expresiones lambda para que se entienda mejora la relaci&oacute;n que tienen con los <strong>interfaces funcionales</strong>.</p> 
+<p>The post <a href="http://codecriticon.com/interfaces-funcionales-jdk8/">Interfaces Funcionales en Java 8</a> appeared first on <a href="http://codecriticon.com">Codecriticon</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8" st_title="Interfaces Funcionales en Java 8 | Codecriticon"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 969,
+      "url" : "http://www.blogstack.info/post/codecriticon/2014/04/interfaces-funcionales-en-java-8"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "codecriticon",
+      "name" : "Codecriticon"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3975359868571413",
+        "adSlotBillboard" : "1725339562",
+        "adSlotHorizontalSkycraper" : "1725339562",
+        "adSlotBigRectangle" : "3202072766",
+        "adSlotWideSkycraper" : "4678805966"
+      }
+    }
+  ]
+]); });</script></body></html>

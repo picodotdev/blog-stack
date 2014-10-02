@@ -79,8 +79,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
     },
     {
-      "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
-      "title" : "Configuración usando código Java"
+      "url" : "/post/codecriticon/2014/09/funciones-en-scala-breve-introduccion",
+      "title" : "Funciones en Scala, breve introducción"
     }
   ]
 }
