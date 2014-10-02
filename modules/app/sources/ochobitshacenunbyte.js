@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
+      "title" : "Gestión de proyectos con OpenProject"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
       "title" : "Configuración de red en KVM en modo public bridge"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-y-configurar-nagios-en-servidor-debian-7-parte-iii",
       "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte III)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/la-fsf-y-debian-unen-fuerzas",
-      "title" : "La FSF y Debian unen fuerzas"
     }
   ]
 }

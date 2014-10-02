@@ -1,0 +1,231 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Gestión de proyectos con OpenProject | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject"><span itemprop="headline">Gestión de proyectos con OpenProject</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/ubuntu"><img title="ubuntu" alt="ubuntu" src="/assets/images/labels/ubuntu.png"/></a><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/programas"><img title="programas" alt="programas" src="/assets/images/labels/programas.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/10/02/gestion-de-proyectos-con-openproject/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-02T09:23" itemprop="datePublished">Publicado el jueves, 02 de octubre de 2014 a las 09:23 UTC</span></div><div><span datetime="2014-10-02T11:52" itemprop="dateModified">Actualizado el jueves, 02 de octubre de 2014 a las 11:52 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/ubuntu"><span itemprop="articleSection">ubuntu</span></a>, blog-stack, comunidad-open-source, <a href="/label/linux"><span itemprop="articleSection">linux</span></a>, openproject, <a href="/label/programas"><span itemprop="articleSection">programas</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-dsing-800.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-dsing-800.jpg" alt="openproject-dsing-800" width="800" height="538" /></a></p> 
+<p>La gesti&oacute;n de proyectos en las empresas e incluso para los trabajadores aut&oacute;nomos es clave. OpenProject es un sistema de gesti&oacute;n de proyectos que funciona a trav&eacute;s de la web, que de &eacute;sta manera permite a m&uacute;ltiples usuarios, independientemente de su localizaci&oacute;n, participar y gestionar los proyectos. OpenProject es software libre, utiliza la Licencia P&uacute;blica General GNU, y sus desarrollo es continuo desde la comunidad.</p> 
+<p>&nbsp;</p> 
+<p><strong>&iquest;Qu&eacute; ofrece OpenProject?</strong></p> 
+<ul> 
+ <li>Gesti&oacute;n de proyectos</li> 
+ <li>Gesti&oacute;n de problemas e incidencias</li> 
+ <li>Plazos de los proyectos</li> 
+ <li>Wiki</li> 
+ <li>Gesti&oacute;n documental</li> 
+ <li>Foro</li> 
+ <li>Muchas otras caracter&iacute;sticas</li> 
+ <li></li> 
+</ul> 
+<p><strong>&iquest;Qui&eacute;n hay detr&aacute;s de OpenProject?</strong></p> 
+<p>La Fundaci&oacute;n OpenProject se cre&oacute; en el a&ntilde;o 2012. La fundaci&oacute;n ofrece un marco organizativo y t&eacute;cnico, ya que gran parte desarrollo se realiza desde una comunidad a nivel mundial.</p> 
+<p>&nbsp;</p> 
+<p><strong>&iquest;C&oacute;mo lo instalamos en un servidor GNU/Linux?</strong></p> 
+<p>Para el art&iacute;culo he usado un servidor Ubuntu Server 14.04, antes de instalar el software debemos de cumplir con los requisitos, que son:</p> 
+<ul> 
+ <li>Ruby 2.1.0</li> 
+ <li>Git</li> 
+ <li>Bundler</li> 
+ <li>Base de datos MySQL 5.x o PostgreSQL 8.x</li> 
+ <li></li> 
+</ul> 
+<p><strong>Instalamos los paquetes:</strong></p> 
+<pre>apt-get install git curl</pre> 
+<p>Las dependencias necesarias para las <strong><em>gems</em></strong> de Ruby:</p> 
+<pre>apt-get install build-essential libxslt-dev libxml2-dev libmysql-ruby libmysqlclient-dev libpq-dev libsqlite3-dev libyaml-0-2</pre> 
+<p>Habilitamos OpenProject para generar im&aacute;genes:</p> 
+<pre>apt-get install libmagickwand-dev libmagickcore-dev libmagickcore4-extra libgraphviz-dev libgvc5</pre> 
+<p>Instalamos el servidor MySQL (la otra alternativa es usar PostgreSQL)</p> 
+<pre>sudo apt-get install mysql-server</pre> 
+<p>Nos pedir&aacute; de crear una contrase&ntilde;a de root para el servidor de base de datos:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-1.jpg" alt="openproject-captura-1" width="800" height="247" /></a></p> 
+<p>Instalamos el servidor de cach&eacute; memched, no es obligatorio pero si recomendable para entornos en producci&oacute;n.</p> 
+<pre>sudo apt-get install memcached
+
+</pre> 
+<p><strong>Creamos usuario y grupo openproject</strong></p> 
+<p>Se recomienda un usuario y grupo separado para openproject, sobre todo en entornos de producci&oacute;n, no ser&iacute;a necesario para un entorno de desarrollo o test.</p> 
+<pre>groupadd openproject
+useradd --create-home --gid openproject openproject
+passwd openproject # (la contrase&ntilde;a que queramos)</pre> 
+<p>A partir de &eacute;ste punto continuaremos la instalaci&oacute;n con el usuario openproject reci&eacute;n creado. De &eacute;sta manera todos los ficheros y directorios creados ser&aacute;n asignados a &eacute;ste usuario.</p> 
+<pre>su openproject -c &quot;bash -l&quot;</pre> 
+<p>Accedemos al directorio de trabajo del usuario.</p> 
+<p>&nbsp;</p> 
+<p><strong>Instalamos Ruby Version Manager (RVM)</strong></p> 
+<p>Nos permitir&aacute; trabajar con diferentes versiones de Ruby.</p> 
+<pre>\curl -L https://get.rvm.io | bash -s stable
+source $HOME/.rvm/scripts/rvm</pre> 
+<p>Nos resultar&aacute; algo similar a la siguiente imagen:</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-2.jpg" alt="openproject-captura-2" width="800" height="388" /></a></p> 
+<p>&nbsp;</p> 
+<p><strong>Instalamos Ruby usando RVM</strong></p> 
+<p>Deshabilitamos<strong><em> rvm autolibs</em></strong>, ya que no necesitamos privilegios para instalar Ruby.</p> 
+<pre>rvm autolibs disable
+rvm install 2.1.0</pre> 
+<p>Instalamos Bundler</p> 
+<pre>gem install bundler</pre> 
+<p>Verificamos la instalaci&oacute;n comprobando la versi&oacute;n:</p> 
+<pre>bundle --version</pre> 
+<p>&nbsp;</p> 
+<p><strong>Clonamos el repositorio OpenProject</strong></p> 
+<pre>git clone https://github.com/opf/openproject.git
+cd openproject
+git checkout stable</pre> 
+<p>&nbsp;</p> 
+<p><strong>Iniciamos Bundler para instalar todas las gemas</strong></p> 
+<pre>bundle install</pre> 
+<p>o el siguiente comando si no instalamos <strong><em>rmagick</em></strong></p> 
+<pre>bundle install --without rmagick
+
+</pre> 
+<p>Al terminar la instalaci&oacute;n veremos la siguiente imagen:</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-3.jpg" alt="openproject-captura-3" width="628" height="293" /></a></p> 
+<p>Esto significa que todo ha ido bien hasta aqu&iacute;.</p> 
+<p>&nbsp;</p> 
+<p><strong>Configuramos la base de datos con MySQL</strong></p> 
+<p>Creamos base de datos y datos de usuario:</p> 
+<pre>CREATE DATABASE openproject CHARACTER SET utf8;
+CREATE USER 'openproject'@'localhost' IDENTIFIED BY 'my_password';
+GRANT ALL PRIVILEGES ON openproject.* TO 'openproject'@'localhost';</pre> 
+<p>&nbsp;</p> 
+<p>Debemos de crear tambi&eacute;n la base de datos <strong><em>openproject_development</em> </strong>y <strong>openproject_test</strong>, asignado los privilegios al usuario openproject.</p> 
+<p><strong>Configuramos OpenProject</strong></p> 
+<p>Copiamos config/database.yml.example a config/database.yml</p> 
+<p>Edita database.yml, con el nombre de la base de datos y las credenciales.</p> 
+<p>Tenemos que crear una cuenta de correo para los avisos de openproject. En el ejemplo est&aacute; usando una cuenta de gmail.</p> 
+<p>Copiamos config/configuration.yml.exaple a config/configuracion.yml</p> 
+<p>Editamos el archivo con una configuraci&oacute;n similar a la siguiente:</p> 
+<pre># default configuration options for all environments
+default:
+  # Outgoing emails configuration (see examples above)
+  email_delivery:
+    delivery_method: :smtp
+    perform_deliveries: true
+    smtp_settings:
+      address: smtp.gmail.com
+      port: 587
+      enable_starttls_auto: true
+      domain: &quot;gmail.com&quot; 
+      authentication: :login
+      user_name: &quot;yourgmailaccountname”
+      password: &quot;yourpassword&quot;</pre> 
+<p>A&ntilde;adimos la l&iacute;nea:</p> 
+<p>enable_starttls_auto: true</p> 
+<p>Habilitamos memcached:</p> 
+<pre>rails_cache_store: :memcache</pre> 
+<p>Creamos las bases de datos:</p> 
+<pre>bundle exec rake db:create:all</pre> 
+<p>Nos dir&aacute; que las bases de datos ya existen.</p> 
+<p>&nbsp;</p> 
+<p><strong>Instalando Plugins (opcional)</strong></p> 
+<p>Crearemos un fichero llamado <strong>Gemfile.plugins</strong> y en &eacute;l a&ntilde;adiremos los plugins que queramos utilizar. (<a title="OpenProject Plugins" href="https://www.openproject.org/projects/openproject/wiki/OpenProject_Plug-Ins">M&aacute;s info</a>)</p> 
+<pre>nano Gemfile.plugins
+gem &quot;openproject-plugins&quot;, &quot;~&gt; 1.0.2&quot;, :branch =&gt; 'stable'</pre> 
+<p>Instalamos el plugin:</p> 
+<pre>bundle install</pre> 
+<p>&nbsp;</p> 
+<p><strong>Arrancamos OpenProject</strong></p> 
+<p>Para iniciar el servicio lo haremos con el comando:</p> 
+<pre>bundle exec rails server</pre> 
+<p>Ya nos podemos ir a nuestro navegador, y escribir <strong>http://localhost:3000</strong></p> 
+<p>El usuario y contrase&ntilde;a por defecto son <strong><em>admin</em></strong>.</p> 
+<p>Y ya lo tenemos funcionando:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-5.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/openproject-captura-5.jpg" alt="openproject-captura-5" width="800" height="314" /></a></p> 
+<p>En la pr&oacute;xima parte instalaremos el m&oacute;dulo <strong><em>passenger</em></strong>, que junto con Apache2 nos permitir&aacute; usar OpenProject a trav&eacute;s del puerto 80.</p> 
+<p><strong><em>See you soon!</em></strong></p> 
+<p>&nbsp;</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject" st_title="Gestión de proyectos con OpenProject | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/ubuntu/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta ubuntu</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li><li><a href="/label/programas/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programas</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 966,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotBillboard" : "5825737840",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

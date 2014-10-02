@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
+      "title" : "Gestión de proyectos con OpenProject"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
       "title" : "Configuración usando código Java"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
-      "title" : "Virtualizando con KVM"
     }
   ]
 }
