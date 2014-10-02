@@ -59,8 +59,8 @@ public class ShareServiceImpl implements ShareService {
 		} else {
 			message.append(post.getTitle());
 		}
-		if ((message.toString() + " via " + post.getSource().getAlias()).length() <= 117) {
-			message.append(" via " + post.getSource().getAlias());
+		if ((message.toString() + " vía " + post.getSource().getAlias()).length() <= 117) {
+			message.append(" vía " + post.getSource().getAlias());
 		}
 		for (Label l : getLabels(post)) {
 			String ln = l.getName().replaceAll("-", "");

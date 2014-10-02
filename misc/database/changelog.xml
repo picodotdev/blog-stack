@@ -472,5 +472,25 @@
             <column name="url" value="http://victorhckinthefreeworld.wordpress.com/feed/"/>
             <where>alias = 'victorhckinthefreeworld'</where>
         </update>
-    </changeSet>    
+    </changeSet>
+    <changeSet id="25" author="picodotdev">
+        <comment>Agregación de fuente (02-10-2014)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-3975359868571413" />
+            <column name="adsenseSlotBigRectangle" value="3202072766" />
+            <column name="adsenseSlotWideSkycraper" value="4678805966" />
+            <column name="adsenseSlotHorizontalSkycraper" value="1725339562" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Codecriticon"/>
+            <column name="alias" value="codecriticon"/>
+            <column name="pageUrl" value="http://codecriticon.es"/>
+            <column name="url" value="http://codecriticon.com/feed/"/>
+            <column name="author" value=" Antonio Vidal"/>
+            <column name="email" value="lalin1982@gmail.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet> 
 </databaseChangeLog>

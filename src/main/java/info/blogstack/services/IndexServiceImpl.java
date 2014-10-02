@@ -180,17 +180,17 @@ public class IndexServiceImpl implements IndexService {
 
 		// Search by hash
 		DateTime now = DateTime.now();
-		DateTime publishDate = (entry.getPublishedDate() == null) ? null : new DateTime(entry.getPublishedDate());
 		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
+		DateTime publishDate = (entry.getPublishedDate() == null) ? updateDate : new DateTime(entry.getPublishedDate());
 
 		if (post == null) {
-			post = new Post();
-			post.setSource(source);
-			post.setUpdateDate(updateDate);
-			post.setPublishDate(publishDate);
-			post.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
+			Post p = new Post();
+			p.setSource(source);
+			p.setUpdateDate(updateDate);
+			p.setPublishDate(publishDate);
+			p.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
 			
-			post = service.getPostDAO().findByHash(Utils.getHash(post));
+			post = service.getPostDAO().findByHash(Utils.getHash(p));
 			if (post != null && !source.equals(post.getSource())) {
 				logger.warn(String.format("Article with same hash and different source (post: %s, source: %s, post source: %s)", post.getId(), source.getName(), post.getSource().getName()));
 				post = null;
