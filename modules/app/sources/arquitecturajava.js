@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
+      "title" : "Expresiones Lambda y ejecución en paralelo"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
       "title" : "Sublime Text editor y su exito para CantabriaTIC"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
       "title" : "Java EE JSON y procesamiento (JSR 353)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales",
-      "title" : "JQuery Ajax y Eventos Globales"
     }
   ]
 }

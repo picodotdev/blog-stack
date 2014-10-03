@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
+      "title" : "Expresiones Lambda y ejecución en paralelo"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
       "title" : "Me cambio a KDE en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
       "title" : "Fondos de escritorio 15"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/security-feed-feeds-de-seguridad-y-ethical-hacking-en-un-solo-lugar",
-      "title" : "Security Feed \u2013 Feeds de Seguridad y Ethical Hacking en un solo lugar"
     }
   ]
 }

@@ -3,10 +3,47 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-02T18:49:28Z</updated>
+  <updated>2014-10-03T11:02:55Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-02T18:49:28Z</dc:date>
+  <dc:date>2014-10-03T11:02:55Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Expresiones Lambda y ejecución en paralelo</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo" />
+    <category term="buenas-practicas" />
+    <category term="java" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-10-03T10:40:14Z</updated>
+    <published>2014-10-03T10:40:14Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Poco a poco vamos conociendo como utilizar las expresiones lambda y sacarles partido&lt;/strong&gt;. Hay en algunas ocasiones que nos pueden resultar especialmente &amp;uacute;tiles. Por ejemplo nos podemos encontrar con listas de elementos que tienen un tama&amp;ntilde;o muy grande y tenemos la necesidad de procesarlas realizando varias operaciones con expresiones lambda. Operaciones que pueden suponer desde filtrados, pasando por c&amp;aacute;lculos hasta agrupaciones. Veamos un ejemplo sencillo:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava.ejemplo2;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Principal {
+
+public static void main(String[] args) {
+
+List lista= Arrays.asList(100,200,300,100,500);
+
+double total=lista.stream()
+.filter(elemento-&amp;gt;(elemento&amp;gt;200))
+.mapToDouble(elemento-&amp;gt;elemento*1.21).sum();
+
+System.out.println(total);
+}
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-10-03T10:40:14Z</dc:date>
+  </entry>
   <entry>
     <title>Configuración usando código Java</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" />
@@ -916,22 +953,6 @@ return lista.iterator();
 &lt;h2&gt;Stateless&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/codecriticon/2014/05/que-es-play-2-framework"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Antonio</dc:creator>
     <dc:date>2014-05-29T21:17:38Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java y Flexibilidad para (GenbetaDev)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev" />
-    <category term="sin-categoria" />
-    <category term="jee" />
-    <category term="java" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-05-23T10:36:30Z</updated>
-    <published>2014-05-23T10:36:30Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hoy comienzo un nuevo proyecto de colaboraci&amp;oacute;n con&amp;nbsp;la gente de&amp;nbsp;&lt;a href="http://www.genbetadev.com/"&gt;GenbetaDev&lt;/a&gt;&amp;nbsp;como nuevo editor encargado sobre todo de escribir sobre tecnolog&amp;iacute;as Java. La verdad es que creo que va ser todo un reto y tendr&amp;eacute; muchas cosas que aprender sobre esta labor tan interesante que es ser editor para un portal de referencia como son ellos. Creo que mis experiencias en mi blog &amp;nbsp;y en CantabriaTic han sido claves para poder abordar este nuevo proyecto con seguridad. Aqu&amp;iacute; os dejo mi primera aportaci&amp;oacute;n al blog&amp;nbsp;de GenbetaDev &amp;nbsp;:&lt;a title="Java y Flexibilidad" href="http://www.genbetadev.com/java-j2ee/java-y-flexibilidad"&gt;Java y flexibilidad.&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/java-y-flexibilidad-para-genbetadev/"&gt;Java y Flexibilidad para (GenbetaDev)&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/05/java-y-flexibilidad-para-genbetadev"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-05-23T10:36:30Z</dc:date>
   </entry>
 </feed>
 
