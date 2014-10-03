@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/10/jaulas-de-oro",
+      "title" : "Jaulas de oro"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
       "title" : "Expresiones Lambda y ejecución en paralelo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
       "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
-      "title" : "Fondos de escritorio 15"
     }
   ]
 }

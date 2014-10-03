@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/10/jaulas-de-oro",
+      "title" : "Jaulas de oro"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/09/una-mano-mas",
       "title" : "Una mano más"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/11/chakra-y-gtk-otra-vuelta-de-tuerca",
       "title" : "Chakra y GTK: otra vuelta de tuerca"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/11/ubuntu-13-1-una-version-muy-buena",
-      "title" : "Ubuntu 13.10: una versión muy buena"
     }
   ]
 }
