@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
+      "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
       "title" : "¿cuanto falta para la próxima versión de openSUSE?"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/06/linux-supremo-absoluto-como-so-entre-los-supercomputadores",
       "title" : "Linux supremo absoluto como SO entre los supercomputadores"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Mayo 2014"
     }
   ]
 }

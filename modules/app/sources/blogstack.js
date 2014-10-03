@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
+      "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/10/jaulas-de-oro",
       "title" : "Jaulas de oro"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/09/reagent-una-liberia-para-usar-reactjs-desde-clojurescript",
       "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
-      "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
     }
   ]
 }
