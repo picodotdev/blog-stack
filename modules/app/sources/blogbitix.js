@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-tansliteracion-de-caracteres",
+      "title" : "Generación de URLs y tansliteración de caracteres"
+    },
+    {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
       "title" : "Agregador Blog Stack rediseñado"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
       "title" : "Página Dashboard de Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/detectar-problema-n-1-y-obtener-estadisticas-de-hibernate-con-grails",
-      "title" : "Detectar problema N+1 y obtener estadísticas de Hibernate con Grails"
     }
   ]
 }

@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Reproduce tu música con Banshee"
     },
     {
+      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-tansliteracion-de-caracteres",
+      "title" : "Generación de URLs y tansliteración de caracteres"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
       "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-171",
       "title" : "Enlaces interesantes 171"
-    },
-    {
-      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
-      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
     }
   ]
 }
