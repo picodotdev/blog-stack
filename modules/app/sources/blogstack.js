@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
+      "title" : "Instalando Telegram en Kubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
       "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-171",
-      "title" : "Enlaces interesantes 171"
     }
   ]
 }

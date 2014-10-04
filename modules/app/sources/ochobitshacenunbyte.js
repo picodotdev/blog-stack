@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
+      "title" : "Instalando Telegram en Kubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
       "title" : "Gestiona tu servidor con Ajenti"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/06/instalar-y-configurar-nagios-en-servidor-debian-7-parte-ii",
-      "title" : "Instalar y configurar Nagios en servidor Debian 7 (Parte II)"
     }
   ]
 }
