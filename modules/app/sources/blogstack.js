@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
+      "title" : "Declaración de variables en expresiones de C# 6"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
+      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
+      "title" : "Inicialización de propiedades en C# 6.0"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres",
       "title" : "Generación de URLs y transliteración de caracteres"
     },
@@ -47,10 +59,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "¿cuanto falta para la próxima versión de openSUSE?"
     },
     {
-      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
-      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
-    },
-    {
       "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
       "title" : "Reglas del aprendiz de hacker informático"
     },
@@ -67,20 +75,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "Agregador Blog Stack rediseñado"
     },
     {
-      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
-      "title" : "Declaración de variables en expresiones de C# 6"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
       "title" : "Configuración de red en KVM en modo public bridge"
     },
     {
       "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
       "title" : "JAX-RS Client y Servicios REST"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
-      "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
     }
   ]
 }
