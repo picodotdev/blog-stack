@@ -56,10 +56,10 @@ public class Utils {
 	}
 
 	public static String urlize(String text) {
-		return Utils.trasnliterate(text.toLowerCase()).replaceAll("[^a-z1-9-]", "-").replaceAll("-+", "-").replaceAll("^-+", "").replaceAll("-+$", "");
+		return Utils.transliterate(text.toLowerCase()).replaceAll("[^a-z1-9-]", "-").replaceAll("-+", "-").replaceAll("^-+", "").replaceAll("-+$", "");
 	}
 	
-	public static String trasnliterate(String s) {
+	public static String transliterate(String s) {
 		try {
 			Process p = Runtime.getRuntime().exec("iconv -f UTF-8 -t ASCII//TRANSLIT");
 			Writer w = new OutputStreamWriter(p.getOutputStream());

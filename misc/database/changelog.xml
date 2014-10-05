@@ -493,4 +493,18 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet> 
+    <changeSet id="26" author="picodotdev">
+        <comment>Agregación de fuente (05-10-2014)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="El blog de Adrián Arroyo"/>
+            <column name="alias" value="elblogdeadrianarroyo"/>
+            <column name="pageUrl" value="http://adrianarroyocalle.github.io/blog"/>
+            <column name="url" value="http://adrianarroyocalle.github.io/blog/planets/blogstack.xml"/>
+            <column name="author" value="Adrián Arroyo"/>
+            <column name="email" value="adrian.arroyocalle@gmail.com"/>
+            <column name="disqusShortname" value="adrianarroyocallegithub"/>            
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet> 
 </databaseChangeLog>
