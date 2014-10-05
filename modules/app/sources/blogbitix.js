@@ -3,8 +3,8 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
-      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-tansliteracion-de-caracteres",
-      "title" : "Generación de URLs y tansliteración de caracteres"
+      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres",
+      "title" : "Generación de URLs y transliteración de caracteres"
     },
     {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",

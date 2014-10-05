@@ -3,16 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres",
+      "title" : "Generación de URLs y transliteración de caracteres"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
       "title" : "Instalando Telegram en Kubuntu"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-tansliteracion-de-caracteres",
-      "title" : "Generación de URLs y tansliteración de caracteres"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
