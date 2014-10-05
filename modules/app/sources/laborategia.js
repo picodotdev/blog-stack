@@ -3,12 +3,12 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
-      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
-      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
-    },
-    {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
+    },
+    {
+      "url" : "/post/laborategia/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-organizacion-y-sobre-todo-que-ventajas-nos-aporta",
+      "title" : "¿Como podemos comenzar a usar un CRM dentro de nuestra organización? Y sobre todo que ventajas nos aporta"
     },
     {
       "url" : "/post/laborategia/2014/09/descubre-la-conexion-entre-tu-telefono-movil-y-la-violencia-en-el-congo",

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
+      "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
       "title" : "Configuración de red en KVM en modo public bridge"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
-      "title" : "JAX-RS Client y Servicios REST"
     }
   ]
 }
