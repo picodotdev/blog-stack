@@ -3,10 +3,31 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-02T18:49:27Z</updated>
+  <updated>2014-10-05T01:03:08Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-02T18:49:27Z</dc:date>
+  <dc:date>2014-10-05T01:03:08Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Generación de URLs y transliteración de caracteres</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-10-05T00:30:00Z</updated>
+    <published>2014-10-03T18:14:18Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En algunas web las urls incluyen el identificativo del objeto de la base de datos a partir de cual se muestra el contenido principal de la p&amp;aacute;gina, en &lt;a href="http://www.blogstack.info"&gt;Blog Stack&lt;/a&gt; esto podr&amp;iacute;a ser un art&amp;iacute;culo. Esto genera urls &amp;laquo;feas&amp;raquo; de cara al usuario y al &lt;a href="http://en.wikipedia.org/wiki/Search_engine_optimization"&gt;SEO&lt;/a&gt; de los buscadores adem&amp;aacute;s de exponer cierta informaci&amp;oacute;n de la base de datos que probablemente no interese a nadie excepto al desarrollador de la p&amp;aacute;gina. En este art&amp;iacute;culo voy a explicar una forma de generar &lt;a href="http://es.wikipedia.org/wiki/URL_sem%C3%A1ntica"&gt;urls sem&amp;aacute;nticas&lt;/a&gt; o &amp;laquo;bonitas&amp;raquo; de cara al usuario y al SEO para los buscadores y como lo he implementado en un ejemplo real como es Blog Stack.&lt;/p&gt; 
+&lt;p&gt;Lo primero que debemos conseguir es que las urls sean &amp;uacute;nicas para cualquier p&amp;aacute;gina de la web, por tanto, en la url deberemos incluir tanta informaci&amp;oacute;n como sea necesaria pero al mismo tiempo la m&amp;iacute;nima para hacerlas &amp;uacute;nicas y que nos permitan identificar de forma unequ&amp;iacute;voca el contenido a mostrar o el objeto que nos permite obtener la informaci&amp;oacute;n a visualizar en la p&amp;aacute;gina, esta informaci&amp;oacute;n formar&amp;aacute; el denominado slug. En el caso de Blog Stack las urls &amp;laquo;bonitas&amp;raquo; se emplean en este momento en dos sitios, para los art&amp;iacute;culos y para las etiquetas. La informaci&amp;oacute;n m&amp;iacute;nima para un art&amp;iacute;culo es el nombre de la fuente, el a&amp;ntilde;o, el mes y el t&amp;iacute;tulo, para las etiquetas es simplemente el nombre de la etiqueta. Este es un desglose de las partes que forman una url.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-10-03T18:14:18Z</dc:date>
+  </entry>
   <entry>
     <title>Configuración usando código Java</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/09/configuracion-usando-codigo-java" />
@@ -800,24 +821,6 @@ public class ObjectsClassExample {
 &lt;br /&gt;El ejemplo consiste en una lista de tareas, pudi&amp;eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&amp;eacute;n se podr&amp;aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&amp;uacute;mero de tareas completadas y de tareas totales.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2013-04-26T19:38:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción y ejemplo de RequireJS</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software-libre" />
-    <category term="javascript" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-04-04T14:46:44Z</updated>
-    <published>2013-03-15T21:18:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="RequireJS" src="http://4.bp.blogspot.com/-M9RUvRUMUuY/UUOEKEfud5I/AAAAAAAACcU/OYXvsfWUBbQ/s1600/requirejs.png" title="RequireJS" /&gt; 
-&lt;/div&gt;Las p&amp;aacute;ginas web ha evolucionado mucho desde sus inicios en los que eran simples p&amp;aacute;ginas est&amp;aacute;ticas hechas con el lenguaje de marcas html, pod&amp;iacute;an contener enlaces e im&amp;aacute;genes. Posteriormente adquirieron capacidad de cambiar a trav&amp;eacute;s un lenguaje de programaci&amp;oacute;n que en el servidor genera el c&amp;oacute;digo html de forma din&amp;aacute;mica bas&amp;aacute;ndose en la informaci&amp;oacute;n que el usuario pod&amp;iacute;a enviar en un formulario, tambi&amp;eacute;n se incorpora cierta programaci&amp;oacute;n en el cliente con javascript. Con las nuevas versiones del est&amp;aacute;ndar html, los avances de los navegadores y una explosi&amp;oacute;n de dispositivos m&amp;oacute;viles de gran capacidad las aplicaciones est&amp;aacute;n evolucionando hacia el cliente, haci&amp;eacute;ndose cada vez m&amp;aacute;s complejas en el lado del navegador del usuario y adquiriendo resposabilidades que antes ten&amp;iacute;a la aplicaci&amp;oacute;n en el lado del servidor. Cada vez hay m&amp;aacute;s librer&amp;iacute;as y frameworks javascript que tratan de resolver problemas espec&amp;iacute;ficos de las aplicaciones de internet. Entre estas librer&amp;iacute;as algunas de las m&amp;aacute;s conocidas son, muy resumidamente:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/03/introduccion-y-ejemplo-de-requirejs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-03-15T21:18:00Z</dc:date>
   </entry>
 </feed>
 
