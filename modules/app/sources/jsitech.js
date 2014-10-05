@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
+      "title" : "Felicidades a la Comunidad DragonJar"
+    },
+    {
       "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
       "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
     },

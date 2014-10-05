@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
+      "title" : "Felicidades a la Comunidad DragonJar"
+    },
+    {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
       "title" : "Agregador Blog Stack rediseñado"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
-      "title" : "Configuración de red en KVM en modo public bridge"
     }
   ]
 }
