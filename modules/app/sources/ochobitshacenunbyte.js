@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
+      "title" : "GLPI, Mucho más que un gestor de parque informático"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
       "title" : "Ogg,  el formato contenedor libre y abierto"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
       "title" : "Extiende la consola con Byobu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
-      "title" : "Crea tu propia tienda online con OsCommerce"
     }
   ]
 }

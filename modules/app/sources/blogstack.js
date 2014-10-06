@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
+      "title" : "GLPI, Mucho más que un gestor de parque informático"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
       "title" : "Ogg,  el formato contenedor libre y abierto"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
       "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
-      "title" : "¿cuanto falta para la próxima versión de openSUSE?"
     }
   ]
 }
