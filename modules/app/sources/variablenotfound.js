@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
+      "title" : "Enlaces interesantes 172"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
       "title" : "Enlaces interesantes 163"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-162",
-      "title" : "Enlaces interesantes 162"
     }
   ]
 }

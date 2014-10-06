@@ -3,6 +3,14 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
+      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/10/solucionar-problema-de-bateria-en-cyanogenmod-11",
+      "title" : "Solucionar problema de batería en Cyanogenmod 11"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/10/jaulas-de-oro",
       "title" : "Jaulas de oro"
     },
@@ -17,10 +25,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/06/redfox-software-de-gestion-de-pymes-de-codigo-abierto",
       "title" : "RedFox: software de gestión de PYMES de código abierto"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
-      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
     },
     {
       "url" : "/post/lasombradelhelicoptero/2014/05/chakra-y-yo",
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/12/linux-mint-16-petra-7-meses-de-excelencia",
       "title" : "Linux Mint 16 Petra: 7 meses de excelencia"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/11/chakra-y-gtk-otra-vuelta-de-tuerca",
-      "title" : "Chakra y GTK: otra vuelta de tuerca"
     }
   ]
 }

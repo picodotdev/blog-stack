@@ -3,6 +3,22 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
+      "title" : "Enlaces interesantes 172"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
+      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/10/solucionar-problema-de-bateria-en-cyanogenmod-11",
+      "title" : "Solucionar problema de batería en Cyanogenmod 11"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
+      "title" : "Ogg,  el formato contenedor libre y abierto"
+    },
+    {
       "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
       "title" : "Felicidades a la Comunidad DragonJar"
     },
@@ -65,22 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
       "title" : "¿cuanto falta para la próxima versión de openSUSE?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
-      "title" : "Reglas del aprendiz de hacker informático"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
-      "title" : "Sublime Text editor y su exito para CantabriaTIC"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/the-original-hacker-no-9-fuera-de-lo-comun-puede-ser",
-      "title" : "The Original Hacker No. 9, Fuera de lo común? Puede ser"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
-      "title" : "Agregador Blog Stack rediseñado"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
+      "title" : "Ogg,  el formato contenedor libre y abierto"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
       "title" : "Instalando Telegram en Kubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce",
       "title" : "Crea tu propia tienda online con OsCommerce"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/gestiona-tu-servidor-con-ajenti",
-      "title" : "Gestiona tu servidor con Ajenti"
     }
   ]
 }
