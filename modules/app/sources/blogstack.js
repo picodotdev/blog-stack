@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
+      "title" : "Ogg,  el formato contenedor libre y abierto"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
       "title" : "Enlaces interesantes 172"
     },
@@ -13,10 +17,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/10/solucionar-problema-de-bateria-en-cyanogenmod-11",
       "title" : "Solucionar problema de batería en Cyanogenmod 11"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
-      "title" : "Ogg,  el formato contenedor libre y abierto"
     },
     {
       "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
