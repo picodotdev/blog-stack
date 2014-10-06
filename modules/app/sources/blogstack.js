@@ -43,8 +43,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Inicialización de propiedades en C# 6.0"
     },
     {
-      "url" : "/post/blogbitix/2014/10/generacion-de-urls-y-transliteracion-de-caracteres",
-      "title" : "Generación de URLs y transliteración de caracteres"
+      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
+      "title" : "Generar URLs semánticas y amigables"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
