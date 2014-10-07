@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/el-operador-nameof-de-c-6",
+      "title" : "El operador nameof de C# 6"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
       "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
-      "title" : "Webempresa, un buen hosting para WordPress"
     }
   ]
 }

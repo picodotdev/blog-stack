@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/el-operador-nameof-de-c-6",
+      "title" : "El operador nameof de C# 6"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
       "title" : "Enlaces interesantes 172"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/06/novedades-de-signalr-2-1-i-hubs-tipados",
       "title" : "Novedades de SignalR 2.1 (I): Hubs tipados"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-163",
-      "title" : "Enlaces interesantes 163"
     }
   ]
 }

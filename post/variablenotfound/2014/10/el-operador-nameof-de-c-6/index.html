@@ -1,0 +1,163 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>El operador nameof de C# 6 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/10/el-operador-nameof-de-c-6"><span itemprop="headline">El operador nameof de C# 6</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/4En-Ql5Mhec/el-operador-nameof-de-c-6.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-07T11:58" itemprop="datePublished">Publicado el martes, 07 de octubre de 2014 a las 11:58 UTC</span></div><div><span datetime="2014-10-07T11:58" itemprop="dateModified">Actualizado el martes, 07 de octubre de 2014 a las 11:58 UTC</span></div><div><span>
+Etiquetado como
+novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a>, c-6</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="image" src="http://lh4.ggpht.com/-DOOn_-7Mu9A/VChOc0hcmQI/AAAAAAAADl0/EFXpyHRG0YY/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" />Cuando los lenguajes evolucionan, no todas las novedades son espectaculares ni revolucionan la forma de escribir nuestro c&oacute;digo. A veces la cosa va simplemente de a&ntilde;adir peque&ntilde;os detalles que nos hacen la vida m&aacute;s f&aacute;cil y ayudan a evitar errores.
+<br />
+<br />Y hoy hablaremos de uno de ellos: el nuevo operador 
+<code>nameof</code>, que acompa&ntilde;ar&aacute; a C# a partir de su versi&oacute;n 6.
+<br />
+<a></a>
+<br />Imaginad un escenario que podr&iacute;a ser bastante frecuente, como el siguiente:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-jklcel_XyH8/VChOdnlpggI/AAAAAAAADl8/rim23mwhtDY/image%25255B2%25255D.png?imgmax=800" height="149" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="439" />
+<br />
+<br />Observad que mediante el uso de las constantes 
+<code>&quot;firstString&quot;</code>&nbsp; y 
+<code>&quot;secondString&quot;</code> estamos introduciendo una dependencia en nuestro c&oacute;digo entre dos elementos que viven en mundos diferentes, como son el nombre de una variable a nivel de c&oacute;digo y la cadena que representa el nombre de dicho par&aacute;metro en tiempo de ejecuci&oacute;n.
+<br />
+<br />El problema que tiene esto es que si m&aacute;s adelante decidimos refactorizar y modificar el nombre de los par&aacute;metros, muy probablemente olvidaremos modificar estas cadenas de texto, por lo que la excepci&oacute;n no mostrar&aacute; informaci&oacute;n correcta sobre el error.
+<br />
+<br />Para solucionar este escenario, C# 6 incluir&aacute; el operador 
+<code>nameof</code> que, como se puede intuir, nos ayudar&aacute; a conocer en tiempo de ejecuci&oacute;n el nombre de una variable o miembro tal y como ha sido definida en la codificaci&oacute;n. El ejemplo m&aacute;s sencillo que podemos ver es el siguiente:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-0L0KOFsQ0r0/VChOe84Q4lI/AAAAAAAADmE/lTgXmg1tON0/image%25255B5%25255D.png?imgmax=800" height="41" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="371" />
+<br />
+<br />&iexcl;Voila! Como sabr&eacute;is, conseguir algo similar sin un operador como el que nos regala la nueva versi&oacute;n de C# ser&iacute;a bastante m&aacute;s complejo y farragoso. El operador 
+<code>nameof</code> simplemente retornar&aacute; en forma de cadena de texto el nombre de la variable que le indiquemos.
+<br />
+<br />Volviendo al primer ejemplo, ahora podemos escribir el mismo m&eacute;todo, pero asegurando que la informaci&oacute;n de ayuda de la excepci&oacute;n siempre incluir&aacute; el valor correcto, a prueba de refactorizaciones:
+<br />
+<br />
+<img alt="" src="http://lh3.ggpht.com/-6IKCC09i5fk/VChOfYnh95I/AAAAAAAADmM/BC-Pb-20rfQ/image%25255B11%25255D.png?imgmax=800" height="144" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="441" />
+<br />
+<br />Pero no s&oacute;lo de variables locales y par&aacute;metros se alimenta el operador 
+<code>nameof</code> ;-) En realidad &nbsp;podemos pasarle casi cualquier cosa, y su comportamiento ser&aacute; siempre el esperado:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-jkqv_4Syiqk/VChOgL3_s2I/AAAAAAAADmU/-LP929rcXg8/image%25255B14%25255D.png?imgmax=800" height="69" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="498" />
+<br />
+<br />Aunque hay otros usos que no son tan intuitivos. Por ejemplo, para referenciar miembros de instancia hay que hacerlo como si fueran miembros est&aacute;ticos de la clase donde residen:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-FO5rpAM5auM/VChOgnFRIpI/AAAAAAAADmc/XGbWTugCwIc/image%25255B17%25255D.png?imgmax=800" height="66" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="516" />
+<br />
+<br />Adem&aacute;s de para facilitar el trazado de errores, hay muchos otros escenarios en los que este nuevo operador podr&iacute;a ayudarnos a cometer menos errores. As&iacute; a bote pronto, se me ocurre que en MVC podr&iacute;a ser una v&iacute;a sencilla para evitar las constantes de cadena si quisi&eacute;ramos a&ntilde;adir errores al 
+<code>ModelState</code> de un controlador (cosa que, por otra parte, no es especialmente recomendable):
+<br />
+<br />
+<img alt="" src="http://lh6.ggpht.com/-0qXSA3MEa60/VChOhEy9zPI/AAAAAAAADmk/4hK-aSoWtT8/image%25255B20%25255D.png?imgmax=800" height="149" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="554" />
+<br />
+<br />Tambi&eacute;n ser&iacute;a de utilidad, por ejemplo, si quisi&eacute;ramos implementar un interfaz &nbsp;
+<code>INotifyPropertyChanged</code> o cualquier otro que requiera conocer el nombre del miembro actual. De nuevo, simplemente haciendo uso de 
+<code>nameof</code> podremos averiguar con facilidad el nombre de la propiedad que cambi&oacute; para pasarlo al evento oportuno.
+<br />
+<br />En definitiva, una peque&ntilde;a incorporaci&oacute;n al lenguaje que puede resultar util&iacute;sima en esos escenarios en los que debemos referenciar mediante una cadena de texto el nombre de elementos definidos a nivel de c&oacute;digo.
+<br />
+<br />Por &uacute;ltimo, recordaros que C# 6 traer&aacute; muchas otras novedades. Si quer&eacute;is conocerlas, no os perd&aacute;is los posts anteriores de la serie:
+<br />
+<ul>
+ <li><a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html" title="El operador “-.” en C# y VB.NET, m&aacute;s cerca">El operador “-.” en C# y VB.NET, m&aacute;s cerca</a> </li>
+ <li><a href="http://www.variablenotfound.com/2014/09/inicializacion-de-propiedades-en-c-60.html" title="Inicializaci&oacute;n de propiedades en C# 6.0">Inicializaci&oacute;n de propiedades en C# 6.0</a> </li>
+ <li><a href="http://www.variablenotfound.com/2014/09/uso-de-miembros-estaticos-en-c-6-una.html" title="Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea-">Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea?</a> </li>
+ <li><a href="http://www.variablenotfound.com/2014/09/declaracion-de-variables-en-expresiones-csharp.html">Declaraci&oacute;n de variables en expresiones de C# 6</a> </li>
+</ul>Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=4En-Ql5Mhec:alloeLeI5_g:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=4En-Ql5Mhec:alloeLeI5_g:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=4En-Ql5Mhec:alloeLeI5_g:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=4En-Ql5Mhec:alloeLeI5_g:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/4En-Ql5Mhec" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" st_title="El operador nameof de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 993,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
