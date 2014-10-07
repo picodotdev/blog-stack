@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
+      "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
       "title" : "Webempresa, un buen hosting para WordPress"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
-      "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
     }
   ]
 }
