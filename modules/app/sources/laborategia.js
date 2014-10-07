@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software",
+      "title" : "Sobre la participación de las mujeres en comunidades FLOSS (Free/Libre and Open Source Software)"
+    },
+    {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     },

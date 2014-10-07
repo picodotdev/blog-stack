@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software",
+      "title" : "Sobre la participación de las mujeres en comunidades FLOSS (Free/Libre and Open Source Software)"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
+      "title" : "Instalar y configurar OCS-NG (Segunda parte)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/el-operador-nameof-de-c-6",
       "title" : "El operador nameof de C# 6"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
       "title" : "Expresiones Lambda y ejecución en paralelo"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
-      "title" : "Me cambio a KDE en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
-      "title" : "Gestión de proyectos con OpenProject"
     }
   ]
 }

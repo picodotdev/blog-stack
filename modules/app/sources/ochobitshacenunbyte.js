@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
+      "title" : "Instalar y configurar OCS-NG (Segunda parte)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
       "title" : "Joe, un editor de consola que no te esperabas"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu",
-      "title" : "Extiende la consola con Byobu"
     }
   ]
 }
