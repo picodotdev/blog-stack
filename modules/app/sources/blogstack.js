@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
+      "title" : "Fundación de software Libre. Recopilación de Noticias de septiembre 2014"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
       "title" : "Alemania sigue siendo pionera en software libre"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
       "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/10/jaulas-de-oro",
-      "title" : "Jaulas de oro"
     }
   ]
 }
