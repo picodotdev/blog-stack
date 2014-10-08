@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
+      "title" : "jQuery find vs filter"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
       "title" : "Expresiones Lambda y ejecución en paralelo"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
       "title" : "Java 8 Lambda y forEach (II)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/java-ee-json-y-procesamiento-jsr-353",
-      "title" : "Java EE JSON y procesamiento (JSR 353)"
     }
   ]
 }

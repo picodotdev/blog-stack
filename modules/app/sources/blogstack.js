@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
+      "title" : "jQuery find vs filter"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
       "title" : "Cómo configurar CentOS a través de un proxy"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
       "title" : "Instalando Telegram en Kubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
-      "title" : "Reproduce tu música con Banshee"
     }
   ]
 }
