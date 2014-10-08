@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
+      "title" : "Cómo configurar CentOS a través de un proxy"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
       "title" : "Alemania sigue siendo pionera en software libre"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
       "title" : "Ahora que empiezan el cole, OpenSuse Education"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
-      "title" : "Añadiendo imágenes a nuestro servidor Nagios"
     }
   ]
 }

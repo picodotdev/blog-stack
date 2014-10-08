@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
+      "title" : "Cómo configurar CentOS a través de un proxy"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de septiembre 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
-      "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
     }
   ]
 }
