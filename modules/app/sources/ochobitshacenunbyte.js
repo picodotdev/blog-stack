@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
+      "title" : "Alemania sigue siendo pionera en software libre"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
       "title" : "Instalar y configurar OCS-NG (Segunda parte)"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/anadiendo-imagenes-a-nuestro-servidor-nagios",
       "title" : "Añadiendo imágenes a nuestro servidor Nagios"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/joe-un-editor-de-consola-que-no-te-esperabas",
-      "title" : "Joe, un editor de consola que no te esperabas"
     }
   ]
 }
