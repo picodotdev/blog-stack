@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
+      "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de septiembre 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/08/guia-de-la-fundacion-de-software-libre-para-proteger-la-privacidad-de-tu-correo",
       "title" : "Guía de la Fundación de Software Libre para proteger la privacidad de tu correo"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/07/crunchbang-un-debian-ligero-para-equipos-de-pocos-recursos",
-      "title" : "Crunchbang, un Debian ligero para equipos de pocos recursos"
     }
   ]
 }

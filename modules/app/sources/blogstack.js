@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
+      "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
       "title" : "jQuery find vs filter"
     },
@@ -17,6 +21,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
       "title" : "Alemania sigue siendo pionera en software libre"
+    },
+    {
+      "url" : "/post/elblogdeadrianarroyo/2014/10/la-mistica-relacion-entre-el-9n-y-firefox",
+      "title" : "La mística relación entre el 9N y Firefox"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
       "title" : "Inicialización de propiedades en C# 6.0"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
-      "title" : "Generar URLs semánticas y amigables"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
-      "title" : "Instalando Telegram en Kubuntu"
     }
   ]
 }
