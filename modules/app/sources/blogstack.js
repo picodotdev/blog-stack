@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
+      "title" : "openSUSE 13.2 RC1 recién salida del horno"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
       "title" : "Programando en Free Pascal con Lazarus"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
-      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
+      "title" : "openSUSE 13.2 RC1 recién salida del horno"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
       "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/08/guia-de-la-fundacion-de-software-libre-para-proteger-la-privacidad-de-tu-correo",
-      "title" : "Guía de la Fundación de Software Libre para proteger la privacidad de tu correo"
     }
   ]
 }
