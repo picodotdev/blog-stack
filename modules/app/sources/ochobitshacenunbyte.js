@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
+      "title" : "Programando en Free Pascal con Lazarus"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
       "title" : "Cómo configurar CentOS a través de un proxy"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
       "title" : "Compartiendo carpetas en red con NFS"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education",
-      "title" : "Ahora que empiezan el cole, OpenSuse Education"
     }
   ]
 }

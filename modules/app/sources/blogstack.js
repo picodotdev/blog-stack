@@ -3,16 +3,20 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
+      "title" : "Programando en Free Pascal con Lazarus"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
+      "title" : "Cómo configurar CentOS a través de un proxy"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
       "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
     },
     {
       "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
       "title" : "jQuery find vs filter"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
-      "title" : "Cómo configurar CentOS a través de un proxy"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
       "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
-      "title" : "Inicialización de propiedades en C# 6.0"
     }
   ]
 }
