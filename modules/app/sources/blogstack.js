@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
+      "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
       "title" : "openSUSE 13.2 RC1 recién salida del horno"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
       "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
-      "title" : "Declaración de variables en expresiones de C# 6"
     }
   ]
 }

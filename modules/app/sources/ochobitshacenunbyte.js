@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
+      "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
       "title" : "Programando en Free Pascal con Lazarus"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
       "title" : "Xbox One Controller ya es soportado por Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/compartiendo-carpetas-en-red-con-nfs",
-      "title" : "Compartiendo carpetas en red con NFS"
     }
   ]
 }
