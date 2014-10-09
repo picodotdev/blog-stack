@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
+      "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
       "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
       "title" : "Felicidades a la Comunidad DragonJar"
-    },
-    {
-      "url" : "/post/laborategia/2014/09/mis-votaciones-para-el-premio-portal-programas-al-mejor-software-libre-2-14",
-      "title" : "Mis votaciones para el premio Portal Programas al mejor Software Libre 2014"
     }
   ]
 }

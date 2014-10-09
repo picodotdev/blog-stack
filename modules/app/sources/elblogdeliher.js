@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
+      "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
       "title" : "Me cambio a KDE en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
       "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/mac-no-iphone-si-por-que",
-      "title" : "MAC no, Iphone si, ¿por que?"
     }
   ]
 }
