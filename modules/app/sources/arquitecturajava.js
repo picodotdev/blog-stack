@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
+      "title" : "Arquitecturas JavaScript para desarrolladores Java"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
       "title" : "jQuery find vs filter"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
       "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/java-8-lambda-y-foreach-ii",
-      "title" : "Java 8 Lambda y forEach (II)"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
+      "title" : "Arquitecturas JavaScript para desarrolladores Java"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
       "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/10/solucionar-problema-de-bateria-en-cyanogenmod-11",
       "title" : "Solucionar problema de batería en Cyanogenmod 11"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
-      "title" : "Felicidades a la Comunidad DragonJar"
     }
   ]
 }

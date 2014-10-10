@@ -3,16 +3,35 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-09T23:02:36Z</updated>
+  <updated>2014-10-10T07:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-09T23:02:36Z</dc:date>
+  <dc:date>2014-10-10T07:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Arquitecturas JavaScript para desarrolladores Java</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java" />
+    <category term="arquitecturas-web" />
+    <category term="mvc" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-10-10T06:37:19Z</updated>
+    <published>2014-10-10T06:37:19Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;El mundo de Javascript se terminar&amp;aacute; haciendo un hueco como parte de las arquitecturas que manejamos&lt;/strong&gt;. Habr&amp;aacute; situaciones en las que substituyan a cosas que hemos desarrollado en Java y habr&amp;aacute; otras ocasiones que nos sirvan de complemento. Uno de los problemas m&amp;aacute;s habituales en estas nuevas arquitecturas javascript &lt;strong&gt;es podernos hacer una composici&amp;oacute;n de lugar de los distintos productos que existen&lt;/strong&gt;. Vamos a realizar una peque&amp;ntilde;a introducci&amp;oacute;n a estos.&lt;/p&gt; 
+&lt;h2&gt;Java Virtual Machine&lt;/h2&gt; 
+&lt;p&gt;En el mundo Java todos trabajamos con la JVM y de una forma m&amp;aacute;s que habitual utilizamos alg&amp;uacute;n servidor de aplicaciones encima de ella.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001JVM.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001JVM.gif" alt="001JVM" width="231" height="206" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;El mundo de Javascript es muy similar en cuanto a las grandes estructuras y en este caso las tecnolog&amp;iacute;as que paralelizan a la maquina virtual y al servidor de aplicaciones son :Google V8 y Node.js&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-10-10T06:37:19Z</dc:date>
+  </entry>
   <entry>
     <title>Instalar codecs de audio y video con los extras restringidos en Ubuntu</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu" />
-    <category term="video" />
-    <category term="ubuntu" />
     <category term="conceptos-basicos" />
+    <category term="ubuntu" />
+    <category term="video" />
     <category term="extras-restringidos-ubuntu" />
     <category term="extras-restringidos" />
     <category term="codecs" />
@@ -746,43 +765,6 @@ sudo apt-get -y install luckybackup
 &lt;br /&gt;Os cuento hoy mi historia de resignaci&amp;oacute;n veraniega. Otra m&amp;aacute;s, a&amp;ntilde;adir&amp;iacute;a. Sab&amp;eacute;is ya de sobra cu&amp;aacute;ndo y por qu&amp;eacute; ca&amp;iacute; presa de la comodidad y la facilidad que da un sistema operativo propietario, uno que te lo entrega todo masticado a costa de pagar un doble precio: por un lado el dinero que cuesta y por otro el tener la seguridad de que tus datos son vendidos, reutilizados y tratados cual mercanc&amp;iacute;a por varias empresas de renombre. M&amp;aacute;s adelante os explico c&amp;oacute;mo volv&amp;iacute; a tener conciencia de esto y el porqu&amp;eacute; no me apetec&amp;iacute;a seguir tap&amp;aacute;ndome la nariz solo a cambio de... nada, en realidad.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/lasombradelhelicoptero/2014/10/jaulas-de-oro"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Enrique Bravo</dc:creator>
     <dc:date>2014-10-03T14:31:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Expresiones Lambda y ejecución en paralelo</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo" />
-    <category term="buenas-practicas" />
-    <category term="java" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-10-03T10:40:14Z</updated>
-    <published>2014-10-03T10:40:14Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Poco a poco vamos conociendo como utilizar las expresiones lambda y sacarles partido&lt;/strong&gt;. Hay en algunas ocasiones que nos pueden resultar especialmente &amp;uacute;tiles. Por ejemplo nos podemos encontrar con listas de elementos que tienen un tama&amp;ntilde;o muy grande y tenemos la necesidad de procesarlas realizando varias operaciones con expresiones lambda. Operaciones que pueden suponer desde filtrados, pasando por c&amp;aacute;lculos hasta agrupaciones. Veamos un ejemplo sencillo:&lt;/p&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava.ejemplo2;
-
-import java.util.Arrays;
-import java.util.List;
-
-public class Principal {
-
-public static void main(String[] args) {
-
-List lista= Arrays.asList(100,200,300,100,500);
-
-double total=lista.stream()
-.filter(elemento-&amp;gt;(elemento&amp;gt;200))
-.mapToDouble(elemento-&amp;gt;elemento*1.21).sum();
-
-System.out.println(total);
-}
-
-}
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-10-03T10:40:14Z</dc:date>
   </entry>
 </feed>
 
