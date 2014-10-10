@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
+      "title" : "Gestión de proyectos con OpenProject"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
       "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
     },
@@ -37,10 +41,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
-      "title" : "Gestión de proyectos con OpenProject"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",

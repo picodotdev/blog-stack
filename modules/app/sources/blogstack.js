@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
+      "title" : "Gestión de proyectos con OpenProject"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
       "title" : "Arquitecturas JavaScript para desarrolladores Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
       "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/10/solucionar-problema-de-bateria-en-cyanogenmod-11",
-      "title" : "Solucionar problema de batería en Cyanogenmod 11"
     }
   ]
 }
