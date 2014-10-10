@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
+      "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
       "title" : "Enlaces interesantes 172"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/instalar-cyanogenmod-11-en-galaxy-s3-mini",
-      "title" : "Instalar Cyanogenmod 11 en Galaxy S3 Mini"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
+      "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
+    },
+    {
       "url" : "/post/navegapolis/2014/09/la-casa-blanca-se-desmarca-de-cmmi",
       "title" : "¿La Casa Blanca se desmarca de CMMI?"
     },
