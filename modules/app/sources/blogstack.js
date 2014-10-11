@@ -3,12 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
-      "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
+      "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
+      "title" : "Monitoreando Infraestructura con Zabbix 2.4"
     },
     {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
+      "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
+      "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
-      "title" : "Ogg,  el formato contenedor libre y abierto"
     }
   ]
 }

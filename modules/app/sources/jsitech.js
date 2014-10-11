@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
+      "title" : "Monitoreando Infraestructura con Zabbix 2.4"
+    },
+    {
       "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
       "title" : "Felicidades a la Comunidad DragonJar"
     },
