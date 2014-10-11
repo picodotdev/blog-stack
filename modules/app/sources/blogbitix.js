@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
+      "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
       "title" : "Generar URLs semánticas y amigables"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
       "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/pagina-dashboard-de-apache-tapestry",
-      "title" : "Página Dashboard de Apache Tapestry"
     }
   ]
 }

@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
     },
     {
+      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
+      "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
       "title" : "Ogg,  el formato contenedor libre y abierto"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
-      "title" : "Enlaces interesantes 172"
     }
   ]
 }
