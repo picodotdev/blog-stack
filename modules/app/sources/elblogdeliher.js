@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-16",
+      "title" : "Fondos de escritorio 16"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
       "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
       "title" : "Fondos de escritorio 14"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
-      "title" : "Linux AIO, la evolucion de Ubuntu AIO"
     }
   ]
 }

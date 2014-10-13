@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
+      "title" : "Cómo instalar Proftpd con soporte MySQL"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
       "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux",
-      "title" : "Xbox One Controller ya es soportado por Linux"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
+      "title" : "Cómo instalar Proftpd con soporte MySQL"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-16",
+      "title" : "Fondos de escritorio 16"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
       "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
       "title" : "Instalar y configurar OCS-NG (Segunda parte)"
-    },
-    {
-      "url" : "/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software",
-      "title" : "Sobre la participación de las mujeres en comunidades FLOSS (Free/Libre and Open Source Software)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/el-operador-nameof-de-c-6",
-      "title" : "El operador nameof de C# 6"
     }
   ]
 }
