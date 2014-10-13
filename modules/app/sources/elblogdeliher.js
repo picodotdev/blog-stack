@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
+      "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
       "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/linux-aio-la-evolucion-de-ubuntu-aio",
       "title" : "Linux AIO, la evolucion de Ubuntu AIO"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/como-poner-en-espanol-el-corrector-ortografico-de-libreoffice-en-ubuntu",
-      "title" : "Como poner en español el corrector ortografico de Libreoffice en Ubuntu"
     }
   ]
 }

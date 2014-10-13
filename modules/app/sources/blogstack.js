@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
+      "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
+    },
+    {
       "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
       "title" : "De abstracciones y repositorios"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/el-operador-nameof-de-c-6",
       "title" : "El operador nameof de C# 6"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
-      "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
     }
   ]
 }
