@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
+      "title" : "De abstracciones y repositorios"
+    },
+    {
       "url" : "/post/koalite/2014/09/reagent-una-liberia-para-usar-reactjs-desde-clojurescript",
       "title" : "Reagent, una libería para usar ReactJS desde ClojureScript"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/04/gusenet-2-14-extraordinario-un-ano-mas",
       "title" : "Gusenet 2014, extraordinario un año más"
-    },
-    {
-      "url" : "/post/koalite/2014/04/por-que-sigo-usando-un-orm",
-      "title" : "Por qué sigo usando un ORM"
     }
   ]
 }

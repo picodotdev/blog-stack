@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
+      "title" : "De abstracciones y repositorios"
+    },
+    {
       "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
       "title" : "Monitoreando Infraestructura con Zabbix 2.4"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
       "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
-      "title" : "GLPI, Mucho más que un gestor de parque informático"
     }
   ]
 }
