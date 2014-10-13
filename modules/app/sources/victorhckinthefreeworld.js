@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
+      "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
       "title" : "openSUSE 13.2 RC1 recién salida del horno"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/fundacion-de-software-libre-recopilacion-de-noticias-de-agosto-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de Agosto 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/08/fundacion-de-software-libre-recopilacion-de-noticias-de-julio-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de Julio 2014"
     }
   ]
 }

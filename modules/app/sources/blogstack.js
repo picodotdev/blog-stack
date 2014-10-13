@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
+      "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
       "title" : "Cómo instalar Proftpd con soporte MySQL"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2014/10/la-mistica-relacion-entre-el-9n-y-firefox",
       "title" : "La mística relación entre el 9N y Firefox"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
-      "title" : "Instalar y configurar OCS-NG (Segunda parte)"
     }
   ]
 }
