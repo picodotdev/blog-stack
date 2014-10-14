@@ -3,6 +3,22 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/sorteo-de-una-entrada-gratuita-a-la-librecon",
+      "title" : "Sorteo de una entrada GRATUITA a la Librecon"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
+      "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-173",
+      "title" : "Enlaces interesantes 173"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
+      "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
       "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
     },
@@ -65,22 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
       "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
-      "title" : "jQuery find vs filter"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
-      "title" : "Fundación de software Libre. Recopilación de Noticias de septiembre 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
-      "title" : "Alemania sigue siendo pionera en software libre"
-    },
-    {
-      "url" : "/post/elblogdeadrianarroyo/2014/10/la-mistica-relacion-entre-el-9n-y-firefox",
-      "title" : "La mística relación entre el 9N y Firefox"
     }
   ]
 }

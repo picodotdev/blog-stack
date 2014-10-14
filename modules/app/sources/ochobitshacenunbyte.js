@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
+      "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
       "title" : "Cómo instalar Proftpd con soporte MySQL"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
       "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux",
-      "title" : "Instalar VMware-Tools en servidor virtual GNU Linux"
     }
   ]
 }

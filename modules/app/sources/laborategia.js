@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/sorteo-de-una-entrada-gratuita-a-la-librecon",
+      "title" : "Sorteo de una entrada GRATUITA a la Librecon"
+    },
+    {
       "url" : "/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software",
       "title" : "Sobre la participación de las mujeres en comunidades FLOSS (Free/Libre and Open Source Software)"
     },
