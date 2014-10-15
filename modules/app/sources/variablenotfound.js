@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
+      "title" : "Software patch, literalmente"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-173",
       "title" : "Enlaces interesantes 173"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
       "title" : "Evento: Sevilla Mobility Day"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/06/enlaces-interesantes-164",
-      "title" : "Enlaces interesantes 164"
     }
   ]
 }

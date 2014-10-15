@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
+      "title" : "Software patch, literalmente"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
       "title" : "Arquitecturas JavaScript para desarrolladores Java"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
-      "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
     }
   ]
 }
