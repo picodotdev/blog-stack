@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
+      "title" : "Usando Java Session en aplicaciones web"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
       "title" : "Arquitecturas JavaScript para desarrolladores Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
       "title" : "Spring Anotaciones vs XML"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic",
-      "title" : "Arquitecturas Web y MEAN Stack (CantabriaTIC)"
     }
   ]
 }

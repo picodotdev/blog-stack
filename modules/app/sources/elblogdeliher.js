@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-mostrar-los-acentos-y-las-n-en-html",
+      "title" : "Como mostrar los acentos y las ñ en HTML"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-16",
       "title" : "Fondos de escritorio 16"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
       "title" : "Mi nuevo conky"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-14",
-      "title" : "Fondos de escritorio 14"
     }
   ]
 }

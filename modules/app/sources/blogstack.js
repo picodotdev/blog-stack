@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
+      "title" : "Usando Java Session en aplicaciones web"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/como-mostrar-los-acentos-y-las-n-en-html",
+      "title" : "Como mostrar los acentos y las ñ en HTML"
+    },
+    {
       "url" : "/post/laborategia/2014/10/sorteo-de-una-entrada-gratuita-a-la-librecon",
       "title" : "Sorteo de una entrada GRATUITA a la Librecon"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
       "title" : "Programando en Free Pascal con Lazarus"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
-      "title" : "Cómo configurar CentOS a través de un proxy"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
-      "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
     }
   ]
 }
