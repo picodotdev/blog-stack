@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle",
+      "title" : "Vulnerabilidad Reportada en SSL 3.0 (POODLE)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
       "title" : "Software patch, literalmente"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
-      "title" : "Arquitecturas JavaScript para desarrolladores Java"
     }
   ]
 }
