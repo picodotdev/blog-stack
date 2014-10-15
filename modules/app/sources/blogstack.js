@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
+      "title" : "GLPI, Mucho más que un gestor de parque informático"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
+      "title" : "Configurar correo en servidor GLPI"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia",
+      "title" : "El Mountain Graphite 30 Pro de 17 pulgadas de Victor y su experiencia"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
       "title" : "Usando Java Session en aplicaciones web"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
       "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
-      "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
-      "title" : "openSUSE 13.2 RC1 recién salida del horno"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
-      "title" : "Programando en Free Pascal con Lazarus"
     }
   ]
 }

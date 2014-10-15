@@ -3,6 +3,14 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
+      "title" : "GLPI, Mucho más que un gestor de parque informático"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
+      "title" : "Configurar correo en servidor GLPI"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
       "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
     },
@@ -33,10 +41,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
       "title" : "Instalar y configurar OCS-NG (Segunda parte)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
-      "title" : "GLPI, Mucho más que un gestor de parque informático"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
       "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto",
-      "title" : "UNIX \u2013 Linux Bash:  fallo de seguridad crítico descubierto"
     }
   ]
 }

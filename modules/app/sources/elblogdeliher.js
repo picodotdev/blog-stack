@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia",
+      "title" : "El Mountain Graphite 30 Pro de 17 pulgadas de Victor y su experiencia"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-mostrar-los-acentos-y-las-n-en-html",
       "title" : "Como mostrar los acentos y las ñ en HTML"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-desactivar-el-mensaje-de-error-interno-en-ubuntu",
       "title" : "Como desactivar el mensaje de error interno en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/mi-nuevo-conky",
-      "title" : "Mi nuevo conky"
     }
   ]
 }

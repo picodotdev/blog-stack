@@ -3,10 +3,110 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-15T09:03:05Z</updated>
+  <updated>2014-10-15T10:03:38Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-15T09:03:05Z</dc:date>
+  <dc:date>2014-10-15T10:03:38Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>GLPI, Mucho más que un gestor de parque informático</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="comunidad-open-source" />
+    <category term="linux" />
+    <category term="apache2" />
+    <category term="glpi" />
+    <category term="programas" />
+    <category term="php" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-10-15T09:23:09Z</updated>
+    <published>2014-10-06T15:32:59Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-portada-600.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-portada-600.jpg" alt="glpi-portada-600" width="600" height="310" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;GLPI&lt;/strong&gt; es un acr&amp;oacute;nimo del fr&amp;aacute;nces que significa “Gestionnaire libre de parc informatique”, es decir, Gesti&amp;oacute;n Libre del Parque Inform&amp;aacute;tico. Est&amp;aacute; escrito &lt;strong&gt;PHP&lt;/strong&gt; y liberado usando la licencia de software libre &lt;strong&gt;GNU GPL v2&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Se trata un magn&amp;iacute;fico software que nos permitir&amp;aacute; controlar el hardware de nuestra compa&amp;ntilde;&amp;iacute;a de manera f&amp;aacute;cil, y no s&amp;oacute;lo eso, incluso podremos crear un potente sistema te ticketing con nuestro usuarios, con seguimiento de incidencias.&lt;/p&gt; 
+&lt;p&gt;C&amp;oacute;mo caracter&amp;iacute;sticas principales nos encontramos con:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Inventario de computadoras, perif&amp;eacute;ricos, impresoras y resto de componentes inform&amp;aacute;ticos habituales.&lt;/li&gt; 
+ &lt;li&gt;Gesti&amp;oacute;n de incidencias con creaci&amp;oacute;n de tickets y seguimiento de &amp;eacute;stos &amp;uacute;ltimos.&lt;/li&gt; 
+ &lt;li&gt;Control financiero.&lt;/li&gt; 
+ &lt;li&gt;Gesti&amp;oacute;n de la documentaci&amp;oacute;n de los equipos.&lt;/li&gt; 
+ &lt;li&gt;F.A.Q.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-10-06T15:32:59Z</dc:date>
+  </entry>
+  <entry>
+    <title>Configurar correo en servidor GLPI</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi" />
+    <category term="blog-stack" />
+    <category term="mailutils" />
+    <category term="comunidad-open-source" />
+    <category term="postfix" />
+    <category term="glpi" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-10-15T09:20:41Z</updated>
+    <published>2014-10-15T09:20:41Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-postfix-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-postfix-1.jpg" alt="glpi-postfix-1" width="800" height="199" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Ya hemos hablado de la configuraci&amp;oacute;n e instalaci&amp;oacute;n b&amp;aacute;sica del gestor de parque inform&amp;aacute;tico &lt;a title="GLPI, Mucho m&amp;aacute;s que un gestor de parque inform&amp;aacute;tico" href="http://www.ochobitshacenunbyte.com/2014/10/06/glpi-mucho-mas-que-un-gestor-de-parque-informatico/"&gt;&lt;strong&gt;GLPI&lt;/strong&gt;&lt;/a&gt;. Hoy tratar&amp;eacute; sobre la configuraci&amp;oacute;n del correo para poder enviar notificaciones de los tickets y avisos del sistema.&lt;/p&gt; 
+&lt;p&gt;Para ellos debemos de instalar primero el servicio para correo &lt;strong&gt;POSTFIX&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install postfix mailutils&lt;/pre&gt; 
+&lt;p&gt;Ya habl&amp;eacute; de ellos en un art&amp;iacute;culo anterior, que pod&amp;eacute;is consultar&lt;a title="Como configurar un relay de correo para nuestra empresa con Postfix" href="http://www.ochobitshacenunbyte.com/2012/07/10/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix/"&gt; aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Primero de todo movemos el archivo de configuraci&amp;oacute;n original.&lt;/p&gt; 
+&lt;pre&gt;mv /etc/postfix/main.cf /etc/postfix/main.cf.back&lt;/pre&gt; 
+&lt;p&gt;Ahora creamos nuestro fichero:&lt;/p&gt; 
+&lt;pre&gt;#Podemos escoger entre nuestro editor favorito
+#vim, vi, emacs, joe, nano, gedit, etc
+joe /etc/postfix/main.cf&lt;/pre&gt; 
+&lt;p&gt;Os dejo la plantilla que suelo usar yo, cosecha propia:&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;pre&gt;smtpd_banner = $myhostname ESMTP $mail_name (Debian)
+biff = no
+
+append_dot_mydomain = no
+
+config_directory = /etc/postfix
+inet_interfaces = all
+inet_protocols = ipv4
+
+readme_directory = no
+
+myhostname = GLPI
+mynetworks = 127.0.0.0/8 192.168.0.0/16
+mydestination = $mydomain,$myhostname,localhost,localhost.domain
+relay_domains = gmail.com
+smtp_use_tls = yes
+smtp_tls_CAfile = /etc/postfix/cacert.pem
+smtp_sasl_auth_enable = yes
+smtp_sasl_mechanism_filter = login
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
+smtp_sasl_security_options = noanonymous
+smtp_always_send_ehlo = yes
+smtp_generic_maps = hash:/etc/postfix/generic&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-10-15T09:20:41Z</dc:date>
+  </entry>
+  <entry>
+    <title>El Mountain Graphite 30 Pro de 17 pulgadas de Victor y su experiencia</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia" />
+    <category term="opinion" />
+    <category term="ubuntu" />
+    <category term="mountain" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-10-15T09:18:26Z</updated>
+    <published>2014-10-15T09:18:26Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;Este articulo es especial ya que no lo he escrito yo, lo ha escrito Victor, un amigo con el que estuve intercambiando emails hablando sobre que port&amp;aacute;til comprar y finalmente se decidi&amp;oacute; por un &lt;strong&gt;Mountain Graphite 30 Pro de 17 pulgadas&lt;/strong&gt;, un pedazo de maquina del cop&amp;oacute;n ;D. Aqu&amp;iacute; nos cuenta como han ido sus primeros d&amp;iacute;as con el y su opini&amp;oacute;n. Desde aqui quiero agradecer a Victor aceptar escribir este articulo que le ped&amp;iacute; y el tiempo que le has dedicado y espero que lo disfrutes. Un saludo amigo.&lt;/p&gt; 
+ &lt;p&gt;En este art&amp;iacute;culo voy a relatar mi experiencia, a&amp;uacute;n corta con un nuevo port&amp;aacute;til adquirido. Tras mucha deliberaci&amp;oacute;n y siguiendo los buenos consejos de Liher, opt&amp;eacute; finalmente por un modelo &lt;a href="https://www.mountain.es/portatiles/graphite-30"&gt;Grafite 30 Pro con pantalla de 17 “&lt;/a&gt; de la marca de &lt;strong&gt;Mountain&lt;/strong&gt;. Aunque algunos buenos blogeros ya han expuesto sus impresiones sobre este modelo o alguno parecido, este ser&amp;aacute; un punto de vista personal y poco profesional sobre el tema. No voy a enumerar sus componentes ni conectividad, pues seguramente lo conocer&amp;eacute;is por su p&amp;aacute;gina web. Aqu&amp;iacute; debo hacer notar que me no me qued&amp;oacute; claro los componentes del equipo arriba mencionado con las fotos e im&amp;aacute;genes que desde la web se pueden ver. Hasta que no lleg&amp;oacute; el port&amp;aacute;til a mi casa, no me qued&amp;oacute; claro que no tra&amp;iacute;a lector de huellas junto al touchpad. A lo mejor son im&amp;aacute;genes gen&amp;eacute;ricas y no corresponden al modelo seleccionado en la p&amp;aacute;gina. Acostumbrado a comprar port&amp;aacute;tiles para los m&amp;iacute;os o para la empresa donde trabajo, cuando me lleg&amp;oacute; el equipo ven&amp;iacute;a perfectamente embalado por la empresa de transporte y notificado que se transportaba material electr&amp;oacute;nico. Adem&amp;aacute;s, le empresa Mountain no especula en cuanto a embalaje propio. Una caja amplia embala el equipo acomodado en funda a medida para el port&amp;aacute;til y los accesorios. Esto otorga mucha tranquilidad y confianza en el transporte del equipo. Una vez abierto y montados la bater&amp;iacute;a y el cargador, observo que el equipo es grande y los detalles y acabados son de calidad. El equipo no ven&amp;iacute;a con sistema preinstalado, a&amp;uacute;n habiendo solicitado. La &amp;uacute;nica raz&amp;oacute;n era tener de primera hora todos los controladores instalados “out of the box” y empezar a disfrutar, pues, con componentes tan nuevos, tem&amp;iacute;a que no pudiera funcionar todo si yo instalaba el sistema operativo. Pero lo achaco a un despiste de &amp;uacute;ltima hora por el equipo t&amp;eacute;cnico. Adem&amp;aacute;s, los aficionados gozamos (s&amp;iacute;, gozamos) instalando, reinstalando, desinstalando e instalando de nuevo otra distro. Como conoc&amp;iacute;a de la compatibilidad de Ubuntu Unity 14.04, pero me gustaba el entorno KDE, intent&amp;eacute; instalar KDE 14.04. Igualmente todo fue bien, salvo que no ten&amp;iacute;a los controladores de la tarjeta dedicada Nvidia ( GTX860). Intent&amp;eacute; instalarlos tras una actualizaci&amp;oacute;n del sistema, pero me top&amp;eacute; de frente con un problema de entorno Xorg que no supe resolver pese a la ayuda de la “Internet”. As&amp;iacute; que volv&amp;iacute; de nuevo a Ubuntu Unity, con partici&amp;oacute;n root y home en el disco SSD y una innecesaria swap en el disco HDD. El resto del disco HDD lo he dejado para Biblioteca, Discoteca y Videoteca mont&amp;aacute;ndolo como Media. Todo fue casi genial como esperaba, resoluci&amp;oacute;n de la pantalla a 1080, pantalla excepcionalmente c&amp;oacute;moda.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-10-15T09:18:26Z</dc:date>
+  </entry>
   <entry>
     <title>Usando Java Session en aplicaciones web</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web" />
@@ -661,74 +761,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;El archivo de configuraci&amp;oacute;n &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-10-07T12:15:05Z</dc:date>
-  </entry>
-  <entry>
-    <title>Sobre la participación de las mujeres en comunidades FLOSS (Free/Libre and Open Source Software)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software" />
-    <category term="blog-stack" />
-    <category term="aktibismoa" />
-    <category term="linux" />
-    <category term="en-castellano" />
-    <category term="cosas-que-digo" />
-    <category term="software-libre" />
-    <author>
-      <name>Dabid Martinez</name>
-    </author>
-    <updated>2014-10-07T12:19:01Z</updated>
-    <published>2014-10-07T12:17:30Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img src="http://laborategia.net/wp-content/uploads/2014/10/dw.png" alt="dw" width="120" height="205" /&gt;En todas las comunidades de software libre hemos comentado alguna vez el hecho de que no conseguimos que las mujeres participen en el proceso. Siempre hemos comentado la incapacidad que hemos tenido de visibilizar o atraer a las mujeres a la comunidades hacker, de programadores de software libre. Es algo que es palpable, no me estoy inventado nada.&lt;/p&gt; 
-&lt;p&gt;Hace unas semanas pasaba por Twitter un estudio que aunque no recuerdo como lleg&amp;oacute; a m&amp;iacute; me resulto interesante de leer, la p&amp;aacute;gina se llama &lt;a href="http://geekfeminism.wikia.com/wiki/FLOSS"&gt;Geek Feminism Wiki&lt;/a&gt; y recoge los datos de las aportaciones que el g&amp;eacute;nero femenino ha hecho como contribuciones a proyectos de software libre, seguramente no est&amp;eacute;n recogidos todos pero son un buen dato para poner la pr&amp;iacute;mera piedra despu&amp;eacute;s de &lt;a href="http://elmanana.com.mx/opinion/46185/Las-mujeres-y-la-tecnologia.html#.VDMCntcE7Y0.twitter"&gt;leer el art&amp;iacute;culo&lt;/a&gt; que &lt;a href="https://twitter.com/MujerForestal/status/519230679599419392"&gt;Mujer Forestal&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/10/sobre-la-participacion-de-las-mujeres-en-comunidades-floss-free-libre-and-open-source-software"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Dabid Martinez</dc:creator>
-    <dc:date>2014-10-07T12:17:30Z</dc:date>
-  </entry>
-  <entry>
-    <title>El operador nameof de C# 6</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" />
-    <category term="novedades" />
-    <category term="c" />
-    <category term="c-6" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-10-07T11:58:00Z</updated>
-    <published>2014-10-07T11:58:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh4.ggpht.com/-DOOn_-7Mu9A/VChOc0hcmQI/AAAAAAAADl0/EFXpyHRG0YY/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" /&gt;Cuando los lenguajes evolucionan, no todas las novedades son espectaculares ni revolucionan la forma de escribir nuestro c&amp;oacute;digo. A veces la cosa va simplemente de a&amp;ntilde;adir peque&amp;ntilde;os detalles que nos hacen la vida m&amp;aacute;s f&amp;aacute;cil y ayudan a evitar errores. 
-&lt;br /&gt; 
-&lt;br /&gt;Y hoy hablaremos de uno de ellos: el nuevo operador 
-&lt;code&gt;nameof&lt;/code&gt;, que acompa&amp;ntilde;ar&amp;aacute; a C# a partir de su versi&amp;oacute;n 6. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Imaginad un escenario que podr&amp;iacute;a ser bastante frecuente, como el siguiente: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh4.ggpht.com/-jklcel_XyH8/VChOdnlpggI/AAAAAAAADl8/rim23mwhtDY/image%25255B2%25255D.png?imgmax=800" height="149" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="439" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Observad que mediante el uso de las constantes 
-&lt;code&gt;&amp;quot;firstString&amp;quot;&lt;/code&gt;&amp;nbsp; y 
-&lt;code&gt;&amp;quot;secondString&amp;quot;&lt;/code&gt; estamos introduciendo una dependencia en nuestro c&amp;oacute;digo entre dos elementos que viven en mundos diferentes, como son el nombre de una variable a nivel de c&amp;oacute;digo y la cadena que representa el nombre de dicho par&amp;aacute;metro en tiempo de ejecuci&amp;oacute;n.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-10-07T11:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>openSUSE contará con el escritorio Mate entre sus patrones de instalación</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion" />
-    <category term="escritorios" />
-    <category term="noticias" />
-    <category term="mate" />
-    <category term="opensuse" />
-    <author>
-      <name>Victor Hck</name>
-    </author>
-    <updated>2014-10-07T09:22:45Z</updated>
-    <published>2014-10-07T09:22:45Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;openSUSE Factory y la pr&amp;oacute;xima versi&amp;oacute;n de openSUSE incluir&amp;aacute;n el entorno de escritorio Mate entre los patrones de instalaci&amp;oacute;n.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;img src="http://en.opensuse.org/images/9/98/MATE_opensuse_black.png" alt="" width="268" height="268" /&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Mate,&lt;/strong&gt; el entorno de escritorio&amp;nbsp; que surge del descontento de usuarios del camino seguido por Gnome3, y que continua con la tradici&amp;oacute;n de Gnome2 &lt;strong&gt;tendr&amp;aacute; su propio patr&amp;oacute;n de instalaci&amp;oacute;n en la pr&amp;oacute;xima versi&amp;oacute;n de openSUSE 13.2 y ya estara disponible en Factory.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Aunque soy fan de KDE, no por eso voy a dejar de hacerme eco de las &lt;strong&gt;noticias sobre openSUSE que corren por la lista de correo&lt;/strong&gt; en cuanto al desarrollo de otros entornos de escritorio, en este caso en lo referente al &lt;strong&gt;entorno de escritorio Mate.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Entusiastas y desarrolladores de este proyecto &lt;strong&gt;han creado un patr&amp;oacute;n de instalaci&amp;oacute;n para ese entorno de escritorio.&lt;/strong&gt; Y ha sido aceptado en la versi&amp;oacute;n Rolling Release de openSUSE, es decir Factory, y probablemente este disponible para la pr&amp;oacute;xima versi&amp;oacute;n estable de openSUSE, la que ser&amp;aacute; la 13.2.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Victor Hck</dc:creator>
-    <dc:date>2014-10-07T09:22:45Z</dc:date>
   </entry>
 </feed>
 
