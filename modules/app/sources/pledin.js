@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/10/mi-experiencia-con-sublime-text-2",
+      "title" : "Mi experiencia con Sublime Text 2"
+    },
+    {
       "url" : "/post/pledin/2014/05/videos-sobre-openstack",
       "title" : "Vídeos sobre OpenStack"
     },

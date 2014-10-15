@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/10/mi-experiencia-con-sublime-text-2",
+      "title" : "Mi experiencia con Sublime Text 2"
+    },
+    {
       "url" : "/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle",
       "title" : "Vulnerabilidad Reportada en SSL 3.0 (POODLE)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
       "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
-      "title" : "Gestión de proyectos con OpenProject"
     }
   ]
 }
