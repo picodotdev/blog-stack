@@ -3,10 +3,44 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-15T19:03:09Z</updated>
+  <updated>2014-10-16T09:02:50Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-15T19:03:09Z</dc:date>
+  <dc:date>2014-10-16T09:02:50Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Solucionar el error de Vidalia + TOR en Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu" />
+    <category term="blog-stack" />
+    <category term="internet" />
+    <category term="en-castellano" />
+    <category term="hackers" />
+    <category term="hackinbadakigu" />
+    <category term="privacidad" />
+    <category term="deep-web" />
+    <category term="cosas-que-veo" />
+    <category term="tor" />
+    <category term="seguridad" />
+    <author>
+      <name>Dabid Martinez</name>
+    </author>
+    <updated>2014-10-16T08:59:35Z</updated>
+    <published>2014-10-16T06:30:37Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Como muchos ya sab&amp;eacute;is &lt;a href="https://www.torproject.org/"&gt;TOR&lt;/a&gt; es un sistema de navegaci&amp;oacute;n an&amp;oacute;nima del que ya hemos hablado en Laborategia en alguna ocasi&amp;oacute;n. Entre otras cosas nos permite ser algo mas an&amp;oacute;nimos en la Red asi como entrar en un parte de la Internet no comercial que algunos desconoc&amp;iacute;amos hasta probar el software. Si quer&amp;eacute;is mas informaci&amp;oacute;n sobre TOR os recomiendo leer &lt;a href="http://laborategia.net/tag/tor/"&gt;los articulos que escribi en su dia bajo ese tag&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;El tema es que &amp;uacute;ltimamente al instalar Vidalia y configurar con TOR lanzaba un mensaje de error diciendo que no se pod&amp;iacute;a inicial TOR, al menos en entornos Linux. Es debido a una mala gesti&amp;oacute;n con &lt;a href="http://wiki.apparmor.net/index.php?title=FAQ&amp;amp;oldid=7412#What_is_AppArmor.3F"&gt;AppAmor&lt;/a&gt; que podemos solucionar con tres simples comandos:&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;sudo ln -s /etc/apparmor.d/usr.bin.vidalia /etc/apparmor.d/disable/
+sudo apparmor_parser -R /etc/apparmor.d/usr.bin.vidalia
+sudo /etc/init.d/tor start&lt;/pre&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Dabid Martinez</dc:creator>
+    <dc:date>2014-10-16T06:30:37Z</dc:date>
+  </entry>
   <entry>
     <title>Vulnerabilidad Reportada en SSL 3.0 (POODLE)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle" />

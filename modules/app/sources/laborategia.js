@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
+      "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
+    },
+    {
       "url" : "/post/laborategia/2014/10/sorteo-de-una-entrada-gratuita-a-la-librecon",
       "title" : "Sorteo de una entrada GRATUITA a la Librecon"
     },

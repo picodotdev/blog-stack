@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
+      "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio",
+      "title" : "Es una lastima, pero no renuncio"
+    },
+    {
       "url" : "/post/pledin/2014/10/mi-experiencia-con-sublime-text-2",
       "title" : "Mi experiencia con Sublime Text 2"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
       "title" : "Monitoreando Infraestructura con Zabbix 2.4"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
-      "title" : "Qué es y cómo hacer «web scraping» en Java"
-    },
-    {
-      "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
-      "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
     }
   ]
 }

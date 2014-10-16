@@ -3,10 +3,61 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-15T21:03:22Z</updated>
+  <updated>2014-10-16T09:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-15T21:03:22Z</dc:date>
+  <dc:date>2014-10-16T09:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Solucionar el error de Vidalia + TOR en Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu" />
+    <category term="blog-stack" />
+    <category term="internet" />
+    <category term="en-castellano" />
+    <category term="hackers" />
+    <category term="hackinbadakigu" />
+    <category term="privacidad" />
+    <category term="deep-web" />
+    <category term="cosas-que-veo" />
+    <category term="tor" />
+    <category term="seguridad" />
+    <author>
+      <name>Dabid Martinez</name>
+    </author>
+    <updated>2014-10-16T08:59:35Z</updated>
+    <published>2014-10-16T06:30:37Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Como muchos ya sab&amp;eacute;is &lt;a href="https://www.torproject.org/"&gt;TOR&lt;/a&gt; es un sistema de navegaci&amp;oacute;n an&amp;oacute;nima del que ya hemos hablado en Laborategia en alguna ocasi&amp;oacute;n. Entre otras cosas nos permite ser algo mas an&amp;oacute;nimos en la Red asi como entrar en un parte de la Internet no comercial que algunos desconoc&amp;iacute;amos hasta probar el software. Si quer&amp;eacute;is mas informaci&amp;oacute;n sobre TOR os recomiendo leer &lt;a href="http://laborategia.net/tag/tor/"&gt;los articulos que escribi en su dia bajo ese tag&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;El tema es que &amp;uacute;ltimamente al instalar Vidalia y configurar con TOR lanzaba un mensaje de error diciendo que no se pod&amp;iacute;a inicial TOR, al menos en entornos Linux. Es debido a una mala gesti&amp;oacute;n con &lt;a href="http://wiki.apparmor.net/index.php?title=FAQ&amp;amp;oldid=7412#What_is_AppArmor.3F"&gt;AppAmor&lt;/a&gt; que podemos solucionar con tres simples comandos:&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;sudo ln -s /etc/apparmor.d/usr.bin.vidalia /etc/apparmor.d/disable/
+sudo apparmor_parser -R /etc/apparmor.d/usr.bin.vidalia
+sudo /etc/init.d/tor start&lt;/pre&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Dabid Martinez</dc:creator>
+    <dc:date>2014-10-16T06:30:37Z</dc:date>
+  </entry>
+  <entry>
+    <title>Es una lastima, pero no renuncio</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio" />
+    <category term="blog" />
+    <category term="noticias" />
+    <author>
+      <name>Liher</name>
+    </author>
+    <updated>2014-10-16T08:42:04Z</updated>
+    <published>2014-10-16T08:42:04Z</published>
+    <content type="html">&lt;p&gt;&lt;div&gt; 
+ &lt;p&gt;Tengo que decir que despu&amp;eacute;s de escribir el titulo del articulo puede parecer que voy a anunciar una despedida, pero no es as&amp;iacute;. Lo que si voy a anunciar es alg&amp;uacute;n que otro cambio es ciertas cosas. Tenia una serie de planes para este blog que y para mi ordenador pero he tenido que tomar algunas decisiones al respecto y espero que hayan sido las decisiones acertadas.&lt;/p&gt; 
+ &lt;p&gt;En esta vida todo cambia, es lo &amp;uacute;nico permanente, el cambio en si mismo. Mis circunstancias personales y profesionales han cambiado y el tiempo que puedo estar delante del ordenador ha disminuido por lo cual tengo ser selectivo con lo que hago delante de el. Hab&amp;iacute;a anunciado hace unos d&amp;iacute;as que me pasaba a KDE, Kubuntu concretamente, como distribuci&amp;oacute;n principal pero he tenido que dar marcha atr&amp;aacute;s. Hasta hace unos d&amp;iacute;as hab&amp;iacute;a estado probando KDE, pero debido a las circunstancias personales tuve que reflexionar acerca de ese cambio. Yo nunca hab&amp;iacute;a usado KDE como entorno de escritorio principal, por lo cual afinarlo y ponerlo a mi gusto y mi forma de trabajar me iba a suponer unas cuantas horas.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Liher</dc:creator>
+    <dc:date>2014-10-16T08:42:04Z</dc:date>
+  </entry>
   <entry>
     <title>Mi experiencia con Sublime Text 2</title>
     <link rel="alternate" href="http://www.blogstack.info/post/pledin/2014/10/mi-experiencia-con-sublime-text-2" />
@@ -675,74 +726,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;Y con su particular modo de hacer revisiones de distros (entre otras cosas) ha realizado un v&amp;iacute;deo de su peripecia al instalar la ISO de openSUSE Factory con Gnome y su posterior configuraci&amp;oacute;n hasta dejarla a su gusto… o casi.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Victor Hck</dc:creator>
     <dc:date>2014-10-08T18:47:21Z</dc:date>
-  </entry>
-  <entry>
-    <title>jQuery find vs filter</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/jquery-find-vs-filter" />
-    <category term="conceptos-js" />
-    <category term="jquery" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-10-08T13:45:44Z</updated>
-    <published>2014-10-08T13:45:44Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;jQuery lo usamos todos los d&amp;iacute;as pero siempre quedan cosas que revisar.&lt;/strong&gt; Una de las preguntas m&amp;aacute;s habituales que me hacen es la diferencia existente entre usar &lt;strong&gt;el m&amp;eacute;todo de JQuery find vs &amp;nbsp;filter&lt;/strong&gt;&amp;nbsp;.Vamos ha verlo a detalle a traves de un sencillo ejemplo del manejo de una tabla. Supongamos que queremos cambiar de color la &amp;uacute;ltima de columna de la tabla. Algo como lo siguiente :&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001141.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001141.png" alt="001" width="298" height="95" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Esta operaci&amp;oacute;n en jQuery parece de entrada muy sencilla. Vamos a ver el c&amp;oacute;digo fuente de la tabla en HTML.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;table&amp;gt;
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1A&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2A&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3A&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1B&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2B&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3B&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1C&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2C&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3C&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-
-&amp;lt;/table&amp;gt;
-
-&amp;amp;nbsp;
-
-&lt;/pre&gt; 
-&lt;h2&gt;Usando filter() en jQuery&lt;/h2&gt; 
-&lt;p&gt;Parece muy razonable seleccionar la &amp;uacute;ltima fila seleccionando los td de la tabla y aplicando filter() sobre el &amp;uacute;ltimo:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/jquery-find-vs-filter"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-10-08T13:45:44Z</dc:date>
-  </entry>
-  <entry>
-    <title>Fundación de software Libre. Recopilación de Noticias de septiembre 2014</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14" />
-    <category term="blog-stack" />
-    <category term="richard-stallman" />
-    <category term="supporter" />
-    <category term="noticias" />
-    <category term="software-libre" />
-    <category term="gnu" />
-    <author>
-      <name>Victor Hck</name>
-    </author>
-    <updated>2014-10-08T09:28:20Z</updated>
-    <published>2014-10-08T09:28:20Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;&amp;iquest;Quieres conocer las noticias y eventos de la Fundaci&amp;oacute;n de Software Libre? Entonces sigue leyendo&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.fsf.org/about/"&gt;&lt;img src="http://victorhckinthefreeworld.files.wordpress.com/2013/06/fsf_logo.png?w=652" alt="FSF_logo" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;La&lt;strong&gt; Fundaci&amp;oacute;n de Software Libre o Free Software Foundation (FSF)&lt;/strong&gt; es una organizaci&amp;oacute;n creada en Octubre de 1985 por&amp;nbsp;&lt;a href="http://es.wikipedia.org/wiki/Richard_Stallman"&gt;&lt;strong&gt;Richard Stallman&lt;/strong&gt;&lt;/a&gt; y otros entusiastas del software libre con el prop&amp;oacute;sito de difundir este movimiento.&lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;La Fundaci&amp;oacute;n para el software libre (FSF) se dedica a eliminar las restricciones sobre la copia, redistribuci&amp;oacute;n, entendimiento, y modificaci&amp;oacute;n de programas de computadoras. Con este objeto, promociona el desarrollo y uso del software libre en todas las &amp;aacute;reas de la computaci&amp;oacute;n, pero muy particularmente, ayudando a desarrollar el sistema operativo &lt;a href="http://es.wikipedia.org/wiki/GNU"&gt;&lt;strong&gt;GNU&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt; 
-&lt;/blockquote&gt; 
-&lt;p&gt;Adem&amp;aacute;s de tratar de difundir la filosof&amp;iacute;a del &lt;strong&gt;software libre,&lt;/strong&gt; y de crear licencias que permitan la difusi&amp;oacute;n de obras y conservando los derechos de autor&amp;iacute;as, tambi&amp;eacute;n llevan a cabo diversas campa&amp;ntilde;as de concienciaci&amp;oacute;n y para proteger derechos de los usuarios frentes a aquellos que quieren poner restricciones abusivas en cuestiones tecnol&amp;oacute;gicas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Victor Hck</dc:creator>
-    <dc:date>2014-10-08T09:28:20Z</dc:date>
   </entry>
 </feed>
 
