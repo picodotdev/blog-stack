@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6",
+      "title" : "Rendimiento de nameof en C# 6"
+    },
+    {
       "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
       "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
       "title" : "De abstracciones y repositorios"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
-      "title" : "Monitoreando Infraestructura con Zabbix 2.4"
     }
   ]
 }

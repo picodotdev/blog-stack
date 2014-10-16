@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6",
+      "title" : "Rendimiento de nameof en C# 6"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
       "title" : "Software patch, literalmente"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/microsoft-mvp-4",
       "title" : "Microsoft MVP * 4"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/evento-sevilla-mobility-day",
-      "title" : "Evento: Sevilla Mobility Day"
     }
   ]
 }
