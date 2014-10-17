@@ -7,6 +7,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Qué es y cómo hacer «web scraping» en Java"
     },
     {
+      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
+      "title" : "Cómo filtrar contenido HTML de forma segura"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
       "title" : "Generar URLs semánticas y amigables"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/06/hemeroteca-5",
       "title" : "Hemeroteca #5"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry",
-      "title" : "Iniciar rápidamente aplicación con Apache Tapestry"
     }
   ]
 }

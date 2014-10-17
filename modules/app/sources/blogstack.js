@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
+      "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
+      "title" : "Cómo filtrar contenido HTML de forma segura"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
       "title" : "Cómo instalar sudo en Debian"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
       "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
-      "title" : "Cómo instalar Proftpd con soporte MySQL"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-16",
-      "title" : "Fondos de escritorio 16"
     }
   ]
 }

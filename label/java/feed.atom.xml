@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-11T23:03:29Z</updated>
+  <updated>2014-10-17T17:03:18Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-11T23:03:29Z</dc:date>
+  <dc:date>2014-10-17T17:03:18Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Qué es y cómo hacer «web scraping» en Java</title>
@@ -17,7 +17,7 @@
     <author>
       <name>pico.dev</name>
     </author>
-    <updated>2014-10-11T22:00:00Z</updated>
+    <updated>2014-10-17T16:00:00Z</updated>
     <published>2014-10-10T19:22:40Z</published>
     <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
  &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /&gt; 
@@ -27,6 +27,26 @@
 &lt;p&gt;En este art&amp;iacute;culo explicar&amp;eacute; como hacer web &amp;laquo;scraping&amp;raquo; usando la librer&amp;iacute;a &lt;a href="http://jsoup.org/"&gt;jsoup&lt;/a&gt; y usando el lenguaje de programaci&amp;oacute;n Java. jsoup proporciona una &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-10-10T19:22:40Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cómo filtrar contenido HTML de forma segura</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="programacion" />
+    <category term="java" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-10-17T14:53:25Z</updated>
+    <published>2014-10-17T14:53:25Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Algunos sitios y aplicaciones pueden tener la necesidad de &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/que-es-y-como-hacer-web-scraping-en-java/"&gt;&amp;laquo;scrapear&amp;raquo; el contenido de sitios web&lt;/a&gt; para extraer informaci&amp;oacute;n de ellos y posteriormente usarla de alguna forma. El contenido &amp;laquo;scrapeado&amp;raquo; o obtenido de una fuente externa debe ser filtrado, si no es filtrado y posteriormente es servido a los usuarios puede envi&amp;aacute;rseles principalmente scripts con contenido malicioso (provocando un ataque &lt;a href="http://en.wikipedia.org/wiki/Cross-site_scripting"&gt;cross-site scripting, XSS&lt;/a&gt;) o causar una desmaquetaci&amp;oacute;n al visualizar el contenido. A la hora de implementar la agregaci&amp;oacute;n de contenido de forma segura en &lt;a href="http://www.blogstack.info"&gt;Blog Stack&lt;/a&gt;, contenido obtenido de una fuente RSS o Atom pero que en esencia es HTML he usado la librer&amp;iacute;a &lt;a href="http://jsoup.org/"&gt;jsoup&lt;/a&gt;, de tal forma que solo el contenido considerado seguro o confiable de los art&amp;iacute;culos sea agregado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-10-17T14:53:25Z</dc:date>
   </entry>
   <entry>
     <title>Generar URLs semánticas y amigables</title>
@@ -891,66 +911,6 @@ System.out.println(p.getNombre());
 &lt;p&gt;Los class loaders del &lt;a href="http://picodotdev.github.io/blog-bitix/2014/02/servidor-de-aplicaciones-jboss-slash-wildfly/"&gt;servidor de aplicaciones JBoss)/WildFly&lt;/a&gt; habitualmente han dado alg&amp;uacute;n problema en la ejecuci&amp;oacute;n de las aplicaciones y la carga de clases. En versiones antiguas como la 4 se pod&amp;iacute;an producir conflictos entre las librer&amp;iacute;as de las aplicaciones y las librer&amp;iacute;as instaladas en el servidor ya que en &lt;a href="http://jbossas.jboss.org/"&gt;JBoss&lt;/a&gt; se buscaba las clases por defecto y primero en el class loader del servidor en vez de en el classloader de la aplicaci&amp;oacute;n (war). Ya en las &amp;uacute;ltimas versiones como JBoss 7 y &lt;a href="http://wildfly.org/"&gt;WildFly&lt;/a&gt; la forma de cargar las clases es m&amp;aacute;s parecido al modelo habitual que se sigue en las aplicaciones Java EE y en servidores como Tomcat buscando primero en el directorio classes WEB-INF/classes y entre las librer&amp;iacute;as de la carpeta WEB-INF/lib del archivo war. Adem&amp;aacute;s, con la inclusi&amp;oacute;n de JBoss Modules se puede seguir un esquema OSGi con lo que incluso podr&amp;iacute;amos usar simultaneamente en el servidor diferentes versiones de la misma librer&amp;iacute;a.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/ejecutar-apache-tapestry-en-el-servidor-de-aplicaciones-wildfly"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-06-06T18:58:25Z</dc:date>
-  </entry>
-  <entry>
-    <title>Uso de Java Generics  (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/06/uso-de-java-generics-i" />
-    <category term="java" />
-    <category term="java-basico" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-06-04T05:49:10Z</updated>
-    <published>2014-06-04T05:49:10Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Uno de los temas que mas quebraderos de cabeza da a los desarrolladores es la construcci&amp;oacute;n Java Generics o simplemente clases Gen&amp;eacute;ricas.Vamos a escribir&amp;nbsp;algunos art&amp;iacute;culos hablando de este tema .Para empezar con ello vamos a construir&amp;nbsp;&amp;nbsp;la clase Bolsa que es una clase sencilla que nos permitir&amp;aacute; almacenar objetos de varios tipos.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/bolsa.jpg"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/bolsa-239x300.jpg" alt="bolsa" width="239" height="300" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Esta clase tendr&amp;aacute; un l&amp;iacute;mite de objetos a almacenar . Alcanzado el limite no se podr&amp;aacute;n a&amp;ntilde;adir mas .Vamos a ver su c&amp;oacute;digo fuente:&lt;/p&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-public class Bolsa implements Iterable{
-
-private ArrayList lista= new ArrayList();
-private int tope;
-
-public Bolsa(int tope) {
-super();
-this.tope = tope;
-}
-public void add(Object objeto ) {
-if (lista.size()&amp;lt;=tope) {
-
-lista.add(objeto);
-}else {
-
-throw new RuntimeException(&amp;quot;no caben mas&amp;quot;);
-}
-
-}
-
-public Iterator iterator() {
-return lista.iterator();
-}
-
-}
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/06/uso-de-java-generics-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-06-04T05:49:10Z</dc:date>
   </entry>
 </feed>
 
