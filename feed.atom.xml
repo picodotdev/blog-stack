@@ -3,10 +3,62 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-16T12:02:37Z</updated>
+  <updated>2014-10-17T10:02:53Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-16T12:02:37Z</dc:date>
+  <dc:date>2014-10-17T10:02:53Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Angular.js inyección de dependencia y COC</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc" />
+    <category term="sin-categoria" />
+    <category term="patrones" />
+    <category term="angular" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-10-17T09:34:39Z</updated>
+    <published>2014-10-17T09:34:39Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En muchas ocasiones me encuentro con que al comenzar a trabajar con Angular.js a casi todo el mundo le resulta dificil entender el concepto de Inyecci&amp;oacute;n de Dependencia y Convenci&amp;oacute;n sobre configuraci&amp;oacute;n que el framework aplica a sus ejemplos m&amp;aacute;s b&amp;aacute;sicos. Vamos a ver un bloque de c&amp;oacute;digo de Angula.js y explicarlo un poco m&amp;aacute;s a detalle.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;html ng-app=&amp;quot;moduloFacturas&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;factura.js&amp;quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;angular.min.js&amp;quot;&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+angular.module('moduloFacturas',[]).controller(&amp;quot;controladorFacturas&amp;quot;,function($scope,$http) {
+
+var peticion= $http.get(&amp;quot;facturas&amp;quot;);
+
+peticion.success(function(listaFacturas) {
+
+$scope.listaFacturas=listaFacturas;
+
+ });
+});
+
+&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body ng-controller=&amp;quot;controladorFacturas&amp;quot;&amp;gt;
+&amp;lt;table &amp;gt;
+&amp;lt;tr ng-repeat=&amp;quot;factura in listaFacturas&amp;quot;&amp;gt;
+&amp;lt;td&amp;gt;{{factura.id}}&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{factura.concepto}}&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;{{factura.importe}}&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-10-17T09:34:39Z</dc:date>
+  </entry>
   <entry>
     <title>Rendimiento de nameof en C# 6</title>
     <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6" />
@@ -704,33 +756,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;Hoy en d&amp;iacute;a est&amp;aacute; bastante en desuso, &amp;iquest;o no? Por lo que leo se usa sobre todo en las escuelas, que a fin de cuentas fue su intenci&amp;oacute;n original, para ense&amp;ntilde;ar programaci&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-10-09T07:53:59Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo configurar CentOS a través de un proxy</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy" />
-    <category term="blog-stack" />
-    <category term="debian" />
-    <category term="centos" />
-    <category term="sistemas-operativos" />
-    <category term="red-hat" />
-    <category term="comandos" />
-    <category term="proxy" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-10-09T07:46:48Z</updated>
-    <published>2014-10-08T11:33:55Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/muro-berlin.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/muro-berlin.jpg" alt="muro-berlin" width="800" height="528" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Ya hace unos cuantos meses hablamos de c&amp;oacute;mo ten&amp;iacute;amos que configurar una m&amp;aacute;quina &lt;strong&gt;Debian&lt;/strong&gt; para salir por proxy, &lt;a title="Configurar sistemas basados en Debian para salir por proxy" href="http://www.ochobitshacenunbyte.com/2013/02/07/configurar-sistemas-basados-en-debian-para-salir-por-proxy/"&gt;aqu&amp;iacute;&lt;/a&gt;. En el caso de hoy hablaremos de la configuraci&amp;oacute;n de un sistema CentOS para que pueda funcionar correctamente a trav&amp;eacute;s de un proxy.&lt;/p&gt; 
-&lt;p&gt;El servidor debe de ser capaz de conectar a&lt;strong&gt; Internet&lt;/strong&gt;, ya sea por cualquiera de los protocolos habituales, es decir, &lt;strong&gt;http&lt;/strong&gt;, &lt;strong&gt;https&lt;/strong&gt; y&lt;strong&gt; ftp&lt;/strong&gt;. Tambi&amp;eacute;n debe de poder descargar archivos correctamente usando el comando &lt;strong&gt;&lt;em&gt;wget&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;Modificaremos varios archivos, que son los siguientes:&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/etc/yum.conf&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Desde d&amp;oacute;nde se pueden a&amp;ntilde;adir par&amp;aacute;metros para el uso de dicho comando.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/etc/profile.d/proxy.sh&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;El archivo dedicado a las variables generales de entorno. Su uso es igual al &lt;strong&gt;/etc/environement&lt;/strong&gt; de &lt;strong&gt;Debian&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/home/usuario/.bashrc&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-10-08T11:33:55Z</dc:date>
   </entry>
 </feed>
 

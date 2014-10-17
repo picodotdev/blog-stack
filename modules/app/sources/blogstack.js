@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
+      "title" : "Angular.js inyección de dependencia y COC"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6",
       "title" : "Rendimiento de nameof en C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
       "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
-      "title" : "De abstracciones y repositorios"
     }
   ]
 }

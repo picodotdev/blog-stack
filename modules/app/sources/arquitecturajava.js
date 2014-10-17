@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
+      "title" : "Angular.js inyección de dependencia y COC"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
       "title" : "Usando Java Session en aplicaciones web"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev",
       "title" : "¿Que es Spring Framework? y un poco de Javascript para GenBetaDev"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/spring-anotaciones-vs-xml",
-      "title" : "Spring Anotaciones vs XML"
     }
   ]
 }
