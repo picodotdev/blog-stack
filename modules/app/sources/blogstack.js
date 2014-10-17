@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
+      "title" : "Cómo instalar sudo en Debian"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
       "title" : "Angular.js inyección de dependencia y COC"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-16",
       "title" : "Fondos de escritorio 16"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
-      "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
     }
   ]
 }

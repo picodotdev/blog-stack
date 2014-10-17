@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
+      "title" : "Cómo instalar sudo en Debian"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
       "title" : "El clásico juego Another World disponible para Steam"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/la-electronica-para-automovil-se-revoluciona-linux-entra-en-escena-con-agl",
-      "title" : "La electrónica para automóvil se revoluciona, Linux entra en escena con AGL"
     }
   ]
 }

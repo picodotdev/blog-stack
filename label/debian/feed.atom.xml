@@ -3,20 +3,74 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-15T10:03:39Z</updated>
+  <updated>2014-10-17T13:03:25Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-15T10:03:39Z</dc:date>
+  <dc:date>2014-10-17T13:03:25Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo instalar sudo en Debian</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="rsync" />
+    <category term="comandos" />
+    <category term="sudo" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-10-17T12:41:58Z</updated>
+    <published>2014-10-17T12:23:33Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/sudo-power-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/sudo-power-1.jpg" alt="sudo-power-1" width="360" height="299" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Como sab&amp;eacute;is los seguidores de la web soy un fan de &lt;strong&gt;Debian&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Por defecto &lt;strong&gt;Debian&lt;/strong&gt;, si quieres realizar tareas de superusuario necesitas ser &lt;strong&gt;root&lt;/strong&gt;, ejecutando el comando &lt;strong&gt;&lt;em&gt;su&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Realmente es algo engorroso y peligroso, ya que trabajar siempre con “poderes” de superusuario no es lo recomendado.&lt;/p&gt; 
+&lt;p&gt;Por lo tanto, vamos a instalar el programa &lt;strong&gt;&lt;em&gt;sudo&lt;/em&gt;&lt;/strong&gt;, que ya viene por defecto en otras distribuciones c&amp;oacute;mo &lt;strong&gt;Ubuntu&lt;/strong&gt; o &lt;strong&gt;LinuxMint&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Instalamos el programa &lt;em&gt;&lt;strong&gt;sudo&lt;/strong&gt;&lt;/em&gt;, que viene en los repositorios&lt;strong&gt; main&lt;/strong&gt;.&lt;/p&gt; 
+&lt;pre&gt;apt-get install sudo&lt;/pre&gt; 
+&lt;p&gt;Una vez instalado debemos de modificar el archivo de configuraci&amp;oacute;n, ubicado en&lt;strong&gt; /etc/sudoers&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Su aspecto es el siguiente:&lt;/p&gt; 
+&lt;pre&gt; /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+# (Note that later entries override this, so you might need to move
+# it further down)
+%sudo ALL=(ALL) ALL
+#
+#includedir /etc/sudoers.d
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-10-17T12:23:33Z</dc:date>
+  </entry>
   <entry>
     <title>GLPI, Mucho más que un gestor de parque informático</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico" />
-    <category term="debian" />
     <category term="blog-stack" />
+    <category term="debian" />
     <category term="comunidad-open-source" />
     <category term="linux" />
     <category term="apache2" />
-    <category term="glpi" />
     <category term="programas" />
+    <category term="glpi" />
     <category term="php" />
     <author>
       <name>ochobitshacenunbyte</name>
@@ -801,34 +855,6 @@ export PATH&lt;/pre&gt;
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/instalar-y-configurar-nagios-en-servidor-debian-7-parte-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-04-30T15:40:19Z</dc:date>
-  </entry>
-  <entry>
-    <title>Editando desde la línea de comandos, con nano.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano" />
-    <category term="wodstar" />
-    <category term="debian" />
-    <category term="nano" />
-    <category term="ubuntu" />
-    <category term="msdos" />
-    <category term="editor" />
-    <category term="comandos" />
-    <category term="ofimatica" />
-    <category term="gnu" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-04-28T15:35:54Z</updated>
-    <published>2014-04-28T15:28:19Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/04/GNU-Nano-Logo-150x150.png" alt="GNU-Nano-Logo" width="150" height="150" /&gt;&lt;/a&gt;En mis primeros pasos en el mundo de la inform&amp;aacute;tica, a principios de a&amp;ntilde;os noventa, en la academia ten&amp;iacute;amos sistemas 80286 y 80386 con &lt;a title="MS-DOS" href="http://es.wikipedia.org/wiki/MS-DOS"&gt;MS-DOS,&lt;/a&gt; y nuestro editor, donde hac&amp;iacute;a mis trabajos, era el fabuloso, para la &amp;eacute;poca, &lt;a title="WordStar" href="http://www.wordstar.org/"&gt;WordStar&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Actualmente, en los sistemas basados en &lt;a title="UNIX" href="http://www.unix.org/"&gt;UNIX&lt;/a&gt; y &lt;a title="GNU/LINUX" href="http://es.wikipedia.org/?title=GNU/Linux"&gt;GNU/LINUX &lt;/a&gt;podemos usar varios editores, uno de los m&amp;aacute;s sencillos de usar, es &lt;a title="GNU nano" href="http://www.nano-editor.org/"&gt;GNU nano&lt;/a&gt;, el cu&amp;aacute;l trataremos en &amp;eacute;ste art&amp;iacute;culo.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;GNU Nano, seg&amp;uacute;n leemos en su p&amp;aacute;gina oficial en ingl&amp;eacute;s:&lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;GNU nano est&amp;aacute; dise&amp;ntilde;ado para ser un reemplazo libre para el editor de texto de Pico , que forma parte de la suite de correo electr&amp;oacute;nico del pino de la Universidad de Washington. Su objetivo es ” emular Pico lo m&amp;aacute;s cerca posible y tal vez incluir la funcionalidad extra” .&lt;/p&gt; 
-&lt;/blockquote&gt; 
-&lt;p&gt;C&amp;oacute;mo vemos GNU nano fue creado para reemplazar, &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/editando-desde-la-linea-de-comandos-con-nano"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-04-28T15:28:19Z</dc:date>
   </entry>
 </feed>
 

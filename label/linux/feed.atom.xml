@@ -3,10 +3,64 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-15T19:03:08Z</updated>
+  <updated>2014-10-17T13:03:26Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-15T19:03:08Z</dc:date>
+  <dc:date>2014-10-17T13:03:26Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo instalar sudo en Debian</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian" />
+    <category term="debian" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="sistemas-operativos" />
+    <category term="rsync" />
+    <category term="comandos" />
+    <category term="sudo" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-10-17T12:41:58Z</updated>
+    <published>2014-10-17T12:23:33Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/sudo-power-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/sudo-power-1.jpg" alt="sudo-power-1" width="360" height="299" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Como sab&amp;eacute;is los seguidores de la web soy un fan de &lt;strong&gt;Debian&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Por defecto &lt;strong&gt;Debian&lt;/strong&gt;, si quieres realizar tareas de superusuario necesitas ser &lt;strong&gt;root&lt;/strong&gt;, ejecutando el comando &lt;strong&gt;&lt;em&gt;su&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Realmente es algo engorroso y peligroso, ya que trabajar siempre con “poderes” de superusuario no es lo recomendado.&lt;/p&gt; 
+&lt;p&gt;Por lo tanto, vamos a instalar el programa &lt;strong&gt;&lt;em&gt;sudo&lt;/em&gt;&lt;/strong&gt;, que ya viene por defecto en otras distribuciones c&amp;oacute;mo &lt;strong&gt;Ubuntu&lt;/strong&gt; o &lt;strong&gt;LinuxMint&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Instalamos el programa &lt;em&gt;&lt;strong&gt;sudo&lt;/strong&gt;&lt;/em&gt;, que viene en los repositorios&lt;strong&gt; main&lt;/strong&gt;.&lt;/p&gt; 
+&lt;pre&gt;apt-get install sudo&lt;/pre&gt; 
+&lt;p&gt;Una vez instalado debemos de modificar el archivo de configuraci&amp;oacute;n, ubicado en&lt;strong&gt; /etc/sudoers&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Su aspecto es el siguiente:&lt;/p&gt; 
+&lt;pre&gt; /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+# (Note that later entries override this, so you might need to move
+# it further down)
+%sudo ALL=(ALL) ALL
+#
+#includedir /etc/sudoers.d
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-10-17T12:23:33Z</dc:date>
+  </entry>
   <entry>
     <title>Vulnerabilidad Reportada en SSL 3.0 (POODLE)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle" />
@@ -693,35 +747,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/Byobu-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/Byobu-1.jpg" alt="Byobu-1" width="700" height="388" /&gt;&lt;/a&gt;Si nos gusta byobu y queremos que todos lo usuarios pueden tenerlo por defecto, lo lograremos con el siguiente comando:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/extiende-la-consola-con-byobu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-12T11:22:59Z</dc:date>
-  </entry>
-  <entry>
-    <title>Crea tu propia tienda online con OsCommerce</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce" />
-    <category term="blog-stack" />
-    <category term="debian" />
-    <category term="comunidad-open-source" />
-    <category term="web" />
-    <category term="linux" />
-    <category term="programas" />
-    <category term="online" />
-    <category term="oscommerce" />
-    <category term="store" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-09-12T09:08:51Z</updated>
-    <published>2014-09-12T09:08:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/osCommerce-logo.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/osCommerce-logo.jpg" alt="osCommerce-logo" width="324" height="63" /&gt;&lt;/a&gt;Si tienes pensando empezar un comercio de tienda online, con &lt;strong&gt;OsCommerce&lt;/strong&gt; lo tienes f&amp;aacute;cil. Se trata de un programa de comercio electr&amp;oacute;nico y administraci&amp;oacute;n online. M&amp;aacute;s de 12.000 tiendas funcionan con &amp;eacute;l. Y lo mejor de todo es software libre, lanzado usando la licencia &lt;strong&gt;GNU General Public License&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;OsCommerce&lt;/strong&gt; se puede instalar en pr&amp;aacute;cticamente todas las plataformas, tanto GNU/Linux, UNIX, Windows y MacOS. El programa viene con una serie de opciones b&amp;aacute;sicas que se pueden ampliar descargando m&amp;oacute;dulos adicionales.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/osCommerce-9.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/osCommerce-9.jpg" alt="osCommerce-9" width="800" height="722" /&gt;&lt;/a&gt;&lt;strong&gt;OsCommerce&lt;/strong&gt; se divise en dos partes:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Un cat&amp;aacute;logo de productos que pueden ver los clientes.&lt;/li&gt; 
- &lt;li&gt;Un m&amp;oacute;dulo de administraci&amp;oacute;n para mantener la tienda, actualizar productos, administrar nuevas ofertas, categor&amp;iacute;as, idiomas,etc&amp;eacute;tera.&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;Actualmente admite varios sistemas de pago, como tarjetas de cr&amp;eacute;dito, reembolso, cheques, paypal, etc. Adem&amp;aacute;s tiene las importantes opciones de copias de seguridad y recuperaci&amp;oacute;n. No puede faltar las opciones de env&amp;iacute;os y devoluciones de paqueter&amp;iacute;a.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/crea-tu-propia-tienda-online-con-oscommerce"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-09-12T09:08:51Z</dc:date>
   </entry>
 </feed>
 
