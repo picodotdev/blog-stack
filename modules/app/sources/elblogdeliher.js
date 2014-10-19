@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
+      "title" : "Os habeis fijado alguna vez?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio",
       "title" : "Es una lastima, pero no renuncio"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
       "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/iconos-potenza-pack-muy-completo-y-vistoso",
-      "title" : "Iconos Potenza, pack muy completo y vistoso"
     }
   ]
 }

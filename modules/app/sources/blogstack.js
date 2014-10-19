@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
+      "title" : "Os habeis fijado alguna vez?"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
       "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
-      "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
     }
   ]
 }
