@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
+      "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
       "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-presente-en-akademy-2-14",
       "title" : "openSUSE presente en Akademy 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/bodhi-linux-se-queda-sin-el-lider-del-proyecto",
-      "title" : "Bodhi Linux se queda sin el líder del proyecto"
     }
   ]
 }

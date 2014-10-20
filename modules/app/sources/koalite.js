@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/10/formas-de-organizar-el-codigo",
+      "title" : "Formas de organizar el código"
+    },
+    {
       "url" : "/post/koalite/2014/10/de-abstracciones-y-repositorios",
       "title" : "De abstracciones y repositorios"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/05/deconstruyendo-la-piramide-de-los-tests",
       "title" : "Deconstruyendo la pirámide de los tests"
-    },
-    {
-      "url" : "/post/koalite/2014/04/gusenet-2-14-extraordinario-un-ano-mas",
-      "title" : "Gusenet 2014, extraordinario un año más"
     }
   ]
 }

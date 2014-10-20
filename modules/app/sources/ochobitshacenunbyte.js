@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
+      "title" : "Control de versiones con Subversion y USVN"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
       "title" : "Cómo instalar sudo en Debian"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/guardar-nuestra-coleccion-de-cd-s-con-k3b",
       "title" : "Guardar nuestra colección de cd\u2019s con K3b"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/el-clasico-juego-another-world-disponible-para-steam",
-      "title" : "El clásico juego Another World disponible para Steam"
     }
   ]
 }

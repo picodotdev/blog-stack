@@ -3,6 +3,26 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-174",
+      "title" : "Enlaces interesantes 174"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
+      "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
+      "title" : "Control de versiones con Subversion y USVN"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/10/chakra-euler-conocimos-tiempos-mejores",
+      "title" : "Chakra Euler: conocimos tiempos mejores"
+    },
+    {
+      "url" : "/post/koalite/2014/10/formas-de-organizar-el-codigo",
+      "title" : "Formas de organizar el código"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
       "title" : "Os habeis fijado alguna vez?"
     },
@@ -61,26 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
       "title" : "Usando Java Session en aplicaciones web"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-mostrar-los-acentos-y-las-n-en-html",
-      "title" : "Como mostrar los acentos y las ñ en HTML"
-    },
-    {
-      "url" : "/post/laborategia/2014/10/sorteo-de-una-entrada-gratuita-a-la-librecon",
-      "title" : "Sorteo de una entrada GRATUITA a la Librecon"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
-      "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-173",
-      "title" : "Enlaces interesantes 173"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
-      "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
     }
   ]
 }
