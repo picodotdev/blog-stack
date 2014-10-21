@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
+      "title" : "Charlas de un #findenegro"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
       "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/linux-for-hank-un-libro-para-ninos-sobre-linux",
       "title" : "\u201cLinux for Hank\u201d un libro para niños sobre Linux"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-presente-en-akademy-2-14",
-      "title" : "openSUSE presente en Akademy 2014"
     }
   ]
 }
