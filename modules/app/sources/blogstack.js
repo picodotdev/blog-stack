@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6",
+      "title" : "Inicialización de diccionarios en C# 6"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
       "title" : "Charlas de un #findenegro"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
       "title" : "Configurar correo en servidor GLPI"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia",
-      "title" : "El Mountain Graphite 30 Pro de 17 pulgadas de Victor y su experiencia"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6",
+      "title" : "Inicialización de diccionarios en C# 6"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-174",
       "title" : "Enlaces interesantes 174"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-ii-desconexion-del-cliente",
       "title" : "Novedades de SignalR 2.1 (II): desconexión del cliente"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-165",
-      "title" : "Enlaces interesantes 165"
     }
   ]
 }
