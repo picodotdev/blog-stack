@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/java-biginteger",
+      "title" : "Java BigInteger"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6",
       "title" : "Inicialización de diccionarios en C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
-      "title" : "Configurar correo en servidor GLPI"
     }
   ]
 }
