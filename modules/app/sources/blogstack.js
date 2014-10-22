@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
+      "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
       "title" : "Joomla, segunda parada visitando los CMS"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
       "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio",
-      "title" : "Es una lastima, pero no renuncio"
     }
   ]
 }

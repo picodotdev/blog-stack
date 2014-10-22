@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
+      "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
+    },
+    {
       "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
       "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/laborategia", [], function() {
     {
       "url" : "/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector",
       "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
-    },
-    {
-      "url" : "/post/laborategia/2014/05/metadata-anonymisation-toolkit-limpieza-de-metadatos-en-los-confines-de-tu-hd",
-      "title" : "Metadata Anonymisation Toolkit; limpieza de metadatos en los confines de tu HD"
     }
   ]
 }
