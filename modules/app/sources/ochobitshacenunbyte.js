@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
+      "title" : "Joomla, segunda parada visitando los CMS"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
       "title" : "La versión 24.4 de GNU Emacs ya está disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
       "title" : "Virtualizando con KVM"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/08/probamos-freebsd-1",
-      "title" : "Probamos FreeBSD 10"
     }
   ]
 }
