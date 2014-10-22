@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
+      "title" : "La versión 24.4 de GNU Emacs ya está disponible"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/java-biginteger",
       "title" : "Java BigInteger"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
       "title" : "Software patch, literalmente"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
-      "title" : "GLPI, Mucho más que un gestor de parque informático"
     }
   ]
 }
