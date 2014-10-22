@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
+      "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
+      "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
       "title" : "La versión 24.4 de GNU Emacs ya está disponible"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/10/mi-experiencia-con-sublime-text-2",
       "title" : "Mi experiencia con Sublime Text 2"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle",
-      "title" : "Vulnerabilidad Reportada en SSL 3.0 (POODLE)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
-      "title" : "Software patch, literalmente"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
+      "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
+      "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
       "title" : "Os habeis fijado alguna vez?"
     },
@@ -73,14 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
       "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/que-es-y-como-instalar-sublime-text-3-en-ubuntu-mediante-ppa",
-      "title" : "Que es y como instalar Sublime Text 3 en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/pack-de-temas-ambiance-radiance-colors-para-ubuntu",
-      "title" : "Pack de temas Ambiance & Radiance colors para Ubuntu"
     }
   ]
 }
