@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
+      "title" : "Instalar programas en Debian facilmente con tasksel"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/10/java-9-y-npm-articulos-para-genbetadev",
+      "title" : "Java 9 y NPM artículos para GenBetaDev"
+    },
+    {
       "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
       "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
       "title" : "Angular.js inyección de dependencia y COC"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6",
-      "title" : "Rendimiento de nameof en C# 6"
-    },
-    {
-      "url" : "/post/laborategia/2014/10/solucionar-el-error-de-vidalia-tor-en-ubuntu",
-      "title" : "Solucionar el error de Vidalia + TOR en Ubuntu"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/java-9-y-npm-articulos-para-genbetadev",
+      "title" : "Java 9 y NPM artículos para GenBetaDev"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/java-biginteger",
       "title" : "Java BigInteger"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/08/programacion-funcional-java-8-streams",
       "title" : "Programación Funcional, Java 8 Streams"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8",
-      "title" : "JSF, Spring MVC y Java EE 8"
     }
   ]
 }

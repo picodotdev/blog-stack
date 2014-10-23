@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
+      "title" : "Instalar programas en Debian facilmente con tasksel"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
       "title" : "Joomla, segunda parada visitando los CMS"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada",
       "title" : "La versión Beta 2 de Black Lab Linux 6 ya ha sido lanzada"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm",
-      "title" : "Virtualizando con KVM"
     }
   ]
 }
