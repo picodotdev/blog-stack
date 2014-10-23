@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
+      "title" : "Cómo instalar Spotify en Debian y Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
       "title" : "Instalar programas en Debian facilmente con tasksel"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
       "title" : "Cómo instalar sudo en Debian"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
-      "title" : "Angular.js inyección de dependencia y COC"
     }
   ]
 }
