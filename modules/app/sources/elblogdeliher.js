@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
+      "title" : "Ya salio Ubuntu 14.10, y ahora que?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
       "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
       "title" : "Muchas gracias a todos, no me lo puedo creer"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/tengo-movil-nuevo-biennnnn",
-      "title" : "Tengo movil nuevo, biennnnn!!!!!!!"
     }
   ]
 }

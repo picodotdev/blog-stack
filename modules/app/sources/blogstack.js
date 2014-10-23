@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
+      "title" : "Ya salio Ubuntu 14.10, y ahora que?"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
       "title" : "Cómo instalar Spotify en Debian y Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
       "title" : "Cómo filtrar contenido HTML de forma segura"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
-      "title" : "Cómo instalar sudo en Debian"
     }
   ]
 }
