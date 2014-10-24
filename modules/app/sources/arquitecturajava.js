@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
+      "title" : "Eclipse y el concepto de Delegación"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/java-9-y-npm-articulos-para-genbetadev",
       "title" : "Java 9 y NPM artículos para GenBetaDev"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/jpa-entity-listener",
       "title" : "JPA Entity Listener"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/08/programacion-funcional-java-8-streams",
-      "title" : "Programación Funcional, Java 8 Streams"
     }
   ]
 }

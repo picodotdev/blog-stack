@@ -3,10 +3,75 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-10-23T23:02:37Z</updated>
+  <updated>2014-10-24T10:02:57Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-10-23T23:02:37Z</dc:date>
+  <dc:date>2014-10-24T10:02:57Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Eclipse y el concepto de Delegación</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion" />
+    <category term="buenas-practicas" />
+    <category term="eclipse" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-10-24T09:46:00Z</updated>
+    <published>2014-10-24T09:46:00Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Cuando programamos en Java en muchas ocasiones nos encontramos con la necesidad de usar el concepto de delegaci&amp;oacute;n . Este conceptos es muy habitual cuando tenemos estructuras de clase de composici&amp;oacute;n. Es decir un objeto A contiene un Objeto B. Por ejemplo supongamos que tenemos el diagrama de clases de Coche y Motor.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/CocheMotor1.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/CocheMotor1.gif" alt="" width="383" height="164" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos a ver su c&amp;oacute;digo Java :&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Coche {
+
+private String marca;
+ private Motor motor;
+
+public Motor getMotor() {
+ return motor;
+ }
+
+public void setMotor(Motor motor) {
+ this.motor = motor;
+ }
+
+public String getMarca() {
+ return marca;
+ }
+
+public void setMarca(String marca) {
+ this.marca = marca;
+ }
+
+&lt;/pre&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Motor {
+
+ private int potencia;
+ private int cilindros;
+ public int getPotencia() {
+ return potencia;
+ }
+ public void setPotencia(int potencia) {
+ this.potencia = potencia;
+ }
+ public int getCilindros() {
+ return cilindros;
+ }
+ public void setCilindros(int cilindros) {
+ this.cilindros = cilindros;
+ }
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-10-24T09:46:00Z</dc:date>
+  </entry>
   <entry>
     <title>Ya salio Ubuntu 14.10, y ahora que?</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que" />
@@ -778,58 +843,6 @@ sudo /etc/init.d/tor start&lt;/pre&gt;&lt;/td&gt;
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-10-06T15:32:59Z</dc:date>
-  </entry>
-  <entry>
-    <title>Configurar correo en servidor GLPI</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi" />
-    <category term="blog-stack" />
-    <category term="mailutils" />
-    <category term="comunidad-open-source" />
-    <category term="postfix" />
-    <category term="glpi" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-10-15T09:20:41Z</updated>
-    <published>2014-10-15T09:20:41Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-postfix-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/glpi-postfix-1.jpg" alt="glpi-postfix-1" width="800" height="199" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Ya hemos hablado de la configuraci&amp;oacute;n e instalaci&amp;oacute;n b&amp;aacute;sica del gestor de parque inform&amp;aacute;tico &lt;a title="GLPI, Mucho m&amp;aacute;s que un gestor de parque inform&amp;aacute;tico" href="http://www.ochobitshacenunbyte.com/2014/10/06/glpi-mucho-mas-que-un-gestor-de-parque-informatico/"&gt;&lt;strong&gt;GLPI&lt;/strong&gt;&lt;/a&gt;. Hoy tratar&amp;eacute; sobre la configuraci&amp;oacute;n del correo para poder enviar notificaciones de los tickets y avisos del sistema.&lt;/p&gt; 
-&lt;p&gt;Para ellos debemos de instalar primero el servicio para correo &lt;strong&gt;POSTFIX&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install postfix mailutils&lt;/pre&gt; 
-&lt;p&gt;Ya habl&amp;eacute; de ellos en un art&amp;iacute;culo anterior, que pod&amp;eacute;is consultar&lt;a title="Como configurar un relay de correo para nuestra empresa con Postfix" href="http://www.ochobitshacenunbyte.com/2012/07/10/como-configurar-un-relay-de-correo-para-nuestra-empresa-con-postfix/"&gt; aqu&amp;iacute;&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Primero de todo movemos el archivo de configuraci&amp;oacute;n original.&lt;/p&gt; 
-&lt;pre&gt;mv /etc/postfix/main.cf /etc/postfix/main.cf.back&lt;/pre&gt; 
-&lt;p&gt;Ahora creamos nuestro fichero:&lt;/p&gt; 
-&lt;pre&gt;#Podemos escoger entre nuestro editor favorito
-#vim, vi, emacs, joe, nano, gedit, etc
-joe /etc/postfix/main.cf&lt;/pre&gt; 
-&lt;p&gt;Os dejo la plantilla que suelo usar yo, cosecha propia:&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;pre&gt;smtpd_banner = $myhostname ESMTP $mail_name (Debian)
-biff = no
-
-append_dot_mydomain = no
-
-config_directory = /etc/postfix
-inet_interfaces = all
-inet_protocols = ipv4
-
-readme_directory = no
-
-myhostname = GLPI
-mynetworks = 127.0.0.0/8 192.168.0.0/16
-mydestination = $mydomain,$myhostname,localhost,localhost.domain
-relay_domains = gmail.com
-smtp_use_tls = yes
-smtp_tls_CAfile = /etc/postfix/cacert.pem
-smtp_sasl_auth_enable = yes
-smtp_sasl_mechanism_filter = login
-smtp_sasl_password_maps = hash:/etc/postfix/sasl/passwd
-smtp_sasl_security_options = noanonymous
-smtp_always_send_ehlo = yes
-smtp_generic_maps = hash:/etc/postfix/generic&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-10-15T09:20:41Z</dc:date>
   </entry>
 </feed>
 

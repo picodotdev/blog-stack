@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
+      "title" : "Eclipse y el concepto de Delegación"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
       "title" : "Ya salio Ubuntu 14.10, y ahora que?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
-      "title" : "Cómo filtrar contenido HTML de forma segura"
     }
   ]
 }
