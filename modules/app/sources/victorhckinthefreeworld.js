@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
+      "title" : "openSUSE Tumbleweed y Factory serán una sola"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
       "title" : "Charlas de un #findenegro"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/la-mano-en-la-sombra",
       "title" : "La mano en la sombra"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/linux-for-hank-un-libro-para-ninos-sobre-linux",
-      "title" : "\u201cLinux for Hank\u201d un libro para niños sobre Linux"
     }
   ]
 }

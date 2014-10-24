@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
+      "title" : "openSUSE Tumbleweed y Factory serán una sola"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
       "title" : "Eclipse y el concepto de Delegación"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
       "title" : "Os habeis fijado alguna vez?"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
-      "title" : "Qué es y cómo hacer «web scraping» en Java"
     }
   ]
 }
