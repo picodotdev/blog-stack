@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
       "title" : "openSUSE Tumbleweed y Factory serán una sola"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/10/formas-de-organizar-el-codigo",
       "title" : "Formas de organizar el código"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
-      "title" : "Os habeis fijado alguna vez?"
     }
   ]
 }

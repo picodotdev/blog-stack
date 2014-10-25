@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/modelo-push-contra-modelo-pull-en-frameworks-web",
       "title" : "Modelo «push» contra modelo «pull» en frameworks web"
-    },
-    {
-      "url" : "/post/blogbitix/2014/06/hemeroteca-5",
-      "title" : "Hemeroteca #5"
     }
   ]
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción y características de Docker | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker"><span itemprop="headline">Introducción y características de Docker</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-25T08:52" itemprop="datePublished">Publicado el sábado, 25 de octubre de 2014 a las 08:52 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-codigo, planeta-arch-linux, planeta-linux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" />
+ <br /> 
+</div> 
+<p><a href="https://www.docker.com/">Docker</a> es una de las herramientas de la que se est&aacute; hablando mucho, esto es as&iacute; ya que tiene varios aspectos interesantes que <a href="http://www.javaworld.com/article/2685223/java-app-dev/four-ways-docker-fundamentally-changes-application-development.html">cambian la forma de desarrollar aplicaciones</a>. Docker es una forma de ejecutar procesos de forma aislada pero tambi&eacute;n se compone de herramientas para construir im&aacute;genes y un repositorio para compartirlas.</p> 
+<p>Al contrario de la virtualizaci&oacute;n Docker no emula o virtualiza una m&aacute;quina y su sistema operativo con lo que los procesos son mucho m&aacute;s ligeros y hace que el hardware pueda ser aprovechado m&aacute;s al poder aumentar la densidad de los servicios en una misma m&aacute;quina. Los contenedores y servicios incluidos en ellos inician muy r&aacute;pidamente, en pocos segundos. Adem&aacute;s, no es necesario el sistema de archivos completo del sistema operativo invitado con lo que docker usa una fracci&oacute;n de espacio de almacenamiento necesario en la virtualizaci&oacute;n.</p> 
+<p>La tecnolog&iacute;a de contenedores no es nueva y tambi&eacute;n est&aacute; disponible en otros sistemas operativos como <a href="http://openvz.org">OpenVZ</a> tambi&eacute;n en Linux, <a href="http://www.freebsd.org/doc/handbook/jails.html">FreeBSD Jails</a> o los <a href="http://www.oracle.com/technetwork/server-storage/solaris/containers-169727.html">contenedores de Solaris</a>.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/49/virtual-machines.png" title="M&aacute;quinas virtuales"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/49/virtual-machines.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/49/docker.png" title="Docker"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/49/docker.png" /></a> 
+</div> 
+<p>Docker tiene varias caracter&iacute;sticas interesantes. Es ligero ya que no hay virtualizaci&oacute;n aprovech&aacute;ndose mejor el hardware y &uacute;nicamente necesitando el sistema de archivos m&iacute;nimo para que funcionen los servicios. Los contenedores son autosuficientes (aunque pueden depender de otros contenedores, por ejemplo, un wordpress que necesita una base de datos mysql) no necesitando nada m&aacute;s que la imagen del contenedor para que funcionen los servicios que ofrece. Las im&aacute;genes de docker son portables entre diferentes plataformas el &uacute;nico requisito es que en el sistema hu&eacute;sped est&eacute; disponible docker. Es seguro, pudiendo hacer que los contenedores se comuniquen por un t&uacute;nel solo disponible para ellos, los contenedores est&aacute;n aislados en el sistema mediante namespaces y control groups.</p> 
+<p>Para los desarrolladores tiene las siguientes ventajas:</p> 
+<ul> 
+ <li>Podemos disponer de un entorno de desarrollo (devbox) o servicio en varios minutos/horas en vez de alg&uacute;n d&iacute;a. Esto es as&iacute; porque la configuraci&oacute;n y los servicios necesarios est&aacute;n automatizados en la construcci&oacute;n de las im&aacute;genes de los contenedores mediante <a href="https://docs.docker.com/reference/builder/">Dockerfiles</a>.</li> 
+ <li>Al estar los servicios en contenedores no hace falta instalarlos en la m&aacute;quina en la que son alojados, de forma que podemos disponer de los servicios y despu&eacute;s eliminarlos de forma sencilla sin “ensuciar” el sistema hu&eacute;sped.</li> 
+ <li>Nos permite tener versiones m&aacute;s parecidas o iguales a las usadas en producci&oacute;n. Por ejemplo, en Arch Linux nos permite tener un mysql de la distribuci&oacute;n <a href="http://www.ubuntu.com/">Ubuntu</a> usando la misma versi&oacute;n.</li> 
+</ul> 
+<p>El <a href="https://registry.hub.docker.com/">registro de contenedores de Docker</a> es una forma colaborativa de ofrecer im&aacute;genes. Hay disponibles multitud de contenedores con los servicios m&aacute;s populares: <a href="http://www.mysql.com/">MySql</a>, <a href="http://www.postgresql.org/">PostgreSQL</a>, <a href="http://redis.io/">Redis</a>, <a href="http://nginx.org/">Nginx</a>, <a href="https://wordpress.org/">WordPress</a>, …</p> 
+<p>Para los administradores de sistemas tiene las siguientes ventajas:</p> 
+<ul> 
+ <li>Pueden proporcionar entornos similares o iguales a los entornos de pruebas, QA o producci&oacute;n independientemente de la distribuci&oacute;n que se use.</li> 
+ <li>Es posible desplegar un contenedor en cualquier infraestructura Linux.</li> 
+ <li>La creaci&oacute;n de los contenedores puede ponerse bajo un sistema de control de versiones.</li> 
+</ul> 
+<p>En el siguiente v&iacute;deo y presentaci&oacute;n muy completa est&aacute;n ampliados muchas de sus posibilidades y funcionalidades.</p> 
+<div style="text-align: center;"> 
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/ZzQfxoMFH0U" frameborder="0" allowfullscreen=""></iframe> 
+</div> 
+<script src="https://speakerdeck.com/assets/embed.js"></script> 
+<p>Una vez conocidos los aspectos b&aacute;sicos y en que se diferencia docker de la virtualizaci&oacute;n as&iacute; como el caso de uso de por ejemplo un devbox o disponer de entornos similares a los de producci&oacute;n de una aplicaci&oacute;n, en el siguiente art&iacute;culo comentar&eacute; c&oacute;mo instalar docker, c&oacute;mo empezar a usarlo, c&oacute;mo obtener im&aacute;genes de servicios y pararlos y administrarlos.</p> 
+<p>Referencia:<br /> <a href="https://www.docker.com/">Docker</a><br /> <a href="https://docs.docker.com/articles/security/">Seguridad Docker</a> <a href="http://www.javaworld.com/article/2685223/java-app-dev/four-ways-docker-fundamentally-changes-application-development.html">Four ways Docker fundamentally changes application development</a><br /> <a href="https://openwebinars.net/docker-que-es-sus-principales-caracteristicas/">Docker, qu&eacute; es y sus principales caracter&iacute;sticas</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" st_title="Introducción y características de Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Introducción y características de Docker";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1052,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
