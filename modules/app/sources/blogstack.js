@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Bicho, un año por casa"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm",
+      "title" : "Esqueleto de juegos NPM"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
       "title" : "Control de versiones con Subversion y USVN"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/10/chakra-euler-conocimos-tiempos-mejores",
-      "title" : "Chakra Euler: conocimos tiempos mejores"
     }
   ]
 }

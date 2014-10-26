@@ -1,0 +1,126 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Esqueleto de juegos NPM | El blog de Adrián Arroyo</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm"><span itemprop="headline">Esqueleto de juegos NPM</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Adrián Arroyo</span> en la bitácora <a href="http://adrianarroyocalle.github.io/blog">El blog de Adrián Arroyo</a>, <a href="http://adrianarroyocalle.github.io/blog//2014/10/26/esqueleto-de-juegos-npm/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-26T00:00" itemprop="datePublished">Publicado el domingo, 26 de octubre de 2014 a las 00:00 UTC</span></div><div><span datetime="2014-10-26T00:00" itemprop="dateModified">Actualizado el domingo, 26 de octubre de 2014 a las 00:00 UTC</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Quer&iacute;a haber empezado este mes con el desaf&iacute;o <a href="http://www.onegameamonth.com">One Game a Month</a> pero mis herramientas no estaban listas tal y como recomendaba el libro <a href="http://www.mcfunkypants.com/jam">The Game Jam Survival Guide</a> de <a href="http://www.mcfunkypants.com">Christer Kaitila</a>. As&iacute; que este mes lo dediqu&eacute; a hacer herramientas para las juegos. Concretamente he desarrollado dos sets de herramientas (esqueletos a partir de ahora). Uno es de <a href="https://developer.mozilla.org/es/docs/Glossary/JavaScript">JavaScript</a>/<a href="http://www.typescriptlang.org/">TypeScript</a> y el otro de C++. Quer&iacute;a haber hecho uno de Rust, pero hasta que no salga la 1.0 y lo pueda probar en Windows en condiciones no habr&aacute; esqueleto de Rust. As&iacute; pues hecha la introducci&oacute;n, en este post voy a hablar del esqueleto de <a href="https://developer.mozilla.org/es/docs/Glossary/JavaScript">JavaScript</a>/<a href="http://www.typescriptlang.org/">TypeScript</a> que es el que hice primero.</p> 
+<h2>Descripci&oacute;n del esqueleto</h2> 
+<p>El esqueleto ha sido dise&ntilde;ado alrededor de <a href="http://gruntjs.com">Grunt</a> para su f&aacute;cil manejo. Me encanta ver como Grunt puede con todo lo que le echen y m&aacute;s (lo &uacute;nico que le falta es un plugin nativo de C++ al estilo de Gradle). Actualmente el esqueleto usa <a href="http://www.typescriptlang.org/">TypeScript</a> para el c&oacute;digo. Este maneja las definiciones con <a href="https://www.npmjs.org/package/tsd">TSD</a>, se compila y finalmente se le pasa por <a href="http://browserify.org/">Browserify</a> para convertirlo en un &uacute;nico fichero. A parte no hay ficheros <a href="http://www.w3.org/">HTML</a>, sino que son plantillas <a href="http://jade-lang.com/">Jade</a>; la raz&oacute;n no es muy clara pero prefer&iacute;a tener Jade antes que HTML b&aacute;sico. Quiz&aacute; me sent&iacute;a inspirado y pens&eacute; que le daba un toque m&aacute;s <em><a href="http://nodejs.org">node.js</a></em>. Y el CSS tampoco se usa directamente, sino que debemos pasar por el compilador de <a href="http://lesscss.org/">LESS</a> (aqu&iacute; la ventaja es m&aacute;s clara que con Jade/HTML). Adicionalmente podemos generar documentaci&oacute;n si estuviese documentado el c&oacute;digo con <a href="http://typedoc.io/">TypeDoc</a> y generamos una p&aacute;gina del manual de UNIX con markedman. Posteriormente en etapas finales del juego podemos generar iconos de todos los tama&ntilde;os imaginables (Apple iOS iPhone sin retina, con retina, iPad, iPad mini,… incluso para el navegador Coast). Adem&aacute;s se minifican las im&aacute;genes con <a href="http://optipng.sourceforge.net/">OptiPNG</a> y sus equivalentes para JPG y GIF. Para acabar se a&ntilde;ade una tag al repositorio Git y se publica en el repositorio, pero en el branch gh-pages. Tambi&eacute;n he dise&ntilde;ado otra ruta para el empaquetamiento en local de la aplicaci&oacute;n. Usando <a href="https://github.com/rogerwang/node-webkit">NodeWebkit</a> y un plugin para hacer un paquete <a href="http://debian.org">Debian</a> (tengo pendiente el RPM) y comprimiendo el resultado en un ZIP listo para el <a href="http://marketplace.firefox.com">Firefox Marketplace</a>. Adem&aacute;s, sin estar automatizados hay c&oacute;digo para <a href="http://ubuntu.com">Ubuntu Touch</a>, <a href="http://android.com">Android</a> y <a href="https://developers.google.com/chrome/apps/docs/">Chrome OS</a>.</p> 
+<h2>&iquest;C&oacute;mo se usa?</h2> 
+<p>Buena pregunta. Primero debemos clonar el repositorio Git y tenemos que tener en cuenta que a partir de ahora podemos modificar todo con fin de que se adapte a nuestras necesidades. Entonces clonamos con:</p> 
+<pre><code>git clone https://github.com/AdrianArroyoCalle/skeleton-npm-game TU_JUEGO
+</code></pre> 
+<p>Ahora debemos instalar las dependencias. Te recomiendo que vayas a por un caf&eacute; o algo ya que el sistema de dependencias empotradas de <a href="http://npmjs.org">NPM</a> hace que el tama&ntilde;o de la descarga se nos vaya de las manos con ciertas dependencias duplicadas y reduplicadas. As&iacute; que entra en la carpeta creada llamada TU_JUEGO y pon:</p> 
+<pre><code>npm install
+</code></pre> 
+<p>Adicionalmente si no tienes <a href="http://gruntjs.com">Grunt</a> instalado, inst&aacute;lalo con:</p> 
+<pre><code>npm -g grunt-cli
+</code></pre> 
+<p>Es posible que seg&uacute;n tu configuraci&oacute;n lo debas ejecutar como root o no.<br /> Una vez descargado solo nos quedar&iacute;a empezar el desarrollo. Podemos hacer una peque&ntilde;a prueba de que todo se haya instalado con:</p> 
+<pre><code>grunt test
+</code></pre> 
+<h2>Librer&iacute;as incluidas</h2> 
+<p>He incluido las siguientes librar&iacute;as y me gustar&iacute;a a&ntilde;adir unas cuantas m&aacute;s pronto:</p> 
+<ul> 
+ <li>BABYLON.JS</li> 
+ <li>three.js</li> 
+ <li>GameJS</li> 
+ <li>Box2d.js</li> 
+ <li>Cannon</li> 
+ <li>meSpeak</li> 
+ <li>Bongo.js</li> 
+ <li>Hammer.js</li> 
+ <li>Canvace</li> 
+ <li>i18next</li> 
+</ul> 
+<p>Y sin duda me gustar&iacute;a a&ntilde;adir alguna m&aacute;s, pero con estas creo que se pueden dar muchas combinaciones.</p> 
+<h2>Y una cosa m&aacute;s…</h2> 
+<p>He intentado recopilar la mayor cantidad de sitios donde publicar los juego una vez terminados. La lista ya es bastante grande pero no est&aacute;n probados todas las empresas all&iacute; expuestas. Adem&aacute;s hay que tener ciudado ya que hay tiendas que son incompatibles entre ellas.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm" st_title="Esqueleto de juegos NPM | El blog de Adrián Arroyo"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "adrianarroyocallegithub";
+var disqus_title = "Esqueleto de juegos NPM";
+var disqus_url = "http://adrianarroyocalle.github.io/blog//2014/10/26/esqueleto-de-juegos-npm/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1054,
+      "url" : "http://www.blogstack.info/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeadrianarroyo",
+      "name" : "El blog de Adrián Arroyo"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
