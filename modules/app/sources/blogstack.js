@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/10/mi-experiencia-con-atom",
+      "title" : "Mi experiencia con Atom"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/bicho-un-ano-por-casa",
       "title" : "Bicho, un año por casa"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
       "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
-      "title" : "Control de versiones con Subversion y USVN"
     }
   ]
 }
