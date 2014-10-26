@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/bicho-un-ano-por-casa",
+      "title" : "Bicho, un año por casa"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/10/chakra-euler-conocimos-tiempos-mejores",
       "title" : "Chakra Euler: conocimos tiempos mejores"
-    },
-    {
-      "url" : "/post/koalite/2014/10/formas-de-organizar-el-codigo",
-      "title" : "Formas de organizar el código"
     }
   ]
 }
