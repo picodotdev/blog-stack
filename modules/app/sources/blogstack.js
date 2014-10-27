@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-175",
+      "title" : "Enlaces interesantes 175"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
       "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
       "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
-      "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
     }
   ]
 }
