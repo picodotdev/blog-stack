@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
+      "title" : "Security Feed, los mejores articulos sobre seguridad"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
       "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
       "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
-      "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
     }
   ]
 }

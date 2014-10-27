@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
+      "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
+      "title" : "Security Feed, los mejores articulos sobre seguridad"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
       "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
       "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
-      "title" : "La versión 24.4 de GNU Emacs ya está disponible"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/java-biginteger",
-      "title" : "Java BigInteger"
     }
   ]
 }

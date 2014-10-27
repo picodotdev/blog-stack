@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
+      "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/bicho-un-ano-por-casa",
       "title" : "Bicho, un año por casa"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-13-2-beta-disponible-para-descargar",
       "title" : "openSUSE 13.2 Beta disponible para descargar"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-13-2-beta-where-are-you",
-      "title" : "openSUSE 13.2 Beta. Where are you?"
     }
   ]
 }
