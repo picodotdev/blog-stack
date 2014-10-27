@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
+      "title" : "JackTheStripper para Fedora Linux 19/20"
+    },
+    {
       "url" : "/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle",
       "title" : "Vulnerabilidad Reportada en SSL 3.0 (POODLE)"
     },

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
+      "title" : "JackTheStripper para Fedora Linux 19/20"
+    },
+    {
       "url" : "/post/pledin/2014/10/mi-experiencia-con-atom",
       "title" : "Mi experiencia con Atom"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-174",
       "title" : "Enlaces interesantes 174"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
-      "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
     }
   ]
 }
