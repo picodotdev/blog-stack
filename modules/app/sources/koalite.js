@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/10/equipos-tolerantes-a-fallos",
+      "title" : "Equipos tolerantes a fallos"
+    },
+    {
       "url" : "/post/koalite/2014/10/formas-de-organizar-el-codigo",
       "title" : "Formas de organizar el código"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/05/conceptos-basicos-para-testear-una-base-de-datos",
       "title" : "Conceptos básicos para testear una base de datos"
-    },
-    {
-      "url" : "/post/koalite/2014/05/deconstruyendo-la-piramide-de-los-tests",
-      "title" : "Deconstruyendo la pirámide de los tests"
     }
   ]
 }

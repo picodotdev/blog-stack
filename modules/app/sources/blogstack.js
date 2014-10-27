@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/10/equipos-tolerantes-a-fallos",
+      "title" : "Equipos tolerantes a fallos"
+    },
+    {
       "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
       "title" : "JackTheStripper para Fedora Linux 19/20"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
       "title" : "Charlas de un #findenegro"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-174",
-      "title" : "Enlaces interesantes 174"
     }
   ]
 }

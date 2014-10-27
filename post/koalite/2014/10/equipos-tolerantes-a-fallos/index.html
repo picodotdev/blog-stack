@@ -1,0 +1,120 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Equipos tolerantes a fallos | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/10/equipos-tolerantes-a-fallos"><span itemprop="headline">Equipos tolerantes a fallos</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/lHdcqPz8e8A/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-27T05:06" itemprop="datePublished">Publicado el lunes, 27 de octubre de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+development, software-development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Hace unos a&ntilde;os (no tantos) era relativamente raro que al desarrollar una aplicaci&oacute;n se prestara mucha atenci&oacute;n a aspectos como la tolerancia a fallos, la escalabilidad, etc. Es cierto que hab&iacute;a aplicaciones que s&iacute; requer&iacute;an de estas caracter&iacute;sticas, pero la gran mayor&iacute;a de aplicaciones que se desarrollaban acababan instaladas dentro de las empresas, con un s&oacute;lo servidor y, bueno, de aquella manera.</p> 
+<p>Hoy en d&iacute;a, con la llegada de la nube (el cloud computing que dir&iacute;an los que te la quieren vender), parece que la tolerancia a fallos, la escalabilidad y dem&aacute;s son caracter&iacute;sticas fundamentales y cr&iacute;ticas para cualquier aplicaci&oacute;n, incluso para la web de la mercer&iacute;a de la esquina, y todo el mundo est&aacute; muy familiarizado y concienciado con estos conceptos.</p> 
+<p>Ahora que todos tenemos claro que es fundamental que los sistemas de los dem&aacute;s tengan esa solidez y robustez, llega el momento de pensar un poco en nosotros, &iquest;c&oacute;mo de tolerante a fallos y escalable es tu equipo de desarrollo?</p> 
+<h3>El problema son los humanos</h3> 
+<p>Al hablar de fallos de un equipo de desarrollo podemos pensar en mil tipos de contratiempos, pero en este caso me quiero centrar en el aspecto humano, porque por mucho que les pese a algunos, un equipo de desarrollo no est&aacute; formado por recursos, sino por humanos, y los humanos son problem&aacute;ticos de manejar. Adem&aacute;s, me gustar&iacute;a centrarme en factores <em>internos al equipo</em>, asumiendo un mundo de fantas&iacute;a en el que el entorno ayuda al equipo de desarrollo en su trabajo.</p> 
+<p>&iquest;Qu&eacute; pasa si ma&ntilde;ana desaparece uno de los miembros del equipo? &iquest;Y si es “el que sabe” (ll&aacute;malo l&iacute;der t&eacute;cnico, arquitecto o lo que m&aacute;s te guste)? &iquest;Y si desaparece m&aacute;s de uno? &iquest;Cu&aacute;l es el <a href="http://en.wikipedia.org/wiki/Bus_factor">factor autob&uacute;s</a> de tu equipo?</p> 
+<p>Esto es algo que puede pasar en cualquier momento. No se trata de que lo abduzcan, pero puede cambiar de trabajo, mudarse a otra ciudad, tocarle la loter&iacute;a o simplemente hartarse. Esto acabar&aacute; ocurriendo antes o despu&eacute;s y debemos estar preparados para ello.</p> 
+<p>Un problema muy frecuente ante este tipo de situaciones es que, de repente, ya nadie sabe c&oacute;mo mantener y modificar el c&oacute;digo que manejaba esa persona. Eso hace que “su parte” del sistema se vaya degradando poco a poco porque nadie se atreve a meterle mano, los bugs se acumulan y llega un momento en que la situaci&oacute;n estalla.</p> 
+<h3>Redundancia y balanceo de carga</h3> 
+<p>La forma m&aacute;s directa de evitar esto es evitar que nadie posea “su parte” del sistema. En terminolog&iacute;a de eXtreme Programming, esto ser&iacute;a fomentar la <a href="http://martinfowler.com/bliki/CodeOwnership.html">propiedad colectiva del c&oacute;digo</a> y hacer que todo el mundo toque (o sea capaz de tocar) todo el c&oacute;digo. </p> 
+<p>Si el proyecto es muy grande, es imposible que todo el mundo toque todo el c&oacute;digo, pero debemos intentar que siempre haya m&aacute;s de una persona que pueda modificar cada parte. Si aplicamos t&eacute;cnicas como la <a href="http://en.wikipedia.org/wiki/Pair_programming">programaci&oacute;n por parejas</a> o las <a href="http://en.wikipedia.org/wiki/Code_review">revisiones de c&oacute;digo</a> tendremos mucho ganado, porque todo el c&oacute;digo lo habr&aacute;n visto al menos dos personas.</p> 
+<p>Hay que tener en cuenta que esto es aplicable a <em>todo lo que comprende el sistema</em>, no s&oacute;lo el c&oacute;digo en C# (o Java), sino tambi&eacute;n el HTML, el CSS, la base de datos, los scripts de instalaci&oacute;n, el script de compilaci&oacute;n, etc. </p> 
+<p>Tener un experto nivel 50 en CSS y que nadie m&aacute;s sepa centrar un div lo que hace es introducir un <a href="http://en.wikipedia.org/wiki/Single_point_of_failure">punto &uacute;nico de fallo</a> en el <em>sistema</em>, es decir, en el equipo de desarrollo, y si la persona que desaparece del equipo es el experto en CSS, tendremos un problema bastante serio.</p> 
+<p>Una ventaja adicional de emplear este solapamiento de roles es que nos permite <em>balancear la carga</em> entre todos los miembros del equipo. Si cada miembro del equipo es experto en una cosa, podemos tener situaciones en que haya personas que est&aacute;n colapsadas de trabajo mientras otras no tienen nada que hacer porque no se est&aacute; tocando su &aacute;rea de experiencia. Por el contrario, si todos los miembros del equipo son flexibles, siempre podr&aacute;n echar una mano en las &aacute;reas de la aplicaci&oacute;n que as&iacute; lo requieran en cada momento.</p> 
+<p>Existe otro enfoque para este problema, que es el de <em>commoditizar</em> a los desarrolladores, asumiendo que no tienen valor intr&iacute;nseco y que lo &uacute;nico que necesitas cuando se marche un desarrollador es contratar a otro y ya est&aacute;. Aunque este enfoque tan t&iacute;pico en determinados c&iacute;rculos c&aacute;rnicos pueda resultar rentable econ&oacute;micamente, t&eacute;cnicamente no suele funcionar muy bien. </p> 
+<p>Independientemente de lo bueno o malo que sea el desarrollador que estamos reemplazando, si lleva alg&uacute;n tiempo en el equipo habr&aacute; adquirido una serie de conocimientos sobre la aplicaci&oacute;n y los habr&aacute; plasmado en su c&oacute;digo, mientras que alguien que parta de cero deber&aacute; empezar por adquirir esos conocimientos. </p> 
+<p>Si adem&aacute;s la persona que se est&aacute; reemplazando no era muy bueno t&eacute;cnicamente o no comprend&iacute;a bien lo que estaba implementando, seguramente su c&oacute;digo y su dise&ntilde;o sean m&aacute;s complicados de entender para quien lo sustituye, entrando en una especie de c&iacute;rculo vicioso que acaba produciendo un c&oacute;digo… como el que se suele ver en proyectos gestionados as&iacute;.</p> 
+<h3>Documentar o automatizar</h3> 
+<p>En realidad, si profundizamos un poco en el problema podemos llegar a la conclusi&oacute;n de que el mayor inconveniente no es que falten una o m&aacute;s personas, sino que hemos perdido el conocimiento que ten&iacute;an esas personas.</p> 
+<p>Ya hemos visto que lo ideal es evitar ese punto de &uacute;nico de fallo, pero si no podemos permit&iacute;rnoslo, una alternativa es el uso de documentaci&oacute;n para facilitar la transmisi&oacute;n de conocimiento cuando un miembro deja el equipo.</p> 
+<p>El problema que tiene la documentaci&oacute;n es que es costosa de generar y a&uacute;n m&aacute;s costosa de mantener. Antes era frecuente encontrarse con documentos de an&aacute;lisis y de dise&ntilde;o llenos de diagramas UML y detalladas descripciones de casos de uso, pero esos documentos tend&iacute;an a quedarse desactualizados muy r&aacute;pidamente y acaban por no ajustarse al c&oacute;digo real de la aplicaci&oacute;n (si es que lo hab&iacute;an hecho alguna vez). Eso hac&iacute;a que en lugar de ayudarnos a comprender el sistema, nos confundieran a&uacute;n m&aacute;s.</p> 
+<p>Una soluci&oacute;n a esto es contar con documentaci&oacute;n ejecutable, es decir, tests automatizados, que sirvan a la vez para documentar el sistema y para darnos cierta confianza a la hora de introducir partes del sistema con las que no estamos muy familiarizados.</p> 
+<p>Esto no s&oacute;lo es aplicable al c&oacute;digo como tal, sino tambi&eacute;n a los procesos que hay alrededor, como la generaci&oacute;n de la documentaci&oacute;n, de los instaladores, el paso a producci&oacute;n, etc. Si todos esos procesos est&aacute;n automatizados, aunque perdamos al “experto en despliegues” podremos poner una versi&oacute;n en producci&oacute;n ejecutando un simple script. Al final tendremos que comprender c&oacute;mo funciona ese script para poder mantenerlo, pero al menos habremos ganado tiempo.</p> 
+<h3>Conclusiones</h3> 
+<p>Igual que una aplicaci&oacute;n puede estar dise&ntilde;ada para que resista mejor los contratiempos, un equipo de desarrollo puede tomar medidas que le permitan sobrevivir a momentos complicados. </p> 
+<p>Aplicando conceptos similares a los que usados al dise&ntilde;ar una aplicaci&oacute;n podemos analizar cu&aacute;les son los factores de riesgo, detectar los puntos &uacute;nicos de fallo y tratar de buscar medidas que nos permitan limitarlos.</p> 
+<p>Documentar todo lo que hacemos puede resultar de ayuda para transmitir el conocimiento cuando un miembro deja el equipo, pero el coste de mantener esa documentaci&oacute;n es tan algo que pocas veces merece la pena, por lo que tratar de automatizar en lugar de documentar es una buena salida.</p> 
+<p>Hasta ahora nos hemos centrado en la parte de supervivencia, pero hay otro factor que podemos asimilar entre aplicaciones y equipos de desarrollo: la escalabilidad y c&oacute;mo podemos preparar un equipo para crecer, pero eso lo dejaremos para un pr&oacute;ximo post.</p> 
+<p>No hay posts relacionados.</p>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/lHdcqPz8e8A" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos" st_title="Equipos tolerantes a fallos | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1057,
+      "url" : "http://www.blogstack.info/post/koalite/2014/10/equipos-tolerantes-a-fallos"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>
