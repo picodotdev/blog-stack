@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
+      "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
       "title" : "Ya salio Ubuntu 14.10, y ahora que?"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/nuevo-centralizador-de-feeds-sobre-linux-y-tecnologia",
       "title" : "Nuevo centralizador de Feeds sobre Linux y tecnologia"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/muchas-gracias-a-todos-no-me-lo-puedo-creer",
-      "title" : "Muchas gracias a todos, no me lo puedo creer"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
+      "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
       "title" : "Functional trick to compose Conditions in Jooq"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/java-biginteger",
       "title" : "Java BigInteger"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6",
-      "title" : "Inicialización de diccionarios en C# 6"
     }
   ]
 }
