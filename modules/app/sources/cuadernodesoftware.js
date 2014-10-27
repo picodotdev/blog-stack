@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
+      "title" : "Functional trick to compose Conditions in Jooq"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/08/scrum-o-kanban",
       "title" : "¿Scrum o Kanban?"
     },
@@ -77,10 +81,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/04/the-eye-of-the-storm",
       "title" : "The eye of the storm"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/03/vagrant-chef-solo-para-crear-un-entorno-de-desarrollo-lamp",
-      "title" : "Vagrant + Chef solo para crear un entorno de desarrollo LAMP"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
+      "title" : "Functional trick to compose Conditions in Jooq"
+    },
+    {
       "url" : "/post/koalite/2014/10/equipos-tolerantes-a-fallos",
       "title" : "Equipos tolerantes a fallos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6",
       "title" : "Inicialización de diccionarios en C# 6"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
-      "title" : "Charlas de un #findenegro"
     }
   ]
 }
