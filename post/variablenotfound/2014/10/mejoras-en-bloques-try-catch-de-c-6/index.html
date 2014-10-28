@@ -1,0 +1,187 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Mejoras en bloques try/catch de C# 6 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6"><span itemprop="headline">Mejoras en bloques try/catch de C# 6</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/oo1SC4CSmQ4/mejoras-en-bloques-trycatch-de-c-6.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-28T12:52" itemprop="datePublished">Publicado el martes, 28 de octubre de 2014 a las 12:52 UTC</span></div><div><span datetime="2014-10-28T12:52" itemprop="dateModified">Actualizado el martes, 28 de octubre de 2014 a las 12:52 UTC</span></div><div><span>
+Etiquetado como
+novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a>, c-6</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="image" src="http://lh4.ggpht.com/-_vBo18H0tXA/VDkU7PfCYGI/AAAAAAAADpI/UDJlg0nDqyg/image312.png?imgmax=800" height="179" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="142" />Seguimos con 
+<a href="http://www.variablenotfound.com/search/label/c%236">la serie</a> donde vamos desgranando las novedades de C# 6, y en esta ocasi&oacute;n vamos a ver algunas mejoras en el uso de bloques try/catch, a las que seguro podremos sacar buen partido.
+<br />
+<br />En este post trataremos dos temas distintos. En primer lugar, comentaremos la introducci&oacute;n del soporte de 
+<code>await</code> en bloques 
+<code>catch</code>/
+<code>finally</code>, y seguiremos con la nueva capacidad de filtrado de excepciones.
+<br />
+<br />Vamos a ello :-)
+<br />
+<a></a>
+<br />
+<h4>Soporte de await en bloques catch/finally</h4>Esta nueva caracter&iacute;stica cubre una peque&ntilde;a ausencia presente en las versiones anteriores del lenguaje de la que, sinceramente, no me hab&iacute;a dado cuenta hasta la fecha. Resulta que en las versiones de C# anteriores a la 6, no estaba permitido utilizar 
+<code>await</code> para esperar la finalizaci&oacute;n de una llamada as&iacute;ncrona en bloques 
+<code>catch</code> y 
+<code>finally</code>. Por tanto, un c&oacute;digo como el siguiente lanzaba un error de compilaci&oacute;n:
+<br />
+<br />
+<img alt="image" src="http://lh4.ggpht.com/-fIPi1lM5mRg/VDkU8MniJpI/AAAAAAAADpQ/X-VaoY-DT-g/image4.png?imgmax=800" height="136" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="696" />
+<br />
+<br />Como curiosidad, el motivo de que el uso de&nbsp;
+<code>await</code>&nbsp;no estuviera soportado en este tipo de bloques en las versiones anteriores del lenguaje era simplemente &quot;porque era muy dif&iacute;cil de implementar&quot; (palabras textuales).
+<br />
+<br />No s&eacute; a vosotros, pero a m&iacute; incluso me ha sorprendido que no se pudiera hacer antes. Seguro que si no lo he echado en falta es porque no me he encontrado hasta ahora con la necesidad de hacerlo, lo que puede indicar que tampoco es algo habitual (al menos por mi parte, claro) pero bueno, est&aacute; bien saber que ya podremos usarlo con normalidad.
+<br />
+<h4>Filtros de excepciones</h4>
+<img align="right" alt="" src="http://lh6.ggpht.com/-3dpEV2vOjbQ/VDkU8vAivzI/AAAAAAAADpU/de5k6CXKPcQ/image8.png?imgmax=800" height="214" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="203" />Hasta ahora, la granularidad de los bloques&nbsp;
+<code>catch</code>&nbsp;&nbsp;de C# es a nivel de tipo&nbsp;de excepci&oacute;n. Es decir, tras un 
+<code>try</code> normalmente encontramos tantos 
+<code>catch</code> como tipos de excepci&oacute;n distintos queremos controlar, indicando as&iacute; d&oacute;nde queremos que se gestione la excepci&oacute;n cuando se produzca. Podemos ver un ejemplo del c&oacute;digo habitual en el lateral.
+<br />
+<br />Aunque este enfoque es v&aacute;lido en muchas ocasiones, hay otras donde ser&iacute;a interesante poder tener un mayor control a la hora de decidir si queremos que un bloque 
+<code>catch</code> concreto gestione una excepci&oacute;n.
+<br />
+<br />Para ello, C# 6 incorpora los nuevos 
+<em>exception filters</em>, que son condiciones adicionales que podemos a&ntilde;adir a cada cl&aacute;usula catch de forma que, si no se cumplen, el bloque ser&aacute; ignorado y se seguir&aacute; buscando en el resto de catchs si hay alguno que puedan manejar la excepci&oacute;n.
+<br />
+<br />
+<div style="background-color: #fff3d6; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; padding-top: 5px;">
+ Nota: efectivamente, esto existe en VB.NET desde 
+ <a href="http://msdn.microsoft.com/en-us/library/fk6t46tz(v=vs.71).aspx">el principio de los tiempos</a>. Aunque a veces pueda parecer lo contrario, no siempre C# va por delante ;)
+</div>
+<br />La sintaxis de estos bloques es la siguiente:
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-IUN1aYMn6KI/VDkU9Y0qYPI/AAAAAAAADpg/nSIKNPqh3bY/image%25255B11%25255D.png?imgmax=800" height="314" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="366" />
+<br />Como pod&eacute;is observar, la cosa consiste simplemente en a&ntilde;adir condiciones a las cl&aacute;usulas 
+<code>catch</code>, de forma que la excepci&oacute;n s&oacute;lo ser&aacute; tratada en ese bloque si la condici&oacute;n eval&uacute;a a cierto. En caso contrario, se continuar&aacute;n evaluando el resto de 
+<em>catchs</em> hasta encontrar uno capaz de gestionar la excepci&oacute;n. Por ejemplo, en el caso anterior, un una excepci&oacute;n 
+<code>ServerException</code> cuya propiedad 
+<code>HttpCode</code> valga 503 ser&aacute; evaluada por el 
+<code>catch</code> final.
+<br />
+<br />Fijaos que con las versiones de C# anteriores a la 6 no ser&iacute;a tan sencillo solucionar este escenario. Nos ver&iacute;amos obligados a introducir un &uacute;nico 
+<code>catch</code> para la excepci&oacute;n 
+<code>ServerException</code> y decidir en su interior si debemos tratarla, pero en caso contrario no podremos dejarla fluir para que otros 
+<code>catch</code> posteriores la traten. A lo sumo podr&iacute;amos relanzarla, pero el resultado tampoco ser&iacute;a el mismo.
+<br />
+<br />Por supuesto, las condiciones pueden contener cualquier tipo de expresi&oacute;n booleana, como en el siguiente ejemplo:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-sXubHfzNQro/VDkU-wGvnHI/AAAAAAAADpo/rScftUMZZ4Y/image%25255B14%25255D.png?imgmax=800" height="144" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="439" />
+<br />
+<br />Y aprovechando esta capacidad, es posible hacer uso 
+<strike>
+ y abuso
+</strike> de estos filtros para realizar tratamiento lateral de excepciones, es decir, realizar determinadas tareas cuando una excepci&oacute;n se detecta, pero permitiendo que el resto de catchs sean evaluados. Por ejemplo, en el siguiente c&oacute;digo se guardan las excepciones 
+<code>ServerException</code> en el log, pero el tratamiento final de la excepci&oacute;n se realizar&aacute; en el &uacute;ltimo 
+<code>catch</code> porque el filtro siempre retorna 
+<code>false</code>: 
+<br />
+<br />
+<img alt="" src="http://lh6.ggpht.com/-wpgM4Ruu_O8/VDkU_UTbEZI/AAAAAAAADpw/-Keq1pBh7v4/image%25255B17%25255D.png?imgmax=800" height="276" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="499" />
+<br />
+<br />En definitiva, de nuevo estamos ante unas novedades no muy espectaculares, pero s&iacute; &uacute;tiles para cubrir escenarios que con las versiones anteriores de C# no pod&iacute;amos solucionar de forma tan directa. 
+<br />
+<br />Otros posts de la serie sobre C# 6:
+<br />
+<ul>
+ <li><a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html" title="El operador “-.” en C# y VB.NET, m&aacute;s cerca">El operador “?.” en C# y VB.NET, m&aacute;s cerca</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/inicializacion-de-propiedades-en-c-60.html" title="Inicializaci&oacute;n de propiedades en C# 6.0">Inicializaci&oacute;n de propiedades en C# 6.0</a> </li>
+ <li><a href="http://www.variablenotfound.com/2014/09/uso-de-miembros-estaticos-en-c-6-una.html" title="Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea-">Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea?</a> </li>
+ <li><a href="http://www.variablenotfound.com/2014/09/declaracion-de-variables-en-expresiones-csharp.html">Declaraci&oacute;n de variables en expresiones de C# 6</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/10/el-operador-nameof-de-c-6.html">El operador nameof de C# 6</a>&nbsp;y&nbsp;<a href="http://www.variablenotfound.com/2014/10/rendimiento-de-nameof-en-c-6.html">rendimiento del operador nameof</a>.</li>
+ <li><a href="http://www.variablenotfound.com/2014/10/inicializacion-de-diccionarios-en-c-6.html">Inicializaci&oacute;n de diccionarios en C# 6</a></li>
+</ul>Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=oo1SC4CSmQ4:tIet0RtpaZw:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=oo1SC4CSmQ4:tIet0RtpaZw:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=oo1SC4CSmQ4:tIet0RtpaZw:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=oo1SC4CSmQ4:tIet0RtpaZw:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/oo1SC4CSmQ4" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6" st_title="Mejoras en bloques try/catch de C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1066,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

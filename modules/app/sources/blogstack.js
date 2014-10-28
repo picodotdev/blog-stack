@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
+      "title" : "Mejoras en bloques try/catch de C# 6"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero",
+      "title" : "Manjaro 0.8.10: el usuario es lo primero"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
       "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
       "title" : "Instalar programas en Debian facilmente con tasksel"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/java-9-y-npm-articulos-para-genbetadev",
-      "title" : "Java 9 y NPM artículos para GenBetaDev"
-    },
-    {
-      "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
-      "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
     }
   ]
 }

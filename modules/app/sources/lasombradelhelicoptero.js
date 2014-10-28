@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero",
+      "title" : "Manjaro 0.8.10: el usuario es lo primero"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/10/chakra-euler-conocimos-tiempos-mejores",
       "title" : "Chakra Euler: conocimos tiempos mejores"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/01/pesadilla-antes-de-navidad",
       "title" : "Pesadilla antes de Navidad"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/01/resultados-de-la-encuesta-de-sistemas-operativos",
-      "title" : "Resultados de la encuesta de sistemas operativos"
     }
   ]
 }
