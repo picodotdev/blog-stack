@@ -3,16 +3,12 @@
 <section class="archive">
 	<t:if test="generic">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<a id="archive"></a>
 			<h1>Archivo</h1>
-			<ul class="list-unstyled">
-				<t:loop source="dates.keySet()" value="i">
-					<li><h2>${i}</h2></li>
-					<ul class="list-unstyled list-inline">
-						<t:loop source="dates.get(i)" value="archive">
-							<li><a t:type="pagelink" page="archive" context="getContextDate(archive.get('year'), archive.get('month'))" title="${archive.get('posts')} artículos">${getMonthName(archive.get('month'))}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
-						</t:loop>
-					</ul>
+			<a id="sources"></a>
+			<h2>Bitácoras</h2>
+			<ul class="list-unstyled list-inline">
+				<t:loop source="sources" value="archive">
+					<li><a t:type="pagelink" page="post" context="getContextPost(sourcePost)" title="${archive.get('posts')} artículos, ${sourcePost.title}">${source.name}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
 				</t:loop>
 			</ul>
 			<a id="labels"></a>
@@ -22,11 +18,15 @@
 					<li><a href="${labelFeed.url}"><span class="fa fa-rss"></span></a>&nbsp;<a t:type="pagelink" page="label" context="getContextLabel(label)" title="${archive.get('posts')} artículos, ${labelPost.title}">${label.name}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
 				</t:loop>
 			</ul>
-			<a id="sources"></a>
-			<h2>Bitácoras</h2>
-			<ul class="list-unstyled list-inline">
-				<t:loop source="sources" value="archive">
-					<li><a t:type="pagelink" page="post" context="getContextPost(sourcePost)" title="${archive.get('posts')} artículos, ${sourcePost.title}">${source.name}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
+			<a id="archive"></a>
+			<ul class="list-unstyled">
+				<t:loop source="dates.keySet()" value="i">
+					<li><h2>${i}</h2></li>
+					<ul class="list-unstyled list-inline">
+						<t:loop source="dates.get(i)" value="archive">
+							<li><a t:type="pagelink" page="archive" context="getContextDate(archive.get('year'), archive.get('month'))" title="${archive.get('posts')} artículos">${getMonthName(archive.get('month'))}</a>&nbsp;<small>x ${archive.get('posts')}</small></li>
+						</t:loop>
+					</ul>
 				</t:loop>
 			</ul>
 		</div>

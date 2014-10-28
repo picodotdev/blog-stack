@@ -124,4 +124,12 @@ public class Data {
 	public boolean isFirstLabel() {
 		return i == 0;
 	}
+	
+	public boolean isPublishDate() {
+		return !isUpdateDate() && post.getPublishDate() != null;
+	}
+	
+	public boolean isUpdateDate() {
+		return post.getUpdateDate() != null;		
+	}
 }

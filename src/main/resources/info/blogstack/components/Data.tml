@@ -47,12 +47,12 @@
 				<div>
 					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${post.source.pageUrl}">${post.source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">artículo original</span></a></span>
 				</div>
-				<t:if test="postData.get('publishDate')">
+				<t:if test="publishDate">
 					<div>
 						<span itemprop="datePublished" datetime="${postData.get('microdataPublishDate')}">Publicado el ${postData.get('publishDate')}</span>
 					</div>
 				</t:if>
-				<t:if test="postData.get('updateDate')">
+				<t:if test="updateDate">
 					<div>
 						<span itemprop="dateModified" datetime="${postData.get('microdataUpdateDate')}">Actualizado el ${postData.get('updateDate')}</span>
 					</div>
