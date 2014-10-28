@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
+      "title" : "Como activar el inicio de sesión automático en Ubuntu"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-175",
       "title" : "Enlaces interesantes 175"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
       "title" : "Joomla, segunda parada visitando los CMS"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
-      "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
     }
   ]
 }

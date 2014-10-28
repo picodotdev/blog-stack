@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
+      "title" : "Como activar el inicio de sesión automático en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
       "title" : "Security Feed, los mejores articulos sobre seguridad"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
       "title" : "Que es la particion Recovery"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/gpg-error-llave-publica-no-encontrada-y-la-solucion-en-ubuntu",
-      "title" : "GPG error, llave publica no encontrada y la solucion en Ubuntu"
     }
   ]
 }
