@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
+      "title" : "¡A Seattle! (episode IV)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
       "title" : "Mejoras en bloques try/catch de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-167",
       "title" : "Enlaces interesantes 167"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/novedades-de-signalr-2-1-y-iii-progreso-de-acciones",
-      "title" : "Novedades de SignalR 2.1 (y III): progreso de acciones"
     }
   ]
 }

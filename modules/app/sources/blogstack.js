@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
+      "title" : "¡A Seattle! (episode IV)"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
       "title" : "Mejoras en bloques try/catch de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
       "title" : "Cómo instalar Spotify en Debian y Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
-      "title" : "Instalar programas en Debian facilmente con tasksel"
     }
   ]
 }
