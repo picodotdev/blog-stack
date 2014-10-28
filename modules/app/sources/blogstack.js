@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
+      "title" : "Copiar archivos entre servidores de forma segura con SCP"
+    },
+    {
       "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
       "title" : "¡A Seattle! (episode IV)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
       "title" : "Ya salio Ubuntu 14.10, y ahora que?"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
-      "title" : "Cómo instalar Spotify en Debian y Ubuntu"
     }
   ]
 }

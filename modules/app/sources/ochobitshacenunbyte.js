@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
+      "title" : "Copiar archivos entre servidores de forma segura con SCP"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
       "title" : "Cómo instalar Spotify en Debian y Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
       "title" : "Reproduce tu música con Banshee"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge",
-      "title" : "Configuración de red en KVM en modo public bridge"
     }
   ]
 }
