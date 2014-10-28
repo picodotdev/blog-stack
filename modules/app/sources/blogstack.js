@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
+      "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
       "title" : "Como activar el inicio de sesión automático en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
       "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
-      "title" : "Joomla, segunda parada visitando los CMS"
     }
   ]
 }

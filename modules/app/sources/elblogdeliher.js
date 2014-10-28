@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
+      "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
       "title" : "Como activar el inicio de sesión automático en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
       "title" : "Aviso de seguridad de Paypal"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/que-es-la-particion-recovery",
-      "title" : "Que es la particion Recovery"
     }
   ]
 }
