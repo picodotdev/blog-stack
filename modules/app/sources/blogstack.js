@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
+      "title" : "Mis extensiones indispesables para Firefox"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
       "title" : "Fondos de escritorio 17"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
       "title" : "openSUSE Tumbleweed y Factory serán una sola"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
-      "title" : "Eclipse y el concepto de Delegación"
     }
   ]
 }

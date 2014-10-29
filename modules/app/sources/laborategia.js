@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
+      "title" : "Mis extensiones indispesables para Firefox"
+    },
+    {
       "url" : "/post/laborategia/2014/10/drivedroid-como-arrancar-cualquier-linux-desde-nuestro-smartphone",
       "title" : "DriveDroid; cómo arrancar cualquier Linux desde nuestro smartphone"
     },
@@ -77,10 +81,6 @@ define("app/sources/laborategia", [], function() {
     {
       "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
       "title" : "The Deep Web; ¿los suburbios de Internet?"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector",
-      "title" : "[Libremente.cc] Administración basada en la relación con los clientes para organizaciones del 3. sector"
     }
   ]
 }
