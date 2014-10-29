@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
+      "title" : "Fondos de escritorio 17"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
       "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
       "title" : "Eclipse y el concepto de Delegación"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
-      "title" : "Ya salio Ubuntu 14.10, y ahora que?"
     }
   ]
 }

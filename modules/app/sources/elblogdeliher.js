@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
+      "title" : "Fondos de escritorio 17"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
       "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
       "title" : "Como eliminar la sesion de invitado en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/aviso-de-seguridad-de-paypal",
-      "title" : "Aviso de seguridad de Paypal"
     }
   ]
 }
