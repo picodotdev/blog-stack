@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
+      "title" : "Escucha la llamada de GNU/Linux"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
       "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/deteccion-de-gestos-en-opensuse-13-1",
       "title" : "Detección de gestos en openSUSE 13.1"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/opensuse-13-2-beta-disponible-para-descargar",
-      "title" : "openSUSE 13.2 Beta disponible para descargar"
     }
   ]
 }

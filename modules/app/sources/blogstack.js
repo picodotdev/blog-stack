@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
+      "title" : "Escucha la llamada de GNU/Linux"
+    },
+    {
       "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
       "title" : "Mis extensiones indispesables para Firefox"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
-      "title" : "openSUSE Tumbleweed y Factory serán una sola"
     }
   ]
 }
