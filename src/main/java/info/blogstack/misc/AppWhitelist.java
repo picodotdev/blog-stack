@@ -44,7 +44,7 @@ public class AppWhitelist extends Whitelist {
 				.addTags("script", "iframe", "noscript")
 				.addAttributes("div", "style")
 				.addAttributes("img", "style")
-				.addAttributes("script", "src", "data-.*")
+				.addAttributes("script", "src", "data-id", "data-ratio", "async", "class")
 				.addAttributes("iframe", "src", "width", "height", "frameborder", "allowfullscreen", "style", "marginwidth", "marginheight", "frameborder", "scrolling")
 				.addAttributes("object", "width", "height")
 				.addAttributes("param", "name", "value")
