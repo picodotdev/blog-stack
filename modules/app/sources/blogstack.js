@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
+      "title" : "jQuery $.ajax ,$.get, $.post"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
       "title" : "Escucha la llamada de GNU/Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2014/10/esqueleto-de-juegos-npm",
       "title" : "Esqueleto de juegos NPM"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     }
   ]
 }

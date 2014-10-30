@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
+      "title" : "jQuery $.ajax ,$.get, $.post"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
       "title" : "Eclipse y el concepto de Delegación"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/el-soporte-de-html5-y-hammer-js-para-genbetadev",
       "title" : "El soporte de HTML5 y Hammer.js Para GenBetaDev"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/jpa-entity-listener",
-      "title" : "JPA Entity Listener"
     }
   ]
 }
