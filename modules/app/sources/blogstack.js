@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
+      "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/10/mi-experiencia-con-atom",
       "title" : "Mi experiencia con Atom"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/bicho-un-ano-por-casa",
-      "title" : "Bicho, un año por casa"
     }
   ]
 }

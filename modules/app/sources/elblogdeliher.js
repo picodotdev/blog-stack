@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
+      "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
       "title" : "Fondos de escritorio 17"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
       "title" : "Un par de chistes informaticos para amenizar el lunes"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/como-eliminar-la-sesion-de-invitado-en-ubuntu",
-      "title" : "Como eliminar la sesion de invitado en Ubuntu"
     }
   ]
 }
