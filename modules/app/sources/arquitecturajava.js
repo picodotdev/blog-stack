@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
+      "title" : "Java EE 6 vs Spring Framework 4 (Video)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
       "title" : "jQuery $.ajax ,$.get, $.post"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/arquitecturas-y-modularidad",
       "title" : "Arquitecturas y Modularidad"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/el-soporte-de-html5-y-hammer-js-para-genbetadev",
-      "title" : "El soporte de HTML5 y Hammer.js Para GenBetaDev"
     }
   ]
 }

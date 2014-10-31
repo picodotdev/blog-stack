@@ -1,0 +1,171 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1"><span itemprop="headline">Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/sistemas-operativos"><img title="sistemas-operativos" alt="sistemas-operativos" src="/assets/images/labels/sistemas-operativos.png"/></a><a class="label" href="/label/mysql"><img title="mysql" alt="mysql" src="/assets/images/labels/mysql.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/10/31/instalar-famp-apache-mysql-y-php-en-freebsd-10/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-31T11:39" itemprop="dateModified">Actualizado el viernes, 31 de octubre de 2014 a las 11:39 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, comunidad-open-source, php55, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, famp, apache2, apache22, comandos, freebsd, php5, <a href="/label/mysql"><span itemprop="articleSection">mysql</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-horny-800-600.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-horny-800-600.jpg" alt="freebsd-horny-800-600" width="800" height="600" /></a></p> 
+<p>Hasta ahora hemos visto <strong>FreeBSD 10</strong> tanto en su instalaci&oacute;n c&oacute;mo en la actualizaci&oacute;n de paquetes.</p> 
+<p>En el cap&iacute;tulo de hoy trataremos sobre la instalaci&oacute;n de un servidor <strong>FAMP</strong>, que es lo mismo que <strong>LAMP</strong>, pero para <strong>FreeBSD</strong>.</p> 
+<p>Antes de comenzar actualizaremos el sistema usando el comando<strong><em> pkg</em></strong>, en vez de usar&nbsp; <strong><em>ports</em></strong>.</p> 
+<pre>pkg update</pre> 
+<p>Yo soy un usuario habitual de <strong>GNU/Linux</strong> por que ir&eacute; explicando las diferencias entre los paquetes en ambos sistemas operativos.</p> 
+<p><strong>Instalamos Apache</strong></p> 
+<p>En el sistema del ping&uuml;ino el paquete de apache es <strong>Apache2</strong>, en cambio en el sistema del demonio con tridente el paquete es <strong>Apache22 </strong>, de hecho existe hasta la versi&oacute;n <strong>Apache24</strong>, que se puede descargar usando <strong><em>ports</em></strong>.</p> 
+<p>Podemos ver las versiones disponibles del sofware usando <strong><em>pkg</em></strong> con el par&aacute;metro <strong><em>search</em></strong>.</p> 
+<pre>pkg search apache</pre> 
+<p>Instalamos Apache</p> 
+<pre>pkg install apache22
+</pre> 
+<p>Vemos una imagen:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-1.jpg" alt="freebsd-1" width="547" height="371" /></a></p> 
+<p>En <strong>GNU/Linux</strong>, almenos en las distribuciones basadas en<strong> Debian</strong>, los archivos de configuraci&oacute;n est&aacute;n ubicados en <strong>/etc/apache2</strong>, en cambio en <strong>FreeBSD</strong> se ubican en <strong>/usr/local/etc/apache22</strong></p> 
+<p>Los proyectos web, a no ser que indiquemos lo contrario, se suelen ubicar en<strong> GNU/Linux</strong> en <strong>/var/www</strong>, en cambio en <strong>FreeBSD</strong> se localizan en <strong>/usr/local/www</strong></p> 
+<p>Debemos modificar el archivo <strong>/etc/rc.conf</strong>, y a&ntilde;adir la siguiente l&iacute;nea:</p> 
+<pre>apache22_enable=&quot;YES&quot;</pre> 
+<p>En el archivo <strong>/etc/rc.conf</strong> indicamos que servicios se han de iniciar cuando arrancamos el sistema.</p> 
+<p>Podemos iniciar el servicio con el siguiente comando:</p> 
+<pre>service apache22 onestart
+
+</pre> 
+<p><strong>Instalamos MySQL</strong> </p> 
+<p>En <strong>GNU/Linux</strong>, en los sistemas basados en <strong>Debian</strong>, usamos el comando apt-get para instalar los paquetes <strong><em>mysql-server</em></strong>, <strong><em>mysql-common</em></strong> o <strong><em>mysql-client</em></strong>, y el programa instalar&aacute; la versi&oacute;n de <strong>MySQL</strong> que tenga en los repositorios.</p> 
+<p>En <strong>FreeBSD</strong> instalaremos la versi&oacute;n <strong>5.1</strong>, con el siguiente comando:</p> 
+<pre>pkg install mysql51-server
+
+</pre> 
+<p>Aqu&iacute; tenemos la captura de pantalla:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-2.jpg" alt="freebsd-2" width="684" height="235" /></a></p> 
+<p>Iniciamos el servicio</p> 
+<pre>/usr/local/etc/rc.d/mysql-server onestart</pre> 
+<p>A&ntilde;adimos el servicio al archivo /etc/rc.conf</p> 
+<pre>mysql_enable=&quot;YES&quot;</pre> 
+<p>Creamos una contrase&ntilde;a para el usuario root de mysql</p> 
+<pre>mysqladmin -uroot password '&lt;password&gt;'</pre> 
+<p>Y reiniciamos el servicio</p> 
+<pre>/usr/local/etc/rc.d/mysql-server restart
+
+</pre> 
+<p><strong>Instalamos PHP</strong></p> 
+<p>Instalar <strong>PHP</strong>&nbsp; mediante ports en <strong>FreeBSD</strong> , no usaremos <em>pkg</em> en este caso ya que no me acaba de funcionar bien, para usar todas sus funciones.</p> 
+<p>Actualizamos antes ports:</p> 
+<pre>portsnap fetch update</pre> 
+<p>Vemos el resultado:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-3.jpg" alt="freebsd-3" width="719" height="393" /></a></p> 
+<p>Y ya podemos iniciar el proceso.</p> 
+<p>Instalaremos la versi&oacute;n de PHP 5.5</p> 
+<pre>cd /usr/ports/lang/php55
+make install
+make clean</pre> 
+<p>Nos preguntar&aacute; que m&oacute;dulos queremos instalar, a&ntilde;adiremos el m&oacute;dulo para Apache</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-4.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-4.jpg" alt="freebsd-4" width="717" height="391" /></a></p> 
+<p>El resto de men&uacute;s de instalaci&oacute;n los dejamos tal y c&oacute;mo est&aacute;n, aprentando siempre <strong>&lt; OK &gt;</strong></p> 
+<p>Una vez acabada &eacute;sta parte debemos de modificar el fichero <strong>/usr/local/etc/apache22/httpd.conf</strong>, justo debajo de “<strong>/AddType</strong>“</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-5.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-5.jpg" alt="freebsd-5" width="709" height="385" /></a></p> 
+<p>Y a&ntilde;adir, c&oacute;mo vemos en la imagen superior:</p> 
+<pre>AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps</pre> 
+<p>Tambi&eacute;n debemos comprobar que exista la siguiente l&iacute;nea en la secci&oacute;n “LoadModule”</p> 
+<pre>LoadModule php5_module        libexec/apache24/libphp5.so</pre> 
+<p>Si no existe la creamos.</p> 
+<p>Y modificar la l&iacute;nea “DirectoryIndex index.html” con:</p> 
+<pre>DirectoryIndex index.php index.html</pre> 
+<p>Con esto ya podemos reiniciar el servicio:</p> 
+<pre>service apache22 onerestart</pre> 
+<p>Modificamos el archivo <strong>/usr/local/www/apache22/data/index.html</strong>, y modificamos el texto.</p> 
+<p>Ahora ya podemos ir al navegador y comprobar que todo vaya bien.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-6.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/freebsd-6.jpg" alt="freebsd-6" width="800" height="70" /></a></p> 
+<p>Ya lo tenemos listo.</p> 
+<p><strong><em>See you soon!!</em></strong></p> 
+<p> </p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1" st_title="Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10 | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li><li><a href="/label/mysql/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta mysql</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1074,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotBillboard" : "5825737840",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

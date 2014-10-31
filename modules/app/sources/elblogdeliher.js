@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
+      "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
       "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/09/fondos-de-escritorio-15",
       "title" : "Fondos de escritorio 15"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/09/un-par-de-chistes-informaticos-para-amenizar-el-lunes",
-      "title" : "Un par de chistes informaticos para amenizar el lunes"
     }
   ]
 }

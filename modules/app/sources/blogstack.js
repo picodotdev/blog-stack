@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
+      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
+      "title" : "Java EE 6 vs Spring Framework 4 (Video)"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
+      "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
       "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
       "title" : "Functional trick to compose Conditions in Jooq"
-    },
-    {
-      "url" : "/post/koalite/2014/10/equipos-tolerantes-a-fallos",
-      "title" : "Equipos tolerantes a fallos"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
-      "title" : "JackTheStripper para Fedora Linux 19/20"
-    },
-    {
-      "url" : "/post/pledin/2014/10/mi-experiencia-con-atom",
-      "title" : "Mi experiencia con Atom"
     }
   ]
 }

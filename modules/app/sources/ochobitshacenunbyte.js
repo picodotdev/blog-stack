@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
+      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
       "title" : "Copiar archivos entre servidores de forma segura con SCP"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
       "title" : "Instalando Telegram en Kubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/reproduce-tu-musica-con-banshee",
-      "title" : "Reproduce tu música con Banshee"
     }
   ]
 }
