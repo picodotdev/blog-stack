@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Inicio básico de Docker"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/presentacion-en-espanol-de-la-charla-de-richard-stallman-en-tedx",
+      "title" : "Presentación en español de la charla de Richard Stallman en TEDx"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
       "title" : "Security Feed, los mejores articulos sobre seguridad"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
-      "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
     }
   ]
 }
