@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
@@ -17,10 +25,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
       "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     },
     {
       "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
       "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
-      "title" : "Functional trick to compose Conditions in Jooq"
     }
   ]
 }
