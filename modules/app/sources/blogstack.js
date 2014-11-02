@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
+      "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
       "title" : "¿Hay alguien ahí fuera?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-175",
       "title" : "Enlaces interesantes 175"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
-      "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
     }
   ]
 }

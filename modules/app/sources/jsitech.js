@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
+      "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
+    },
+    {
       "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
       "title" : "JackTheStripper para Fedora Linux 19/20"
     },
