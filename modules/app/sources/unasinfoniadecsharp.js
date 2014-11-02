@@ -3,6 +3,10 @@ define("app/sources/unasinfoniadecsharp", [], function() {
   "name" : "Una sinfonía en C#",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires",
+      "title" : "Taller sobre AngularJs en Buenos Aires"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/05/taller-en-buenos-aires-desarrollo-agil-con-javascript-practicas-tecnicas-y-herramientas",
       "title" : "Taller en Buenos Aires: Desarrollo ágil con JavaScript. Prácticas, técnicas y herramientas."
     },

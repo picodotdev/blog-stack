@@ -7,6 +7,14 @@ define("app/sources/blogstack", [], function() {
       "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
     },
     {
+      "url" : "/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires",
+      "title" : "Taller sobre AngularJs en Buenos Aires"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
+      "title" : "Microsoft pierde poder en los ordenadores italianos"
+    },
+    {
       "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
       "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
       "title" : "Mejoras en bloques try/catch de C# 6"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero",
-      "title" : "Manjaro 0.8.10: el usuario es lo primero"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
-      "title" : "Como activar el inicio de sesión automático en Ubuntu"
     }
   ]
 }
