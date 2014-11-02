@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
+      "title" : "¿Hay alguien ahí fuera?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/presentacion-en-espanol-de-la-charla-de-richard-stallman-en-tedx",
       "title" : "Presentación en español de la charla de Richard Stallman en TEDx"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
       "title" : "Vulnerabilidad en Bash"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/la-familia-monster-cumple-5-anos-terrorificos",
-      "title" : "La Familia Monster cumple 50 años terroríficos"
     }
   ]
 }

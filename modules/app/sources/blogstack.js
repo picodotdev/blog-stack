@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
+      "title" : "¿Hay alguien ahí fuera?"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
       "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
-      "title" : "Security Feed, los mejores articulos sobre seguridad"
     }
   ]
 }
