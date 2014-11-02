@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
+      "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
+    },
+    {
       "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
       "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
       "title" : "Como activar el inicio de sesión automático en Ubuntu"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-175",
-      "title" : "Enlaces interesantes 175"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
+      "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
+    },
+    {
       "url" : "/post/navegapolis/2014/10/un-equipo-scrum-necesita-3-sprints-para-aprender-a-estimar-pero-es-lo-menos-importante",
       "title" : "Un equipo scrum necesita 3 sprints para aprender a estimar, pero es lo menos importante."
     },
