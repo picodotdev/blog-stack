@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/10/crear-mapas-html5-interactivos-con-raphaeljs",
+      "title" : "Crear mapas HTML5 interactivos con RaphaelJS"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/08/deadlock-bloqueo-mutuo-abrazo-mortal-o-como-colgar-un-proceso-con-esperas-infinitas",
       "title" : "Deadlock, bloqueo mutuo, abrazo mortal o cómo colgar un proceso con esperas infinitas. ☠ ☠ ☠"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/lo-bueno-de-programar-es-que-le-puedes-poner-el-nombre-que-quieras-a-las-variables",
       "title" : "Lo bueno de programar es que le puedes poner el nombre que quieras a las variables"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/introduccion-a-timer-y-timertask-en-java",
-      "title" : "Introducción a Timer y TimerTask en Java."
     }
   ]
 }
