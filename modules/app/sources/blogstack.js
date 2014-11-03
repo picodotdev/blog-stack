@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
+      "title" : "Cómo instalar MariaDB y primeros pasos"
+    },
+    {
       "url" : "/post/koalite/2014/11/aprende-despacio",
       "title" : "Aprende despacio"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
       "title" : "Copiar archivos entre servidores de forma segura con SCP"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
-      "title" : "¡A Seattle! (episode IV)"
     }
   ]
 }

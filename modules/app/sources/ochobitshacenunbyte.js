@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
+      "title" : "Cómo instalar MariaDB y primeros pasos"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
       "title" : "Ogg,  el formato contenedor libre y abierto"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalando-telegram-en-kubuntu",
-      "title" : "Instalando Telegram en Kubuntu"
     }
   ]
 }
