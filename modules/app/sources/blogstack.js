@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/aprende-despacio",
+      "title" : "Aprende despacio"
+    },
+    {
       "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
       "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
       "title" : "¡A Seattle! (episode IV)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
-      "title" : "Mejoras en bloques try/catch de C# 6"
     }
   ]
 }
