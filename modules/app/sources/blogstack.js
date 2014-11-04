@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
+      "title" : "Como instalar una nueva fuente de texto en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
       "title" : "Fondos de escritorio 17"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
-      "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
     }
   ]
 }
