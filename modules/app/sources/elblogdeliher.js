@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mi-antiguo-blog-ubuntu-y-mas-morira-el-dia-5-11-2-14",
+      "title" : "Mi antiguo blog, Ubuntu y mas, morirá el día 5-11-2014"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
       "title" : "Microsoft pierde poder en los ordenadores italianos"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/me-cambio-a-kde-en-ubuntu",
       "title" : "Me cambio a KDE en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/07/webempresa-un-buen-hosting-para-wordpress",
-      "title" : "Webempresa, un buen hosting para WordPress"
     }
   ]
 }

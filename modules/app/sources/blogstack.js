@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mi-antiguo-blog-ubuntu-y-mas-morira-el-dia-5-11-2-14",
+      "title" : "Mi antiguo blog, Ubuntu y mas, morirá el día 5-11-2014"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
       "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
-      "title" : "Copiar archivos entre servidores de forma segura con SCP"
     }
   ]
 }
