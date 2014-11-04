@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
+      "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
       "title" : "Como instalar una nueva fuente de texto en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
       "title" : "Mis extensiones indispesables para Firefox"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
-      "title" : "Fondos de escritorio 17"
     }
   ]
 }

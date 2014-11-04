@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
+      "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
       "title" : "¿Hay alguien ahí fuera?"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
       "title" : "Cuidado si utilizas XFS en openSUSE Factory"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/vulnerabilidad-en-bash",
-      "title" : "Vulnerabilidad en Bash"
     }
   ]
 }
