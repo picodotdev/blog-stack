@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
+      "title" : "Probamos la versión 7 de Trisquel GNU"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
       "title" : "Instalar y configurar OCS-NG (Segunda parte)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/ogg-el-formato-contenedor-libre-y-abierto",
-      "title" : "Ogg,  el formato contenedor libre y abierto"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
+      "title" : "Probamos la versión 7 de Trisquel GNU"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
       "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
       "title" : "Escucha la llamada de GNU/Linux"
-    },
-    {
-      "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
-      "title" : "Mis extensiones indispesables para Firefox"
     }
   ]
 }
