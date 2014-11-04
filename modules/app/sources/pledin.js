@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/11/instalar-open-stack-juno-con-devstack",
+      "title" : "Instalar Open Stack Juno con devstack"
+    },
+    {
       "url" : "/post/pledin/2014/10/mi-experiencia-con-atom",
       "title" : "Mi experiencia con Atom"
     },

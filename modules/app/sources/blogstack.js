@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/11/instalar-open-stack-juno-con-devstack",
+      "title" : "Instalar Open Stack Juno con devstack"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
       "title" : "Probamos la versión 7 de Trisquel GNU"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
       "title" : "jQuery $.ajax ,$.get, $.post"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
-      "title" : "Escucha la llamada de GNU/Linux"
     }
   ]
 }
