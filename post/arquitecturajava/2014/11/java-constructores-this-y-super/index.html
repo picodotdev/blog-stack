@@ -1,0 +1,280 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Java Constructores this() y super() | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/11/java-constructores-this-y-super"><span itemprop="headline">Java Constructores this() y super()</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/java-constructores-y-super/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-05T11:32" itemprop="datePublished">Publicado el miércoles, 05 de noviembre de 2014 a las 11:32 UTC</span></div><div><span>
+Etiquetado como
+java-conceptos, <a href="/label/java"><span itemprop="articleSection">java</span></a>, java-basico</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En Java creamos objetos todos los d&iacute;as y para ellos usamos constructores. Todos estamos muy habituados a programarlos pero siempre hay algunos bordes que se nos escapan, vamos a revisarlos. Supongamos que tenemos la siguiente clase:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+</pre> 
+<h2>&nbsp;Java Constructores por defecto</h2> 
+<p><strong>&iquest;Tiene esta clase alg&uacute;n constructor?</strong>. La respuesta es s&iacute; toda clase Java si no se le incluye ning&uacute;n constructor el compilador a&ntilde;ade <strong>un constructor por defecto</strong>. As&iacute; pues el c&oacute;digo para el compilador ser&iacute;a el siguiente:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+public Persona() {
+
+}
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+</pre> 
+<p>Como vemos para el compilador existe un constructor por defecto vac&iacute;o. &iquest;Ahora bien y si el c&oacute;digo&nbsp;de nuestra clase incluyera un constructor con un par&aacute;metro?</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+
+public Persona(String nombre) {
+this.nombre = nombre;
+}
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+&amp;nbsp;
+
+</pre> 
+<p>&nbsp;</p> 
+<p>En ese caso Java no a&ntilde;ade el constructor por defecto. As&iacute; pues en ambos casos <strong>tenemos un &uacute;nico constructor.</strong></p> 
+<h2>Java constructores y super()</h2> 
+<p>Las dudas con los constructores aparecen ligadas a las jerarqu&iacute;as de clases y a la palabra <strong>super()</strong>. Supongamos que tenemos la siguiente jerarqu&iacute;a:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/herencia.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/herencia.png" alt="herencia" width="164" height="290" /></a></p> 
+<p>En este caso podemos tener dos clases con el siguiente c&oacute;digo por simplificar al m&aacute;ximo :</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+</pre> 
+<pre>
+package com.arquitecturajava;
+
+public class Deportista extends Persona{
+
+}
+</pre> 
+<p>Aunque en el c&oacute;digo no aparezcan constructores existen <strong>dos constructores por defecto uno</strong> en cada clase (Persona,Deportista) con el siguiente c&oacute;digo:</p> 
+<p>Persona.java</p> 
+<pre>
+
+public Persona() {
+ super();
+ }
+</pre> 
+<p>Deportista.java</p> 
+<pre>
+ public Deportista() {
+ super();
+
+ }
+
+</pre> 
+<p>Como podemos ver todos los constructores llaman por defecto al constructor de la clase superior a trav&eacute;s de una llamada a super() (en este caso al constructor por defecto). <strong>Esto es debido a que los constructores no se heredan entre jerarqu&iacute;as de clases. </strong>Por lo tanto la palabra super() siempre es la primera l&iacute;nea de un constructor e invoca al constructor de la clase superior que comparta el mismo tipo de parametrizaci&oacute;n.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/super.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/super.png" alt="super" width="257" height="400" /></a></p> 
+<p><strong>Aunque nosotros no pongamos la palabra super() esta siempre ser&aacute; a&ntilde;adida salvo que nosotros la a&ntilde;adamos. </strong>Por ejemplo si nuestros constructores tienen par&aacute;metros las cla&uacute;sulas super que deberemos construir &nbsp;ser&aacute;n las siguientes entre Persona y Deportista para que el c&oacute;digo compile:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Persona {
+
+public Persona(String nombre) {
+super();
+this.nombre = nombre;
+}
+
+private String nombre;
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+</pre> 
+<p>&nbsp;</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Deportista extends Persona{
+
+public Deportista(String nombre) {
+super(nombre);
+
+}
+
+}
+
+</pre> 
+<p>Ya que sino el compilador a&ntilde;adir&aacute; super() por defecto y el c&oacute;digo no compilar&aacute; al carecer la clase Persona de un constructor por defecto.</p> 
+<h2>Usando this()</h2> 
+<p>La otra posibilidad a super() es el uso de this() en la primera linea de un constructor. Esto lo que hace es invocar a otro constructor que este en la misma clase y que soporte el conjunto de par&aacute;metros que le pasamos.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class Deportista extends Persona{
+
+private String deporte;
+
+public String getDeporte() {
+return deporte;
+}
+
+public Deportista(String nombre, String deporte) {
+this(nombre);
+this.deporte = deporte;
+}
+
+public void setDeporte(String deporte) {
+this.deporte = deporte;
+}
+
+public Deportista(String nombre) {
+super(nombre);
+// TODO Auto-generated constructor stub
+}
+
+}
+
+</pre> 
+<p>El uso de this() y de super() es excluyente o usamos uno u otro.</p> 
+<p>Otros art&iacute;culos relacionados: <a title="Uso de Java Generics  (I)" href="http://www.arquitecturajava.com/uso-de-java-generics/">Java Generic</a>, <a title="Java Iterator vs ForEach" href="http://www.arquitecturajava.com/java-iterator-vs-foreach/">Java ForEach vs Iterator</a>&nbsp;,<a title="Dise&ntilde;o Flexibilidad y Sencillez" href="http://www.arquitecturajava.com/diseno-flexibilidad-y-sencillez/">&nbsp;</a><a title="Java 8 Lambda Expressions (I)" href="http://www.arquitecturajava.com/java-8-lambda-expressions/">Expresiones Lambda</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/java-constructores-y-super/">Java Constructores this() y super()</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" st_title="Java Constructores this() y super() | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1093,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -3,10 +3,66 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-05T10:03:12Z</updated>
+  <updated>2014-11-05T12:03:24Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-05T10:03:12Z</dc:date>
+  <dc:date>2014-11-05T12:03:24Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java Constructores this() y super()</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" />
+    <category term="java-conceptos" />
+    <category term="java" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-05T11:32:30Z</updated>
+    <published>2014-11-05T11:32:30Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En Java creamos objetos todos los d&amp;iacute;as y para ellos usamos constructores. Todos estamos muy habituados a programarlos pero siempre hay algunos bordes que se nos escapan, vamos a revisarlos. Supongamos que tenemos la siguiente clase:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+&lt;/pre&gt; 
+&lt;h2&gt;&amp;nbsp;Java Constructores por defecto&lt;/h2&gt; 
+&lt;p&gt;&lt;strong&gt;&amp;iquest;Tiene esta clase alg&amp;uacute;n constructor?&lt;/strong&gt;. La respuesta es s&amp;iacute; toda clase Java si no se le incluye ning&amp;uacute;n constructor el compilador a&amp;ntilde;ade &lt;strong&gt;un constructor por defecto&lt;/strong&gt;. As&amp;iacute; pues el c&amp;oacute;digo para el compilador ser&amp;iacute;a el siguiente:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+public Persona() {
+
+}
+
+public String getNombre() {
+return nombre;
+}
+
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-05T11:32:30Z</dc:date>
+  </entry>
   <entry>
     <title>Que es y como instalar Qmmp en Ubuntu mediante PPA</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa" />
@@ -628,27 +684,6 @@
 &lt;a&gt;&lt;/a&gt;Todos sabemos ya que el mencionado ranking no ha de tomarse m&amp;aacute;s que como un mero indicador de popularidad y nunca como medida de uso. Ni mucho menos nos sirve para diferenciar la calidad de una distribuci&amp;oacute;n o su voluntad de tender puentes de ayuda al usuario final, que para eso ya estamos nosotros aqu&amp;iacute;. En cierto modo me sorprende un poco el lento ritmo de desarrollo que ha tenido Manjaro, hasta el punto de que, transcurrido tanto tiempo desde sus inicios, a&amp;uacute;n no nos han presentado una versi&amp;oacute;n 1.0. Pero, como veremos en el art&amp;iacute;culo de hoy, la distro no ha hecho m&amp;aacute;s que avanzar en pos de un objetivo: facilitar la vida a aquellos que desean disfrutar de las ventajas de Arch Linux, sin verse obligados a lidiar con tareas excesivamente complejas. Aqu&amp;iacute; es donde Manjaro marca, indudablemente, una importante diferencia. Veamos c&amp;oacute;mo.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Enrique Bravo</dc:creator>
     <dc:date>2014-10-28T12:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Como activar el inicio de sesión automático en Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu" />
-    <category term="conceptos-basicos" />
-    <category term="ubuntu" />
-    <category term="activar" />
-    <category term="inicio" />
-    <category term="automatico" />
-    <category term="sesion" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-10-27T23:23:34Z</updated>
-    <published>2014-10-27T23:23:34Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Al principio, cuando instalamos cualquier distribuci&amp;oacute;n Linux, los usuarios que vienen de Windows se encuentran con que tienen que estar tecleando muchas veces la contrase&amp;ntilde;a de su usuario para tareas que antes no ten&amp;iacute;an que hacerlo en el sistema operativo de Microsoft. En &lt;strong&gt;Ubuntu&lt;/strong&gt; hay que introducir muchas veces la contrase&amp;ntilde;a, al final te acostumbras y lo asumes sin mas, por lo menos en mi caso. En este articulo os voy a mostrar como &lt;strong&gt;activar&lt;/strong&gt; el &lt;strong&gt;inicio de sesi&amp;oacute;n autom&amp;aacute;tico en Ubuntu&lt;/strong&gt;, no es algo que recomiendo en un ordenador que lo usen varios usuarios, pero si el ordenador es para uso de una sola persona, nos ahorraremos introducir la contrase&amp;ntilde;a de nuestro usuario cada vez que lo encendamos y as&amp;iacute; tambi&amp;eacute;n el tiempo de arranque sera menor.&lt;/p&gt; 
- &lt;p&gt;Como he dicho antes, si el ordenador es usado por varios usuarios no recomiendo activar esta opci&amp;oacute;n, por una cuesti&amp;oacute;n obvia de seguridad. Yo os voy a mostrar como hacerlo y queda en vuestra mano si os conviene hacerlo &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-10-27T23:23:34Z</dc:date>
   </entry>
 </feed>
 

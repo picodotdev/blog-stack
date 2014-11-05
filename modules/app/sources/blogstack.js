@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
+      "title" : "Java Constructores this() y super()"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
       "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
       "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
-      "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
     }
   ]
 }

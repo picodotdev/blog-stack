@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
+      "title" : "Java Constructores this() y super()"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
       "title" : "Java EE 6 vs Spring Framework 4 (Video)"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js",
       "title" : "Libro: Arquitecturas Web y Angular js"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/arquitecturas-y-modularidad",
-      "title" : "Arquitecturas y Modularidad"
     }
   ]
 }
