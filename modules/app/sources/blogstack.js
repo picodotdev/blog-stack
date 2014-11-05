@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
+      "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/pledin/2014/11/instalar-open-stack-juno-con-devstack",
       "title" : "Instalar Open Stack Juno con devstack"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
       "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
-      "title" : "jQuery $.ajax ,$.get, $.post"
     }
   ]
 }

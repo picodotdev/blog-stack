@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
+      "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
       "title" : "Como instalar una nueva fuente de texto en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/donde-estan-los-fondos-de-escritorio-descargados-desde-ubuntu-tweak",
       "title" : "Donde estan los fondos de escritorio descargados desde Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/instalar-codecs-de-audio-y-video-con-los-extras-restringidos-en-ubuntu",
-      "title" : "Instalar codecs de audio y video con los extras restringidos en Ubuntu"
     }
   ]
 }
