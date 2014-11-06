@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
+      "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/que-es-preload-y-porque-lo-deberiamos-instalar-en-ubuntu",
       "title" : "Que es preload y porque lo deberiamos instalar en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
-      "title" : "Java EE 6 vs Spring Framework 4 (Video)"
     }
   ]
 }

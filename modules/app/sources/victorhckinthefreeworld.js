@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
+      "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
       "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
       "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/cuidado-si-utilizas-xfs-en-opensuse-factory",
-      "title" : "Cuidado si utilizas XFS en openSUSE Factory"
     }
   ]
 }
