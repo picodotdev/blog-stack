@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/que-es-preload-y-porque-lo-deberiamos-instalar-en-ubuntu",
+      "title" : "Que es preload y porque lo deberiamos instalar en Ubuntu"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
       "title" : "Java Constructores this() y super()"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
       "title" : "Java EE 6 vs Spring Framework 4 (Video)"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
-      "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
     }
   ]
 }
