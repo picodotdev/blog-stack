@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
+      "title" : "Nueva intervención manual necesaria en Chakra"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero",
       "title" : "Manjaro 0.8.10: el usuario es lo primero"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/01/principales-problemas-de-linux-en-el-escritorio",
       "title" : "Principales problemas de Linux en el escritorio"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/01/pesadilla-antes-de-navidad",
-      "title" : "Pesadilla antes de Navidad"
     }
   ]
 }

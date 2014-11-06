@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
+      "title" : "Nueva intervención manual necesaria en Chakra"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
       "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
-      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     }
   ]
 }
