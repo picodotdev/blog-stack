@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social",
+      "title" : "Participaré como ponente en la @librecon; os quiero presentar Civi CRM en la economía social"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/presentacion-en-espanol-de-la-charla-de-richard-stallman-en-tedx",
-      "title" : "Presentación en español de la charla de Richard Stallman en TEDx"
     }
   ]
 }

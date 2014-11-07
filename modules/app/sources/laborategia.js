@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social",
+      "title" : "Participaré como ponente en la @librecon; os quiero presentar Civi CRM en la economía social"
+    },
+    {
       "url" : "/post/laborategia/2014/10/mis-extensiones-indispesables-para-firefox",
       "title" : "Mis extensiones indispesables para Firefox"
     },
@@ -77,10 +81,6 @@ define("app/sources/laborategia", [], function() {
     {
       "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
       "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/the-deep-web-los-suburbios-de-internet",
-      "title" : "The Deep Web; ¿los suburbios de Internet?"
     }
   ]
 }
