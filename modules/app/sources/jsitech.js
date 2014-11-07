@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
+      "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
+    },
+    {
       "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
       "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
     },
