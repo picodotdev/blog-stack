@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
+      "title" : "Cómo instalar MariaDB y primeros pasos"
+    },
+    {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
       "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
     },
@@ -41,10 +45,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
       "title" : "Como instalar una nueva fuente de texto en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
-      "title" : "Cómo instalar MariaDB y primeros pasos"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mi-antiguo-blog-ubuntu-y-mas-morira-el-dia-5-11-2-14",
