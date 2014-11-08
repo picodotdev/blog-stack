@@ -1,7 +1,8 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Post;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.services.MainService;
 
 import org.apache.tapestry5.annotations.Cached;
@@ -17,7 +18,7 @@ public class ShareThis {
 	
 	@Parameter
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Inject
 	private MainService service;
@@ -31,11 +32,11 @@ public class ShareThis {
 		if (post == null) {
 			return null;
 		}
-		return String.format("%s | %s", post.getTitle(), post.getSource().getName());
+		return String.format("%s | %s", post.getTitle(), post.fetchParent(Keys.POST_SOURCE_ID).getName());
 	}
 	
 	@Cached(watch = "post")
 	public String getUrl() {
-		return Utils.getUrl(service, post);
+		return Utils.getUrl(service, post, post.fetchParent(Keys.POST_SOURCE_ID));
 	}
 }

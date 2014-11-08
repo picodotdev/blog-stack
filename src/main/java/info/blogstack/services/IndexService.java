@@ -1,6 +1,6 @@
 package info.blogstack.services;
 
-import info.blogstack.entities.Post;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ public interface IndexService {
 	void hash() throws Exception;
 	
 	@Transactional(propagation = Propagation.REQUIRED)
-	List<Post> index() throws Exception;
+	List<PostRecord> index() throws Exception;
 	
 	@Transactional(propagation = Propagation.REQUIRED)
-	List<Post> importSources() throws Exception;
+	List<PostRecord> importSources() throws Exception;
 }

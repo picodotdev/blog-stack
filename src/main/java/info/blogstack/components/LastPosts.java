@@ -1,6 +1,6 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Source;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Environmental;
@@ -14,7 +14,7 @@ public class LastPosts {
 
 	@Parameter
 	@Property
-	private Source source;
+	private SourceRecord source;
 	
 	@Component
 	private Any lastPosts;

@@ -1,9 +1,13 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.MainService;
 
 import java.util.ArrayList;
@@ -38,10 +42,10 @@ public class Data {
 	private Boolean archive;
 	
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Property
-	private Label label;
+	private LabelRecord label;
 	
 	@Property
 	private Integer i;
@@ -70,9 +74,9 @@ public class Data {
 	void beginRender() {
 		if (object == null) {
 			block = defaultBlock;
-		} else if (object instanceof info.blogstack.entities.Post) {
+		} else if (object instanceof PostRecord) {
 			block = (archive) ? archivePostBlock : postBlock;
-			post = (info.blogstack.entities.Post) object;
+			post = (PostRecord) object;
 		}
 	}
 	
@@ -96,25 +100,29 @@ public class Data {
 	}
 	
 	@Cached(watch = "post")
-	public Map<String, Object> getPostData() {		
+	public Map<String, Object> getPostData() {
+		AppPostRecord apost = post.into(AppPostRecord.class);
 		Map<String, Object> datos = new HashMap<>();
-		if (post.getPublishDate() != null) {
-			datos.put("publishDate", DATETIME_FORMATTER.print(post.getPublishDate()));
-			datos.put("microdataPublishDate", MICRODATA_DATETIME_FORMATTER.print(post.getPublishDate()));
+		if (apost.getPublishdate() != null) {
+			datos.put("publishDate", DATETIME_FORMATTER.print(apost.getPublishdate()));
+			datos.put("microdataPublishDate", MICRODATA_DATETIME_FORMATTER.print(apost.getPublishdate()));
 		}
-		if (post.getUpdateDate() != null) {
-			datos.put("updateDate", DATETIME_FORMATTER.print(post.getUpdateDate()));
-			datos.put("microdataUpdateDate", MICRODATA_DATETIME_FORMATTER.print(post.getUpdateDate()));
+		if (apost.getUpdatedate() != null) {
+			datos.put("updateDate", DATETIME_FORMATTER.print(apost.getUpdatedate()));
+			datos.put("microdataUpdateDate", MICRODATA_DATETIME_FORMATTER.print(apost.getUpdatedate()));
 		}
 		return datos;
 	}
-	
-	public String getLabels() {
-		List<String> labels = new ArrayList<>();
-		for (Label label : post.getLabels()) {
-			labels.add(label.getName());
+
+	@Cached(watch = "post")
+	public List<LabelRecord> getLabels() {
+		List<LabelRecord> labels = new ArrayList<>();		
+		List<PostsLabelsRecord> pls = post.fetchChildren(Keys.POSTS_LABELS_POST_ID);
+		for (PostsLabelsRecord pl : pls) {
+			LabelRecord label = pl.fetchParent(Keys.POSTS_LABELS_LABEL_ID);
+			labels.add(label);
 		}
-		return StringUtils.join(labels, ", ");
+		return labels;
 	}
 	
 	public Object[] getLabelContext() {
@@ -126,10 +134,14 @@ public class Data {
 	}
 	
 	public boolean isPublishDate() {
-		return !isUpdateDate() && post.getPublishDate() != null;
+		return !isUpdateDate() && post.getPublishdate() != null;
 	}
 	
 	public boolean isUpdateDate() {
-		return post.getUpdateDate() != null;		
+		return post.getUpdatedate() != null;		
+	}
+	
+	public SourceRecord getSource() {
+		return post.fetchParent(Keys.POST_SOURCE_ID);
 	}
 }

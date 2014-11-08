@@ -1,8 +1,10 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.MainService;
 
 import java.util.List;
@@ -13,7 +15,6 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.hibernate.Query;
 
 public class PostComponent {
 
@@ -21,9 +22,11 @@ public class PostComponent {
 		HOME_FEATURED, HOME, ARCHIVE, DEFAULT
 	}
 	
+	private static int NUMBER_LABELS = 4;
+	
 	@Parameter
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Parameter(value = "default", defaultPrefix = BindingConstants.LITERAL)
 	@Property
@@ -46,7 +49,7 @@ public class PostComponent {
 	private Boolean disqus;
 	
 	@Property
-	private Label label;
+	private LabelRecord label;
 	
 	@Inject
 	private MainService service;
@@ -58,7 +61,7 @@ public class PostComponent {
 	private Block defaultBlock;
 	
 	public Object[] getContext() {
-		return Utils.getContext(post);
+		return Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID));
 	}
 	
 	public Block getBlock() {
@@ -82,11 +85,8 @@ public class PostComponent {
 	}
 	
 	@Cached(watch = "post")
-	public List<Label> getLabels() {
-		Query query = service.getSessionFactory().getCurrentSession().createQuery("select l from Post p inner join p.labels as l where p = :post and l.enabled = true order by size(l.posts) desc");
-		query.setMaxResults(4);
-		query.setParameter("post", post);
-		return (List<Label>) query.list();
+	public List<LabelRecord> getLabels() {
+		return service.getLabelDAO().findByPost(post, NUMBER_LABELS);
 	}
 	
 	public boolean isShare() {
@@ -94,15 +94,28 @@ public class PostComponent {
 	}
 	
 	public boolean isComment() {
-		return disqus && post.getSource().getDisqusShortname() != null;
+		return disqus && post.fetchParent(Keys.POST_SOURCE_ID).getDisqusshortname() != null;
 	}
 	
 	@Cached(watch = "post")
 	public boolean isContentExcerpted() {
-		return (excerpt && post.getContent().length() != post.getContentExcerpt().length());
+		AppPostRecord apost = post.into(AppPostRecord.class);
+		return (excerpt && apost.getContent().length() != apost.getContentExcerpt().length());
 	}
 	
-	public Object[] getContextLabel(Label label) {
+	@Cached(watch = "post")
+	public String getContentExcerpt() {
+		AppPostRecord apost = post.into(AppPostRecord.class);
+		return apost.getContentExcerpt();
+	}
+	
+	@Cached(watch = "post")
+	public String getContent() {
+		AppPostRecord apost = post.into(AppPostRecord.class);
+		return apost.getContent();
+	}
+	
+	public Object[] getContextLabel(LabelRecord label) {
 		return Utils.getContext(label);
 	}
 

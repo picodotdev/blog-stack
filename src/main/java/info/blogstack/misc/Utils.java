@@ -1,7 +1,9 @@
 package info.blogstack.misc;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.MainService;
 
 import java.io.IOException;
@@ -20,11 +22,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Utils {
 
-	public static String getHash(Post post) {
-		return Utils.getHash(Utils.getContext(post));
+	public static String getHash(PostRecord post, SourceRecord source) {
+		return Utils.getHash(Utils.getContext(post, source));
 	}
 	
-	public static String getHash(Label label) {
+	public static String getHash(LabelRecord label) {
 		return Utils.getHash(Utils.getContext(label));
 	}
 	
@@ -42,15 +44,16 @@ public class Utils {
 		}
 	}
 	
-	public static Object[] getContext(Post post) {
-		String f = post.getSource().getAlias();
-		String y = String.valueOf(post.getConsolidatedPublishDate().getYear());
-		String m = StringUtils.leftPad(String.valueOf(post.getConsolidatedPublishDate().getMonthOfYear()), 2, "0");
+	public static Object[] getContext(PostRecord post, SourceRecord source) {
+		AppPostRecord apost = post.into(AppPostRecord.class);		
+		String f = source.getAlias();
+		String y = String.valueOf(apost.getConsolidatedPublishDate().getYear());
+		String m = StringUtils.leftPad(String.valueOf(apost.getConsolidatedPublishDate().getMonthOfYear()), 2, "0");
 		String e = Utils.urlize(post.getTitle());
 		return new Object[] { f, y, m, e };
 	}
 	
-	public static Object[] getContext(Label label) {
+	public static Object[] getContext(LabelRecord label) {
 		String l = Utils.urlize(label.getName());
 		return new Object[] { l };
 	}
@@ -77,7 +80,7 @@ public class Utils {
 		}
 	}
 	
-	public static String getUrl(MainService service, Post post) {
-		return service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, getContext(post)).toAbsoluteURI();
+	public static String getUrl(MainService service, PostRecord post, SourceRecord source) {
+		return service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, getContext(post, source)).toAbsoluteURI();
 	}
 }

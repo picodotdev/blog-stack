@@ -1,6 +1,7 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Adsense;
+import info.blogstack.persistence.jooq.tables.records.AdsenseRecord;
+import info.blogstack.persistence.records.AppAdsenseRecord;
 
 import org.apache.tapestry5.annotations.Environmental;
 import org.apache.tapestry5.annotations.Parameter;
@@ -12,14 +13,14 @@ public class Ads {
 
 	@Parameter
 	@Property
-	private Adsense adsense;
+	private AdsenseRecord adsense;
 
 	@Environmental
 	private JavaScriptSupport support;
 
 	void afterRender() {
 		JSONObject spec = new JSONObject();
-		spec.put("blogstack", toJSON(Adsense.BLOGSTACK));
+		spec.put("blogstack", toJSON(AppAdsenseRecord.BLOGSTACK));
 
 		if (adsense != null) {
 			spec.put("ad", toJSON(adsense));
@@ -28,13 +29,13 @@ public class Ads {
 		support.require("app/adsensem").invoke("init").with(spec);
 	}
 
-	private JSONObject toJSON(Adsense adsense) {
+	private JSONObject toJSON(AdsenseRecord adsense) {
 		JSONObject json = new JSONObject();
-		json.put("adClient", adsense.getAdsenseAdClient());
-		json.put("adSlotBillboard", adsense.getAdsenseSlotHorizontalSkycraper());
-		json.put("adSlotHorizontalSkycraper", adsense.getAdsenseSlotHorizontalSkycraper());
-		json.put("adSlotBigRectangle", adsense.getAdsenseSlotBigRectangle());
-		json.put("adSlotWideSkycraper", adsense.getAdsenseSlotWideSkycraper());
+		json.put("adClient", adsense.getAdsenseadclient());
+		json.put("adSlotBillboard", adsense.getAdsenseslothorizontalskycraper());
+		json.put("adSlotHorizontalSkycraper", adsense.getAdsenseslothorizontalskycraper());
+		json.put("adSlotBigRectangle", adsense.getAdsenseslotbigrectangle());
+		json.put("adSlotWideSkycraper", adsense.getAdsenseslotwideskycraper());
 		return json;
 	}
 }

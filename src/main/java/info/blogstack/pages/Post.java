@@ -1,6 +1,10 @@
 package info.blogstack.pages;
 
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.AdsenseRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.MainService;
 
 import org.apache.tapestry5.annotations.Property;
@@ -14,7 +18,7 @@ public class Post {
 	private MainService service;
 
 	@Property
-	private info.blogstack.entities.Post post;
+	private PostRecord post;
 	
 	void onActivate(Object[] context) {
 		this.context = context;
@@ -34,6 +38,14 @@ public class Post {
 	}
 
 	public String getSubtitle() {
-		return post.getSource().getName();
+		return post.fetchParent(Keys.POST_SOURCE_ID).getName();
+	}
+	
+	public SourceRecord getSource() {
+		return post.fetchParent(Keys.POST_SOURCE_ID);
+	}
+	
+	public AdsenseRecord getAdsense() {
+		return getSource().fetchParent(Keys.SOURCE_ADSENSE_ID);
 	}
 }

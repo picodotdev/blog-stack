@@ -1,7 +1,8 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Post;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.services.MainService;
 
 import org.apache.tapestry5.annotations.Component;
@@ -17,7 +18,7 @@ public class Karmacracy {
 
 	@Parameter
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Inject
 	private MainService service;
@@ -32,7 +33,7 @@ public class Karmacracy {
 		JSONObject spec = new JSONObject();
 		spec.put("selector", String.format("#%s", widget.getClientId()));
 		spec.put("id", post.getId());
-		spec.put("url", Utils.getUrl(service, post));
+		spec.put("url", Utils.getUrl(service, post, post.fetchParent(Keys.POST_SOURCE_ID)));
 		support.require("app/karmacracy").invoke("init").with(spec);
 	}
 }

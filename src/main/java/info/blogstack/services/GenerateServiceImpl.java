@@ -1,14 +1,16 @@
 package info.blogstack.services;
 
-import info.blogstack.entities.Indexation;
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import static info.blogstack.persistence.jooq.Tables.POST;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
-import info.blogstack.services.dao.Direction;
-import info.blogstack.services.dao.Pagination;
-import info.blogstack.services.dao.Sort;
+import info.blogstack.persistence.daos.Pagination;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.IndexationRecord;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 
 import java.io.File;
 import java.io.FileReader;
@@ -103,7 +105,7 @@ public class GenerateServiceImpl implements GenerateService {
 		return new File(String.format("feed.atom.xml", "blogstack"));
 	}
 
-	public File getToRss(Label label) {
+	public File getToRss(LabelRecord label) {
 		return new File(String.format("label/%s/feed.atom.xml", label.getName()));
 	}
 
@@ -119,9 +121,9 @@ public class GenerateServiceImpl implements GenerateService {
 		return files;
 	}
 	
-	public List<File> generateLabels(List<Label> labels) throws IOException {
+	public List<File> generateLabels(List<LabelRecord> labels) throws IOException {
 		List<File> files = new ArrayList<>();
-		for (Label label : labels) {
+		for (LabelRecord label : labels) {
 			if (!label.getEnabled()) {
 				continue;
 			}			
@@ -137,9 +139,9 @@ public class GenerateServiceImpl implements GenerateService {
 	}
 
 	@Override
-	public List<File> generatePosts(List<Post> posts) throws IOException {
+	public List<File> generatePosts(List<PostRecord> posts) throws IOException {
 		List<File> files = new ArrayList<>();
-		for (Post post : posts) {
+		for (PostRecord post : posts) {
 			if (!post.getVisible()) {
 				continue;
 			}
@@ -149,7 +151,7 @@ public class GenerateServiceImpl implements GenerateService {
 	}
 
 	@Override
-	public List<File> generateArchive(Collection<Post> posts) throws IOException {
+	public List<File> generateArchive(Collection<PostRecord> posts) throws IOException {
 		List<File> as = new ArrayList<>();
 		
 		if (!posts.isEmpty()) {
@@ -159,12 +161,12 @@ public class GenerateServiceImpl implements GenerateService {
 		}
 		
 		Map<String ,Object[]> dates = new HashMap<>();
-		for (Post post : posts) {
+		for (PostRecord post : posts) {
 			if (!post.getVisible()) {
 				continue;
 			}
-			String y = String.valueOf(post.getPublishDate().getYear());
-			String m = StringUtils.leftPad(String.valueOf(post.getPublishDate().getMonthOfYear()), 2, "0");
+			String y = String.valueOf(post.getPublishdate().getYear());
+			String m = StringUtils.leftPad(String.valueOf(post.getPublishdate().getMonthOfYear()), 2, "0");
 			dates.put(String.format("%s-%s", y, m), new Object[] { y, m });
 		}
 
@@ -179,14 +181,15 @@ public class GenerateServiceImpl implements GenerateService {
 	}
 
 	@Override
-	public File generatePost(Post post) throws IOException {
+	public File generatePost(PostRecord post) throws IOException {
 		if (!post.getVisible()) {
 			return null;
 		}
 		
-		logger.info("Generating post «{}» ({}, {})...", post.getTitle(), post.getId(), post.getSource().getName());
+		SourceRecord source = post.fetchParent(Keys.POST_SOURCE_ID);
+		logger.info("Generating post «{}» ({}, {})...", post.getTitle(), post.getId(), source.getName());
 
-		Object[] context = Utils.getContext(post);
+		Object[] context = Utils.getContext(post, source);
 		File file = new File(String.format("%s/post/%s/index.html", to.getPath(), StringUtils.join(context, "/")));
 
 		file.getParentFile().mkdirs();
@@ -255,15 +258,14 @@ public class GenerateServiceImpl implements GenerateService {
 	}
 
 	@Override
-	public List<File> generateLastPosts(List<Source> sources) throws IOException {
+	public List<File> generateLastPosts(List<SourceRecord> sources) throws IOException {
 		List<File> files = new ArrayList<>();
-		for (Source source : sources) {
+		for (SourceRecord source : sources) {
 			String alias = ((source == null) ? "blogstack" : source.getAlias());
 			String name = ((source == null) ? "Blog Stack" : source.getName());
 
-			List<Sort> sort = Collections.singletonList(new Sort("date", Direction.DESCENDING));
-			List<Post> posts = null;
-			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, sort);
+			List<PostRecord> posts = null;
+			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, POST.DATE.desc());
 			if (source == null) {
 				posts = service.getPostDAO().findAll(pagination);
 			} else {
@@ -271,12 +273,12 @@ public class GenerateServiceImpl implements GenerateService {
 			}
 
 			JSONArray ps = new JSONArray();
-			for (Post post : posts) {
+			for (PostRecord post : posts) {
 				if (!post.getVisible()) {
 					continue;
 				}
 				JSONObject object = new JSONObject();
-				object.put("url", service.getPageRenderLinkSource().createPageRenderLinkWithContext("post", Utils.getContext(post)).toString());
+				object.put("url", service.getPageRenderLinkSource().createPageRenderLinkWithContext("post", Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toString());
 				object.put("title", post.getTitle());
 				ps.put(object);
 			}
@@ -305,9 +307,9 @@ public class GenerateServiceImpl implements GenerateService {
 	@Override
 	public File generateLastUpdated() throws IOException {
 		DateTime date = DateTime.now();
-		Indexation indexation = service.getIndexationDAO().findLast();
+		IndexationRecord indexation = service.getIndexationDAO().findLast();
 		if (indexation != null) {
-			date = indexation.getCreationDate();
+			date = indexation.getCreationdate();
 		}
 
 		StringWriter sw = new StringWriter();
@@ -328,25 +330,25 @@ public class GenerateServiceImpl implements GenerateService {
 
 	@Override
 	public File generateRss() throws Exception {
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
-		List<Post> posts = service.getPostDAO().findAll(pagination);
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc());
+		List<PostRecord> posts = service.getPostDAO().findAll(pagination);
 
 		return generateRss(new File(to, getToRss().getPath()), posts);
 	}
 
 	@Override
-	public File generateRss(Label label) throws Exception {
+	public File generateRss(LabelRecord label) throws Exception {
 		if (!label.getEnabled()) {
 			return null;
 		}
 		
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
-		List<Post> posts = service.getPostDAO().findAllByLabel(label, pagination);
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc());
+		List<PostRecord> posts = service.getPostDAO().findAllByLabel(label, pagination);
 
 		return generateRss(new File(to, getToRss(label).getPath()), posts);
 	}
 
-	private File generateRss(File file, List<Post> posts) throws Exception {
+	private File generateRss(File file, List<PostRecord> posts) throws Exception {
 		logger.info("Generating feed ({})...", file.getPath());
 
 		SyndFeed source = new SyndFeedImpl();
@@ -368,32 +370,32 @@ public class GenerateServiceImpl implements GenerateService {
 		// fuente.setImage(logo);
 
 		List<SyndEntry> es = new ArrayList<>();
-		for (Post post : posts) {
+		for (PostRecord post : posts) {
 			if (!post.getVisible()) {
 				continue;
 			}
 
 			SyndEntry e = new SyndEntryImpl();
-			if (post.getUpdateDate() != null) {
-				e.setUpdatedDate(post.getUpdateDate().toDate());
+			if (post.getUpdatedate() != null) {
+				e.setUpdatedDate(post.getUpdatedate().toDate());
 			}
-			if (post.getPublishDate() != null) {
-				e.setPublishedDate(post.getPublishDate().toDate());
+			if (post.getPublishdate() != null) {
+				e.setPublishedDate(post.getPublishdate().toDate());
 			}
-			String link = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post)).toAbsoluteURI();
+			String link = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toAbsoluteURI();
 			e.setLink(link);
 			e.setTitle(post.getTitle());
 			e.setAuthor(post.getAuthor());
 			List<SyndCategory> cs = new ArrayList<>();
-			for (Label etiqueta : post.getLabels()) {
+			for (PostsLabelsRecord etiqueta : post.fetchChildren(Keys.POSTS_LABELS_POST_ID)) {
 				SyndCategory c = new SyndCategoryImpl();
-				c.setName(etiqueta.getName());
+				c.setName(etiqueta.fetchParent(Keys.POSTS_LABELS_LABEL_ID).getName());
 				cs.add(c);
 			}
 			e.setCategories(cs);
 			SyndContent c = new SyndContentImpl();
 			c.setType("text/html");
-			c.setValue(String.format("<p>%s</p><p><a href=\"%s\">continuar leyendo &gt;&gt;</a></p>", post.getContentExcerpt(), link));
+			c.setValue(String.format("<p>%s</p><p><a href=\"%s\">continuar leyendo &gt;&gt;</a></p>", post.into(AppPostRecord.class).getContentExcerpt(), link));
 			e.setContents(Collections.singletonList(c));
 
 			es.add(e);
@@ -416,18 +418,18 @@ public class GenerateServiceImpl implements GenerateService {
 		writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		writer.println("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
 
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_SITEMAP, Collections.singletonList(new Sort("date", Direction.DESCENDING)));
-		List<Post> posts = service.getPostDAO().findAll(pagination);
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_SITEMAP, POST.DATE.desc());
+		List<PostRecord> posts = service.getPostDAO().findAll(pagination);
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-MM-dd'T'hh:mm:ssZZ");
 
 		int i = 0;
-		for (Post post : posts) {
+		for (PostRecord post : posts) {
 			if (!post.getVisible()) {
 				continue;
 			}
 			
-			String loc = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post)).toAbsoluteURI();
+			String loc = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toAbsoluteURI();
 			String lastmod = formatter.print(post.getDate());
 			String changefreq = (post.getDate().isAfter(DateTime.now().plusDays(-7))) ? "daily" : "weekly";
 			String priority = (i < 50) ? "0.9" : "0.6";

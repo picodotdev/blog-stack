@@ -1,22 +1,18 @@
 package info.blogstack.pages;
 
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import static info.blogstack.persistence.jooq.Tables.POST;
 import info.blogstack.misc.Globals;
+import info.blogstack.persistence.daos.Pagination;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.MainService;
-import info.blogstack.services.dao.Direction;
-import info.blogstack.services.dao.Pagination;
-import info.blogstack.services.dao.Sort;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
-import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -26,10 +22,10 @@ public class Index {
 	private Integer page;
 
 	@Property
-	private Source source;
+	private SourceRecord source;
 
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Property(read = false)
 	@Inject
@@ -52,19 +48,19 @@ public class Index {
 		page = (page == null) ? 0 : page;
 	}
 	
-	public List<Post> getPosts() {
+	public List<PostRecord> getPosts() {
 		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 	
-	public Post getFirstPost() {
+	public PostRecord getFirstPost() {
 		return getPosts(0, 1).get(0);
 	}
 	
-	public List<Post> getFeaturedPosts() {
+	public List<PostRecord> getFeaturedPosts() {
 		return getPosts(1, Globals.NUMBER_POSTS_FEATURED_INDEX);
 	}
 	
-	public List<Post> getNotFeaturedPosts() {
+	public List<PostRecord> getNotFeaturedPosts() {
 		return getPosts(Globals.NUMBER_POSTS_FEATURED_INDEX, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 
@@ -104,10 +100,8 @@ public class Index {
 		return m;
 	}
 	
-	private List<Post> getPosts(int from, int to) {
-		List<Sort> sorts = new ArrayList<>();
-		sorts.add(new Sort("date", Direction.DESCENDING));
-		Pagination pagination = new Pagination(from, to, sorts);
+	private List<PostRecord> getPosts(int from, int to) {
+		Pagination pagination = new Pagination(from, to, POST.DATE.desc());
 		return service.getPostDAO().findAll(pagination);
 	}
 }

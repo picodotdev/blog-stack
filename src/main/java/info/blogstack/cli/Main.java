@@ -1,10 +1,13 @@
 package info.blogstack.cli;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Globals.Environment;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
 import io.undertow.Undertow;
@@ -38,22 +41,15 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.tapestry5.beanvalidator.modules.BeanValidatorModule;
-import org.apache.tapestry5.hibernate.modules.HibernateCoreModule;
-import org.apache.tapestry5.hibernate.modules.HibernateModule;
 import org.apache.tapestry5.ioc.Registry;
 import org.apache.tapestry5.ioc.RegistryBuilder;
 import org.apache.tapestry5.modules.TapestryModule;
 import org.apache.tapestry5.services.ServletApplicationInitializer;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.joda.time.DateTimeZone;
+import org.jooq.DSLContext;
 import org.lazan.t5.offline.services.TapestryOfflineModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.orm.hibernate4.SessionFactoryUtils;
-import org.springframework.orm.hibernate4.SessionHolder;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import ro.isdc.wro.config.Context;
 import ro.isdc.wro.config.jmx.WroConfiguration;
@@ -71,8 +67,7 @@ public class Main {
 		main.process(args);
 	}
 
-	private SessionFactory sessionFactory;
-	private SessionHolder sessionHolder;
+	private DSLContext context;
 
 	private Undertow server;
 	private Undertow adminServer;
@@ -86,14 +81,6 @@ public class Main {
 
 	public void shutdown() {
 		logger.info("Ending...");
-
-		if (sessionFactory != null && !sessionHolder.isVoid() && sessionHolder.getSession().isOpen()) {
-			// Se produce una excepción
-			// java.lang.IllegalStateException: No value for key
-			// [org.hibernate.internal.SessionFactoryImpl@1afc14d6] bound to thread [Thread-0]
-			// TransactionSynchronizationManager.unbindResource(sessionFactory);
-			SessionFactoryUtils.closeSession(sessionHolder.getSession());
-		}
 
 		if (Globals.registry != null) {
 			Globals.registry.shutdown();
@@ -118,22 +105,16 @@ public class Main {
 		Globals.registry = buildRegistry();
 	}
 
-	private void initSessionFactory() {
-		if (sessionFactory != null) {
-			return;
-		}
-		logger.info("Starting database...");
-		sessionFactory = Globals.registry.getService(SessionFactory.class);
-		Session session = sessionFactory.openSession();
-		sessionHolder = new SessionHolder(session);
-		TransactionSynchronizationManager.bindResource(sessionFactory, sessionHolder);
+	private void initPersitence() {
+		logger.info("Starting persistence...");
+		context = Globals.registry.getService(DSLContext.class);
 	}
 
 	private Registry buildRegistry() {
 		ServletContext sc = new ServletContextImpl("/", "src/main/webapp");
 
 		RegistryBuilder builder = new RegistryBuilder();
-		builder.add(TapestryModule.class, HibernateCoreModule.class, HibernateModule.class, BeanValidatorModule.class, TapestryOfflineModule.class, GenerateModule.class);
+		builder.add(TapestryModule.class, TapestryOfflineModule.class, GenerateModule.class);
 		builder.add(new SpringModuleDef("applicationContext.xml"));
 
 		Registry registry = builder.build();
@@ -157,7 +138,7 @@ public class Main {
 		options.addOption("gg", "ggenerate", false, "Regenerate all the content");
 		options.addOption("gi", "gindex", false, "Regenerate index pages");
 		options.addOption("gl", "glabels", false, "Regenerate label pages");
-		options.addOption("gf", "gfeed", false, "Regenerate feeds");
+		options.addOption("gf", "gfeeds", false, "Regenerate feeds");
 		options.addOption("ga", "garchive", false, "Regenerate archive pages");
 		options.addOption("gs", "gstatics", false, "Regenerate statics");
 		options.addOption("gp", "gpages", false, "Regenerate pages");
@@ -201,18 +182,18 @@ public class Main {
 
 		if (hash) {
 			initRegistry();
-			initSessionFactory();
+			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
 
 			service.getIndexService().hash();
 		}
 
-		Collection<Post> posts = new LinkedHashSet<>();
-		Collection<Label> labels = new LinkedHashSet<>();
+		Collection<PostRecord> posts = new LinkedHashSet<>();
+		Collection<LabelRecord> labels = new LinkedHashSet<>();
 		if (index || iindex || importOption || iimportOption) {
 			initRegistry();
-			initSessionFactory();
+			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
 
@@ -220,25 +201,27 @@ public class Main {
 			service.getIndexService().setForceIndex(iindex);
 			service.getIndexService().setForceImport(iimportOption);
 			if (importOption || iimportOption) {
-				List<Post> p = service.getIndexService().importSources();
+				List<PostRecord> p = service.getIndexService().importSources();
 				posts.addAll(p);
 			}
 			if (index || iindex) {
-				List<Post> p = service.getIndexService().index();
+				List<PostRecord> p = service.getIndexService().index();
 				posts.addAll(p);
 			}
-			for (Post post : posts) {
-				labels.addAll(post.getLabels());
+			for (PostRecord post : posts) {
+				for (PostsLabelsRecord pl : post.fetchChildren(Keys.POSTS_LABELS_POST_ID)) {
+					labels.add(pl.fetchParent(Keys.POSTS_LABELS_LABEL_ID));					
+				}
 			}
 		}
 
 		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gpages) {
 			initRegistry();
-			initSessionFactory();
+			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
-			posts = (ggenerate || gindex || glabels || garchive) ? service.getPostDAO().findAll() : posts;
-			labels = (ggenerate || gindex || glabels || garchive) ? service.getLabelDAO().findAll() : labels;
+			posts = (ggenerate || gindex || glabels || gfeeds || garchive) ? service.getPostDAO().findAll() : posts;
+			labels = (ggenerate || gindex || glabels || gfeeds || garchive) ? service.getLabelDAO().findAll() : labels;
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				if (generate || ggenerate || gindex) {
@@ -258,11 +241,11 @@ public class Main {
 					logger.info("Generating posts...");
 					List<File> ps = service.getGenerateService().generatePosts(new ArrayList(posts));
 
-					Set<Source> sources = new HashSet<>();
-					for (Post post : posts) {
-						sources.add(post.getSource());
+					Set<SourceRecord> sources = new HashSet<>();
+					for (PostRecord post : posts) {
+						sources.add(post.fetchParent(Keys.POST_SOURCE_ID));
 					}
-					List<Source> s = new ArrayList(sources);
+					List<SourceRecord> s = new ArrayList(sources);
 					s.add(null);
 					List<File> ss = service.getGenerateService().generateLastPosts(s);
 				}
@@ -279,7 +262,7 @@ public class Main {
 				if (generate || ggenerate || gfeeds) {
 					logger.info("Generating feeds...");
 					File mainAtom = service.getGenerateService().generateRss();
-					for (Label label : labels) {
+					for (LabelRecord label : labels) {
 						File labelAtom = service.getGenerateService().generateRss(label);
 					}
 				}
@@ -312,10 +295,11 @@ public class Main {
 			MainService service = Globals.registry.getService(MainService.class);
 			
 			// Share only fresh posts
-			Collection<Post> fp = new ArrayList<>();
-			for (Post p : posts) {
-				if (p.isFresh()) {
-					fp.add(p);
+			Collection<PostRecord> fp = new ArrayList<>();
+			for (PostRecord p : posts) {
+				AppPostRecord ap = p.into(AppPostRecord.class);
+				if (ap.isFresh()) {
+					fp.add(ap);
 				}
 			}
 			

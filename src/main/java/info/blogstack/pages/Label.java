@@ -1,15 +1,14 @@
 package info.blogstack.pages;
 
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import static info.blogstack.persistence.jooq.Tables.POST;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.daos.Pagination;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.MainService;
-import info.blogstack.services.dao.Direction;
-import info.blogstack.services.dao.Pagination;
-import info.blogstack.services.dao.Sort;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,13 +29,13 @@ public class Label {
 	private MainService service;
 
 	@Property
-	private Source source;
+	private SourceRecord source;
 
 	@Property
-	private info.blogstack.entities.Label label;
+	private LabelRecord label;
 	
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Property
 	private Integer i;
@@ -65,15 +64,15 @@ public class Label {
 	/**
 	 * Método que devuelve las articulos publicadas o actualizadas más recientemente de una etiqueta.
 	 */
-	public List<Post> getPosts() {
+	public List<PostRecord> getPosts() {
 		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 
-	public List<Post> getFeaturedPosts() {
+	public List<PostRecord> getFeaturedPosts() {
 		return getPosts(0, Globals.NUMBER_POSTS_FEATURED_LABEL);
 	}
 	
-	public List<Post> getNotFeaturedPosts() {
+	public List<PostRecord> getNotFeaturedPosts() {
 		return getPosts(Globals.NUMBER_POSTS_FEATURED_LABEL, Globals.NUMBER_POSTS_PAGE * (page + 1));
 	}
 	
@@ -118,10 +117,8 @@ public class Label {
 		return m;
 	}
 	
-	private List<Post> getPosts(int from, int to) {
-		List<Sort> sorts = new ArrayList<>();
-		sorts.add(new Sort("date", Direction.DESCENDING));
-		Pagination pagination = new Pagination(from, to, sorts);
+	private List<PostRecord> getPosts(int from, int to) {
+		Pagination pagination = new Pagination(from, to, POST.DATE.desc());
 		return service.getPostDAO().findAllByLabel(label, pagination);
 	}
 }

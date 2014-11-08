@@ -1,13 +1,24 @@
 package info.blogstack.services;
 
-import info.blogstack.entities.ImportSource;
-import info.blogstack.entities.Indexation;
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import static info.blogstack.persistence.jooq.Tables.IMPORT_SOURCE;
+import static info.blogstack.persistence.jooq.Tables.INDEXATION;
+import static info.blogstack.persistence.jooq.Tables.LABEL;
+import static info.blogstack.persistence.jooq.Tables.POST;
+import static info.blogstack.persistence.jooq.Tables.POSTS_INDEXATIONS;
+import static info.blogstack.persistence.jooq.Tables.POSTS_LABELS;
 import info.blogstack.misc.AppWhitelist;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.ImportSourceRecord;
+import info.blogstack.persistence.jooq.tables.records.IndexationRecord;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsIndexationsRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
+import info.blogstack.persistence.records.AppLabelRecord;
+import info.blogstack.persistence.records.AppPostRecord;
 
 import java.io.File;
 import java.io.FileReader;
@@ -58,34 +69,34 @@ public class IndexServiceImpl implements IndexService {
 	public void setForceIndex(boolean force) {
 		this.forceIndex = force;
 	}
-	
+
 	@Override
 	public void setForceImport(boolean force) {
 		this.forceImport = force;
-	}	
-	
+	}
+
 	@Override
 	public void hash() throws Exception {
-		List<Post> posts = service.getPostDAO().findAll();
+		List<PostRecord> posts = service.getPostDAO().findAll();
 		logger.info("Hashsing {} posts...", posts.size());
-		for (Post post : posts) {
-			post.updateHash();
-			service.getPostDAO().persist(post);
+		for (PostRecord post : posts) {
+			AppPostRecord p = post.into(AppPostRecord.class);
+			p.updateHash();
+			p.store();
 		}
 	}
-	
+
 	@Override
-	public List<Post> index() throws Exception {
-		List<Source> sources = service.getSourceDAO().findAll();
+	public List<PostRecord> index() throws Exception {
+		List<SourceRecord> sources = service.getSourceDAO().findAll();
 
 		logger.info("Indexing {} sources...", sources.size());
-		Indexation indexation = new Indexation();
-		indexation.setPosts(new ArrayList<Post>());
-		indexation.setCreationDate(DateTime.now());
-		service.getIndexationDAO().persist(indexation);
-		
-		List<Post> posts = new ArrayList<>();
-		for (Source source : sources) {
+		IndexationRecord indexation = service.getContext().newRecord(INDEXATION);
+		indexation.setCreationdate(DateTime.now());
+		indexation.store();
+
+		List<PostRecord> posts = new ArrayList<>();
+		for (SourceRecord source : sources) {
 			try {
 				URL url = new URL(source.getUrl());
 				URLConnection conection = (URLConnection) url.openConnection();
@@ -98,14 +109,14 @@ public class IndexServiceImpl implements IndexService {
 		}
 		return posts;
 	}
-	
+
 	@Override
-	public List<Post> importSources() throws Exception {
-		List<Source> sources = (forceImport) ? service.getSourceDAO().findAll() : service.getSourceDAO().findImportPending();
+	public List<PostRecord> importSources() throws Exception {
+		List<SourceRecord> sources = (forceImport) ? service.getSourceDAO().findAll() : service.getSourceDAO().findImportPending();
 
 		// Importar aquellas cuya fuente de información exista
-		List<Source> s = new ArrayList<>();
-		for (Source source : sources) {
+		List<SourceRecord> s = new ArrayList<>();
+		for (SourceRecord source : sources) {
 			File f = new File(Globals.IMPORT, String.format("%s.xml", source.getAlias()));
 			if (!f.exists()) {
 				continue;
@@ -115,49 +126,48 @@ public class IndexServiceImpl implements IndexService {
 		sources = s;
 
 		logger.info("Importing {} sources...", sources.size());
-		List<Post> posts = new ArrayList<>();		
+		List<PostRecord> posts = new ArrayList<>();
 		if (sources.isEmpty()) {
 			return posts;
 		}
 
-		Indexation indexation = new Indexation();
-		indexation.setPosts(new ArrayList<Post>());
-		indexation.setCreationDate(DateTime.now());
-		service.getIndexationDAO().persist(indexation);
+		IndexationRecord indexation = service.getContext().newRecord(INDEXATION);
+		indexation.setCreationdate(DateTime.now());
+		indexation.store();
 
-		for (Source source : sources) {
+		for (SourceRecord source : sources) {
 			File f = new File(Globals.IMPORT, String.format("%s.xml", source.getAlias()));
 			posts.addAll(index(indexation, source, new FileReader(f)));
 
-			ImportSource importSource = source.getImportSource();
+			ImportSourceRecord importSource = source.fetchParent(Keys.SOURCE_IMPORTSOURCE_ID);
 			if (importSource == null) {
-				importSource = new ImportSource();
-				importSource.setCreationDate(DateTime.now());
-				source.setImportSource(importSource);
+				importSource = service.getContext().newRecord(IMPORT_SOURCE);
+				importSource.setCreationdate(DateTime.now());
+				importSource.store();
+				source.setImportsourceId(importSource.getId());
 			}
-			importSource.setUpdateDate(DateTime.now());
-			service.getImportSourceDAO().persist(importSource);
-			service.getSourceDAO().persist(source);
+			importSource.setUpdatedate(DateTime.now());
+			importSource.store();
 		}
 
 		return posts;
 	}
 
-	private List<Post> index(Indexation indexation, Source source, Reader reader) throws Exception {
+	private List<PostRecord> index(IndexationRecord indexation, SourceRecord source, Reader reader) throws Exception {
 		logger.info("Indexing {} source...", source.getName());
 		Reader fr = new XmlReader(IOUtils.toInputStream(IOUtils.toString(filterReader(reader))));
 		SyndFeed feed = new SyndFeedInput().build(fr);
 
 		return indexPosts(indexation, source, feed.getEntries());
 	}
-	
-	private List<Post> indexPosts(Indexation indexation, Source source, List<SyndEntry> entries) {
-		List<Post> posts = new ArrayList<>();
+
+	private List<PostRecord> indexPosts(IndexationRecord indexation, SourceRecord source, List<SyndEntry> entries) {
+		List<PostRecord> posts = new ArrayList<>();
 		Iterator it = entries.iterator();
 		while (it.hasNext()) {
 			SyndEntry entry = (SyndEntry) it.next();
 			try {
-				Post post = indexPost(indexation, source, entry);
+				PostRecord post = indexPost(indexation, source, entry);
 				if (post == null) {
 					continue;
 				}
@@ -170,13 +180,17 @@ public class IndexServiceImpl implements IndexService {
 		return posts;
 	}
 
-	private Post indexPost(Indexation indexation, Source source, SyndEntry entry) {
+	private PostRecord indexPost(IndexationRecord indexation, SourceRecord source, SyndEntry entry) {
 		if (entry.getLink() == null) {
 			return null;
 		}
 
 		// Search by url
-		Post post = service.getPostDAO().findByURL(entry.getLink());
+		AppPostRecord post = null;
+		PostRecord pr = service.getPostDAO().findByURL(entry.getLink());
+		if (pr != null) {
+			post = pr.into(AppPostRecord.class);
+		}
 
 		// Search by hash
 		DateTime now = DateTime.now();
@@ -184,42 +198,40 @@ public class IndexServiceImpl implements IndexService {
 		DateTime publishDate = (entry.getPublishedDate() == null) ? updateDate : new DateTime(entry.getPublishedDate());
 
 		if (post == null) {
-			Post p = new Post();
-			p.setSource(source);
-			p.setUpdateDate(updateDate);
-			p.setPublishDate(publishDate);
+			PostRecord p = service.getContext().newRecord(POST);
+			p.setUpdatedate(updateDate);
+			p.setPublishdate(publishDate);
 			p.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
-			
-			post = service.getPostDAO().findByHash(Utils.getHash(p));
-			if (post != null && !source.equals(post.getSource())) {
-				logger.warn(String.format("Article with same hash and different source (post: %s, source: %s, post source: %s)", post.getId(), source.getName(), post.getSource().getName()));
+
+			pr = service.getPostDAO().findByHash(Utils.getHash(p, source));
+			if (pr != null) {
+				post = pr.into(AppPostRecord.class);
+			}
+			if (post != null && !source.equals(post.fetchParent(Keys.POST_SOURCE_ID))) {
+				logger.warn(String.format("Article with same hash and different source (post: %s, source: %s, post source: %s)", post.getId(), source.getName(), post
+						.fetchParent(Keys.POST_SOURCE_ID).getName()));
 				post = null;
 			}
 		}
 
-		if (!forceIndex 
-				&& !forceImport
-				&& post != null
-				&& (publishDate == null || publishDate.isEqual(post.getPublishDate()))
-				&& (updateDate == null || updateDate.isEqual(post.getUpdateDate()))) {
+		if (!forceIndex && !forceImport && post != null && (publishDate == null || publishDate.isEqual(post.getPublishdate()))
+				&& (updateDate == null || updateDate.isEqual(post.getUpdatedate()))) {
 			// La articulo ya estaba indexada y la fecha de actualizacion es anterior
 			return null;
 		} else if (post == null) {
 			logger.info("Indexing {} post...", entry.getTitle());
-			
-			post = new Post();
+
+			post = service.getContext().newRecord(POST).into(AppPostRecord.class);
 			post.setFresh(true);
-			post.setCreationDate(now);
+			post.setCreationdate(now);
 			post.setVisible(true);
+			post.setSourceId(source.getId());
 		} else {
 			logger.info("Updating {} post...", entry.getTitle());
 		}
-		
-		Set<Label> labels = indexLabels(entry.getCategories());
 
-		post.setLabels(labels);
-		post.setUpdateDate(updateDate);
-		post.setPublishDate(publishDate);
+		post.setUpdatedate(updateDate);
+		post.setPublishdate(publishDate);
 		post.setUrl(entry.getLink());
 		post.setTitle(StringEscapeUtils.unescapeHtml4(entry.getTitle()));
 		if (StringUtils.isBlank(entry.getAuthor())) {
@@ -239,7 +251,7 @@ public class IndexServiceImpl implements IndexService {
 				postContent.append(content.getValue());
 			}
 		}
-		
+
 		AppWhitelist whitelist = (AppWhitelist) AppWhitelist.relaxed();
 		whitelist.addAttribute("script", "src", "^http[s]?://speakerdeck.com/.*$");
 		whitelist.addAttribute("script", "src", "^http[s]?://gist.github.com/.*$");
@@ -247,46 +259,57 @@ public class IndexServiceImpl implements IndexService {
 		whitelist.addAttribute("iframe", "src", "^http[s]?://player.vimeo.com/video/.*$");
 		whitelist.addAttribute("iframe", "src", "^http[s]?://rcm-eu.amazon-adsystem.com/.*$");
 		whitelist.addAttribute("embed", "src", "^http[s]?://www.youtube.com/v/.*$");
-		String c = Jsoup.clean(postContent.toString(), source.getPageUrl(), whitelist);
-		post.setContent(c, service.getSessionFactory().getCurrentSession());
+		String c = Jsoup.clean(postContent.toString(), source.getPageurl(), whitelist);
+		post.setContent(c);
 
-		if (post.getId() == null) {
-			post.setSource(source);
-			source.getPosts().add(post);
-			post.setIndexations(new HashSet<Indexation>());
-			for (Label l : labels) {
-				l.getPosts().add(post);
-			}
+		post.updateHash();		
+		post.store();
+
+		PostsIndexationsRecord pi = service.getContext().newRecord(POSTS_INDEXATIONS);
+		pi.setPostId(post.getId());
+		pi.setIndexationId(indexation.getId());
+		pi.store();
+
+		if (!post.isFresh()) {
+			service.getPostsLabelsDAO().deleteByPost(post);
 		}
-		
-		post.updateHash();
-		
-		post.getIndexations().add(indexation);
-		indexation.getPosts().add(post);
-		service.getPostDAO().persist(post);
-		
+
+		Set<LabelRecord> labels = indexLabels(entry.getCategories());
+		for (LabelRecord label : labels) {
+			PostsLabelsRecord pl = service.getContext().newRecord(POSTS_LABELS);
+			pl.setPostId(post.getId());
+			pl.setLabelId(label.getId());
+			pl.store();
+		}
+
+		if (post.isFresh()) {
+			post.setIndexationId(indexation.getId());
+		}
+
 		return post;
 	}
 
-	private Set<Label> indexLabels(List<SyndCategory> categories) {
-		Set<Label> es = new HashSet<>();
+	private Set<LabelRecord> indexLabels(List<SyndCategory> categories) {
+		Set<LabelRecord> es = new HashSet<>();
 		for (SyndCategory category : categories) {
 			String n = Utils.urlize(category.getName());
 			String hash = Utils.getHash(new Object[] { n });
-			Label label = service.getLabelDAO().findByHash(hash);
+			LabelRecord label = service.getLabelDAO().findByHash(hash);
 			if (label == null) {
-				label = new Label(n);
-				label.setEnabled(false);
-				label.setVisible(true);
-				label.setPosts(new HashSet<Post>());
-				label.updateHash();
-				service.getLabelDAO().persist(label);
+				AppLabelRecord alabel = service.getContext().newRecord(LABEL).into(AppLabelRecord.class);
+				alabel.setName(n);
+				alabel.setEnabled(false);
+				alabel.setVisible(true);
+				alabel.updateHash();
+				alabel.store();
+				
+				label = alabel;
 			}
 			es.add(label);
 		}
 		return es;
 	}
-	
+
 	private Reader filterReader(Reader reader) throws IOException {
 		String s = IOUtils.toString(reader);
 		s = s.replaceAll(" async ", " async=\"async\" ");

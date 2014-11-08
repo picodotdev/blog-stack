@@ -1,8 +1,8 @@
 package info.blogstack.services;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,19 +15,19 @@ public interface GenerateService {
 	File getTo();
 	File getToPage(String page, Object[] context, Map<String, String> params);
 	File getToRss();
-	File getToRss(Label label);
+	File getToRss(LabelRecord label);
 	
 	File generatePage(String page, Object[] context, Map<String, String> params) throws IOException;
 	List<File> generateIndex() throws IOException;
-	List<File> generateLabels(List<Label> labels) throws IOException;
-	List<File> generatePosts(List<Post> posts) throws IOException;	
-	List<File> generateArchive(Collection<Post> posts) throws IOException;
-	File generatePost(Post post) throws IOException;
-	List<File> generateLastPosts(List<Source> sources) throws IOException;
+	List<File> generateLabels(List<LabelRecord> labels) throws IOException;
+	List<File> generatePosts(List<PostRecord> posts) throws IOException;	
+	List<File> generateArchive(Collection<PostRecord> posts) throws IOException;
+	File generatePost(PostRecord post) throws IOException;
+	List<File> generateLastPosts(List<SourceRecord> sources) throws IOException;
 	Collection<File> generateStatics(List<File> files) throws IOException;
 	File generateLastUpdated() throws IOException;
 	
 	File generateRss() throws Exception;
-	File generateRss(Label label) throws Exception;
+	File generateRss(LabelRecord label) throws Exception;
 	File generateSitemap() throws IOException;
 }

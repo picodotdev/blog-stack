@@ -1,8 +1,11 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Label;
-import info.blogstack.entities.Post;
 import info.blogstack.misc.Feed;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
+import info.blogstack.persistence.records.AppLabelRecord;
 import info.blogstack.services.MainService;
 
 import java.util.ArrayList;
@@ -17,11 +20,11 @@ public class Feeds {
 
 	@Parameter
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Parameter
 	@Property
-	private Label label;
+	private LabelRecord label;
 	
 	@Property
 	private List<Feed> feeds;
@@ -38,11 +41,13 @@ public class Feeds {
 	boolean setupRender() {
 		feeds = new ArrayList<>();
 		if (post != null) {
-			for (Label l : post.getLabels()) {
-				if (!l.getEnabled()) {
+			for (PostsLabelsRecord pl : post.fetchChildren(Keys.POSTS_LABELS_POST_ID)) {
+				LabelRecord l = pl.fetchParent(Keys.POSTS_LABELS_LABEL_ID);
+				AppLabelRecord al = l.into(AppLabelRecord.class);
+				if (!al.getEnabled()) {
 					continue;
 				}
-				feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(l).getPath(), String.format("Fuente de la etiqueta %s", l.getName())));
+				feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(al).getPath(), String.format("Fuente de la etiqueta %s", al.getName())));
 			}
 		} else if (label != null) {
 			feeds.add(new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(label).getPath(), String.format("Fuente de la etiqueta %s", label.getName())));

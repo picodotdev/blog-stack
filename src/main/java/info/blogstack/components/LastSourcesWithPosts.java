@@ -1,6 +1,6 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Source;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.MainService;
 
 import java.util.List;
@@ -12,10 +12,10 @@ import org.apache.tapestry5.annotations.Property;
 public class LastSourcesWithPosts {
 
 	@Property
-	private List<Source> sources;
+	private List<SourceRecord> sources;
 	
 	@Property
-	private Source source;
+	private SourceRecord source;
 	
 	@Inject
 	private MainService service;

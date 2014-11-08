@@ -1,19 +1,19 @@
 package info.blogstack.services;
 
 import info.blogstack.misc.Configuration;
-import info.blogstack.services.dao.ImportSourceDAO;
-import info.blogstack.services.dao.IndexationDAO;
-import info.blogstack.services.dao.LabelDAO;
-import info.blogstack.services.dao.PostDAO;
-import info.blogstack.services.dao.RepositoryDAO;
-import info.blogstack.services.dao.SourceDAO;
+import info.blogstack.persistence.daos.ImportSourceDAO;
+import info.blogstack.persistence.daos.IndexationDAO;
+import info.blogstack.persistence.daos.LabelDAO;
+import info.blogstack.persistence.daos.PostDAO;
+import info.blogstack.persistence.daos.PostsLabelsDAO;
+import info.blogstack.persistence.daos.SourceDAO;
 
 import org.apache.tapestry5.services.PageRenderLinkSource;
-import org.hibernate.SessionFactory;
+import org.jooq.DSLContext;
 
 public interface MainService {
 
-	SessionFactory getSessionFactory();
+	DSLContext getContext();
 	PageRenderLinkSource getPageRenderLinkSource();
 	
 	Configuration getConfiguracion();
@@ -26,5 +26,5 @@ public interface MainService {
 	SourceDAO getSourceDAO();
 	ImportSourceDAO getImportSourceDAO();
 	IndexationDAO getIndexationDAO();
-	RepositoryDAO getRepositoryDAO();
+	PostsLabelsDAO getPostsLabelsDAO();
 }

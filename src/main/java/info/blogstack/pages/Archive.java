@@ -1,14 +1,15 @@
 package info.blogstack.pages;
 
-import info.blogstack.entities.Post;
-import info.blogstack.entities.Source;
+import static info.blogstack.persistence.jooq.Tables.POST;
 import info.blogstack.misc.Feed;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
+import info.blogstack.persistence.daos.Pagination;
+import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.MainService;
-import info.blogstack.services.dao.Direction;
-import info.blogstack.services.dao.Pagination;
-import info.blogstack.services.dao.Sort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,7 +43,7 @@ public class Archive {
 	private Map archive;
 	
 	@Property
-	private Post post;
+	private PostRecord post;
 	
 	@Inject
 	private MainService service;
@@ -71,11 +72,11 @@ public class Archive {
 	}
 
 	public Map getDates() {
-		List<Map> archive = service.getPostDAO().getArchiveByDates();
-		TreeMap<Integer, List<Map>> m = new TreeMap<>();
-		for (Map date : archive) {
-			Integer year = (Integer) date.get("year");
-			List<Map> yl = m.get(year);
+		List<Map<String,Object>> archive = service.getPostDAO().getArchiveByDates();
+		TreeMap<Integer, List<Map<String,Object>>> m = new TreeMap<>();
+		for (Map<String,Object> date : archive) {
+			Integer year = (Integer) date.get("YEAR");
+			List<Map<String,Object>> yl = m.get(year);
 			if (yl == null) {
 				yl = new ArrayList<>();
 			}
@@ -85,26 +86,24 @@ public class Archive {
 		return m.descendingMap();
 	}
 
-	public List<Map> getLabels() {
+	public List<Map<String,Object>> getLabels() {
 		return service.getPostDAO().getArchiveByLabels();
 	}
 	
-	public List<Map> getSources() {
+	public List<Map<String,Object>> getSources() {
 		return service.getPostDAO().getArchiveBySources();
 	}
 	
-	public info.blogstack.entities.Label getLabel() {
-		return (info.blogstack.entities.Label) archive.get("label");
+	public LabelRecord getLabel() {
+		return (LabelRecord) archive.get("LABEL");
 	}
 	
-	public Source getSource() {
-		return (Source) archive.get("source");
+	public SourceRecord getSource() {
+		return (SourceRecord) archive.get("SOURCE");
 	}
 	
-	public Post getLabelPost() {
-		List<Sort> sort = new ArrayList<>();
-		sort.add(new Sort("date", Direction.DESCENDING));
-		Pagination pagination = new Pagination(0, 1, sort);
+	public PostRecord getLabelPost() {
+		Pagination pagination = new Pagination(0, 1, POST.DATE.desc());
 		return service.getPostDAO().findAllByLabel(getLabel(), pagination).get(0);
 	}
 	
@@ -112,17 +111,15 @@ public class Archive {
 		return new Feed(requestGlobals.getContextPath() + service.getGenerateService().getToRss(getLabel()).getPath(), String.format("Fuente de la etiqueta %s", getLabel().getName()));
 	}
 	
-	public Post getSourcePost() {
-		List<Sort> sort = new ArrayList<>();
-		sort.add(new Sort("date", Direction.DESCENDING));
-		Pagination pagination = new Pagination(0, 1, sort);
+	public PostRecord getSourcePost() {
+		Pagination pagination = new Pagination(0, 1, POST.DATE.desc());
 		return service.getPostDAO().findAllBySource(getSource(), pagination).get(0);
 	}
 	
 	/**
 	 * Método que devuelve las articulos publicadas de una fecha.
 	 */
-	public List<Post> getPosts() {
+	public List<PostRecord> getPosts() {
 		if (isGeneric()) {
 			return Collections.EMPTY_LIST;
 		}		
@@ -135,11 +132,11 @@ public class Archive {
 		return new Object[] { y, m } ;
 	}
 	
-	public Object[] getContextPost(Post post) {
-		return Utils.getContext(post);
+	public Object[] getContextPost(PostRecord post) {
+		return Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID));
 	}
 	
-	public Object[] getContextLabel(info.blogstack.entities.Label label) {
+	public Object[] getContextLabel(LabelRecord label) {
 		return Utils.getContext(label);
 	}
 	

@@ -1,6 +1,6 @@
 package info.blogstack.components;
 
-import info.blogstack.entities.Adsense;
+import info.blogstack.persistence.jooq.tables.records.AdsenseRecord;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
@@ -45,7 +45,7 @@ public class Layout {
 	
 	@Parameter
 	@Property
-	private Adsense adsense;
+	private AdsenseRecord adsense;
 
 	@Property
 	private String page;	
