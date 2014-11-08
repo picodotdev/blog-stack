@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
     },
@@ -13,10 +17,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
