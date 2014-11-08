@@ -7,6 +7,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Inicio básico de Docker"
     },
     {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
       "title" : "Plantillas en Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack",
-      "title" : "Arquitectura y hospedaje de Blog Stack"
     }
   ]
 }

@@ -3,12 +3,20 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
+    },
+    {
       "url" : "/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social",
       "title" : "Participaré como ponente en la @librecon; os quiero presentar Civi CRM en la economía social"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
       "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
-      "title" : "¿Hay alguien ahí fuera?"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     }
   ]
 }

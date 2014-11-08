@@ -3,15 +3,37 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-07T12:03:07Z</updated>
+  <updated>2014-11-08T11:03:27Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-07T12:03:07Z</dc:date>
+  <dc:date>2014-11-08T11:03:27Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Inicio básico de Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="linux" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-08T08:00:00Z</updated>
+    <published>2014-11-01T08:47:51Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
+&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-01T08:47:51Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo instalar MariaDB y primeros pasos</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos" />
-    <category term="debian" />
     <category term="blog-stack" />
+    <category term="debian" />
     <category term="bases-de-datos" />
     <category term="linux" />
     <category term="sistemas-operativos" />
@@ -33,6 +55,28 @@
 &lt;p&gt;Respecto a las aventuras de &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-11-03T22:33:24Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
+    <category term="blog-stack" />
+    <category term="planeta-codigo" />
+    <category term="linux" />
+    <category term="planeta-arch-linux" />
+    <category term="planeta-linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-07T11:00:00Z</updated>
+    <published>2014-11-07T18:50:17Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
+&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-07T18:50:17Z</dc:date>
   </entry>
   <entry>
     <title>Estamos Promoviendo el uso de Linux y Software Libre correctamente?</title>
@@ -65,28 +109,6 @@
 &lt;p&gt;&lt;strong&gt;Arachni&lt;/strong&gt; es un Framework desarrollado en Ruby de C&amp;oacute;digo Libre, modular y lleno de Features que nos ayuda a los profesionales de Seguridad o administradores de Sistema evaluar el nivel de seguridad de nuestras aplicaciones web. Es inteligente por el hecho ya que se autoentrena monitoreando y aprendiendo del comportamiento de la aplicacion web durante el proceso de escaneo y es capaz de llevar a cabo meta-an&amp;aacute;lisis usando ciertos factores para evaluar correctamente los resultados y evitar falsos positivos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2014-11-02T15:53:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>Inicio básico de Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="linux" />
-    <category term="planeta-arch-linux" />
-    <category term="planeta-linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-01T21:30:00Z</updated>
-    <published>2014-11-01T08:47:51Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
-&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-01T08:47:51Z</dc:date>
   </entry>
   <entry>
     <title>Introducción y características de Docker</title>
@@ -716,37 +738,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;La ISO lleva consigo infinidad de aplicaciones &amp;uacute;tiles. El objectivo es conseguir una distribuci&amp;oacute;n &amp;uacute;til para la educaci&amp;oacute;n, tanto para los alumnos, los padres, profesores e incluso &amp;uacute;til para los profesores de tecnolog&amp;iacute;a que gestionen laboratorios en los centros educativos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/ahora-que-empiezan-el-cole-opensuse-education"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-22T10:22:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Avisos de Seguridad 20/09/2014</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14" />
-    <category term="linux" />
-    <category term="avisos" />
-    <category term="software-libre" />
-    <category term="seguridad" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-09-20T15:30:53Z</updated>
-    <published>2014-09-20T15:30:53Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;UBUNTU&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ubuntu.com/usn/usn-2349-1/"&gt;&lt;strong&gt;Ubuntu USN-2349-1&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Paquete:&lt;/strong&gt; libav (Player Multimedia, servidor, codificador)&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Versiones afectadas:&lt;/strong&gt; 12.04 LTS&lt;/p&gt; 
-&lt;p&gt;Se notific&amp;oacute; que el paquete &lt;strong&gt;libav&lt;/strong&gt; maneja de forma incorrecta ciertos archivos multimedia. Si un usuario es enga&amp;ntilde;ado para abrir un archivo especial multimedia, un atacante puede causar una denegaci&amp;oacute;n de servicio mediante un cierre inesperado de la aplicaci&amp;oacute;n o ejecutar c&amp;oacute;digo arbitrario con los permisos del usuario que lo ejecut&amp;oacute;.&lt;/p&gt; 
-&lt;p&gt;El problema fue corregido en la versiones,&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;libavcodec53 4:0.8.16-0ubuntu.12.01.1&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;libavformat53 4:0.8.16-0ubuntu.12.01.1&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt; &lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ubuntu.com/usn/usn-2347-1/"&gt;&lt;strong&gt;Ubuntu USN-2347-1&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Paquete:&lt;/strong&gt; Python-django&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Versiones afectadas:&lt;/strong&gt; 14.04 LTS, 12.04 LTS. 10.04 LTS&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;M&amp;uacute;ltiples Vulnerabilidades encontradas: &lt;/strong&gt;&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;Django&lt;/strong&gt; valida incorrectamente las URL’s, un atacante puede llevar a cabo un ataque de Phishing &lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-09-20T15:30:53Z</dc:date>
   </entry>
 </feed>
 
