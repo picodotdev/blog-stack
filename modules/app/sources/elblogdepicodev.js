@@ -3,6 +3,14 @@ define("app/sources/elblogdepicodev", [], function() {
   "name" : "El blog de pico.dev",
   "posts" : [
     {
+      "url" : "/post/elblogdepicodev/2013/08/ejemplo-del-patron-de-diseno-state",
+      "title" : "Ejemplo del patrón de diseño State"
+    },
+    {
+      "url" : "/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux",
+      "title" : "Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux"
+    },
+    {
       "url" : "/post/elblogdepicodev/2013/08/ejemplo-lista-de-tareas-con-marionette",
       "title" : "Ejemplo lista de tareas con Marionette"
     },
@@ -51,16 +59,8 @@ define("app/sources/elblogdepicodev", [], function() {
       "title" : "Como devolver un archivo con Apache Tapestry"
     },
     {
-      "url" : "/post/elblogdepicodev/2013/08/ejemplo-del-patron-de-diseno-state",
-      "title" : "Ejemplo del patrón de diseño State"
-    },
-    {
       "url" : "/post/elblogdepicodev/2012/04/ejemplo-del-patron-de-diseno-command-y-programacion-concurrente-en-java",
       "title" : "Ejemplo del patrón de diseño Command y programación concurrente en Java"
-    },
-    {
-      "url" : "/post/elblogdepicodev/2013/11/instalar-un-lector-de-tarjetas-inteligentes-y-usar-el-dnie-en-arch-linux",
-      "title" : "Instalar un lector de tarjetas inteligentes y usar el DNIe en Arch Linux"
     },
     {
       "url" : "/post/elblogdepicodev/2013/12/adios-viejo-mundo",
