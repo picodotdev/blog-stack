@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
+      "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
+    },
+    {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
       "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/bitnami-una-tienda-de-aplicaciones-para-servidores",
       "title" : "Bitnami, Una tienda de Aplicaciones para Servidores"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-15-9-2-14",
-      "title" : "Avisos de Seguridad 15/09/2014"
     }
   ]
 }

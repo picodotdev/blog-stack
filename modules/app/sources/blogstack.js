@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
+      "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
       "title" : "Microsoft pierde poder en los ordenadores italianos"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
-      "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
     }
   ]
 }
