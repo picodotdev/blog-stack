@@ -3,10 +3,71 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-09T14:05:03Z</updated>
+  <updated>2014-11-10T10:04:22Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-09T14:05:03Z</dc:date>
+  <dc:date>2014-11-10T10:04:22Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>2 Maneras de generar identificadores universalmente únicos (UUID) en C</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/11/2-maneras-de-generar-identificadores-universalmente-unicos-uuid-en-c" />
+    <category term="unicas" />
+    <category term="numeros" />
+    <category term="claves" />
+    <category term="urandom" />
+    <category term="aleatorios" />
+    <category term="srand" />
+    <category term="uuid" />
+    <category term="c-c" />
+    <category term="semilla" />
+    <category term="universal" />
+    <category term="random" />
+    <category term="linux" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2014-11-10T09:32:40Z</updated>
+    <published>2014-11-10T09:32:40Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8xMS85OTM3MjEwMjU0X2ZiNDhkNjExZGFfYi5qcGc="&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/11/9937210254_fb48d611da_b-560x560.jpg" alt="" title="9937210254_fb48d611da_b" width="560" height="560" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Una buena forma de poner nombre a nuestros recursos con m&amp;aacute;s o menos certeza de que ese nombre es &amp;uacute;nico, es utilizar &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9Vbml2ZXJzYWxseV91bmlxdWVfaWRlbnRpZmllcg=="&gt;UUID&lt;/a&gt;‘s. Es cierto, que si en m&amp;aacute;quinas diferentes se generan UUIDs al mismo tiempo, puede ser que haya cierta coincidencia en los valores generados (si nos ponemos cabezones, y si en alg&amp;uacute;n sitio deben convivir varios UUIDs, podemos comprobar que no est&amp;eacute;n repetidos. Incluso, dependiendo del algoritmo utilizado para generarlos, puede que en la misma m&amp;aacute;quina haya valores repetidos.&lt;/p&gt; 
+&lt;p&gt;En C, usando Linux, podemos utilizar la biblioteca uuid para generar dichos identificadores, para obtener la cadena del identificador podemos hacer:&lt;/p&gt; 
+&lt;div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt; 
+     &lt;div&gt;
+       1 
+      &lt;br /&gt;2 
+      &lt;br /&gt;3 
+      &lt;br /&gt;4 
+      &lt;br /&gt;5 
+      &lt;br /&gt;6 
+      &lt;br /&gt;7 
+      &lt;br /&gt;8 
+      &lt;br /&gt;9 
+      &lt;br /&gt;10 
+      &lt;br /&gt;11 
+      &lt;br /&gt;12 
+      &lt;br /&gt;13 
+      &lt;br /&gt;14 
+      &lt;br /&gt; 
+     &lt;/div&gt;&lt;/td&gt; 
+    &lt;td&gt; 
+     &lt;div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"&gt;
+       #include &amp;lt;stdio.h&amp;gt; 
+      &lt;br /&gt; #include &amp;lt;uuid/uuid.h&amp;gt; 
+      &lt;br /&gt; 
+      &lt;br /&gt; int main() 
+      &lt;br /&gt; { 
+      &lt;br /&gt; &amp;nbsp; uuid_t out; 
+     &lt;/div&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/11/2-maneras-de-generar-identificadores-universalmente-unicos-uuid-en-c"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2014-11-10T09:32:40Z</dc:date>
+  </entry>
   <entry>
     <title>Disponible The Original Hacker No. 10 Edición de Aniversario</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario" />
@@ -720,24 +781,6 @@ sudo apt-get -y install luckybackup
 &lt;p&gt;&lt;a title="phoronix news" href="http://www.phoronix.com/scan.php?page=news_item&amp;amp;px=MTc5Mzk"&gt;www.phoronix.com&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/xbox-one-controller-ya-es-soportado-por-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-25T15:55:42Z</dc:date>
-  </entry>
-  <entry>
-    <title>Vulnerabilidad de Seguridad Importante en Bash</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash" />
-    <category term="bash" />
-    <category term="shell" />
-    <category term="seguridad" />
-    <category term="noticias" />
-    <category term="linux" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-09-25T01:55:33Z</updated>
-    <published>2014-09-25T01:55:33Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.jsitech.com/wp-content/uploads/2014/09/security-alert-300x225.jpg"&gt;&lt;img src="http://www.jsitech.com/wp-content/uploads/2014/09/security-alert-300x225.jpg" alt="security-alert-300x225" width="300" height="225" /&gt;&lt;/a&gt;Se ha dado a conocer una vulnerabilidad importante en el &lt;strong&gt;Shell&lt;/strong&gt; de &lt;strong&gt;Linux&lt;/strong&gt;, &lt;strong&gt;Bash&lt;/strong&gt;. Como Todos conocemos las &lt;strong&gt;variables de entorno&lt;/strong&gt; en Linux es una forma de modificar el comportamiento de una aplicaci&amp;oacute;n en nuestro sistema. Usualmente consiste en unos valores que le asignamos a esos entornos. Asi mismo sucede con Shell, son muchos los programas que llaman al shell en el fondo para correr algunas instrucciones o dar algunos servicios. Para mencionarles algunos ejemplos, ssh llama al shell para mostrarlo a un usuario remoto, apache puede llamarlo para correr un script o dar soporte a la ejecuci&amp;oacute;n de alg&amp;uacute;n comando limitado.&lt;/p&gt; 
-&lt;p&gt;La &lt;strong&gt;Vulnerabilidad&lt;/strong&gt; surge por el hecho de que se pueden crear variables de entorno con valores especialmente dise&amp;ntilde;ados antes de llamar el shell bash. Estas variables pueden contener c&amp;oacute;digo arbitrario que pueden ser ejecutado cuando el shell es invocado. El resultado es que esta vulnerabilidad puede ser expuesta en muchos contextos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-09-25T01:55:33Z</dc:date>
   </entry>
 </feed>
 

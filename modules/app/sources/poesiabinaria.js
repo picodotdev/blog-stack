@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/11/2-maneras-de-generar-identificadores-universalmente-unicos-uuid-en-c",
+      "title" : "2 Maneras de generar identificadores universalmente únicos (UUID) en C"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/10/crear-mapas-html5-interactivos-con-raphaeljs",
       "title" : "Crear mapas HTML5 interactivos con RaphaelJS"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento",
       "title" : "Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/lo-bueno-de-programar-es-que-le-puedes-poner-el-nombre-que-quieras-a-las-variables",
-      "title" : "Lo bueno de programar es que le puedes poner el nombre que quieras a las variables"
     }
   ]
 }

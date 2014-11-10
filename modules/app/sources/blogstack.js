@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
+      "title" : "Mira que llegan a ser pesados"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/11/2-maneras-de-generar-identificadores-universalmente-unicos-uuid-en-c",
+      "title" : "2 Maneras de generar identificadores universalmente únicos (UUID) en C"
+    },
+    {
       "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
       "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
       "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires",
-      "title" : "Taller sobre AngularJs en Buenos Aires"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
-      "title" : "Microsoft pierde poder en los ordenadores italianos"
     }
   ]
 }
