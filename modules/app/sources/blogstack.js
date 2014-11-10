@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
       "title" : "Mira que llegan a ser pesados"
     },
@@ -13,14 +25,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
       "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/11/aprende-despacio",
       "title" : "Aprende despacio"
-    },
-    {
-      "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
-      "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
     }
   ]
 }
