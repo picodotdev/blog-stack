@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
+      "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio",
       "title" : "Es una lastima, pero no renuncio"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/el-mountain-graphite-3-pro-de-17-pulgadas-de-victor-y-su-experiencia",
-      "title" : "El Mountain Graphite 30 Pro de 17 pulgadas de Victor y su experiencia"
     }
   ]
 }
