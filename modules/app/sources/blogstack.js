@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
+      "title" : "Cómo instalar MediaWiki en Debian"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
       "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
     },
@@ -11,16 +15,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
     {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
       "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
-      "title" : "Como instalar una nueva fuente de texto en Ubuntu"
     }
   ]
 }

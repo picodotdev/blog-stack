@@ -3,10 +3,50 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-08T13:59:42Z</updated>
+  <updated>2014-11-11T12:06:02Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-08T13:59:42Z</dc:date>
+  <dc:date>2014-11-11T12:06:02Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo instalar MediaWiki en Debian</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian" />
+    <category term="programas" />
+    <category term="gpl" />
+    <category term="lamp" />
+    <category term="mediawiki" />
+    <category term="gnu" />
+    <category term="wikipedia" />
+    <category term="debian" />
+    <category term="mysql" />
+    <category term="blog-stack" />
+    <category term="comunidad-open-source" />
+    <category term="apache2" />
+    <category term="linux" />
+    <category term="php5" />
+    <author>
+      <name>ochobitshacenunbyte</name>
+    </author>
+    <updated>2014-11-11T11:41:33Z</updated>
+    <published>2014-11-11T11:41:33Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Despu&amp;eacute;s de unos d&amp;iacute;as de inactividad veremos c&amp;oacute;mo instalar el motor de &lt;strong&gt;Wikipedia&lt;/strong&gt;, el proyecto &lt;strong&gt;MediaWiki&lt;/strong&gt;, sobre un sistema operativo &lt;strong&gt;GNU/Linux Debian 7&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Primero de todo necesitamos tener instalado un servidor &lt;strong&gt;LAMP&lt;/strong&gt;, ya sab&amp;eacute;is, &lt;strong&gt;Apache2&lt;/strong&gt;, &lt;strong&gt;Mysql&lt;/strong&gt; (no lo he probado con MariaDB) y &lt;strong&gt;PHP5&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800-300x250.jpg" alt="Mediawiki-logo-reworked-800" width="300" height="250" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;h2&gt;Instalar servidor LAMP&lt;/h2&gt; 
+&lt;p&gt;C&amp;oacute;mo primer paso instalamos el servidor web &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y update &amp;amp;&amp;amp; apt-get -y install apache2&lt;/pre&gt; 
+&lt;p&gt;El siguiente paso es instalar el motor de la base de datos &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install mysql-server mysql-common mysql-client&lt;/pre&gt; 
+&lt;p&gt;Habr&amp;aacute; un momento en la instalaci&amp;oacute;n que deb&amp;eacute;is introducir una contrase&amp;ntilde;a para el usuario&lt;strong&gt;&lt;em&gt; root&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg" alt="wikimedia-001" width="639" height="384" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Instalamos &lt;strong&gt;PHP5&lt;/strong&gt; y el m&amp;oacute;dulo para &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install php5 libapache2-mod-php5&lt;/pre&gt; 
+&lt;p&gt;Reiniciamos &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;service apache2 restart&lt;/pre&gt; 
+&lt;p&gt;Aunque no es obligatorio, si que es recomendable, testear la instalaci&amp;oacute;n de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>ochobitshacenunbyte</dc:creator>
+    <dc:date>2014-11-11T11:41:33Z</dc:date>
+  </entry>
   <entry>
     <title>Probamos la versión 7 de Trisquel GNU</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu" />
@@ -786,32 +826,6 @@ deb-src http://http.debian.net/debian/ squeeze-lts main contrib non-free&lt;/pre
 &lt;p&gt;Adem&amp;aacute;s de tratar de difundir la filosof&amp;iacute;a del &lt;strong&gt;software libre,&lt;/strong&gt; y de crear licencias que permitan la difusi&amp;oacute;n de obras y conservando los derechos de autor&amp;iacute;as, tambi&amp;eacute;n llevan a cabo diversas campa&amp;ntilde;as de concienciaci&amp;oacute;n y para proteger derechos de los usuarios frentes a aquellos que quieren poner restricciones abusivas en cuestiones tecnol&amp;oacute;gicas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/06/fundacion-de-software-libre-recopilacion-de-noticias-de-mayo-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Victor Hck</dc:creator>
     <dc:date>2014-06-19T00:22:49Z</dc:date>
-  </entry>
-  <entry>
-    <title>Montar un servidor FTP desde 0, con PROFTPD</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd" />
-    <category term="proftpd" />
-    <category term="blog-stack" />
-    <category term="comandos" />
-    <category term="ubuntu" />
-    <category term="gnu" />
-    <category term="ftp" />
-    <category term="servicios" />
-    <category term="linux" />
-    <category term="debian" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-06-12T11:33:41Z</updated>
-    <published>2014-06-12T11:32:46Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/proftpd.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/proftpd-150x92.png" alt="proftpd" width="150" height="92" /&gt;&lt;/a&gt;Quien haya trabajado como administrador de sistemas o como webmaster de un sitio web, sabe los importante que es el servicio FTP, y lo que facilita el d&amp;iacute;a a d&amp;iacute;a.&lt;/p&gt; 
-&lt;p&gt;&lt;a title="PROFTPD" href="http://www.proftpd.org/"&gt;PROFTPD&lt;/a&gt; es un programa muy potente,&amp;nbsp; f&amp;aacute;cil de usar y administrar. Partimos de la base que trabajamos con una m&amp;aacute;quina GNU/Linux, basada en Debian, ya sea el propio Debian, o Ubuntu o Elementary OS o la que sea.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Desde la l&amp;iacute;nea de comandos s&amp;oacute;lo tendremos que teclear el siguiente mandato:&lt;/p&gt; 
-&lt;pre&gt;apt-get -y update &amp;amp;&amp;amp; apt-get -y install proftpd&lt;/pre&gt; 
-&lt;p&gt;A mitad de la instalaci&amp;oacute;n nos preguntar&amp;aacute; c&amp;oacute;mo queremos que se ejecute el servicio, en modo “standalone” o desde inetd. La diferencia entre ambos radica en que desde inetd cada vez que se produzca una nueva conexi&amp;oacute;n se abrir&amp;aacute; un nuevo proceso, con la carga del sistema que conlleva. En modo “standalone” el servicio se ejecuta en un proceso independiente, de &amp;eacute;sta manera el proceso ya estar&amp;aacute; iniciado, y no har&amp;aacute; falta volverlo a iniciar. Por lo tanto elegimos “standalone”.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/montar-un-servidor-ftp-desde-con-proftpd"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-06-12T11:32:46Z</dc:date>
   </entry>
 </feed>
 

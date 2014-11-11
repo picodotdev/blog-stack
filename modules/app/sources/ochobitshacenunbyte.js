@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
+      "title" : "Cómo instalar MediaWiki en Debian"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
       "title" : "Alemania sigue siendo pionera en software libre"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-y-configurar-ocs-ng-segunda-parte",
-      "title" : "Instalar y configurar OCS-NG (Segunda parte)"
     }
   ]
 }
