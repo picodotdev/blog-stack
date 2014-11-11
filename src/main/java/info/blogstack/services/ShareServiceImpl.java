@@ -1,8 +1,5 @@
 package info.blogstack.services;
 
-import static info.blogstack.persistence.jooq.Tables.LABEL;
-import static info.blogstack.persistence.jooq.Tables.POST;
-import static info.blogstack.persistence.jooq.Tables.POSTS_LABELS;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Globals.Environment;
 import info.blogstack.misc.Utils;

@@ -67,8 +67,6 @@ public class Main {
 		main.process(args);
 	}
 
-	private DSLContext context;
-
 	private Undertow server;
 	private Undertow adminServer;
 
@@ -103,11 +101,6 @@ public class Main {
 		}
 		logger.info("Starting Tapestry registry...");
 		Globals.registry = buildRegistry();
-	}
-
-	private void initPersitence() {
-		logger.info("Starting persistence...");
-		context = Globals.registry.getService(DSLContext.class);
 	}
 
 	private Registry buildRegistry() {
@@ -182,7 +175,6 @@ public class Main {
 
 		if (hash) {
 			initRegistry();
-			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
 
@@ -193,7 +185,6 @@ public class Main {
 		Collection<LabelRecord> labels = new LinkedHashSet<>();
 		if (index || iindex || importOption || iimportOption) {
 			initRegistry();
-			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
 
@@ -217,7 +208,6 @@ public class Main {
 
 		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gpages) {
 			initRegistry();
-			initPersitence();
 
 			MainService service = Globals.registry.getService(MainService.class);
 			posts = (ggenerate || gindex || glabels || gfeeds || garchive) ? service.getPostDAO().findAll() : posts;
@@ -291,6 +281,8 @@ public class Main {
 		}
 		
 		if (share) {
+			initRegistry();
+			
 			logger.info("Sharing...");
 			MainService service = Globals.registry.getService(MainService.class);
 			
@@ -298,6 +290,7 @@ public class Main {
 			Collection<PostRecord> fp = new ArrayList<>();
 			for (PostRecord p : posts) {
 				AppPostRecord ap = p.into(AppPostRecord.class);
+				ap.from(p);
 				if (ap.isFresh()) {
 					fp.add(ap);
 				}

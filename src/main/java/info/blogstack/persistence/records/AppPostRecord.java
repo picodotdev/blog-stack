@@ -3,6 +3,7 @@ package info.blogstack.persistence.records;
 import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
 import info.blogstack.persistence.jooq.Keys;
+import info.blogstack.persistence.jooq.tables.interfaces.IPost;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
 
 import java.io.ByteArrayInputStream;
@@ -106,6 +107,24 @@ public class AppPostRecord extends PostRecord {
 		setHash(Utils.getHash(this, fetchParent(Keys.POST_SOURCE_ID)));
 	}
 	
+	public DateTime getConsolidatedUpdateDate() {
+		if (getUpdatedate() != null) {
+			return getUpdatedate();
+		} else if (getPublishdate() != null) {
+			return getPublishdate();
+		} else {
+			return getCreationdate();
+		}
+	}
+
+	public DateTime getConsolidatedPublishDate() {
+		if (getPublishdate() != null) {
+			return getPublishdate();
+		} else {
+			return getCreationdate();
+		}
+	}
+	
 	@Override
 	public void setCreationdate(DateTime creationDate) {
 		super.setCreationdate(creationDate);
@@ -124,21 +143,13 @@ public class AppPostRecord extends PostRecord {
 		setDate(getConsolidatedUpdateDate());
 	}
 
-	public DateTime getConsolidatedUpdateDate() {
-		if (getUpdatedate() != null) {
-			return getUpdatedate();
-		} else if (getPublishdate() != null) {
-			return getPublishdate();
-		} else {
-			return getCreationdate();
-		}
-	}
-
-	public DateTime getConsolidatedPublishDate() {
-		if (getPublishdate() != null) {
-			return getPublishdate();
-		} else {
-			return getCreationdate();
+	@Override
+	public void from(IPost from) {
+		super.from(from);
+		if (from instanceof AppPostRecord) {
+			AppPostRecord afrom = (AppPostRecord) from;
+			this.setFresh(afrom.isFresh());
+			this.setContent(afrom.getContent());
 		}
 	}
 }
