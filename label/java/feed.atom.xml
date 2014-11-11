@@ -3,10 +3,37 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-08T13:59:33Z</updated>
+  <updated>2014-11-11T13:05:54Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-08T13:59:33Z</dc:date>
+  <dc:date>2014-11-11T13:05:54Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java y MongoDB</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-y-mongodb" />
+    <category term="bases-de-datos" />
+    <category term="java" />
+    <category term="nosql" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-11T12:23:32Z</updated>
+    <published>2014-11-11T12:23:32Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Todos hemos trabajado &lt;strong&gt;con Java y JDBC&lt;/strong&gt; para acceder a las distintas bases de datos SQL (Oracle,SQLServer,MySQL). Poco a poco tendremos que irnos haciendo a la idea de comenzar a trabajar con&lt;strong&gt; bases de datos NoSQL&lt;/strong&gt;.&amp;nbsp;Uno de los casos m&amp;aacute;s habituales sera usar &lt;strong&gt;Java y MongoDB&lt;/strong&gt; como base de datos documental. Conectarse a esta base de datos es relativamente f&amp;aacute;cil ya que disponemos de un conjunto de abstracciones bastante sencillas de entender. Lo primero que vamos a hacer es incluir una dependencia de Maven hacia el driver de Mongo en nuestro proyecto.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.mongodb&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;mongo-java-driver&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;2.12.4&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+
+&lt;/pre&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Una vez tenemos el driver asignado el siguiente paso es crear un programa sencillo que se conecte a la base de datos de Mongo.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-y-mongodb"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-11T12:23:32Z</dc:date>
+  </entry>
   <entry>
     <title>Java Constructores this() y super()</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-constructores-this-y-super" />
@@ -943,29 +970,6 @@ System.out.println(p.getNombre());
 &lt;p&gt;&lt;strong&gt;Mike Milinkovich,&lt;/strong&gt; director ejecutivo de la Fundaci&amp;oacute;n Eclipse comenta en el anuncio oficial: “&lt;em&gt;Felicidades a todos los desarroladores que hacen posible Eclipse. Es el trabajo duro de estos desarrolladores que hacen posible &amp;eacute;ste lanzamiento. El beneficio para la comunidad en general ha sido que Eclipse es un proveedor fiable y confiable de la tecnolog&amp;iacute;a de c&amp;oacute;digo abierto para la mayor industria de software&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-06-26T07:53:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>Iniciar rápidamente aplicación con Apache Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry" />
-    <category term="blog-stack" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="tapestry" />
-    <category term="java" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-06-21T01:08:07Z</updated>
-    <published>2014-06-21T01:08:07Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Un proyecto web en Java requiere de unos cuantos archivos con cierta estructura que nos puede llevar un tiempo en crearlos. Normalmente cuando empezamos uno nuevo proyecto solemos basarnos en otro existente copiando y pegando contenido de &amp;eacute;l. Pero ademas de tiempo podemos cometer errores o no seguir algunas convenciones propias de Java o del framework web que usemos. Para un proyecto grande esa dedicaci&amp;oacute;n al inicio del proyecto no nos importar&amp;aacute; pero para un proyecto peque&amp;ntilde;o o para hacer una prueba puede que queramos tener algo m&amp;aacute;s r&amp;aacute;pido y con menos esfuerzo para estar en disposici&amp;oacute;n de empezar a desarrollar en muy poco tiempo.&lt;/p&gt; 
-&lt;p&gt;Para crear el esqueleto de una aplicaci&amp;oacute;n r&amp;aacute;pidamente en Tapestry hay disponible un arquetipo de &lt;a href="http://maven.apache.org/"&gt;Maven&lt;/a&gt; que puede generar una aplicaci&amp;oacute;n en unos pocos minutos. Para usarlo deberemos instalar maven previamente. Una vez instalado Maven basta con que usemos el siguiente comando.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/06/iniciar-rapidamente-aplicacion-con-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-06-21T01:08:07Z</dc:date>
   </entry>
 </feed>
 

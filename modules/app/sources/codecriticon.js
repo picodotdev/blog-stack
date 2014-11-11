@@ -3,6 +3,10 @@ define("app/sources/codecriticon", [], function() {
   "name" : "Codecriticon",
   "posts" : [
     {
+      "url" : "/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno",
+      "title" : "Introducción a los Patrones de Diseño"
+    },
+    {
       "url" : "/post/codecriticon/2014/09/funciones-en-scala-breve-introduccion",
       "title" : "Funciones en Scala, breve introducción"
     },

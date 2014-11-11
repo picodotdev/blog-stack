@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
+      "title" : "Java y MongoDB"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
       "title" : "Java Constructores this() y super()"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion",
       "title" : "Desarrollo Web con Angular.js  (nº1 en Amazon.es programación)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js",
-      "title" : "Libro: Arquitecturas Web y Angular js"
     }
   ]
 }

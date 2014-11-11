@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno",
+      "title" : "Introducción a los Patrones de Diseño"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
+      "title" : "Java y MongoDB"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
       "title" : "Cómo instalar MediaWiki en Debian"
     },
@@ -15,16 +23,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
     {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/11/instalar-open-stack-juno-con-devstack",
       "title" : "Instalar Open Stack Juno con devstack"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
-      "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
-      "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
     }
   ]
 }
