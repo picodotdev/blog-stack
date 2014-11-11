@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
+      "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
+    },
+    {
       "url" : "/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno",
       "title" : "Introducción a los Patrones de Diseño"
     },
@@ -15,16 +19,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Cómo instalar MediaWiki en Debian"
     },
     {
-      "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
-      "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
-    },
-    {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
@@ -33,6 +29,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
