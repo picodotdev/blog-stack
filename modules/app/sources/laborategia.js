@@ -3,6 +3,10 @@ define("app/sources/laborategia", [], function() {
   "name" : "Laborategia",
   "posts" : [
     {
+      "url" : "/post/laborategia/2014/11/la-librecon-2-14-no-ha-sido-solo-un-evento-mas",
+      "title" : "La Librecon 2014 no ha sido solo un evento mas"
+    },
+    {
       "url" : "/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social",
       "title" : "Participaré como ponente en la @librecon; os quiero presentar Civi CRM en la economía social"
     },
@@ -77,10 +81,6 @@ define("app/sources/laborategia", [], function() {
     {
       "url" : "/post/laborategia/2014/05/esteganografia-a-traves-de-nuestro-smartphone-android-una-colaboracion-de-laborategia-net",
       "title" : "Esteganografía a través de nuestro smartphone Android: una colaboración de laborategia.net"
-    },
-    {
-      "url" : "/post/laborategia/2014/06/recuperando-viejos-articulos-herramientas-para-la-productividad-manejo-remoto-de-libreoffice",
-      "title" : "Recuperando viejos artículos: Herramientas para la productividad: manejo remoto de LibreOffice"
     }
   ]
 }
