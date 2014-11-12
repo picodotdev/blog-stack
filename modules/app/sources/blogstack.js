@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
+      "title" : "Necesito un poco mas de informacion, plisssss"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
       "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
     },
@@ -31,12 +35,12 @@ define("app/sources/blogstack", [], function() {
       "title" : "Introducción y características de Docker"
     },
     {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
       "title" : "Java Constructores this() y super()"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
-      "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
     }
   ]
 }

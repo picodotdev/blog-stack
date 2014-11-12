@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
+      "title" : "Necesito un poco mas de informacion, plisssss"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
       "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
       "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
-      "title" : "Os habeis fijado alguna vez?"
     }
   ]
 }
