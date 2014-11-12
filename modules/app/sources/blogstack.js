@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Windows vs Linux: allá vamos otra vez"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
+      "title" : "Vendiendo humo"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
       "title" : "Necesito un poco mas de informacion, plisssss"
     },
@@ -35,16 +39,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
     {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
       "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-preload-y-porque-lo-deberiamos-instalar-en-ubuntu",
-      "title" : "Que es preload y porque lo deberiamos instalar en Ubuntu"
     }
   ]
 }

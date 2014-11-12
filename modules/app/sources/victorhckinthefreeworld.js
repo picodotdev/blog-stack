@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
+      "title" : "Vendiendo humo"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
       "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
       "title" : "Reglas del aprendiz de hacker informático"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/09/ver-facilmente-el-registro-de-cambios-de-tus-programas-en-opensuse",
-      "title" : "Ver fácilmente el registro de cambios de tus programas en openSUSE"
     }
   ]
 }
