@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/11/windows-vs-linux-alla-vamos-otra-vez",
+      "title" : "Windows vs Linux: allá vamos otra vez"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/01/por-que-no-actualizo-el-kernel-de-ubuntu",
       "title" : "Por qué no actualizo el kernel de Ubuntu"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/01/principales-problemas-de-linux-en-el-escritorio",
-      "title" : "Principales problemas de Linux en el escritorio"
     }
   ]
 }
