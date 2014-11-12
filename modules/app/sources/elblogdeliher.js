@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
+      "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
       "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/os-habeis-fijado-alguna-vez",
       "title" : "Os habeis fijado alguna vez?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/es-una-lastima-pero-no-renuncio",
-      "title" : "Es una lastima, pero no renuncio"
     }
   ]
 }
