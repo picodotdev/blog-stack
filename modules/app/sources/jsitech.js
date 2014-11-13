@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
+      "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
+    },
+    {
       "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
       "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/fallo-de-seguridad-en-browser-android-cve-2-14-6-41",
       "title" : "Fallo de Seguridad en Browser Android (CVE-2014-6041)"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/bitnami-una-tienda-de-aplicaciones-para-servidores",
-      "title" : "Bitnami, Una tienda de Aplicaciones para Servidores"
     }
   ]
 }
