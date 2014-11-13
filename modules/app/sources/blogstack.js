@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
+      "title" : "Cómo instalar LAMP en Debian 7"
+    },
+    {
       "url" : "/post/laborategia/2014/11/la-librecon-2-14-no-ha-sido-solo-un-evento-mas",
       "title" : "La Librecon 2014 no ha sido solo un evento mas"
     },
@@ -43,16 +47,16 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
     {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
       "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
-      "title" : "Nueva intervención manual necesaria en Chakra"
     }
   ]
 }

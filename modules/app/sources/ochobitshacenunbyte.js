@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
+      "title" : "Cómo instalar LAMP en Debian 7"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
       "title" : "Cómo instalar MediaWiki en Debian"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
       "title" : "Cómo configurar CentOS a través de un proxy"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/alemania-sigue-siendo-pionera-en-software-libre",
-      "title" : "Alemania sigue siendo pionera en software libre"
     }
   ]
 }
