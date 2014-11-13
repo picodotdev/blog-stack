@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
+      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
       "title" : "Cómo instalar MariaDB y primeros pasos"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
-      "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
     }
   ]
 }

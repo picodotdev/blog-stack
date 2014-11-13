@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
+      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
       "title" : "Programando en Free Pascal con Lazarus"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy",
-      "title" : "Cómo configurar CentOS a través de un proxy"
     }
   ]
 }
