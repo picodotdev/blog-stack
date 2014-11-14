@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
+      "title" : "Mi nuevo escritorio en Ubuntu 14.04"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
       "title" : "Necesito un poco mas de informacion, plisssss"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
       "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-modificar-la-apariencia-de-ubuntu-con-ubuntu-tweak",
-      "title" : "Como modificar la apariencia de Ubuntu con Ubuntu Tweak"
     }
   ]
 }
