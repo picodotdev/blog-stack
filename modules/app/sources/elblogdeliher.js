@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
+      "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
       "title" : "Mi nuevo escritorio en Ubuntu 14.04"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
       "title" : "Ya salio Ubuntu 14.10, y ahora que?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-instalar-un-tema-de-ventanas-en-ubuntu-paso-a-paso-faience",
-      "title" : "Como instalar un tema de ventanas en Ubuntu paso a paso, Faience"
     }
   ]
 }

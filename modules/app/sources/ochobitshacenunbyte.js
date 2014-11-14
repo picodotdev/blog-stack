@@ -3,16 +3,20 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
+      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
       "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
-      "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
       "title" : "Cómo instalar MediaWiki en Debian"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
+      "title" : "Cómo instalar LAMP en Debian 7"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
       "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/programando-en-free-pascal-con-lazarus",
-      "title" : "Programando en Free Pascal con Lazarus"
     }
   ]
 }
