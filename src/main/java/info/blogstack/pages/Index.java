@@ -49,7 +49,7 @@ public class Index {
 	}
 	
 	public List<PostRecord> getPosts() {
-		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE * (page + 1));
+		return getPosts((1 + Globals.NUMBER_POSTS_FEATURED + Globals.NUMBER_POSTS_PAGE) * page, Globals.NUMBER_POSTS_PAGE);
 	}
 	
 	public PostRecord getFirstPost() {
@@ -57,11 +57,11 @@ public class Index {
 	}
 	
 	public List<PostRecord> getFeaturedPosts() {
-		return getPosts(1, Globals.NUMBER_POSTS_FEATURED_INDEX);
+		return getPosts(1, Globals.NUMBER_POSTS_FEATURED);
 	}
 	
 	public List<PostRecord> getNotFeaturedPosts() {
-		return getPosts(Globals.NUMBER_POSTS_FEATURED_INDEX, Globals.NUMBER_POSTS_PAGE * (page + 1));
+		return getPosts(1 + Globals.NUMBER_POSTS_FEATURED, Globals.NUMBER_POSTS_PAGE);
 	}
 
 	public boolean isFirstPage() {
@@ -100,8 +100,8 @@ public class Index {
 		return m;
 	}
 	
-	private List<PostRecord> getPosts(int from, int to) {
-		Pagination pagination = new Pagination(from, to, POST.DATE.desc());
+	private List<PostRecord> getPosts(int from, int number) {
+		Pagination pagination = new Pagination(from, number, POST.DATE.desc());
 		return service.getPostDAO().findAll(pagination);
 	}
 }
