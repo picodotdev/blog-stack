@@ -3,8 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
+      "title" : "Introducción a Ansible"
+    },
+    {
       "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
       "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
@@ -71,16 +79,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     },
     {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
+      "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
+      "title" : "Mira que llegan a ser pesados"
     }
   ]
 }

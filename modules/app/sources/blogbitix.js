@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
+      "title" : "Introducción a Ansible"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/anotacion-cached-de-apache-tapestry",
       "title" : "Anotación Cached de Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/plantillas-en-apache-tapestry",
-      "title" : "Plantillas en Apache Tapestry"
     }
   ]
 }
