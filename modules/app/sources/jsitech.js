@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
+      "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
+    },
+    {
       "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
       "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/los-proyectos-buenos-se-dan-a-conocer-tuxifeed",
       "title" : "Los proyectos Buenos se dan a conocer, TuxiFeed"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/fallo-de-seguridad-en-browser-android-cve-2-14-6-41",
-      "title" : "Fallo de Seguridad en Browser Android (CVE-2014-6041)"
     }
   ]
 }
