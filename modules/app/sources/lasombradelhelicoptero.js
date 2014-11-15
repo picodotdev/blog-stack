@@ -3,12 +3,12 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
-      "url" : "/post/lasombradelhelicoptero/2014/11/windows-vs-linux-alla-vamos-otra-vez",
-      "title" : "Windows vs Linux: allá vamos otra vez"
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/11/windows-vs-linux-alla-vamos-otra-vez",
+      "title" : "Windows vs Linux: allá vamos otra vez"
     },
     {
       "url" : "/post/lasombradelhelicoptero/2014/10/manjaro-8-1-el-usuario-es-lo-primero",

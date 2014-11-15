@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
+      "title" : "Nueva intervención manual necesaria en Chakra"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
       "title" : "Introducción a Ansible"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
-      "title" : "Mira que llegan a ser pesados"
     }
   ]
 }
