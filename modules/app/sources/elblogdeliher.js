@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
+      "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
       "title" : "Mi experiencia con los moviles chinos"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
       "title" : "Security Feed, los mejores articulos sobre seguridad"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
-      "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
     }
   ]
 }

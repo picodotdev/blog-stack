@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
+      "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
       "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
-    },
-    {
-      "url" : "/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno",
-      "title" : "Introducción a los Patrones de Diseño"
     }
   ]
 }
