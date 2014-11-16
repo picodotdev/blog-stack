@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
+      "title" : "Declaración de variables en expresiones de C# 6"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
       "title" : "Mi experiencia con los moviles chinos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno",
       "title" : "Introducción a los Patrones de Diseño"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
-      "title" : "Java y MongoDB"
     }
   ]
 }
