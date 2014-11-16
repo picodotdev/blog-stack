@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
+      "title" : "Mi experiencia con los moviles chinos"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
       "title" : "Java y MongoDB"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
-      "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     }
   ]
 }

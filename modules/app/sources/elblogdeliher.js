@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
+      "title" : "Mi experiencia con los moviles chinos"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
       "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/que-es-y-como-instalar-agave-en-ubuntu-una-ayuda-con-los-colores",
       "title" : "Que es y como instalar Agave en Ubuntu, una ayuda con los colores"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/ya-salio-ubuntu-14-1-y-ahora-que",
-      "title" : "Ya salio Ubuntu 14.10, y ahora que?"
     }
   ]
 }
