@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
+      "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
+    },
+    {
       "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
       "title" : "Avisos de Seguridad Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/homenaje-a-enrique-bravo-la-sombra-del-helicoptero",
       "title" : "Homenaje a Enrique Bravo, la Sombra del Helicoptero"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/prueba-de-concepto-vulnerabilidad-navegador-android-cve-2-14-6-41",
-      "title" : "Prueba de Concepto, Vulnerabilidad Navegador Android (CVE-2014-6041)"
     }
   ]
 }

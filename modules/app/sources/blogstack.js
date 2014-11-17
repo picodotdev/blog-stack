@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
+      "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
+      "title" : "Mi experiencia con los moviles chinos"
+    },
+    {
       "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
       "title" : "Avisos de Seguridad Linux"
     },
@@ -39,10 +47,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Declaración de variables en expresiones de C# 6"
     },
     {
-      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
-      "title" : "Mi experiencia con los moviles chinos"
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
       "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
-      "title" : "Cómo instalar LAMP en Debian 7"
     }
   ]
 }

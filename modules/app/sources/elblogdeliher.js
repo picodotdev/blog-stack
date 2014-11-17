@@ -3,12 +3,12 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
-      "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
-    },
-    {
       "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
       "title" : "Mi experiencia con los moviles chinos"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
+      "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
