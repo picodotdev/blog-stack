@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
+      "title" : "Enlaces interesantes 176"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
       "title" : "Usando el patron factory"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/11/windows-vs-linux-alla-vamos-otra-vez",
       "title" : "Windows vs Linux: allá vamos otra vez"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
-      "title" : "Vendiendo humo"
     }
   ]
 }

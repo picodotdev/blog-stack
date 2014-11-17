@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
+      "title" : "Enlaces interesantes 176"
+    },
+    {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi",
       "title" : "#if DEBUG en Javascript (bueno, o algo así)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/enlaces-interesantes-167",
-      "title" : "Enlaces interesantes 167"
     }
   ]
 }
