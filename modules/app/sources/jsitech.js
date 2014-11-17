@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
+      "title" : "Avisos de Seguridad Linux"
+    },
+    {
       "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
       "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/prueba-de-concepto-vulnerabilidad-navegador-android-cve-2-14-6-41",
       "title" : "Prueba de Concepto, Vulnerabilidad Navegador Android (CVE-2014-6041)"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/los-proyectos-buenos-se-dan-a-conocer-tuxifeed",
-      "title" : "Los proyectos Buenos se dan a conocer, TuxiFeed"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
+      "title" : "Avisos de Seguridad Linux"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
       "title" : "Enlaces interesantes 176"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/laborategia/2014/11/la-librecon-2-14-no-ha-sido-solo-un-evento-mas",
       "title" : "La Librecon 2014 no ha sido solo un evento mas"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/11/windows-vs-linux-alla-vamos-otra-vez",
-      "title" : "Windows vs Linux: allá vamos otra vez"
     }
   ]
 }
