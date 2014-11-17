@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/codigo-bonito-codigo-feo-codigo-que-funciona",
+      "title" : "Código bonito, código feo, código que funciona"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
       "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
       "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
-      "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/codigo-bonito-codigo-feo-codigo-que-funciona",
+      "title" : "Código bonito, código feo, código que funciona"
+    },
+    {
       "url" : "/post/koalite/2014/11/aprende-despacio",
       "title" : "Aprende despacio"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-ii-escribiendo-tests-comodamente",
       "title" : "Tests de integración con Entity Framework (II): Escribiendo tests cómodamente"
-    },
-    {
-      "url" : "/post/koalite/2014/05/tests-de-integracion-con-entity-framework-i-preparando-el-entorno",
-      "title" : "Tests de integración con Entity Framework (I): Preparando el entorno"
     }
   ]
 }
