@@ -27,6 +27,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Código bonito, código feo, código que funciona"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta",
+      "title" : "¿Qué nos espera en Haiku Beta?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
       "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
-      "url" : "/post/laborategia/2014/11/la-librecon-2-14-no-ha-sido-solo-un-evento-mas",
-      "title" : "La Librecon 2014 no ha sido solo un evento mas"
     }
   ]
 }
