@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
+      "title" : "Usando el patron factory"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
       "title" : "Java y MongoDB"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/arquitectura-jpa-domain-driven-design-google-play",
       "title" : "Arquitectura JPA Domain Driven Design (Google Play)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion",
-      "title" : "Desarrollo Web con Angular.js  (nº1 en Amazon.es programación)"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
+      "title" : "Usando el patron factory"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome",
+      "title" : "openSUSE 13.2 un vistazo a KDE y Gnome"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
       "title" : "Vendiendo humo"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
-      "title" : "Necesito un poco mas de informacion, plisssss"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
-      "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
     }
   ]
 }

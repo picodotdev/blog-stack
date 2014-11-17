@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome",
+      "title" : "openSUSE 13.2 un vistazo a KDE y Gnome"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
       "title" : "Vendiendo humo"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/cuanto-falta-para-la-proxima-version-de-opensuse",
       "title" : "¿cuanto falta para la próxima versión de openSUSE?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/reglas-del-aprendiz-de-hacker-informatico",
-      "title" : "Reglas del aprendiz de hacker informático"
     }
   ]
 }

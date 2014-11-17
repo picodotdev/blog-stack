@@ -3,10 +3,86 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-17T11:02:59Z</updated>
+  <updated>2014-11-17T12:02:38Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-17T11:02:59Z</dc:date>
+  <dc:date>2014-11-17T12:02:38Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Usando el patron factory</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/usando-el-patron-factory" />
+    <category term="patrones" />
+    <category term="sin-categoria" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-17T11:43:41Z</updated>
+    <published>2014-11-17T11:43:41Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Uno de los patrones de dise&amp;ntilde;o m&amp;aacute;s utilizados en Java es el patron Factory que es un &lt;strong&gt;patr&amp;oacute;n de dise&amp;ntilde;o creacional y que sirve para construir una jerarqu&amp;iacute;a de clases&lt;/strong&gt;. Sin embargo a veces a la gente le cuesta ver como usar este patr&amp;oacute;n en su c&amp;oacute;digo. Vamos a utilizar un ejemplo sencillo en el que tendremos una jerarqu&amp;iacute;a de clases factura como se muestra a continuaci&amp;oacute;n.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00119.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00119.gif" alt="001" width="315" height="239" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;El c&amp;oacute;digo ser&amp;aacute; el siguiente:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public abstract class Factura {
+
+private int id;
+ private double importe;
+ public int getId() {
+ return id;
+ }
+ public void setId(int id) {
+ this.id = id;
+ }
+ public double getImporte() {
+ return importe;
+ }
+ public void setImporte(double importe) {
+ this.importe = importe;
+ }
+
+ public abstract double getImporteIva();
+}
+
+&lt;/pre&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class FacturaIva extends Factura{
+
+@Override
+ public double getImporteIva() {
+ // TODO Auto-generated method stub
+ return getImporte()*1.21;
+ }
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/usando-el-patron-factory"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-17T11:43:41Z</dc:date>
+  </entry>
+  <entry>
+    <title>openSUSE 13.2 un vistazo a KDE y Gnome</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome" />
+    <category term="videos" />
+    <category term="opensuse" />
+    <category term="opensuse-13-2" />
+    <author>
+      <name>victorhck</name>
+    </author>
+    <updated>2014-11-17T11:20:10Z</updated>
+    <published>2014-11-17T11:20:10Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;openSUSE 13.2 hace ya unas semanas que est&amp;aacute; disponible para descargar. &amp;iquest;Quieres ver qu&amp;eacute; pinta tiene en escritorios KDE o Gnome?&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;img src="https://victorhckinthefreeworld.files.wordpress.com/2013/03/fondo1.png?w=652&amp;amp;h=366" alt="fondo1" width="652" height="366" /&gt;&lt;/p&gt; 
+&lt;p&gt;Por el blog ya has podido enterarte de que openSUSE est&amp;aacute; disponible para descargar. Pero &lt;strong&gt;&amp;iquest;merece la pena instalarlo? Mi respuesta es s&amp;iacute;,&lt;/strong&gt; pero quiz&amp;aacute;s debas forjarte tu propia respuesta!&lt;/p&gt; 
+&lt;p&gt;Aqui tienes un par de v&amp;iacute;deos donde puedes echar un vistazo a c&amp;oacute;mo es openSUSE 13.2 con sus escritorios de KDE o Gnome. Hay muchos m&amp;aacute;s disponibles, como son &lt;strong&gt;MATE, Xfec, Lxde, Enlightment,&lt;/strong&gt; etc…&lt;/p&gt; 
+&lt;p&gt;openSUSE es un sistema operativo, una distribuci&amp;oacute;n de GNU/Linux, que es el &lt;strong&gt;reemplazo ideal para ese sistema privativo ya sin soporte como es Windows Xp.&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;La instalaci&amp;oacute;n es sencilla, por la web puedes encontrar los foros oficiales de la comunidad de openSUSE con mucha informaci&amp;oacute;n, o la wiki de openSUSE.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>victorhck</dc:creator>
+    <dc:date>2014-11-17T11:20:10Z</dc:date>
+  </entry>
   <entry>
     <title>Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7" />
@@ -690,59 +766,6 @@
 &lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-11-01T08:47:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Participaré como ponente en la @librecon; os quiero presentar Civi CRM en la economía social</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social" />
-    <category term="librecon" />
-    <category term="colaboracion" />
-    <category term="cosas-que-hago" />
-    <category term="blog-stack" />
-    <category term="jornadas" />
-    <category term="crm" />
-    <category term="en-castellano" />
-    <category term="emprendiendo" />
-    <category term="charla" />
-    <category term="civicrm" />
-    <category term="software-libre" />
-    <category term="productividad" />
-    <author>
-      <name>Dabid Martinez</name>
-    </author>
-    <updated>2014-11-07T15:56:57Z</updated>
-    <published>2014-11-07T15:54:47Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Ya me lo han confirmado desde la Secretar&amp;iacute;a T&amp;eacute;cnica,&amp;nbsp;participar&amp;eacute; como ponente en la &lt;a href="http://www.librecon.io/librecon-2014/"&gt;Librecon&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;dentro del &lt;a href="http://www.librecon.io/txoko-emprendimiento/"&gt;Txoko Take Up&lt;/a&gt;, en mi ponencia tratare de explicaros de forma breve y concisa que beneficios conlleva el uso del software &lt;a href="https://civicrm.org/"&gt;Civi CRM&lt;/a&gt; en vuestros proyectos de econom&amp;iacute;a social.&lt;/p&gt; 
-&lt;p&gt;Ya hemos hablado alguna vez de de este software en este mismo blog por lo que si vais a asistir a mi peque&amp;ntilde;a ponencia os invito a leeros la entrada “&lt;a href="http://laborategia.net/2014/07/como-podemos-comenzar-a-usar-un-crm-dentro-de-nuestra-asociacion-y-sobre-todo-que-ventajas-nos-aporta/"&gt;&amp;iquest;Como podemos comenzar a usar un CRM dentro de nuestra organizaci&amp;oacute;n? Y sobre todo que ventajas nos aporta&lt;/a&gt;” o “&lt;a href="http://laborategia.net/2014/06/libremente-cc-administracion-basada-en-la-relacion-con-los-clientes-para-organizaciones-del-3-sector/"&gt;Administraci&amp;oacute;n basada en la relaci&amp;oacute;n con los clientes para organizaciones del 3. sector&lt;/a&gt;” para que sep&amp;aacute;is mas o menos de que hablaremos ya que me escudar&amp;eacute; en esos dos art&amp;iacute;culos para presentaros el producto.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Estad &lt;a href="http://twitter.com/dabidmp"&gt;atentos a mi Twitter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Dabid Martinez</dc:creator>
-    <dc:date>2014-11-07T15:54:47Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo instalar MariaDB y primeros pasos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos" />
-    <category term="mysql" />
-    <category term="blog-stack" />
-    <category term="bases-de-datos" />
-    <category term="sistemas-operativos" />
-    <category term="oracle" />
-    <category term="mariadb" />
-    <category term="wheezy" />
-    <category term="linux" />
-    <category term="debian" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-11-07T11:05:36Z</updated>
-    <published>2014-11-03T22:33:24Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hasta hace no mucho &lt;strong&gt;MySQL&lt;/strong&gt; era la opci&amp;oacute;n principal para los que quer&amp;iacute;amos un motor de base de datos potente y libre, con permiso de &lt;strong&gt;PostgreSQL&lt;/strong&gt;, claro.&lt;/p&gt; 
-&lt;p&gt;C&amp;oacute;mo muchos ya sab&amp;eacute;is, hace unos a&amp;ntilde;os la empresa creadora, del software fue comprada por &lt;strong&gt;Novell&lt;/strong&gt;, que a su vez tiempo m&amp;aacute;s tarde fue adquirida por la todopoderosa &lt;strong&gt;Oracle&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;El problema reside en que &lt;strong&gt;Oracle&lt;/strong&gt; ya tiene en el mercado una &lt;strong&gt;BBDD&lt;/strong&gt; que lleva su mismo nombre, y claro, muchos vieron peligrar las licencias libres de &lt;strong&gt;MySQL&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png" alt="mariadb-seal-shaded-browntext-alt" width="246" height="185" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Actualmente el &lt;a title="Michael Widenius MySQL" href="http://es.wikipedia.org/wiki/Michael_Widenius"&gt;creador &lt;/a&gt;de &lt;strong&gt;MySQL&lt;/strong&gt; es el principal impulsor de &lt;strong&gt;MariaDB&lt;/strong&gt;, utilizando la licencia libre &lt;strong&gt;GPL&lt;/strong&gt; en su versi&amp;oacute;n 2.&lt;/p&gt; 
-&lt;p&gt;De hecho se nota tanto que es el mismo creador, que entre ambas&lt;strong&gt; BBDD relacionales&lt;/strong&gt; existe compatibilidad casi al cien por cien.&lt;/p&gt; 
-&lt;p&gt;Respecto a las aventuras de &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-11-03T22:33:24Z</dc:date>
   </entry>
 </feed>
 
