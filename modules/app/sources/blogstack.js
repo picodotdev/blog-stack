@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
+      "title" : "Probamos la versión 7 de Trisquel GNU"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
+      "title" : "Cómo instalar LAMP en Debian 7"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
       "title" : "openSUSE 13.2: cosas que mejorar"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
       "title" : "Introducción a Ansible"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
-      "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     }
   ]
 }
