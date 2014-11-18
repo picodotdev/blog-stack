@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
+      "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
+    },
+    {
       "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
       "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
       "title" : "Mi nuevo escritorio en Ubuntu 14.04"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
-      "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
     }
   ]
 }

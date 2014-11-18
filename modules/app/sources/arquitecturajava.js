@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
+      "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
       "title" : "Usando el patron factory"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes",
       "title" : "Angularjs Batarang y Scopes"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/arquitectura-jpa-domain-driven-design-google-play",
-      "title" : "Arquitectura JPA Domain Driven Design (Google Play)"
     }
   ]
 }
