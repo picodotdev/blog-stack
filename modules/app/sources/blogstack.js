@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
+      "title" : "openSUSE 13.2: cosas que mejorar"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
-      "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
     }
   ]
 }
