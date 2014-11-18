@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/net-es-open-source-y-ahora-que",
+      "title" : ".NET es open source, ¿y ahora qué?"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
       "title" : "Probamos la versión 7 de Trisquel GNU"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
-      "title" : "Introducción a Ansible"
     }
   ]
 }
