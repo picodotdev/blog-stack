@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
       "title" : "Gestión de proyectos con OpenProject"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/lucky-backup-ten-suerte-con-tus-copias-de-seguridad",
-      "title" : "Lucky Backup, ten suerte con tus copias de seguridad"
     }
   ]
 }

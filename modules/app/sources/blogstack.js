@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",
       "title" : "Javascript Hoisting, scope de variables"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
       "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
-      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     }
   ]
 }
