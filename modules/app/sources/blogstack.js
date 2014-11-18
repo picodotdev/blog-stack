@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",
+      "title" : "Javascript Hoisting, scope de variables"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6",
+      "title" : "Expresiones lambda en miembros de función de C# 6"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
       "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
       "title" : "Crea tu propia tienda virtual con prestashop y Debian"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
-      "title" : "Cómo instalar MediaWiki en Debian"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
-      "title" : "Mi nuevo escritorio en Ubuntu 14.04"
     }
   ]
 }

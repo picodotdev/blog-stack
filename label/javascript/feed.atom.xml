@@ -3,10 +3,55 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-08T13:59:39Z</updated>
+  <updated>2014-11-18T13:02:42Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-08T13:59:39Z</dc:date>
+  <dc:date>2014-11-18T13:02:42Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Javascript Hoisting, scope de variables</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables" />
+    <category term="javascript" />
+    <author>
+      <name>leonardo</name>
+    </author>
+    <updated>2014-11-18T13:10:00Z</updated>
+    <published>2014-11-18T13:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Una caracter&amp;iacute;stica de Javascript dif&amp;iacute;cil de comprender (sobre todo comprender si es un bug o un feature) es el scope de las variables declaradas dentro de una funci&amp;oacute;n.&lt;/p&gt; 
+&lt;h3&gt;El int&amp;eacute;rprete de Javascript mueve las declaraciones al principio de la funci&amp;oacute;n.&lt;/h3&gt; 
+&lt;p&gt;Esto quiere decir que si yo declaro una variable por la mitad del c&amp;oacute;digo de una funci&amp;oacute;n su declaraci&amp;oacute;n (no la asignaci&amp;oacute;n) se mueve al principio, veamos un ejemplo:&lt;/p&gt; 
+&lt;pre&gt;var a = 'hola';
+
+function saludar() {
+	console.log(a);
+	var a = 'chau';
+	console.log(a);
+};
+
+saludar();&lt;/pre&gt; 
+&lt;p&gt;&lt;a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/78A426BA/image.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/16190878/image_thumb.png" width="359" height="157" /&gt;&lt;/a&gt; &lt;/p&gt; 
+&lt;p&gt;En este caso esperamos que le primer mensaje en imprimirse diga “hola” sin embargo dice “undefined” &amp;iquest;por qu&amp;eacute;? simple: para el interprete la declaraci&amp;oacute;n est&amp;aacute; al principio de la funci&amp;oacute;n, es decir, que lo que en realidad se ejecuta es esto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>leonardo</dc:creator>
+    <dc:date>2014-11-18T13:10:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Taller sobre AngularJs en Buenos Aires</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires" />
+    <category term="javascript" />
+    <category term="angujarjs" />
+    <author>
+      <name>leonardo</name>
+    </author>
+    <updated>2014-11-02T23:34:00Z</updated>
+    <published>2014-11-02T23:34:00Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img src="http://fc07.deviantart.net/fs71/f/2013/333/8/2/angularjs_by_abhishekghosh-d6w57fs.png" /&gt;&lt;/p&gt; 
+&lt;p&gt;Este jueves 6 de Noviembre voy a estar una vez m&amp;aacute;s en las instalaci&amp;oacute;n del Microsoft User Group en Buenos Aires, esta vez con un taller sobre AngularJs.&lt;/p&gt; 
+&lt;h3&gt;Ejemplos pr&amp;aacute;cticos&lt;/h3&gt; 
+&lt;p&gt;El taller se desarrollar&amp;aacute; a trav&amp;eacute;s de 50 ejemplos pr&amp;aacute;cticos, los mismo quedar&amp;aacute;n publicados en Github.&lt;/p&gt; 
+&lt;p&gt;Le idea es ir avanzando paso a paso con ejemplos para que una vez terminados los dos encuentros tener las herramientas b&amp;aacute;sicas para empezar a trabjar con Angular.&lt;/p&gt; 
+&lt;p&gt;Dejo el &lt;a href="http://www.mug-it.org.ar/Event.aspx?Event=188"&gt;link con la informaci&amp;oacute;n para anotarse&lt;/a&gt;. Nos vemos!&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>leonardo</dc:creator>
+    <dc:date>2014-11-02T23:34:00Z</dc:date>
+  </entry>
   <entry>
     <title>Crear mapas HTML5 interactivos con RaphaelJS</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/10/crear-mapas-html5-interactivos-con-raphaeljs" />
@@ -644,55 +689,6 @@ out.println(&amp;quot;hola&amp;quot;);
 &lt;pre&gt;https://mail.google.com/mail/u/0/?pli=1#inbox/145511f0ec63a6d4&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/04/backbonejs-rutas"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>leonardo</dc:creator>
     <dc:date>2014-04-13T14:37:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ejemplo lista de tareas con Backbone y React</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="javascript" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-04-11T18:33:28Z</updated>
-    <published>2014-04-11T18:33:28Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/backbone.png" alt="Backbone" title="Backbone" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/react.png" alt="React" title="React" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En anteriores entradas explicaba como hacer el t&amp;iacute;pico ejemplo que se suele usar como demostraci&amp;oacute;n en los framework MVC de Javascript que consiste en una lista de tareas en la que se pueden a&amp;ntilde;adir nuevas, marcarlas como completadas y eliminarlas. Realice este ejemplo en uno de ellos &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html"&gt;usando solo Backbone&lt;/a&gt; y posteriormente &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-lista-de-tareas-con-marionette.html"&gt;usando Marionette&lt;/a&gt;. Estos ejemplos eran parte de una serie de art&amp;iacute;culos sobre Javascript que la que mostaba como usar muchas otras herramientas como &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;Require JS&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html"&gt;Mustache&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/logging-en-javascript-con-log4javascript.html"&gt;logging con javscript&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/capturar-errores-de-javascript.html"&gt;capturar errores en javascript&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html"&gt;introducci&amp;oacute;n a Backbone&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/04/ejemplo-lista-de-tareas-con-backbone.html"&gt;lista de tarea con Backbone, RESTEasy y Tapestry&lt;/a&gt;, &lt;a href="http://elblogdepicodev.blogspot.com.es/2013/05/ejemplo-de-pruebas-unitarias-en.html"&gt;pruebas unitarias con Jasmine y Sinon&lt;/a&gt;, &lt;a href="http://picodotdev.github.io/blog-bitix/2014/04/usar-grunt-para-ejecutar-teses-unitarios-de-codigo-javascript/"&gt;Usar Grunt para ejecutar teses unitarios de c&amp;oacute;digo Javascript&lt;/a&gt; y que constituyen parte del actual &amp;laquo;estado del arte&amp;raquo; en cuanto a desarrollo con Javascript.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-04-11T18:33:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ejemplo lista de tareas con Backbone, RESTEasy y Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry" />
-    <category term="planeta-codigo" />
-    <category term="programacion" />
-    <category term="software" />
-    <category term="tapestry" />
-    <category term="java" />
-    <category term="javascript" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-04-04T20:11:56Z</updated>
-    <published>2013-04-26T23:38:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"&gt; 
- &lt;img alt="Backbone.js" src="http://2.bp.blogspot.com/-SMyoDvx_-j8/UXFvpfyC7iI/AAAAAAAACec/LiLs_goZU4Y/s320/backbone.png" height="56" title="Backbone.js" width="320" /&gt; 
-&lt;/div&gt;Normalmente escribo art&amp;iacute;culos con ejemplos que tratan sobre una &amp;uacute;nica tecnolog&amp;iacute;a, al tratar cada tecnolog&amp;iacute;a por separado entender que puede ofrecer es m&amp;aacute;s sencillo pero en una aplicaci&amp;oacute;n real normalmente se usan varias tecnolog&amp;iacute;as combinadas y al mismo tiempo. Esta entrada aunque sigue siendo un ejemplo es mucho m&amp;aacute;s parecido a lo que podr&amp;iacute;a ser una aplicaci&amp;oacute;n real que lo que he explicado durante las &amp;uacute;ltimas entradas. En esta serie sobre javascript he explicado un mont&amp;oacute;n de cosas por separado entre ellas 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-requirejs.html"&gt;RequireJS&lt;/a&gt;,&amp;nbsp; 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/introduccion-y-ejemplo-de-mustache.html"&gt;Mustache&lt;/a&gt;,&amp;nbsp; 
-&lt;a href="http://elblogdepicodev.blogspot.com/2013/04/introduccion-y-ejemplo-de-backbonejs.html"&gt;Backbone&lt;/a&gt;, 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/03/integracion-tapestry-con-resteasy.htm.html"&gt;servicios rest con Tapestry&lt;/a&gt; y 
-&lt;a href="http://elblogdepicodev.blogspot.com.es/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html"&gt;RESTEasy&lt;/a&gt;. En esta entrada har&amp;eacute; un ejemplo haciendo uso de todas las anteriores y alguna cosa m&amp;aacute;s adicional como 
-&lt;a href="http://twitter.github.io/bootstrap/"&gt;twitter bootstrap&lt;/a&gt;. 
-&lt;br /&gt; 
-&lt;br /&gt;El ejemplo consiste en una lista de tareas, pudi&amp;eacute;ndose introducir nuevas tareas y marcarlas como realizadas. Tambi&amp;eacute;n se podr&amp;aacute; eliminar de la lista las tareas completadas y ver un resumen con el n&amp;uacute;mero de tareas completadas y de tareas totales.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdepicodev/2013/04/ejemplo-lista-de-tareas-con-backbone-resteasy-y-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2013-04-26T23:38:00Z</dc:date>
   </entry>
 </feed>
 

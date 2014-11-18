@@ -3,10 +3,55 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-18T11:03:07Z</updated>
+  <updated>2014-11-18T13:02:41Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-18T11:03:07Z</dc:date>
+  <dc:date>2014-11-18T13:02:41Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Javascript Hoisting, scope de variables</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables" />
+    <category term="javascript" />
+    <author>
+      <name>leonardo</name>
+    </author>
+    <updated>2014-11-18T13:10:00Z</updated>
+    <published>2014-11-18T13:10:00Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Una caracter&amp;iacute;stica de Javascript dif&amp;iacute;cil de comprender (sobre todo comprender si es un bug o un feature) es el scope de las variables declaradas dentro de una funci&amp;oacute;n.&lt;/p&gt; 
+&lt;h3&gt;El int&amp;eacute;rprete de Javascript mueve las declaraciones al principio de la funci&amp;oacute;n.&lt;/h3&gt; 
+&lt;p&gt;Esto quiere decir que si yo declaro una variable por la mitad del c&amp;oacute;digo de una funci&amp;oacute;n su declaraci&amp;oacute;n (no la asignaci&amp;oacute;n) se mueve al principio, veamos un ejemplo:&lt;/p&gt; 
+&lt;pre&gt;var a = 'hola';
+
+function saludar() {
+	console.log(a);
+	var a = 'chau';
+	console.log(a);
+};
+
+saludar();&lt;/pre&gt; 
+&lt;p&gt;&lt;a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/78A426BA/image.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/16190878/image_thumb.png" width="359" height="157" /&gt;&lt;/a&gt; &lt;/p&gt; 
+&lt;p&gt;En este caso esperamos que le primer mensaje en imprimirse diga “hola” sin embargo dice “undefined” &amp;iquest;por qu&amp;eacute;? simple: para el interprete la declaraci&amp;oacute;n est&amp;aacute; al principio de la funci&amp;oacute;n, es decir, que lo que en realidad se ejecuta es esto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>leonardo</dc:creator>
+    <dc:date>2014-11-18T13:10:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Expresiones lambda en miembros de función de C# 6</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6" />
+    <category term="c-6" />
+    <category term="novedades" />
+    <category term="c" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2014-11-18T12:52:00Z</updated>
+    <published>2014-11-18T12:52:00Z</published>
+    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh5.ggpht.com/-CagaanyD_6M/VDlzVOCT2_I/AAAAAAAADqg/uWYTipYKDS0/image33.png?imgmax=800" style="background-image: none; border-width: 0px; display: inline; float: right; margin: 0px 0px 10px 15px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" /&gt;Seguimos hablando de las novedades de C# 6, y en esta ocasi&amp;oacute;n nos centraremos en una interesante caracter&amp;iacute;stica cuyo nombre, sinceramente, no estoy seguro de ser capaz de traducir de forma correcta del original “ 
+&lt;em&gt;Expression bodied function members&lt;/em&gt;”. Quiz&amp;aacute;s ser&amp;iacute;a algo as&amp;iacute; como “expresiones en cuerpo de miembros de funci&amp;oacute;n”, pero bueno, lo importante no es el nombre sino el concepto, as&amp;iacute; que vamos a centrarnos en &amp;eacute;l. 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt;Comencemos desde el principio. Los miembros de funci&amp;oacute;n son aquellos miembros de un tipo que contienen c&amp;oacute;digo ejecutable, como m&amp;eacute;todos, propiedades, indexadores, operadores y otros. En general, todos ellos permiten implementar su comportamiento mediante la introducci&amp;oacute;n de un bloque de c&amp;oacute;digo, tradicionalmente enmarcado entre llaves.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2014-11-18T12:52:00Z</dc:date>
+  </entry>
   <entry>
     <title>NoSQL y bases de datos (key-value) ( Cantabriatic)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic" />
@@ -689,55 +734,6 @@ public class FacturaIva extends Factura{
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-11-11T09:11:02Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción a los Patrones de Diseño</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno" />
-    <category term="patron" />
-    <category term="patron-de-diseno" />
-    <category term="programacion" />
-    <category term="patrones-de-diseno" />
-    <author>
-      <name>Antonio</name>
-    </author>
-    <updated>2014-11-11T12:59:20Z</updated>
-    <published>2014-11-11T12:59:20Z</published>
-    <content type="html">&lt;p&gt;&lt;h2&gt;Historia de los Patrones de Dise&amp;ntilde;o&lt;/h2&gt; 
-&lt;p&gt;El t&amp;eacute;rmino patr&amp;oacute;n fue utilizado por primera vez por el arquitecto &lt;a href="http://es.wikipedia.org/wiki/Christopher_Alexander" title="Christopher Alexander"&gt;Christopher Alexander&lt;/a&gt; en el libro &lt;em&gt;“&lt;a href="http://www.amazon.es/Pattern-Language-Buildings-Construction-Environmental/dp/0195019199" title="A Pattern Language: Towns, Buildings, Construction"&gt;A Pattern Language: Towns, Buildings, Construction&lt;/a&gt;“&lt;/em&gt;, donde defini&amp;oacute; una serie de patrones arquitect&amp;oacute;nicos. Alexander define: &lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;&lt;em&gt;“Un patr&amp;oacute;n describe un problema que ocurre a menudo, acompa&amp;ntilde;ado por un intento de soluci&amp;oacute;n para el problema.”&lt;/em&gt;&lt;/p&gt; 
-&lt;/blockquote&gt; 
-&lt;p&gt;&lt;em&gt;Christopher Alexander, 1977&lt;/em&gt;&lt;/p&gt; 
-&lt;p&gt;En 1987, &lt;a href="http://en.wikipedia.org/wiki/Ward_Cunningham" title="Ward Cunningham"&gt;Ward Cunningham&lt;/a&gt; y &lt;a href="http://en.wikipedia.org/wiki/Kent_Beck" title="Kent Beck"&gt;Kent Beck&lt;/a&gt; estaban trabajando con Smaltalk, dise&amp;ntilde;ando interfaces de usuario. Para ello, decidieron utilizar alguna de las ideas de Alexander y desarrollaron un peque&amp;ntilde;o lenguaje de patrones que servir&amp;iacute;a de gu&amp;iacute;a a los programadores de Smaltalk. A partir de estas idea escribieron el libro &lt;em&gt;“&lt;a href="http://c2.com/doc/oopsla87.html" title="Using Pattern Languajes for Object-Oriented Programs"&gt;Using Pattern Languajes for Object-Oriented Programs&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/codecriticon/2014/11/introduccion-a-los-patrones-de-diseno"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Antonio</dc:creator>
-    <dc:date>2014-11-11T12:59:20Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java y MongoDB</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-y-mongodb" />
-    <category term="bases-de-datos" />
-    <category term="java" />
-    <category term="nosql" />
-    <category term="java-basico" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-11-11T12:23:32Z</updated>
-    <published>2014-11-11T12:23:32Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Todos hemos trabajado &lt;strong&gt;con Java y JDBC&lt;/strong&gt; para acceder a las distintas bases de datos SQL (Oracle,SQLServer,MySQL). Poco a poco tendremos que irnos haciendo a la idea de comenzar a trabajar con&lt;strong&gt; bases de datos NoSQL&lt;/strong&gt;.&amp;nbsp;Uno de los casos m&amp;aacute;s habituales sera usar &lt;strong&gt;Java y MongoDB&lt;/strong&gt; como base de datos documental. Conectarse a esta base de datos es relativamente f&amp;aacute;cil ya que disponemos de un conjunto de abstracciones bastante sencillas de entender. Lo primero que vamos a hacer es incluir una dependencia de Maven hacia el driver de Mongo en nuestro proyecto.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;dependency&amp;gt;
-&amp;lt;groupId&amp;gt;org.mongodb&amp;lt;/groupId&amp;gt;
-&amp;lt;artifactId&amp;gt;mongo-java-driver&amp;lt;/artifactId&amp;gt;
-&amp;lt;version&amp;gt;2.12.4&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
-
-&lt;/pre&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Una vez tenemos el driver asignado el siguiente paso es crear un programa sencillo que se conecte a la base de datos de Mongo.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-y-mongodb"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-11-11T12:23:32Z</dc:date>
   </entry>
 </feed>
 

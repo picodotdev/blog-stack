@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6",
+      "title" : "Expresiones lambda en miembros de función de C# 6"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
       "title" : "Enlaces interesantes 176"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/07/vacaciones",
       "title" : "<Vacaciones>"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi",
-      "title" : "#if DEBUG en Javascript (bueno, o algo así)"
     }
   ]
 }
