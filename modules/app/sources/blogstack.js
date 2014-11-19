@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
+      "title" : "Copiar archivos entre servidores de forma segura con SCP"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/problemas-al-compilar-aplicaciones-mvc-3-y-4-desde-hace-unos-dias",
       "title" : "¿Problemas al compilar aplicaciones MVC 3 y 4 desde hace unos días?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
       "title" : "Nueva intervención manual necesaria en Chakra"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
-      "title" : "Introducción a Ansible"
     }
   ]
 }

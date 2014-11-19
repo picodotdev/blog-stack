@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
+      "title" : "Copiar archivos entre servidores de forma segura con SCP"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -33,10 +37,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
-      "title" : "Copiar archivos entre servidores de forma segura con SCP"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-spotify-en-debian-y-ubuntu",
