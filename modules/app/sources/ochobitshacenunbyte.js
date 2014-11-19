@@ -3,14 +3,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
-      "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
-      "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -23,8 +15,16 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     },
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
+      "title" : "Cómo instalar LAMP en Debian 7"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
       "title" : "Cómo instalar MediaWiki en Debian"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
+      "title" : "Probamos la versión 7 de Trisquel GNU"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",

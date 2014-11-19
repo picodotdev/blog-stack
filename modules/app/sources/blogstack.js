@@ -15,14 +15,6 @@ define("app/sources/blogstack", [], function() {
       "title" : ".NET es open source, ¿y ahora qué?"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
-      "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
-      "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
       "title" : "openSUSE 13.2: cosas que mejorar"
     },
@@ -67,10 +59,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "openSUSE 13.2 un vistazo a KDE y Gnome"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
-      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
-    },
-    {
       "url" : "/post/koalite/2014/11/codigo-bonito-codigo-feo-codigo-que-funciona",
       "title" : "Código bonito, código feo, código que funciona"
     },
@@ -81,6 +69,18 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
       "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
+      "title" : "Declaración de variables en expresiones de C# 6"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
+      "title" : "Nueva intervención manual necesaria en Chakra"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
+      "title" : "Introducción a Ansible"
     }
   ]
 }
