@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
+      "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
       "title" : "Enlaces interesantes 176"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
-      "title" : "Usando el patron factory"
     }
   ]
 }

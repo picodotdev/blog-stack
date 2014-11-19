@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
+      "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
       "title" : "Mi experiencia con los moviles chinos"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
       "title" : "Como activar el inicio de sesión automático en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/security-feed-los-mejores-articulos-sobre-seguridad",
-      "title" : "Security Feed, los mejores articulos sobre seguridad"
     }
   ]
 }
