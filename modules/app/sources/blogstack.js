@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
+      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
+      "title" : "Probamos la versión 7 de Trisquel GNU"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
+      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
       "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
       "title" : "Usando el patron factory"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome",
-      "title" : "openSUSE 13.2 un vistazo a KDE y Gnome"
-    },
-    {
-      "url" : "/post/koalite/2014/11/codigo-bonito-codigo-feo-codigo-que-funciona",
-      "title" : "Código bonito, código feo, código que funciona"
-    },
-    {
-      "url" : "/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta",
-      "title" : "¿Qué nos espera en Haiku Beta?"
     }
   ]
 }
