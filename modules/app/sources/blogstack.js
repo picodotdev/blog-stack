@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/videotutoriales-de-opensuse",
+      "title" : "Videotutoriales de openSUSE"
+    },
+    {
       "url" : "/post/koalite/2014/11/net-es-open-source-y-ahora-que",
       "title" : ".NET es open source, ¿y ahora qué?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
       "title" : "Declaración de variables en expresiones de C# 6"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
-      "title" : "Nueva intervención manual necesaria en Chakra"
     }
   ]
 }
