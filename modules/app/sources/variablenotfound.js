@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/problemas-al-compilar-aplicaciones-mvc-3-y-4-desde-hace-unos-dias",
+      "title" : "¿Problemas al compilar aplicaciones MVC 3 y 4 desde hace unos días?"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6",
       "title" : "Expresiones lambda en miembros de función de C# 6"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
       "title" : "Enlaces interesantes 168"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/07/vacaciones",
-      "title" : "<Vacaciones>"
     }
   ]
 }
