@@ -3,10 +3,75 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-19T15:04:19Z</updated>
+  <updated>2014-11-19T19:03:02Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-19T15:04:19Z</dc:date>
+  <dc:date>2014-11-19T19:03:02Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo instalar MediaWiki en Debian</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian" />
+    <category term="mysql" />
+    <category term="blog-stack" />
+    <category term="programas" />
+    <category term="gpl" />
+    <category term="mediawiki" />
+    <category term="lamp" />
+    <category term="gnu" />
+    <category term="wikipedia" />
+    <category term="php5" />
+    <category term="linux" />
+    <category term="debian" />
+    <category term="apache2" />
+    <author>
+      <name>socrates</name>
+    </author>
+    <updated>2014-11-19T18:19:27Z</updated>
+    <published>2014-11-11T11:41:33Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Despu&amp;eacute;s de unos d&amp;iacute;as de inactividad veremos c&amp;oacute;mo instalar el motor de &lt;strong&gt;Wikipedia&lt;/strong&gt;, el proyecto &lt;strong&gt;MediaWiki&lt;/strong&gt;, sobre un sistema operativo &lt;strong&gt;GNU/Linux Debian 7&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Primero de todo necesitamos tener instalado un servidor &lt;strong&gt;LAMP&lt;/strong&gt;, ya sab&amp;eacute;is, &lt;strong&gt;Apache2&lt;/strong&gt;, &lt;strong&gt;Mysql&lt;/strong&gt; (no lo he probado con MariaDB) y &lt;strong&gt;PHP5&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800-300x250.jpg" alt="Mediawiki-logo-reworked-800" width="300" height="250" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;h2&gt;Instalar servidor LAMP&lt;/h2&gt; 
+&lt;p&gt;C&amp;oacute;mo primer paso instalamos el servidor web &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y update &amp;amp;&amp;amp; apt-get -y install apache2&lt;/pre&gt; 
+&lt;p&gt;El siguiente paso es instalar el motor de la base de datos &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install mysql-server mysql-common mysql-client&lt;/pre&gt; 
+&lt;p&gt;Habr&amp;aacute; un momento en la instalaci&amp;oacute;n que deb&amp;eacute;is introducir una contrase&amp;ntilde;a para el usuario&lt;strong&gt;&lt;em&gt; root&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg" alt="wikimedia-001" width="639" height="384" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Instalamos &lt;strong&gt;PHP5&lt;/strong&gt; y el m&amp;oacute;dulo para &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;apt-get -y install php5 libapache2-mod-php5&lt;/pre&gt; 
+&lt;p&gt;Reiniciamos &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;pre&gt;service apache2 restart&lt;/pre&gt; 
+&lt;p&gt;Aunque no es obligatorio, si que es recomendable, testear la instalaci&amp;oacute;n de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>socrates</dc:creator>
+    <dc:date>2014-11-11T11:41:33Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cómo instalar MariaDB y primeros pasos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos" />
+    <category term="mysql" />
+    <category term="blog-stack" />
+    <category term="sistemas-operativos" />
+    <category term="oracle" />
+    <category term="mariadb" />
+    <category term="wheezy" />
+    <category term="linux" />
+    <category term="debian" />
+    <author>
+      <name>socrates</name>
+    </author>
+    <updated>2014-11-19T18:09:49Z</updated>
+    <published>2014-11-03T22:33:24Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hasta hace no mucho &lt;strong&gt;MySQL&lt;/strong&gt; era la opci&amp;oacute;n principal para los que quer&amp;iacute;amos un motor de base de datos potente y libre, con permiso de &lt;strong&gt;PostgreSQL&lt;/strong&gt;, claro.&lt;/p&gt; 
+&lt;p&gt;C&amp;oacute;mo muchos ya sab&amp;eacute;is, hace unos a&amp;ntilde;os la empresa creadora, del software fue comprada por &lt;strong&gt;Novell&lt;/strong&gt;, que a su vez tiempo m&amp;aacute;s tarde fue adquirida por la todopoderosa &lt;strong&gt;Oracle&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;El problema reside en que &lt;strong&gt;Oracle&lt;/strong&gt; ya tiene en el mercado una &lt;strong&gt;BBDD&lt;/strong&gt; que lleva su mismo nombre, y claro, muchos vieron peligrar las licencias libres de &lt;strong&gt;MySQL&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png" alt="mariadb-seal-shaded-browntext-alt" width="246" height="185" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Actualmente el &lt;a title="Michael Widenius MySQL" href="http://es.wikipedia.org/wiki/Michael_Widenius"&gt;creador &lt;/a&gt;de &lt;strong&gt;MySQL&lt;/strong&gt; es el principal impulsor de &lt;strong&gt;MariaDB&lt;/strong&gt;, utilizando la licencia libre &lt;strong&gt;GPL&lt;/strong&gt; en su versi&amp;oacute;n 2.&lt;/p&gt; 
+&lt;p&gt;De hecho se nota tanto que es el mismo creador, que entre ambas&lt;strong&gt; BBDD relacionales&lt;/strong&gt; existe compatibilidad casi al cien por cien.&lt;/p&gt; 
+&lt;p&gt;Respecto a las aventuras de &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>socrates</dc:creator>
+    <dc:date>2014-11-03T22:33:24Z</dc:date>
+  </entry>
   <entry>
     <title>Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7" />
@@ -68,71 +133,6 @@
 &lt;p&gt;Lo podemos hacer de manera sencilla creando un archivo de texto, llamado &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>socrates</dc:creator>
     <dc:date>2014-11-13T12:00:58Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo instalar MediaWiki en Debian</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian" />
-    <category term="mysql" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="gpl" />
-    <category term="mediawiki" />
-    <category term="lamp" />
-    <category term="gnu" />
-    <category term="wikipedia" />
-    <category term="php5" />
-    <category term="linux" />
-    <category term="debian" />
-    <category term="apache2" />
-    <author>
-      <name>socrates</name>
-    </author>
-    <updated>2014-11-11T11:41:33Z</updated>
-    <published>2014-11-11T11:41:33Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Despu&amp;eacute;s de unos d&amp;iacute;as de inactividad veremos c&amp;oacute;mo instalar el motor de &lt;strong&gt;Wikipedia&lt;/strong&gt;, el proyecto &lt;strong&gt;MediaWiki&lt;/strong&gt;, sobre un sistema operativo &lt;strong&gt;GNU/Linux Debian 7&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;Primero de todo necesitamos tener instalado un servidor &lt;strong&gt;LAMP&lt;/strong&gt;, ya sab&amp;eacute;is, &lt;strong&gt;Apache2&lt;/strong&gt;, &lt;strong&gt;Mysql&lt;/strong&gt; (no lo he probado con MariaDB) y &lt;strong&gt;PHP5&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/Mediawiki-logo-reworked-800-300x250.jpg" alt="Mediawiki-logo-reworked-800" width="300" height="250" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;h2&gt;Instalar servidor LAMP&lt;/h2&gt; 
-&lt;p&gt;C&amp;oacute;mo primer paso instalamos el servidor web &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y update &amp;amp;&amp;amp; apt-get -y install apache2&lt;/pre&gt; 
-&lt;p&gt;El siguiente paso es instalar el motor de la base de datos &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install mysql-server mysql-common mysql-client&lt;/pre&gt; 
-&lt;p&gt;Habr&amp;aacute; un momento en la instalaci&amp;oacute;n que deb&amp;eacute;is introducir una contrase&amp;ntilde;a para el usuario&lt;strong&gt;&lt;em&gt; root&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg" alt="wikimedia-001" width="639" height="384" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Instalamos &lt;strong&gt;PHP5&lt;/strong&gt; y el m&amp;oacute;dulo para &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install php5 libapache2-mod-php5&lt;/pre&gt; 
-&lt;p&gt;Reiniciamos &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;service apache2 restart&lt;/pre&gt; 
-&lt;p&gt;Aunque no es obligatorio, si que es recomendable, testear la instalaci&amp;oacute;n de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>socrates</dc:creator>
-    <dc:date>2014-11-11T11:41:33Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo instalar MariaDB y primeros pasos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos" />
-    <category term="mysql" />
-    <category term="blog-stack" />
-    <category term="sistemas-operativos" />
-    <category term="oracle" />
-    <category term="mariadb" />
-    <category term="wheezy" />
-    <category term="linux" />
-    <category term="debian" />
-    <author>
-      <name>socrates</name>
-    </author>
-    <updated>2014-11-03T22:33:24Z</updated>
-    <published>2014-11-03T22:33:24Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hasta hace no mucho &lt;strong&gt;MySQL&lt;/strong&gt; era la opci&amp;oacute;n principal para los que quer&amp;iacute;amos un motor de base de datos potente y libre, con permiso de &lt;strong&gt;PostgreSQL&lt;/strong&gt;, claro.&lt;/p&gt; 
-&lt;p&gt;C&amp;oacute;mo muchos ya sab&amp;eacute;is, hace unos a&amp;ntilde;os la empresa creadora, del software fue comprada por &lt;strong&gt;Novell&lt;/strong&gt;, que a su vez tiempo m&amp;aacute;s tarde fue adquirida por la todopoderosa &lt;strong&gt;Oracle&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;El problema reside en que &lt;strong&gt;Oracle&lt;/strong&gt; ya tiene en el mercado una &lt;strong&gt;BBDD&lt;/strong&gt; que lleva su mismo nombre, y claro, muchos vieron peligrar las licencias libres de &lt;strong&gt;MySQL&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/mariadb-seal-shaded-browntext-alt.png" alt="mariadb-seal-shaded-browntext-alt" width="246" height="185" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Actualmente el &lt;a title="Michael Widenius MySQL" href="http://es.wikipedia.org/wiki/Michael_Widenius"&gt;creador &lt;/a&gt;de &lt;strong&gt;MySQL&lt;/strong&gt; es el principal impulsor de &lt;strong&gt;MariaDB&lt;/strong&gt;, utilizando la licencia libre &lt;strong&gt;GPL&lt;/strong&gt; en su versi&amp;oacute;n 2.&lt;/p&gt; 
-&lt;p&gt;De hecho se nota tanto que es el mismo creador, que entre ambas&lt;strong&gt; BBDD relacionales&lt;/strong&gt; existe compatibilidad casi al cien por cien.&lt;/p&gt; 
-&lt;p&gt;Respecto a las aventuras de &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>socrates</dc:creator>
-    <dc:date>2014-11-03T22:33:24Z</dc:date>
   </entry>
   <entry>
     <title>Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10</title>

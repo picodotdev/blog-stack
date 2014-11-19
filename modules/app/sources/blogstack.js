@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
+      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
+      "title" : "Cómo instalar MediaWiki en Debian"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
+      "title" : "Cómo instalar MariaDB y primeros pasos"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
       "title" : "Copiar archivos entre servidores de forma segura con SCP"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta",
       "title" : "¿Qué nos espera en Haiku Beta?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
-      "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6",
-      "title" : "Declaración de variables en expresiones de C# 6"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/11/nueva-intervencion-manual-necesaria-en-chakra",
-      "title" : "Nueva intervención manual necesaria en Chakra"
     }
   ]
 }
