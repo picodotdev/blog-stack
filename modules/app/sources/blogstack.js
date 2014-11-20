@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
+      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -25,10 +29,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
       "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
-      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
