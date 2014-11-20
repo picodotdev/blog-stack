@@ -3,6 +3,14 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
+      "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
+      "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
       "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
     },
@@ -73,14 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
       "title" : "Fondos de escritorio 17"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-ejecutar-dos-comandos-o-mas-de-una-vez-en-la-terminal-en-ubuntu",
-      "title" : "Como ejecutar dos comandos o mas de una vez en la Terminal en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-activar-el-inicio-de-sesion-automatico-en-ubuntu",
-      "title" : "Como activar el inicio de sesión automático en Ubuntu"
     }
   ]
 }

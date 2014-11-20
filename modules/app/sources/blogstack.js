@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
+      "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
+      "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
       "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
       "title" : "Mi experiencia con los moviles chinos"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
-      "title" : "Avisos de Seguridad Linux"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-176",
-      "title" : "Enlaces interesantes 176"
     }
   ]
 }
