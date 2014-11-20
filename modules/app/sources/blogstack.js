@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
       "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
     },
@@ -57,10 +61,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
       "title" : "openSUSE 13.2: cosas que mejorar"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
     },
     {
       "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",

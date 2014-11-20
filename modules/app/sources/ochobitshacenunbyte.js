@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     },
@@ -29,10 +33,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
       "title" : "Copiar archivos entre servidores de forma segura con SCP"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",

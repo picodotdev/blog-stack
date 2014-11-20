@@ -1,4 +1,4 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Copias de seguridad con rsync | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync"><span itemprop="headline">Copias de seguridad con rsync</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/sistemas-operativos"><img title="sistemas-operativos" alt="sistemas-operativos" src="/assets/images/labels/sistemas-operativos.png"/></a><a class="label" href="/label/gnu"><img title="gnu" alt="gnu" src="/assets/images/labels/gnu.png"/></a><a class="label" href="/label/programas"><img title="programas" alt="programas" src="/assets/images/labels/programas.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">socrates</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/11/18/copias-de-seguridad-con-rsync/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-18T16:35" itemprop="dateModified">Actualizado el martes, 18 de noviembre de 2014 a las 16:35 UTC</span></div><div><span>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Copias de seguridad con rsync | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync"><span itemprop="headline">Copias de seguridad con rsync</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/sistemas-operativos"><img title="sistemas-operativos" alt="sistemas-operativos" src="/assets/images/labels/sistemas-operativos.png"/></a><a class="label" href="/label/gnu"><img title="gnu" alt="gnu" src="/assets/images/labels/gnu.png"/></a><a class="label" href="/label/programas"><img title="programas" alt="programas" src="/assets/images/labels/programas.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">socrates</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/11/18/copias-de-seguridad-con-rsync/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-20T10:49" itemprop="dateModified">Actualizado el jueves, 20 de noviembre de 2014 a las 10:49 UTC</span></div><div><span>
 Etiquetado como
 backup, rsync, blog-stack, <a href="/label/programas"><span itemprop="articleSection">programas</span></a>, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, <a href="/label/unix"><span itemprop="articleSection">unix</span></a>, <a href="/label/gnu"><span itemprop="articleSection">gnu</span></a>, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync" st_title="Copias de seguridad con rsync | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><script></script>
 <p>En el art&iacute;culo de hoy hablar&eacute; de las funciones de<strong> rsync</strong> para realizar copias de archivos, que en muchos casos ser&aacute;n de seguridad, para garantizar nuestros backups.</p> 
@@ -10,45 +10,145 @@ backup, rsync, blog-stack, <a href="/label/programas"><span itemprop="articleSec
 <h2>Instalaci&oacute;n de rsync</h2> 
 <p>La instalaci&oacute;n en sistemas <strong>GNU/Linux</strong> y tipo <strong>Unix</strong> es bastante sencilla, de hecho, en muchas distribuciones ya viene preinstalado.</p> 
 <p>En sistemas basados en paquetes <strong>.DEB</strong> (Debian, Ubuntu, LinuxMint entre otros)</p> 
-<pre>apt-get -y install rsync</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>apt-get -y install rsync</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>En sistemas basados en paquetes .<strong>RPM</strong> (Red Hat, CentOS, Fedora entre otros)</p> 
-<pre>yum install rsync</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>yum install rsync</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>En Suse y OpenSuse</p> 
-<pre>zypper install rsync</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>zypper install rsync</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>En Arch</p> 
-<pre> pacman -S rsync</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre> pacman -S rsync</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>En FreeBSD</p> 
-<pre>pkg install rsync</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>pkg install rsync</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>&nbsp;</p> 
 <h3>Opciones principales</h3> 
 <p>Un ejemplo b&aacute;sico ser&iacute;a el siguiente:</p> 
-<pre>rsync -av /home/usuario /copiaseguridad</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>rsync -av /home/usuario /copiaseguridad</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>Veamos los par&aacute;metros que hemos utilizado.</p> 
 <ul> 
  <li>Con <strong>-a</strong> copiamos recursivamente adem&aacute;s de mantener los privilegios, permisos y fecha de creaci&oacute;n.</li> 
  <li>Con <strong>-v</strong>, es decir, modo <strong>verbose</strong>, visualizamos los ficheros que vamos copiando.</li> 
 </ul> 
 <p>Si queremos que la informaci&oacute;n que transferimos sea comprimida, para as&iacute; ahorrar ancho de banda, ser&iacute;a as&iacute;:</p> 
-<pre>rsync -avz /home/nuestrousuario /copiaseguridad</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>&gt;rsync -avz /home/nuestrousuario /copiaseguridad</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>Explicamos el nuevo par&aacute;metro:</p> 
 <ul> 
  <li>Con <strong>-z</strong>, hacemos que los ficheros se transfieran de manera comprimida.</li> 
 </ul> 
 <p>Si deseamos transferir los ficheros usando <strong><em>ssh</em> </strong>entre nuestro equipo y otro remoto, lo har&iacute;amos de la siguiente manera:</p> 
-<pre>rsync -rtvz nuestracarpeta/ usuario@dominio:/destino</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>rsync -rtvz nuestracarpeta/ usuario@dominio:/destino</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>Tenemos dos par&aacute;metros nuevos:</p> 
 <ul> 
  <li>Con <strong>-r</strong> indicamos que es de forma recursiva</li> 
  <li>Con <strong>-t</strong> preservamos el tiempo de modificaci&oacute;n de los archivos.</li> 
 </ul> 
 <p>Imaginemos que queremos copiar usando<strong> rsync</strong> nuestra carpeta /home/usuario pero no que copia la subcarpeta “Descargas”, &iquest;C&oacute;mo lo har&iacute;amos?</p> 
-<pre>rsync -rtv --exclude 'directorio' folder-origen/ folder-destino/</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>rsync -rtv --exclude 'directorio' folder-origen/ folder-destino/</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>Tenemos un nuevo par&aacute;metro:</p> 
 <ul> 
  <li>Usando <strong>–exclude</strong> podemos excluir las carpetas que nos interese copiar.</li> 
 </ul> 
 <p>Si fuese un fichero:</p> 
-<pre>rsync -rtv --exclude 'file.txt' folder-origen/ folder-destino/</pre> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>rsync -rtv --exclude 'file.txt' folder-origen/ folder-destino/</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
 <p>M&aacute;s adelante podremos ver c&oacute;mo sincronizar carpetas e incluso proyectos web ubicados en diferentes servidores. &iexcl;Estad atentos! : )</p> 
 <p>Os dejo dos fabulosos enlaces donde tratan <strong><em>rsync</em> </strong>con profundidad:</p> 
 <p><a title="Sincronizando con rsync" href="http://www.jveweb.net/archivo/2010/11/sincronizando-carpetas-con-rsync.html">Sincronizando carpetas con rsync</a></p> 
