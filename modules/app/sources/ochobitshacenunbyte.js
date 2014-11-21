@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
+      "title" : "Web analytics con Piwik"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
       "title" : "Cómo instalar Proftpd con soporte MySQL"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/gestion-de-proyectos-con-openproject",
-      "title" : "Gestión de proyectos con OpenProject"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
+      "title" : "Web analytics con Piwik"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
       "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",
       "title" : "Javascript Hoisting, scope de variables"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6",
-      "title" : "Expresiones lambda en miembros de función de C# 6"
     }
   ]
 }
