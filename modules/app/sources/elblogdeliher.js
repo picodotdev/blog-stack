@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
+      "title" : "Se acercan cambios :D"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
       "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
       "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/fondos-de-escritorio-17",
-      "title" : "Fondos de escritorio 17"
     }
   ]
 }

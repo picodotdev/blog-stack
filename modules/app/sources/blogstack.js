@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
+      "title" : "Se acercan cambios :D"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
       "title" : "Richard Stallman dará conferencias por España"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
       "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
-      "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
     }
   ]
 }
