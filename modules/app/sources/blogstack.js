@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
+      "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
       "title" : "Se acercan cambios :D"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6",
       "title" : "Expresiones lambda en miembros de función de C# 6"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
-      "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
     }
   ]
 }

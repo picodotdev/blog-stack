@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
+      "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
       "title" : "Richard Stallman dará conferencias por España"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/fundacion-de-software-libre-recopilacion-de-noticias-de-septiembre-2-14",
       "title" : "Fundación de software Libre. Recopilación de Noticias de septiembre 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
-      "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
     }
   ]
 }
