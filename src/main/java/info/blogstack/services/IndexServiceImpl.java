@@ -158,7 +158,9 @@ public class IndexServiceImpl implements IndexService {
 		Reader fr = new XmlReader(IOUtils.toInputStream(IOUtils.toString(filterReader(reader))));
 		SyndFeed feed = new SyndFeedInput().build(fr);
 
-		return indexPosts(indexation, source, feed.getEntries());
+		@SuppressWarnings("unchecked")
+		List<SyndEntry> entries = feed.getEntries();
+		return indexPosts(indexation, source, entries);
 	}
 
 	private List<PostRecord> indexPosts(IndexationRecord indexation, SourceRecord source, List<SyndEntry> entries) {
@@ -274,7 +276,9 @@ public class IndexServiceImpl implements IndexService {
 			service.getPostsLabelsDAO().deleteByPost(post);
 		}
 
-		Set<LabelRecord> labels = indexLabels(entry.getCategories());
+		@SuppressWarnings("unchecked")
+		List<SyndCategory> categories = entry.getCategories();
+		Set<LabelRecord> labels = indexLabels(categories);
 		for (LabelRecord label : labels) {
 			PostsLabelsRecord pl = service.getContext().newRecord(POSTS_LABELS);
 			pl.setPostId(post.getId());

@@ -2,7 +2,7 @@ package info.blogstack.misc;
 
 import java.util.Map;
 
-public interface Configuration {
+public interface Configuration<K,V> {
 
-	Map get();
+	Map<K,V> get();
 }

@@ -89,7 +89,7 @@ public class GenerateServiceImpl implements GenerateService {
 	}
 
 	public File getToPage(String page, Object[] context, Map<String, String> params) {
-		List l = new ArrayList<>();
+		List<Object> l = new ArrayList<>();
 		if (!page.equals("index")) {
 			l.add(page);
 		}
@@ -112,10 +112,10 @@ public class GenerateServiceImpl implements GenerateService {
 	@Override
 	public List<File> generateIndex() throws IOException {
 		List<File> files = new ArrayList<>();
-		File page = generatePage("index", new Object[0], Collections.EMPTY_MAP);
+		File page = generatePage("index", new Object[0], Collections.<String,String>emptyMap());
 		files.add(page);
 		for (int i = 1; i <= Globals.NUMBER_PAGES_INDEX; ++i) {
-			File npage = generatePage("index", new Object[] { "page", i }, Collections.EMPTY_MAP);
+			File npage = generatePage("index", new Object[] { "page", i }, Collections.<String,String>emptyMap());
 			files.add(npage);
 		}
 		return files;
@@ -128,11 +128,11 @@ public class GenerateServiceImpl implements GenerateService {
 				continue;
 			}			
 			String l = Utils.urlize(label.getName());
-			File labelPage = generatePage("label", new Object[] { l }, Collections.EMPTY_MAP);
+			generatePage("label", new Object[] { l }, Collections.<String,String>emptyMap());
 			Long n = service.getPostDAO().countBy(label);
 			Integer np = Math.min(((Double) Math.floor(n / Globals.NUMBER_POSTS_PAGE)).intValue(), Globals.NUMBER_PAGES_LABEL);
 			for (int i = 1; i <= np; ++i) {
-				File ilabelPage = generatePage("label", new Object[] { l, "page", i }, Collections.EMPTY_MAP);
+				generatePage("label", new Object[] { l, "page", i }, Collections.<String,String>emptyMap());
 			}
 		}
 		return files;
@@ -156,7 +156,7 @@ public class GenerateServiceImpl implements GenerateService {
 		
 		if (!posts.isEmpty()) {
 			logger.info("Generating main archive...");
-			File a = generatePage("archive", new Object[0], Collections.EMPTY_MAP);
+			File a = generatePage("archive", new Object[0], Collections.<String,String>emptyMap());
 			as.add(a);
 		}
 		
@@ -173,7 +173,7 @@ public class GenerateServiceImpl implements GenerateService {
 		if (!dates.isEmpty()) {
 			logger.info("Generating date archive...");
 			for (Object[] date : dates.values()) {
-				File da = generatePage("archive", date, Collections.EMPTY_MAP);
+				File da = generatePage("archive", date, Collections.<String,String>emptyMap());
 				as.add(da);
 			}
 		}
@@ -195,7 +195,7 @@ public class GenerateServiceImpl implements GenerateService {
 		file.getParentFile().mkdirs();
 
 		Writer w = new FileWriter(file);
-		render("post", context, Collections.EMPTY_MAP, Globals.LOCALE, w);
+		render("post", context, Collections.<String,String>emptyMap(), Globals.LOCALE, w);
 		w.close();
 
 		return file;

@@ -46,7 +46,6 @@ import org.apache.tapestry5.ioc.RegistryBuilder;
 import org.apache.tapestry5.modules.TapestryModule;
 import org.apache.tapestry5.services.ServletApplicationInitializer;
 import org.joda.time.DateTimeZone;
-import org.jooq.DSLContext;
 import org.lazan.t5.offline.services.TapestryOfflineModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -215,45 +214,45 @@ public class Main {
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				if (generate || ggenerate || gindex) {
-					List<File> pindex = service.getGenerateService().generateIndex();
+					service.getGenerateService().generateIndex();
 				}
 				if (generate || ggenerate || glabels) {
-					List<File> plabels = service.getGenerateService().generateLabels(new ArrayList(labels));
+					service.getGenerateService().generateLabels(new ArrayList<LabelRecord>(labels));
 				}
 			}
 
 			if (ggenerate || gpages) {
-				File faqPage = service.getGenerateService().generatePage("faq", new Object[0], Collections.EMPTY_MAP);
+				service.getGenerateService().generatePage("faq", new Object[0], Collections.<String,String>emptyMap());
 			}
 
 			if (generate || ggenerate) {
 				if (!posts.isEmpty()) {
 					logger.info("Generating posts...");
-					List<File> ps = service.getGenerateService().generatePosts(new ArrayList(posts));
+					service.getGenerateService().generatePosts(new ArrayList<PostRecord>(posts));
 
 					Set<SourceRecord> sources = new HashSet<>();
 					for (PostRecord post : posts) {
 						sources.add(post.fetchParent(Keys.POST_SOURCE_ID));
 					}
-					List<SourceRecord> s = new ArrayList(sources);
+					List<SourceRecord> s = new ArrayList<SourceRecord>(sources);
 					s.add(null);
-					List<File> ss = service.getGenerateService().generateLastPosts(s);
+					service.getGenerateService().generateLastPosts(s);
 				}
 			}
 
 			if (!posts.isEmpty()) {
 				if (generate|| ggenerate || garchive) {
 					logger.info("Generating archive...");
-					List<File> as = service.getGenerateService().generateArchive(posts);
+					service.getGenerateService().generateArchive(posts);
 				}
 			}
 
 			if (!labels.isEmpty()) {
 				if (generate || ggenerate || gfeeds) {
 					logger.info("Generating feeds...");
-					File mainAtom = service.getGenerateService().generateRss();
+					service.getGenerateService().generateRss();
 					for (LabelRecord label : labels) {
-						File labelAtom = service.getGenerateService().generateRss(label);
+						service.getGenerateService().generateRss(label);
 					}
 				}
 			}
@@ -261,7 +260,7 @@ public class Main {
 			if (!posts.isEmpty()) {
 				if (generate || ggenerate || gsitemap) {
 					logger.info("Generating sitemap...");
-					File sitemap = service.getGenerateService().generateSitemap();
+					service.getGenerateService().generateSitemap();
 				}
 			}
 
@@ -340,7 +339,7 @@ public class Main {
 
 			String host = getHost();
 			int port = getPort();
-			int amdinPort = getAdminPort();
+			//int amdinPort = getAdminPort();
 
 			HttpHandler handler = new HttpHandler() {
 				@Override
@@ -404,7 +403,6 @@ public class Main {
 
 	private String getHost() {
 		String host = "localhost";
-		int port = 4001;
 		if (System.getenv("OPENSHIFT_DIY_IP") != null) {
 			host = System.getenv("OPENSHIFT_DIY_IP");
 		}

@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MainServiceImpl implements MainService {
 
-	private Configuration configuration;
+	private Configuration<String, Object> configuration;
 	private DSLContext context;
 
 	private PageRenderLinkSource pageRenderLinkSource;
@@ -31,7 +31,7 @@ public class MainServiceImpl implements MainService {
 	private PostsLabelsDAO postsLabelsDAO;
 	
 	@Autowired
-	public MainServiceImpl(Configuration configuration, DSLContext context, PageRenderLinkSource pageRenderLinkSource, IndexService indexService, GenerateService generateService, ShareService shareService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, ImportSourceDAO importSourceDAO, IndexationDAO indextionDAO, PostsLabelsDAO postsLabelsDAO) {
+	public MainServiceImpl(Configuration<String, Object> configuration, DSLContext context, PageRenderLinkSource pageRenderLinkSource, IndexService indexService, GenerateService generateService, ShareService shareService, PostDAO postDAO, LabelDAO labelDAO, SourceDAO sourceDAO, ImportSourceDAO importSourceDAO, IndexationDAO indextionDAO, PostsLabelsDAO postsLabelsDAO) {
 		this.configuration = configuration;
 		this.context = context;
 
@@ -60,7 +60,7 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public Configuration getConfiguracion() {
+	public Configuration<String, Object> getConfiguracion() {
 		return configuration;
 	}
 

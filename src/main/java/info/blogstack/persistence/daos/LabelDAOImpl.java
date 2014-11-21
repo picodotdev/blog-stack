@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.jooq.DSLContext;
-import org.jooq.impl.DSL;
 
 public class LabelDAOImpl implements LabelDAO {
 

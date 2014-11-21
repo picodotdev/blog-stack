@@ -40,7 +40,7 @@ public class Archive {
 	private Integer i;
 	
 	@Property
-	private Map archive;
+	private Map<String,Object> archive;
 	
 	@Property
 	private PostRecord post;
@@ -71,7 +71,7 @@ public class Archive {
 		return (year == null || month == null);
 	}
 
-	public Map getDates() {
+	public Map<Integer,List<Map<String,Object>>> getDates() {
 		List<Map<String,Object>> archive = service.getPostDAO().getArchiveByDates();
 		TreeMap<Integer, List<Map<String,Object>>> m = new TreeMap<>();
 		for (Map<String,Object> date : archive) {
@@ -121,7 +121,7 @@ public class Archive {
 	 */
 	public List<PostRecord> getPosts() {
 		if (isGeneric()) {
-			return Collections.EMPTY_LIST;
+			return Collections.emptyList();
 		}		
 		return service.getPostDAO().findAllByYearMonth(year, month);
 	}

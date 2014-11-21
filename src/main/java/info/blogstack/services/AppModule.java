@@ -9,12 +9,8 @@ import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.services.javascript.JavaScriptStack;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class AppModule {
-
-	private static final Logger logger = LoggerFactory.getLogger(AppModule.class);
 
 	public static void bind(ServiceBinder binder) {
 		binder.bind(IndexService.class, IndexServiceImpl.class);
@@ -34,7 +30,7 @@ public class AppModule {
 		configuration.addInstance("blogstack", BlogStackStack.class);
 	}
 	
-	public static Configuration buildConfiguration() {
+	public static Configuration<String, Object> buildConfiguration() {
 		return new AppConfiguration();
 	}
 

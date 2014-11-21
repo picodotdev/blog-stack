@@ -4,6 +4,7 @@ import org.jooq.DSLContext;
 
 public class AdsenseDAOImpl implements AdsenseDAO {
 
+	@SuppressWarnings("unused")
 	private DSLContext context;
 	
 	public AdsenseDAOImpl(DSLContext context) {

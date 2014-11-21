@@ -16,7 +16,7 @@ public interface MainService {
 	DSLContext getContext();
 	PageRenderLinkSource getPageRenderLinkSource();
 	
-	Configuration getConfiguracion();
+	Configuration<String, Object> getConfiguracion();
 	IndexService getIndexService();
 	GenerateService getGenerateService();
 	ShareService getShareService();

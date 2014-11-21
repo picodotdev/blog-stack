@@ -121,7 +121,7 @@ public class ServletContextImpl implements ServletContext {
 	@Override
 	public Set<String> getResourcePaths(String path) {
 		File f = new File(contextRoot, path);		
-		return new HashSet(Arrays.asList(f.list()));
+		return new HashSet<String>(Arrays.asList(f.list()));
 	}
 
 	@Override

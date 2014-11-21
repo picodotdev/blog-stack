@@ -4,6 +4,7 @@ import org.jooq.DSLContext;
 
 public class ImportSourceDAOImpl implements ImportSourceDAO {
 
+	@SuppressWarnings("unused")
 	private DSLContext context;
 	
 	public ImportSourceDAOImpl(DSLContext context) {

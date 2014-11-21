@@ -9,6 +9,7 @@ public class AppModuleRegistryWillShutdownListener implements Runnable {
 
 	private static Logger logger = LoggerFactory.getLogger(AppModuleRegistryWillShutdownListener.class);
 
+	@SuppressWarnings("unused")
 	private MainService service;
 	
 	public AppModuleRegistryWillShutdownListener(MainService service) {

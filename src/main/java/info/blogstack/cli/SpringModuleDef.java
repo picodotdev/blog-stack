@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.tapestry5.internal.AbstractContributionDef;
-import org.apache.tapestry5.internal.spring.CustomizingContextLoader;
 import org.apache.tapestry5.internal.spring.SpringBeanServiceDef;
 import org.apache.tapestry5.internal.spring.StaticObjectCreator;
 import org.apache.tapestry5.ioc.AnnotationProvider;
@@ -27,7 +26,6 @@ import org.apache.tapestry5.ioc.def.ModuleDef;
 import org.apache.tapestry5.ioc.def.ServiceDef;
 import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
 import org.apache.tapestry5.ioc.internal.util.InternalUtils;
-import org.apache.tapestry5.ioc.services.RegistryShutdownHub;
 import org.apache.tapestry5.plastic.PlasticUtils;
 import org.apache.tapestry5.spring.ApplicationContextCustomizer;
 import org.springframework.context.ApplicationContext;
@@ -62,9 +60,11 @@ public class SpringModuleDef implements ModuleDef {
 			addServiceDefsForSpringBeans(externalContext);
 
 		ServiceDef applicationContextServiceDef = new ServiceDef() {
-			public ObjectCreator createServiceCreator(final ServiceBuilderResources resources) {
-				if (compatibilityMode)
+			@SuppressWarnings("unchecked")
+			public ObjectCreator<ApplicationContext> createServiceCreator(final ServiceBuilderResources resources) {
+				if (compatibilityMode) {
 					return new StaticObjectCreator(externalContext, "externally configured Spring ApplicationContext");
+				}
 
 				ApplicationContextCustomizer customizer = resources.getService("ApplicationContextCustomizer", ApplicationContextCustomizer.class);
 
@@ -75,11 +75,12 @@ public class SpringModuleDef implements ModuleDef {
 				return SERVICE_ID;
 			}
 
+			@SuppressWarnings("rawtypes")
 			public Set<Class> getMarkers() {
 				return Collections.emptySet();
 			}
 
-			public Class getServiceInterface() {
+			public Class<? extends ApplicationContext> getServiceInterface() {
 				return compatibilityMode ? externalContext.getClass() : ConfigurableWebApplicationContext.class;
 			}
 
@@ -118,10 +119,6 @@ public class SpringModuleDef implements ModuleDef {
 	protected ApplicationContext locateApplicationContext(String... resourceLocations) {
 		ApplicationContext context = new GenericXmlApplicationContext(resourceLocations);
 
-		if (context == null) {
-			throw new NullPointerException("No Spring ApplicationContext");
-		}
-
 		return context;
 	}
 
@@ -133,15 +130,11 @@ public class SpringModuleDef implements ModuleDef {
 		}
 	}
 
-	private ObjectCreator constructObjectCreatorForApplicationContext(final ServiceBuilderResources resources, @Primary ApplicationContextCustomizer customizer) {
-		final CustomizingContextLoader loader = new CustomizingContextLoader(customizer);
-
-		final RegistryShutdownHub shutdownHub = resources.getService(RegistryShutdownHub.class);
-
-		return new ObjectCreator() {
-			public Object createObject() {
-				return resources.getTracker().invoke("Creating Spring ApplicationContext via ContextLoader", new Invokable<Object>() {
-					public Object invoke() {
+	private ObjectCreator<ApplicationContext> constructObjectCreatorForApplicationContext(final ServiceBuilderResources resources, @Primary ApplicationContextCustomizer customizer) {
+		return new ObjectCreator<ApplicationContext>() {
+			public ApplicationContext createObject() {
+				return resources.getTracker().invoke("Creating Spring ApplicationContext via ContextLoader", new Invokable<ApplicationContext>() {
+					public ApplicationContext invoke() {
 						resources.getLogger().info(String.format("Starting Spring (version %s)", SpringVersion.getVersion()));
 
 						applicationContextCreated.set(true);
@@ -158,7 +151,7 @@ public class SpringModuleDef implements ModuleDef {
 		};
 	}
 
-	public Class getBuilderClass() {
+	public Class<?> getBuilderClass() {
 		return null;
 	}
 
@@ -179,6 +172,7 @@ public class SpringModuleDef implements ModuleDef {
 				return "MasterObjectProvider";
 			}
 
+			@SuppressWarnings({"rawtypes", "unchecked"})
 			@Override
 			public void contribute(ModuleBuilderSource moduleSource, ServiceResources resources, OrderedConfiguration configuration) {
 				final OperationTracker tracker = resources.getTracker();

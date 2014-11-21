@@ -14,7 +14,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -86,7 +85,7 @@ public class ShareServiceImpl implements ShareService {
 			return;
 		}
 
-		Status status = twitter.updateStatus(message);
+		twitter.updateStatus(message);
 	}
 
 	public List<LabelRecord> getLabels(PostRecord post) {

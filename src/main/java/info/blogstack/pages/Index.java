@@ -93,7 +93,7 @@ public class Index {
 	}
 
 	@Cached
-	public Map getTags() {
+	public Map<String,String> getTags() {
 		Map<String, String> m = new HashMap<>();
 		m.put("open", "<div class=\"row\">");
 		m.put("close", "</div>");
