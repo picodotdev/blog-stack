@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
+      "title" : "Richard Stallman dará conferencias por España"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/videotutoriales-de-opensuse",
       "title" : "Videotutoriales de openSUSE"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-contara-con-el-escritorio-mate-entre-sus-patrones-de-instalacion",
       "title" : "openSUSE contará con el escritorio Mate entre sus patrones de instalación"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/hacking-iberico-los-origenes-de-la-comunidad-hacker",
-      "title" : "Hacking ibérico, los orígenes de la comunidad hacker."
     }
   ]
 }

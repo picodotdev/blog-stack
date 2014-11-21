@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
+      "title" : "Richard Stallman dará conferencias por España"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
       "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
-      "title" : "Mi experiencia con los moviles chinos"
     }
   ]
 }
