@@ -3,10 +3,59 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-21T12:02:35Z</updated>
+  <updated>2014-11-21T15:02:32Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-21T12:02:35Z</dc:date>
+  <dc:date>2014-11-21T15:02:32Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Integración de JPA MongoDB</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb" />
+    <category term="mongodb" />
+    <category term="jpa" />
+    <category term="nosql" />
+    <category term="jee" />
+    <category term="persistencia" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-21T14:51:49Z</updated>
+    <published>2014-11-21T14:51:49Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;El mundo de NoSQL sigue avanzando y tiene sus ventajas. JPA como standard siempre se ha centrado en facilitar la persistencia de objetos contra una base de datos Entidad-Relaci&amp;oacute;n &amp;nbsp;tipo Oracle/MySQL/SQL Server.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/mapeo1.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/mapeo1.gif" alt="mapeo1" width="509" height="189" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Sin embargo no tenemos porque limitarnos a esto ya que JPA (Java Persistence API) &amp;nbsp;puede acabar utilizandose para almacenar objetos en otros tipos de Repositorios de informaci&amp;oacute;n uno de ellos puede ser por ejemplo una colecci&amp;oacute;n de objetos MongoDB.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/mapeo2.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/mapeo2.gif" alt="mapeo2" width="526" height="282" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Para ello nos vamos a apoyar en &lt;a href="http://hibernate.org/ogm/"&gt;Hibernate OGM&lt;/a&gt; (Hibernate Object Grid Mapper) .Este framework nos permite integrar de una manera bastante transparente JPA con el mundo NoSQL.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/mapeo3.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/mapeo3.gif" alt="mapeo3" width="130" height="366" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Para integrar JPA MongoDB usaremos las siguientes dependencias de Maven:&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.hibernate.ogm&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;hibernate-ogm-mongodb&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;4.1.0.Beta8&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.hibernate.javax.persistence&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;hibernate-jpa-2.0-api&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;1.0.1.Final&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.jboss.spec.javax.transaction&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;jboss-transaction-api_1.1_spec&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;1.0.0.Final&amp;lt;/version&amp;gt;
+&amp;lt;scope&amp;gt;provided&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.jboss.jbossts&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;jbossjta&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;4.16.4.Final&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-21T14:51:49Z</dc:date>
+  </entry>
   <entry>
     <title>Web analytics con Piwik</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik" />
@@ -726,18 +775,6 @@ public class FacturaIva extends Factura{
 &lt;p&gt;Con el tiempo, toca mantener ese c&amp;oacute;digo, modific&amp;aacute;ndolo para a&amp;ntilde;adirle nuevas funcionalidades o corregir errores. Los martillazos que usamos para encajar el c&amp;oacute;digo de cualquier manera ya no nos parecen tan buena idea y empezamos a convencernos de que es importante cuidar la forma en que escribimos el c&amp;oacute;digo, y que conformarnos con la primera cosa que m&amp;aacute;s o menos parece que funciona tal vez no sea la mejor soluci&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/11/codigo-bonito-codigo-feo-codigo-que-funciona"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2014-11-17T05:06:33Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Qué nos espera en Haiku Beta?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta" />
-    <author>
-      <name>Adrián Arroyo</name>
-    </author>
-    <updated>2014-11-17T00:00:00Z</updated>
-    <published>2014-11-17T00:00:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;No s&amp;eacute; si conoceis &lt;a href="http://haiku-os.org"&gt;Haiku&lt;/a&gt;. Se trata de un sistema operativo libre (bajo licencia MIT) que intenta ser un clon libre de BeOS siguiendo su filosof&amp;iacute;a. Podr&amp;iacute;amos compararlo a &lt;a href="http://kernel.org"&gt;Linux&lt;/a&gt; respecto a UNIX o &lt;a href="http://reactos.org"&gt;ReactOS&lt;/a&gt; respecto a Windows NT. El caso es que no comparte nada con otros sistemas operativos disponibles en el mercado y eso lo hace muy interesante. La historia de Haiku y BeOS es muy interesante y podeis encontrar mucha informaci&amp;oacute;n al respecto que no voy a replicar. Sin embargo el desarrollo de Haiku siempre ha sido muy lento y ahora mismo estamos en los albores de la Beta 1 de Haiku. Despu&amp;eacute;s de 4 alphas bastante estables se van a atrever a lanzar la primera beta. &amp;iquest;Por qu&amp;eacute; ahora? Vamos a ver las novedades que traer&amp;aacute; Haiku para saber porque se ha decidido este importante paso.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Adrián Arroyo</dc:creator>
-    <dc:date>2014-11-17T00:00:00Z</dc:date>
   </entry>
 </feed>
 

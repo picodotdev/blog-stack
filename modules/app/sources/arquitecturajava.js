@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
+      "title" : "Integración de JPA MongoDB"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
       "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos",
       "title" : "JavaScript Console y otros métodos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes",
-      "title" : "Angularjs Batarang y Scopes"
     }
   ]
 }

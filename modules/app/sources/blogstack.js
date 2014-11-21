@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
+      "title" : "Integración de JPA MongoDB"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
       "title" : "Web analytics con Piwik"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
       "title" : "openSUSE 13.2: cosas que mejorar"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",
-      "title" : "Javascript Hoisting, scope de variables"
     }
   ]
 }
