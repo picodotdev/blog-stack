@@ -1,0 +1,189 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Integración entre Ansible y Docker | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"><span itemprop="headline">Integración entre Ansible y Docker</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/11/integracion-entre-ansible-y-docker/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-22T10:00" itemprop="dateModified">Actualizado el sábado, 22 de noviembre de 2014 a las 10:00 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-linux, planeta-codigo, planeta-arch-linux, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /> 
+</div> 
+<p>En la <a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/">introducci&oacute;n de Docker</a> y <a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/">inicio b&aacute;sico de dokcer</a> explicaba como usar Docker y en la <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/">introducci&oacute;n a Ansible</a> explicaba las caracter&iacute;sticas de Ansible y como usarlo. Podemos usar <a href="https://www.docker.com/">Docker</a> y <a href="http://www.ansible.com">Ansible</a> de forma separada pero tambi&eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&oacute;dulos que nos permite manejar las im&aacute;genes y los contenedores de Docker, estos son <a href="http://docs.ansible.com/docker_module.html">docker</a> y <a href="http://docs.ansible.com/docker_image_module.html">docker_image</a>.</p> 
+<p>Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&oacute;n de las im&aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&aacute;n el resto de im&aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&aacute;n las aplicaciones que usar&aacute;n los servicios de mysql y redis.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/835ff0192d48b613714a.js?file=install.yml"></script> 
+ <noscript>
+  <pre><code>---
+- hosts: devbox
+    - name: start docker service
+      service: name=docker state=started
+      sudo: true
+   
+    - name: build docker images
+      docker_image: name=&quot;{{ item.name }}&quot; tag=&quot;{{ item.tag }}&quot; state=&quot;present&quot; path={{ item.path }}
+      with_items:
+      - { name: &quot;picodotdev/base&quot;, tag: &quot;1.0&quot;, path: &quot;../docker/base&quot; }
+      - { name: &quot;picodotdev/mysql&quot;, tag: &quot;1.0&quot;, path: &quot;../docker/mysql&quot; }
+      - { name: &quot;picodotdev/redis&quot;, tag: &quot;1.0&quot;, path: &quot;../docker/redis&quot; }
+      - { name: &quot;picodotdev/apps&quot;, tag: &quot;1.0&quot;, path: &quot;../docker/apps&quot; }</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Una vez que disponemos de las im&aacute;genes de docker podemos arrancar contenedores con ellas automatiz&aacute;ndolo con ansible. En este caso se inicia el servicio de docker, se inicializan los contenedores con los vol&uacute;menes donde se guardan los datos de forma persistente de mysql y redis, se inician los contenedores de mysql y redis usando los vol&uacute;menes anteriores y finalmente el contenedor de las aplicaciones. Al final, se muestra cierta informaci&oacute;n de las im&aacute;genes como sus direcciones IP.</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/835ff0192d48b613714a.js?file=start.yml"></script> 
+ <noscript>
+  <pre><code>- hosts: devbox
+  tasks:
+    - name: start docker service
+      service: name=docker state=started
+      sudo: true
+
+    - name: start mysql data docker container
+      docker: image=busybox:latest name=picodotdev-mysql-data state=present volumes=&quot;/var/lib/mysql&quot;
+      register: mysql_data_container
+
+    - name: start redis data docker container
+      docker: image=busybox:latest name=picodotdev-redis-data state=present volumes=&quot;/var/lib/redis&quot;
+      register: redis_data_container
+
+    - name: start mysql docker container
+      docker: image=picodotdev/mysql:1.0 name=picodotdev-mysql state=running volumes_from=picodotdev-mysql-data hostname=mysql ports=3306:3306 command=/sbin/my_init
+      register: mysql_container
+
+    - name: start redis docker container
+      docker: image=picodotdev/redis:1.0 name=picodotdev-redis state=running volumes_from=picodotdev-redis-data volumes=&quot;{{ keys_path }}:/mnt/keys&quot; hostname=redis ports=6379:6379 command=/sbin/my_init
+      register: redis_container
+
+    - name: start apps docker container
+      docker: image=picodotdev/apps:1.0 name=picodotdev-apps state=running volumes=&quot;{{ projects_path }}:/mnt/projects,{{ grails_path }}:/root/.grails,{{ gradle_path }}:/root/.gradle,{{ keys_path }}:/mnt/keys&quot; hostname=apps ports=8080:8080,8443:8443 links=picodotdev-mysql:mysql,picodotdev-redis:redis command=/sbin/my_init
+      register: apps_container
+
+    - name: update hosts with containers ip address
+      replace: dest=/etc/hosts regexp=&quot;^(\d+\.\d+\.\d+\.\d+)(\s+{{ item.host }})$&quot; replace=&quot;{{ item.ip }}\2&quot;
+      sudo: true
+      with_items:
+      - { host: &quot;mysql&quot;, ip: &quot;{{ mysql_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot; }
+      - { host: &quot;redis&quot;, ip: &quot;{{ redis_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot; }
+      - { host: &quot;apps&quot;, ip: &quot;{{ apps_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot; }
+
+    - name: display containers info
+      debug: msg=&quot;info&quot;
+      with_items:
+      - { name: &quot;{{ mysql_container['ansible_facts']['docker_containers'][0]['Name'] }}&quot;, ip: &quot;{{ mysql_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot;, id: &quot;{{ mysql_container['ansible_facts']['docker_containers'][0]['Id'] }}&quot; }
+      - { name: &quot;{{ redis_container['ansible_facts']['docker_containers'][0]['Name'] }}&quot;, ip: &quot;{{ redis_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot;, id: &quot;{{ redis_container['ansible_facts']['docker_containers'][0]['Id'] }}&quot; }
+      - { name: &quot;{{ apps_container['ansible_facts']['docker_containers'][0]['Name'] }}&quot;, ip: &quot;{{ apps_container['ansible_facts']['docker_containers'][0]['NetworkSettings']['IPAddress'] }}&quot;, id: &quot;{{ apps_container['ansible_facts']['docker_containers'][0]['Id'] }}&quot; }</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Ansible <a href="http://docs.ansible.com/list_of_all_modules.html">dispone muchos m&oacute;dulos</a> que nos permiten automatizar las tareas:</p> 
+<ul> 
+ <li><a href="http://docs.ansible.com/list_of_cloud_modules.html">M&oacute;dulos para manejo de entornos cloud</a> (<a href="http://aws.amazon.com/es/ec2/">Amazon EC2</a>, <a href="http://azure.microsoft.com/es-es/">Azure</a>, <a href="https://www.digitalocean.com/">Digital Ocean</a>, <a href="http://www.openstack.org/">OpenStack</a>, <a href="http://www.rackspace.com/es/">Rackspace</a>)</li> 
+ <li><a href="http://docs.ansible.com/list_of_commands_modules.html">M&oacute;dulos para ejecutar comandos</a></li> 
+ <li><a href="http://docs.ansible.com/list_of_database_modules.html">M&oacute;dulos para administraci&oacute;n de bases de datos</a></li> 
+ <li><a href="http://docs.ansible.com/modules_by_category.html">M&oacute;dulos para manejo de archivos</a></li> 
+ <li><a href="http://docs.ansible.com/list_of_packaging_modules.html">M&oacute;dulos para manejo de paquetes</a></li> 
+ <li><a href="http://docs.ansible.com/list_of_source_control_modules.html">M&oacute;dulos para manejo de sistemas de control de versiones</a></li> 
+ <li>Y algunos m&aacute;s</li> 
+</ul> 
+<p>En el siguiente <a href="https://github.com/picodotdev/icy-inception">repositorio de GitHub</a> est&aacute; el c&oacute;digo completo del ejemplo.</p> 
+<p>Referencia:<br /> <a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/">Introducci&oacute;n a Docker</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/">Gu&iacute;a de inicio b&aacute;sico de Docker</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile/">C&oacute;mo crear una imagen para Docker usando un Dockerfile</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/">Introducci&oacute;n a Ansible</a><br /> <a href="http://docs.ansible.com/docker_module.html">http://docs.ansible.com/docker_module.html</a><br /> <a href="http://docs.ansible.com/docker_image_module.html">http://docs.ansible.com/docker_image_module.html</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" st_title="Integración entre Ansible y Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Integración entre Ansible y Docker";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/11/integracion-entre-ansible-y-docker/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1148,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

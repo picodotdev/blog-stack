@@ -3,10 +3,124 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-22T10:02:40Z</updated>
+  <updated>2014-11-22T11:03:08Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-22T10:02:40Z</dc:date>
+  <dc:date>2014-11-22T11:03:08Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Integración entre Ansible y Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-11-22T09:28:52Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de dokcer&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-22T09:28:52Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción a Ansible</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-11-15T09:35:39Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Siempre que nos sea posible deber&amp;iacute;amos automatizar las tareas que realizamos. Automatizar tareas har&amp;aacute; sencillo realizarlas permiti&amp;eacute;ndonos hacer todos los despliegues de una aplicaci&amp;oacute;n que queramos con menos posibilidades de cometer errores manuales o nos permitir&amp;aacute; disponer de una nueva m&amp;aacute;quina aprovisionada exactamente como pueda estar la m&amp;aacute;quina de producci&amp;oacute;n en mucho menos tiempo. En el &amp;aacute;mbito del aprovisionamiento de m&amp;aacute;quinas y administraci&amp;oacute;n de la infraestructura IT hay varias opciones, entre ellas est&amp;aacute;n &lt;a href="https://www.getchef.com/"&gt;Chef&lt;/a&gt;, &lt;a href="http://puppetlabs.com/"&gt;Puppet&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;En este art&amp;iacute;culo har&amp;eacute; una breve introducci&amp;oacute;n de Ansible que principalmente se emplea en servidores pero tambi&amp;eacute;n podr&amp;iacute;amos emplearlo para nuestra propia m&amp;aacute;quina. Con Ansible podremos:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Automatizar el aprovisionamiento de m&amp;aacute;quinas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-15T09:35:39Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-11-07T18:50:17Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
+&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-07T18:50:17Z</dc:date>
+  </entry>
+  <entry>
+    <title>Inicio básico de Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-11-01T08:47:51Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
+&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-01T08:47:51Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción y características de Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-10-25T08:52:34Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;&lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; es una de las herramientas de la que se est&amp;aacute; hablando mucho, esto es as&amp;iacute; ya que tiene varios aspectos interesantes que &lt;a href="http://www.javaworld.com/article/2685223/java-app-dev/four-ways-docker-fundamentally-changes-application-development.html"&gt;cambian la forma de desarrollar aplicaciones&lt;/a&gt;. Docker es una forma de ejecutar procesos de forma aislada pero tambi&amp;eacute;n se compone de herramientas para construir im&amp;aacute;genes y un repositorio para compartirlas.&lt;/p&gt; 
+&lt;p&gt;Al contrario de la virtualizaci&amp;oacute;n Docker no emula o virtualiza una m&amp;aacute;quina y su sistema operativo con lo que los procesos son mucho m&amp;aacute;s ligeros y hace que el hardware pueda ser aprovechado m&amp;aacute;s al poder aumentar la densidad de los servicios en una misma m&amp;aacute;quina. Los contenedores y servicios incluidos en ellos inician muy r&amp;aacute;pidamente, en pocos segundos. Adem&amp;aacute;s, no es necesario el sistema de archivos completo del sistema operativo invitado con lo que docker usa una fracci&amp;oacute;n de espacio de almacenamiento necesario en la virtualizaci&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-10-25T08:52:34Z</dc:date>
+  </entry>
   <entry>
     <title>Experiencia de Mariano Farina y su Doogee DG 310</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31" />
@@ -614,169 +728,6 @@ saludar();&lt;/pre&gt;
 &lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/bases-de-datos-nosql-y-clave-valor-para-cantabriatic/"&gt;NoSQL y bases de datos (key-value) ( Cantabriatic)&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-11-18T10:24:24Z</dc:date>
-  </entry>
-  <entry>
-    <title>AIDE y como instalarlo en Linux CentOS/RHEL/Fedora</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora" />
-    <category term="ids" />
-    <category term="seguridad" />
-    <category term="aide" />
-    <category term="software-libre" />
-    <category term="linux" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-11-17T22:48:21Z</updated>
-    <published>2014-11-17T22:48:21Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.jsitech.com/wp-content/uploads/2014/11/IDSeye.png"&gt;&lt;img src="http://www.jsitech.com/wp-content/uploads/2014/11/IDSeye.png" alt="IDSeye" width="209" height="200" /&gt;&lt;/a&gt;Uno de los indicadores donde nos podemos dar cuenta de que alguien ha comprometido nuestro sistema es cuando detectamos alg&amp;uacute;n cambio en nuestros archivos o archivos que no conocemos, pero como detectamos esto? al menos que revisemos todos los archivos dia a dia que ser&amp;iacute;a algo bastante trabajoso, lo m&amp;aacute;s seguro es que necesitemos una herramienta que haga esas verificaciones y nos alerte cuando detecte un cambio, y es aqu&amp;iacute; donde entra &lt;strong&gt;&lt;a href="http://aide.sourceforge.net/"&gt;AIDE &lt;/a&gt;( Advanced Intrusion Detection Environment )&lt;/strong&gt; Ambiente de detecci&amp;oacute;n de intrusos avanzada.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;AIDE&lt;/strong&gt; crea una base de datos de las expresiones regulares que encuentra en los archivos de configuraci&amp;oacute;n. Una vez se inicializa la base datos puede ser utilizado para verificar la integridad de los archivos, los atributos tambien pueden ser verificados por inconsistencia y puede leer la base de datos de versiones anteriores o mas actualizadas. Utiliza una serie de algoritmos de verificaci&amp;oacute;n de integridad y cuenta con varias caracter&amp;iacute;sticas que mencionamos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-11-17T22:48:21Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mi experiencia con los moviles chinos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos" />
-    <category term="opinion" />
-    <category term="moviles" />
-    <category term="moviles-chinos" />
-    <category term="chinos" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-17T22:25:48Z</updated>
-    <published>2014-11-16T08:59:36Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Cada vez o&amp;iacute;mos mas hablar de los &lt;strong&gt;m&amp;oacute;viles chinos&lt;/strong&gt;, por lo menos yo, y siempre que sale este tema de conversaci&amp;oacute;n la gente tira de los t&amp;oacute;picos de siempre sin percatarse de algunos detalles. Una de las cosas en las que no repara la mayor&amp;iacute;a al criticar los tel&amp;eacute;fonos chinos es que el que llevan en su bolsillo tambi&amp;eacute;n lo es, creo que cerca del 90% de los m&amp;oacute;viles est&amp;aacute;n fabricados en China, por lo cual creo que aqu&amp;iacute; es obligatoria una reflexi&amp;oacute;n, no podemos decir a la ligera que los m&amp;oacute;viles chinos son malos por decreto, por supuesto que si compramos un m&amp;oacute;vil chino por Internet en una pagina como Aliexpress y pagamos 50 o 60 euros por el, aunque en las especificaciones lo describan como un m&amp;oacute;vil equiparable al S4, no vamos a recibir un S4, es decir, no nos van a dar un S4 que vale 500 euros por 50 o 60.&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-16T08:59:36Z</dc:date>
-  </entry>
-  <entry>
-    <title>Avisos de Seguridad Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/11/avisos-de-seguridad-linux" />
-    <category term="seguridad" />
-    <category term="linux" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-11-17T13:50:15Z</updated>
-    <published>2014-11-17T13:50:15Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Tenia unos d&amp;iacute;as sin publicar los avisos de seguridad por cuestiones de tiempo. Pero arrancamos nueva vez.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;OpenSuse&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Versiones Afectadas: 13.2&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Actualizaci&amp;oacute;n de Seguridad para &lt;strong&gt;OpenSSL&lt;/strong&gt; para resolver m&amp;uacute;ltiples vulnerabilidades. Actualizado a la versi&amp;oacute;n &lt;strong&gt;1.0.1j&lt;/strong&gt; y resuelve:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;SRTP Memory Leak (CVE-2014-3513)&lt;/li&gt; 
- &lt;li&gt;Filtrado Memoria Sesiones Tickets (CVE-2014-3567)&lt;/li&gt; 
- &lt;li&gt;Protecci&amp;oacute;n FallBack SSL 3.0 TLS_FALLBACK_SCSV (CVE-2014-3566)&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;&lt;strong&gt;Para actualizar&lt;/strong&gt;&lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;zypper in -t patch openSUSE-2014-671&lt;/p&gt; 
-&lt;/blockquote&gt; 
-&lt;p&gt;&lt;strong&gt;Versi&amp;oacute;n Afectada: 13.1&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Actualizaci&amp;oacute;n de Seguridad para &lt;strong&gt;libreoffice&lt;/strong&gt; para resolver m&amp;uacute;ltiples vulnerabilidades, estas son:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Vulnerabilidad Documento como Email&lt;/li&gt; 
- &lt;li&gt;Vulnerabilidad Control Remoto Impress Use-after-free (CVE-2014-3693)&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;zypper in -t patch openSUSE-2014-661&lt;/p&gt; 
-&lt;/blockquote&gt; 
-&lt;p&gt;&lt;strong&gt;Fedora&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Versiones afectadas: 19&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/11/avisos-de-seguridad-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-11-17T13:50:15Z</dc:date>
-  </entry>
-  <entry>
-    <title>Enlaces interesantes 176</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/11/enlaces-interesantes-176" />
-    <category term="enlaces" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-11-17T12:55:00Z</updated>
-    <published>2014-11-17T12:55:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Enlaces interesantes" src="http://lh4.ggpht.com/-4ygzCWkpEg0/U8v-VuXCzpI/AAAAAAAADiE/4KtNsV7dzBk/enlaces23333333333333.png?imgmax=800" height="129" style="margin: 0px 0px 0px 10px;" title="Enlaces interesantes" width="172" /&gt;Ah&amp;iacute; van los enlaces recopilados durante la semana pasada, en gran parte protagonizados por los jugosos anuncios y lanzamientos que se hicieron p&amp;uacute;blicos en el evento 
-&lt;a href="http://www.visualstudio.com/en-us/connect-event-vs"&gt;Connect&lt;/a&gt; que tuvo lugar de hace unos d&amp;iacute;as. Espero que os resulten interesantes :-) 
-&lt;br /&gt; 
-&lt;h4&gt;.Net&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/dotnet/archive/2014/11/12/net-core-is-open-source.aspx"&gt;.NET Core is Open Source&lt;/a&gt; &lt;br /&gt;Immo Landwerth &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://tirania.org/blog/archive/2014/Nov-12.html" title="Microsoft Open Sources .NET and Mono"&gt;Microsoft Open Sources .NET and Mono&lt;/a&gt; &lt;br /&gt;Miguel de Icaza &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.jeffreyfritz.com/2014/11/asp-net-mvc-tag-helpers-web-controls-2-0/"&gt;ASP.NET MVC Tag Helpers – Web Controls 2.0?&lt;/a&gt; &lt;br /&gt;Jeff Fritz &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://haacked.com/archive/2014/11/11/async-void-methods"&gt;Avoid async=&amp;quot;async&amp;quot; void methods&lt;/a&gt; &lt;br /&gt;Phil Haack &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;h4&gt;ASP.NET&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;a href="https://www.blogger.com/null"&gt;&lt;/a&gt; 
- &lt;a href="https://www.blogger.com/null"&gt;&lt;/a&gt; 
- &lt;br /&gt; 
- &lt;li&gt;&lt;a href="http://gunnarpeipman.com/2014/11/aspnet-5-how-to-debug-with-mvc-source//"&gt;ASP.NET 5: How to debug with ASP.NET source?&lt;/a&gt;&lt;br /&gt;Gunnar Peipman&lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://jasongaylord.com/blog/how-visual-studio-2015-and-asp-net-5-impacts-you"&gt;How Visual Studio 2015 and ASP.NET 5 Impacts You&lt;/a&gt; &lt;br /&gt;Jason Gaylord &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://gunnarpeipman.com/2014/11/asp-net-5-new-configuration-files-and-containers/"&gt;ASP.NET 5: New configuration files and containers&lt;/a&gt; &lt;br /&gt;Gunnar Peipman &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/webdev/archive/2014/11/12/announcing-asp-net-features-in-visual-studio-2015-preview-and-vs2013-update-4.aspx"&gt;Announcing ASP.NET features in Visual Studio 2015 Preview and VS2013 Update 4&lt;/a&gt; &lt;br /&gt;Xinyang Qiu &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blogs.msdn.com/b/maria_naggaga/archive/2014/11/04/asp_2d00_net_2d00_vnext_2d00_on_2d00_a_2d00_mac.aspx"&gt;Getting Asp.Net vNext running on a Mac!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/enlaces-interesantes-176"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-11-17T12:55:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Usando el patron factory</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/usando-el-patron-factory" />
-    <category term="patrones" />
-    <category term="sin-categoria" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-11-17T11:43:41Z</updated>
-    <published>2014-11-17T11:43:41Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Uno de los patrones de dise&amp;ntilde;o m&amp;aacute;s utilizados en Java es el patron Factory que es un &lt;strong&gt;patr&amp;oacute;n de dise&amp;ntilde;o creacional y que sirve para construir una jerarqu&amp;iacute;a de clases&lt;/strong&gt;. Sin embargo a veces a la gente le cuesta ver como usar este patr&amp;oacute;n en su c&amp;oacute;digo. Vamos a utilizar un ejemplo sencillo en el que tendremos una jerarqu&amp;iacute;a de clases factura como se muestra a continuaci&amp;oacute;n.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00119.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00119.gif" alt="001" width="315" height="239" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;El c&amp;oacute;digo ser&amp;aacute; el siguiente:&lt;/p&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava;
-
-public abstract class Factura {
-
-private int id;
- private double importe;
- public int getId() {
- return id;
- }
- public void setId(int id) {
- this.id = id;
- }
- public double getImporte() {
- return importe;
- }
- public void setImporte(double importe) {
- this.importe = importe;
- }
-
- public abstract double getImporteIva();
-}
-
-&lt;/pre&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava;
-
-public class FacturaIva extends Factura{
-
-@Override
- public double getImporteIva() {
- // TODO Auto-generated method stub
- return getImporte()*1.21;
- }
-
-}
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/usando-el-patron-factory"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-11-17T11:43:41Z</dc:date>
   </entry>
 </feed>
 

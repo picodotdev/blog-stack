@@ -3,6 +3,26 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
+      "title" : "Integración entre Ansible y Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
+      "title" : "Introducción a Ansible"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
+      "title" : "Inicio básico de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
       "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
     },
@@ -61,26 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
       "title" : "Crea tu propia tienda virtual con prestashop y Debian"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
-      "title" : "Cómo instalar MediaWiki en Debian"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
-      "title" : "Cómo instalar MariaDB y primeros pasos"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/copiar-archivos-entre-servidores-de-forma-segura-con-scp",
-      "title" : "Copiar archivos entre servidores de forma segura con SCP"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/11/problemas-al-compilar-aplicaciones-mvc-3-y-4-desde-hace-unos-dias",
-      "title" : "¿Problemas al compilar aplicaciones MVC 3 y 4 desde hace unos días?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/videotutoriales-de-opensuse",
-      "title" : "Videotutoriales de openSUSE"
     }
   ]
 }
