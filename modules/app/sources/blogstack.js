@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
+      "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
       "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/videotutoriales-de-opensuse",
       "title" : "Videotutoriales de openSUSE"
-    },
-    {
-      "url" : "/post/koalite/2014/11/net-es-open-source-y-ahora-que",
-      "title" : ".NET es open source, ¿y ahora qué?"
     }
   ]
 }

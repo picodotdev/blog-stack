@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
+      "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
       "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
       "title" : "Microsoft pierde poder en los ordenadores italianos"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
-      "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
     }
   ]
 }
