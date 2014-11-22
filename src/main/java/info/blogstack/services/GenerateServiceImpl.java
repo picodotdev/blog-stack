@@ -83,11 +83,18 @@ public class GenerateServiceImpl implements GenerateService {
 		this.to = to;
 		this.statics = statics;
 	}
+	
+	@Override
+	public void init() throws IOException {
+		generatePage("dummy", new Object[0], Collections.<String,String>emptyMap());
+	}
 
+	@Override
 	public File getTo() {
 		return to;
 	}
 
+	@Override
 	public File getToPage(String page, Object[] context, Map<String, String> params) {
 		List<Object> l = new ArrayList<>();
 		if (!page.equals("index")) {
@@ -101,10 +108,12 @@ public class GenerateServiceImpl implements GenerateService {
 		return new File(f, "index.html");
 	}
 
+	@Override
 	public File getToRss() {
 		return new File(String.format("feed.atom.xml", "blogstack"));
 	}
 
+	@Override
 	public File getToRss(LabelRecord label) {
 		return new File(String.format("label/%s/feed.atom.xml", label.getName()));
 	}

@@ -7,7 +7,6 @@ import info.blogstack.persistence.jooq.tables.records.LabelRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
 import info.blogstack.persistence.jooq.tables.records.SourceRecord;
-import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
 import io.undertow.Undertow;
@@ -94,12 +93,15 @@ public class Main {
 		}
 	}
 
-	private void initRegistry() {
+	private void initRegistry() throws Exception {
 		if (Globals.registry != null) {
 			return;
 		}
 		logger.info("Starting Tapestry registry...");
 		Globals.registry = buildRegistry();
+		
+		MainService service = Globals.registry.getService(MainService.class);
+		service.getGenerateService().init();
 	}
 
 	private Registry buildRegistry() {
@@ -114,7 +116,7 @@ public class Main {
 
 		ServletApplicationInitializer sai = registry.getService("ServletApplicationInitializer", ServletApplicationInitializer.class);
 		sai.initializeApplication(sc);
-
+		
 		return registry;
 	}
 
@@ -205,6 +207,7 @@ public class Main {
 			}
 		}
 
+		List<File> files = new ArrayList<>();
 		if (generate || ggenerate || gindex || glabels || gfeeds || garchive || gstatics || gpages) {
 			initRegistry();
 
@@ -214,21 +217,21 @@ public class Main {
 			if (!posts.isEmpty()) {
 				logger.info("Generating pages...");
 				if (generate || ggenerate || gindex) {
-					service.getGenerateService().generateIndex();
+					files.addAll(service.getGenerateService().generateIndex());
 				}
 				if (generate || ggenerate || glabels) {
-					service.getGenerateService().generateLabels(new ArrayList<LabelRecord>(labels));
+					files.addAll(service.getGenerateService().generateLabels(new ArrayList<LabelRecord>(labels)));
 				}
 			}
 
 			if (ggenerate || gpages) {
-				service.getGenerateService().generatePage("faq", new Object[0], Collections.<String,String>emptyMap());
+				files.add(service.getGenerateService().generatePage("faq", new Object[0], Collections.<String,String>emptyMap()));
 			}
 
 			if (generate || ggenerate) {
 				if (!posts.isEmpty()) {
 					logger.info("Generating posts...");
-					service.getGenerateService().generatePosts(new ArrayList<PostRecord>(posts));
+					files.addAll(service.getGenerateService().generatePosts(new ArrayList<PostRecord>(posts)));
 
 					Set<SourceRecord> sources = new HashSet<>();
 					for (PostRecord post : posts) {
@@ -236,23 +239,23 @@ public class Main {
 					}
 					List<SourceRecord> s = new ArrayList<SourceRecord>(sources);
 					s.add(null);
-					service.getGenerateService().generateLastPosts(s);
+					files.addAll(service.getGenerateService().generateLastPosts(s));
 				}
 			}
 
 			if (!posts.isEmpty()) {
 				if (generate|| ggenerate || garchive) {
 					logger.info("Generating archive...");
-					service.getGenerateService().generateArchive(posts);
+					files.addAll(service.getGenerateService().generateArchive(posts));
 				}
 			}
 
 			if (!labels.isEmpty()) {
 				if (generate || ggenerate || gfeeds) {
 					logger.info("Generating feeds...");
-					service.getGenerateService().generateRss();
+					files.add(service.getGenerateService().generateRss());
 					for (LabelRecord label : labels) {
-						service.getGenerateService().generateRss(label);
+						files.add(service.getGenerateService().generateRss(label));
 					}
 				}
 			}
@@ -260,7 +263,7 @@ public class Main {
 			if (!posts.isEmpty()) {
 				if (generate || ggenerate || gsitemap) {
 					logger.info("Generating sitemap...");
-					service.getGenerateService().generateSitemap();
+					files.add(service.getGenerateService().generateSitemap());
 				}
 			}
 
@@ -269,14 +272,18 @@ public class Main {
 				WroConfiguration config = new WroConfiguration();
 				Context.set(Context.standaloneContext(), config);
 				try {
-					service.getGenerateService().generateStatics(Globals.STATICS);
+					files.addAll(service.getGenerateService().generateStatics(Globals.STATICS));
 				} finally {
 					Context.unset();
 				}
 			}
 
 			logger.info("Generating last updated...");
-			service.getGenerateService().generateLastUpdated();
+			files.add(service.getGenerateService().generateLastUpdated());
+		}
+		
+		if (!files.isEmpty()) {
+			logger.info(String.format("Generated %d files", files.size()));
 		}
 		
 		if (share) {
@@ -285,17 +292,8 @@ public class Main {
 			logger.info("Sharing...");
 			MainService service = Globals.registry.getService(MainService.class);
 			
-			// Share only fresh posts
-			Collection<PostRecord> fp = new ArrayList<>();
-			for (PostRecord p : posts) {
-				AppPostRecord ap = p.into(AppPostRecord.class);
-				ap.from(p);
-				if (ap.isFresh()) {
-					fp.add(ap);
-				}
-			}
-			
-			service.getShareService().share(fp);
+			Collection<PostRecord> sp = service.getPostDAO().findAllByShared(false);
+			service.getShareService().share(sp);
 		}
 
 		if (preview) {

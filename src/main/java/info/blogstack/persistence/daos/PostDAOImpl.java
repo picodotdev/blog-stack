@@ -51,6 +51,11 @@ public class PostDAOImpl implements PostDAO {
 		return context.select().from(POST).join(POSTS_LABELS).on(POST.ID.eq(POSTS_LABELS.POST_ID)).where(POST.VISIBLE.isTrue().and(POSTS_LABELS.LABEL_ID.in(label.getId())))
 				.orderBy(pagination.getFields()).limit(pagination.getOffset(), pagination.getNumberOfRows()).fetchInto(POST);
 	}
+	
+	@Override
+	public List<PostRecord> findAllByShared(boolean shared) {
+		return context.select().from(POST).where(POST.SHARED.eq(shared)).orderBy(POST.CREATIONDATE.asc()).fetchInto(POST);
+	}
 
 	@Override
 	public PostRecord findByURL(String url) {

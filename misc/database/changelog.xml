@@ -507,6 +507,15 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="27" author="picodotdev">
+        <comment>Añadido campos para saber si un artículo ha sido compartido en redes sociales (22-11-2014)</comment>
+        <addColumn tableName="post" schemaName="${schema}">
+            <column name="shared" type="boolean"/>
+        </addColumn>
+        <update tableName="post" schemaName="${schema}">
+            <column name="shared" valueBoolean="true"/>
+        </update>
+    </changeSet>
     <!--
     <changeSet id="27" author="picodotdev">
         <comment>Agregación de fuente (11-10-2014)</comment>

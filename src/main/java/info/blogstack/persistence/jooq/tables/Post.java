@@ -11,7 +11,7 @@ package info.blogstack.persistence.jooq.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Post extends org.jooq.impl.TableImpl<info.blogstack.persistence.jooq.tables.records.PostRecord> {
 
-	private static final long serialVersionUID = 2121312719;
+	private static final long serialVersionUID = 1722454132;
 
 	/**
 	 * The singleton instance of <code>BLOGSTACK.POST</code>
@@ -90,6 +90,11 @@ public class Post extends org.jooq.impl.TableImpl<info.blogstack.persistence.joo
 	 * The column <code>BLOGSTACK.POST.VISIBLE</code>.
 	 */
 	public final org.jooq.TableField<info.blogstack.persistence.jooq.tables.records.PostRecord, java.lang.Boolean> VISIBLE = createField("VISIBLE", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+
+	/**
+	 * The column <code>BLOGSTACK.POST.SHARED</code>.
+	 */
+	public final org.jooq.TableField<info.blogstack.persistence.jooq.tables.records.PostRecord, java.lang.Boolean> SHARED = createField("SHARED", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
 	/**
 	 * Create a <code>BLOGSTACK.POST</code> table reference

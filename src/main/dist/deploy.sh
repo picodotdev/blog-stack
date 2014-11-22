@@ -19,4 +19,7 @@ if [ -n "$OPENSHIFT_DATA_DIR" ]; then
 	ssh-agent -k
 fi
 
+sleep 10s
+./main.sh -e production -share >> misc/logs/server.log 2>&1
+
 cd ..

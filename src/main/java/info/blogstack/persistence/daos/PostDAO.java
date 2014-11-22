@@ -18,6 +18,8 @@ public interface PostDAO {
 	List<PostRecord> findAllByYearMonth(Integer year, Integer month);
 
 	List<PostRecord> findAllByLabel(LabelRecord label, Pagination pagination);
+	
+	List<PostRecord> findAllByShared(boolean shared);
 
 	PostRecord findByURL(String url);
 

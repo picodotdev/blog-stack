@@ -141,6 +141,16 @@ public interface IPost extends java.io.Serializable {
 	 */
 	public java.lang.Boolean getVisible();
 
+	/**
+	 * Setter for <code>BLOGSTACK.POST.SHARED</code>.
+	 */
+	public void setShared(java.lang.Boolean value);
+
+	/**
+	 * Getter for <code>BLOGSTACK.POST.SHARED</code>.
+	 */
+	public java.lang.Boolean getShared();
+
 	// -------------------------------------------------------------------------
 	// FROM and INTO
 	// -------------------------------------------------------------------------

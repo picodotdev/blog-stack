@@ -49,7 +49,6 @@ public class ShareServiceImpl implements ShareService {
 				logger.error(e.getMessage(), e);
 			}
 		}
-
 	}
 
 	private void share(PostRecord post) throws TwitterException {
@@ -74,6 +73,10 @@ public class ShareServiceImpl implements ShareService {
 		}
 		message.append(" " + Utils.getUrl(service, post, source));
 
+		// Mark as shared
+		post.setShared(true);
+		post.store();
+		
 		// Share
 		twitter(post, message.toString());
 	}

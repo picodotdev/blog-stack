@@ -12,6 +12,8 @@ import java.util.Map;
 
 public interface GenerateService {
 
+	void init() throws IOException;
+	
 	File getTo();
 	File getToPage(String page, Object[] context, Map<String, String> params);
 	File getToRss();
