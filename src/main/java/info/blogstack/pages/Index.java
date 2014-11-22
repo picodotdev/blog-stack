@@ -101,7 +101,7 @@ public class Index {
 	}
 	
 	private List<PostRecord> getPosts(int from, int number) {
-		Pagination pagination = new Pagination(from, number, POST.DATE.desc());
+		Pagination pagination = new Pagination(from, number, POST.DATE.desc(), POST.ID.desc());
 		return service.getPostDAO().findAll(pagination);
 	}
 }

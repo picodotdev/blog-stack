@@ -274,7 +274,7 @@ public class GenerateServiceImpl implements GenerateService {
 			String name = ((source == null) ? "Blog Stack" : source.getName());
 
 			List<PostRecord> posts = null;
-			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, POST.DATE.desc());
+			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, POST.DATE.desc(), POST.ID.desc());
 			if (source == null) {
 				posts = service.getPostDAO().findAll(pagination);
 			} else {
@@ -339,7 +339,7 @@ public class GenerateServiceImpl implements GenerateService {
 
 	@Override
 	public File generateRss() throws Exception {
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc());
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc(), POST.ID.desc());
 		List<PostRecord> posts = service.getPostDAO().findAll(pagination);
 
 		return generateRss(new File(to, getToRss().getPath()), posts);
@@ -351,7 +351,7 @@ public class GenerateServiceImpl implements GenerateService {
 			return null;
 		}
 		
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc());
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_FEED, POST.DATE.desc(), POST.ID.desc());
 		List<PostRecord> posts = service.getPostDAO().findAllByLabel(label, pagination);
 
 		return generateRss(new File(to, getToRss(label).getPath()), posts);
@@ -427,7 +427,7 @@ public class GenerateServiceImpl implements GenerateService {
 		writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		writer.println("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
 
-		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_SITEMAP, POST.DATE.desc());
+		Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_SITEMAP, POST.DATE.desc(), POST.ID.desc());
 		List<PostRecord> posts = service.getPostDAO().findAll(pagination);
 
 		DateTimeFormatter formatter = DateTimeFormat.forPattern("YYYY-MM-dd'T'hh:mm:ssZZ");

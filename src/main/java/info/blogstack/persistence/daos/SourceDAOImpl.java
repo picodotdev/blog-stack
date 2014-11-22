@@ -29,7 +29,7 @@ public class SourceDAOImpl implements SourceDAO {
 
 	@Override
 	public List<SourceRecord> findLastWithPosts() {
-		List<SourceRecord> s = context.select().from(SOURCE).join(POST).on(SOURCE.ID.eq(POST.SOURCE_ID)).orderBy(POST.DATE.desc()).limit(0, 60).fetchInto(SOURCE);
+		List<SourceRecord> s = context.select().from(SOURCE).join(POST).on(SOURCE.ID.eq(POST.SOURCE_ID)).orderBy(POST.DATE.desc(), POST.ID.desc()).limit(0, 60).fetchInto(SOURCE);
 		List<SourceRecord> r = new ArrayList<>();
 		for (SourceRecord o : s) {
 			if (!r.contains(o)) {

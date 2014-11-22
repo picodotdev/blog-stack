@@ -118,7 +118,7 @@ public class Label {
 	}
 	
 	private List<PostRecord> getPosts(int from, int to) {
-		Pagination pagination = new Pagination(from, to, POST.DATE.desc());
+		Pagination pagination = new Pagination(from, to, POST.DATE.desc(), POST.ID.desc());
 		return service.getPostDAO().findAllByLabel(label, pagination);
 	}
 }

@@ -103,7 +103,7 @@ public class Archive {
 	}
 	
 	public PostRecord getLabelPost() {
-		Pagination pagination = new Pagination(0, 1, POST.DATE.desc());
+		Pagination pagination = new Pagination(0, 1, POST.DATE.desc(), POST.ID.desc());
 		return service.getPostDAO().findAllByLabel(getLabel(), pagination).get(0);
 	}
 	
@@ -112,7 +112,7 @@ public class Archive {
 	}
 	
 	public PostRecord getSourcePost() {
-		Pagination pagination = new Pagination(0, 1, POST.DATE.desc());
+		Pagination pagination = new Pagination(0, 1, POST.DATE.desc(), POST.ID.desc());
 		return service.getPostDAO().findAllBySource(getSource(), pagination).get(0);
 	}
 	
