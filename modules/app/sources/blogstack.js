@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
+      "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
       "title" : "Integración de JPA MongoDB"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/11/net-es-open-source-y-ahora-que",
       "title" : ".NET es open source, ¿y ahora qué?"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
-      "title" : "openSUSE 13.2: cosas que mejorar"
     }
   ]
 }

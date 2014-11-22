@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
+      "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
       "title" : "Se acercan cambios :D"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/10/los-discos-ssd-el-trim-y-como-activarlo-en-ubuntu-14-4-y-anteriores",
       "title" : "Los discos SSD, el TRIM y como activarlo en Ubuntu 14.04 y anteriores"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/10/como-descargar-videos-o-mp3-de-youtube-con-clipgrab-en-ubuntu",
-      "title" : "Como descargar videos o mp3 de Youtube con Clipgrab en Ubuntu"
     }
   ]
 }
