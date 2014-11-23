@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
+      "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
       "title" : "Web analytics con Piwik"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
       "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
-      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     }
   ]
 }

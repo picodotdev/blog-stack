@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
+      "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
       "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-antiguo-blog-ubuntu-y-mas-morira-el-dia-5-11-2-14",
       "title" : "Mi antiguo blog, Ubuntu y mas, morirá el día 5-11-2014"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/microsoft-pierde-poder-en-los-ordenadores-italianos",
-      "title" : "Microsoft pierde poder en los ordenadores italianos"
     }
   ]
 }
