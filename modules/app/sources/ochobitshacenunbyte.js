@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
+      "title" : "Instalar Ruby on Rails en GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
       "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql",
-      "title" : "Cómo instalar Proftpd con soporte MySQL"
     }
   ]
 }

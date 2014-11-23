@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
+      "title" : "Instalar Ruby on Rails en GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
       "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
-      "title" : "Probamos la versión 7 de Trisquel GNU"
     }
   ]
 }
