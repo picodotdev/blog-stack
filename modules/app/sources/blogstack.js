@@ -3,16 +3,20 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
+      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
       "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
       "title" : "Web analytics con Piwik"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
     },
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
@@ -73,10 +77,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
       "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
-      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
