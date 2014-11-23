@@ -7,12 +7,12 @@ define("app/sources/ochobitshacenunbyte", [], function() {
       "title" : "Web analytics con Piwik"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
-      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
       "title" : "Copias de seguridad con rsync"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
+      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",

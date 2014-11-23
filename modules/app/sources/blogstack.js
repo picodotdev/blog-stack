@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
+      "title" : "Web analytics con Piwik"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
+      "title" : "Copias de seguridad con rsync"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
     },
@@ -35,10 +43,6 @@ define("app/sources/blogstack", [], function() {
       "title" : "Integración de JPA MongoDB"
     },
     {
-      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
-      "title" : "Web analytics con Piwik"
-    },
-    {
       "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
       "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
     },
@@ -53,10 +57,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
     },
     {
       "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",

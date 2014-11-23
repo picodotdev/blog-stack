@@ -3,10 +3,61 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-22T11:03:09Z</updated>
+  <updated>2014-11-23T14:03:03Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-22T11:03:09Z</dc:date>
+  <dc:date>2014-11-23T14:03:03Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Copias de seguridad con rsync</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync" />
+    <category term="backup" />
+    <category term="rsync" />
+    <category term="blog-stack" />
+    <category term="programas" />
+    <category term="sistemas-operativos" />
+    <category term="tras" />
+    <category term="unix" />
+    <category term="gnu" />
+    <category term="linux" />
+    <author>
+      <name>davidochobits</name>
+    </author>
+    <updated>2014-11-23T13:25:39Z</updated>
+    <published>2014-11-18T16:35:13Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;En el art&amp;iacute;culo de hoy hablar&amp;eacute; de las funciones de&lt;strong&gt; rsync&lt;/strong&gt; para realizar copias de archivos, que en muchos casos ser&amp;aacute;n de seguridad, para garantizar nuestros backups.&lt;/p&gt; 
+&lt;p&gt;&lt;strong&gt;Rsync&lt;/strong&gt; es una aplicaci&amp;oacute;n de software libre, que nos permite copiar archivos de manera cifrada y comprimida, si as&amp;iacute; lo deseamos, conservando los atributos de los ficheros de origen.&lt;/p&gt; 
+&lt;p&gt;Utilizando &lt;strong&gt;&lt;em&gt;cron&lt;/em&gt;&lt;/strong&gt; podemos sincronizar ficheros y carpetas, minimizando el volumen de datos transferidos.&lt;/p&gt; 
+&lt;p&gt;Por defecto utiliza el &lt;strong&gt;puerto 873&lt;/strong&gt; si funciona c&amp;oacute;mo daemon, tambi&amp;eacute;n podemos hacer que utilice el protocolo &lt;strong&gt;&lt;em&gt;ssh&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Es software libre, utiliza la licencia &lt;strong&gt;GNU General Public License&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;h2&gt;Instalaci&amp;oacute;n de rsync&lt;/h2&gt; 
+&lt;p&gt;La instalaci&amp;oacute;n en sistemas &lt;strong&gt;GNU/Linux&lt;/strong&gt; y tipo &lt;strong&gt;Unix&lt;/strong&gt; es bastante sencilla, de hecho, en muchas distribuciones ya viene preinstalado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>davidochobits</dc:creator>
+    <dc:date>2014-11-18T16:35:13Z</dc:date>
+  </entry>
+  <entry>
+    <title>Integración entre Ansible y Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-22T10:00:00Z</updated>
+    <published>2014-11-22T09:28:52Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de dokcer&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-22T09:28:52Z</dc:date>
+  </entry>
   <entry>
     <title>Introducción a Ansible</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible" />
@@ -33,8 +84,8 @@
     <dc:date>2014-11-15T09:35:39Z</dc:date>
   </entry>
   <entry>
-    <title>Integración entre Ansible y Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
+    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
     <category term="blog-stack" />
     <category term="planeta-linux" />
     <category term="planeta-codigo" />
@@ -44,16 +95,15 @@
       <name>pico.dev</name>
     </author>
     <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-22T09:28:52Z</published>
+    <published>2014-11-07T18:50:17Z</published>
     <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
  &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
 &lt;/div&gt; 
-&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de dokcer&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
+&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-22T09:28:52Z</dc:date>
+    <dc:date>2014-11-07T18:50:17Z</dc:date>
   </entry>
   <entry>
     <title>Inicio básico de Docker</title>
@@ -78,28 +128,6 @@
     <dc:date>2014-11-01T08:47:51Z</dc:date>
   </entry>
   <entry>
-    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-07T18:50:17Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
-&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-07T18:50:17Z</dc:date>
-  </entry>
-  <entry>
     <title>Introducción y características de Docker</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" />
     <category term="blog-stack" />
@@ -120,33 +148,6 @@
 &lt;p&gt;Al contrario de la virtualizaci&amp;oacute;n Docker no emula o virtualiza una m&amp;aacute;quina y su sistema operativo con lo que los procesos son mucho m&amp;aacute;s ligeros y hace que el hardware pueda ser aprovechado m&amp;aacute;s al poder aumentar la densidad de los servicios en una misma m&amp;aacute;quina. Los contenedores y servicios incluidos en ellos inician muy r&amp;aacute;pidamente, en pocos segundos. Adem&amp;aacute;s, no es necesario el sistema de archivos completo del sistema operativo invitado con lo que docker usa una fracci&amp;oacute;n de espacio de almacenamiento necesario en la virtualizaci&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-10-25T08:52:34Z</dc:date>
-  </entry>
-  <entry>
-    <title>Copias de seguridad con rsync</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync" />
-    <category term="backup" />
-    <category term="rsync" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="sistemas-operativos" />
-    <category term="unix" />
-    <category term="gnu" />
-    <category term="linux" />
-    <author>
-      <name>socrates</name>
-    </author>
-    <updated>2014-11-20T10:49:59Z</updated>
-    <published>2014-11-18T16:35:13Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En el art&amp;iacute;culo de hoy hablar&amp;eacute; de las funciones de&lt;strong&gt; rsync&lt;/strong&gt; para realizar copias de archivos, que en muchos casos ser&amp;aacute;n de seguridad, para garantizar nuestros backups.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Rsync&lt;/strong&gt; es una aplicaci&amp;oacute;n de software libre, que nos permite copiar archivos de manera cifrada y comprimida, si as&amp;iacute; lo deseamos, conservando los atributos de los ficheros de origen.&lt;/p&gt; 
-&lt;p&gt;Utilizando &lt;strong&gt;&lt;em&gt;cron&lt;/em&gt;&lt;/strong&gt; podemos sincronizar ficheros y carpetas, minimizando el volumen de datos transferidos.&lt;/p&gt; 
-&lt;p&gt;Por defecto utiliza el &lt;strong&gt;puerto 873&lt;/strong&gt; si funciona c&amp;oacute;mo daemon, tambi&amp;eacute;n podemos hacer que utilice el protocolo &lt;strong&gt;&lt;em&gt;ssh&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;Es software libre, utiliza la licencia &lt;strong&gt;GNU General Public License&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;h2&gt;Instalaci&amp;oacute;n de rsync&lt;/h2&gt; 
-&lt;p&gt;La instalaci&amp;oacute;n en sistemas &lt;strong&gt;GNU/Linux&lt;/strong&gt; y tipo &lt;strong&gt;Unix&lt;/strong&gt; es bastante sencilla, de hecho, en muchas distribuciones ya viene preinstalado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>socrates</dc:creator>
-    <dc:date>2014-11-18T16:35:13Z</dc:date>
   </entry>
   <entry>
     <title>Cómo instalar MediaWiki en Debian</title>
