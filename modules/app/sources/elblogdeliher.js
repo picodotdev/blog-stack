@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
+      "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
       "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
       "title" : "Como instalar una nueva fuente de texto en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-antiguo-blog-ubuntu-y-mas-morira-el-dia-5-11-2-14",
-      "title" : "Mi antiguo blog, Ubuntu y mas, morirá el día 5-11-2014"
     }
   ]
 }

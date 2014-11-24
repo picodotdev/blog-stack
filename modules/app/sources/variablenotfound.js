@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
+      "title" : "Enlaces interesantes 177"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/problemas-al-compilar-aplicaciones-mvc-3-y-4-desde-hace-unos-dias",
       "title" : "¿Problemas al compilar aplicaciones MVC 3 y 4 desde hace unos días?"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
       "title" : "Enlaces interesantes 169"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-168",
-      "title" : "Enlaces interesantes 168"
     }
   ]
 }

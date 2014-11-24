@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
+      "title" : "Enlaces interesantes 177"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
+      "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
-      "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
-      "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
     }
   ]
 }
