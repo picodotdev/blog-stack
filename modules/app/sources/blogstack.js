@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt",
-      "title" : "Test de extremo a extremo con Nightwatch y Grunt"
-    },
-    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
+    },
+    {
+      "url" : "/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt",
+      "title" : "Test de extremo a extremo con Nightwatch y Grunt"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
