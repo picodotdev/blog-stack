@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/11/regalos-de-opensuse-desde-beijing",
+      "title" : "Regalos de openSUSE desde Beijing"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
       "title" : "Enlaces interesantes 177"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
       "title" : "Richard Stallman dará conferencias por España"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
-      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     }
   ]
 }
