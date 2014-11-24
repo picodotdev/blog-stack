@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt",
+      "title" : "Test de extremo a extremo con Nightwatch y Grunt"
+    },
+    {
       "url" : "/post/koalite/2014/11/net-es-open-source-y-ahora-que",
       "title" : ".NET es open source, ¿y ahora qué?"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure",
       "title" : "Polimorfismo fuera de OOP: Multimétodos en clojure"
-    },
-    {
-      "url" : "/post/koalite/2014/06/ley-de-demeter-tell-don-t-ask-y-god-object",
-      "title" : "Ley de Demeter; Tell, Don\u2019t Ask y God Object"
     }
   ]
 }

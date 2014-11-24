@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt",
+      "title" : "Test de extremo a extremo con Nightwatch y Grunt"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
       "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
-      "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
     }
   ]
 }
