@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ -n "$OPENSHIFT_DATA_DIR" ]; then
-	export GIT_SSH=$OPENSHIFT_DATA_DIR/blogstack/git.sh $@
+        export GIT_SSH=$OPENSHIFT_DATA_DIR/blogstack/git.sh $@
 
-	eval "$(ssh-agent)"
-	ssh-add $OPENSHIFT_DATA_DIR/blogstack/.ssh/openshift
+        eval "$(ssh-agent)"
+        ssh-add $OPENSHIFT_DATA_DIR/blogstack/.ssh/openshift
 fi
 
 rm -rf _deploy/*
@@ -16,10 +16,9 @@ git commit -m "Site updated $(date +"%A, %d-%m-%Y %R")"
 git push origin gh-pages
 
 if [ -n "$OPENSHIFT_DATA_DIR" ]; then
-	ssh-agent -k
+        ssh-agent -k
 fi
+cd ..
 
 sleep 10s
 ./main.sh -e production -share >> misc/logs/server.log 2>&1
-
-cd ..

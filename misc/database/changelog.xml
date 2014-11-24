@@ -516,6 +516,13 @@
             <column name="shared" valueBoolean="true"/>
         </update>
     </changeSet>
+    <changeSet id="28" author="picodotdev">
+        <comment>Arreglar posts no compartidos al indexarse (24-11-2014)</comment>
+        <update tableName="post" schemaName="${schema}">
+            <column name="shared" valueBoolean="false"/>
+            <where>shared is null</where>
+        </update>
+    </changeSet>
     <!--
     <changeSet id="27" author="picodotdev">
         <comment>Agregación de fuente (11-10-2014)</comment>

@@ -224,9 +224,10 @@ public class IndexServiceImpl implements IndexService {
 			logger.info("Indexing {} post...", entry.getTitle());
 
 			post = service.getContext().newRecord(POST).into(AppPostRecord.class);
-			post.setFresh(true);
 			post.setCreationdate(now);
 			post.setVisible(true);
+			post.setFresh(true);
+			post.setShared(false);
 			post.setSourceId(source.getId());
 		} else {
 			logger.info("Updating {} post...", entry.getTitle());
