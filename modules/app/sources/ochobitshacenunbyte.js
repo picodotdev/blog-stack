@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
+      "title" : "Vulnerabilidad grave en WordPress"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
       "title" : "Configurar correo en servidor GLPI"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-cambiar-el-puerto-22-de-ssh-por-otro-puerto",
-      "title" : "Cómo cambiar el puerto 22 de ssh por otro puerto"
     }
   ]
 }

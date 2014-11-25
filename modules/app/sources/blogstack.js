@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
+      "title" : "Vulnerabilidad grave en WordPress"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/regalos-de-opensuse-desde-beijing",
       "title" : "Regalos de openSUSE desde Beijing"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
       "title" : "Se acercan cambios :D"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
-      "title" : "Richard Stallman dará conferencias por España"
     }
   ]
 }
