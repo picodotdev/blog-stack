@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/que-es-el-md5sum-y-para-que-sirve-en-ubuntu",
+      "title" : "Que es el md5sum y para que sirve en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
       "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/que-es-preload-y-porque-lo-deberiamos-instalar-en-ubuntu",
       "title" : "Que es preload y porque lo deberiamos instalar en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
-      "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
     }
   ]
 }

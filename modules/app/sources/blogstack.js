@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/que-es-el-md5sum-y-para-que-sirve-en-ubuntu",
+      "title" : "Que es el md5sum y para que sirve en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
       "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
       "title" : "Integración de JPA MongoDB"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
-      "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
     }
   ]
 }
