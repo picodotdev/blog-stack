@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
+      "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
       "title" : "Vulnerabilidad grave en WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
       "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
-      "title" : "Se acercan cambios :D"
     }
   ]
 }

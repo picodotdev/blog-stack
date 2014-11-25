@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
+      "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
       "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/que-es-y-como-instalar-qmmp-en-ubuntu-mediante-ppa",
       "title" : "Que es y como instalar Qmmp en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-instalar-una-nueva-fuente-de-texto-en-ubuntu",
-      "title" : "Como instalar una nueva fuente de texto en Ubuntu"
     }
   ]
 }
