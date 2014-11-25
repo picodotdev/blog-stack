@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6",
+      "title" : "Interpolación de cadenas en C# 6"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-md5sum-y-para-que-sirve-en-ubuntu",
       "title" : "Que es el md5sum y para que sirve en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
       "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
-      "title" : "Integración de JPA MongoDB"
     }
   ]
 }

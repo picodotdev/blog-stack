@@ -1,0 +1,165 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Interpolación de cadenas en C# 6 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6"><span itemprop="headline">Interpolación de cadenas en C# 6</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/yhW9A8j1NQM/interpolacion-de-cadenas-en-c-6.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-25T12:52" itemprop="dateModified">Actualizado el martes, 25 de noviembre de 2014 a las 12:52 UTC</span></div><div><span>
+Etiquetado como
+c-6, novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="image" src="http://lh4.ggpht.com/-Z-02qMN2vPg/VGjovx2wALI/AAAAAAAADs0/X6Puu90rGsM/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" />Seguimos con esta serie sobre las novedades de C# 6, y esta vez le toca el turno a una solicitada caracter&iacute;stica que recientemente ha entrado a formar parte de las elegidas para formar parte de esta nueva versi&oacute;n de nuestro lenguaje favorito: la interpolaci&oacute;n de cadenas.
+<br />
+<br />Dado que a&uacute;n se encuentra en desarrollo no es posible probarlo de forma sencilla, por lo que de momento tendremos que conformarnos con sacar conclusiones bas&aacute;ndonos en la 
+<a href="https://roslyn.codeplex.com/discussions/570292">discusi&oacute;n de dise&ntilde;o en Codeplex</a> y de la 
+<a href="https://roslyn.codeplex.com/wikipage?title=Language%20Feature%20Status&amp;referringTitle=Home">documentaci&oacute;n existente</a>. Avisan adem&aacute;s que la especificaci&oacute;n puede ser modificada, por lo que 
+<strong>todo lo que digamos aqu&iacute; a&uacute;n puede variar algo</strong>, aunque mayormente ser&aacute; (espero) v&aacute;lido.
+<br />
+<a></a>
+<br />En cualquier caso, el verbo 
+<a href="http://lema.rae.es/drae/?val=interpolar">interpolar</a> se define por la RAE como “poner algo entre cosas” o “intercalar palabras o frases en el texto de un manuscrito antiguo, o en obras y escritos ajenos”. Y esto es justamente lo que permitir&aacute; esta nueva caracter&iacute;stica: la posibilidad de introducir valores de variables o resultados de expresiones en el interior de cadenas de texto sin necesidad de usar los inc&oacute;modos mecanismos habituales, como la concatenaci&oacute;n o alguna variante de 
+<code>string.Format() </code>como&nbsp; en el siguiente c&oacute;digo:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-AnxrvFjokTg/VGjowaA6TAI/AAAAAAAADs4/BQ3lKgRiCEM/image%25255B2%25255D.png?imgmax=800" height="112" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="647" />
+<br />
+<br />En C# 6, podr&iacute;amos conseguir lo mismo de la forma que se muestra a continuaci&oacute;n, mucho m&aacute;s concisa y limpia:
+<br />
+<br />
+<img alt="image" src="http://lh5.ggpht.com/-8IpRbGrptbs/VGjow-H5htI/AAAAAAAADtA/sbw1b7rAntQ/image%25255B5%25255D.png?imgmax=800" height="21" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="486" />
+<br />
+<br />El resultado, como podremos imaginar, es id&eacute;ntico a las dos alternativas mostradas anteriormente. Pero observad los dos cambios importantes que encontramos aqu&iacute;:
+<br />
+<ul>
+ <li>Primero, los literales de texto con interpolaciones deben estar precedidos del s&iacute;mbolo “$”.</li>
+ <li>Segundo, las expresiones a incluir deben ir especificadas entre llaves.</li>
+</ul>Durante el proceso de compilaci&oacute;n, estas cadenas y las expresiones que se encuentren en su interior ser&aacute;n transformadas en una llamada a 
+<code>string.Format()</code>, por lo que no existen ning&uacute;n tipo de penalizaci&oacute;n del rendimiento en 
+<em>runtime</em>, es un mero azucarillo sint&aacute;ctico destinado endulzar la vida del desarrollador.
+<br />
+<br />Este paralelismo con 
+<code>string.Format()</code> hace que su uso sea pr&aacute;cticamente id&eacute;ntico, excepto que en lugar de utilizar el &iacute;ndice de cada par&aacute;metro utilizar&iacute;amos directamente la expresi&oacute;n a mostrar.
+<br />
+<br />Incluso podemos usar par&aacute;metros de alineaci&oacute;n o formato, como acostumbramos a hacer:
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-RMUX9qvHvL0/VGjoxfvbTmI/AAAAAAAADtI/m0uC0Bmmb0g/image%25255B11%25255D.png?imgmax=800" height="66" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="511" />
+<br />
+<br />Si quisi&eacute;ramos introducir expresiones, el &uacute;nico aspecto adicional a tener en cuenta es que &eacute;stas deber&aacute;n estar rodeadas por par&eacute;ntesis:
+<br />
+<br />
+<img alt="" src="http://lh3.ggpht.com/-655elZI-rXU/VGjoxv9M4aI/AAAAAAAADtQ/h1P-CjByPLw/image%25255B14%25255D.png?imgmax=800" height="115" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="538" />
+<br />
+<br />Como car&aacute;cter de escape utilizaremos la tradicional barra invertida 
+<i>back-slash</i> &quot;\&quot;, por ejemplo, si queremos incluir un car&aacute;cter de apertura de llave en la propia cadena sin que sea interpretado como el inicio de una expresi&oacute;n.
+<br />
+<br />En definitiva, se trata de una esperada incorporaci&oacute;n (de hecho 
+<a href="https://visualstudio.uservoice.com/forums/121579-visual-studio/category/30931-languages-c">una de las m&aacute;s votadas en user voice</a>), que nos ayudar&aacute; a hacer nuestro c&oacute;digo m&aacute;s legible y f&aacute;cil de mantener. Nada que ver, desde luego, con esas interminables llamadas a 
+<code>string.Format()</code> en las que era la ordenaci&oacute;n de los par&aacute;metros lo que determinaba en qu&eacute; lugar aparec&iacute;an insertados los valores.
+<br />
+<br />A&uacute;n no s&eacute; c&oacute;mo encajar&aacute; en un escenario en el que le veo utilidad, 
+<a href="http://www.variablenotfound.com/2007/10/constantes-string-multilnea-en-c.html">los literales al estilo heredoc</a>, pero supongo que conforme se vaya cerrando el desarrollo lo tendremos m&aacute;s claro.
+<br />
+<br />Ah, y como de costumbre, me gustar&iacute;a finalizar record&aacute;ndoos los art&iacute;culos que llevamos ya hablando de las novedades de C# 6:
+<br />
+<ul>
+ <li><a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html">El operador “?.” en C# y VB.NET, m&aacute;s cerca</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/inicializacion-de-propiedades-en-c-60.html">Inicializaci&oacute;n de propiedades en C# 6.0</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/uso-de-miembros-estaticos-en-c-6-una.html">Uso de miembros est&aacute;ticos en C# 6, &iquest;una buena idea?</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/09/declaracion-de-variables-en-expresiones-csharp.html">Declaraci&oacute;n de variables en expresiones de C# 6</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/10/el-operador-nameof-de-c-6.html">El operador nameof de C# 6</a> y <a href="http://www.variablenotfound.com/2014/10/rendimiento-de-nameof-en-c-6.html">rendimiento del operador nameof</a>. </li>
+ <li><a href="http://www.variablenotfound.com/2014/10/inicializacion-de-diccionarios-en-c-6.html">Inicializaci&oacute;n de diccionarios en C# 6</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/10/mejoras-en-bloques-trycatch-de-c-6.html">Mejoras en bloques try/catch de C# 6</a></li>
+ <li><a href="http://www.variablenotfound.com/2014/11/expresiones-lambda-en-miembros-de.html">Expresiones lambda en miembros de funci&oacute;n de C# 6</a></li>
+</ul>Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=yhW9A8j1NQM:kdp57q7eXtM:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=yhW9A8j1NQM:kdp57q7eXtM:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=yhW9A8j1NQM:kdp57q7eXtM:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=yhW9A8j1NQM:kdp57q7eXtM:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/yhW9A8j1NQM" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6" st_title="Interpolación de cadenas en C# 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1158,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

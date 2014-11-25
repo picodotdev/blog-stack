@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6",
+      "title" : "Interpolación de cadenas en C# 6"
+    },
+    {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
       "title" : "Enlaces interesantes 177"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-17",
       "title" : "Enlaces interesantes 170"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/enlaces-interesantes-169",
-      "title" : "Enlaces interesantes 169"
     }
   ]
 }
