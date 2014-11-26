@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
+      "title" : "Búsquedas simples con AWK en GNU Linux"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
       "title" : "Java wait notify y threads"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
       "title" : "Introducción a Ansible"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     }
   ]
 }

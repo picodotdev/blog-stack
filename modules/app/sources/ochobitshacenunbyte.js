@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
+      "title" : "Búsquedas simples con AWK en GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
       "title" : "GLPI, Mucho más que un gestor de parque informático"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/configurar-correo-en-servidor-glpi",
-      "title" : "Configurar correo en servidor GLPI"
     }
   ]
 }
