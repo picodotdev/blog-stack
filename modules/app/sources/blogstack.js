@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner",
+      "title" : "Introducción a Grunt: Javascript task runner"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
       "title" : "Vulnerabilidad grave en WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
       "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
-      "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
     }
   ]
 }

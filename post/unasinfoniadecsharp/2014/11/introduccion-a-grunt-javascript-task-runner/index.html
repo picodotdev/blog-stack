@@ -1,0 +1,171 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a Grunt: Javascript task runner | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner"><span itemprop="headline">Introducción a Grunt: Javascript task runner</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/11/25/Introduccion-a-Grunt-Javascript-task-runner.aspx"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-26T01:06" itemprop="dateModified">Actualizado el miércoles, 26 de noviembre de 2014 a las 01:06 UTC</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><img style="float: none; margin-left: auto; display: block; margin-right: auto" src="http://gruntjs.com/img/grunt-logo.png" width="209" height="246" /></p> 
+<p>&nbsp;</p> 
+<p>Hay tres palabras que siempre hay que tener presentes: automatizar, automatizar y automatizar. Toda tarea repetitiva y m&aacute;s a&uacute;n si la misma nos aleja de nuestra tarea real, es importante encontrar la forma de automatizarla.</p> 
+<h3>Automatizar para ser feliz</h3> 
+<p>Para evitar errores, para evitar hacer cosas repetitivas (aburridas) y para mejorar nuestro proceso de desarrollo, recordemos: automatizar, automatizar y automatizar.</p> 
+<h3>Grunt, el task runner para Javascript.</h3> 
+<p>Hay algunas tareas que casi simpre vamos hacer cuando desarrollemos una aplicaci&oacute;n en <em>Javascript</em>:</p> 
+<ul> 
+ <li>Minificar </li> 
+ <li>Correr pruebas </li> 
+ <li>Ejecutar inspecci&oacute;n de c&oacute;digo </li> 
+ <li>Generar un paquete </li> 
+ <li>Comprimir </li> 
+ <li>Compilar </li> 
+</ul> 
+<p>Cualquiera de estas tareas se pueden hacer con Grunt, que b&aacute;sicamente es eso: un ejecutor de tareas, como <em>Ant</em> o como <em>MSBuild</em>, pero para <em>Javascript</em>.</p> 
+<h3>&iquest;Qu&eacute; necesito instalar?</h3> 
+<p>Antes que nada <em>NodeJs</em>, una vez instalado <em>NodeJs</em> con <em>npm</em> instalamos <em>grunt</em>.</p> 
+<pre>npm install -g grunt-cli</pre> 
+<p>Y listo, ya lo tenemos instalado</p> 
+<h3>Ejemplo simple: minificar.</h3> 
+<p>T&iacute;picamente un proyecto con Grunt va a tener dos archivos de configuraci&oacute;n</p> 
+<p>package.json</p> 
+<p>gruntfile.json</p> 
+<p>El primero indica las dependencias (por ejemplo los paquetes externos que utilizaremos para nuestras tareas) el segundo la configuraci&oacute;n de las tareas.</p> 
+<p>Un ejemplo del package.json para poder utilizar el paquete de minificaci&oacute;n es &eacute;ste:</p> 
+<pre>{
+  &quot;name&quot;: &quot;prueba&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;
+}</pre> 
+<p>Vemos que no dice mucho m&aacute;s que el nombre del proyecto y la versi&oacute;n pero dijimos que necesitamos indicar las dependencias, bien, podemos agregarlas a mano o podemos hacer que npm lo haga por nosotros del siguiente modo:</p> 
+<pre>npm install grunt grunt-contrib-uglify --save-dev</pre> 
+<p>En este caso decimos que instale <em>grunt</em> y <em>grunt-contrib-uglify</em> y con <em>–-save</em> indicamos que guarde la configuraci&oacute;n en nuestro <em>package.json</em> con dev es decir, que es algo para desarrollo no es necesario para correr el proyecto. Entonces nuestro archivo queda as&iacute;:</p> 
+<pre>{
+  &quot;name&quot;: &quot;prueba&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;devDependencies&quot;: {
+    &quot;grunt&quot;: &quot;^0.4.5&quot;,
+    &quot;grunt-contrib-uglify&quot;: &quot;^0.6.0&quot;
+  }
+}</pre> 
+<p>Perfecto, cuando alguien necesite correr la aplicaci&oacute;n hace <em>npm install</em> y todo se instale autom&aacute;ticamente.</p> 
+<p>Ahora si, vamos a configurar <em>grunt</em> dentro de <em>gruntfile.js.</em></p> 
+<pre>module.exports = function (grunt) {
+	//configuraci&oacute;n de grunt
+	grunt.initConfig({
+		uglify : { 		//nombre de la tarea, uglify
+			build : { 	//nombre de la configuraci&oacute;n, es un nombre arbitrario
+				src : 'js/*.js',		//archivos origen
+				dest : 'package/code.min.js'	//archivo destino
+			}
+		}
+	});
+	grunt.loadNpmTasks('grunt-contrib-uglify'); //cargamos el m&oacute;dulo que contiene uglify
+};</pre> 
+<p>Como vemos en la descripci&oacute;n del c&oacute;digo lo que hacemos es indicar a trav&eacute;s del m&eacute;todo initConfig nuestra configuraci&oacute;n.</p> 
+<p><em>uglify</em> es el nombre de la tarea que deseamos correr (la que instalamos con npm antes) y dentro de la misma podemos tener m&aacute;s de una configuraci&oacute;n (por ejemplo test, ci, production) en este caso le puse build. Los par&aacute;metros <em>src</em> y <em>dest</em> indican qu&eacute; queremos minificar <a href="https://www.npmjs.org/package/grunt-contrib-uglify">esto est&aacute; en la documentaci&oacute;n de la tarea</a></p> 
+<p>Vamos a la consola y ejecutamos grunt</p> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/IntroduccinaGruntJavascripttaskrunner/08F9B211/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; float: none; margin-left: auto; display: block; border-top-width: 0px; margin-right: auto" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/IntroduccinaGruntJavascripttaskrunner/7B29FCC6/image_thumb.png" width="403" height="205" /></a> </p> 
+<p>Error. Lo que pasa es que ya que podemos tener muchas tareas tenemos que indicar cu&aacute;l queremos correr, esto lo podemos hacer as&iacute;:</p> 
+<pre>grunt uglify</pre> 
+<p>Por supuesto que si no queremos hacer esto cada vez podemos indicar cu&aacute;l es la tarea por defecto dentro de la configuraci&oacute;n</p> 
+<pre>module.exports = function (grunt) {
+	//configuraci&oacute;n de grunt
+	grunt.initConfig({
+
+		uglify : { 		//nombre de la tarea, uglify
+			build : { 	//nombre de la configuraci&oacute;n, es un nombre arbitrario
+				src : 'js/*.js',		//archivos origen
+				dest : 'package/code.min.js'	//archivo destino
+			}
+		}
+	});
+
+	grunt.loadNpmTasks('grunt-contrib-uglify'); //cargamos el m&oacute;dulo que contiene uglify
+	grunt.registerTask('default', ['uglify']); //tarea por defecto
+};</pre> 
+<p>Ahora hacemos simplemente </p> 
+<pre>grunt</pre> 
+<p>y listo</p> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/IntroduccinaGruntJavascripttaskrunner/03AD5C11/image.png"><img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; float: none; margin-left: auto; border-left: 0px; display: block; margin-right: auto" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/IntroduccinaGruntJavascripttaskrunner/6EBE6A4E/image_thumb.png" width="446" height="227" /></a> </p> 
+<p>Obtenemos un archivo minificado con el contenido de todos los .js que estaban en el directorio “js”.</p> 
+<p>Nos leemos en la pr&oacute;xima.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" st_title="Introducción a Grunt: Javascript task runner | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1159,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -3,6 +3,10 @@ define("app/sources/unasinfoniadecsharp", [], function() {
   "name" : "Una sinfonía en C#",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner",
+      "title" : "Introducción a Grunt: Javascript task runner"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables",
       "title" : "Javascript Hoisting, scope de variables"
     },
