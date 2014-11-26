@@ -3,10 +3,73 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-24T11:04:16Z</updated>
+  <updated>2014-11-26T12:03:32Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-24T11:04:16Z</dc:date>
+  <dc:date>2014-11-26T12:03:32Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo instalar LAMP en Debian 7</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7" />
+    <category term="mysql" />
+    <category term="blog-stack" />
+    <category term="sistemas-operativos" />
+    <category term="web" />
+    <category term="lamp" />
+    <category term="glamp" />
+    <category term="php5" />
+    <category term="debian" />
+    <author>
+      <name>davidochobits</name>
+    </author>
+    <updated>2014-11-26T11:22:46Z</updated>
+    <published>2014-11-13T12:00:58Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;LAMP&lt;/strong&gt; es un acr&amp;oacute;nimo de los servicios a instalar para permitir una infraestructura para servicios de &lt;strong&gt;Internet&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/lamp-image.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/lamp-image.png" alt="lamp-image" width="474" height="356" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Lo componen &lt;strong&gt;Linux&lt;/strong&gt;, &lt;strong&gt;Apache2&lt;/strong&gt;, &lt;strong&gt;MySQL/MariaDB&lt;/strong&gt; y &lt;strong&gt;Perl/Python/PHP5&lt;/strong&gt;, tambi&amp;eacute;n se le puede llamar&lt;strong&gt; GLAMP&lt;/strong&gt;, al incluir &lt;strong&gt;GNU&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;No voy a ir dando rodeos, y vamos a la faena:&lt;/p&gt; 
+&lt;p&gt;Instalar &lt;strong&gt;Apache2&lt;/strong&gt;&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;1
+&lt;/pre&gt;&lt;/td&gt; 
+    &lt;td&gt;&lt;pre&gt;apt-get -y update &amp;amp;amp;&amp;amp;amp; apt-get -y install apache2&lt;/pre&gt;&lt;/td&gt; 
+   &lt;/tr&gt; 
+  &lt;/tbody&gt; 
+ &lt;/table&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Instalar el motor de base de datos, en este caso &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;1
+&lt;/pre&gt;&lt;/td&gt; 
+    &lt;td&gt;&lt;pre&gt;apt-get -y install mysql-server mysql-common mysql-client&lt;/pre&gt;&lt;/td&gt; 
+   &lt;/tr&gt; 
+  &lt;/tbody&gt; 
+ &lt;/table&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Cuando nos pida la contrase&amp;ntilde;a simplemente la introducimos, no olvides apuntarla en alg&amp;uacute;n sitio.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg" alt="wikimedia-001" width="639" height="384" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Instalar &lt;strong&gt;PHP5&lt;/strong&gt; y m&amp;oacute;dulo &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;1
+&lt;/pre&gt;&lt;/td&gt; 
+    &lt;td&gt;&lt;pre&gt;apt-get -y install php5 libapache2-mod-php5&lt;/pre&gt;&lt;/td&gt; 
+   &lt;/tr&gt; 
+  &lt;/tbody&gt; 
+ &lt;/table&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Aunque no es obligatorio, si que es recomendable, testear la instalaci&amp;oacute;n de &lt;strong&gt;PHP5&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Lo podemos hacer de manera sencilla creando un archivo de texto, llamado &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>davidochobits</dc:creator>
+    <dc:date>2014-11-13T12:00:58Z</dc:date>
+  </entry>
   <entry>
     <title>Instalar Ruby on Rails en GNU Linux</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux" />
@@ -190,39 +253,6 @@
 &lt;p&gt;Respecto a las aventuras de &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>socrates</dc:creator>
     <dc:date>2014-11-03T22:33:24Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo instalar LAMP en Debian 7</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7" />
-    <category term="mysql" />
-    <category term="blog-stack" />
-    <category term="sistemas-operativos" />
-    <category term="web" />
-    <category term="lamp" />
-    <category term="glamp" />
-    <category term="php5" />
-    <category term="debian" />
-    <author>
-      <name>socrates</name>
-    </author>
-    <updated>2014-11-13T12:00:58Z</updated>
-    <published>2014-11-13T12:00:58Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;LAMP&lt;/strong&gt; es un acr&amp;oacute;nimo de los servicios a instalar para permitir una infraestructura para servicios de &lt;strong&gt;Internet&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/lamp-image.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/lamp-image.png" alt="lamp-image" width="474" height="356" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Lo componen &lt;strong&gt;Linux&lt;/strong&gt;, &lt;strong&gt;Apache2&lt;/strong&gt;, &lt;strong&gt;MySQL/MariaDB&lt;/strong&gt; y &lt;strong&gt;Perl/Python/PHP5&lt;/strong&gt;, tambi&amp;eacute;n se le puede llamar&lt;strong&gt; GLAMP&lt;/strong&gt;, al incluir &lt;strong&gt;GNU&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;No voy a ir dando rodeos, y vamos a la faena:&lt;/p&gt; 
-&lt;p&gt;Instalar &lt;strong&gt;Apache2&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y update &amp;amp;&amp;amp; apt-get -y install apache2&lt;/pre&gt; 
-&lt;p&gt;Instalar el motor de base de datos, en este caso &lt;strong&gt;MySQL&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install mysql-server mysql-common mysql-client&lt;/pre&gt; 
-&lt;p&gt;Cuando nos pida la contrase&amp;ntilde;a simplemente la introducimos, no olvides apuntarla en alg&amp;uacute;n sitio.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/wikimedia-001.jpg" alt="wikimedia-001" width="639" height="384" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Instalar &lt;strong&gt;PHP5&lt;/strong&gt; y m&amp;oacute;dulo &lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install php5 libapache2-mod-php5&lt;/pre&gt; 
-&lt;p&gt;Aunque no es obligatorio, si que es recomendable, testear la instalaci&amp;oacute;n de &lt;strong&gt;PHP5&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Lo podemos hacer de manera sencilla creando un archivo de texto, llamado &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>socrates</dc:creator>
-    <dc:date>2014-11-13T12:00:58Z</dc:date>
   </entry>
   <entry>
     <title>Cómo instalar Spotify en Debian y Ubuntu</title>
