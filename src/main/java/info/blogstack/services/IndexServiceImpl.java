@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -37,6 +35,12 @@ import java.util.Set;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.joda.time.DateTime;
 import org.jsoup.Jsoup;
 import org.slf4j.Logger;
@@ -98,11 +102,12 @@ public class IndexServiceImpl implements IndexService {
 		List<PostRecord> posts = new ArrayList<>();
 		for (SourceRecord source : sources) {
 			try {
-				URL url = new URL(source.getUrl());
-				URLConnection conection = (URLConnection) url.openConnection();
-				conection.setConnectTimeout(30 * 1000);
-				conection.setReadTimeout(30 * 1000);
-				posts.addAll(index(indexation, source, new InputStreamReader(conection.getInputStream())));
+				HttpGet get = new HttpGet(source.getUrl());
+				RequestConfig config = RequestConfig.custom().setConnectTimeout(30 * 1000).build();
+				HttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+				HttpResponse response = client.execute(get);
+				HttpEntity entity = response.getEntity();
+				posts.addAll(index(indexation, source, new InputStreamReader(entity.getContent())));
 			} catch (ParsingFeedException | IOException e) {
 				logger.error(e.getMessage(), e);
 			}
