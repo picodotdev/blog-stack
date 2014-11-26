@@ -3,10 +3,82 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-26T12:03:24Z</updated>
+  <updated>2014-11-26T20:09:32Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-26T12:03:24Z</dc:date>
+  <dc:date>2014-11-26T20:09:32Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java wait notify y threads</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-wait-notify-y-threads" />
+    <category term="java" />
+    <category term="java-conceptos" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-26T16:19:16Z</updated>
+    <published>2014-11-26T16:19:16Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Todos conocemos la clase Object y los m&amp;eacute;todos principales que posee como equals y hashcode. Sin embargo a mucha gente le cuesta entender para que sirven java wait notify,dos m&amp;eacute;todos que pertenecen a la clase Object y estan relacionados con programaci&amp;oacute;n concurrente, vamos a abordarlo. Para ello vamos a crearnos dos clases sencillas (Bolsa y Producto) donde una Bolsa contiene varios Productos.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00120.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00120.gif" alt="001" width="307" height="197" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos a ver su c&amp;oacute;digo:&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+
+public class Bolsa {
+
+private ArrayList&amp;lt;Producto&amp;gt; listaProductos = new ArrayList&amp;lt;Producto&amp;gt;();
+
+public void addProducto(Producto producto) {
+
+if (!estaLlena())
+ listaProductos.add(producto);
+ }
+
+public ArrayList&amp;lt;Producto&amp;gt; getListaProductos() {
+ return listaProductos;
+
+}
+
+public int getSize() {
+ return listaProductos.size();
+ }
+ public boolean estaLlena() {
+
+return listaProductos.size() &amp;gt;= 5;
+ }
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/java-wait-notify-y-threads"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-26T16:19:16Z</dc:date>
+  </entry>
+  <entry>
+    <title>Solucionando problemas en Chakra</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra" />
+    <category term="experiencias" />
+    <category term="tutorial" />
+    <category term="chakra" />
+    <author>
+      <name>Enrique Bravo</name>
+    </author>
+    <updated>2014-11-26T15:02:08Z</updated>
+    <published>2014-04-01T14:39:00Z</published>
+    <content type="html">&lt;p&gt;Con la &amp;uacute;ltima, ya en&amp;eacute;sima, re-instalaci&amp;oacute;n de mi sistema operativo GNU/Linux favorito me he topado con algunos problemillas, tanto ya conocidos como de nueva aparici&amp;oacute;n. Los hay que son meras incomodidades, con las que se puede convivir sin m&amp;aacute;s, mientras que otros te pueden dar al traste con la experiencia de uso del equipo. Sean de una clase o de otra, todas han encontrado soluci&amp;oacute;n con algo de paciencia y dedicaci&amp;oacute;n. Estas son las peque&amp;ntilde;as cosas que, dependiendo de tu estado de &amp;aacute;nimo y tu predisposici&amp;oacute;n al aprendizaje en cada momento pueden hacer que te alejes de GNU/Linux si no dispones de tiempo o ganas. Cuando no es el caso, ocurre lo contrario y... 
+&lt;i&gt;habemus&lt;/i&gt; tutorial. 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;div style="clear: both; text-align: center;"&gt; 
+ &lt;a href="http://3.bp.blogspot.com/-ZVmQUyy95Qw/Uzp_TeZQQyI/AAAAAAAAEXk/sNtwrkjhxlA/s1600/Problema-soluci%C3%B3n.jpg"&gt;&lt;img src="http://3.bp.blogspot.com/-ZVmQUyy95Qw/Uzp_TeZQQyI/AAAAAAAAEXk/sNtwrkjhxlA/s1600/Problema-soluci%C3%B3n.jpg" height="300" width="400" /&gt;&lt;/a&gt; 
+&lt;/div&gt; 
+&lt;br /&gt; 
+&lt;br /&gt; 
+&lt;a&gt;&lt;/a&gt;Partimos de un sistema 
+&lt;a href="http://chakraos.org/home/?get"&gt;Chakra GNU/Linux Curie&lt;/a&gt; reci&amp;eacute;n instalado en mi archiconocido&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Enrique Bravo</dc:creator>
+    <dc:date>2014-04-01T14:39:00Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo instalar LAMP en Debian 7</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7" />
@@ -729,46 +801,6 @@
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-11-20T09:40:57Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mi recomendacion para hacer las particiones para instalar Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu" />
-    <category term="opinion" />
-    <category term="ubuntu" />
-    <category term="recomendacion" />
-    <category term="hacer" />
-    <category term="instalar" />
-    <category term="particiones" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-20T09:04:16Z</updated>
-    <published>2014-11-20T09:04:16Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Hace unos d&amp;iacute;as tuve la ocasi&amp;oacute;n de intercambiar unos mensajes con un par de usuarios acerca de como &lt;strong&gt;hacer las particiones&lt;/strong&gt; a la hora de &lt;strong&gt;instalar&lt;/strong&gt; &lt;strong&gt;Ubuntu&lt;/strong&gt;, en particular uno de ellos me hizo llegar sus dudas entre las cuales estaba cuantas particiones deb&amp;iacute;a crear y cual era la configuraci&amp;oacute;n correcta. Le mande un email con mis recomendaciones y me pareci&amp;oacute; una buena idea escribir un articulo al respecto y as&amp;iacute; expresar mi opini&amp;oacute;n sobre como hacer las particiones a la hora de instalar Ubuntu en un ordenador.&lt;/p&gt; 
- &lt;p&gt;Habr&amp;iacute;a que tener varias cosas en cuenta a la hora de instalar Ubuntu en un ordenador y como hacer sus particiones, la primera de ellas es si ten&amp;eacute;is otro sistema operativo instalado, como por ejemplo Windows. Despu&amp;eacute;s me meter&amp;eacute; mas a fondo con el tema de las &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-20T09:04:16Z</dc:date>
-  </entry>
-  <entry>
-    <title>Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu" />
-    <category term="desinstalar" />
-    <category term="libreoffice" />
-    <category term="ubuntu" />
-    <category term="instalar" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-19T21:11:43Z</updated>
-    <published>2014-11-19T21:11:43Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Hace unos d&amp;iacute;as LeinyBeth me comento que que hab&amp;iacute;a algunos programas que ven&amp;iacute;an instalados con &lt;a href="https://es.libreoffice.org/"&gt;Libreoffice&lt;/a&gt; que no usaba y si se pod&amp;iacute;an &lt;strong&gt;desinstalar&lt;/strong&gt; o bien &lt;strong&gt;instalar&lt;/strong&gt; solo los que ella usaba. La verdad es que me parece una muy buena opci&amp;oacute;n ya que, al menos en mi caso, hay algunas de las aplicaciones que no uso y nunca me hab&amp;iacute;a plantado desinstalarlas. Esto es precisamente lo que os voy a mostrar en este articulo, vamos a ver como &lt;strong&gt;instalar&lt;/strong&gt; individualmente los programas de &lt;strong&gt;Libreoffice&lt;/strong&gt; o como &lt;strong&gt;desinstalar&lt;/strong&gt; los que no usamos en &lt;strong&gt;Ubuntu&lt;/strong&gt;.&lt;/p&gt; 
- &lt;p&gt;Antes que nada vamos a ver las que vienen instaladas por defecto en &lt;a href="http://www.ubuntu.com/"&gt;Ubuntu&lt;/a&gt;, vienen todas menos Base, que es la herramienta para el tratamiento de bases de datos de Libreoffice. En mi caso no uso Math, ni Drawer ni Impress. Como &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-19T21:11:43Z</dc:date>
   </entry>
 </feed>
 

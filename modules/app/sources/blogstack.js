@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
+      "title" : "Java wait notify y threads"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
+      "title" : "Solucionando problemas en Chakra"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     }
   ]
 }

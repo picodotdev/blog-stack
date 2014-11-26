@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
+      "title" : "Solucionando problemas en Chakra"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/11/opensuse-13-2-cosas-que-mejorar",
       "title" : "openSUSE 13.2: cosas que mejorar"
     },
@@ -61,10 +65,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/evo-lution-instalar-arch-linux-en-modo-grafico",
       "title" : "Evo/Lution: instalar Arch Linux en modo gráfico"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
-      "title" : "Solucionando problemas en Chakra"
     },
     {
       "url" : "/post/lasombradelhelicoptero/2014/03/el-hogar-de-los-valientes",

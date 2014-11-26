@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
+      "title" : "Java wait notify y threads"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
       "title" : "Integración de JPA MongoDB"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/spring-inject-cdi-y-standards",
       "title" : "Spring @Inject  CDI y standards"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos",
-      "title" : "JavaScript Console y otros métodos"
     }
   ]
 }
