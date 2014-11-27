@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
+      "title" : "Probamos la beta de Fedora 21"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
       "title" : "Búsquedas simples con AWK en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
       "title" : "Cómo instalar sudo en Debian"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/glpi-mucho-mas-que-un-gestor-de-parque-informatico",
-      "title" : "GLPI, Mucho más que un gestor de parque informático"
     }
   ]
 }

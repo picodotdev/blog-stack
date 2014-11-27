@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
+      "title" : "Probamos la beta de Fedora 21"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
       "title" : "Búsquedas simples con AWK en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
-      "title" : "Introducción a Ansible"
     }
   ]
 }
