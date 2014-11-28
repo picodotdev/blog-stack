@@ -3,16 +3,16 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
+      "title" : "Integración entre Ansible y Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
       "title" : "Introducción a Ansible"
     },
     {
-      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
-      "title" : "Integración entre Ansible y Docker"
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
     {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",

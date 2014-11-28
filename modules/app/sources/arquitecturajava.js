@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
+      "title" : "Entendiendo el Servlet Lifecycle"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
       "title" : "Java wait notify y threads"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/javabeans-dto-y-dozer",
       "title" : "JavaBeans , DTO y Dozer"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/spring-inject-cdi-y-standards",
-      "title" : "Spring @Inject  CDI y standards"
     }
   ]
 }

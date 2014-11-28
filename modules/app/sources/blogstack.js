@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
+      "title" : "Entendiendo el Servlet Lifecycle"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
+      "title" : "Integración entre Ansible y Docker"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
       "title" : "Controla la red OpenNetAdmin"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
-      "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
-      "title" : "Web analytics con Piwik"
     }
   ]
 }

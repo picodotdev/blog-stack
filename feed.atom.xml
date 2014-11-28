@@ -3,10 +3,56 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-28T11:04:01Z</updated>
+  <updated>2014-11-28T17:04:01Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-28T11:04:01Z</dc:date>
+  <dc:date>2014-11-28T17:04:01Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Entendiendo el Servlet Lifecycle</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle" />
+    <category term="java-web" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-11-28T16:18:41Z</updated>
+    <published>2014-11-28T16:18:41Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Trabajamos con Servlets todos los d&amp;iacute;as pero muchas veces se nos olvida como funcionan exactamente y cual e&lt;strong&gt;s el Servlet lifecycle o ciclo de vida, v&lt;/strong&gt;amos a verlo un poco m&amp;aacute;s a detalle.&amp;nbsp;Para ello primero tenemos que ver cuales son los distintos estados por los que un Servlet pasa.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/life.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/life.gif" alt="life" width="261" height="569" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Los estados por los que un Servlet pasa son los siguientes:&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;ol&gt; 
+ &lt;li&gt;&lt;strong&gt;Cargar el Servlet&lt;/strong&gt;:El primer paso que realizaremos ser&amp;aacute; cargar la clase Servlet que queramos instanciar en memoria a trav&amp;eacute;s de su clase ServletHelloWorld.class por ejemplo.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;Instanciar el Servlet:&lt;/strong&gt;El segundo paso ser&amp;aacute; instanciar &amp;nbsp;un Servlet como objeto para poder utilizarlo.&lt;/li&gt; 
+ &lt;li&gt;&lt;strong&gt;Invocar init():&lt;/strong&gt;El tercer paso ser&amp;aacute; invocar a su m&amp;eacute;todo init() para registrarlo correctamente en el Servlet Container (se ejecuta una sola vez)&lt;/li&gt;
+&lt;/ol&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-11-28T16:18:41Z</dc:date>
+  </entry>
+  <entry>
+    <title>Integración entre Ansible y Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-28T10:00:00Z</updated>
+    <published>2014-11-22T09:28:52Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de docker&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-22T09:28:52Z</dc:date>
+  </entry>
   <entry>
     <title>Controla la red OpenNetAdmin</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" />
@@ -562,29 +608,6 @@ return listaProductos.size() &amp;gt;= 5;
     <dc:date>2014-11-21T11:18:51Z</dc:date>
   </entry>
   <entry>
-    <title>Integración entre Ansible y Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-22T09:28:52Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de dokcer&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-22T09:28:52Z</dc:date>
-  </entry>
-  <entry>
     <title>Introducción a Ansible</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible" />
     <category term="blog-stack" />
@@ -785,24 +808,6 @@ return listaProductos.size() &amp;gt;= 5;
 &lt;p&gt;Adem&amp;aacute;s de tratar de difundir la filosof&amp;iacute;a del &lt;strong&gt;software libre,&lt;/strong&gt; y de crear licencias que permitan la difusi&amp;oacute;n de obras y conservando los derechos de autor&amp;iacute;as, tambi&amp;eacute;n llevan a cabo diversas campa&amp;ntilde;as de concienciaci&amp;oacute;n y para proteger derechos de los usuarios frentes a aquellos que quieren poner restricciones abusivas en cuestiones tecnol&amp;oacute;gicas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>victorhck</dc:creator>
     <dc:date>2014-11-21T10:30:47Z</dc:date>
-  </entry>
-  <entry>
-    <title>Se acercan cambios :D</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/se-acercan-cambios-d" />
-    <category term="cambios" />
-    <category term="opinion" />
-    <category term="ubuntu" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-21T09:53:55Z</updated>
-    <published>2014-11-21T09:53:55Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Como no puede ser de otra manera, ya que los usuarios de Linux y encima Bloggers, no podemos estar quietos, siempre tenemos que tocar alguna tecla, es lo que hay, lo llevamos en la sangre, y si no que se lo digan a Yoyo, un saludo desde aqu&amp;iacute; colega. Estoy muy contento con el blog y quiero darle un aire nuevo, tampoco va a ser demasiado, pero tengo ganas y quiero hacerlo. Uno de los cambios principales que quiero hacer es la plantilla, la actual esta muy bien, pero ha durado mucho ;D&lt;/p&gt; 
- &lt;p&gt;Estoy actualmente preparando todo el contenido y cacharreando la plantilla que voy a usar en mi servidor web virtual, de esa forma el cambio sera r&amp;aacute;pido. No se exactamente cuando lo har&amp;eacute;, seguramente el martes o mi&amp;eacute;rcoles, mas bien el mi&amp;eacute;rcoles, durante el cambio el blog no estar&amp;aacute; activo, espero que solo sea una o dos horas y os preguntareis, &amp;iquest;por que debe estar inoperativo durante un cambio de plantilla? Pues es porque le voy a pedir a mi proveedor de hosting, &lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/se-acercan-cambios-d"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-21T09:53:55Z</dc:date>
   </entry>
 </feed>
 
