@@ -1,10 +1,10 @@
-// The name inf firefox must be not [ads, adsense] 
+// The name in firefox must be not [ads, adsense] 
 define("app/adsensem", ["jquery", "app/templates"], function($, templates) {	
 	function Adsense(spec) {
 		this.spec = spec;
 
 		// 3 ad blocks
-		// 1 block for blogstack, 1 form the source y the last random
+		// 1 block for blogstack, 1 for the source y the last random to blogstack or source
 		// the type of ad is random
 		
 		var p1 = 0;
@@ -28,8 +28,6 @@ define("app/adsensem", ["jquery", "app/templates"], function($, templates) {
 		var adWideSkycraper = adsense({dimensions: "width:160px;height:600px;", width: 160, height: 600, adClient: ad3.adClient, adSlot: ad3.adSlot });
 		var adBigSkycraper = adsense({dimensions: "width:300px;height:600px;", width: 300, height: 600, adClient: ad3.adClient, adSlot: ad3.adSlot });
 
-		alert(adBigSkycraper);
-		
 		try {
 			// Load the ad blocks with a delay, in Firefox they add a browser history entry (only in the archive)
 			setTimeout(function() { $("#billboard").html(adBillboard); }, 250);
