@@ -11,12 +11,20 @@ define("app/sources/blogstack", [], function() {
       "title" : "Integración entre Ansible y Docker"
     },
     {
+      "url" : "/post/kdeblog/2014/11/kbreakout-la-version-kde-de-arkanoid",
+      "title" : "KBreakout, la versión KDE de Arkanoid"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
       "title" : "Controla la red OpenNetAdmin"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
       "title" : "Probamos la beta de Fedora 21"
+    },
+    {
+      "url" : "/post/kdeblog/2014/11/opensuse-13-2-harlequin-kde-un-pequeno-video-demostrativo",
+      "title" : "OpenSUSE 13.2 Harlequin KDE , un pequeño vídeo demostrativo"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
@@ -33,6 +41,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
+    },
+    {
+      "url" : "/post/kdeblog/2014/11/como-instalar-calligra-en-ubuntu-linux-mint-kde",
+      "title" : "Cómo instalar Calligra en Ubuntu Linux Mint KDE"
     },
     {
       "url" : "/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner",
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
-    },
-    {
-      "url" : "/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt",
-      "title" : "Test de extremo a extremo con Nightwatch y Grunt"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
-      "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
     }
   ]
 }
