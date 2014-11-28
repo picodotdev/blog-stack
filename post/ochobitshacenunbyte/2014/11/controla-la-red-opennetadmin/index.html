@@ -1,0 +1,244 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Controla la red OpenNetAdmin | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin"><span itemprop="headline">Controla la red OpenNetAdmin</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/sistemas-operativos"><img title="sistemas-operativos" alt="sistemas-operativos" src="/assets/images/labels/sistemas-operativos.png"/></a><a class="label" href="/label/debian"><img title="debian" alt="debian" src="/assets/images/labels/debian.png"/></a><a class="label" href="/label/programas"><img title="programas" alt="programas" src="/assets/images/labels/programas.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">davidochobits</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/11/27/controla-la-red-opennetadmin/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-27T23:08" itemprop="datePublished">Publicado el jueves, 27 de noviembre de 2014 a las 23:08 UTC</span></div><div><span>
+Etiquetado como
+red, blog-stack, <a href="/label/programas"><span itemprop="articleSection">programas</span></a>, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, opennetadmin, lamp, ona, <a href="/label/debian"><span itemprop="articleSection">debian</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><script></script>
+<p>Llevar un control de nuestra red de trabajo, con una hoja de c&aacute;lculo, incluso con una hecha en<strong> Lotus 1-2-3</strong> deber&iacute;a ser historia.</p> 
+<p>Con la virtualizaci&oacute;n de servidores la creaci&oacute;n de hosts, que den todo tipo de servicios, ha crecido de forma casi exponencial, imposible de controlar de forma manual.</p> 
+<p>Por suerte tenemos proyectos como <strong>OpenNetAdmin</strong> <strong>(ONA)</strong>, de hecho, cuando entramos a su <a title="OpenNetAdmin WEb" href="http://opennetadmin.com/">web</a> nos da la bienvenida con el mensaje: <strong>Stop using that Spreadsheet!</strong></p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-001.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-001.jpg" alt="open-net-admin-001" width="800" height="571" /></a></p> 
+<p><strong>ONA</strong> es una herramienta muy potente, ya que puede llegar a manejar una lista muy extensa de redes y subredes, incluyendo informaci&oacute;n referente a <strong>DNS</strong> o <strong>VLAN</strong>. Tal y como indica en la discripci&oacute;n en la interfaz web est&aacute; basada en <strong>AJAX</strong>, como veremos m&aacute;s adelante en el art&iacute;culo dicha interfaz es r&aacute;pida, intuitiva, elegante y f&aacute;cil de usar. T&aacute;mbi&eacute;n podemos usar <strong>ONA</strong> desde la l&iacute;nea de comandos. Se le pueden a&ntilde;adir plugins con nuevas funcionalidades.</p> 
+<p>Existe una versi&oacute;n Online con una <a title="ONA Demo" href="http://demo.opennetadmin.com/">demo</a>, pero c&oacute;mo a mi gusta, ya lo sab&eacute;is, “<em>ponerme la manta en la cabeza</em>“, a instalar que vamos en una m&aacute;quina virtual con <strong>Debian 7 Wheezy</strong>,</p> 
+<p>De hecho voy a utilizar una reciclada que us&eacute; para explicar la instalaci&oacute;n de Ruby on Rails en un art&iacute;culo<a title="Instalar Ruby on Rails en GNU Linux" href="http://www.ochobitshacenunbyte.com/2014/11/23/instalar-ruby-rails-en-gnu-linux/"> anterior.</a></p> 
+<p>Los requisitos y los pasos a seguir los podemos en la documentaci&oacute;n del <a title="Documentation ONA GitHub" href="https://github.com/opennetadmin/ona/wiki/Install">proyecto</a> en <strong>GitHub</strong>.</p> 
+<p>Primero de todos necesitamos un <strong>Web Server</strong> con <strong>Apache</strong>, en nuestro caso usaremos un art&iacute;culo anterior donde explicaba c&oacute;mo instalar <a title="C&oacute;mo instalar LAMP en Debian 7" href="http://www.ochobitshacenunbyte.com/2014/11/13/como-instalar-lamp-en-debian-7/">LAMP</a>.</p> 
+<p>Una vez seguimos la gu&iacute;a de instalaci&oacute;n de LAMP, debemos de instalar dos m&oacute;dulos adicionales de PHP, que son <strong>php-gmp</strong> y <strong>php-mbstring</strong>.</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>apt-get -y install libgmp-dev php5-gmp</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Ya podemos descargar el software desde <a href="http://github.com/opennetadmin/ona/archive/ona-current.tar.gz">http://github.com/opennetadmin/ona/archive/ona-current.tar.gz</a></p> 
+<p>Desde la l&iacute;nea de comandos:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>wget http://github.com/opennetadmin/ona/archive/ona-current.tar.gz</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Por norma general los proyectos que van por Apache siempre los dejo en /var/www, pero como en la gu&iacute;a nos recomiendan /opt/ona, les vamos a hacer caso.</p> 
+<p>Creamos la carpeta:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>mkdir /opt/ona/</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Descomprimimos en archivo del proyecto, ejecutando el comando:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>tar --strip-components=1 -C /opt/ona -zxvf ona-current.tar.gz</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Una vez hecho esto creamos un enlace simb&oacute;lico para la carpeta de los proyectos web:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>ln -s /opt/ona/www /var/www/ona</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Esto lo hacemos apuntando a la carpeta de apache root, si usamos otra como /usr/share/www u otras debemos de cambiar el enlace simb&oacute;lico.</p> 
+<p>Si no nos gusta trabajar de &eacute;sta manera s&oacute;lo debemos de cambiar la configuraci&oacute;n de apache.</p> 
+<p>Creamos el archivo de log:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>touch /var/log/ona.log</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Asignamos el usuario y grupo de Apache Web Server:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>chown www-data /opt/ona/www/local/config /var/log/ona.log</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Reiniciamos el servidor apache.</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>service apache2 restart</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Escribiendo <strong>http://nuestra-IP-o-localhost/ona/</strong></p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-002.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-002.jpg" alt="open-net-admin-002" width="626" height="538" /></a>Debemos de aceptar la licencia, que como v&eacute;is es <strong>GNU GPL</strong>, es decir, es software libre.</p> 
+<p>En la siguiente ventana veremos que nos indica que el directorio /opt/ona/www/local/config es de s&oacute;lo lectura, as&iacute; que modificamos los permisos de escritura del proyecto:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>chmod 775 /opt/ona -R</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Vemos la imagen:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-003.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-003.jpg" alt="open-net-admin-003" width="536" height="540" /></a>Y creamos la base de datos.</p> 
+<p>Cuando la creaba no hac&iacute;a nada, resulta que se me hab&iacute;a olvidado instalar la librer&iacute;a de<strong> PHP5</strong> para <strong>MYSQL</strong></p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>apt-get -y install php5-mysql</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Y ahora s&iacute; creo la base de datos:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-004.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-004.jpg" alt="open-net-admin-004" width="585" height="614" /></a><br /> Y partir de aqu&iacute; ya podemos darle a START para usar <strong>OpenNetAdmin!&nbsp;</strong></p> 
+<p>Para acceder usario usuario ‘admin’ y contrase&ntilde;a ‘admin’</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-005.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/11/open-net-admin-005.jpg" alt="open-net-admin-005" width="760" height="465" /></a></p> 
+<p>De momento s&oacute;lo he a&ntilde;adido una subred y un host, en el entorno donde he escrito el art&iacute;culo, que es mi casa, no tengo mucho m&aacute;s.</p> 
+<p>En los art&iacute;culos siguientes iremos viendo y conociendo su funcionamiento,</p> 
+<p>Me parece una herramienta incre&iacute;ble, ideal para administradores de sistemas.</p> 
+<p><strong><em>See you soon!!</em></strong></p> 
+<p>La entrada <a href="http://www.ochobitshacenunbyte.com/2014/11/27/controla-la-red-opennetadmin/">Controla la red OpenNetAdmin</a> aparece primero en <a href="http://www.ochobitshacenunbyte.com">ochobitshacenunbyte</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin" st_title="Controla la red OpenNetAdmin | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programas/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programas</a></li><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li><li><a href="/label/debian/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta debian</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-3 col-md-2"><div id="wideSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1163,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlotBillboard" : "1397019380",
+        "adSlotHorizontalSkycraper" : "1397019380",
+        "adSlotBigRectangle" : "2873752587",
+        "adSlotWideSkycraper" : "1896546988"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlotBillboard" : "5825737840",
+        "adSlotHorizontalSkycraper" : "5825737840",
+        "adSlotBigRectangle" : "5825737840",
+        "adSlotWideSkycraper" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

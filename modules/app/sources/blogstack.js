@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
+      "title" : "Controla la red OpenNetAdmin"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
       "title" : "Probamos la beta de Fedora 21"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
       "title" : "Web analytics con Piwik"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
-      "title" : "Integración entre Ansible y Docker"
     }
   ]
 }

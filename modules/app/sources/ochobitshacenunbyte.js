@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
+      "title" : "Controla la red OpenNetAdmin"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
       "title" : "Probamos la beta de Fedora 21"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
       "title" : "Control de versiones con Subversion y USVN"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/como-instalar-sudo-en-debian",
-      "title" : "Cómo instalar sudo en Debian"
     }
   ]
 }
