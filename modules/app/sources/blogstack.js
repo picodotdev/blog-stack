@@ -3,8 +3,8 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
-      "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
+      "url" : "/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout",
+      "title" : "Tips de Javascript: para qué sirve setTimeout = 0?"
     },
     {
       "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
@@ -67,6 +67,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Que es el md5sum y para que sirve en Ubuntu"
     },
     {
+      "url" : "/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa",
+      "title" : "Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/regalos-de-opensuse-desde-beijing",
       "title" : "Regalos de openSUSE desde Beijing"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
       "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
-      "title" : "Instalar Ruby on Rails en GNU Linux"
     }
   ]
 }
