@@ -1,0 +1,122 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a Bitnami | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/11/introduccion-a-bitnami"><span itemprop="headline">Introducción a Bitnami</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/software-libre"><img title="software-libre" alt="software-libre" src="/assets/images/labels/software-libre.png"/></a><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-bitnami/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-29T09:45" itemprop="datePublished">Publicado el sábado, 29 de noviembre de 2014 a las 09:45 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-linux, planeta-codigo, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, planeta-arch-linux, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /> 
+</div> 
+<p>Instalar algunas aplicaciones, herramientas o servicios no siempre es sencillo y r&aacute;pido. En la mayor&iacute;a de los casos los pasos est&aacute;n explicados suficientemente pero en la pr&aacute;ctica nos pueden surgir dudas o encontrarnos con problemas que no est&aacute;n documentados que pueden hacer que la experiencia de instalaci&oacute;n no sea agradable o necesitar dependencias que hay que instalar a la vez para obtener un funcionamiento correcto. Adem&aacute;s, si no empleamos una m&aacute;quina virtual necesitaremos instalarlo en nuestro propio equipo o servidor cuando quiz&aacute; solo nos interesa evaluar el producto con lo que al hacer la desinstalaci&oacute;n acabaremos con archivos temporales que quiz&aacute; no se eliminen y permanezcan en nuestro equipo para siempre o hasta que nos demos cuenta.</p> 
+<p><a href="https://bitnami.com/">Bitnami</a> es una amplia colecci&oacute;n de servicios populares que nos permite instalarlos y disponer de ellos r&aacute;pidamente completamente configurados sin necesidad de dedicar tiempo a conocer como instalarlos, adem&aacute;s, si empleamos virtualizaci&oacute;n con <a href="http://virtualbox.org/">VirtualBox</a> evitamos que nuestro equipo quede completamente limpio una vez que quitemos el servicio. Esta colecci&oacute;n de servicios podemos instalarla en nuestro propio equipo, en una m&aacute;quina virtual con VirtualBox, <a href="http://www.vmware.com/">VMware</a> o en la nube por ejemplo de <a href="http://aws.amazon.com/es/ec2/">Amazon EC2</a>, <a href="http://azure.microsoft.com/es-es/">Azure</a> o <a href="https://cloud.google.com/">Google Cloud</a> y proximamente usando <a href="https://www.docker.com/">Docker</a>.</p> 
+<p>&iquest;Alguna vez has querido probar <a href="https://wordpress.org/">Wordpress</a>, <a href="http://www.redmine.org/">Redmine</a>, <a href="https://www.drupal.org/">Drupal</a>, <a href="https://www.mediawiki.org/">MediaWiki</a>, <a href="https://www.phpbb.com/">phpBB</a>, <a href="http://www.liferay.com/">Liferay</a>, <a href="http://jenkins-ci.org/">Jenkins</a>, <a href="https://plone.org/">Plone</a>, <a href="http://www.alfresco.com/">Alfresco</a>, …? Estos son solo unos pocos ejemplos de <a href="https://bitnami.com/stacks">todos los servicios que nos ofrece Bitnami</a> listos para que empecemos a usarlos en unos pocos minutos, hay muchos otros disponibles y en un futuro se agregar&aacute;n m&aacute;s seg&uacute;n las peticiones que realicen los usuarios de Bitnami. Algunas aplicaciones est&aacute;n compuestas de una pila completa de servicios como por ejemplo LAMP (Linux, Apache, MySQL, PHP) o LAPP (Linux, Apache, PostgreSQL, PHP) que incluyen una lista completa de dependencias que necesitan como FastCGI, OpenSSL, phpMyAdmin, ModSecurity, SQLite, Varnish, ImageMagick, xDebug, Xcache, OpenLDAP, ModSecurity, Memcache, OAuth, PEAR, PECL, APC, GD o cURL. Adicionalmente podemos usar una &uacute;nica pila como LAMP para instalar varios <a href="https://bitnami.com/stack/lamp/modules">m&oacute;dulos</a> en vez de instalar cada aplicaci&oacute;n individualmente (Drupal, MediaWiki, …) de forma que todas las aplicaci&oacute;n compartan la infraestructura de la misma pila.</p> 
+<p>En un futuro parece que Bitnami ofrecer&aacute; soporte para <a href="https://www.docker.com/">Docker</a> haciendo que no necesitemos ni siquiera un entorno de virtualizaci&oacute;n, ahorrando espacio en disco y ofreciendo el m&aacute;ximo rendimiento que ofrezca la m&aacute;quina sin ning&uacute;n tipo de penalizaci&oacute;n que impone virtualizar.</p> 
+<h2>&iquest;Como empezar a usar Bitnami?</h2> 
+<p>A continuaci&oacute;n explicar&eacute; la opci&oacute;n de usar Bitnami con VirtualBox, para el ejemplo usar&eacute; la aplicaci&oacute;n de Redmine. En la <a href="http://wiki.bitnami.com/Virtual_Appliances_Quick_Start_Guide">gu&iacute;a de inicio r&aacute;pido de Bitnami</a> est&aacute;n eplicadas otras opciones y preguntas frecuentes, en este caso nos interesa la <a href="http://wiki.bitnami.com/Virtual_Appliances_Quick_Start_Guide#Virtual_Box">secci&oacute;n para VirtualBox</a>.</p> 
+<p>Teniendo instalado previamente VirtualBox, primeramente necesitaremos descargar la imagen del disco que contiene la aplicaci&oacute;n. En el <a href="https://bitnami.com/stack/redmine/virtual-machine">apartado Virtual Machines</a> pulsamos el bot&oacute;n &laquo;Download&raquo;, aunque indique que es para VMware tambi&eacute;n podremos usarla en VirtualBox. A continuaci&oacute;n crearemos una m&aacute;quina virtual seleccionado como base Ubuntu 64 bits con al menos 512 MiB, como disco de arranque seleccionamos la opci&oacute;n de uno existente y seleccionamos la imagen vmdk descargada de la aplicaci&oacute;n una vez descomprimida. Habilitamos el adaptador de red de tipo adaptador puente y seleccionamos el dispositivo que estemos usando para conectarnos a internet de entre los que disponemos, WIFI o ethernet.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-crear-imagen-bitnami-1.png" title="Crear imagen Bitnami"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-crear-imagen-bitnami-1-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-crear-imagen-bitnami-2.png" title="Crear imagen Bitnami (red)"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-crear-imagen-bitnami-2-thumb.png" /></a> 
+</div> 
+<p>Hechos estos pasos ya estamos en condiciones de arrancar la m&aacute;quina virtual. Una vez que se inicie completamente veremos en la terminal que se nos solicita usuario y contrase&ntilde;a para iniciar sesi&oacute;n en el sistema, adem&aacute;s, en este caso nos indica la direcci&oacute;n IP (en el caso de las capturas mostradas 192.168.0.11) que necesitaremos usar para acceder al servicio con el navegador. En el mismo <a href="https://bitnami.com/stack/redmine/virtual-machine">apartado de Virtual Machines de Bitnami</a> para Redmine disponemos de los usuarios y contrase&ntilde;as para acceder tanto a la m&aacute;quina virtual desde la terminal (usuaro: bitnami, contrase&ntilde;a: bitnami) y para autenticarnos como usuarios accediendo a Redmine con el navegador (usuario: user, contrase&ntilde;a: bitnami).</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-terminal.png" title="Terminal de Bitnami"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/virtualbox-terminal-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/redmine-web.png" title="Aplicaci&oacute;n de Bitnami (Redmine)"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/54/redmine-web-thumb.png" /></a> 
+</div> 
+<p>En definitiva, Bitnami nos puede ayudar enormemente si necesitamos usar cualquiera de los servicios que ofrece tanto para probarlos con una m&aacute;quina virtual o para instalarlos en la nube de Amazon EC2, Azure o en Google Cloud. La nube nos permite librerarnos de adquirir hardware y posibilita escalarlo seg&uacute;n nuestras necesidades siempre que estemos dispuestos a pagar su coste pero en algunos casos un Brix o NUC como por ejemplo <a href="http://www.amazon.es/gp/product/B00HYEU0C8/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=B00HYEU0C8&amp;linkCode=as2&amp;tag=blobit-21">Gigabyte GB-BXI5-4570R (Core i5, 16GiB)</a><img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=B00HYEU0C8" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" /> que pueden incluir 16 GiB y algunos 32 GiB son mas que suficientes para una infraestructura interna de una empresa peque&ntilde;a que incluya control de versiones, gestor de peticiones, integraci&oacute;n continua, base de datos, servidor de aplicaciones, … estos ordenadores peque&ntilde;os en tama&ntilde;o pero con una capacidad de proceso y memoria nada despreciable son una opci&oacute;n a considerar para algunas tareas y pueden actuar perfectamente como servidores en los que alojar algunos servicios para consumo interno.</p> 
+<div style="text-align: center;"> 
+ <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=blobit-21&amp;o=30&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00HFCTV4W" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe> 
+ <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=blobit-21&amp;o=30&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00HYEU0C8" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe> 
+ <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=blobit-21&amp;o=30&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B00GHAKGDI" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe> 
+</div> 
+<p>Referencia:<br /> <a href="https://bitnami.com">Bitnami</a><br /> <a href="http://en.wikipedia.org/wiki/Bitnami">Wikipedia Bitnami</a><br /> <a href="http://www.jsitech.com/generales/bitnami-una-tienda-de-aplicaciones-para-servidores/">Bitnami, Una tienda de Aplicaciones para Servidores</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" st_title="Introducción a Bitnami | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Introducción a Bitnami";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-bitnami/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1170,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

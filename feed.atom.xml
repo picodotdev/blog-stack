@@ -3,10 +3,146 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-11-29T08:07:53Z</updated>
+  <updated>2014-11-29T13:03:57Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-11-29T08:07:53Z</dc:date>
+  <dc:date>2014-11-29T13:03:57Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Integración entre Ansible y Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T12:00:00Z</updated>
+    <published>2014-11-22T09:28:52Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de docker&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-22T09:28:52Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción a Ansible</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T12:00:00Z</updated>
+    <published>2014-11-15T09:35:39Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Siempre que nos sea posible deber&amp;iacute;amos automatizar las tareas que realizamos. Automatizar tareas har&amp;aacute; sencillo realizarlas permiti&amp;eacute;ndonos hacer todos los despliegues de una aplicaci&amp;oacute;n que queramos con menos posibilidades de cometer errores manuales o nos permitir&amp;aacute; disponer de una nueva m&amp;aacute;quina aprovisionada exactamente como pueda estar la m&amp;aacute;quina de producci&amp;oacute;n en mucho menos tiempo. En el &amp;aacute;mbito del aprovisionamiento de m&amp;aacute;quinas y administraci&amp;oacute;n de la infraestructura IT hay varias opciones, entre ellas est&amp;aacute;n &lt;a href="https://www.getchef.com/"&gt;Chef&lt;/a&gt;, &lt;a href="http://puppetlabs.com/"&gt;Puppet&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;En este art&amp;iacute;culo har&amp;eacute; una breve introducci&amp;oacute;n de Ansible que principalmente se emplea en servidores pero tambi&amp;eacute;n podr&amp;iacute;amos emplearlo para nuestra propia m&amp;aacute;quina. Con Ansible podremos:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Automatizar el aprovisionamiento de m&amp;aacute;quinas.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-15T09:35:39Z</dc:date>
+  </entry>
+  <entry>
+    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T12:00:00Z</updated>
+    <published>2014-11-07T18:50:17Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
+&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-07T18:50:17Z</dc:date>
+  </entry>
+  <entry>
+    <title>Inicio básico de Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T12:00:00Z</updated>
+    <published>2014-11-01T08:47:51Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
+&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-01T08:47:51Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción y características de Docker</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T12:00:00Z</updated>
+    <published>2014-10-25T08:52:34Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;&lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; es una de las herramientas de la que se est&amp;aacute; hablando mucho, esto es as&amp;iacute; ya que tiene varios aspectos interesantes que &lt;a href="http://www.javaworld.com/article/2685223/java-app-dev/four-ways-docker-fundamentally-changes-application-development.html"&gt;cambian la forma de desarrollar aplicaciones&lt;/a&gt;. Docker es una forma de ejecutar procesos de forma aislada pero tambi&amp;eacute;n se compone de herramientas para construir im&amp;aacute;genes y un repositorio para compartirlas.&lt;/p&gt; 
+&lt;p&gt;Al contrario de la virtualizaci&amp;oacute;n Docker no emula o virtualiza una m&amp;aacute;quina y su sistema operativo con lo que los procesos son mucho m&amp;aacute;s ligeros y hace que el hardware pueda ser aprovechado m&amp;aacute;s al poder aumentar la densidad de los servicios en una misma m&amp;aacute;quina. Los contenedores y servicios incluidos en ellos inician muy r&amp;aacute;pidamente, en pocos segundos. Adem&amp;aacute;s, no es necesario el sistema de archivos completo del sistema operativo invitado con lo que docker usa una fracci&amp;oacute;n de espacio de almacenamiento necesario en la virtualizaci&amp;oacute;n.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-10-25T08:52:34Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción a Bitnami</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="software" />
+    <category term="software-libre" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2014-11-29T09:45:45Z</updated>
+    <published>2014-11-29T09:45:45Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Instalar algunas aplicaciones, herramientas o servicios no siempre es sencillo y r&amp;aacute;pido. En la mayor&amp;iacute;a de los casos los pasos est&amp;aacute;n explicados suficientemente pero en la pr&amp;aacute;ctica nos pueden surgir dudas o encontrarnos con problemas que no est&amp;aacute;n documentados que pueden hacer que la experiencia de instalaci&amp;oacute;n no sea agradable o necesitar dependencias que hay que instalar a la vez para obtener un funcionamiento correcto. Adem&amp;aacute;s, si no empleamos una m&amp;aacute;quina virtual necesitaremos instalarlo en nuestro propio equipo o servidor cuando quiz&amp;aacute; solo nos interesa evaluar el producto con lo que al hacer la desinstalaci&amp;oacute;n acabaremos con archivos temporales que quiz&amp;aacute; no se eliminen y permanezcan en nuestro equipo para siempre o hasta que nos demos cuenta.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-11-29T09:45:45Z</dc:date>
+  </entry>
   <entry>
     <title>Disponible la versión candidata de KDE Aplicaciones 14.12</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12" />
@@ -93,29 +229,6 @@ for(var i = 0; i&amp;lt; 1000; i++){
 &lt;/ol&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-11-28T16:18:41Z</dc:date>
-  </entry>
-  <entry>
-    <title>Integración entre Ansible y Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-28T10:00:00Z</updated>
-    <published>2014-11-22T09:28:52Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Ansible" title="Docker" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;introducci&amp;oacute;n de Docker&lt;/a&gt; y &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;inicio b&amp;aacute;sico de docker&lt;/a&gt; explicaba como usar Docker y en la &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/"&gt;introducci&amp;oacute;n a Ansible&lt;/a&gt; explicaba las caracter&amp;iacute;sticas de Ansible y como usarlo. Podemos usar &lt;a href="https://www.docker.com/"&gt;Docker&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt; de forma separada pero tambi&amp;eacute;n podemos combinarlas para beneficiarnos de las propiedades de cada una. En Ansible disponemos de dos m&amp;oacute;dulos que nos permite manejar las im&amp;aacute;genes y los contenedores de Docker, estos son &lt;a href="http://docs.ansible.com/docker_module.html"&gt;docker&lt;/a&gt; y &lt;a href="http://docs.ansible.com/docker_image_module.html"&gt;docker_image&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Usando tareas de ansible podemos automatizar el arranque del servicio de docker, la construcci&amp;oacute;n de las im&amp;aacute;genes con los Dokerfile y el inicio o parada de los contenedores de docker. En el ejemplo se construye una imagen base en la que se basar&amp;aacute;n el resto de im&amp;aacute;genes, se crea una imagen con mysql, otra de redis y finalmente la imagen apps donde se ejecutar&amp;aacute;n las aplicaciones que usar&amp;aacute;n los servicios de mysql y redis.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/integracion-entre-ansible-y-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-22T09:28:52Z</dc:date>
   </entry>
   <entry>
     <title>KBreakout, la versión KDE de Arkanoid</title>
@@ -684,119 +797,6 @@ return listaProductos.size() &amp;gt;= 5;
 &lt;p&gt;A diferencia de Apache, no arranca automaticamente una vez instalado, por lo tanto lo iniciamos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2014-11-14T12:21:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Solucion al problema de no poder instalar plugins en Atom en Ubuntu</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu" />
-    <category term="solucion" />
-    <category term="ubuntu" />
-    <category term="instalar" />
-    <category term="plugins" />
-    <category term="atom" />
-    <category term="tips" />
-    <category term="problema" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-23T14:38:45Z</updated>
-    <published>2014-11-23T14:38:45Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Casi todos aquellos a los que nos gusta cacharrear en el ordenador y escribimos c&amp;oacute;digo queremos tener un editor de texto avanzado. En mi caso tengo Geany, Sublime Text y &lt;strong&gt;Atom&lt;/strong&gt; instalados en mi &lt;strong&gt;Ubuntu&lt;/strong&gt;, seguro que muchos dir&amp;eacute;is, &amp;iquest;para que carajo quieres tres editores a la vez? &amp;iquest;no te vale con uno? Pues la verdad es que no, seg&amp;uacute;n el d&amp;iacute;a o el tipo de documento que edite me gusta usar uno u otro. Hasta hace unos d&amp;iacute;as no tenia instalado Atom, pero gracias a un articulo de Diego en su blog, &lt;a href="http://www.dmaciasblog.com/"&gt;Dmaciasblog&lt;/a&gt;, que por cierto ha cumplido 8 a&amp;ntilde;os en linea y quiero felicitarle desde aqu&amp;iacute; &amp;iexcl;&amp;iexcl;&amp;iexcl;FELICIDADES!!! :D, en el que hablaba sobre &lt;a href="https://atom.io/"&gt;Atom&lt;/a&gt; y como dejarlo muy parecido a Sublime Text con unos plugins, pues me decid&amp;iacute; a instalarlo nuevamente y seguir los consejos del articulo del amigo Diego y el resultado ha sido genial, puede que se convierta en mi editor &amp;uacute;nico.&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-23T14:38:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>Web analytics con Piwik</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik" />
-    <category term="lemp" />
-    <category term="piwik" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="web" />
-    <category term="lamp" />
-    <category term="javascript" />
-    <category term="tras" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2014-11-23T13:26:08Z</updated>
-    <published>2014-11-21T11:18:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Si queremos analizar el tr&amp;aacute;fico que pasa por nuestra web por norma general nos solemos decantar por &lt;strong&gt;Google Analytics&lt;/strong&gt;. El problema es que es software privativo, no podemos ver su c&amp;oacute;digo fuente, ni saber si lleva c&amp;oacute;digo malicioso en dicho c&amp;oacute;digo, o si pasa nuestros datos a terceros.&lt;/p&gt; 
-&lt;p&gt;Investigando un poco me he encontrado con &lt;strong&gt;Piwik&lt;/strong&gt;, una aplicaci&amp;oacute;n free software, que utiliza la licencia &lt;strong&gt;GNU GPL&lt;/strong&gt; en su versi&amp;oacute;n &lt;strong&gt;3&lt;/strong&gt;. Funciona sobre un servidor web, tanto con &lt;strong&gt;Apache&lt;/strong&gt; c&amp;oacute;mo con &lt;strong&gt;Nginx&lt;/strong&gt; o &lt;strong&gt;IIS&lt;/strong&gt;, adem&amp;aacute;s utiliza bases de datos tipo &lt;strong&gt;MySQL&lt;/strong&gt; y &lt;strong&gt;PHP&lt;/strong&gt;. Es decir, con un servidor&lt;a title="C&amp;oacute;mo instalar LAMP en Debian 7" href="http://www.ochobitshacenunbyte.com/2014/11/13/como-instalar-lamp-en-debian-7/"&gt;&lt;strong&gt; LAMP&lt;/strong&gt;&lt;/a&gt; o &lt;a title="Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7" href="http://www.ochobitshacenunbyte.com/2014/11/14/instalar-lemp-nginx-mariadb-o-mysql-y-php-en-debian-7/"&gt;&lt;strong&gt;LEMP&lt;/strong&gt;&lt;/a&gt; nos ir&amp;aacute; sobre la seda.&lt;/p&gt; 
-&lt;p&gt;Si ya tenemos nuestro servidor web instalado debemos de instalar unas librerias adicionales.&lt;/p&gt; 
-&lt;p&gt;Para generar los gr&amp;aacute;ficos utiliza &lt;strong&gt;PHP GD Extension&lt;/strong&gt;, por lo tanto instalaremos los siguientes paquetes:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2014-11-21T11:18:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción a Ansible</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-15T09:35:39Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/ansible.png" alt="Ansible" title="Ansible" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Siempre que nos sea posible deber&amp;iacute;amos automatizar las tareas que realizamos. Automatizar tareas har&amp;aacute; sencillo realizarlas permiti&amp;eacute;ndonos hacer todos los despliegues de una aplicaci&amp;oacute;n que queramos con menos posibilidades de cometer errores manuales o nos permitir&amp;aacute; disponer de una nueva m&amp;aacute;quina aprovisionada exactamente como pueda estar la m&amp;aacute;quina de producci&amp;oacute;n en mucho menos tiempo. En el &amp;aacute;mbito del aprovisionamiento de m&amp;aacute;quinas y administraci&amp;oacute;n de la infraestructura IT hay varias opciones, entre ellas est&amp;aacute;n &lt;a href="https://www.getchef.com/"&gt;Chef&lt;/a&gt;, &lt;a href="http://puppetlabs.com/"&gt;Puppet&lt;/a&gt; y &lt;a href="http://www.ansible.com"&gt;Ansible&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;En este art&amp;iacute;culo har&amp;eacute; una breve introducci&amp;oacute;n de Ansible que principalmente se emplea en servidores pero tambi&amp;eacute;n podr&amp;iacute;amos emplearlo para nuestra propia m&amp;aacute;quina. Con Ansible podremos:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Automatizar el aprovisionamiento de m&amp;aacute;quinas.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-15T09:35:39Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo crear una imagen para Docker usando un Dockerfile</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-07T18:50:17Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Las im&amp;aacute;genes de &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; son el sistema de archivos que usa el proceso o procesos que se arrancan en los contenedores. Si nos convencen las &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;caracter&amp;iacute;sticas de docker&lt;/a&gt; y estamos decididos a usarlo y ya sabemos &lt;a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"&gt;como administrar de forma b&amp;aacute;sica los contendores&lt;/a&gt; si queremos disponer de una imagen adaptada a los servicios que necesitamos para iniciar contenedores tendremos que crearla, en este art&amp;iacute;culo explicar&amp;eacute; c&amp;oacute;mo crear una imagen para docker personalizada.&lt;/p&gt; 
-&lt;p&gt;Antes de crear una imagen para docker podemos buscar en el &lt;a href="https://registry.hub.docker.com/"&gt;registro de im&amp;aacute;genes de docker&lt;/a&gt; que han creado otros usuarios y los han compartido por si hay alguna que ya se adapte a nuestras necesidades, si nos sirve alguna y es algo popular nos evitaremos tener que modificarla nosotros mismos seg&amp;uacute;n salgan nuevas versiones de los servicios que use. El registro de im&amp;aacute;genes de docker es un servicio en el que los usuarios comparten y colaboran en la creaci&amp;oacute;n de las im&amp;aacute;genes. Para los servicios m&amp;aacute;s conocidos dispondremos ya de las im&amp;aacute;genes como podr&amp;iacute;an ser: &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-07T18:50:17Z</dc:date>
-  </entry>
-  <entry>
-    <title>Inicio básico de Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-22T10:00:00Z</updated>
-    <published>2014-11-01T08:47:51Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
-&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-01T08:47:51Z</dc:date>
   </entry>
 </feed>
 

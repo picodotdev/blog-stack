@@ -23,6 +23,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Introducción y características de Docker"
     },
     {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
+      "title" : "Introducción a Bitnami"
+    },
+    {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
       "title" : "Usar Apache Tapestry en una aplicación «standalone»"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry",
-      "title" : "Servir recursos estáticos desde un CDN en Apache Tapestry"
     }
   ]
 }
