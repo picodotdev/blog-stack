@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
+      "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout",
       "title" : "Tips de Javascript: para qué sirve setTimeout = 0?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
       "title" : "Enlaces interesantes 177"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
-      "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
     }
   ]
 }
