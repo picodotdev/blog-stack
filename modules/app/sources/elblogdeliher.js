@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
+      "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-md5sum-y-para-que-sirve-en-ubuntu",
       "title" : "Que es el md5sum y para que sirve en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
       "title" : "Mira que llegan a ser pesados"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-preload-y-porque-lo-deberiamos-instalar-en-ubuntu",
-      "title" : "Que es preload y porque lo deberiamos instalar en Ubuntu"
     }
   ]
 }

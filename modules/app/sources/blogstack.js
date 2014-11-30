@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
+      "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner",
       "title" : "Introducción a Grunt: Javascript task runner"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
-      "title" : "Vulnerabilidad grave en WordPress"
     }
   ]
 }
