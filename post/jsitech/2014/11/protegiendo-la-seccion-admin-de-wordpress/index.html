@@ -1,0 +1,111 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Protegiendo la Sección Admin de WordPress | JsiTech</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress"><span itemprop="headline">Protegiendo la Sección Admin de WordPress</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/software-libre"><img title="software-libre" alt="software-libre" src="/assets/images/labels/software-libre.png"/></a><a class="label" href="/label/seguridad"><img title="seguridad" alt="seguridad" src="/assets/images/labels/seguridad.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Jason Soto</span> en la bitácora <a href="http://www.jsitech.com/">JsiTech</a>, <a href="http://www.jsitech.com/seguridad/protegiendo-la-seccion-admin-de-wordpress/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-30T22:40" itemprop="datePublished">Publicado el domingo, 30 de noviembre de 2014 a las 22:40 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>, cms, tutoriales, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, wordpress</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Si hay algo que he notado es que no protegemos lo suficiente la secci&oacute;n de Admin de los que usamos <strong>WordPress</strong> o Cualquier otro <strong>CMS</strong>. Decidi ponerme la tarea de ver la p&aacute;gina de admin de algunos de los sitios de WordPress que sigo y en la mayor&iacute;a solo he visto que tiene un plugin contra los intentos fallidos. Pero, y si alguien logra obtener los datos de acceso? pues ya no hay nada que podamos hacer. Entiendo que a veces pensamos, solo uso wordpress para bloguear, no creo que nadie quiera intentar hacer nada ya que no hay nada importante ah&iacute;, pero lo cierto es que hasta para hacernos alg&uacute;n tipo de da&ntilde;o un usuario malintencionado puede intentar algo y es por eso que entiendo que debemos ponerle una capa extra de protecci&oacute;n. Como se trata tal vez de un sitio que tenemos para informaciones no es necesario que coloquemos ahi un certificado digital pero si podemos protegerlo con autenticacion de 2 factores.</p> 
+<p>Hoy les voy a hablar de 2 herramientas que nos pueden ayudar en agregar una capa extra de seguridad, <strong>Google Authenticator</strong> y <a href="https://www.elevenpaths.com/technology/latch/index.html"><strong>Latch de Eleven Path</strong></a>.</p> 
+<p>Antes de iniciar a hablar de estas herramientas aqui les dejo una captura de pantalla donde obtuve los datos de acceso de mi <strong>WordPress,</strong> claro, simplemente llevando a cabo un ataque de hombre en el medio <a href="http://www.jsitech.com/linux/ataque-mitm-mediante-arp-poisoning-con-kali-linux/">MITM</a>, estando en la misma red, y se que en este caso se preguntar&aacute;n, pero lo hiciste conectado a la misma red, claro, pero se que muchos utilizan las redes inalambricas p&uacute;blicas para crear una entrada r&aacute;pida o ver algo en la secci&oacute;n admin, lo cierto es que no sabemos las intenciones de los otros usuarios que se encuentran en esa red.</p> 
+<p><a href="http://www.jsitech.com/wp-content/uploads/2014/11/Ettercapmod.png"><img src="http://www.jsitech.com/wp-content/uploads/2014/11/Ettercapmod.png" alt="Ettercapmod" width="1024" height="818" /></a></p> 
+<p><strong>Google Authenticator</strong> es un software basado en autenticaci&oacute;n de contrase&ntilde;as de un solo uso desarrollado por Google, que ofrece un n&uacute;mero de seis digitos que cambia de manera aleatoria, que el usuario debe suministrar ademas de su usuario y contrase&ntilde;a para acceder a las cuentas que soporta la aplicaci&oacute;n, entre estas podemos mencionar, las cuentas de google, correo de microsoft, Dropbox, WordPress, Joomla, entre muchos otros servicios. Incluye implementaciones para la generaci&oacute;n de contrase&ntilde;as destinados a varias plataformas m&oacute;viles, as&iacute; como un m&oacute;dulo de autenticaci&oacute;n conectable PAM. Los c&oacute;digos son generados haciendo uso del standards abiertos desarrollados por The Initiative for Open Authentication OATH.</p> 
+<p><strong>Google Authenticator</strong> tiene aplicaci&oacute;n m&oacute;vil para <strong>Android, IOS </strong>y<strong> Blackberry,</strong> solamente deben descargarla desde la tienda de aplicaciones correspondiente.</p> 
+<p>Para proteger nuestro WordPress basta con descargar un Plugin llamado <a href="https://wordpress.org/plugins/google-authenticator/"><strong>Google Authenticator.</strong></a> Una vez instalado solo tenemos que ir a nuestro perfil y escanear el c&oacute;digo de barra para sincronizarlo con la aplicaci&oacute;n de nuestro telefono.</p> 
+<p><a href="http://www.jsitech.com/wp-content/uploads/2014/11/google-authenticator-user-setup-my-profile-wordpress-800x536.png"><img src="http://www.jsitech.com/wp-content/uploads/2014/11/google-authenticator-user-setup-my-profile-wordpress-800x536.png" alt="google-authenticator-user-setup-my-profile-wordpress-800x536" width="800" height="536" /></a></p> 
+<p>Una vez completemos este paso, la pr&oacute;xima vez que vayamos a acceder al admin de nuestro WordPress nos pedir&aacute; el c&oacute;digo generado por la aplicaci&oacute;n de Google Authenticator.<br /> </p> 
+<p><a href="http://www.jsitech.com/wp-content/uploads/2014/11/authenticatorwordpress.jpeg"><img src="http://www.jsitech.com/wp-content/uploads/2014/11/authenticatorwordpress.jpeg" alt="authenticatorwordpress" width="254" height="198" /></a></p> 
+<p>Si bien ese c&oacute;digo se podr&iacute;a captar por igual que la contrase&ntilde;a, no le funcionar&aacute; ya que son de uso &uacute;nico y tendr&iacute;an que utilizar el pr&oacute;ximo que solo estar&aacute; disponible para ser visto en su tel&eacute;fono.</p> 
+<p>Otra Herramienta que me parece muy util, es <strong>Latch</strong>.</p> 
+<p><strong>Latch</strong> le permite agregar otra capa de seguridad a nuestra secci&oacute;n de admin de WordPress, se encarga de desactivar el acceso cuando no lo estamos utilizando minimizando el riesgo de cualquier acceso no autorizado.</p> 
+<p>Para utilizar en nuestro WordPress simplemente descargamos el Plugin para WordPress <strong><a href="https://wordpress.org/plugins/latch/">Latch de Eleven Path</a></strong>, una vez hecho esto accedemos al portal de <a href="https://latch.elevenpaths.com/www/">Eleven Path</a> y nos registramos como Developers.</p> 
+<p>En este paso podemos agregar los sites a proteger desde nuestro Smartphone descargando la aplicaci&oacute;n de Latch desde la tienda de aplicaciones o desde el mismo portal. Simplemente seleccionamos que deseamos agregar un servicio nuevo y este nos generar&aacute; un Token que debemos ingresar en nuestro perfil de WordPress en la secci&oacute;n que dice Latch Token. Una vez sincronizados podremos desactivar y activar el acceso desde el portal de Latch o desde la aplicaci&oacute;n. </p> 
+<p><a href="http://www.jsitech.com/wp-content/uploads/2014/11/User-profile-wordpress-latch.png"><img src="http://www.jsitech.com/wp-content/uploads/2014/11/User-profile-wordpress-latch.png" alt="User-profile-wordpress-latch" width="657" height="652" /></a><a href="http://www.jsitech.com/wp-content/uploads/2014/11/tempFileForShare.jpg"><img src="http://www.jsitech.com/wp-content/uploads/2014/11/tempFileForShare-576x1024.jpg" alt="tempFileForShare" width="576" height="1024" /></a></p> 
+<p>No mostr&eacute; todos los pasos al detalle ya que en mi pr&oacute;ximo Hangout voy a mostrar en vivo, paso a paso,&nbsp; como implementamos estas capas extras de seguridad en WordPress. Estar&eacute; creando una entrada con los detalles.<br /> </p> 
+<p>Fotos Google Authenticator wordpress : <a href="http://penguininitiatives.com/">Penguin Initiatives</a><br /> </p> 
+<p> </p>
+<p>The post <a href="http://www.jsitech.com/seguridad/protegiendo-la-seccion-admin-de-wordpress/">Protegiendo la Secci&oacute;n Admin de WordPress</a> appeared first on <a href="http://www.jsitech.com">JsiTech</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress" st_title="Protegiendo la Sección Admin de WordPress | JsiTech"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/seguridad/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta seguridad</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1173,
+      "url" : "http://www.blogstack.info/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "jsitech",
+      "name" : "JsiTech"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3255217622954305",
+        "adSlot" : "8776737477"
+      }
+    }
+  ]
+]); });</script></body></html>

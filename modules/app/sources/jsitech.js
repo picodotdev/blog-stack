@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
+      "title" : "Protegiendo la Sección Admin de WordPress"
+    },
+    {
       "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
       "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/phishing-y-como-protegernos",
       "title" : "Phishing y como protegernos"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/homenaje-a-enrique-bravo-la-sombra-del-helicoptero",
-      "title" : "Homenaje a Enrique Bravo, la Sombra del Helicoptero"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
+      "title" : "Protegiendo la Sección Admin de WordPress"
+    },
+    {
       "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
       "title" : "Cómo instalar openSUSE 13.2 DVD"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/como-instalar-calligra-en-ubuntu-linux-mint-kde",
-      "title" : "Cómo instalar Calligra en Ubuntu Linux Mint KDE"
     }
   ]
 }
