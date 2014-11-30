@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
-      "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
-    },
-    {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
+      "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
     },
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
