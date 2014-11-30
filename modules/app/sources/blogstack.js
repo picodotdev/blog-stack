@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
+      "title" : "Cómo instalar openSUSE 13.2 DVD"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/como-instalar-calligra-en-ubuntu-linux-mint-kde",
       "title" : "Cómo instalar Calligra en Ubuntu Linux Mint KDE"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner",
-      "title" : "Introducción a Grunt: Javascript task runner"
     }
   ]
 }

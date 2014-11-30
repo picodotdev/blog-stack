@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
+      "title" : "Cómo instalar openSUSE 13.2 DVD"
+    },
+    {
       "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
       "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
     },
