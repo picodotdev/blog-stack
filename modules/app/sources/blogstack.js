@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato",
+      "title" : "KTuberling, la versión KDE de Mr Potato"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-178",
       "title" : "Enlaces interesantes 178"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/opensuse-13-2-harlequin-kde-un-pequeno-video-demostrativo",
       "title" : "OpenSUSE 13.2 Harlequin KDE , un pequeño vídeo demostrativo"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
-      "title" : "Búsquedas simples con AWK en GNU Linux"
     }
   ]
 }

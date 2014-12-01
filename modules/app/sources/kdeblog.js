@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato",
+      "title" : "KTuberling, la versión KDE de Mr Potato"
+    },
+    {
       "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
       "title" : "Cómo instalar openSUSE 13.2 DVD"
     },
