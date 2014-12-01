@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
+      "title" : "Reforzar la Seguridad de WordPress con WPHardening"
+    },
+    {
       "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
       "title" : "Protegiendo la Sección Admin de WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
       "title" : "Solucionando problemas en Chakra"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
-      "title" : "Cómo instalar LAMP en Debian 7"
     }
   ]
 }
