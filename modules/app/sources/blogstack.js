@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-178",
+      "title" : "Enlaces interesantes 178"
+    },
+    {
       "url" : "/post/koalite/2014/12/la-consulta-que-era-lenta-los-domingos",
       "title" : "La consulta que era lenta los domingos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
       "title" : "Búsquedas simples con AWK en GNU Linux"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
-      "title" : "Java wait notify y threads"
     }
   ]
 }
