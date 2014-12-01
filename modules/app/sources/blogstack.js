@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/la-consulta-que-era-lenta-los-domingos",
+      "title" : "La consulta que era lenta los domingos"
+    },
+    {
       "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
       "title" : "Reforzar la Seguridad de WordPress con WPHardening"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
       "title" : "Java wait notify y threads"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
-      "title" : "Solucionando problemas en Chakra"
     }
   ]
 }
