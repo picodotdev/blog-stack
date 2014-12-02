@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
+      "title" : "Control de acceso en MediaWiki"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/emerald-un-elegante-tema-de-iconos-para-plasma",
       "title" : "Emerald, un elegante tema de iconos para Plasma"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/kbreakout-la-version-kde-de-arkanoid",
       "title" : "KBreakout, la versión KDE de Arkanoid"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
-      "title" : "Controla la red OpenNetAdmin"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
+      "title" : "Control de acceso en MediaWiki"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
       "title" : "Controla la red OpenNetAdmin"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
       "title" : "La versión 24.4 de GNU Emacs ya está disponible"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/control-de-versiones-con-subversion-y-usvn",
-      "title" : "Control de versiones con Subversion y USVN"
     }
   ]
 }
