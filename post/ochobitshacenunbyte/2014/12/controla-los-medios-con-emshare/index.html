@@ -1,0 +1,252 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Controla los medios con emshare | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare"><span itemprop="headline">Controla los medios con emshare</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programas"><img title="programas" alt="programas" src="/assets/images/labels/programas.png"/></a><a class="label" href="/label/centos"><img title="centos" alt="centos" src="/assets/images/labels/centos.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">davidochobits</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/12/02/controla-los-medios-con-emshare/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-02T22:28" itemprop="datePublished">Publicado el martes, 02 de diciembre de 2014 a las 22:28 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, <a href="/label/programas"><span itemprop="articleSection">programas</span></a>, entermedia, emshare, imagemagick, <a href="/label/centos"><span itemprop="articleSection">centos</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><script></script>
+<p><strong>Emshare</strong> es un potent&iacute;simo software, que nos permitir&aacute;, usando los metadatos, controlar y gestionar infinidad de objetos digitales. Podemos decir que se trata de un producto enfocado claramente a grandes empresas editoriales, de prensa y audiovisuales, todo ello usando uno de los caballos de batalla m&aacute;s poderoso, la tecnolog&iacute;a <strong>open source</strong>.</p> 
+<p>Aunque los <strong>CMS</strong> son muy potentes y son muy usados, quiz&aacute;s para proyectos muy grandes, donde tenemos que controlar, crear y editar metadatos por doquier, ya sean de v&iacute;deo, imagen o audio, no puedan estar a la altura.</p> 
+<p>En su d&iacute;a hablamos de <a title="MediaGoblin, la plataforma audiovisual libre" href="http://www.ochobitshacenunbyte.com/2014/09/02/mediagoblin-la-plataforma-audiovisual-libre/">MediaGoblin</a>, un proyecto totalmente libre, impulsado por la <strong>Free Software Foundation</strong>, y que tiene c&oacute;mo meta ser un gran gestor audiovisual.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-008.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-008.jpg" alt="emshare-centos-6-6-008" width="200" height="55" /></a></p> 
+<p>En producto del que hablo hoy es <a title="emshare web" href="http://entermediasoftware.com/"><strong>emshare</strong></a>. Ha sido creado por <strong>EnterMedia</strong>, una empresa que ha creado el producto usando la filosof&iacute;a open source. Tal y c&oacute;mo comentan en su p&aacute;gina web “se trata de una base de datos de medios de comunicaci&oacute;n similar a <strong>Youtube</strong> o <strong>Flickr</strong> que, siendo de c&oacute;digo abierto, es totalmente personalizable a cada nivel.”</p> 
+<p><strong>Emshare</strong> nos permite hacer un seguimiento de nuestros activos u objetos digitales, y a&ntilde;adirles metadatos, lo que facilita la colaboraci&oacute;n y las busquedas. Muy &uacute;til cuando se trabaja en proyectos colaborativos con personas repartidas por todo el globo.</p> 
+<p>Al igual que la mayor&iacute;a de <strong>CMS</strong>, tambi&eacute;n podemos compartir los archivos digitales en las redes sociales, votarlos o comentarlos.</p> 
+<p><strong>Emshare</strong> ha sido hecho desde cero, por lo tanto no se basa en ning&uacute;n otro producto. Utiliza una interfaz elegante, intuitiva y f&aacute;cil de usar.</p> 
+<h2>Caracter&iacute;sticas de emshare</h2> 
+<p>No voy a citar todas las caracter&iacute;sticas, ocupar&iacute;a mucho espacio en el art&iacute;culo, as&iacute; que paso a listar las que, a mi parecer, son m&aacute;s importantes:</p> 
+<ul> 
+ <li>Enfocada a la empresa, nos permite rastrear, administrar y compartir archivos digitales en l&iacute;nea.</li> 
+ <li>Es compatible con la mayor&iacute;a de plataformas, en el lado de servidor, c&oacute;mo <strong>GNU Linux</strong>, <strong>Windows</strong>, <strong>OS X</strong> y <strong>Solaris</strong>.</li> 
+ <li>Puede tener usuarios ilimitados.</li> 
+ <li>Es compatible con todos los navegadores web.</li> 
+ <li><strong>API REST</strong>, que permite integrar aplicaciones de terceros.</li> 
+ <li>Totalmente escalable.</li> 
+ <li>Permite arrastrar y soltar desde otras aplicaciones.</li> 
+ <li>Realiza un control de versiones de forma autom&aacute;tica.</li> 
+ <li>Almacena elementos audiovisuales en la inmensa mayor&iacute;a de formatos.</li> 
+ <li>F&aacute;cil extracci&oacute;n de metadatos.</li> 
+</ul> 
+<p>Si quer&eacute;is saber m&aacute;s sobre el producto y sus caracter&iacute;sticas, pod&eacute;is visitar su <a title="emshare features" href="http://entermediasoftware.com/views/learningcenter/features/index.html">sitio</a>.</p> 
+<h3>Instalaci&oacute;n</h3> 
+<p><strong>Emshare</strong> nos recomienda para la instalaci&oacute;n <strong>Centos 6.3</strong> o <strong>Red Hat 6.4.</strong> A&uacute;n as&iacute; yo he probado la instalaci&oacute;n en <strong>Centos 6.6,</strong> y todo me ha funcionado bien.</p> 
+<p>Tambi&eacute;n podemos bajar una imagen virtual de un servidor ya montado, <a title="emshare virtualbox" href="http://entermediasoftware.com/views/learningcenter/wiki/VirtualBox_Evaluation_Setup.html">aqu&iacute;</a>.</p> 
+<p>La plataforma est&aacute; hecha en<strong> java</strong>, si queremos nos podemos bajar el c&oacute;digo fuente, <a title="entermedia source" href="http://entermediasoftware.com/views/download/index.html">aqu&iacute;</a>.</p> 
+<p>Para el art&iacute;culo he pensado instalar la distribuci&oacute;n en una m&aacute;quina virtual con <strong>VirtualBox</strong>. Primero de todo me he ido a la p&aacute;gina de<strong> CentOS</strong>, a la secci&oacute;n de descargas de versiones antiguas, <a title="CentOS Download" href="http://wiki.centos.org/Download">aqu&iacute;</a>.</p> 
+<p>Para la instalaci&oacute;n he seguido los pasos de la gu&iacute;a para <a title="Centos 6.3 emshare" href="http://entermediasoftware.com/views/learningcenter/wiki/CentOS_Installer.html">Centos 6.3</a>, pero en mi caso c&oacute;mo he dicho, en <strong>Centos 6.6</strong></p> 
+<p>En la p&aacute;gina oficial recomiendan almenos dos cores y 4 GB de memoria, con 200 MB para la aplicaci&oacute;n y 100 GB para los datos. Yo he creado algo m&aacute;s peque&ntilde;o, con 16 GB de disco, 1 core y 2 GB de memoria, ya que la m&aacute;quina corre sobre mi port&aacute;til <strong>HP Envy I7</strong>, con <strong>Kubuntu</strong>.</p> 
+<p>Una vez ya tenemos nuestro <strong>CentOS </strong>listo, accedemos a la consola de comandos y como primer paso actualizamos e instalamos GIT.</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>su</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>yum update</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>yum install git</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Creamos el directorio donde guardaremos el proyecto:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>mkdir ~/git</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Y accedemos a &eacute;l:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>cd ~/git</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Usamos <strong><em>git</em> </strong>para clonar el proyecto desde la web:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>git clone https://github.com/entermedia-community/installer_centos.git</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Accedemos al instalador del proyecto:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>cd installer_centos/installer</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Y ejecutamos el script de instalaci&oacute;n:</p> 
+<div>
+ <table>
+  <tbody>
+   <tr>
+    <td><pre>1
+</pre></td>
+    <td><pre>./install64.sh</pre></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>El proceso es un poco largo, as&iacute; que paciencia.</p> 
+<p>Nos ir&aacute; preguntando sobre la instalaci&oacute;n del software, librerias y dependencias necesarias.</p> 
+<p>Veremos que durante el proceso nos instalar&aacute; paquetes como <strong>LibreOffice</strong> o <strong>ffmpeg</strong>.</p> 
+<p>Las diferentes veces que he realizado la instalaci&oacute;n me ha fallado la de <strong>ImageMagick</strong>, aunque mas adelante explicar&eacute; c&oacute;mo solucionarlo.</p> 
+<p>Si todo ha ido bien, veremos los &uacute;ltimos mensajes de instalaci&oacute;n, tal y como se muestra en la imagen:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-001.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-001.jpg" alt="emshare-centos-6-6-001" width="767" height="124" /></a></p> 
+<p>Ya nos podemos ir al navegador y escribir: <strong>http://la-ip-del-servidor:8080/emshare</strong></p> 
+<p>Si a las primeras no funciona, recuerda tener encendido el <strong>servicio tomcat</strong>, y el <strong>firewall</strong> por el puerto 8080 deshabilitado.</p> 
+<p><strong>CentOS</strong> lleva siempre el firewall activado, para desactivarlo: <strong>iptables -F</strong></p> 
+<p>Las credenciales de acceso son <strong>admin /</strong> <strong>admin</strong></p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-002.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-002.jpg" alt="emshare-centos-6-6-002" width="800" height="408" /></a></p> 
+<p>Como vemos la interfaz web es muy elegante, aunque ahora es como un pueblo de lejano oeste, sin vaqueros ni forajidos, as&iacute; que vamos a dale un poco de vida.</p> 
+<p>Si vamos al bot&oacute;n de “<strong>Upload Media</strong>“, subiremos unas cuantas im&aacute;genes.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-003.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-003.jpg" alt="emshare-centos-6-6-003" width="700" height="391" /></a></p> 
+<p>En &eacute;ste menu seleccionamos el fichero a subir, y le podemos a&ntilde;adir a una divisi&oacute;n, que yo he llamado “ochobits_images” y asignarle etiquetas, como se observa.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-004.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-004.jpg" alt="emshare-centos-6-6-004" width="700" height="190" /></a></p> 
+<p>Como vemos al subir la imagen ha ocurrido un error. Seguramente debido al error que he comentado antes, durante la instalaci&oacute;n, con ImageMagick, pero no pasa nada.</p> 
+<p>Vamos a ver como solucionarlo, compilando <strong>ImageMagick</strong> desde las fuentes. Siguiendo &eacute;sta <a title="ImageMagick" href="http://entermediasoftware.com/views/learningcenter/wiki/compilingImagemagick.html">gu&iacute;a</a>.</p> 
+<p>Puede parecer algo tedioso, pero vale la pena.</p> 
+<p>Si hemos seguido las instrucciones, ya nos ir&aacute; todo como la seda:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-005.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-005.jpg" alt="emshare-centos-6-6-005" width="700" height="184" /></a></p> 
+<p>Al editar la imagen tenemos un gran abanico de opciones:</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-006.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-006.jpg" alt="emshare-centos-6-6-006" width="700" height="572" /></a></p> 
+<p>Como v&eacute;is tenemos una gran variedad de opciones para modificar par&aacute;metros de la imagen, desde editar los metadatos, a&ntilde;adir comentarios, recortar la imagen, realizar conversiones de formato, a&ntilde;adir a categor&iacute;as o proyectos, hasta geolocalizaci&oacute;n! y como no, ver el historial de la imagen, para poder volver a una versi&oacute;n anterior.</p> 
+<p>No pod&iacute;a faltar subir un archivo de m&uacute;sica, para saber si la subida iba bien, y sobre todo si el tema se escuchaba decentemente. Y yo como tengo mucha clase, he subido “<strong>Am I Evil</strong>” de <strong>Diamond Head</strong>.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-007.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-007.jpg" alt="emshare-centos-6-6-007" width="700" height="269" /></a></p> 
+<p>Puedo garantizar que se escucha perfectamente e incluso muy bien. Quiz&aacute;s en un v&iacute;deo, m&aacute;s adelante, os lo pueda demostrar.</p> 
+<p>Por &uacute;ltimo queda la prueba de fuego que es subir un v&iacute;deo.</p> 
+<p>Por su tama&ntilde;o, y las caracter&iacute;sticas de mi servidor, la subida ha tardado un poco.</p> 
+<p>He utilizado un v&iacute;deo bajado de la p&aacute;gina de <strong>RTVE</strong> del programa <strong>Pagina2</strong>, que se puede bajar de forma gratuita, as&iacute; que creo que no tendr&eacute; ning&uacute;n problema de derechos de autor.</p> 
+<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-009.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-009.jpg" alt="emshare-centos-6-6-009" width="700" height="459" /></a></p> 
+<p>El v&iacute;deo se ve perfecto, la &uacute;nica pega es lo que ha tardado en subir al servidor, tambi&eacute;n es verdad que era 140 MB</p> 
+<p>Creo que el art&iacute;culo explica de forma extensa, aunque queda mucho de lo que hablar, las bondades de &eacute;ste fant&aacute;stico software que es <strong>emshare </strong>de <strong>entermedia</strong>.</p> 
+<p>Quiz&aacute;s, si saco tiempo, os siga explicando.</p> 
+<p><strong><em>See you soon!!</em></strong></p> 
+<p>La entrada <a href="http://www.ochobitshacenunbyte.com/2014/12/02/controla-los-medios-con-emshare/">Controla los medios con emshare</a> aparece primero en <a href="http://www.ochobitshacenunbyte.com">ochobitshacenunbyte</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare" st_title="Controla los medios con emshare | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programas/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programas</a></li><li><a href="/label/centos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta centos</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1183,
+      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "ochobitshacenunbyte",
+      "name" : "Ocho bits hacen un byte"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-1362235464953379",
+        "adSlot" : "5825737840"
+      }
+    }
+  ]
+]); });</script></body></html>

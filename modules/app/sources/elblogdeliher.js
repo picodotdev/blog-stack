@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/12/la-temperatura-del-procesador-debe-preocuparnos",
+      "title" : "La temperatura del procesador debe preocuparnos?"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
       "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
       "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mira-que-llegan-a-ser-pesados",
-      "title" : "Mira que llegan a ser pesados"
     }
   ]
 }

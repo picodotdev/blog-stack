@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
+      "title" : "Controla los medios con emshare"
+    },
+    {
+      "url" : "/post/elblogdeliher/2014/12/la-temperatura-del-procesador-debe-preocuparnos",
+      "title" : "La temperatura del procesador debe preocuparnos?"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
       "title" : "50 Ejemplos de Angular, paso a paso."
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
       "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout",
-      "title" : "Tips de Javascript: para qué sirve setTimeout = 0?"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
-      "title" : "Entendiendo el Servlet Lifecycle"
     }
   ]
 }

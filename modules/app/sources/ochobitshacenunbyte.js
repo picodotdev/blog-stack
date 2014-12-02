@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
+      "title" : "Controla los medios con emshare"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
       "title" : "Control de acceso en MediaWiki"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
       "title" : "Joomla, segunda parada visitando los CMS"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/la-version-24-4-de-gnu-emacs-ya-esta-disponible",
-      "title" : "La versión 24.4 de GNU Emacs ya está disponible"
     }
   ]
 }
