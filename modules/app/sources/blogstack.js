@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/emerald-un-elegante-tema-de-iconos-para-plasma",
+      "title" : "Emerald, un elegante tema de iconos para Plasma"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
       "title" : "Java HttpSession Timeout"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
       "title" : "Controla la red OpenNetAdmin"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
-      "title" : "Probamos la beta de Fedora 21"
     }
   ]
 }
