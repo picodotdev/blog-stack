@@ -1,0 +1,178 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Java HttpSession Timeout | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/12/java-httpsession-timeout"><span itemprop="headline">Java HttpSession Timeout</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/java-httpsession-timeout/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-02T08:51" itemprop="datePublished">Publicado el martes, 02 de diciembre de 2014 a las 08:51 UTC</span></div><div><span>
+Etiquetado como
+java-web</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>El objeto de Java HttpSession es uno de los m&aacute;s utilizados en aplicaciones web ya que continuamente necesitamos almacenar informaci&oacute;n que este viva para un usuario concreto mientras este maneja la aplicaci&oacute;n y se mueve a trav&eacute;s de las distintas p&aacute;ginas.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00121.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00121.gif" alt="001" width="341" height="265" /></a></p> 
+<p>&nbsp;</p> 
+<p>En estas situaciones nos encontramos que es clave saber cuanto tiempo &nbsp;esta viva una session determinada. Esto se configura normalmente a trav&eacute;s del web.xml con las siguientes etiquetas.</p> 
+<pre>
+
+&lt;session-config&gt;
+ &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+
+</pre> 
+<p>El Tomcat tiene configurado por defecto un timeout de 30 minutos. Sin embargo en muchas ocasiones queremos modificarlo ya sea para bajarlo y reducir el timeout como para subirlo,depender&aacute; mucho del tipo de aplicaciones.</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00220.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00220.gif" alt="002" width="305" height="501" /></a></p> 
+<p>&nbsp;</p> 
+<p>Ahora bien este tipo de configuraci&oacute;n aunque es muy sencilla tiene una serie de limitaciones la m&aacute;s importante es que trata a todas las sessiones de todos los usuarios por igual.&nbsp;Quiz&aacute;s esto no sea lo que deseemos ya que hay situaciones que la sessi&oacute;n de un usuario normal es razonable que dure 30 minutos pero la session de un administrador debe durar solo 5. <strong>&iquest;Como abordamos este problema?.&nbsp;</strong></p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00318.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00318.gif" alt="003" width="297" height="445" /></a></p> 
+<p>Para personalizar el tiempo de timeout de un usuario concreto podemos atacar directamente al objeto HttpSession y a su m&eacute;todo <strong>setMaxInactiveInverval(int segundos)</strong> que nos permite configurar el tiempo de timeout de forma individual para cada usuario (en segundos) vamos a verlo en c&oacute;digo:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet(&quot;/Servlet1&quot;)
+public class Servlet1 extends HttpServlet {
+ private static final long serialVersionUID = 1L;
+
+ protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+ HttpSession session=request.getSession();
+ session.setMaxInactiveInterval(60);
+ session.setAttribute(&quot;nombre&quot;, &quot;pedro&quot;);
+
+ }
+
+}
+
+</pre> 
+<p>Este primer servlet almacena un objeto de tipo String (“nombre”) en la session pero &nbsp;modifica su tiempo de timeout para que solo dure 60 segundos. Usaremos otro servlet para leer la informaci&oacute;n.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+@WebServlet(&quot;/Servlet1&quot;)
+public class Servlet1 extends HttpServlet {
+ private static final long serialVersionUID = 1L;
+
+ /**
+ * @see HttpServlet#HttpServlet()
+ */
+ public Servlet1() {
+ super();
+ // TODO Auto-generated constructor stub
+ }
+
+ /**
+ * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+ */
+ protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+ HttpSession session=request.getSession();
+ session.setMaxInactiveInterval(60);
+ session.setAttribute(&quot;nombre&quot;, &quot;pedro&quot;);
+
+ }
+
+}
+
+</pre> 
+<p>Este segundo servlet nos imprimir&aacute; los datos almacenados en la session por pantalla pero en vez de durar la session 30 minutos &uacute;nicamente durar&aacute; 60 segundos (un minuto) una vez pasado el minuto los datos se perder&aacute;n.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00542.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00542.png" alt="005" width="331" height="128" /></a></p> 
+<p>De esta forma tendremos un control mucho m&aacute;s a detalle de la gesti&oacute;n de sesiones.</p> 
+<p>Otros art&iacute;culos relacionados : <a title="Usando Java Session en aplicaciones web" href="http://www.arquitecturajava.com/usando-java-session-en-aplicaciones-web/">El concepto de HttpSession</a>&nbsp;,<a title="Java ServletContextListener" href="http://www.arquitecturajava.com/servletcontextlistener/"> Manejando ServletContextListener</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/java-httpsession-timeout/">Java HttpSession Timeout</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" st_title="Java HttpSession Timeout | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1178,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
+      "title" : "Java HttpSession Timeout"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
       "title" : "Entendiendo el Servlet Lifecycle"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
       "title" : "JAX-RS Client y Servicios REST"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/javabeans-dto-y-dozer",
-      "title" : "JavaBeans , DTO y Dozer"
     }
   ]
 }

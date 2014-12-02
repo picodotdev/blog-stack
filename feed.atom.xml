@@ -3,10 +3,38 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-01T21:03:48Z</updated>
+  <updated>2014-12-02T09:07:40Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-01T21:03:48Z</dc:date>
+  <dc:date>2014-12-02T09:07:40Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java HttpSession Timeout</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout" />
+    <category term="java-web" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-12-02T08:51:52Z</updated>
+    <published>2014-12-02T08:51:52Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;El objeto de Java HttpSession es uno de los m&amp;aacute;s utilizados en aplicaciones web ya que continuamente necesitamos almacenar informaci&amp;oacute;n que este viva para un usuario concreto mientras este maneja la aplicaci&amp;oacute;n y se mueve a trav&amp;eacute;s de las distintas p&amp;aacute;ginas.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00121.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00121.gif" alt="001" width="341" height="265" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;En estas situaciones nos encontramos que es clave saber cuanto tiempo &amp;nbsp;esta viva una session determinada. Esto se configura normalmente a trav&amp;eacute;s del web.xml con las siguientes etiquetas.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;session-config&amp;gt;
+ &amp;lt;session-timeout&amp;gt;30&amp;lt;/session-timeout&amp;gt;
+&amp;lt;/session-config&amp;gt;
+
+&lt;/pre&gt; 
+&lt;p&gt;El Tomcat tiene configurado por defecto un timeout de 30 minutos. Sin embargo en muchas ocasiones queremos modificarlo ya sea para bajarlo y reducir el timeout como para subirlo,depender&amp;aacute; mucho del tipo de aplicaciones.&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00220.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00220.gif" alt="002" width="305" height="501" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;Ahora bien este tipo de configuraci&amp;oacute;n aunque es muy sencilla tiene una serie de limitaciones la m&amp;aacute;s importante es que trata a todas las sessiones de todos los usuarios por igual.&amp;nbsp;Quiz&amp;aacute;s esto no sea lo que deseemos ya que hay situaciones que la sessi&amp;oacute;n de un usuario normal es razonable que dure 30 minutos pero la session de un administrador debe durar solo 5. &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-httpsession-timeout"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-12-02T08:51:52Z</dc:date>
+  </entry>
   <entry>
     <title>KTuberling, la versión KDE de Mr Potato</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato" />
@@ -735,28 +763,6 @@ return listaProductos.size() &amp;gt;= 5;
 &lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/que-es-el-md5sum-y-para-que-sirve-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-11-25T11:42:48Z</dc:date>
-  </entry>
-  <entry>
-    <title>Al actualizar me aparece Error 404 Not Found en Ubuntu, ¿que pasa?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa" />
-    <category term="4-4-not-found" />
-    <category term="ubuntu" />
-    <category term="error" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-25T09:23:31Z</updated>
-    <published>2014-11-25T09:23:31Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt; 
- &lt;p&gt;Este es un problema que seguramente a mas de uno nos ha aparecido en la Terminal de &lt;strong&gt;Ubuntu&lt;/strong&gt; cuando hemos ido a &lt;strong&gt;actualizar&lt;/strong&gt; nuestro sistema, nos aparece un mensaje en el que podemos leer “&lt;strong&gt;Error 404 Not Found”&lt;/strong&gt; despu&amp;eacute;s del repositorio que esta teniendo ese problema. Concretamente esto le ha pasado a Mariano, un amigo mio al que le lanzo un saludo desde aqu&amp;iacute;. A mi la ultima vez que me paso fue al instalar Ubuntu 14.04 con el programa Clipgrab, podemos quitar ese mensaje de error de varias formas, pero os voy a explicar a que es debido.&lt;/p&gt; 
- &lt;p&gt;Antes de nada os voy a mostrar una captura del error:&lt;/p&gt; 
- &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
- &lt;p&gt;&lt;a href="http://elblogdeliher.com/wp-content/uploads/2014/11/error-404-ubuntu.jpg"&gt;&lt;img src="http://elblogdeliher.com/wp-content/uploads/2014/11/error-404-ubuntu.jpg" alt="error-404-ubuntu" width="631" height="210" /&gt;&lt;/a&gt;&lt;/p&gt; 
- &lt;p&gt;&amp;nbsp;&lt;/p&gt; 
- &lt;p&gt;Este mensaje os aparecer&amp;aacute; cuando hac&amp;eacute;is un “sudo apt-get update” desde la Terminal de &lt;strong&gt;Ubuntu&lt;/strong&gt;. Ahora os voy a comentar un poco cual es el problema y cuando puede surgir. En mi caso me surgi&amp;oacute; cuando instale Ubuntu 14.04 por primer vez, a&amp;ntilde;ad&amp;iacute; todos los repositorios externos que uso y cuando hice el “sudo apt-get update” me encontr&amp;eacute; con este fallo, el “&lt;/p&gt;
-&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/al-actualizar-me-aparece-error-4-4-not-found-en-ubuntu-que-pasa"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-25T09:23:31Z</dc:date>
   </entry>
 </feed>
 

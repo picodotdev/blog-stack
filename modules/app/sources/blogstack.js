@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
+      "title" : "Java HttpSession Timeout"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato",
       "title" : "KTuberling, la versión KDE de Mr Potato"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
       "title" : "Probamos la beta de Fedora 21"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/opensuse-13-2-harlequin-kde-un-pequeno-video-demostrativo",
-      "title" : "OpenSUSE 13.2 Harlequin KDE , un pequeño vídeo demostrativo"
     }
   ]
 }
