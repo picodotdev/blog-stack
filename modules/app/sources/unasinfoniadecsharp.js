@@ -3,6 +3,10 @@ define("app/sources/unasinfoniadecsharp", [], function() {
   "name" : "Una sinfonía en C#",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
+      "title" : "50 Ejemplos de Angular, paso a paso."
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout",
       "title" : "Tips de Javascript: para qué sirve setTimeout = 0?"
     },

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
+      "title" : "50 Ejemplos de Angular, paso a paso."
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
       "title" : "Control de acceso en MediaWiki"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
       "title" : "Entendiendo el Servlet Lifecycle"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/kbreakout-la-version-kde-de-arkanoid",
-      "title" : "KBreakout, la versión KDE de Arkanoid"
     }
   ]
 }
