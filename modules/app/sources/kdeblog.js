@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/tutoriales-de-kturtle-para-aprender-a-programar",
+      "title" : "Tutoriales de KTurtle para aprender a programar"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/emerald-un-elegante-tema-de-iconos-para-plasma",
       "title" : "Emerald, un elegante tema de iconos para Plasma"
     },

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc",
+      "title" : "Quo vadis, ASP.NET MVC?"
+    },
+    {
+      "url" : "/post/kdeblog/2014/12/tutoriales-de-kturtle-para-aprender-a-programar",
+      "title" : "Tutoriales de KTurtle para aprender a programar"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
       "title" : "Controla los medios con emshare"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
-      "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
     }
   ]
 }
