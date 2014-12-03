@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/estado-del-estado-de-las-licencias-creative-commons",
+      "title" : "Estado del estado de las licencias Creative Commons"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc",
       "title" : "Quo vadis, ASP.NET MVC?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     }
   ]
 }

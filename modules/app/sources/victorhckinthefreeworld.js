@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/estado-del-estado-de-las-licencias-creative-commons",
+      "title" : "Estado del estado de las licencias Creative Commons"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/11/regalos-de-opensuse-desde-beijing",
       "title" : "Regalos de openSUSE desde Beijing"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-13-2-rc1-recien-salida-del-horno",
       "title" : "openSUSE 13.2 RC1 recién salida del horno"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-factory-gnome-revision-yoyo-style",
-      "title" : "openSUSE Factory Gnome, revisión \u201cYoyo style\u201d"
     }
   ]
 }
