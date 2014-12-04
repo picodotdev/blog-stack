@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
+      "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
+    },
+    {
       "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
       "title" : "Reforzar la Seguridad de WordPress con WPHardening"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14",
       "title" : "Avisos de Seguridad 20/09/2014"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/foro-jsitech-foro-de-ayuda-en-linux",
-      "title" : "Foro JsiTech \u2013 Foro de Ayuda en Linux"
     }
   ]
 }

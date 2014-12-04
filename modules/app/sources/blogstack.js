@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
+      "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
       "title" : "Estado de las licencias Creative Commons"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
-      "title" : "Introducción a Ansible"
     }
   ]
 }
