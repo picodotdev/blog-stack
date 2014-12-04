@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
+      "title" : "Colabora con la Free Software Foundation"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
       "title" : "KaOS: fiel a sus principios"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
       "title" : "Cómo instalar openSUSE 13.2 DVD"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
-      "title" : "Introducción a Bitnami"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
+      "title" : "Colabora con la Free Software Foundation"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
       "title" : "Estado de las licencias Creative Commons"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
       "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/el-entorno-de-trabajo-de-un-desarrollador-de-linux-hoy-john-linville",
-      "title" : "El entorno de trabajo de un desarrollador de Linux: Hoy John Linville"
     }
   ]
 }
