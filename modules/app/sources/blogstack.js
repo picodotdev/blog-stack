@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
+      "title" : "Taller de GNU/Linux en las III Jornadas Libres de la UNED de Vila-real"
+    },
+    {
       "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
       "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
       "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
-      "title" : "Integración entre Ansible y Docker"
     }
   ]
 }
