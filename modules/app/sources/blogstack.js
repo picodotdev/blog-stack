@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
+      "title" : "KaOS: fiel a sus principios"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
       "title" : "Taller de GNU/Linux en las III Jornadas Libres de la UNED de Vila-real"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas",
-      "title" : "Ya tengo nuevo diseño, aunque faltan algunas cosillas"
     }
   ]
 }

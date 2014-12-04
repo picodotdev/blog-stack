@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
+      "title" : "KaOS: fiel a sus principios"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/04/solucionando-problemas-en-chakra",
       "title" : "Solucionando problemas en Chakra"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/10/chakra-cambiador-de-tareas",
       "title" : "Chakra: cambiador de tareas"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/03/desmontando-a-shadow",
-      "title" : "Desmontando a shadow"
     }
   ]
 }
