@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
+      "title" : "Fin del soporte para openSUSE 12.3"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
       "title" : "Colabora con la Free Software Foundation"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
       "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/instalar-tarjeta-wifi-broadcom-b4311-en-opensuse",
-      "title" : "Instalar tarjeta wifi Broadcom b4311 en openSUSE"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
+      "title" : "Fin del soporte para openSUSE 12.3"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
       "title" : "Granatier, la versión KDE de Bomberman"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
       "title" : "Reforzar la Seguridad de WordPress con WPHardening"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
-      "title" : "Protegiendo la Sección Admin de WordPress"
     }
   ]
 }
