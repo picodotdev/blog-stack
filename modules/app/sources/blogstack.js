@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
+      "title" : "Granatier, la versión KDE de Bomberman"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
       "title" : "Colabora con la Free Software Foundation"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
       "title" : "Protegiendo la Sección Admin de WordPress"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
-      "title" : "Cómo instalar openSUSE 13.2 DVD"
     }
   ]
 }
