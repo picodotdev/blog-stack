@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
+      "title" : "Excipientes y principios activos de Scrum"
+    },
+    {
       "url" : "/post/navegapolis/2014/11/infografia-resumen-de-la-gestion-de-proyectos-predictiva-y-evolutiva",
       "title" : "Infografía resumen de la gestión de proyectos predictiva y evolutiva."
     },

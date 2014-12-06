@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
+      "title" : "Excipientes y principios activos de Scrum"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
       "title" : "8+ libros para mejorar como programadores"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/emerald-un-elegante-tema-de-iconos-para-plasma",
       "title" : "Emerald, un elegante tema de iconos para Plasma"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
-      "title" : "Java HttpSession Timeout"
     }
   ]
 }
