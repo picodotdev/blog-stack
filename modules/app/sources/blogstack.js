@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
+      "title" : "Calligra 2.8.7 disponible para su actualización"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/12/la-consulta-que-era-lenta-los-domingos",
       "title" : "La consulta que era lenta los domingos"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
-      "title" : "Reforzar la Seguridad de WordPress con WPHardening"
     }
   ]
 }

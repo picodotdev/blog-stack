@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
+      "title" : "Calligra 2.8.7 disponible para su actualización"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
       "title" : "Granatier, la versión KDE de Bomberman"
     },
