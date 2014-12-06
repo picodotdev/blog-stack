@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
+      "title" : "8+ libros para mejorar como programadores"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
-      "title" : "8+ libros para mejorar como programadores"
     },
     {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
