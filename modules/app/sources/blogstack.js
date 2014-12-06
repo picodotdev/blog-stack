@@ -3,12 +3,24 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
       "title" : "Calligra 2.8.7 disponible para su actualización"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
+      "title" : "8+ libros para mejorar como programadores"
     },
     {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
       "title" : "Java HttpSession Timeout"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato",
-      "title" : "KTuberling, la versión KDE de Mr Potato"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-178",
-      "title" : "Enlaces interesantes 178"
-    },
-    {
-      "url" : "/post/koalite/2014/12/la-consulta-que-era-lenta-los-domingos",
-      "title" : "La consulta que era lenta los domingos"
     }
   ]
 }

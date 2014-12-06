@@ -3,6 +3,18 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
+      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
+      "title" : "Introducción y características de Docker"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
+      "title" : "8+ libros para mejorar como programadores"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
     },
@@ -15,16 +27,8 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Introducción a Ansible"
     },
     {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
-    },
-    {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
-      "title" : "Introducción y características de Docker"
     },
     {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
       "title" : "Experiencia instalando sistema operativo a ordenador viejo"
-    },
-    {
-      "url" : "/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone",
-      "title" : "Usar Apache Tapestry en una aplicación «standalone»"
     }
   ]
 }
