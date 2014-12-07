@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito",
+      "title" : "Free software, beyond software de Agustín Benito"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
       "title" : "Calligra 2.8.7 disponible para su actualización"
     },
