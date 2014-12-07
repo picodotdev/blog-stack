@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
-      "title" : "Excipientes y principios activos de Scrum"
-    },
-    {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
       "title" : "8+ libros para mejorar como programadores"
+    },
+    {
+      "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
+      "title" : "Excipientes y principios activos de Scrum"
     },
     {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
