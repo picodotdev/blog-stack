@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
+      "title" : "KaOS: fiel a sus principios"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
       "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
     },
@@ -45,10 +49,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
       "title" : "Colabora con la Free Software Foundation"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
-      "title" : "KaOS: fiel a sus principios"
     },
     {
       "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
