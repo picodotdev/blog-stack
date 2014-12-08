@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
+      "title" : "Java 8 Date Time API"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito",
       "title" : "Free software, beyond software de Agustín Benito"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
       "title" : "50 Ejemplos de Angular, paso a paso."
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
-      "title" : "Control de acceso en MediaWiki"
     }
   ]
 }

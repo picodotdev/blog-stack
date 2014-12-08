@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
+      "title" : "Java 8 Date Time API"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
       "title" : "Java HttpSession Timeout"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
       "title" : "Sublime Text editor y su exito para CantabriaTIC"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/09/jax-rs-client-y-servicios-rest",
-      "title" : "JAX-RS Client y Servicios REST"
     }
   ]
 }

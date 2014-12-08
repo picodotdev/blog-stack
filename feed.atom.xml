@@ -3,10 +3,54 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-07T10:02:51Z</updated>
+  <updated>2014-12-08T08:04:38Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-07T10:02:51Z</dc:date>
+  <dc:date>2014-12-08T08:04:38Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 Date Time API</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api" />
+    <category term="java" />
+    <category term="java-basico" />
+    <category term="java-api" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-12-08T08:00:28Z</updated>
+    <published>2014-12-08T08:00:28Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Llevamos mas de de una d&amp;eacute;cada trabajando con la clase Date y la clase Calendar en Java . Mucha gente cuando empieza se ha encontrado con verdaderos problemas a la hora de gestionar estas clases unidas a la clase DateFormat. A partir de Java 8 las cosas se van a simplificar ya que tenemos un nuevo API de DateTime mucho m&amp;aacute;s intuitivo. Una de las clases fundamentales a la hora de trabajar con Java 8 es la&lt;strong&gt; clase Instant&lt;/strong&gt; que define un instante en el tiempo.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001142.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001142.png" alt="001" width="434" height="104" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos a ver como funciona en el c&amp;oacute;digo :&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava.fechas;
+
+import java.time.Duration;
+import java.time.Instant;
+
+public class PrincipalInstante {
+
+ public static void main(String[] args) {
+
+ Instant instanteA=Instant.now();
+
+ try {
+ Thread.sleep(3000);
+ } catch (InterruptedException e) {
+ // TODO Auto-generated catch block
+ e.printStackTrace();
+ }
+
+ Instant instanteB= Instant.now();
+ System.out.println(Duration.between(instanteA, instanteB));
+
+ }
+
+}
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-12-08T08:00:28Z</dc:date>
+  </entry>
   <entry>
     <title>Free software, beyond software de Agustín Benito</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito" />
@@ -636,23 +680,6 @@
 &lt;p&gt;Instalar algunas aplicaciones, herramientas o servicios no siempre es sencillo y r&amp;aacute;pido. En la mayor&amp;iacute;a de los casos los pasos est&amp;aacute;n explicados suficientemente pero en la pr&amp;aacute;ctica nos pueden surgir dudas o encontrarnos con problemas que no est&amp;aacute;n documentados que pueden hacer que la experiencia de instalaci&amp;oacute;n no sea agradable o necesitar dependencias que hay que instalar a la vez para obtener un funcionamiento correcto. Adem&amp;aacute;s, si no empleamos una m&amp;aacute;quina virtual necesitaremos instalarlo en nuestro propio equipo o servidor cuando quiz&amp;aacute; solo nos interesa evaluar el producto con lo que al hacer la desinstalaci&amp;oacute;n acabaremos con archivos temporales que quiz&amp;aacute; no se eliminen y permanezcan en nuestro equipo para siempre o hasta que nos demos cuenta.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-bitnami"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-11-29T09:45:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ya tengo nuevo diseño, aunque faltan algunas cosillas</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas" />
-    <category term="diseno" />
-    <category term="noticias" />
-    <category term="plantilla" />
-    <category term="blog" />
-    <author>
-      <name>Liher</name>
-    </author>
-    <updated>2014-11-29T23:16:27Z</updated>
-    <published>2014-11-29T23:16:27Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hab&amp;iacute;a pensado hacer unos cuantos cambios en el blog, concretamente el mi&amp;eacute;rcoles, pero debido a razones personales no pude hacerlo y tuve que retrasarlo hasta el viernes. Estuve todo el d&amp;iacute;a d&amp;aacute;ndole vueltas y probando cosas y por fin lo he hecho, por lo menos a grandes rasgos. Me falta ir puliendo algunas cosillas, pero lo mas importante ya esta hecho. La anterior plantilla se llamaba Spike y me gustaba pero tenia algunas pegas que no terminaban de convencerme, la que uso ahora se llama Best y creo que se va a quedar por un tiempo. Con esta plantilla he conseguido algunas cosas que quer&amp;iacute;a y estoy muy a gusto con ella.&lt;/p&gt; 
-&lt;p&gt;El dise&amp;ntilde;o en si no cambia demasiado, el blog sigue teniendo un formato de blog sencillo estilo grid. Si cabe el dise&amp;ntilde;o es mas sencillo pero me parece mas funcional. Una de las cosas que mas quer&amp;iacute;a poner es el men&amp;uacute; flotante, con la anterior plantilla tenia tambi&amp;eacute;n la posibilidad, pero no me gustaba como quedaba, con Best funciona exactamente como quiero, ahora lo ten&amp;eacute;is siempre el la parte superior de vuestro navegador, de tal forma que siempre tendr&amp;eacute;is todas las categor&amp;iacute;as a mano. Solo me falta organizar las categor&amp;iacute;as mejor, esa es una de las tareas principales que tengo que hacer. Puede que incluso le a&amp;ntilde;ada los botones sociales, aunque me lo estoy pensando.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/11/ya-tengo-nuevo-diseno-aunque-faltan-algunas-cosillas"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Liher</dc:creator>
-    <dc:date>2014-11-29T23:16:27Z</dc:date>
   </entry>
 </feed>
 

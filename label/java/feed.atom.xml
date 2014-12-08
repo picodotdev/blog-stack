@@ -3,10 +3,54 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-07T00:03:41Z</updated>
+  <updated>2014-12-08T08:04:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-07T00:03:41Z</dc:date>
+  <dc:date>2014-12-08T08:04:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 Date Time API</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api" />
+    <category term="java" />
+    <category term="java-basico" />
+    <category term="java-api" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-12-08T08:00:28Z</updated>
+    <published>2014-12-08T08:00:28Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Llevamos mas de de una d&amp;eacute;cada trabajando con la clase Date y la clase Calendar en Java . Mucha gente cuando empieza se ha encontrado con verdaderos problemas a la hora de gestionar estas clases unidas a la clase DateFormat. A partir de Java 8 las cosas se van a simplificar ya que tenemos un nuevo API de DateTime mucho m&amp;aacute;s intuitivo. Una de las clases fundamentales a la hora de trabajar con Java 8 es la&lt;strong&gt; clase Instant&lt;/strong&gt; que define un instante en el tiempo.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001142.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001142.png" alt="001" width="434" height="104" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos a ver como funciona en el c&amp;oacute;digo :&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava.fechas;
+
+import java.time.Duration;
+import java.time.Instant;
+
+public class PrincipalInstante {
+
+ public static void main(String[] args) {
+
+ Instant instanteA=Instant.now();
+
+ try {
+ Thread.sleep(3000);
+ } catch (InterruptedException e) {
+ // TODO Auto-generated catch block
+ e.printStackTrace();
+ }
+
+ Instant instanteB= Instant.now();
+ System.out.println(Duration.between(instanteA, instanteB));
+
+ }
+
+}
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-12-08T08:00:28Z</dc:date>
+  </entry>
   <entry>
     <title>8+ libros para mejorar como programadores</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores" />
@@ -957,37 +1001,6 @@ System.out.println(p.getNombre());
 &lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/07/java-generics-ii-uso-de-wildcard"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-07-04T17:18:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mi receta para aprobar la Oracle Certified Professional, Java SE 7 Programmer</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer" />
-    <category term="java-se-7" />
-    <category term="ocpjp" />
-    <category term="scjp" />
-    <category term="programacion" />
-    <category term="java" />
-    <category term="1z-8-5" />
-    <category term="certificacion" />
-    <category term="java-7" />
-    <category term="java-se" />
-    <category term="1z-8-4" />
-    <category term="certification" />
-    <category term="cert" />
-    <category term="certificaciones" />
-    <category term="ocpjp-7" />
-    <category term="scjp-7" />
-    <author>
-      <name>admin</name>
-    </author>
-    <updated>2014-07-03T20:31:43Z</updated>
-    <published>2014-07-03T20:31:43Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Ayer presente el examen 1Z0-805 de Oracle para obtener la Oracle Certified Professional, Java SE 7 Programmer y con mucho orgullo (producto de muchas horas de estudio) puedo decirles que la he aprobado con 80%. Llevaba preparandome unos 8 meses, con alguno que otro descanso bien merecido en navidad y semana santa, pero en general fui constante y cada semana dedicaba al menos una (1) o dos (2) horas a hacer ejercicios y/o leer al respecto.&lt;/p&gt; 
-&lt;p&gt;Debo admitir que aunque consideraba que habia repasado bastante, el examen fue mas dificil de lo que yo esperaba, pero como ya ven no es imposible. Los objetivos a evaluar en el examen en resumen son&amp;nbsp;los siguientes:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Language Enhancements (Mejoras en el lenguaje), que no es m&amp;aacute;s que el &lt;a title="project coin" href="http://openjdk.java.net/projects/coin/"&gt;project coin&lt;/a&gt;: diamond operator (operador &amp;lt;&amp;gt;), try-with-resources, sentencia swith con variables tipo String, etc…&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2014/07/mi-receta-para-aprobar-la-oracle-certified-professional-java-se-7-programmer"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>admin</dc:creator>
-    <dc:date>2014-07-03T20:31:43Z</dc:date>
   </entry>
 </feed>
 
