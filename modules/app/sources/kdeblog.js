@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
+      "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito",
       "title" : "Free software, beyond software de Agustín Benito"
     },

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
+      "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
       "title" : "Java 8 Date Time API"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/12/la-temperatura-del-procesador-debe-preocuparnos",
       "title" : "La temperatura del procesador debe preocuparnos?"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
-      "title" : "50 Ejemplos de Angular, paso a paso."
     }
   ]
 }
