@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
+      "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-179",
       "title" : "Enlaces interesantes 179"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/estado-del-estado-de-las-licencias-creative-commons",
       "title" : "Estado del estado de las licencias Creative Commons"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc",
-      "title" : "Quo vadis, ASP.NET MVC?"
     }
   ]
 }

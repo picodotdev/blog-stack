@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
+      "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
       "title" : "Charlas de un #findenegro"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/kde-telepathy-9-con-encriptacion-otr",
-      "title" : "KDE Telepathy 0.9.0 con encriptación OTR"
     }
   ]
 }
