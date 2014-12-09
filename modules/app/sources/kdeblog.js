@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
+      "title" : "Breeze, el pack de iconos de Plasma 5"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
       "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
     },

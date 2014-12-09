@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c",
+      "title" : "Buscar un archivo en el PATH en C"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/11/2-maneras-de-generar-identificadores-universalmente-unicos-uuid-en-c",
       "title" : "2 Maneras de generar identificadores universalmente únicos (UUID) en C"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/concurrencia-posix-threads-y-variables-compartidas-en-c",
       "title" : "Concurrencia, POSIX threads y variables compartidas en C"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/cliente-tcp-no-bloqueante-en-c-en-el-que-podemos-enviar-y-recibir-en-cualquier-momento",
-      "title" : "Cliente TCP no bloqueante en C, en el que podemos enviar y recibir en cualquier momento"
     }
   ]
 }

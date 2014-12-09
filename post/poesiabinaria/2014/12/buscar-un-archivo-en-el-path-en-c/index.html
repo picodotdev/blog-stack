@@ -1,0 +1,404 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Buscar un archivo en el PATH en C | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c"><span itemprop="headline">Buscar un archivo en el PATH en C</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-09T08:57" itemprop="datePublished">Publicado el martes, 09 de diciembre de 2014 a las 08:57 UTC</span></div><div><span>
+Etiquetado como
+popen, buscar, archivo, algoritmos, c-c, ejeutable, execvp, entorno, exec, execlp, variable, reentrante, path, busqueda, foto, strtok, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8xMi9sYWJlcmludG8ucG5n"><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/12/laberinto.png" alt="" title="laberinto" width="556" height="556" /></a></p> 
+<p>En principio si vamos a ejecutar un programa con popen() o exec*() no habr&iacute;a problema. Siempre que exec sea de la familia de los exec*p(), es decir execvp(), execlp(), execvpe(), ya que estos buscan en la variable de entorno PATH el ejecutable, aunque los dem&aacute;s exec no lo hacen y requieren el fichero y path completo.</p> 
+<p>Podemos utilizarla, por ejemplo para ahorrarle a exec el trabajo de tener que buscar en el PATH si vamos a hacer muchas llamadas a un ejecutable o para mostrar al usuario la ruta y el nombre de archivo de un programa que va a ejecutar. Tambi&eacute;n, un poco m&aacute;s abajo encontramos un bonus, que nos permite buscar archivos tanto en el PATH del sistema como en uno que nosotros espeifiquemos, y que nos ser&aacute; &uacute;til por ejemplo para buscar ejecutables en /usr/sbin, /usr/local/sbin y otros en sistemas en los que para nuestro usuario, ese ejecutable no se encuentra (hay m&aacute;s *nix que colores…)</p> 
+<p>En esta primera versi&oacute;n, somos nosotros los que debemos reservar memoria en una cadena de caracteres para almacenar el resultado, y el &eacute;xito o no de la ejecuci&oacute;n vendr&aacute; dado por el return de la funci&oacute;n:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />52
+      <br />53
+      <br />54
+      <br />55
+      <br />56
+      <br />57
+      <br />58
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;stdio.h&gt;
+      <br /> #include &lt;stdlib.h&gt;
+      <br /> #include &lt;string.h&gt;
+      <br /> #include &lt;sys/types.h&gt;
+      <br /> #include &lt;sys/stat.h&gt;
+      <br /> #include &lt;fcntl.h&gt;
+      <br /> #include &lt;errno.h&gt;
+      <br /> 
+      <br /> short file_exists(char *filename)
+      <br /> {
+      <br /> &nbsp; int fd=open(filename, O_RDONLY);
+      <br /> &nbsp; if (fd==-1)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; if (errno==2) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* If errno==2 it means file not found */
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; return 0; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* otherwise there is another error at */
+      <br /> &nbsp; &nbsp; &nbsp; else &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* reading file, for example path not &nbsp;*/
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; return -1; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* found, no memory, etc */
+      <br /> &nbsp; &nbsp; }
+      <br /> &nbsp; close(fd); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* If we close the file, it exists */
+      <br /> &nbsp; return 1;
+      <br /> }
+      <br /> 
+      <br /> int findInPath(char *result, char *executable)
+      <br /> {
+      <br /> &nbsp; char *path = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/getenv.html">getenv</a>(&quot;PATH&quot;);
+      <br /> &nbsp; char *saveptr;
+      <br /> &nbsp; char *tmpstr = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/malloc.html">malloc</a>(
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(path)+
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(executable)+2);
+      <br /> &nbsp; char *directory = strtok_r(path, &quot;:&quot;, &amp;saveptr);
+      <br /> &nbsp; char *slash = &quot;/&quot;;
+      <br /> &nbsp; short found = 0;
+      <br /> &nbsp; while ( (directory != NULL) &amp;&amp; (!found) )
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/sprintf.html">sprintf</a> (tmpstr, &quot;%s%s%s&quot;, directory, (directory[
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(directory)-1]=='/')?&quot;&quot;:slash, executable);
+      <br /> &nbsp; &nbsp; &nbsp; if (file_exists(tmpstr))
+      <br /> &nbsp; &nbsp; found = 1;
+      <br /> &nbsp; &nbsp; &nbsp; directory = strtok_r(NULL, &quot;:&quot;, &amp;saveptr);
+      <br /> &nbsp; &nbsp; }
+      <br /> 
+      <br /> &nbsp; if (found)
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strcpy.html">strcpy</a>(result, tmpstr);
+      <br /> 
+      <br /> &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/free.html">free</a>(tmpstr);
+      <br /> 
+      <br /> &nbsp; return found;
+      <br /> }
+      <br /> 
+      <br /> int main ()
+      <br /> {
+      <br /> &nbsp; char res[200];
+      <br /> &nbsp; if (findInPath(res, &quot;ls&quot;)) 
+      <br /> &nbsp; { 
+      <br /> &nbsp; &nbsp; &nbsp;
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html">printf</a> (&quot;Found at: %s\n&quot;, res); 
+      <br /> &nbsp; } 
+      <br /> &nbsp; else 
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html">printf</a> (&quot;Not found!\n&quot;); 
+      <br /> 
+      <br /> &nbsp; return 0;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>En esta segunda versi&oacute;n, directamente devolvemos un char* como resultado de la funci&oacute;n, por lo que si &eacute;ste vale NULL significar&aacute; que el archivo no se ha encontrado en el PATH. Eso s&iacute;, cuando no utilicemos m&aacute;s el valor, es nuestra responsabilidad liberar la memoria.<br /> Tambi&eacute;n me gustar&iacute;a indicar que se podr&iacute;a haber hecho una reserva de memoria m&aacute;s eficiente, ahora mismo reservamos un tama&ntilde;o igual al tama&ntilde;o del PATH + longitud del nombre de archivo + 2 (una / y el terminador), esto ser&iacute;a en el peor de los casos, en el que en el PATH s&oacute;lo haya un directorio, aunque generalmente no ser&aacute; as&iacute;, aunque prefer&iacute; esto a estar reservando y liberando memoria cada vez que lea un directorio, y no creo que el PATH sea tan excesivamente largo como para que haya un gran desperdicio de memoria.</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />2
+      <br />3
+      <br />4
+      <br />5
+      <br />6
+      <br />7
+      <br />8
+      <br />9
+      <br />10
+      <br />11
+      <br />12
+      <br />13
+      <br />14
+      <br />15
+      <br />16
+      <br />17
+      <br />18
+      <br />19
+      <br />20
+      <br />21
+      <br />22
+      <br />23
+      <br />24
+      <br />25
+      <br />26
+      <br />27
+      <br />28
+      <br />29
+      <br />30
+      <br />31
+      <br />32
+      <br />33
+      <br />34
+      <br />35
+      <br />36
+      <br />37
+      <br />38
+      <br />39
+      <br />40
+      <br />41
+      <br />42
+      <br />43
+      <br />44
+      <br />45
+      <br />46
+      <br />47
+      <br />48
+      <br />49
+      <br />50
+      <br />51
+      <br />52
+      <br />53
+      <br />54
+      <br />55
+      <br />56
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      #include &lt;stdio.h&gt;
+      <br /> #include &lt;stdlib.h&gt;
+      <br /> #include &lt;string.h&gt;
+      <br /> #include &lt;sys/types.h&gt;
+      <br /> #include &lt;sys/stat.h&gt;
+      <br /> #include &lt;fcntl.h&gt;
+      <br /> #include &lt;errno.h&gt;
+      <br /> 
+      <br /> short file_exists(char *filename)
+      <br /> {
+      <br /> &nbsp; int fd=open(filename, O_RDONLY);
+      <br /> &nbsp; if (fd==-1)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; if (errno==2) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* If errno==2 it means file not found */
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; return 0; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* otherwise there is another error at */
+      <br /> &nbsp; &nbsp; &nbsp; else &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* reading file, for example path not &nbsp;*/
+      <br /> &nbsp; &nbsp; &nbsp; &nbsp; return -1; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* found, no memory, etc */
+      <br /> &nbsp; &nbsp; }
+      <br /> &nbsp; close(fd); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/* If we close the file, it exists */
+      <br /> &nbsp; return 1;
+      <br /> }
+      <br /> 
+      <br /> char* findInPath2(char *executable)
+      <br /> {
+      <br /> &nbsp; char *path = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/getenv.html">getenv</a>(&quot;PATH&quot;);
+      <br /> &nbsp; char *saveptr;
+      <br /> &nbsp; char *tmpstr = 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/malloc.html">malloc</a>(
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(path)+
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(executable)+2);
+      <br /> &nbsp; char *directory = strtok_r(path, &quot;:&quot;, &amp;saveptr);
+      <br /> &nbsp; char *slash = &quot;/&quot;;
+      <br /> &nbsp; short found = 0;
+      <br /> &nbsp; while ( (directory != NULL) &amp;&amp; (!found) )
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/sprintf.html">sprintf</a> (tmpstr, &quot;%s%s%s&quot;, directory, (directory[
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/strlen.html">strlen</a>(directory)-1]=='/')?&quot;&quot;:slash, executable);
+      <br /> &nbsp; &nbsp; &nbsp; if (file_exists(tmpstr))
+      <br /> &nbsp; &nbsp; found = 1;
+      <br /> &nbsp; &nbsp; &nbsp; directory = strtok_r(NULL, &quot;:&quot;, &amp;saveptr);
+      <br /> &nbsp; &nbsp; }
+      <br /> &nbsp; if (found)
+      <br /> &nbsp; &nbsp; return tmpstr;
+      <br /> 
+      <br /> &nbsp; return NULL;
+      <br /> }
+      <br /> 
+      <br /> int main ()
+      <br /> {
+      <br /> &nbsp; char *res = findInPath2(&quot;kwrite&quot;);
+      <br /> &nbsp; if (res != NULL)
+      <br /> &nbsp; &nbsp; {
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html">printf</a> (&quot;Found at: %s\n&quot;, res);
+      <br /> &nbsp; &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/free.html">free</a>(res);
+      <br /> &nbsp; &nbsp; }
+      <br /> &nbsp; else
+      <br /> &nbsp; &nbsp; 
+      <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html">printf</a> (&quot;Not found!\n&quot;);
+      <br /> 
+      <br /> &nbsp; return 0;
+      <br /> }
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>Como toque final, vamos a presentar un tercer ejemplo donde adem&aacute;s de buscar en el PATH buscamos en rutas puestas a mano:</p> 
+<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
+ <table>
+  <tbody>
+   <tr>
+    <td>
+     <div>
+      1
+      <br />
+     </div></td>
+    <td>
+     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
+      &nbsp;
+     </div></td>
+   </tr>
+  </tbody>
+ </table>
+</div> 
+<p>#include <br /> #include <br /> #include <br /> #include <br /> #include <br /> #include <br /> #include </p> 
+<p>short file_exists(char *filename)<br /> {<br /> int fd=open(filename, O_RDONLY);<br /> if (fd==-1)<br /> {<br /> if (errno==2) /* If errno==2 it means file not found */<br /> return 0; /* otherwise there is another error at */<br /> else /* reading file, for example path not */<br /> return -1; /* found, no memory, etc */<br /> }<br /> close(fd); /* If we close the file, it exists */<br /> return 1;<br /> }</p> 
+<p>char* findInPath3(char *executable, char *additional_path)<br /> {<br /> char *path = getenv(“PATH”);<br /> char *saveptr;<br /> char *tmpstr = malloc(strlen(path)+strlen(executable)+2);<br /> char *directory = strtok_r(path, “:”, &amp;saveptr);<br /> char *_additional_path;<br /> char *slash = “/”;<br /> short found = 0;<br /> while ( (directory != NULL) &amp;&amp; (!found) )<br /> {<br /> sprintf (tmpstr, “%s%s%s”, directory, (directory[strlen(directory)-1]==’/')?”&quot;:slash, executable);<br /> if (file_exists(tmpstr))<br /> found = 1;<br /> directory = strtok_r(NULL, “:”, &amp;saveptr);<br /> }<br /> if (found)<br /> return tmpstr;</p> 
+<p> if (additional_path == NULL)<br /> return NULL;</p> 
+<p> _additional_path = malloc(strlen(additional_path)+1);<br /> strcpy(_additional_path, additional_path);<br /> directory = strtok_r(_additional_path, “:”, &amp;saveptr);<br /> while ( (directory != NULL) &amp;&amp; (!found) )<br /> {<br /> sprintf (tmpstr, “%s%s%s”, directory, (directory[strlen(directory)-1]==’/')?”&quot;:slash, executable);<br /> if (file_exists(tmpstr))<br /> found = 1;<br /> directory = strtok_r(NULL, “:”, &amp;saveptr);<br /> }<br /> free(_additional_path);</p> 
+<p> if (found)<br /> return tmpstr;</p> 
+<p> return NULL;<br /> }</p> 
+<p>int main (int argc, char *argv[])<br /> {<br /> char *res = findInPath3(“puertas.jpg”, (char*) “/home/usuario:/home/usuario/Descargas/Im&aacute;genes” );<br /> if (res != NULL)<br /> {<br /> printf (“Found at: %s\n”, res);<br /> free(res);<br /> }<br /> else<br /> printf (“Not found!\n”);</p> 
+<p> return 0;<br /> }</p> 
+<p>En este ejemplo es curioso c&oacute;mo para strtok_r() es necesario hacer una copia de la cadena additional_path, m&aacute;s que nada porque &eacute;sta es modificada en cada iteraci&oacute;n y si presentamos una cadena literal en realidad estamos pansando un valor constante y por tanto no podr&aacute; ser modificado y devolver&aacute; una violaci&oacute;n de segmento. De todas formas, con strtok() y derivados es importante siempre trabajar con una copia (no lo hacemos con la variable path, porque no tiene uso m&aacute;s all&aacute; del bucle con strtok(), podemos probar poner su valor en pantalla al final del bucle para ver a lo que me refiero.</p> 
+<p>Como &uacute;ltimo apunte decir que he utilizado strtok_r porque &eacute;ste es reentrante y es m&aacute;s seguro utilizar &eacute;ste en aplicaciones multi-hilo. Si queremos utilizar el strtok() de toda la vida, perfecto, pero strtok_r() es m&aacute;s seguro, ya que la informaci&oacute;n necesaria para las iteraciones las almacena en una variable que nosotros controlamos. Por ejemplo strok() es un desastre tambi&eacute;n en funciones recursivas.</p> 
+<p>Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly93d3cudmVjdG9yb3BlbnN0b2NrLmNvbS92ZWN0b3JzL3ByZXZpZXcvMzM3OC9tYXplLXZlY3Rvcg==">VectorOpenStock</a> (CC-by)</p> 
+<div>
+ <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F12%2Fbuscar-un-archivo-en-el-path-en-c%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
+</div> 
+<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2392" width="1" height="1" style="display: none;" />
+<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c/">Buscar un archivo en el PATH en C</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c" st_title="Buscar un archivo en el PATH en C | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1200,
+      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "poesiabinaria",
+      "name" : "Poesía binaria"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

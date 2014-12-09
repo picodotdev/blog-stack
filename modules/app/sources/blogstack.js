@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
+      "title" : "Breeze, el pack de iconos de Plasma 5"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c",
+      "title" : "Buscar un archivo en el PATH en C"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
       "title" : "KaOS: fiel a sus principios"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/tutoriales-de-kturtle-para-aprender-a-programar",
       "title" : "Tutoriales de KTurtle para aprender a programar"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
-      "title" : "Controla los medios con emshare"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/12/la-temperatura-del-procesador-debe-preocuparnos",
-      "title" : "La temperatura del procesador debe preocuparnos?"
     }
   ]
 }
