@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-179",
+      "title" : "Enlaces interesantes 179"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc",
       "title" : "Quo vadis, ASP.NET MVC?"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
       "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6",
-      "title" : "Inicialización de propiedades en C# 6.0"
     }
   ]
 }

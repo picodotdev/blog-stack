@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-179",
+      "title" : "Enlaces interesantes 179"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
       "title" : "Breeze, el pack de iconos de Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc",
       "title" : "Quo vadis, ASP.NET MVC?"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/tutoriales-de-kturtle-para-aprender-a-programar",
-      "title" : "Tutoriales de KTurtle para aprender a programar"
     }
   ]
 }
