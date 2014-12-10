@@ -1,0 +1,225 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle"><span itemprop="headline">Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://www.josedomingo.org/pledin/">PLEDIN</a>, <a href="http://www.josedomingo.org/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-10T12:52" itemprop="datePublished">Publicado el miércoles, 10 de diciembre de 2014 a las 12:52 UTC</span></div><div><span>
+Etiquetado como
+hosting, moodle, pledin, general</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/moodle.jpeg"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/moodle.jpeg" alt="moodle" width="416" height="121" /></a>En estos d&iacute;as estoy llevando a cabo la migraci&oacute;n de mis p&aacute;ginas web de un hosting tradicional a una infraestructura PaaS como es OpenShift. Adem&aacute;s de algunas p&aacute;ginas est&aacute;ticas, mi plataforma se basa en dos CMS: un blog realizado en WordPress y una plataforma educativa realizada con Moodle. En este primer art&iacute;culo voy a explicar las diferentes decisiones que he tomado para realizar la migraci&oacute;n de la plataforma moodle.</p> 
+<h2>Mi plataforma educativa Moodle</h2> 
+<p>Haciendo un poco de historia tengo que decir que la plataforma Moodle es el primer CMS que utilic&eacute; para ir recopilando cursos e informaci&oacute;n sobre temas de inform&aacute;tica y educaci&oacute;n. En octubre de 2005 empec&eacute; este proyecto con una moodle versi&oacute;n 1.4, y despu&eacute;s de m&aacute;s de 9 a&ntilde;os y unas cuantas actualizaciones y migraciones, 59 cursos y m&aacute;s de 700 usuarios registrado, el directorio moodledata ocupa casi 2Gb de informaci&oacute;n. Por lo tanto la primera decisi&oacute;n que he tomado es hacer una instalaci&oacute;n nueva de la &uacute;ltima versi&oacute;n de moodle. Adem&aacute;s en esta moodle (<a href="http://plataforma.josedomingo.org">http://plataforma.josedomingo.org</a>) s&oacute;lo voy a poner los cursos m&aacute;s interesantes y actualizados que tengo en la plataforma, y los m&aacute;s antiguos y desactualizados lo voy a subir a una plataforma que he creado en la p&aacute;gina <a href="http://www.gnomio.com">www.gnomio.com</a>, plataforma que te ofrece la posibilidad de crear una moodle de forma gratuita.</p> 
+<p>Por lo tanto despu&eacute;s de un buen rato he conseguido hacer las copias de seguridad de todos los cursos, y he restaurado en la moodle de cursos antiguos (<a href="http://pledin.gnomio.com">http://pledin.gnomio.com</a>) los cursos m&aacute;s antiguos y desactualizados. Todos estos cursos tendr&aacute;n acceso gratuito a los invitados de la plataforma, por lo tanto no va a ser necesario el registro de usuarios. Adem&aacute;s uno de las preocupaciones que tengo es mantener la relaci&oacute;n entre la antigua URL de acceso a los cursos con las nuevas URL, para ello he apuntado la relaci&oacute;n de los identificadores de lo cursos en la plataforma actual y el identificador en esta nueva plataforma, posteriormente explicar&eacute; c&oacute;mo voy a mantener la relaci&oacute;n entre las url.</p> 
+<h2>Instalaci&oacute;n de moodle en OpenShift Online</h2> 
+<p>En este punto vamos a explicar los pasos que he seguido para desplegar la aplicaci&oacute;n web Moodle en OpenShift Online.</p> 
+<h3>Conceptos previos</h3> 
+<ul> 
+ <li><strong>Gear</strong>: Es un contenedor dentro de una m&aacute;quina virtual con unos recursos limitados para que pueda ejecutar sus aplicaciones un usuario de OpenShift. En el caso de utilizar una cuenta gratuita se pueden crear como m&aacute;ximo tres gears de tipo “small”, cada uno de ellos puede utilizar un m&aacute;ximo de 512MB de RAM, 100MB de swap y 1GB de espacio en disco. Nuestra aplicaci&oacute;n se desplegar&aacute; y ejecutar&aacute; utilizando estos recursos asociados al “gear”.</li> 
+ <li><strong>Cartridge</strong>: Son contenedores de software preparados para ejecutarse en un gear. En principio sobre cada gear pueden desplegarse varios cartridges, por ejemplo existen cartridges de php, ruby, jboss, MySQL, django, etc.</li> 
+</ul> 
+<h3>Acceso a OpenShift Online y configuraci&oacute;n inicial</h3> 
+<p>Accedemos a la URL <a href="https://www.openshift.com/">https://www.openshift.com/</a>, nos damos de alta y accedemos con nuestra cuenta.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift1.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift1.png" alt="openshift1" width="551" height="249" /></a></p> 
+<p>Cada cuenta de usuario en OpenShift Online est&aacute; asociada a un “espacio de nombres” para generar un FQDN &uacute;nico para cada gear. En la configuraci&oacute;n inicial de la cuenta habr&aacute; que seleccionar un espacio de nombres que sea &uacute;nico, este espacio de nombres se aplicar&aacute; autom&aacute;ticamente a todos los gears que se creen. En mi caso el espacio de nombres en OpenShift Online va a ser “pledin” y el gear que vamos a crear se va a llamar “moodle”, entonces esta aplicaci&oacute;n ser&aacute; accesible a trav&eacute;s de la url http://moodle-pledin.rhcloud.com.Sin embargo, y como veremos posteriormente nosotros vamos a utilizar un nombre de host <a href="http://plataforma.josedomingo.org">plataforma.josedomingo.org</a> para acceder a nuestra aplicaci&oacute;n.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift2.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift2.png" alt="openshift2" width="612" height="219" /></a></p> 
+<h3>Acceso por ssh</h3> 
+<p>Una de las caracter&iacute;sticas interesantes que proporciona OpenShift es la posibilidad de acceder por ssh a la m&aacute;quina en la que se est&aacute; ejecutando nuestra aplicaci&oacute;n web, aunque con un usuario con privilegios restringidos.</p> 
+<p>El acceso remoto a nuestras aplicaciones se hace usando el protocolo SSH. El mecanismo usado para la autentificaci&oacute;n ssh es usando claves p&uacute;blicas ssh, y es necesario indicar las claves p&uacute;blicas ssh que queramos usar para poder acceder de forma remota. Adem&aacute;s tambi&eacute;n es necesario hacer esta configuraci&oacute;n para poder trabajar con el repositorio Git que tenemos a nuestra disposici&oacute;n. Si no posees un par de claves ssh, puedes generar un par de claves rsa, usando el siguiente comando:</p> 
+<pre><code>$ ssh-keygen
+</code></pre> 
+<p>Por defecto en el directorio ~/.ssh, se generan la clave p&uacute;blica y la privada: id_rsa.pub y id_rsa. El contenido del fichero id_rsa.pub es el que tienes que subir a OpenShift.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift3.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift3.png" alt="openshift3" width="993" height="250" /></a></p> 
+<h3>Creando nuestra aplicaci&oacute;n</h3> 
+<p>Durante el proceso de creaci&oacute;n de una nueva aplicaci&oacute;n, tenemos que configurar los siguientes elementos:</p> 
+<p>1) Elegir el cartridge (paquete de software) que necesitas para la implantaci&oacute;n de tu aplicaci&oacute;n web. En el caso de Moodle podemos elegir el componente PHP 5.4.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift4.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift4.png" alt="openshift4" width="949" height="984" /></a></p> 
+<p>2) Debemos elegir la URL de acceso, teniendo en cuenta el espacio de nombres que hab&iacute;amos configurado.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift5.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift5.png" alt="openshift5" width="980" height="735" /></a></p> 
+<p>Una vez que se ha creado la aplicaci&oacute;n (gear), se nos ofrece informaci&oacute;n del repositorio Git que podemos clonar a nuestro equipo local para poder subir los ficheros al gear. Procedemos a seguir estas instrucciones para clonar el repositorio remoto de OpenShift en nuestro equipo.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift6.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift6.png" alt="openshift6" width="688" height="484" /></a></p> 
+<p>3) Podemos seguir a&ntilde;adiendo nuevos cartridges a nuestro gear, como por ejemplo a&ntilde;adir el cartridge MySQL 5.5 para ofrecer el servicio de base de datos a nuestra aplicaci&oacute;n.</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift7.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift7.png" alt="openshift7" width="1168" height="497" /></a></p> 
+<p>Como vemos en la imagen nos ofrecen el nombre de usuario y la contrase&ntilde;a del usuario de mysql. La direcci&oacute;n IP y el puerto del servidor mysql nos lo ofrece en una variable de entono del sistema ($OPENSHIFT_MYSQL_DB_HOST y $OPENSHIFT_MYSQL_DB_PORT).</p> 
+<h3>Creaci&oacute;n de un alias</h3> 
+<p>Como hemos dicho anteriormente, no vamos a utilizar la url por defecto que se configur&oacute; al crear el gear (http://moodle-pledin.rhcloud.com). Vamos a utilizar la url <a href="http://plataforma.josedomingo.org">plataforma.josedomingo.org</a> para acceder a nuestra aplicaci&oacute;n, para ello tenemos que crear un alias: pulsamos la opci&oacute;n <em>“change” </em>que encontramos junto al nombre del gear, y creamos un nuevo alias:</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift8.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift8.png" alt="openshift8" width="913" height="283" /></a></p> 
+<h3>Despliegue de moodle</h3> 
+<p>Ya tenemos nuestro gear preparado, a continuaci&oacute;n nos tenemos que bajar la &uacute;ltima versi&oacute;n de moodle y sincronizar los ficheros en nuestro repositorio git (el repositorio git lo hemos clonado en el directorio <em>moodle </em>y vamos a copiar los ficheros de moodle al directorio <em>moodle/pledin</em>).</p> 
+<pre><code>$ wget https://download.moodle.org/download.php/stable28/moodle-latest-28.zip
+$ unzip moodle-latest-28.zip
+$ cp -R moodle/* moodle/pledin
+$ cd moodle 
+~/moodle$ git add * 
+~/moodle$ git commit -m &quot;Despliegue inicial de moodle&quot; 
+~/moodle$ git push </code></pre> 
+<p>Vamos a crear un fichero de configuraci&oacute;n de moodle utilizando las variables de entornos que tenemos a nuestra disposici&oacute;n en nuestro gear, de este modo:</p> 
+<pre><code>~/moodle$ cd pledin
+~/moodle/pledin$ nano config.php </code></pre> 
+<p>Y quedar&iacute;a con este contenido:</p> 
+<pre>&lt;?php // Moodle configuration file
+unset($CFG);
+global $CFG;
+$CFG = new stdClass();
+$CFG-&gt;dbtype = 'mysqli';
+$CFG-&gt;dblibrary = 'native';
+<strong>$CFG-&gt;dbhost = $_ENV['OPENSHIFT_DB_HOST'];
+$CFG-&gt;dbname = $_ENV['OPENSHIFT_APP_NAME'];
+$CFG-&gt;dbuser = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
+$CFG-&gt;dbpass = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];</strong>
+$CFG-&gt;prefix = 'mdl_';
+$CFG-&gt;dboptions = array (
+ 'dbpersist' =&gt; 0,
+ 'dbport' =&gt; '',
+ 'dbsocket' =&gt; '',
+);
+<strong>$CFG-&gt;wwwroot = 'http://plataforma.josedomingo.org/pledin';
+$CFG-&gt;dataroot = '/var/lib/openshift/54875bc55973ca9be00001e6/app-root/runtime/data/moodledata';</strong>
+$CFG-&gt;admin = 'admin';
+$CFG-&gt;directorypermissions = 0777;
+require_once(dirname(__FILE__) . '/lib/setup.php');
+// There is no php closing tag in this file,
+// it is intentional because it prevents trailing whitespace problems!</pre> 
+<p>Posteriormente a&ntilde;adimos este nuevo fichero a nuestro repositorio git:</p> 
+<pre><code>~/moodle/pledin$ git add config.php
+~/moodle/pledin$ git commit -m &quot;Fichero de configuraci&oacute;n de moodle&quot; 
+~/moodle/pledin$ git push </code></pre> 
+<p>Y ya podemos terminar la instalaci&oacute;n y configurar nuestra plataforma moodle.</p> 
+<h3>Automatizar tareas usando el cron</h3> 
+<p>Para poder ejecutar tareas automatizadas en nuestro proyecto tenemos que instalar en nuestro gear el cartridge <strong>Cron 1.4. </strong></p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift9.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/openshift9.png" alt="openshift9" width="1152" height="290" /></a></p> 
+<p>Vamos a programar dos tareas con el cron:</p> 
+<ol> 
+ <li>Ejecutar el cron de moodle una vez al d&iacute;a.</li> 
+ <li>Crear diariamente una copia de seguridad de la base de datos con la utilidad mysqldump.</li> 
+</ol> 
+<p>Para ello vamos a crear un script <em>cron.sh</em> en el directorio de nuestro repositorio local <em>.openshif/cron/daily</em>, con el siguiente contenido:</p> 
+<pre>#!/bin/bash
+/usr/bin/php&nbsp; ${OPENSHIFT_HOMEDIR}/app-root/repo/pledin/admin/cli/cron.php&nbsp; &gt;&gt; ${OPENSHIFT_PHP_LOG_DIR}/cron.log
+mysqldump --password=$OPENSHIFT_MYSQL_DB_PASSWORD -h $OPENSHIFT_MYSQL_DB_HOST -P $OPENSHIFT_MYSQL_DB_PORT -u $OPENSHIFT_MYSQL_DB_USERNAME $OPENSHIFT_GEAR_NAME --add-drop-table &gt; $OPENSHIFT_DATA_DIR/$OPENSHIFT_GEAR_NAME.sql</pre> 
+<p>A continuaci&oacute;n le damos permiso de ejecuci&oacute;n y lo subimos a nuestro repositorio de openshift:</p> 
+<pre><code>~/moodle/pledin/.openshift/cron/daily$ </code>chmod +x cron.sh
+<code>~/moodle/pledin/.openshift/cron/daily$ </code>git add cron.sh
+<code>~/moodle/pledin/.openshift/cron/daily$</code> git commit -m &quot;tarea cron&quot;
+<code>~/moodle/pledin/.openshift/cron/daily$</code> git push</pre> 
+<h2>Redireccionar a las nuevas url</h2> 
+<p>Lamentable al restaurar los cursos moodle se pierde el c&oacute;digo identificador, que identifica a cada uno de los cursos, y que podemos ver c&oacute;mo par&aacute;metro GET al acceder al curso, por ejemplo <em>http://www.josedomingo.org/web/course/view.php?id=64</em>, este curso es el 64 de la antigua plataforma, pero en la nueva plataforma va a tener otro id. Del mismo modo la referencia a los distintos recursos dentro de los cursos se pierde ya que de la misma manera se empiezan a numerar el c&oacute;digo cada vez que restauramos los cursos.</p> 
+<p>Hay que tener en cuenta las siguientes cuestiones:</p> 
+<ul> 
+ <li>&nbsp;La URL de la antigua moodle es http://www.josedomingo.org/web/, queremos mantener esta URL para redireccionar a las nuevas URL: <em>http://plataforma.josedomingo.org y http://pledin.gnomio.com.</em></li> 
+ <li>&nbsp;C&oacute;mo contaremos en el siguiente art&iacute;culo, el blog wordpress lo vamos a migrar utilizando la misma URL www.josedomingo.org, por lo que es en esta p&aacute;gina en donde tengo que crear un directorio <em>web</em> donde alojaremos el script necesario para hacer la redirecci&oacute;n.</li> 
+ <li>Sin embargo en OpenShift, al crear un directorio llamado <em>web</em> dentro del repositorio git, lo configura como DocumentRoot del servidor web, seg&uacute;n la documentaci&oacute;n <a href="https://blog.openshift.com/openshift-online-march-2014-release-blog/">https://blog.openshift.com/openshift-online-march-2014-release-blog/</a></li> 
+</ul> 
+<blockquote> 
+ <p>The DocumentRoot is chosen by the cartridge control script logic depending on conditions in the following order:</p> 
+ <p>IF php/ dir exists THEN DocumentRoot=php/<br /> ELSE IF public/ dir exists THEN DocumentRoot=public/<br /> ELSE IF public_html/ dir exists THEN DocumentRoot=public_html/<br /> ELSE IF web/ dir exists THEN DocumentRoot=web/<br /> ELSE IF www/ dir exists THEN DocumentRoot=www/<br /> ELSE DocumentRoot=/</p> 
+</blockquote> 
+<ul> 
+ <li>Soluci&oacute;n: voy a utilizar un fichero de configuraci&oacute;n de apache <em><strong>.htacces</strong></em> para reescribir todas las URL que accedan al directorio <em>web</em>, para que redireccionen a un directorio llamado <em>web2</em> que es donde estar&aacute; nuestro script de redirecci&oacute;n</li> 
+</ul> 
+<p>El fichero .htacces que pondremos en la ra&iacute;z del servidor quedar&aacute; de esta forma:</p> 
+<pre>RewriteEngine On
+RewriteBase /
+RewriteRule web/(.*)$ web2/$1
+</pre> 
+<p>Y el fichero que realizar la redirecci&oacute;n a las nuevas url se llamara <em>view.php</em>, y estar&aacute; localizado en el directorio <em>web2/course</em> de nuestro gear donde instalaremos el blog wordpress:</p> 
+<pre>&lt;?php
+//Relaci&oacute;n entre los identificadores de la antigua plataforma y de la nueva plataforma de openshift
+$courses=array(4=&gt;4,18=&gt;5,23=&gt;6,28=&gt;7,31=&gt;8,43=&gt;9,46=&gt;10,48=&gt;11,51=&gt;12,60=&gt;13,63=&gt;14,64=&gt;15,65=&gt;16,66=&gt;17,67=&gt;18,68=&gt;19,69=&gt;20,70=&gt;21,71=&gt;22,41=&gt;23);
+//Relaci&oacute;n entre los identificadores de la antigua plataforma y de la nueva plataforma de gnomio
+$oldcourses=array(2=&gt;2,40=&gt;3,39=&gt;4,38=&gt;5,17=&gt;6,34=&gt;7,56=&gt;8,58=&gt;9,53=&gt;10,52=&gt;11,50=&gt;12,49=&gt;13,5=&gt;14,6=&gt;15,12=&gt;16,14=&gt;17,20=&gt;18,21=&gt;19,37=&gt;20,26=&gt;21,10=&gt;22,9=&gt;25,15=&gt;27,27=&gt;28,44=&gt;31,22=&gt;32,42=&gt;33,13=&gt;34,25=&gt;35);
+//Si el par&aacute;metro GET es una clave del array asociativo $courses redireccionamos a plataforma.josedomingo.org con el nuevo identificador
+if (array_key_exists($_GET[&quot;id&quot;],$courses))
+ header(&quot;Location:http://plataforma.josedomingo.org/pledin/course/view.php?id=&quot;.$courses[$_GET[&quot;id&quot;]]);
+//Si el par&aacute;metro GET es una clave del array asociativo $oldcourses redireccionamos a pledin.gnomio.com con el nuevo identificado
+elseif (array_key_exists($_GET[&quot;id&quot;],$oldcourses))
+ header(&quot;Location:http://pledin.gnomio.com/course/view.php?id=&quot;.$oldcourses[$_GET[&quot;id&quot;]]);
+else
+//Si no se cumplen las dos anteriores condiciones redicreccionamos a plataforma.josedomingo.org
+ header(&quot;Location:http://plataforma.josedomingo.org/pledin/&quot;);
+?&gt;</pre> 
+<h1>Conclusiones</h1> 
+<p>La migraci&oacute;n de la plataforma moodle ha sido complicada, por distintos factores:</p> 
+<ol> 
+ <li>Un CMS que ocupa en su &uacute;ltima versi&oacute;n casi 150 Mb, tiene demasiado tama&ntilde;o, al menos para lo que yo lo he estado utilizando. Hay que tener en cuenta que cuando se sube a openshift tenemos dos copias del repositorio git, por lo que el tama&ntilde;o se duplica.</li> 
+ <li>Desde la versi&oacute;n 2 de moodle el almacenamiento de ficheros en el directorio moodledata ha cambiado: <a href="http://www.enovation.ie/blog/2011/01/moodle-2-0-file-storage/">http://www.enovation.ie/blog/2011/01/moodle-2-0-file-storage/</a>, con lo que se ha perdido el control de los ficheros que est&aacute;n almacenados en cada curso.</li> 
+</ol> 
+<p>Finalmente para que podamos acceder a nuestra nueva p&aacute;gina desde internet tenemos que crear un nuevo registro CNAME en nuestro servidor DNS que relacione el nombre <em>plataforma </em>con el nombre del gear<em> moodle-pledin.rhcloud.com</em>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1205,
+      "url" : "http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "pledin",
+      "name" : "PLEDIN"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

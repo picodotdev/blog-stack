@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle",
+      "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle"
+    },
+    {
       "url" : "/post/pledin/2014/11/instalar-open-stack-juno-con-devstack",
       "title" : "Instalar Open Stack Juno con devstack"
     },

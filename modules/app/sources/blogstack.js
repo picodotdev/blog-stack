@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle",
+      "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/temas-para-pairs-el-juego-de-memoria-de-kde",
       "title" : "Temas para Pairs, el juego de memoria de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
       "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
-      "title" : "Estado de las licencias Creative Commons"
     }
   ]
 }
