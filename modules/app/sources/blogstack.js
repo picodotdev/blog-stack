@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/temas-para-pairs-el-juego-de-memoria-de-kde",
+      "title" : "Temas para Pairs, el juego de memoria de KDE"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
       "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
       "title" : "Estado de las licencias Creative Commons"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/estado-del-estado-de-las-licencias-creative-commons",
-      "title" : "Estado del estado de las licencias Creative Commons"
     }
   ]
 }

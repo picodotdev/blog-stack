@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/temas-para-pairs-el-juego-de-memoria-de-kde",
+      "title" : "Temas para Pairs, el juego de memoria de KDE"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
       "title" : "Breeze, el pack de iconos de Plasma 5"
     },
