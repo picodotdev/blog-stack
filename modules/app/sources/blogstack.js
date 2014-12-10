@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/free-software-foundation-recopilacion-de-noticias-de-noviembre-de-2-14",
+      "title" : "Free Software Foundation. Recopilación de noticias de noviembre de 2014"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
       "title" : "Qué es y cómo se instala build-essentials"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
       "title" : "Colabora con la Free Software Foundation"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
-      "title" : "Taller de GNU/Linux en las III Jornadas Libres de la UNED de Vila-real"
     }
   ]
 }

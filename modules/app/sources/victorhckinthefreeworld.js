@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/free-software-foundation-recopilacion-de-noticias-de-noviembre-de-2-14",
+      "title" : "Free Software Foundation. Recopilación de noticias de noviembre de 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
       "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/opensuse-tumbleweed-y-factory-seran-una-sola",
       "title" : "openSUSE Tumbleweed y Factory serán una sola"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/charlas-de-un-findenegro",
-      "title" : "Charlas de un #findenegro"
     }
   ]
 }
