@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
+      "title" : "Qué es y cómo se instala build-essentials"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
       "title" : "Controla los medios con emshare"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-programas-en-debian-facilmente-con-tasksel",
       "title" : "Instalar programas en Debian facilmente con tasksel"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/joomla-segunda-parada-visitando-los-cms",
-      "title" : "Joomla, segunda parada visitando los CMS"
     }
   ]
 }

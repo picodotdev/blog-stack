@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
+      "title" : "Qué es y cómo se instala build-essentials"
+    },
+    {
       "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle",
       "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
       "title" : "Taller de GNU/Linux en las III Jornadas Libres de la UNED de Vila-real"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
-      "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
     }
   ]
 }
