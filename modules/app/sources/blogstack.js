@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/escoge-regalar-libertad",
+      "title" : "Escoge regalar libertad"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
       "title" : "Probando Plasma 5 en mi portátil"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
-      "title" : "Granatier, la versión KDE de Bomberman"
     }
   ]
 }
