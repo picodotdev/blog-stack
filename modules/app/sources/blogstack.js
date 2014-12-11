@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
+      "title" : "Probando Plasma 5 en mi portátil"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/free-software-foundation-recopilacion-de-noticias-de-noviembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de noviembre de 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
       "title" : "Granatier, la versión KDE de Bomberman"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
-      "title" : "Colabora con la Free Software Foundation"
     }
   ]
 }
