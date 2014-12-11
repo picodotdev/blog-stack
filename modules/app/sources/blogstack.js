@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
+      "title" : "Linux Mint 17.1 Rebecca: triste regresión"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/escoge-regalar-libertad",
       "title" : "Escoge regalar libertad"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
       "title" : "Calligra 2.8.7 disponible para su actualización"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
-      "title" : "Fin del soporte para openSUSE 12.3"
     }
   ]
 }

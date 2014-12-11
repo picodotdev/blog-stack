@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
+      "title" : "Linux Mint 17.1 Rebecca: triste regresión"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
       "title" : "KaOS: fiel a sus principios"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2013/10/chakra-conky-sobre-las-ventanas",
       "title" : "Chakra: conky sobre las ventanas"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/chakra-cambiador-de-tareas",
-      "title" : "Chakra: cambiador de tareas"
     }
   ]
 }
