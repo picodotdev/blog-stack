@@ -1,0 +1,248 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress"><span itemprop="headline">Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://www.josedomingo.org/pledin/">PLEDIN</a>, <a href="http://www.josedomingo.org/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-11T19:20" itemprop="datePublished">Publicado el jueves, 11 de diciembre de 2014 a las 19:20 UTC</span></div><div><span>
+Etiquetado como
+paas, hosting, pledin, wordpress, general</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/wordpress.jpg"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2014/12/wordpress-300x100.jpg" alt="wordpress" width="300" height="100" /></a>En el <a title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle" href="http://www.josedomingo.org/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle/">post anterior</a> comenc&eacute; a explicar el proceso de migraci&oacute;n de mis p&aacute;ginas web de un hosting tradicional a la infraestructura PaaS OpenShift que ofrece RedHat, m&aacute;s concretamente me centr&eacute; en la migraci&oacute;n de la plataforma moodle. En la entrada actual voy a explicar la migraci&oacute;n del blog wordpress y para explicarlo voy a utilizar rhc, el cliente de l&iacute;nea de comandos que tenemos disponible para manejar nuestros proyectos en openshift. El blog est&aacute; disponible en la direcci&oacute;n <a href="http://www.josedomingo.org/pledin">www.josedomingo.org/pledin</a>.</p> 
+<h2>Instalar OpenShift Client Tools</h2> 
+<p>Como ya hemos visto en la <a title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle" href="http://www.josedomingo.org/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle/">entrada anterior</a>, es posible crear un gear y a&ntilde;adir los cartridges a trav&eacute;s de la web de OpenShift, ahora vamos a explicar la forma de hacerlo desde la l&iacute;nea de comandos del equipo cliente utilizando <em>rhc</em>. Las OpenShift Client Tools, conocidas como<em> rhc</em>, son unas aplicaciones escritas en Ruby y disponibles como gemas, por lo que la instalaci&oacute;n en cualquier sistema es bastante sencilla: instalar<em> ruby, rubygems</em> y posteriormente instalar la gema <em>rhc</em>. En el caso de un sistema Debian ser&iacute;a algo como:</p> 
+<pre>root@equipo:~# apt-get install ruby rubygems git
+root@equipo:~# gem install rhc
+</pre> 
+<p>Ya durante la instalaci&oacute;n de rhc nos advierte que no hay una configuraci&oacute;n previa, por lo que es necesario hacer una configuraci&oacute;n de rhc.</p> 
+<h3>Configuraci&oacute;n inicial de OpenShift Client Tools</h3> 
+<p>Para realizar la configuraci&oacute;n inicial de rhc, ejecutamos la instrucci&oacute;n:</p> 
+<pre>usuario@equipo:~$ rhc setup
+OpenShift Client Tools (RHC) Setup Wizard
+
+This wizard will help you upload your SSH keys, set your application namespace,
+and check that other programs like Git are properly installed.
+
+Login to openshift.redhat.com: [escribir correo-e]
+Password: ******
+
+Created local config file: /home/usuario/.openshift/express.conf
+The express.conf file contains user configuration, and can be transferred to
+different computers.
+
+We will now check to see if you have the necessary client tools installed.
+
+Checking for git ... found
+
+Checking for your namespace ... found namespace:
+
+Checking for applications ... None
+
+Thank you for setting up your system.&nbsp; You can rerun this at any time by calling
+'rhc setup'.
+
+</pre> 
+<h2>Creaci&oacute;n de una nueva aplicaci&oacute;n con rhc</h2> 
+<p>Antes de crear nuestra nueva aplicaci&oacute;n (gear) podemos obtener la lista de catridges que tenemos disponibles con la siguiente instrucci&oacute;n:</p> 
+<pre>$ rhc cartridge list
+ jbossas-7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JBoss Application Server 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jboss-dv-6.0.0 (!)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JBoss Data Virtualization 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jbosseap-6 (*)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JBoss Enterprise Application Platform 6 web
+ jboss-unified-push-1 (!) JBoss Unified Push Server 1.0.0.Beta1&nbsp;&nbsp; web
+ jenkins-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jenkins Server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ nodejs-0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Node.js 0.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ perl-5.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Perl 5.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ php-5.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP 5.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ php-5.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP 5.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ zend-6.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PHP 5.4 with Zend Server 6.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ python-2.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python 2.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ python-2.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python 2.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ python-3.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Python 3.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ ruby-1.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ruby 1.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ ruby-1.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ruby 1.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ ruby-2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ruby 2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jbossews-1.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomcat 6 (JBoss EWS 1.0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jbossews-2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tomcat 7 (JBoss EWS 2.0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jboss-vertx-2.1 (!)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vert.x 2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ jboss-wildfly-8 (!)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WildFly Application Server 8.1.0.Final&nbsp; web
+ diy-0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Do-It-Yourself 0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; web
+ 10gen-mms-agent-0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10gen Mongo Monitoring Service Agent&nbsp;&nbsp;&nbsp; addon
+ cron-1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cron 1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ jenkins-client-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Jenkins Client&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ mongodb-2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MongoDB 2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ mysql-5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MySQL 5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ mysql-5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MySQL 5.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ phpmyadmin-4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; phpMyAdmin 4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ postgresql-8.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PostgreSQL 8.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ postgresql-9.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PostgreSQL 9.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ rockmongo-1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RockMongo 1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ switchyard-0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SwitchYard 0.8.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon
+ haproxy-1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Web Load Balancer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; addon</pre> 
+<p>Y podemos crear un nuevo gear al que llamaremos <em>wordpress</em> y basado en php 5.4:</p> 
+<pre>rhc create-app wordpress php-5.4
+ Application Options
+ -------------------
+ Domain:&nbsp;&nbsp;&nbsp;&nbsp; pledin
+ Cartridges: php-5.4
+ Gear Size:&nbsp; default
+ Scaling:&nbsp;&nbsp;&nbsp; no
+Creating application 'wordpress' ... done
+Waiting for your DNS name to be available ... done
+Cloning into 'wordpress'...
+Your application 'wordpress' is now available.
+URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://wordpress-pledin.rhcloud.com/
+SSH to:&nbsp;&nbsp;&nbsp;&nbsp; xxxxxxxxxxxxxxxxxxxxxx@wordpress-pledin.rhcloud.com
+Git remote: ssh://xxxxxxxxxxxxxxxxxxxx@wordpress-pledin.rhcloud.com/~/git/wordpress.git/
+
+Run 'rhc show-app wordpress' for more details about your app.</pre> 
+<p>La instrucci&oacute;n ha creado el nuevo gear <em>wordpress</em> y ha clonado el repositorio git en la carpeta con el mismo nombre. A continuaci&oacute;n instalamos el cartridge mysql-5.5 en nuestro gear:</p> 
+<pre>$ rhc cartridge-add mysql-5.5 --app wordpress
+ Adding mysql-5.5 to application 'wordpress' ... done
+mysql-5.5 (MySQL 5.5)
+ ---------------------
+ Gears:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Located with php-5.4
+ Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+ Database Name:&nbsp; wordpress
+ Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ************
+ Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ************
+
+</pre> 
+<h2>Creaci&oacute;n de un alias</h2> 
+<p>Como hicimos en el proyecto de la aplicaci&oacute;n moodle no vamos a utilizar el nombre que se ha generado en la creaci&oacute;n del gear (<em>wordpress-pledin.rhcloud.com</em>), en su lugar vamos a utilizar el nombre <em>www.josedomingo.org, </em>para ello es necesario crear un alias:</p> 
+<pre>$ rhc alias add wordpress www.josedomingo.org</pre> 
+<h2>Despliegue de wordpress</h2> 
+<p>A continuaci&oacute;n vamos a copiar a nuestro repositorio local el c&oacute;digo de nuestra wordpress (lo guardaremos en un directorio llamado <em>pledin</em>) a excepci&oacute;n del directorio <em>wp-content</em> , que contiene los ficheros que se pueden ir modificando en nuestra web (im&aacute;genes subidas, nuevos plugins y temas, actualizaciones de plugins y temas,…). El contenido de esta carpeta la guardaremos posteriormente en el&nbsp; directorio <em>app-root/data</em> de openshift. Si estuvi&eacute;ramos haciendo una instalaci&oacute;n nueva este paso no ser&iacute;a necesario, ya que no tendr&iacute;amos ning&uacute;n fichero en el directorio <em>wp-content</em>.</p> 
+<p>En el fichero <em>wp-config.php</em> tenemos la configuraci&oacute;n de nuestra wordpress, vamos a utilizar las variables de entorno que se crean en OpenShift para indicar los datos sobre el acceso de la base de datos. El fragmento donde se configuran estos par&aacute;metros del fichero quedar&iacute;a de la siguiente manera:</p> 
+<pre>// ** MySQL settings - You can get this info from your web host ** //
+ /** The name of the database for WordPress */
+ define('DB_NAME', $_ENV['OPENSHIFT_APP_NAME']);
+ /** MySQL database username */
+ define('DB_USER', $_ENV['OPENSHIFT_MYSQL_DB_USERNAME']);
+ /** MySQL database password */
+ define('DB_PASSWORD', $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD']);
+ /** MySQL hostname */
+ define('DB_HOST', $_ENV['OPENSHIFT_DB_HOST']);
+ /** Database Charset to use in creating database tables. */
+ define('DB_CHARSET', 'utf8');
+ /** The Database Collate type. Don't change this if in doubt. */
+ define('DB_COLLATE', '');</pre> 
+<p>A continuaci&oacute;n podemos sincronizar nuestro repositorio local con el repositorio de openshift:</p> 
+<pre>~wordpress/pledin$ git add *
+~wordpress/pledin$ git commit -m &quot;Primera instalaci&oacute;n&quot;
+~wordpress/pledin $ git push</pre> 
+<p>El siguiente paso que vamos a realizar es copiar el directorio <em>wp-content</em> al directorio <em>app-root/data</em>, que es el utilizado por openshift para guardar los ficheros que se van modificando como indicamos anteriormente:</p> 
+<pre>$ scp -r wp-content/* xxxxxxxxxxxxxxxxxxxxx@wordpress-pledin.rhcloud.com:app-root/data</pre> 
+<p>Con esto nos aseguramos que si volvemos a actualizar el repositorio git con un<em> push,</em> esta informaci&oacute;n no se pierda.</p> 
+<p>Finalmente crearemos un enlace s&iacute;mbolico <em>wp-content</em> desde el repositorio git, guardado en openshift en el directorio <em>app-root/repo,</em> al directorio <em>wp-content</em> que acabamos de subir y que esta guardado en el directorio <em>app-root/data</em>, para ello vamos a utilizar un script que se ejecute cada vez que actualicemos el repositorio, a este tipo de script se le llaman <strong><em>git action hook</em></strong>.</p> 
+<p>El script que vamos a ejecutar crear&aacute; enlaces s&iacute;mbolicos de los directorios de <em>repo/wp-content</em> a los directorios en <em>data/wp-content,</em> para realizar este script creamos el fichero <em>build</em> en el directorio de nuestro repositorio local <em>.openshift/action_hooks/</em></p> 
+<pre>ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/pledin/wp-content/uploads
+ln -sf $OPENSHIFT_DATA_DIR/plugins $OPENSHIFT_REPO_DIR/pledin/wp-content/plugins
+ln -sf $OPENSHIFT_DATA_DIR/themes $OPENSHIFT_REPO_DIR/pledin/wp-content/themes
+ln -sf $OPENSHIFT_DATA_DIR/languages $OPENSHIFT_REPO_DIR/pledin/wp-content/languages
+ln -sf $OPENSHIFT_DATA_DIR/upgrade&nbsp; $OPENSHIFT_REPO_DIR/pledin/wp-content/upgrade</pre> 
+<p>Le damos permiso de ejecuci&oacute;n, y lo subimos al repositorio:</p> 
+<pre>~wordpress/<em>.openshift/action_hooks</em>$ chmod +x .openshift/action_hooks/build
+~wordpress/<em>.openshift/action_hooks</em>$ git add .openshift/action_hooks/build
+~wordpress/<em>.openshift/action_hooks</em>$  git commit -m &quot;action hook&quot;
+~wordpress/<em>.openshift/action_hooks</em>$  git push</pre> 
+<h2>Configuraci&oacute;n de la base de datos</h2> 
+<p>Vamos a copiar nuestra copia de la base de datos a nuestro proyecto openshift para posteriormente acceder por ssh&nbsp; y hacer la exportaci&oacute;n:</p> 
+<pre>$ scp jdmrwordpress.sql xxxxxxxxxxxxxxxxxxx@wordpress-pledin.rhcloud.com:app-root/data</pre> 
+<pre>$ ssh xxxxxxxxxxxxxxxxxxx@wordpress-pledin.rhcloud.com
+...
+[wordpress-pledin.rhcloud.com xxxxxxxxxxxxxxxxxxxx]\&gt; cd app-root/data/
+[wordpress-pledin.rhcloud.com data]\&gt; mysql -u <em>usuario_base_datos</em> -p*********** wordpress &lt; jdmrwordpress.sql</pre> 
+<blockquote>
+ <p>En los asteriscos hay que poner la constrase&ntilde;a.</p>
+</blockquote> 
+<h2>Automatizar tareas usando el cron</h2> 
+<p>Del mismo modo que con la aplicaci&oacute;n moodle vamos a instalar el cartridge <em><strong>cron 1.4</strong></em> que nos va a permitir la ejecuci&oacute;n del cron:</p> 
+<pre>$ rhc cartridge-add cron-1.4 --app wordpress
+</pre> 
+<p>Vamos a crear diariamente una copia de seguridad de la base de datos con la utilidad mysqldump, para ello usamos una tarea en el cron creando un fichero<em> cron.sh</em> en el directorio de nuestro repositorio local <em>.openshif/cron/daily</em>, con el siguiente contenido:</p> 
+<pre>#!/bin/bash
+ mysqldump --password=$OPENSHIFT_MYSQL_DB_PASSWORD -h $OPENSHIFT_MYSQL_DB_HOST -P $OPENSHIFT_MYSQL_DB_PORT -u $OPENSHIFT_MYSQL_DB_USERNAME $OPENSHIFT_GEAR_NAME --add-drop-table &gt; $OPENSHIFT_DATA_DIR/$OPENSHIFT_GEAR_NAME.sql</pre> 
+<p>A continuaci&oacute;n le damos permiso de ejecuci&oacute;n y lo subimos a nuestro repositorio de openshift:</p> 
+<pre>~wordpress/<em>.openshif/cron/daily</em>$ chmod +x cron.sh
+~wordpress/<em>.openshif/cron/daily</em>$&nbsp;git add cron.sh
+~wordpress/<em>.openshif/cron/daily</em>$ git commit -m &quot;tarea cron&quot;
+~wordpress/<em>.openshif/cron/daily</em>$ git push</pre> 
+<h2>Terminando</h2> 
+<p>El &uacute;ltimo paso que queda es la modificaci&oacute;n de nuestro servidor DNS. Tendremos que eliminar el registro A correspondiente al nombre <em>www</em> que apuntaba a la direcci&oacute;n ip del servidor de hosting antiguo y crear una nuevo registro CNAME para crear un alias llamado <em>www</em> que apunte al nombre <em>wordpress-pledin.rhcloud.com, </em>de esta forma estaremos siempre accediendo a la direcci&oacute;n ip de nuestro servidor de openshift aunque est&eacute; sea migrado a otra m&aacute;quina.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress" st_title="Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1211,
+      "url" : "http://www.blogstack.info/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "pledin",
+      "name" : "PLEDIN"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

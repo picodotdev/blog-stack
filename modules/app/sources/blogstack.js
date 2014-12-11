@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress",
+      "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
       "title" : "Linux Mint 17.1 Rebecca: triste regresión"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
-      "title" : "Calligra 2.8.7 disponible para su actualización"
     }
   ]
 }
