@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
+      "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/escoge-regalar-libertad",
       "title" : "Escoge regalar libertad"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
       "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/bicho-un-ano-por-casa",
-      "title" : "Bicho, un año por casa"
     }
   ]
 }

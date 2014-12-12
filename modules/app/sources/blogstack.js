@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
+      "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
       "title" : "UN y Python protagonistas de Barcelona Free Software"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
       "title" : "8+ libros para mejorar como programadores"
-    },
-    {
-      "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
-      "title" : "Excipientes y principios activos de Scrum"
     }
   ]
 }
