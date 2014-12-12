@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
+      "title" : "jQuery selectors y extensibilidad"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
       "title" : "Java 8 Date Time API"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
       "title" : "Expresiones Lambda y ejecución en paralelo"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic",
-      "title" : "Sublime Text editor y su exito para CantabriaTIC"
     }
   ]
 }

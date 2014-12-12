@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
+      "title" : "jQuery selectors y extensibilidad"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
       "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito",
       "title" : "Free software, beyond software de Agustín Benito"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
-      "title" : "8+ libros para mejorar como programadores"
     }
   ]
 }

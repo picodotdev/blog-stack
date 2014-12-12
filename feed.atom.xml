@@ -3,10 +3,53 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-12T12:03:25Z</updated>
+  <updated>2014-12-12T14:03:31Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-12T12:03:25Z</dc:date>
+  <dc:date>2014-12-12T14:03:31Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>jQuery selectors y extensibilidad</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad" />
+    <category term="jquery" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-12-12T13:02:55Z</updated>
+    <published>2014-12-12T13:02:55Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;El uso de selectores en jQuery ( jQuery selectors) &amp;nbsp;es lo m&amp;aacute;s com&amp;uacute;n ya que el framework se basa en ellos para realizar la selecci&amp;oacute;n de un grupo de nodos del arbol DOM. Un ejemplo sencillo de uso de selector con jQuery puede ser el siguiente:&lt;/p&gt; 
+&lt;pre&gt;
+
+$(&amp;quot;p&amp;quot;).css(&amp;quot;color&amp;quot;,&amp;quot;blue&amp;quot;);
+
+&lt;/pre&gt; 
+&lt;p&gt;Que se encarga de seleccionar todos los p&amp;aacute;rrafos de un documento.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/parrafos.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/parrafos.gif" alt="parrafos" width="197" height="232" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;h2&gt;jQuery selectors&amp;nbsp;y&amp;nbsp;extensibilidad&lt;/h2&gt; 
+&lt;p&gt;En m&amp;aacute;s de una ocasi&amp;oacute;n necesitaremos generar nuestros propios selectores y extender jQuery sobre todo si tenemos que abordar proyectos complejos que se basen en &amp;eacute;l. Vamos a construir un selector personalizado que seleccione todos los parrafos que contienen un n&amp;uacute;mero primo.&lt;/p&gt; 
+&lt;pre&gt;
+
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+$.expr[':'].primo = function(elem) {
+
+var numero= parseInt(elem.innerText);
+var primo=false;
+console.log(numero);
+for (var i=2;i&amp;lt;numero;i++) {
+
+if ((numero % i)==0) {
+
+return false;
+
+}
+}
+return true;
+};
+&amp;lt;/script&amp;gt;
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-12-12T13:02:55Z</dc:date>
+  </entry>
   <entry>
     <title>Los !bangs de openSUSE en el buscador DuckDuckGo</title>
     <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo" />
@@ -689,37 +732,6 @@ public class PrincipalInstante {
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2014-12-04T00:52:04Z</dc:date>
-  </entry>
-  <entry>
-    <title>Estado de las licencias Creative Commons</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons" />
-    <category term="licencia-creative-commons" />
-    <category term="software-libre" />
-    <author>
-      <name>victorhck</name>
-    </author>
-    <updated>2014-12-03T22:21:45Z</updated>
-    <published>2014-12-03T22:21:45Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Desde Creative Commons han elaborado un informe y realizado una infograf&amp;iacute;a sobre el estado de dichas licencias en este a&amp;ntilde;o, y a lo largo de los a&amp;ntilde;os.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;img src="https://stateof.creativecommons.org/img/sotc3.png" alt="" width="900" height="1229" /&gt;&lt;/p&gt; 
-&lt;p&gt;En el informe realizado queda patente que cada vez m&amp;aacute;s creadores eligen licencias libres para divulgar sus trabajos.&lt;/p&gt; 
-&lt;p&gt;Este blog mismo es un reflejo de ello. Creo que el conocimiento debe compartirse, con &amp;eacute;tica y respeto y respet&amp;aacute;ndose al creador.&lt;/p&gt; 
-&lt;p&gt;No debe ser “el todo vale” sino estar&amp;iacute;amos pervirtiendo su prop&amp;oacute;sito.&lt;/p&gt; 
-&lt;p&gt;Puedes leer el informe completo en este enlace:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="https://stateof.creativecommons.org/report/"&gt;&lt;strong&gt;https://stateof.creativecommons.org/report/&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;O ver la infograf&amp;iacute;a&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="https://stateof.creativecommons.org/"&gt;&lt;strong&gt;https://stateof.creativecommons.org/&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;De la que existe una versi&amp;oacute;n en espa&amp;ntilde;ol!&lt;/p&gt; 
-&lt;p&gt;&lt;img src="https://github.com/creativecommons/stateofthe/raw/master/CC-Spanish-Spain.png" alt="" width="1824" height="10539" /&gt;&lt;/p&gt; 
-&lt;br /&gt; 
-&lt;a href="http://feeds.wordpress.com/1.0/gocomments/victorhckinthefreeworld.wordpress.com/4249/"&gt;&lt;img alt="" src="http://feeds.wordpress.com/1.0/comments/victorhckinthefreeworld.wordpress.com/4249/" /&gt;&lt;/a&gt; 
-&lt;img alt="" src="http://pixel.wp.com/b.gif?host=victorhckinthefreeworld.wordpress.com&amp;amp;blog=22503493&amp;amp;post=4249&amp;amp;subd=victorhckinthefreeworld&amp;amp;ref=&amp;amp;feed=1" width="1" height="1" /&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>victorhck</dc:creator>
-    <dc:date>2014-12-03T22:21:45Z</dc:date>
   </entry>
 </feed>
 
