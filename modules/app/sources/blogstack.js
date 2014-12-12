@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/alpine-linux-acaba-de-lanzar-la-version-3-1",
+      "title" : "Alpine Linux acaba de lanzar la versión 3.1.0"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
       "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
       "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
-      "title" : "Java 8 Date Time API"
     }
   ]
 }
