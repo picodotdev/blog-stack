@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
+      "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
       "title" : "UN y Python protagonistas de Barcelona Free Software"
     },

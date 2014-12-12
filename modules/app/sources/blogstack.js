@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
+      "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
       "title" : "jQuery selectors y extensibilidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
       "title" : "Java 8 Date Time API"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito",
-      "title" : "Free software, beyond software de Agustín Benito"
     }
   ]
 }
