@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
+      "title" : "UN y Python protagonistas de Barcelona Free Software"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
       "title" : "Probando Plasma 5 en mi portátil"
     },

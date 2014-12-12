@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
+      "title" : "UN y Python protagonistas de Barcelona Free Software"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/obtener-informacion-del-kernel-con-dmesg",
       "title" : "Obtener información del kernel con dmesg"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",
       "title" : "Excipientes y principios activos de Scrum"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     }
   ]
 }
