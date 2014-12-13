@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
+      "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
+    },
+    {
       "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
       "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/dia-internacional-del-software-libre",
       "title" : "Dia Internacional del Software Libre"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/avisos-de-seguridad-2-9-2-14",
-      "title" : "Avisos de Seguridad 20/09/2014"
     }
   ]
 }

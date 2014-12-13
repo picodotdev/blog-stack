@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
+      "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
+    },
+    {
       "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
       "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c",
       "title" : "Buscar un archivo en el PATH en C"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
-      "title" : "KaOS: fiel a sus principios"
     }
   ]
 }
