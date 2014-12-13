@@ -7,6 +7,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "8+ libros para mejorar como programadores"
     },
     {
+      "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
+      "title" : "Ejercicios (katas) para mejorar habilidades de programación practicando"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
       "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/de-arch-linux-a-arch-linux",
       "title" : "De Arch Linux a Arch Linux"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/experiencia-instalando-sistema-operativo-a-ordenador-viejo",
-      "title" : "Experiencia instalando sistema operativo a ordenador viejo"
     }
   ]
 }

@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
+      "title" : "8+ libros para mejorar como programadores"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
+      "title" : "Ejercicios (katas) para mejorar habilidades de programación practicando"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
       "title" : "GCompris se une a KDE Incubator"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
       "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-179",
-      "title" : "Enlaces interesantes 179"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
-      "title" : "Breeze, el pack de iconos de Plasma 5"
     }
   ]
 }
