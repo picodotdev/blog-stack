@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
+      "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/alpine-linux-acaba-de-lanzar-la-version-3-1",
       "title" : "Alpine Linux acaba de lanzar la versión 3.1.0"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/12/kaos-fiel-a-sus-principios",
       "title" : "KaOS: fiel a sus principios"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga",
-      "title" : "openSUSE Education Li-f-e 13.2 lista para su descarga"
     }
   ]
 }

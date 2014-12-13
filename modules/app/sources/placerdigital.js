@@ -3,6 +3,10 @@ define("app/sources/placerdigital", [], function() {
   "name" : "Placer digital",
   "posts" : [
     {
+      "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
+      "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
+    },
+    {
       "url" : "/post/placerdigital/2014/06/acelerar-tu-pagina-web-retardando-la-carga-de-ciertos-contenidos-secundarios",
       "title" : "Acelerar tu página web retardando la carga de ciertos contenidos secundarios"
     },
@@ -29,10 +33,6 @@ define("app/sources/placerdigital", [], function() {
     {
       "url" : "/post/placerdigital/2013/06/como-remover-las-inutiles-imagenes-de-los-remitentes-en-gmail-para-android",
       "title" : "Cómo remover las inútiles imágenes de los remitentes en Gmail para Android"
-    },
-    {
-      "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
-      "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
     },
     {
       "url" : "/post/placerdigital/2014/02/por-que-el-gobierno-y-el-sistema-educativo-deben-preferir-software-libre",
