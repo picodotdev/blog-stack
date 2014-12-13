@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
+      "title" : "GCompris se une a KDE Incubator"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
       "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
     },

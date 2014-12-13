@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
+      "title" : "GCompris se une a KDE Incubator"
+    },
+    {
       "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
       "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/breeze-el-pack-de-iconos-de-plasma-5",
       "title" : "Breeze, el pack de iconos de Plasma 5"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/12/buscar-un-archivo-en-el-path-en-c",
-      "title" : "Buscar un archivo en el PATH en C"
     }
   ]
 }
