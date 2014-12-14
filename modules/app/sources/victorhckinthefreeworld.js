@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
+      "title" : "Linux la alternativa a Google como buscador de internet"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
       "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/10/escucha-la-llamada-de-gnu-linux",
       "title" : "Escucha la llamada de GNU/Linux"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/10/preguntas-y-respuestas-sobre-opensuse-factory-y-tumbleweed",
-      "title" : "Preguntas y respuestas sobre openSUSE Factory y Tumbleweed"
     }
   ]
 }
