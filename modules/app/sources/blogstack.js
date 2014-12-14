@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
+      "title" : "Fedora 21 lista para su descarga"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
       "title" : "Linux la alternativa a Google como buscador de internet"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle",
       "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/temas-para-pairs-el-juego-de-memoria-de-kde",
-      "title" : "Temas para Pairs, el juego de memoria de KDE"
     }
   ]
 }

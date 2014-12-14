@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
+      "title" : "Fedora 21 lista para su descarga"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
       "title" : "GCompris se une a KDE Incubator"
     },
