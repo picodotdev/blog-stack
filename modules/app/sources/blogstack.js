@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris",
+      "title" : "Recaudación de fondos para GCompris"
+    },
+    {
+      "url" : "/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script",
+      "title" : "Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]"
+    },
+    {
       "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
       "title" : "Herramientas que solucionan y ocultan problemas"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
       "title" : "Probando Plasma 5 en mi portátil"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/free-software-foundation-recopilacion-de-noticias-de-noviembre-de-2-14",
-      "title" : "Free Software Foundation. Recopilación de noticias de noviembre de 2014"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
-      "title" : "Qué es y cómo se instala build-essentials"
     }
   ]
 }

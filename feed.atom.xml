@@ -3,10 +3,61 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-15T06:02:41Z</updated>
+  <updated>2014-12-15T10:03:20Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-15T06:02:41Z</dc:date>
+  <dc:date>2014-12-15T10:03:20Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Recaudación de fondos para GCompris</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris" />
+    <category term="gcompris" />
+    <category term="educacion" />
+    <category term="software" />
+    <author>
+      <name>baltolkien</name>
+    </author>
+    <updated>2014-12-15T09:10:50Z</updated>
+    <published>2014-12-15T09:10:50Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Seguimos con las noticias sobre &lt;a href="http://www.kdeblog.com/gcompris.html"&gt;GCompris&lt;/a&gt;. Hace un par de d&amp;iacute;as habl&amp;eacute; en el blog de que el proyecto se un&amp;iacute;a a KDE Incubator y hoy toca hablar de una campa&amp;ntilde;a inciada por su equipo de desarrollo, la recaudaci&amp;oacute;n de fondos para GCompris.&lt;br /&gt; &lt;/strong&gt;&lt;/p&gt; 
+&lt;h2&gt;Recaudaci&amp;oacute;n de fondos para GCompris&lt;/h2&gt; 
+&lt;p&gt;&lt;img src="http://www.kdeblog.com/wp-content/uploads/2014/12/gcompris-logo-square.png" alt="GCompris se une a KDE Incubator" width="127" height="127" /&gt;&lt;/p&gt; 
+&lt;p&gt;En la actualidad, &lt;strong&gt;uno de los aspectos m&amp;aacute;s d&amp;eacute;biles del proyecto GCompris es su apartado gr&amp;aacute;fico&lt;/strong&gt;. Como es l&amp;oacute;gico, la mayor parte de los miembros del equipo son desarrolladores de aplicaciones y no artistas. Por esta raz&amp;oacute;n utilizan los gr&amp;aacute;ficos libres para sus diversos m&amp;oacute;dulos siendo esto un problema en ocasiones ya que la imagen que se utiliza puede no estar 100% adaptada al mismo o no estar todos los elementos armonizados.&lt;/p&gt; 
+&lt;p&gt;Para solucionar este problema, &lt;strong&gt;el gran artista &lt;a href="http://www.timotheegiet.com/"&gt;Timoth&amp;eacute;e Giet&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>baltolkien</dc:creator>
+    <dc:date>2014-12-15T09:10:50Z</dc:date>
+  </entry>
+  <entry>
+    <title>Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" />
+    <category term="bash" />
+    <category term="e-mail" />
+    <category term="servidores" />
+    <category term="mensaje" />
+    <category term="argumentos" />
+    <category term="correo" />
+    <category term="gist" />
+    <category term="ssh" />
+    <category term="remoto" />
+    <category term="electronico" />
+    <category term="script" />
+    <category term="sesion" />
+    <category term="terminal" />
+    <category term="email" />
+    <category term="sendmail" />
+    <category term="servidor" />
+    <category term="general" />
+    <category term="linux" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2014-12-15T09:10:46Z</updated>
+    <published>2014-12-15T09:10:46Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8xMi8xNjA5ODc0MDAxXzgyODQzZTZjNTZfby5qcGc="&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/12/1609874001_82843e6c56_o-560x373.jpg" alt="" title="1609874001_82843e6c56_o" width="560" height="373" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;En varias ocasiones, he necesitado enviar un e-mail a un compa&amp;ntilde;ero de trabajo (o a m&amp;iacute; mismo) con informaci&amp;oacute;n reci&amp;eacute;n extra&amp;iacute;da de un servidor (por ejemplo un CSV de base de datos o informaci&amp;oacute;n subida desde la web) y lo que he hecho al final ha sido baj&amp;aacute;rmelo por SSH y una vez en mi ordenador he enviado el archivo donde ha sido necesario. Si eres como yo, que siempre tengo una sesi&amp;oacute;n SSH abierta en mi servidor, ganar&amp;aacute;s un par de minutos con este script.&lt;/p&gt; 
+&lt;p&gt;El siguiente script env&amp;iacute;a un correo electr&amp;oacute;nico utilizando sendmail. sendmail no es dif&amp;iacute;cil, simplemente tenemos que escribir como entrada del correo las cabeceras necesarias y el mensaje, aunque podemos echar unos minutos hasta que se puede enviar correctamente el mensaje.&lt;br /&gt; El problema con las cabeceras viene cuando tenemos que enviar archivos adjuntos, ya que las cabeceras que tenemos que enviar son un poco m&amp;aacute;s complejas, y luego tenemos que codificar el archivo para que encaje en un e-mail y es algo que a mano resulta muy pesado.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2014-12-15T09:10:46Z</dc:date>
+  </entry>
   <entry>
     <title>Herramientas que solucionan y ocultan problemas</title>
     <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas" />
@@ -666,68 +717,6 @@ return true;
 &lt;h2&gt;Las aplicaciones de openSUSE Education Li-f-e 13.2&lt;/h2&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2014/12/opensuse-education-li-f-e-13-2-lista-para-su-descarga"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2014-12-08T09:10:34Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java 8 Date Time API</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api" />
-    <category term="java" />
-    <category term="java-basico" />
-    <category term="java-api" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-12-08T08:00:28Z</updated>
-    <published>2014-12-08T08:00:28Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Llevamos mas de de una d&amp;eacute;cada trabajando con la clase Date y la clase Calendar en Java . Mucha gente cuando empieza se ha encontrado con verdaderos problemas a la hora de gestionar estas clases unidas a la clase DateFormat. A partir de Java 8 las cosas se van a simplificar ya que tenemos un nuevo API de DateTime mucho m&amp;aacute;s intuitivo. Una de las clases fundamentales a la hora de trabajar con Java 8 es la&lt;strong&gt; clase Instant&lt;/strong&gt; que define un instante en el tiempo.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001142.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001142.png" alt="001" width="434" height="104" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Vamos a ver como funciona en el c&amp;oacute;digo :&lt;/p&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava.fechas;
-
-import java.time.Duration;
-import java.time.Instant;
-
-public class PrincipalInstante {
-
- public static void main(String[] args) {
-
- Instant instanteA=Instant.now();
-
- try {
- Thread.sleep(3000);
- } catch (InterruptedException e) {
- // TODO Auto-generated catch block
- e.printStackTrace();
- }
-
- Instant instanteB= Instant.now();
- System.out.println(Duration.between(instanteA, instanteB));
-
- }
-
-}
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-8-date-time-api"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-12-08T08:00:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Free software, beyond software de Agustín Benito</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito" />
-    <category term="ted" />
-    <category term="video" />
-    <category term="tedx" />
-    <category term="kde" />
-    <author>
-      <name>baltolkien</name>
-    </author>
-    <updated>2014-12-07T09:10:11Z</updated>
-    <published>2014-12-07T09:10:11Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Hoy me siento especialmente feliz ya que os voy a presentar una peque&amp;ntilde;a charla de la famosa serie TEDx, una ponencia titulada Free software, beyond software de Agust&amp;iacute;n Benito, un destacado miembro de la Comunidad KDE y una persona que, aunque apenas nos hemos visto diez veces a lo largo de nuestra vida, creo que compartimos un v&amp;iacute;nculo que podr&amp;iacute;amos definir como de amistad.&lt;/strong&gt;&lt;/p&gt; 
-&lt;h2&gt;&amp;iquest;Qu&amp;eacute; son las charlas TED? &amp;iquest;Y lasTEDx? &lt;/h2&gt; 
-&lt;p&gt;Para los que no lo sepan las charlas TED (&lt;b&gt;Tecnolog&amp;iacute;a, Entretenimiento, Dise&amp;ntilde;o&lt;/b&gt;) son unas ponencias organizadas por el organismo del mismo nombre cuya finalidad es difundir ideas dignas de ser difundidas, en las que han participados desde presidentes del gobierno de EE.UU como &lt;a href="http://es.wikipedia.org/wiki/Bill_Clinton"&gt;Bill Clinton&lt;/a&gt;. o premios N&amp;oacute;bel (&lt;a href="http://es.wikipedia.org/wiki/James_D._Watson"&gt;James D. Watson&lt;/a&gt;, &lt;a href="http://es.wikipedia.org/wiki/Murray_Gell-Mann"&gt;Murray Gell-Mann&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2014/12/free-software-beyond-software-de-agustin-benito"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>baltolkien</dc:creator>
-    <dc:date>2014-12-07T09:10:11Z</dc:date>
   </entry>
 </feed>
 
