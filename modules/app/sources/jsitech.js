@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/conociendo-owasp",
+      "title" : "Conociendo OWASP"
+    },
+    {
       "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
       "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/09/vulnerabilidad-de-seguridad-importante-en-bash",
       "title" : "Vulnerabilidad de Seguridad Importante en Bash"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/dia-internacional-del-software-libre",
-      "title" : "Dia Internacional del Software Libre"
     }
   ]
 }

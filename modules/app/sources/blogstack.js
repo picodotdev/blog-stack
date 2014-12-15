@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/conociendo-owasp",
+      "title" : "Conociendo OWASP"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
       "title" : "Tips de Javascript: String multilínea"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress",
       "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
-      "title" : "Linux Mint 17.1 Rebecca: triste regresión"
     }
   ]
 }
