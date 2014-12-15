@@ -1,5 +1,5 @@
 define("app/lastUpdated", [], function() {
 	return {
-		date: '201412150301+0000'
+		date: '201412150401+0000'
 	}
 });
