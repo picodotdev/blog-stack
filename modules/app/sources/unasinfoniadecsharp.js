@@ -3,6 +3,10 @@ define("app/sources/unasinfoniadecsharp", [], function() {
   "name" : "Una sinfonía en C#",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
+      "title" : "Tips de Javascript: String multilínea"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso",
       "title" : "50 Ejemplos de Angular, paso a paso."
     },

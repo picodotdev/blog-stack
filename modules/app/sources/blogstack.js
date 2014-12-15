@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
+      "title" : "Tips de Javascript: String multilínea"
+    },
+    {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-18",
+      "title" : "Enlaces interesantes 180"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris",
       "title" : "Recaudación de fondos para GCompris"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
       "title" : "Linux Mint 17.1 Rebecca: triste regresión"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/escoge-regalar-libertad",
-      "title" : "Escoge regalar libertad"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
-      "title" : "Probando Plasma 5 en mi portátil"
     }
   ]
 }

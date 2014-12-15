@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-18",
+      "title" : "Enlaces interesantes 180"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-179",
       "title" : "Enlaces interesantes 179"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/enlaces-interesantes-172",
       "title" : "Enlaces interesantes 172"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea",
-      "title" : "Uso de miembros estáticos en C# 6, ¿una buena idea?"
     }
   ]
 }
