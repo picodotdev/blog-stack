@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
+      "title" : "Herramientas que solucionan y ocultan problemas"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
       "title" : "Fedora 21 lista para su descarga"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
       "title" : "Qué es y cómo se instala build-essentials"
-    },
-    {
-      "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-moodle",
-      "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: Moodle"
     }
   ]
 }

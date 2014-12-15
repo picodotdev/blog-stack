@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
+      "title" : "Herramientas que solucionan y ocultan problemas"
+    },
+    {
       "url" : "/post/koalite/2014/12/la-consulta-que-era-lenta-los-domingos",
       "title" : "La consulta que era lenta los domingos"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
       "title" : "AngularJS, gracias por los servicios prestados"
-    },
-    {
-      "url" : "/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure",
-      "title" : "Interfaces + Extension Methods = Protocolos de Clojure"
     }
   ]
 }
