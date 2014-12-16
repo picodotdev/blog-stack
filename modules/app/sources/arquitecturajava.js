@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
+      "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
       "title" : "jQuery selectors y extensibilidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/jquery-find-vs-filter",
       "title" : "jQuery find vs filter"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/expresiones-lambda-y-ejecucion-en-paralelo",
-      "title" : "Expresiones Lambda y ejecución en paralelo"
     }
   ]
 }

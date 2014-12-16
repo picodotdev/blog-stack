@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
+      "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
+    },
+    {
       "url" : "/post/jsitech/2014/12/conociendo-owasp",
       "title" : "Conociendo OWASP"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/obtener-informacion-del-kernel-con-dmesg",
       "title" : "Obtener información del kernel con dmesg"
-    },
-    {
-      "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress",
-      "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress"
     }
   ]
 }
