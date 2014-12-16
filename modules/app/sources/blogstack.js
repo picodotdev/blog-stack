@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
+      "title" : "8+ libros para mejorar como programadores"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
       "title" : "Filtros asíncronos en MVC 6"
     },
@@ -49,10 +53,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
       "title" : "Linux la alternativa a Google como buscador de internet"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
-      "title" : "8+ libros para mejorar como programadores"
     },
     {
       "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
