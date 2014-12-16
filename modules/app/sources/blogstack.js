@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
+      "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
+    },
+    {
+      "url" : "/post/ochobitshacenunbyte/2014/12/geany-editor-en-debian-ubuntu-y-linux-mint",
+      "title" : "Geany editor en Debian, Ubuntu y Linux Mint"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
       "title" : "8+ libros para mejorar como programadores"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/alpine-linux-acaba-de-lanzar-la-version-3-1",
       "title" : "Alpine Linux acaba de lanzar la versión 3.1.0"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
-      "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
-      "title" : "jQuery selectors y extensibilidad"
     }
   ]
 }

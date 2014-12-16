@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
+      "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
       "title" : "Primera beta de Calligra 2.9 disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
       "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/kbreakout-la-version-kde-de-arkanoid",
-      "title" : "KBreakout, la versión KDE de Arkanoid"
     }
   ]
 }
