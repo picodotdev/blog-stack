@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
+      "title" : "Filtros asíncronos en MVC 6"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
       "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
       "title" : "jQuery selectors y extensibilidad"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
-      "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
     }
   ]
 }

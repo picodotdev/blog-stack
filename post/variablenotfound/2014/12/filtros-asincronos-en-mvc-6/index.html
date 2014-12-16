@@ -1,0 +1,166 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Filtros asíncronos en MVC 6 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6"><span itemprop="headline">Filtros asíncronos en MVC 6</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/asp-net"><img title="asp-net" alt="asp-net" src="/assets/images/labels/asp-net.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/TQAUUt0RHg0/filtros-asincronos-en-mvc-6.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-16T12:45" itemprop="dateModified">Actualizado el martes, 16 de diciembre de 2014 a las 12:45 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/asp-net"><span itemprop="articleSection">asp-net</span></a>, novedades, aspnetmvc</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET MVC 6" src="http://lh5.ggpht.com/-okFiI0ZHS50/VI3PXlfh_aI/AAAAAAAADus/WpuMJQIZY8c/ASPNETMVC2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC 6" width="142" />Como ya hemos visto por aqu&iacute; en alguna ocasi&oacute;n, hace tiempo que MVC soporta 
+<a href="http://www.variablenotfound.com/2012/09/asincronia-en-mvc-4.html">controladores as&iacute;ncronos</a>, permitiendo la implementaci&oacute;n de acciones muy eficientes desde el punto de vista de la utilizaci&oacute;n de los recursos del servidor.
+<br />
+<br />Sin embargo, en cuanto pretend&iacute;amos llevar a los 
+<em>action filters</em> la misma filosof&iacute;a nos encontr&aacute;bamos con que la infraestructura no estaba preparada, es decir, no ten&iacute;amos una forma clara de introducir llamadas as&iacute;ncronas en el cuerpo de los filtros. Como consecuencia, todas las tareas que se realizaban en su interior eran puramente s&iacute;ncronas y dejaban bloqueados los hilos destinados a procesar peticiones mientras se completaban las operaciones, lo cual es especialmente un despilfarro cuando se trata de tareas de entrada/salida.
+<br />
+<br />Afortunadamente esto parece que va a terminar con MVC 6, que soportar&aacute; ya esta solicitada caracter&iacute;stica. Pero 
+<strong>ojo, que MVC 6 est&aacute; a&uacute;n en desarrollo</strong>, por lo que todo lo que cuento a continuaci&oacute;n puede cambiar.
+<br />
+<br />Pero empecemos desde el principio, viendo qu&eacute; ha cambiado por abajo para que sea posible crear filtros con c&oacute;digo as&iacute;ncrono en su interior. Quiz&aacute;s sea una lectura un poco densa, pero creo que es interesante para comprender c&oacute;mo funcionan las cosas por dentro.
+<br />
+<h4><a></a>Abriendo el cap&oacute;</h4>Hasta MVC 5, era posible crear filtros personalizados tomando como base varias clases abstractas e interfaces, ofreciendo cada una de ellas un conjunto de m&eacute;todos a implementar o sobrescribir para introducir nuestro c&oacute;digo personalizado.
+<br />
+<br />Por ejemplo, la implementaci&oacute;n de la clase abstracta 
+<code><a href="https://github.com/aspnetwebstack/aspnetwebstack/blob/master/src/System.Web.Mvc/ActionFilterAttribute.cs">ActionFilterAttribute</a></code>, una base usada con mucha frecuencia para crear filtros personalizados, era de la siguiente forma:
+<br />
+<pre>public abstract class ActionFilterAttribute : <br />        FilterAttribute, IActionFilter, IResultFilter<br />{<br />    public virtual void OnActionExecuting(ActionExecutingContext filterContext) { }<br />    public virtual void OnActionExecuted(ActionExecutedContext filterContext)   { }<br />    public virtual void OnResultExecuting(ResultExecutingContext filterContext) { }<br />    public virtual void OnResultExecuted(ResultExecutedContext filterContext)   { }<br />}</pre>Como se puede observar, no hay rastro de las “marcas” que indican la presencia de asincron&iacute;a, como el uso de las clases&nbsp;
+<code>Task</code> o 
+<code>Task&lt;T&gt;</code>, o de las palabras clave 
+<code>async</code> y 
+<code>await</code>. Los m&eacute;todos 
+<code>OnXXX()</code> presentes en la signatura eran invocados de forma s&iacute;ncrona antes y despu&eacute;s de la ejecuci&oacute;n de las acciones y del &nbsp;resultado (objetos&nbsp;
+<code>ActionResult)</code>&nbsp;retornado por &eacute;stas. Dado que estos m&eacute;todos son virtuales, la creaci&oacute;n de filtros personalizados consist&iacute;a normalmente en heredar de 
+<code>ActionFilterAttribute</code> y sobreescribir uno o varios de ellos.
+<br />
+<br />Pues fijaos ahora en la implementaci&oacute;n de 
+<a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.Core/Filters/ActionFilterAttribute.cs">esta misma clase en MVC 6</a>:
+<br />
+<pre>public abstract class ActionFilterAttribute: Attribute, IOrderedFilter,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IActionFilter, IAsyncActionFilter, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IResultFilter, IAsyncResultFilter <br />{<br />    public int Order { get; set; }<br /><br />    public virtual void OnActionExecuting(ActionExecutingContext context) { }<br />    public virtual void OnActionExecuted(ActionExecutedContext context)   { }<br /><br />    public virtual async=&quot;async&quot; Task OnActionExecutionAsync(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ActionExecutingContext context, ActionExecutionDelegate next)<br />    {<br />        OnActionExecuting(context);<br />        if (context.Result == null)<br />        {<br />            OnActionExecuted(await next());<br />        }<br />    }<br /><br />    public virtual void OnResultExecuting(ResultExecutingContext context) { }<br />    public virtual void OnResultExecuted(ResultExecutedContext context)   { }<br /><br />    public virtual async=&quot;async&quot; Task OnResultExecutionAsync(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResultExecutingContext context, ResultExecutionDelegate next)<br />    {<br />        OnResultExecuting(context);<br />        if (!context.Cancel)<br />        {<br />            OnResultExecuted(await next());<br />        }<br />    }<br />}</pre>&iexcl;Esto ya es otra cosa! Siguen existiendo los mismos m&eacute;todos s&iacute;ncronos 
+<code>OnXXX()</code> que ten&iacute;amos en las versiones anteriores, pero ahora se han implementado un par de m&eacute;todos nuevos, 
+<code>OnActionExecutionAsync()</code> y 
+<code>OnResultExecutionAsync()</code>, ambos definidos en sus respectivos interfaces 
+<code>IAsyncActionFilter</code> y 
+<code>IAsyncResultFilter</code>, que brindan la posibilidad de introducir c&oacute;digo as&iacute;ncrono de forma sencilla.
+<br />
+<br />Acerqu&eacute;monos ahora a la implementaci&oacute;n de estos m&eacute;todos. Son muy similares, por lo que nos centraremos en un principio en 
+<code>OnActionExecutionAsync()</code>:
+<br />
+<pre>public virtual async=&quot;async&quot; Task OnActionExecutionAsync(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ActionExecutingContext context, ActionExecutionDelegate next)<br />{<br />    OnActionExecuting(context);<br />    if (context.Result == null)<br />    {<br />        OnActionExecuted(await next());<br />    }<br />}</pre>Como podemos observar, en su interior se encuentra en primer lugar una llamada s&iacute;ncrona a 
+<code>OnActionExecuting()</code>. Esto lo pone sencillo para los escenarios en los que no sea necesario asincron&iacute;a, manteniendo retrocompatibilidad con filtros escritos para versiones anteriores del framework.
+<br />
+<br />S&oacute;lo si no se ha cortocircuitado la ejecuci&oacute;n de la acci&oacute;n estableciendo un resultado “precocinado” desde el propio filtro, es cuando se ejecuta la acci&oacute;n realmente mediante la invocaci&oacute;n al delegado 
+<code>next()</code>, y su retorno ser&aacute; enviado como par&aacute;metro al m&eacute;todo s&iacute;ncrono 
+<code>OnActionExecuted()</code>.
+<br />
+<br />Exactamente lo mismo ocurre con 
+<code>OnResultExecutionAsync()</code>; se encargar&aacute; de invocar a los tradicionales m&eacute;todos s&iacute;ncronos 
+<code>OnResultExecuting()</code> y 
+<code>OnResultExecuted()</code> antes y despu&eacute;s de la ejecuci&oacute;n del resultado, proporcionando una 
+<em>interfaz s&iacute;ncrona</em> para aquellos escenarios donde no sea necesario la asincron&iacute;a.
+<br />
+<br />Pero en cualquier caso, lo interesante de esto es que tenemos un punto as&iacute;ncrono de entrada a nuestros filtros que, como ya os habr&eacute;is dado cuenta, son m&eacute;todos virtuales, es decir, f&aacute;cilmente reemplazables por c&oacute;digo propio en nuestros filtros personalizados.
+<br />
+<h4>Creando filtros as&iacute;ncronos personalizados</h4>Si hab&eacute;is llegado hasta este punto, probablemente la creaci&oacute;n de un filtro as&iacute;ncrono os resultar&aacute; totalmente trivial. Basta con heredar de 
+<code>ActionFilterAttribute</code> y sobrescribir 
+<code>OnActionExecutionAsync()</code> u 
+<code>OnResultExecutionAsync()</code> dependiendo de si queremos tomar el control durante la ejecuci&oacute;n de la acci&oacute;n o del resultado, respectivamente.
+<br />
+<br />El siguiente ejemplo muestra un sencillo 
+<em>profiler</em> implementado en forma de filtro que env&iacute;a de forma as&iacute;ncrona los tiempos de ejecuci&oacute;n de la acci&oacute;n y del resultado a un 
+<em>logger</em> que podr&iacute;a estar almacenando esta informaci&oacute;n en disco o en una base de datos:
+<br />
+<pre>public class ProfilerAttribute : ActionFilterAttribute<br />{<br />    private ILogger _logger = new Logger();<br />    public override async=&quot;async&quot; Task OnActionExecutionAsync(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ActionExecutingContext context, ActionExecutionDelegate next)<br />    {<br />        var stopWatch = Stopwatch.StartNew();<br />        await base.OnActionExecutionAsync(context, next);<br />        stopWatch.Stop();<br /><br />        var message = FormatProfilerInfo(&quot;Action&quot;, context, stopWatch);<br />        await _logger.Log(message);<br />    }<br /><br />    public override async=&quot;async&quot; Task OnResultExecutionAsync(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResultExecutingContext context, ResultExecutionDelegate next)<br />    {<br />        var stopWatch = Stopwatch.StartNew();<br />        await base.OnResultExecutionAsync(context, next);<br />        stopWatch.Stop();<br /><br />        var message = FormatProfilerInfo(&quot;Result&quot;, context, stopWatch);<br />        await _logger.Log(message);<br />    }<br /><br />    private string FormatProfilerInfo(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string what, FilterContext context, Stopwatch stopWatch)<br />    {<br />        return string.Format(&quot;{0}.{1} &gt;&gt; {2} execution: {3}ms&quot;,<br />            context.RouteData.Values[&quot;Controller&quot;],<br />            context.RouteData.Values[&quot;Action&quot;],<br />            what,<br />            stopWatch.ElapsedMilliseconds);<br />    }<br />}</pre>Por cierto, seguro que m&aacute;s de uno ha pensado que el filtro anterior usa una forma 
+<em>algo chunga</em> para obtener la referencia a la clase 
+<code>Logger</code>. Pues s&iacute;, pero est&aacute; hecho aposta ;) La forma en que se consigue la 
+<strong>inyecci&oacute;n de dependencias en filtros de MVC 6 es muy interesante</strong>, pero para no desviarnos mucho lo dejar&eacute; para un post futuro :)
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=TQAUUt0RHg0:pPNIkijnOMI:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=TQAUUt0RHg0:pPNIkijnOMI:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=TQAUUt0RHg0:pPNIkijnOMI:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=TQAUUt0RHg0:pPNIkijnOMI:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/TQAUUt0RHg0" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6" st_title="Filtros asíncronos en MVC 6 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/asp-net/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta asp-net</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1232,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
