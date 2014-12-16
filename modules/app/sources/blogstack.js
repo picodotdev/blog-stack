@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
+      "title" : "Primera beta de Calligra 2.9 disponible"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
       "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
       "title" : "UN y Python protagonistas de Barcelona Free Software"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/obtener-informacion-del-kernel-con-dmesg",
-      "title" : "Obtener información del kernel con dmesg"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
+      "title" : "Primera beta de Calligra 2.9 disponible"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris",
       "title" : "Recaudación de fondos para GCompris"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/kbreakout-la-version-kde-de-arkanoid",
       "title" : "KBreakout, la versión KDE de Arkanoid"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/opensuse-13-2-harlequin-kde-un-pequeno-video-demostrativo",
-      "title" : "OpenSUSE 13.2 Harlequin KDE , un pequeño vídeo demostrativo"
     }
   ]
 }
