@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
+      "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
       "title" : "Primera beta de Calligra 2.9 disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
       "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
-      "title" : "UN y Python protagonistas de Barcelona Free Software"
     }
   ]
 }
