@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
+      "title" : "KDE Aplicaciones 14.12 listo para su descarga"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
       "title" : "Explorando Linux, serie de vídeos divulgativos"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/ktuberling-la-version-kde-de-mr-potato",
       "title" : "KTuberling, la versión KDE de Mr Potato"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
-      "title" : "Cómo instalar openSUSE 13.2 DVD"
     }
   ]
 }

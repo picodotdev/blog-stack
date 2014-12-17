@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
+      "title" : "KDE Aplicaciones 14.12 listo para su descarga"
+    },
+    {
       "url" : "/post/pledin/2014/12/migrando-pledin-migrando-el-correo-electronico-con-mailgun",
       "title" : "Migrando Pledin. Migrando el correo electrónico con Mailgun"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
       "title" : "Fedora 21 lista para su descarga"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
-      "title" : "Linux la alternativa a Google como buscador de internet"
     }
   ]
 }
