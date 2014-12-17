@@ -1,0 +1,214 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Extendiendo Java EL | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2014/12/extendiendo-java-el"><span itemprop="headline">Extendiendo Java EL</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/extendiendo-java-el/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-17T09:09" itemprop="datePublished">Publicado el miércoles, 17 de diciembre de 2014 a las 09:09 UTC</span></div><div><span>
+Etiquetado como
+java-web, flexibilidad</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Una de las tecnolog&iacute;as con las que m&aacute;s trabajamos en la capa de presentaci&oacute;n es con Java EL (Expression Language) . Es la tecnolog&iacute;a que nos permite mostrar informaci&oacute;n de forma sencilla en la capa de presentaci&oacute;n, as&iacute; como realizar operaciones b&aacute;sicas con ella. Vamos a ver un ejemplo sencillo a trav&eacute;s de un Servlet y un JSP para luego extenderlo:</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(&quot;/Servlet&quot;)
+public class Servlet extends HttpServlet {
+private static final long serialVersionUID = 1L;
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+
+ RequestDispatcher despachador= request.getRequestDispatcher(&quot;/pagina.jsp&quot;);
+ int numero=100;
+ request.setAttribute(&quot;numero&quot;, numero);
+ despachador.forward(request, response);
+}
+
+}
+
+</pre> 
+<p>El Servlet tiene una variable que se denomina “numero” y que se la pasa al fichero “pagina.jsp” para que este la imprima. Si echamos un vistazo al fichero JSP veremos que este multiplica por 2 el n&uacute;mero utilizando “expresi&oacute;n language”.</p> 
+<pre>
+
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+ &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${numero*2}
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre> 
+<p>La p&aacute;gina nos imprimir&aacute; el siguiente resultado por pantalla:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/001143.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/001143.png" alt="001" width="355" height="120" /></a></p> 
+<h2>Extendiendo EL</h2> 
+<p>Java EL soporta bastantes capacidades en su core y nos permite realizar operaciones aritm&eacute;ticas y acceder a las variables que se encuentran en los distintos scopes.</p> 
+<p>&nbsp;</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00221.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00221.gif" alt="002" width="267" height="232" /></a></p> 
+<p>Sin embargo a veces sus capacidades se quedan cortas y necesitamos extenderlo. Para ello vamos a implementar una nueva funci&oacute;n de EL que nos permita por ejemplo calcular un n&uacute;mero primo. El primer paso ser&aacute; implementar la funci&oacute;n en una clase Java.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+public class FuncionEL {
+
+ public static String calcularPrimo(Integer numero) {
+
+ System.out.println(numero);
+
+ for(int i=2;i&lt;numero;i++) {
+
+ if(numero %i==0) {
+
+ return &quot;el numero :&quot; +numero+&quot; no es primo&quot;;
+ }
+ }
+ return &quot;el numero:&quot; +numero+&quot; si es primo&quot;;
+
+ }
+}
+
+</pre> 
+<p>Una vez definida la funcionalidad la registramos en un fichero tld a nivel de la carpeta WEB-INF (se podr&iacute;a ubicar en un jar para reutilizarlo).</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00372.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00372.png" alt="003" width="198" height="107" /></a></p> 
+<p>El contenido del fichero tld es el siguiente que registra la funci&oacute;n .</p> 
+<pre>
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;taglib xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+ xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+ xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2eeimagesweb-jsptaglibrary_2_1.xsd&quot;
+ version=&quot;2.1&quot;&gt;
+
+&lt;description&gt;
+ Funcion Numero Primo
+ &lt;/description&gt;
+ &lt;tlib-version&gt;1.0&lt;/tlib-version&gt;
+ &lt;function&gt;
+ &lt;description&gt;Primo&lt;/description&gt;
+ &lt;name&gt;calcularPrimo&lt;/name&gt;
+ &lt;function-class&gt;com.arquitecturajava.FuncionEL&lt;/function-class&gt;
+ &lt;function-signature&gt;
+ java.lang.String calcularPrimo (java.lang.Integer)
+ &lt;/function-signature&gt;
+ &lt;/function&gt;
+&lt;/taglib&gt;
+
+</pre> 
+<p>Una vez hecho esto estamos extendiendo Java EL para que soporte esta funci&oacute;n. Podemos cambiar el contenido de la p&aacute;gina por el siguiente :</p> 
+<pre>
+
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;
+ pageEncoding=&quot;UTF-8&quot;%&gt;
+ &lt;%@ taglib uri=&quot;/WEB-INF/tagfuncion.tld&quot; prefix=&quot;funciones&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${funciones:calcularPrimo(numero)}
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+<p>Hemos terminado de extender Java EL para que soporte una nueva funci&oacute;n:<br /> <a href="http://www.arquitecturajava.com/wp-content/uploads/0059.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/0059.gif" alt="005" width="280" height="350" /></a><br /> El resultado ser&aacute; el siguiente:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00463.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00463.png" alt="004" width="364" height="172" /></a></p> 
+<p>Hemos terminado de extender el lenguaje de expressiones (Java EL)</p> 
+<p>Otros art&iacute;culos relacionados: <a title="Servlets 3.0 (I)" href="http://www.arquitecturajava.com/servlets-3-0-i/">Servlet 3.0</a>&nbsp;, <a title="Java y ServletContext" href="http://www.arquitecturajava.com/java-servletcontext/">ServletContext</a>&nbsp;,<a title="Servlet 3.0 y Java Filter" href="http://www.arquitecturajava.com/servlet3-java-filter/">ServletFilter</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/extendiendo-java-el/">Extendiendo Java EL</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el" st_title="Extendiendo Java EL | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1236,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2014/12/extendiendo-java-el"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

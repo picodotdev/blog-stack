@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
+      "title" : "Fedora 21: \"déjà vu\""
+    },
+    {
+      "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
+      "title" : "Explorando Linux, serie de vídeos divulgativos"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
+      "title" : "Extendiendo Java EL"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
       "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
       "title" : "GCompris se une a KDE Incubator"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
-      "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
-    },
-    {
-      "url" : "/post/placerdigital/2013/10/como-hacer-que-un-tweet-se-borre-automaticamente-despues-de-un-tiempo-definido",
-      "title" : "Cómo hacer que un tweet se borre automáticamente después de un tiempo definido"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/alpine-linux-acaba-de-lanzar-la-version-3-1",
-      "title" : "Alpine Linux acaba de lanzar la versión 3.1.0"
     }
   ]
 }

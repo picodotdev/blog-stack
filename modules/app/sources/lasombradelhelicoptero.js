@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
+      "title" : "Fedora 21: \"déjà vu\""
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/linux-mint-17-1-rebecca-triste-regresion",
       "title" : "Linux Mint 17.1 Rebecca: triste regresión"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/03/el-hogar-de-los-valientes",
       "title" : "El hogar de los valientes"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2013/10/chakra-conky-sobre-las-ventanas",
-      "title" : "Chakra: conky sobre las ventanas"
     }
   ]
 }

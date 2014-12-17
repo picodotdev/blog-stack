@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
+      "title" : "Explorando Linux, serie de vídeos divulgativos"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
       "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/11/como-instalar-opensuse-13-2-dvd",
       "title" : "Cómo instalar openSUSE 13.2 DVD"
-    },
-    {
-      "url" : "/post/kdeblog/2014/11/disponible-la-version-candidata-de-kde-aplicaciones-14-12",
-      "title" : "Disponible la versión candidata de KDE Aplicaciones 14.12"
     }
   ]
 }
