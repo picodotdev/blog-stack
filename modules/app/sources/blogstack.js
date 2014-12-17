@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/12/migrando-pledin-migrando-el-correo-electronico-con-mailgun",
+      "title" : "Migrando Pledin. Migrando el correo electrónico con Mailgun"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
       "title" : "Logotipo para openSUSE Conference 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
       "title" : "Linux la alternativa a Google como buscador de internet"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
-      "title" : "Ejercicios (katas) para mejorar habilidades de programación practicando"
     }
   ]
 }

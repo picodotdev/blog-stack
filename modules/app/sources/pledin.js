@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2014/12/migrando-pledin-migrando-el-correo-electronico-con-mailgun",
+      "title" : "Migrando Pledin. Migrando el correo electrónico con Mailgun"
+    },
+    {
       "url" : "/post/pledin/2014/12/migrando-pledin-de-hosting-tradicional-a-paas-openshift-wordpress",
       "title" : "Migrando Pledin. De hosting tradicional a PaaS OpenShift: WordPress"
     },
