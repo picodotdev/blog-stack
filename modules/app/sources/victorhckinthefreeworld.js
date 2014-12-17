@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
+      "title" : "Logotipo para openSUSE Conference 2015"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
       "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
       "title" : "¿Hay alguien ahí fuera?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/presentacion-en-espanol-de-la-charla-de-richard-stallman-en-tedx",
-      "title" : "Presentación en español de la charla de Richard Stallman en TEDx"
     }
   ]
 }

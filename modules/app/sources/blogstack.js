@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
+      "title" : "Logotipo para openSUSE Conference 2015"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
       "title" : "Fedora 21: \"déjà vu\""
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
       "title" : "Ejercicios (katas) para mejorar habilidades de programación practicando"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
-      "title" : "GCompris se une a KDE Incubator"
     }
   ]
 }
