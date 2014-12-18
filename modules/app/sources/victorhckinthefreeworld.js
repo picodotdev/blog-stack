@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
+      "title" : "We are Linux, pero también We are GNU"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
       "title" : "Logotipo para openSUSE Conference 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
       "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/hay-alguien-ahi-fuera",
-      "title" : "¿Hay alguien ahí fuera?"
     }
   ]
 }

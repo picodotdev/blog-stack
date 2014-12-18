@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
+      "title" : "We are Linux, pero también We are GNU"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea",
       "title" : "Notas sobre tuneo de IntelliJ Idea"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script",
       "title" : "Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]"
-    },
-    {
-      "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
-      "title" : "Herramientas que solucionan y ocultan problemas"
     }
   ]
 }
