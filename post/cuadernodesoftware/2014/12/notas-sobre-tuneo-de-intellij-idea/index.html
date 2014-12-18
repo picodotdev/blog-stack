@@ -1,0 +1,136 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Notas sobre tuneo de IntelliJ Idea | Cuaderno de software</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea"><span itemprop="headline">Notas sobre tuneo de IntelliJ Idea</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/desarrollo-de-software"><img title="desarrollo-de-software" alt="desarrollo-de-software" src="/assets/images/labels/desarrollo-de-software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Guille</span> en la bitácora <a href="http://www.programania.net/">Cuaderno de software</a>, <a href="http://www.programania.net/diseno-de-software/notas-sobre-tuneo-de-intellij-idea/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-18T10:30" itemprop="datePublished">Publicado el jueves, 18 de diciembre de 2014 a las 10:30 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/desarrollo-de-software"><span itemprop="articleSection">desarrollo-de-software</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Esto son solo unas notas sobre los flags y settings que se proponen <a href="http://p7h.blogspot.com.es/2012/12/intellij-idea-tuning-parameters.html">aqu&iacute;</a> para tunear el rendimiento de IntellJ Idea. Ha resultado ser una buena excusa para aprender sobre algunas de las opciones de la JVM.</p> 
+<p><strong>-server</strong></p> 
+<p>Si lo arranco en modo servidor, el compilador a&ntilde;ade optimizaciones m&aacute;s cachas. Tarda m&aacute;s en arrancar, pero luego tira mejor</p> 
+<p>-Xms2048m<br /> -Xmx2048m<br /> -XX:NewSize=512m<br /> -XX:MaxNewSize=512m<br /> -XX:PermSize=512m<br /> -XX:MaxPermSize=512m</p> 
+<p><em>Heap y permgen</em></p> 
+<p><strong>-XX:+UseCompressedOops<br /> </strong></p> 
+<p>http://javarevisited.blogspot.com.es/2012/06/what-is-xxusecompressedoops-in-64-bit.html</p> 
+<p><strong>-XX:ParallelGCThreads=3<br /> </strong><br /> http://es.slideshare.net/jclarity/hotspot-garbage-collection-tuning-guide slide 46</p> 
+<p><strong>-XX:MaxTenuringThreshold=1<br /> </strong><br /> Cu&aacute;ntos ciclos de GC puede aguantar cada objeto antes de ser promocionado al old space (y ser GCado)</p> 
+<p>(with high values) As your old space is useless (as it is empty), server will do much more full ‘stop-the-world’ GCs to defragment heap. This will have an impact to your applications, as you will see many unnecessary pauses.</p> 
+<p>http://stackoverflow.com/questions/13543468/maxtenuringthreshold-how-exactly-it-works</p> 
+<p><strong>-XX:SurvivorRatio=8<br /> </strong><br /> Esto indica el ratio (1:8) en el tama&ntilde;o de cada espacio de supervivientes.</p> 
+<p>Si los espacios son peque&ntilde;os, los objetos pasaran directamente a espacios m&aacute;s viejos. Si son demasiado grandes estar&aacute;n vac&iacute;os, provocando stop-the-world</p> 
+<p><strong>-XX:+UseCodeCacheFlushing<br /> </strong></p> 
+<p>https://blog.codecentric.de/en/2012/07/useful-jvm-flags-part-4-heap-tuning/</p> 
+<p><strong>-XX:ReservedCodeCacheSize=64m<br /> </strong><br /> Idea viene 224 por defecto</p> 
+<p>Mirar link de UseCodeCacheFlushing</p> 
+<p>Es para darle un tama&ntilde;o a la cache de codigo</p> 
+<p><strong>-XX:+AggressiveOpts<br /> </strong><br /> Turns on point performance optimizations that are expected to be on by default in upcoming releases. The changes grouped by this flag are minor changes to JVM runtime compiled code and not distinct performance features (such as BiasedLocking and ParallelOldGC). This is a good flag to try the JVM engineering team’s latest performance tweaks for upcoming releases. Note: this option is experimental! The specific optimizations enabled by this option can change from release to release and even build to build. You should reevaluate the effects of this option with prior to deploying a new release of Java.</p> 
+<p>http://www.oracle.com/technetwork/java/tuning-139912.html#section4.2.4</p> 
+<p><em>Opciones del Garbage collector<br /> </em><br /> <strong>-XX:+UseParNewGC<br /> -XX:+UseConcMarkSweepGC</strong></p> 
+<p>Usar el colector de basura Concurrent Mark Sweep</p> 
+<p>http://blog.takipi.com/garbage-collectors-serial-vs-parallel-vs-cms-vs-the-g1-and-whats-new-in-java-8/</p> 
+<p>http://sanjaal.com/java/tag/jvm-option-parameter-xxuseconcmarksweepgc/</p> 
+<p><strong>-XX:+CMSClassUnloadingEnabled<br /> </strong><br /> Este activa sweep de clases que ya no se usan. Antiguamente lo har&iacute;a en la permgen. Tiene que ir de la mano del UseConcMarkSweepGC</p> 
+<p><strong>-XX:+CMSIncrementalMode<br /> </strong></p> 
+<p>http://www.fixdeveloper.com/2014/03/jvm-tuning-cmsincrementalmode-overrides.html</p> 
+<p>After some digging around, I found that -XX:+CMSIncrementalMode was set in the parameter. The mode is also known i-CMS and it is scheduled to occur mid-way between minor GC.&nbsp;By doing the GC in small units of time and creating multiple small pauses over the same period, it avoid a long pause. This is helpful for application where low latency is a priority.</p> 
+<p><strong>-XX:+CMSIncrementalPacing<br /> </strong></p> 
+<p>https://themindstorms.wordpress.com/2009/01/21/advanced-jvm-tuning-for-low-pause/</p> 
+<p>Enables automatic adjustment of the incremental mode duty cycle based on statistics collected while the JVM is running</p> 
+<p><strong>-XX:+CMSParallelRemarkEnabled<br /> </strong></p> 
+<p>http://www.liferay.com/es/documentation/liferay-portal/5.2/administration/-/ai/performance-tuning-1</p> 
+<p>+CMSParallelRemarkEnabled: For the CMS GC, enables the garbage collector to use multiple threads during the CMS remark phase. This decreases the pauses during this phase.</p> 
+<p><strong>-XX:+UseCMSInitiatingOccupancyOnly<br /> </strong></p> 
+<p>http://stackoverflow.com/a/9698982</p> 
+<p>Para que el siguiente setting XX:CMSInitiatingOccupancyFraction funcione.</p> 
+<p><strong>-XX:CMSInitiatingOccupancyFraction=65<br /> </strong></p> 
+<p>https://blog.codecentric.de/en/2013/10/useful-jvm-flags-part-7-cms-collector/</p> 
+<p>The Throughput Collector starts a GC cycle only when the heap is full, i.e., when there is not enough space available to store a newly allocated or promoted object. With the CMS Collector, it is not advisable to wait this long because it the application keeps on running (and allocating objects) during concurrent GC. Thus, in order to finish a GC cycle before the application runs out of memory, the CMS Collector needs to start a GC cycle much earlier than the Throughput Collector.<br /> As different applications have different object allocation patterns, the JVM collects run time statistics about the actual object allocations (and deallocations) it observes and uses them to determine when to start a CMS GC cycle. To bootstrap this process, the JVM takes a hint when to start the very first CMS run. The hint may be set via -XX:CMSInitiatingOccupancyFraction= where value denotes the utilization of old generation heap space in percent. For example, value=75 means that the first CMS cycle starts when 75% of the old generation is occupied. Traditionally, the default value of CMSInitiatingOccupancyFraction is 68 (which was determined empirically quite some time ago).</p> 
+<p><strong>-XX:+CMSScavengeBeforeRemark<br /> </strong><br /> CONTROVERTIDA</p> 
+<p>https://blogs.oracle.com/jonthecollector/entry/did_you_know</p> 
+<p>There is an option CMSScavengeBeforeRemark which is off by default. If turned on, it will cause a minor collection to occur just before the remark. That’s good because it will reduce the remark pause. That’s bad because there is a minor collection pause followed immediately by the remark pause which looks like 1 big fat pause.l</p> 
+<p><strong>-XX:-TraceClassUnloading<br /> </strong><br /> Para desactivar el debuggado de carga/descarga de clases</p> 
+<p><strong>-ea<br /> </strong><br /> Versi&oacute;n EA<br /> EA significa “acceso anticipado (del ingl&eacute;s Early Access)”; EA es una versi&oacute;n preliminar a la siguiente versi&oacute;n del software. Esta versi&oacute;n puede contener muchas funciones nuevas y correcciones de errores y, como versi&oacute;n preliminar, puede contener algunos problemas inesperados. No se recomienda el uso de esta versi&oacute;n preliminar en un entorno de producci&oacute;n. Actualice a la &uacute;ltima versi&oacute;n disponible en java.com</p> 
+<p><strong>-Dsun.io.useCanonCaches=false<br /> </strong><br /> WAT</p> 
+<p>http://konigsberg.blogspot.com.es/2009/10/answer-to-symbolic-puzzler.html</p> 
+<p>So by default, the cache canonicalization is on, but when you specify the VM arg -Dsun.io.useCanonCaches=false, the cache is never used.</p> 
+<p>Getting back to the puzzler, the first call to TESTDIR_SYMLINK.getCanonicalPath() always returns the path to the symlink, while the second call returns either the cached value (the path to the symlink) or the up-to-date resolved symlink, but only when -Dsun.io.useCanonCaches=false is specified.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea" st_title="Notas sobre tuneo de IntelliJ Idea | Cuaderno de software"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/desarrollo-de-software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo-de-software</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1241,
+      "url" : "http://www.blogstack.info/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "cuadernodesoftware",
+      "name" : "Cuaderno de software"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

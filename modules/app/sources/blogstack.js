@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea",
+      "title" : "Notas sobre tuneo de IntelliJ Idea"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
       "title" : "KDE Aplicaciones 14.12 listo para su descarga"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
       "title" : "Herramientas que solucionan y ocultan problemas"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
-      "title" : "Fedora 21 lista para su descarga"
     }
   ]
 }

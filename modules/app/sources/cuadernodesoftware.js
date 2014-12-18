@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea",
+      "title" : "Notas sobre tuneo de IntelliJ Idea"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/10/functional-trick-to-compose-conditions-in-jooq",
       "title" : "Functional trick to compose Conditions in Jooq"
     },
@@ -77,10 +81,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/05/identity-vs-guid",
       "title" : "Identity vs GUID"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/04/the-eye-of-the-storm",
-      "title" : "The eye of the storm"
     }
   ]
 }
