@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/compartir-en-libertad-we-are-linux",
+      "title" : "Compartir en libertad, We are Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/geany-editor-en-debian-ubuntu-y-linux-mint",
       "title" : "Geany editor en Debian, Ubuntu y Linux Mint"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mediawiki-en-debian",
       "title" : "Cómo instalar MediaWiki en Debian"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-mariadb-y-primeros-pasos",
-      "title" : "Cómo instalar MariaDB y primeros pasos"
     }
   ]
 }

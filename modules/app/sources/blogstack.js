@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/compartir-en-libertad-we-are-linux",
+      "title" : "Compartir en libertad, We are Linux"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
       "title" : "We are Linux, pero también We are GNU"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris",
       "title" : "Recaudación de fondos para GCompris"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script",
-      "title" : "Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]"
     }
   ]
 }
