@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
+      "title" : "Ubuntu Mate 14.10: bendita nostalgia"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
       "title" : "Fedora 21: \"déjà vu\""
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/evo-lution-instalar-arch-linux-en-modo-grafico",
       "title" : "Evo/Lution: instalar Arch Linux en modo gráfico"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/03/el-hogar-de-los-valientes",
-      "title" : "El hogar de los valientes"
     }
   ]
 }

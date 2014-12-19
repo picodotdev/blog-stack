@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
+      "title" : "Ubuntu Mate 14.10: bendita nostalgia"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
       "title" : "Lanzado digiKam Software Collection 4.6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
       "title" : "Tips de Javascript: String multilínea"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-18",
-      "title" : "Enlaces interesantes 180"
     }
   ]
 }
