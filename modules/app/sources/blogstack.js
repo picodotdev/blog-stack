@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
+      "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
       "title" : "Ubuntu Mate 14.10: bendita nostalgia"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/conociendo-owasp",
       "title" : "Conociendo OWASP"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
-      "title" : "Tips de Javascript: String multilínea"
     }
   ]
 }

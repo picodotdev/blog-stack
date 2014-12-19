@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
+      "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
       "title" : "We are Linux, pero también We are GNU"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
       "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/lanzada-opensuse-13-2-luz-verde-para-descargar-e-instalar",
-      "title" : "Lanzada openSUSE 13.2. Luz verde para descargar e instalar"
     }
   ]
 }
