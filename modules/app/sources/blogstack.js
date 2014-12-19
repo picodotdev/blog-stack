@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
+      "title" : "Lanzado digiKam Software Collection 4.6"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/compartir-en-libertad-we-are-linux",
       "title" : "Compartir en libertad, We are Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-18",
       "title" : "Enlaces interesantes 180"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/recaudacion-de-fondos-para-gcompris",
-      "title" : "Recaudación de fondos para GCompris"
     }
   ]
 }
