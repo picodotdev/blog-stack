@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
+      "title" : "KSudoku, el juego de Sudokus de KDE"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
       "title" : "Lanzado digiKam Software Collection 4.6"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/tutoriales-de-kturtle-para-aprender-a-programar",
       "title" : "Tutoriales de KTurtle para aprender a programar"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/emerald-un-elegante-tema-de-iconos-para-plasma",
-      "title" : "Emerald, un elegante tema de iconos para Plasma"
     }
   ]
 }

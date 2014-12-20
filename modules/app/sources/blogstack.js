@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
+      "title" : "KSudoku, el juego de Sudokus de KDE"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
       "title" : "Primera beta de Calligra 2.9 disponible"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
-      "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
     }
   ]
 }
