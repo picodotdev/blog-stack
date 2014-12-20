@@ -1,0 +1,123 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción al gestor de proyectos y tareas Redmine | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"><span itemprop="headline">Introducción al gestor de proyectos y tareas Redmine</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/software-libre"><img title="software-libre" alt="software-libre" src="/assets/images/labels/software-libre.png"/></a><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-19T18:57" itemprop="datePublished">Publicado el viernes, 19 de diciembre de 2014 a las 18:57 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, planeta-linux, planeta-codigo, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, planeta-arch-linux, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" />
+ <br /> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /> 
+</div> 
+<p>Para desarrollar un proyecto de software se hace imprescindible disponer de algunas herramientas que nos permitan realizar las tareas. Una de estas herramientas es un <a href="http://en.wikipedia.org/wiki/Issue_tracking_system">gestor de tareas, peticiones o errores</a>, que nos permite recoger en una herramienta gran parte de la informaci&oacute;n, conocer el estado, planificar y hacer el seguimiento las tareas necesario para desarrollar de forma ordenada, sin que perdamos nada de informaci&oacute;n y pudiendo recuperarla en cualquier momento en un futuro.</p> 
+<p>Como es habitual herramientas que gestionan tareas disponemos de varias algunas de las m&aacute;s conocidas son <a href="http://www.bugzilla.org/">Bugzilla</a>, <a href="https://www.atlassian.com/software/jira">JIRA</a>, <a href="https://www.mantisbt.org/">Mantis</a>, <a href="http://trac.edgewall.org/">Trac</a> y la herramienta de la que hablar&eacute; en este art&iacute;culo, <a href="http://www.redmine.org/">Redmine</a>. Cada una de estas herramientas como gestores de tareas son parecidas pero se diferencian en algunas cosas como la licencia que tiene, el esquema de precios o la funcionalidad que ofrece. Redmine tiene una <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">licencia de software libre GPL</a> y por tanto la podemos usar sin ning&uacute;n coste, en la siguiente tabla podemos compararla con los <a href="https://www.atlassian.com/software/jira/pricing">precios de JIRA</a> que para pocos usuarios son asumibles pero que a medida que se aumentan los usuarios empiezan a ser notables aunque posiblemente alcanzables en funci&oacute;n del tama&ntilde;o de la empresa. En cualquier siendo JIRA tambi&eacute;n una herramienta excelente Redmine cumple perfectamente con la misma funci&oacute;n. En la wikipedia podemos encontrar <a href="http://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems">m&aacute;s opciones y comparar unas con otras</a>.</p> 
+<p>Si queremos evaluar Redmine una forma sencilla podemos hacerlo mediante una imagen de Bitnami con VirtualBox. En la <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-bitnami/">introducci&oacute;n a Bitnami</a> comento qu&eacute; es y como nos puede ayudar a disponer de software que en algunos casos no es simple de instalar y que con Bitnami podemos disponer de forma sencilla y r&aacute;pida, adem&aacute;s de como usar con VirtualBox cualquier imagen de Bitnami de las herramientas ofrecidas. Una vez seguidos los pasos de la gu&iacute;a anterior podemos acceder a Redmine con el navegador web y una direcci&oacute;n similar a <a href="http://192.168.0.11">http://192.168.0.11</a>, el usuario y contrase&ntilde;a para acceder es user y bitnami respectivamente.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/proyecto.png" title="Proyecto"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/proyecto-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/peticion.png" title="Petici&oacute;n"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/peticion-thumb.png" /></a> 
+</div> 
+<p>Con Redmine podemos adaptar el flujo de las tareas a la forma de organizaci&oacute;n que empleemos, podemos personalizar el grafo de estados que siguen las tareas y que personas tiene permisos para hacer cada uno de los cambios de estado. Tambi&eacute;n podemos a&ntilde;adir campos personalizados que queremos recoger para cada petici&oacute;n, por ejemplo, podemos querer dar un tama&ntilde;o a las tareas en funci&oacute;n de si estimamos que es grande, media o peque&ntilde;a. Tambi&eacute;n podemos crear filtros y guardarlos para encontrar f&aacute;cilmente tareas.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/estados.png" title="Estados"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/estados-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/propiedades.png" title="Propiedades"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/propiedades-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/consulta.png" title="Filtros"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/consulta-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/flujo-estados.png" title="Flujo estados"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/flujo-estados-thumb.png" /></a> 
+</div> 
+<p>Adem&aacute;s de gestionar las tareas Redmine dispone de herramientas que nos pueden ser &uacute;tiles en el proyecto como una wiki para recoger documentaci&oacute;n del proyecto y un repositorio de documentos para aquellos que no queremos incluir en la herramienta de control de versiones por su tama&ntilde;o pero que queremos que est&eacute;n disponibles para cualquiera que trabaje con el proyecto.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/wiki.png" title="Wiki"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/wiki-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/archivos.png" title="Archivos"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/57/archivos-thumb.png" /></a> 
+</div> 
+<p>Pero Redmine es m&aacute;s que una herramienta de gesti&oacute;n de tareas, los complementos pueden a&ntilde;adirle funcionalidad adicional que permite <a href="http://redminecrm.com/projects/crm/pages/1">convertirla en un CRM para gestionar las comunicaciones con clientes</a> o en un <a href="http://redminecrm.com/projects/helpdesk/pages/1">helpdesk para atender las tareas de clientes</a>. Adem&aacute;s de otros como <a href="http://redminecrm.com/projects/people/pages/1">personalizar los usuarios de Redmine</a> o crear <a href="http://redminecrm.com/projects/checklist/pages/1">peque&ntilde;as listas de tareas</a> que nos evitar&aacute; crear subtareas.</p> 
+<p>En el siguiente art&iacute;culo comentar&eacute; como instalar el <a href="http://redminecrm.com/projects/agile/pages/1">plugin agile de Redmine</a> con la imagen de Bitnami en VirtualBox de forma que podamos visualizar las tareas en un panel kanban, y de un vistazo y r&aacute;pidamente conozcamos las tareas que est&aacute;n terminadas, que est&aacute;n en progreso, a punto de empezarse o en la cola de tareas por hacer.</p> 
+<p>Referencia:<br /> <a href="http://www.luisblasco.com/5-plugins-gratuitos-instalar-en-redmine/">5 plugins gratuitos para instalar a Redmine</a><br /> <a href="http://www.redmine.org/projects/redmine/wiki/RedmineIssueList#Applying-and-saving-filters">Aplicar y guardar filtros</a><br /> <a href="http://stackoverflow.com/questions/9027479/how-do-you-modify-a-filter-in-redmine">Como modificar un filtro</a><br /> <a href="http://www.luisblasco.com/blog/">Blog con varios art&iacute;culos interesantes sobre Redmine</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" st_title="Introducción al gestor de proyectos y tareas Redmine | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Introducción al gestor de proyectos y tareas Redmine";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1247,
+      "url" : "http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

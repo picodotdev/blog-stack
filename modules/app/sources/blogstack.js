@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
+      "title" : "Introducción al gestor de proyectos y tareas Redmine"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
       "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
       "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/conociendo-owasp",
-      "title" : "Conociendo OWASP"
     }
   ]
 }
