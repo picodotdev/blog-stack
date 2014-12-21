@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
+      "title" : "Clock-to-color wallpaper plugin para Plasma 5"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
       "title" : "KSudoku, el juego de Sudokus de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
       "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
-      "title" : "Primera beta de Calligra 2.9 disponible"
     }
   ]
 }
