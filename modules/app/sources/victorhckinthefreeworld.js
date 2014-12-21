@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
+      "title" : "Difunde redes sociales libres como Diaspora*"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
       "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
       "title" : "Vendiendo humo"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/que-ciclo-de-lanzamiento-quieres-para-opensuse",
-      "title" : "¿Qué ciclo de lanzamiento quieres para openSUSE?"
     }
   ]
 }

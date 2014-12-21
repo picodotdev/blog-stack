@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
+      "title" : "Difunde redes sociales libres como Diaspora*"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
       "title" : "Clock-to-color wallpaper plugin para Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
       "title" : "Filtros asíncronos en MVC 6"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
-      "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
     }
   ]
 }
