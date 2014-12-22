@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/rutas-en-reactjs-con-react-router",
+      "title" : "Rutas en ReactJS con React Router"
+    },
+    {
       "url" : "/post/koalite/2014/12/herramientas-que-solucionan-y-ocultan-problemas",
       "title" : "Herramientas que solucionan y ocultan problemas"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/06/consumiendo-el-api-rest-de-marvel-desde-clojure",
       "title" : "Consumiendo el API Rest de Marvel desde Clojure"
-    },
-    {
-      "url" : "/post/koalite/2014/06/angularjs-gracias-por-los-servicios-prestados",
-      "title" : "AngularJS, gracias por los servicios prestados"
     }
   ]
 }

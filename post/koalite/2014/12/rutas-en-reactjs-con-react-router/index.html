@@ -1,0 +1,183 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Rutas en ReactJS con React Router | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/12/rutas-en-reactjs-con-react-router"><span itemprop="headline">Rutas en ReactJS con React Router</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/G07t6sL2RFw/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-22T05:06" itemprop="datePublished">Publicado el lunes, 22 de diciembre de 2014 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+reactjs, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>, development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Cuando hace unas semanas ve&iacute;amos <a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">qu&eacute; es ReactJS</a> explicaba que ReactJS no es un framework “todo incluido” (como Angular o Durandal), sino que es m&aacute;s bien una librer&iacute;a que se limita a la generaci&oacute;n de vistas. Esto tiene la ventaja de que nuestra aplicaci&oacute;n queda mucho menos acoplada a ReactJS, pero tambi&eacute;n hace que cuando necesitemos m&aacute;s cosas nos toque buscar opciones y decidir c&oacute;mo queremos hacerlas, c&oacute;mo vimos al hablar de <a href="http://blog.koalite.com/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt/" title="Test de extremo a extremo con Nightwatch y Grunt">tests de extremo a extremo con Nightwatch</a>.</p> 
+<p>En muchas aplicaciones web actuales se acaban manejando rutas desde la parte cliente, y esa es una de las cosas que ReactJS no incluye de serie, pero que podemos implementar utilizando distintas librer&iacute;as. En este caso vamos a ver una que me ha gustado especialmente: <a href="https://github.com/rackt/react-router">React Router</a>.</p> 
+<p><a href="https://github.com/rackt/react-router">React Router</a> (enlace) es una liber&iacute;a para gestionar rutas en aplicaciones que utilicen ReactJS. Est&aacute; inspirada en el sistema de enrutado de Ember.js y su forma de manejar las rutas es un poco diferente de lo que podemos ver en otros sistemas, como ASP.NET MVC, <a href="https://docs.angularjs.org/tutorial/step_07">AngularJS</a>, <a href="http://expressjs.com/starter/basic-routing.html">Express</a> o Compojure, por poner unos cuantos ejemplos.</p> 
+<p>La idea fundamental es que podemos tener <strong>rutas anidadas</strong> mapeadas a vistas anidadas. &iquest;Qu&eacute; quiere decir esto? Vamos a verlo con un ejemplo.</p> 
+<h3>Un ejemplo</h3> 
+<p>Imaginemos el t&iacute;pico dashboard de estad&iacute;sticas de una web. Tenemos distintos tipos de m&eacute;tricas: Visitantes, P&aacute;ginas, Or&iacute;genes, etc., y para cada una de ellas podemos una visi&oacute;n global con un par de datos significativos y los detalles, que podemos mostrarlos de forma tabular o mediante una gr&aacute;fica:</p> 
+<p><img src="http://blog.koalite.com/wp-content/uploads/dashboard-sample.png" alt="dashboard-sample" width="750" height="273" /></p> 
+<p>Existen varias partes de la p&aacute;gina que se van a ir repitiendo entre las distintas “subp&aacute;ginas” del sitio. Todas tendr&aacute;n las pesta&ntilde;as de la parte izquierda para navegar entre secciones y, dentro de cada secci&oacute;n, tanto en la vista de tabla como la vista de gr&aacute;fico se repetir&aacute; la parte superior en la que aparece el resumen.</p> 
+<p>Una forma habitual de resolver esto es mediante el uso de plantillas que permitan “incluir” fragmentos de html comunes en varias p&aacute;ginas, de una forma similar a c&oacute;mo se hace con las <a href="http://msdn.microsoft.com/en-us/library/wtxbf3hh%28v=vs.140%29.aspx">Master Pages de ASP.NET MVC</a> o los <a href="http://blog.koalite.com/2011/11/tutorial-node-js-express-jquery-ii-generando-vistas-con-jade/">layouts de Jade</a>.</p> 
+<p>En el caso de React Router la forma de resolver este tipo de situaciones es ligeramente diferente y se basa en el uso de rutas anidadas. Al definir las rutas, podemos ir definiendo parte de la estructura de la p&aacute;gina y delegar en las rutas hijas la generaci&oacute;n del resto de la estructura. </p> 
+<p>Si pensamos en el ejemplo anterior, podr&iacute;amos tener las siguientes rutas:</p> 
+<p><img src="http://blog.koalite.com/wp-content/uploads/route-parts.png" alt="route-parts" width="536" height="395" /></p> 
+<ul> 
+ <li>/ : Ruta base en la que se define el men&uacute; de la izquierda con las distintas secciones del dashboard. 
+  <ul> 
+   <li>visitors : Ruta para visitantes en la que se define el resumen de visitantes 
+    <ul> 
+     <li>table : Ruta con la tabla</li> 
+     <li>chart : Ruta con el gr&aacute;fico</li> 
+    </ul> </li> 
+   <li>… resto de rutas</li> 
+  </ul> </li> 
+</ul> 
+<p>De esta forma evitamos que repetir nada entre una “p&aacute;gina” y otra, y podemos implementarlo todo mediante componentes de ReactJS independientes.</p> 
+<h3>Uso de React Router</h3> 
+<p>La definici&oacute;n de rutas se realiza a trav&eacute;s del componente <code>Router</code>:</p> 
+<pre>
+var routes = (
+  &lt;Route handler=&quot;{App&quot;} path=&quot;/&quot;&gt;
+       &lt;Route name=&quot;visitors&quot; handler=&quot;{Visitors}&quot;&gt;
+            &lt;Route name=&quot;visitors-table&quot; path=&quot;table&quot; handler=&quot;{VisitorsTable}&quot;/&gt;
+            &lt;Route name=&quot;visitors-chart&quot; path=&quot;chart&quot; handler=&quot;{VisitorsChart}&quot;/&gt;
+       &lt;/Route&gt;
+       &lt;Route name=&quot;pages&quot; handler=&quot;{Pages}&quot;&gt;
+            &lt;Route name=&quot;pages-table&quot; path=&quot;table&quot; handler=&quot;{PagesTable}&quot;/&gt;
+            &lt;Route name=&quot;pages-chart&quot; path=&quot;chart&quot; handler=&quot;{PagesChart}&quot;/&gt;
+       &lt;/Route&gt;
+       {/* ... resto de rutas */}
+  &lt;/Route&gt;
+);
+
+Router.run(routes, function(Handler) {
+  React.render(&lt;Handler /&gt;, document.body);
+});
+</pre> 
+<p>En la tabla de rutas vamos definiendo la jerarqu&iacute;a de rutas, indicando la manera en que est&aacute;n organizadas y el componente que se encargar&aacute; de renderizar cada una. Ahora s&oacute;lo falta definir cada componente:</p> 
+<pre>
+var App = React.createClass({
+  render: function() {
+    return (
+      &lt;div&gt;
+        {/* Pintamos el men&uacute; de la izquierda */}
+        &lt;Menu/&gt;
+        {/* Delegamos al router pintar el resto */}
+        &lt;RouteHandler/&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var Visitors = React.createClass({
+  render: function() {
+    return (
+      &lt;div&gt;
+        {/* Pintamos resumen */}
+        &lt;VisitorDetails/&gt;
+        {/* Delegamos al router pintar el resto */}
+        &lt;RouteHandler/&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var VisitorsTable = React.createClass({
+  render: function() {
+    return (
+      &lt;div&gt;
+        {/* Pintamos la tabla */}
+      &lt;/div&gt;
+    );
+  }
+});
+</pre> 
+<p>La idea es sencilla, cada componente renderiza la parte que le toca y delega a <code>RouteHandler</code> la generaci&oacute;n de la parte que es dependiente de la ruta. Esto permite unir de una forma muy intuitiva la estructura de los componentes con la estructura de las rutas de la p&aacute;gina.</p> 
+<p>Por supuesto se pueden hacer muchas m&aacute;s cosas, como definir rutas por defecto, redirigir de una ruta a otra, crear enlaces autom&aacute;ticamente, pasar par&aacute;metros entre rutas y todo lo que cabr&iacute;a esperar de un sistema de enrutado moderno. Todo eso lo pod&eacute;is ver en la <a href="https://github.com/rackt/react-router/tree/master/docs/api">documentaci&oacute;n de React Router</a>, que adem&aacute;s es bastante clara y completa.</p> 
+<h3>Resumen</h3> 
+<p>Una de las cosas que m&aacute;s me est&aacute; gustando de ReactJS es que no intenta solucionar todos los problemas de golpe y se centra s&oacute;lo en la parte de generaci&oacute;n de vistas. Eso hace que podamos elegir entre distintas implementaciones para el resto de componentes de la aplicaci&oacute;n, y en este caso concreto de las rutas, la soluci&oacute;n propuesta por React Router y sus rutas anidades es muy interesante.</p> 
+<p>Hay un parte que no tengo muy claro todav&iacute;a si me gusta o no, y es el uso de componentes de ReactJS para la <em>definici&oacute;n</em> de la tabla de rutas. Por una parte, la definici&oacute;n de la tabla de rutas como tal creo que se podr&iacute;a desacoplar m&aacute;s de JSX y hacerla con un API dise&ntilde;ada para ser usada con Javascript “puro”, pero por otra parte la naturaleza jer&aacute;rquica de las rutas encaja muy bien con el pseudo XML de JSX a la hora de anidarlas.</p> 
+<p>Supongo que para los que est&eacute;n acostumbrados a Ember.js (que es de d&oacute;nde est&aacute; copiado este sistemma) no ser&aacute; nada nuevo, pero a mi esta idea de las rutas anidadas me ha parecido m&aacute;s c&oacute;moda de manejar que los sitemas de hab&iacute;a usado anteriomente con AngularJS o ASP.NET MVC. Aun as&iacute;, si prefieres una alternativa m&aacute;s parecida a ellos, puedes usar <a href="https://github.com/STRML/react-router-component">React Router Component</a>.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2014/09/como-utilizar-reactjs-con-browserify/" title="C&oacute;mo utilizar ReactJS con Browserify">C&oacute;mo utilizar ReactJS con Browserify</a></li> 
+ <li><a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">Crear un componente con ReactJS</a></li> 
+ <li><a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">ReactJS: un enfoque diferente</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/G07t6sL2RFw" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" st_title="Rutas en ReactJS con React Router | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1251,
+      "url" : "http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

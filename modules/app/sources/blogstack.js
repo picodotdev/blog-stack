@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/rutas-en-reactjs-con-react-router",
+      "title" : "Rutas en ReactJS con React Router"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
       "title" : "Difunde redes sociales libres como Diaspora*"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
       "title" : "8+ libros para mejorar como programadores"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
-      "title" : "Filtros asíncronos en MVC 6"
     }
   ]
 }
