@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-181",
+      "title" : "Enlaces interesantes 181"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
       "title" : "Linux Mint 17.1 Rebecca KDE RC"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
       "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/geany-editor-en-debian-ubuntu-y-linux-mint",
-      "title" : "Geany editor en Debian, Ubuntu y Linux Mint"
     }
   ]
 }
