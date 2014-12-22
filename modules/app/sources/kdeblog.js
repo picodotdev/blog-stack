@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
+      "title" : "Linux Mint 17.1 Rebecca KDE RC"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
       "title" : "Clock-to-color wallpaper plugin para Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
       "title" : "Granatier, la versión KDE de Bomberman"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/taller-de-gnu-linux-en-las-iii-jornadas-libres-de-la-uned-de-vila-real",
-      "title" : "Taller de GNU/Linux en las III Jornadas Libres de la UNED de Vila-real"
     }
   ]
 }

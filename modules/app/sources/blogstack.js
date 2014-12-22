@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
+      "title" : "Linux Mint 17.1 Rebecca KDE RC"
+    },
+    {
       "url" : "/post/koalite/2014/12/rutas-en-reactjs-con-react-router",
       "title" : "Rutas en ReactJS con React Router"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/geany-editor-en-debian-ubuntu-y-linux-mint",
       "title" : "Geany editor en Debian, Ubuntu y Linux Mint"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
-      "title" : "8+ libros para mejorar como programadores"
     }
   ]
 }
