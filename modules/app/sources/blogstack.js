@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
+      "title" : "We are Linux! We love Free Software!"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-181",
       "title" : "Enlaces interesantes 181"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
       "title" : "Extendiendo Java EL"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
-      "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
     }
   ]
 }

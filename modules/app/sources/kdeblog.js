@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
+      "title" : "We are Linux! We love Free Software!"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
       "title" : "Linux Mint 17.1 Rebecca KDE RC"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/calligra-2-8-7-disponible-para-su-actualizacion",
       "title" : "Calligra 2.8.7 disponible para su actualización"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/granatier-la-version-kde-de-bomberman",
-      "title" : "Granatier, la versión KDE de Bomberman"
     }
   ]
 }
