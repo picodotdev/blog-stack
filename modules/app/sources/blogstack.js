@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/bq-lanzara-ubuntu-en-sus-moviles",
+      "title" : "BQ lanzará Ubuntu en sus móviles"
+    },
+    {
+      "url" : "/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora",
+      "title" : "Vulnerabilidad en GIT.. Actualice ahora."
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/felices-fiestas",
       "title" : "¡Felices fiestas!"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2014/12/migrando-pledin-migrando-el-correo-electronico-con-mailgun",
       "title" : "Migrando Pledin. Migrando el correo electrónico con Mailgun"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
-      "title" : "Logotipo para openSUSE Conference 2015"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
-      "title" : "Fedora 21: \"déjà vu\""
     }
   ]
 }
