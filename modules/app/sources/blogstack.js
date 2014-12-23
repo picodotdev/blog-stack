@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/felices-fiestas",
+      "title" : "¡Felices fiestas!"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
       "title" : "Java EE 6 uso de  filtros dinámicos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/12/fedora-21-deja-vu",
       "title" : "Fedora 21: \"déjà vu\""
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
-      "title" : "Explorando Linux, serie de vídeos divulgativos"
     }
   ]
 }
