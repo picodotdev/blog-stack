@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
+      "title" : "Java EE 6 uso de  filtros dinámicos"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
       "title" : "Extendiendo Java EL"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
       "title" : "Usando Java Session en aplicaciones web"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java",
-      "title" : "Arquitecturas JavaScript para desarrolladores Java"
     }
   ]
 }

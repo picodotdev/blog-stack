@@ -3,10 +3,59 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-23T10:02:42Z</updated>
+  <updated>2014-12-23T11:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-23T10:02:42Z</dc:date>
+  <dc:date>2014-12-23T11:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java EE 6 uso de  filtros dinámicos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos" />
+    <category term="java-web" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2014-12-23T10:19:27Z</updated>
+    <published>2014-12-23T10:19:27Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Java EE 6 nos ha a&amp;ntilde;adido muchas nuevas funciones que a veces nos pasan desapercibidas . Una de las que m&amp;aacute;s destaca es la capacidad de&lt;strong&gt; registrar din&amp;aacute;micamente Servlets &amp;nbsp;o Filtros (dynamic filters)&amp;nbsp;&lt;/strong&gt;dependiendo de las caracter&amp;iacute;sticas de nuestra aplicaci&amp;oacute;n. &amp;nbsp;Vamos a ver un ejemplo sencillo. El primer paso es construir un “utility project” o jar &amp;nbsp;que contenga una clase que implemente Filter y &amp;nbsp;nos haga un log de las diferentes p&amp;aacute;ginas que vayamos a solicitar.&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+public class FiltroLog implements Filter {
+public FiltroLog() {
+// TODO Auto-generated constructor stub
+}
+public void destroy() {
+// TODO Auto-generated method stub
+}
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+HttpServletRequest peticion= (HttpServletRequest)request;
+System.out.println(peticion.getRequestURI());
+chain.doFilter(request, response);
+}
+public void init(FilterConfig fConfig) throws ServletException {
+// TODO Auto-generated method stub
+}
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2014-12-23T10:19:27Z</dc:date>
+  </entry>
   <entry>
     <title>We are Linux! We love Free Software!</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/we-are-linux-we-love-free-software" />
@@ -651,42 +700,6 @@ console.log(texto);&lt;/pre&gt;
 &lt;p&gt;Un detalle importante es que s&amp;oacute;lo funciona con comillas simples.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>leonardo</dc:creator>
     <dc:date>2014-12-15T13:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Enlaces interesantes 180</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/12/enlaces-interesantes-18" />
-    <category term="enlaces" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-12-15T12:45:00Z</updated>
-    <published>2014-12-15T12:45:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Enlaces interesantes" src="http://lh4.ggpht.com/-4ygzCWkpEg0/U8v-VuXCzpI/AAAAAAAADiE/4KtNsV7dzBk/enlaces23333333333333.png?imgmax=800" height="129" style="margin: 0 0 10px 10px;" title="Enlaces interesantes" width="172" /&gt;Ah&amp;iacute; van los enlaces recopilados durante la semana pasada, espero que os resulten interesantes :-) 
-&lt;br /&gt; 
-&lt;h4&gt;ASP.NET&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://www.codeproject.com/Articles/717941/How-to-Choose-the-Best-Way-to-Pass-Multiple-Models"&gt;How to Choose the Best Way to Pass Multiple Models in ASP.NET MVC&lt;/a&gt; &lt;br /&gt;Snesh Prajapati &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.strathweb.com/2014/12/razor-views-pre-compilation-asp-net-5-mvc-6/"&gt;Razor views pre-compilation with ASP.NET 5 and MVC 6&lt;/a&gt; &lt;br /&gt;Filip Woj &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://j.tlns.be/2014/11/running-asp-net-on-a-raspberry-pi-with-mono-and-owin/"&gt;Running ASP.NET on a Raspberry Pi with Mono and OWIN&lt;/a&gt; &lt;br /&gt;Jan Tielens &lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://tattoocoder.azurewebsites.net/asp-net-vnext-project-creation-using-yeoman"&gt;ASP.NET vNext Project Creation using Yeoman&lt;/a&gt; &lt;br /&gt;Shayne Boyer &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;h4&gt;Azure / Cloud&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://weblogs.asp.net/scottgu/azure-premium-storage-remoteapp-sql-database-update-live-media-streaming-search-and-more"&gt;Azure: Premium Storage, RemoteApp, SQL Database Update, Live Media Streaming, Search and More&lt;/a&gt; &lt;br /&gt;Scott Guthrie &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;h4&gt;Conceptos/Patrones/Buenas pr&amp;aacute;cticas&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://www.codeproject.com/Articles/853319/A-Proposed-Approach-to-Estimating"&gt;A Proposed Approach to Estimating&lt;/a&gt; &lt;br /&gt;Ronnie Mukherjee&lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://blog.goyello.com/2014/12/10/clean-code/"&gt;Clean Code – Is my code always readable?&lt;/a&gt; &lt;br /&gt;Michal Warkocz&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;h4&gt;Html/Css/Javascript&lt;/h4&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;a href="http://css-tricks.com/design-considerations-text-images/"&gt;Design Considerations: Text on Images&lt;/a&gt; &lt;br /&gt;Chris Coyier&lt;/li&gt; 
- &lt;li&gt;&lt;a href="http://www.kirupa.com/html5/drawing_triangles_on_the_canvas.htm"&gt;Drawing Triangles on the Canvas&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/enlaces-interesantes-18"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-12-15T12:45:00Z</dc:date>
   </entry>
 </feed>
 

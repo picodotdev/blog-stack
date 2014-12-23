@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
+      "title" : "Java EE 6 uso de  filtros dinámicos"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
       "title" : "We are Linux! We love Free Software!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
       "title" : "Explorando Linux, serie de vídeos divulgativos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
-      "title" : "Extendiendo Java EL"
     }
   ]
 }
