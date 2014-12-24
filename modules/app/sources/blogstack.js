@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
+      "title" : "Sin más comentarios"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/12/por-que-moverme",
       "title" : "¿Por qué moverme?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
       "title" : "Ubuntu Mate 14.10: bendita nostalgia"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
-      "title" : "Lanzado digiKam Software Collection 4.6"
     }
   ]
 }

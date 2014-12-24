@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
+      "title" : "Sin más comentarios"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
       "title" : "Difunde redes sociales libres como Diaspora*"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/opensuse-13-2-un-vistazo-a-kde-y-gnome",
       "title" : "openSUSE 13.2 un vistazo a KDE y Gnome"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/vendiendo-humo",
-      "title" : "Vendiendo humo"
     }
   ]
 }
