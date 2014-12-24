@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
+      "title" : "FFmpeg 2.5.2 ya está disponible"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/bq-lanzara-ubuntu-en-sus-moviles",
       "title" : "BQ lanzará Ubuntu en sus móviles"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
       "title" : "Probamos la versión 7 de Trisquel GNU"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/crea-tu-propia-tienda-virtual-con-prestashop-y-debian",
-      "title" : "Crea tu propia tienda virtual con prestashop y Debian"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
+      "title" : "FFmpeg 2.5.2 ya está disponible"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt",
       "title" : "Testing continuo con Qunit, Phantom y Grunt"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea",
       "title" : "Notas sobre tuneo de IntelliJ Idea"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
-      "title" : "KDE Aplicaciones 14.12 listo para su descarga"
     }
   ]
 }
