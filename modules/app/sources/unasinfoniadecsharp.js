@@ -3,6 +3,10 @@ define("app/sources/unasinfoniadecsharp", [], function() {
   "name" : "Una sinfonía en C#",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt",
+      "title" : "Testing continuo con Qunit, Phantom y Grunt"
+    },
+    {
       "url" : "/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea",
       "title" : "Tips de Javascript: String multilínea"
     },

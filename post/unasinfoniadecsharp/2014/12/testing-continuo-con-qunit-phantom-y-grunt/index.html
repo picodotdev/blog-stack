@@ -1,0 +1,202 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt"><span itemprop="headline">Testing continuo con Qunit, Phantom y Grunt</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">leonardo</span> en la bitácora <a href="http://www.leomicheloni.com/">Una sinfonía en C#</a>, <a href="http://www.leomicheloni.com/post/2014/12/23/Testing-continuo-con-Qunit-Phantom-y-Grunt.aspx"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-24T01:32" itemprop="dateModified">Actualizado el miércoles, 24 de diciembre de 2014 a las 01:32 UTC</span></div><div><span>
+Etiquetado como
+nodejs, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>, grunt, tdd</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Voy a mostrar un lindo ejemplo de la combinaci&oacute;n de tres herramientas:</p> 
+<ul> 
+ <li>QUnit </li> 
+ <li>PhantomJs </li> 
+ <li>GruntJs </li> 
+</ul> 
+<p>La idea es utilizarlas en conjuto para poder hacer testing continuo, es decir, que mientras uno va programando (con TDD) los test se ejecuten autom&aacute;ticamente.</p> 
+<h3>Las herramientas</h3> 
+<p>Vamos a usar QUnit para el <em>unit testing</em> de <em>Javascript</em>, y <em>PhantomJs</em> para ejecutar los test sin necesidad del navegador, luego vamos a agregar <em>GruntJs</em> para que todo esto se haga autom&aacute;ticamente. </p> 
+<p>Si bien tal vez no sea la mejor forma de hacer esto, es un buen ejercicio de integraci&oacute;n. Manos a la obra.</p> 
+<h3>Qunit</h3> 
+<p>Antes que nada vamos a crear un par de carpetas y agregar <em>QUnit</em> al proyecto, para esto creamos una p&aacute;gina <em>html </em>con el siguiente contenido <a href="http://qunitjs.com/">seg&uacute;n se indica</a> en el sitio de <em>QUnit</em></p> 
+<pre>&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;../js/vendor/qunit/qunit/qunit.css&quot;/&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;../js/vendor/qunit/qunit/qunit.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre> 
+<p>Vemos que funciona de maravillas</p> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/0D6937FE/image.png"><img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/585F397E/image_thumb.png" width="911" height="176" /></a> </p> 
+<p>Con eso es suficiente, ahora vamos a escribir algunos tests para probar.</p> 
+<pre>module(&quot;calculadora&quot;);
+
+var calculadora = new Calculadora();
+
+test(&quot;suma&quot;, function(assert){
+	var resultado = calculadora.sumar(4,3);
+	equal(resultado, 7);
+});</pre> 
+<p>Simple, creamos el objeto Calculadora y agregarmos al <em>html</em> de test la referencia al <em>test</em> que acabamos de crear y al archivo que contiene la calculadora.</p> 
+<pre>&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en-US&quot;&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;../js/vendor/qunit/qunit/qunit.css&quot;/&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;../js/vendor/qunit/qunit/qunit.js&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;../js/calculadora.js&quot;&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot; src=&quot;fixture.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id=&quot;qunit&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre> 
+<p>El archivo <em>calculadora.js</em> ser&iacute;a algo as&iacute;:</p> 
+<pre>Calculadora = (function () {
+
+	var Calculadora = function () {};
+
+	Calculadora.prototype.sumar = function (a, b) {
+		return a + b;
+	};
+
+	return Calculadora;
+}());</pre> 
+<p>Si recargamos la p&aacute;gina de prueba vemos que el <em>test</em> pasa</p> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/110C743D/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/4E9C62B7/image_thumb.png" width="393" height="141" /></a></p> 
+<p>Ok, pero esto no es <em>TDD</em>, si quisi&eacute;ramos hacerlo, escribir&iacute;amos el test primero, luego el m&eacute;todo “sumar” y recargar&iacute;amos a mano cada vez la p&aacute;gina de prueba, vamos a ver c&oacute;mo hacemos para no tener que utilizar un navegador.</p> 
+<h3>PhantomJs</h3> 
+<p><a href="http://phantomjs.org/">PhantomJs es un navegador sin UI</a>, es decir, no vamos a ver qu&eacute; se muestra en pantalla, pero no importa, porque nos alcanza con que nos muestre un resultado por consola, para poder usarlo con <em>QUnit</em>, tenemos que utilizar un adaptador, que no es m&aacute;s que un <em>Javascript</em> que le dice a <em>Phantom</em> que cargue la p&aacute;gina de test y muestre el resultado en la consola, algo as&iacute; ser&iacute;a</p> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/4BF637B7/image.png"><img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/39413E00/image_thumb.png" width="415" height="45" /></a>&nbsp; </p> 
+<p></p> 
+<p></p> 
+<p>Para esto tenemos que instalar el <a href="https://www.npmjs.com/package/phantom">paquete phantom</a> de node y el <a href="https://www.npmjs.com/package/qunit-phantomjs-runner">paquete qunit-phantom-runner</a></p> 
+<pre>npm install phantomjs
+npm install qunit-phantomjs-runner</pre> 
+<p>Y ejecutar</p> 
+<pre>node node_modules\phantomjs\bin\phantomjs node_modules\qunit-phantomjs-runner\runner.js test\index.htm</pre> 
+<p>B&aacute;sicamente llamamos a <em>Phantom</em> le pasamos la ubicaci&oacute;n del <em>runner </em>y despu&eacute;s el nombre de nuestro archivo bajo test.</p> 
+<p>Bien, esto funciona, como imaginar&aacute;n si un test falla nos lo indica, perfecto. Hasta ahora es lo mismo de antes pero sin llamar al navegador, faltar&iacute;a hacer que se ejecuta cada vez que se modifica un archivo.</p> 
+<h3>Ahora Gruntjs</h3> 
+<p>Para esto vamos a usar la <a href="https://www.npmjs.com/package/grunt-contrib-watch">tarea watch de grunt</a> y un peque&ntilde;o <em>gruntfile.js</em> que diga que cuando cambie algunos de los archivos de testing se ejecute el comando anterior, algo as&iacute;:</p> 
+<pre>module.exports = function(grunt){
+	grunt.initConfig({
+		watch:{
+			files:['test/*.js'],
+			tasks: []
+		},
+		
+	});
+	
+	grunt.loadNpmTasks(&quot;grunt-contrib-watch&quot;);	
+};</pre> 
+<p>Con esto configuramos la tarea <em>watch</em>, ahora falta invocar a <em>Phantom</em>, podemos hacerlo de varias maneras, en este caso voy a utilizar la <a href="https://www.npmjs.com/package/grunt-shell">tarea shell de grunt</a> para hacerlo, y quedar&iacute;a as&iacute;:</p> 
+<pre>module.exports = function (grunt) {
+	grunt.initConfig({
+		watch : {
+			files : ['test/*.js'],
+			tasks : ['shell:phantom']
+		},
+		shell : {
+			phantom : {
+				command : 'node node_modules/phantomjs/bin/phantomjs node_modules/qunit-phantomjs-runner/runner.js test/index.html'
+			}
+		}
+
+	});
+
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-shell');
+	grunt.registerTask('default', ['watch']);
+};</pre> 
+<p>Y eso ser&iacute;a todo, configuramos la tarea <em>watch</em> para que mire el directorio donde est&aacute;n los test (tal vez deber&iacute;amos agregar el directorio del c&oacute;digo) y le decimos que ejecute la tarea <em>shell</em> que ejecuta el comando que invoca a <em>Phantom</em>.</p> 
+<p>Por &uacute;ltimo decimos que la tarea por defecto es <em>watch</em> y listo, ejecutamos </p> 
+<pre>grunt</pre> 
+<p><a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/4D5A5A89/image.png"><img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TestcontinuoconQunitPhantomyGrunt/25B66F10/image_thumb.png" width="695" height="336" /></a> </p> 
+<p>Y listo, m&aacute;gico, cada vez que hacemos un cambio en alg&uacute;n archivo de test (o lo que queramos, claro) se ejecuta <em>Phantom</em> con el adaptador para <em>QUnit</em> y corre los test.</p> 
+<p>Dejo <a href="https://github.com/leomicheloni/qunit-phantom-grunt">el link con el c&oacute;digo funcionando en github</a>.</p> 
+<p>Nos leemos.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" st_title="Testing continuo con Qunit, Phantom y Grunt | Una sinfonía en C#"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1259,
+      "url" : "http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "unasinfoniadecsharp",
+      "name" : "Una sinfonía en C#"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

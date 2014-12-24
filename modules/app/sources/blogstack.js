@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt",
+      "title" : "Testing continuo con Qunit, Phantom y Grunt"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/bq-lanzara-ubuntu-en-sus-moviles",
       "title" : "BQ lanzará Ubuntu en sus móviles"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
       "title" : "KDE Aplicaciones 14.12 listo para su descarga"
-    },
-    {
-      "url" : "/post/pledin/2014/12/migrando-pledin-migrando-el-correo-electronico-con-mailgun",
-      "title" : "Migrando Pledin. Migrando el correo electrónico con Mailgun"
     }
   ]
 }
