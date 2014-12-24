@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/hemeroteca-6",
+      "title" : "Hemeroteca #6"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
       "title" : "Doble barra de botones con Apache Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/forzar-el-uso-del-protocolo-https-en-apache-tapestry",
-      "title" : "Forzar el uso del protocolo https en Apache Tapestry"
     }
   ]
 }

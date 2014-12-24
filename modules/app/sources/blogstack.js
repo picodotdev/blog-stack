@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/12/hemeroteca-6",
+      "title" : "Hemeroteca #6"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
       "title" : "Sin más comentarios"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
       "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
-      "title" : "Ubuntu Mate 14.10: bendita nostalgia"
     }
   ]
 }
