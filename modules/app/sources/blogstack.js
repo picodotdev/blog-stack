@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2014/12/por-que-moverme",
+      "title" : "¿Por qué moverme?"
+    },
+    {
+      "url" : "/post/arquitecturajava/2014/12/los-tipos-de-javascript-y-vagrant-dos-articulos-para-genbetadev",
+      "title" : "Los tipos de Javascript  y Vagrant  dos artículos para GenBetaDev"
+    },
+    {
+      "url" : "/post/kdeblog/2014/12/supertuxkart-el-juego-de-karts-de-linux",
+      "title" : "SuperTuxKart, el juego de karts de linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
       "title" : "FFmpeg 2.5.2 ya está disponible"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
       "title" : "Lanzado digiKam Software Collection 4.6"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/compartir-en-libertad-we-are-linux",
-      "title" : "Compartir en libertad, We are Linux"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
-      "title" : "We are Linux, pero también We are GNU"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/12/notas-sobre-tuneo-de-intellij-idea",
-      "title" : "Notas sobre tuneo de IntelliJ Idea"
     }
   ]
 }

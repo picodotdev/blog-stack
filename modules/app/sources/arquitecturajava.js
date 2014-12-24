@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/los-tipos-de-javascript-y-vagrant-dos-articulos-para-genbetadev",
+      "title" : "Los tipos de Javascript  y Vagrant  dos artículos para GenBetaDev"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
       "title" : "Java EE 6 uso de  filtros dinámicos"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/angular-js-inyeccion-de-dependencia-y-coc",
       "title" : "Angular.js inyección de dependencia y COC"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/usando-java-session-en-aplicaciones-web",
-      "title" : "Usando Java Session en aplicaciones web"
     }
   ]
 }
