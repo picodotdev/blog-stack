@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/12/no-me-gusta-la-limonada",
+      "title" : "No me gusta la limonada"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/12/la-temperatura-del-procesador-debe-preocuparnos",
       "title" : "La temperatura del procesador debe preocuparnos?"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
       "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/que-es-el-portapapeles-y-como-gestionarlo-con-diodon-en-ubuntu",
-      "title" : "Que es el portapapeles y como gestionarlo con Diodon en Ubuntu"
     }
   ]
 }

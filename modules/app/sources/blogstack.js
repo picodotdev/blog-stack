@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2014/12/no-me-gusta-la-limonada",
+      "title" : "No me gusta la limonada"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15",
       "title" : "Felices fiestas y un mejor 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
       "title" : "KSudoku, el juego de Sudokus de KDE"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
-      "title" : "Introducción al gestor de proyectos y tareas Redmine"
     }
   ]
 }
