@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
+      "title" : "Hackeada la web de AEDE"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/12/no-me-gusta-la-limonada",
       "title" : "No me gusta la limonada"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
       "title" : "Clock-to-color wallpaper plugin para Plasma 5"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
-      "title" : "KSudoku, el juego de Sudokus de KDE"
     }
   ]
 }
