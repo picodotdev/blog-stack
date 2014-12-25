@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15",
+      "title" : "Felices fiestas y un mejor 2015"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/hemeroteca-6",
       "title" : "Hemeroteca #6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
-      "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
     }
   ]
 }
