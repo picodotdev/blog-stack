@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2014/12/resumen-2-14",
+      "title" : "Resumen 2014"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/1-mejores-temas-de-iconos-para-plasma-del-2-14",
       "title" : "10 mejores temas de iconos para plasma del 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/12/rutas-en-reactjs-con-react-router",
       "title" : "Rutas en ReactJS con React Router"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
-      "title" : "Difunde redes sociales libres como Diaspora*"
     }
   ]
 }
