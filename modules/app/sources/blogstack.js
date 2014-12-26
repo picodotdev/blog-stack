@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/1-mejores-temas-de-iconos-para-plasma-del-2-14",
+      "title" : "10 mejores temas de iconos para plasma del 2014"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
       "title" : "Hackeada la web de AEDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
       "title" : "Difunde redes sociales libres como Diaspora*"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
-      "title" : "Clock-to-color wallpaper plugin para Plasma 5"
     }
   ]
 }
