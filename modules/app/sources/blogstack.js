@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
+      "title" : "KaOS 2014.12 listo para su descarga"
+    },
+    {
       "url" : "/post/koalite/2014/12/resumen-2-14",
       "title" : "Resumen 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
       "title" : "Linux Mint 17.1 Rebecca KDE RC"
-    },
-    {
-      "url" : "/post/koalite/2014/12/rutas-en-reactjs-con-react-router",
-      "title" : "Rutas en ReactJS con React Router"
     }
   ]
 }
