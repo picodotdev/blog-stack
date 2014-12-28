@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
+      "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/felices-fiestas",
       "title" : "¡Felices fiestas!"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6",
       "title" : "Rendimiento de nameof en C# 6"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/software-patch-literalmente",
-      "title" : "Software patch, literalmente"
     }
   ]
 }

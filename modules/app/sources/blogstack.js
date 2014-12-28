@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
+      "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
       "title" : "KaOS 2014.12 listo para su descarga"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-181",
       "title" : "Enlaces interesantes 181"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
-      "title" : "Linux Mint 17.1 Rebecca KDE RC"
     }
   ]
 }
