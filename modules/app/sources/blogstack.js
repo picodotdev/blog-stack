@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
+      "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
       "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
       "title" : "We are Linux! We love Free Software!"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-181",
-      "title" : "Enlaces interesantes 181"
     }
   ]
 }

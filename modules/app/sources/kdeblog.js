@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
+      "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
       "title" : "KaOS 2014.12 listo para su descarga"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
       "title" : "Probando Plasma 5 en mi portátil"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/temas-para-pairs-el-juego-de-memoria-de-kde",
-      "title" : "Temas para Pairs, el juego de memoria de KDE"
     }
   ]
 }
