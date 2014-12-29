@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
+      "title" : "Integración entre Ansible y Docker"
+    },
+    {
       "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
       "title" : "Intrusiones Mas destacadas 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora",
       "title" : "Vulnerabilidad en GIT.. Actualice ahora."
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/felices-fiestas",
-      "title" : "¡Felices fiestas!"
     }
   ]
 }

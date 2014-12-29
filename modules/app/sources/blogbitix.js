@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
+      "title" : "Integración entre Ansible y Docker"
+    },
+    {
       "url" : "/post/blogbitix/2014/12/hemeroteca-6",
       "title" : "Hemeroteca #6"
     },
@@ -29,10 +33,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
-      "title" : "Integración entre Ansible y Docker"
     },
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
