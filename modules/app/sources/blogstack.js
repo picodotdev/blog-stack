@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
+      "title" : "Mis 5 mejores aplicaciones KDE del 2014"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
       "title" : "Java EE 6 uso de  filtros dinámicos"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
-      "title" : "We are Linux! We love Free Software!"
     }
   ]
 }

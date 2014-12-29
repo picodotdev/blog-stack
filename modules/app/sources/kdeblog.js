@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
+      "title" : "Mis 5 mejores aplicaciones KDE del 2014"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/un-y-python-protagonistas-de-barcelona-free-software",
       "title" : "UN y Python protagonistas de Barcelona Free Software"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/probando-plasma-5-en-mi-portatil",
-      "title" : "Probando Plasma 5 en mi portátil"
     }
   ]
 }
