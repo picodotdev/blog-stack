@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
+      "title" : "Intrusiones Mas destacadas 2014"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
       "title" : "Mis 5 mejores aplicaciones KDE del 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/felices-fiestas",
       "title" : "¡Felices fiestas!"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
-      "title" : "Java EE 6 uso de  filtros dinámicos"
     }
   ]
 }
