@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
+      "title" : "Blogs sobre KDE y software libre"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/bq-lanzara-ubuntu-en-sus-moviles",
       "title" : "BQ lanzará Ubuntu en sus móviles"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora",
-      "title" : "Vulnerabilidad en GIT.. Actualice ahora."
     }
   ]
 }

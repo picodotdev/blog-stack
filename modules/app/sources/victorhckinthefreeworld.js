@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
+      "title" : "Blogs sobre KDE y software libre"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
       "title" : "Hackeada la web de AEDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/richard-stallman-dara-conferencias-por-espana",
       "title" : "Richard Stallman dará conferencias por España"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/videotutoriales-de-opensuse",
-      "title" : "Videotutoriales de openSUSE"
     }
   ]
 }
