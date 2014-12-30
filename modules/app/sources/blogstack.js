@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
+      "title" : "Los números de 2014 en mi blog"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
       "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/supertuxkart-el-juego-de-karts-de-linux",
       "title" : "SuperTuxKart, el juego de karts de linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
-      "title" : "FFmpeg 2.5.2 ya está disponible"
     }
   ]
 }
