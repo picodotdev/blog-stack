@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
+      "title" : "Vídeo de los 30 años de la FSF"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
       "title" : "Los números de 2014 en mi blog"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/los-tipos-de-javascript-y-vagrant-dos-articulos-para-genbetadev",
       "title" : "Los tipos de Javascript  y Vagrant  dos artículos para GenBetaDev"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/supertuxkart-el-juego-de-karts-de-linux",
-      "title" : "SuperTuxKart, el juego de karts de linux"
     }
   ]
 }

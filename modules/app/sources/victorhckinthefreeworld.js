@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
+      "title" : "Vídeo de los 30 años de la FSF"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
       "title" : "Los números de 2014 en mi blog"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/11/regalos-de-opensuse-desde-beijing",
       "title" : "Regalos de openSUSE desde Beijing"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/11/fundacion-para-el-software-libre-recopilacion-de-noticias-de-octubre-2-14",
-      "title" : "Fundación para el Software Libre. Recopilación de Noticias de octubre 2014"
     }
   ]
 }
