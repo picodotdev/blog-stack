@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
+      "title" : "Tomcat Java DataSource y  @Resource"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
       "title" : "Blogs sobre KDE y software libre"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt",
       "title" : "Testing continuo con Qunit, Phantom y Grunt"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/bq-lanzara-ubuntu-en-sus-moviles",
-      "title" : "BQ lanzará Ubuntu en sus móviles"
     }
   ]
 }
