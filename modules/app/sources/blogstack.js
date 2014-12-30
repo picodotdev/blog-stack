@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
+      "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
+    },
+    {
+      "url" : "/post/kdeblog/2014/12/kde-e-v-busca-director-ejecutivo",
+      "title" : "KDE e.V. busca Director Ejecutivo"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
       "title" : "Tomcat Java DataSource y  @Resource"
     },
@@ -25,10 +33,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
-      "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
     },
     {
       "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
       "title" : "FFmpeg 2.5.2 ya está disponible"
-    },
-    {
-      "url" : "/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt",
-      "title" : "Testing continuo con Qunit, Phantom y Grunt"
     }
   ]
 }
