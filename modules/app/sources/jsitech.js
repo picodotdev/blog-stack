@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
+      "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
+    },
+    {
       "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
       "title" : "Intrusiones Mas destacadas 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
       "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
-    },
-    {
-      "url" : "/post/jsitech/2014/09/the-original-hacker-no-9-fuera-de-lo-comun-puede-ser",
-      "title" : "The Original Hacker No. 9, Fuera de lo común? Puede ser"
     }
   ]
 }
