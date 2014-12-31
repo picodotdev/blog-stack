@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/se-va-el-2-14",
+      "title" : "Se va el 2014!!"
+    },
+    {
       "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
       "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
       "title" : "Felicidades a la Comunidad DragonJar"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/auditando-la-seguridad-de-sistemas-linux-con-lynis",
-      "title" : "Auditando la Seguridad de Sistemas Linux con Lynis"
     }
   ]
 }

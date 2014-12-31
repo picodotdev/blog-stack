@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2014/12/se-va-el-2-14",
+      "title" : "Se va el 2014!!"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
       "title" : "Resumen de KDE Blog del 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15",
       "title" : "Felices fiestas y un mejor 2015"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/hemeroteca-6",
-      "title" : "Hemeroteca #6"
     }
   ]
 }

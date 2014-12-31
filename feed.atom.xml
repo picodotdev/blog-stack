@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-31T10:02:34Z</updated>
+  <updated>2014-12-31T13:02:50Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-31T10:02:34Z</dc:date>
+  <dc:date>2014-12-31T13:02:50Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Se va el 2014!!</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/12/se-va-el-2-14" />
+    <category term="seguridad" />
+    <category term="software-libre" />
+    <category term="linux" />
+    <author>
+      <name>Jason Soto</name>
+    </author>
+    <updated>2014-12-31T12:31:36Z</updated>
+    <published>2014-12-31T12:31:36Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://jsitech.com/wp-content/uploads/2014/12/tux-feliz-aao.jpg"&gt;&lt;img src="http://jsitech.com/wp-content/uploads/2014/12/tux-feliz-aao.jpg" alt="tux-feliz-aao" width="260" height="284" /&gt;&lt;/a&gt;Ya se va este a&amp;ntilde;o que para mi fue uno muy bueno. Este Blog cada d&amp;iacute;a recibe mas visitas y realmente es lo que me mueve a tratar siempre de publicar art&amp;iacute;culos de calidad peri&amp;oacute;dicamente. Aunque el Blog tiene un tiempo ya que viene desde Blogger fue en marzo de este a&amp;ntilde;o que lo pase a WordPress y comence a dedicarle el tiempo debido. Por igual pase a ser el Admin de &lt;a href="http://ociolinux.org"&gt;OcioLinux&lt;/a&gt;. Lo mas interesante de todo este a&amp;ntilde;o immerso en el mundo del Blogging es que he conocido e interactuado con muchas personas interesantes y puedo decir que cada d&amp;iacute;a aprendo algo nuevo de ellos. De mi parte un Saludo especial para ustedes y les deseo un excelente a&amp;ntilde;o 2015, &lt;a href="http://victorhckinthefreeworld.wordpress.com/"&gt;Victorhck&lt;/a&gt;, &lt;a href="http://lamiradadelreplicante.com/"&gt;Tannhausser&lt;/a&gt;, &lt;a href="http://elblogdeliher.com"&gt;Elblogdeliher&lt;/a&gt;, &lt;a href="http://www.ochobitshacenunbyte.com/"&gt;DavidOchoBits&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Otra de las cosas que ha pasado en este a&amp;ntilde;o es que me he metido de lleno al mundo de la Seguridad y Ethical Hacking, esto se ha reflejado en el blog y en este a&amp;ntilde;o que entra pues las entradas ser&amp;aacute;n mas numerosas en este apartado. Adem&amp;aacute;s Cree los Proyectos de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/12/se-va-el-2-14"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Jason Soto</dc:creator>
+    <dc:date>2014-12-31T12:31:36Z</dc:date>
+  </entry>
   <entry>
     <title>Resumen de KDE Blog del 2014</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14" />
@@ -616,55 +632,6 @@
 &lt;img src="http://feeds.feedburner.com/~r/vnf/~4/bRqFt8Bc0gY" height="1" width="1" alt="" /&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/felices-fiestas"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-12-23T12:35:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java EE 6 uso de  filtros dinámicos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos" />
-    <category term="java-web" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-12-23T10:19:27Z</updated>
-    <published>2014-12-23T10:19:27Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Java EE 6 nos ha a&amp;ntilde;adido muchas nuevas funciones que a veces nos pasan desapercibidas . Una de las que m&amp;aacute;s destaca es la capacidad de&lt;strong&gt; registrar din&amp;aacute;micamente Servlets &amp;nbsp;o Filtros (dynamic filters)&amp;nbsp;&lt;/strong&gt;dependiendo de las caracter&amp;iacute;sticas de nuestra aplicaci&amp;oacute;n. &amp;nbsp;Vamos a ver un ejemplo sencillo. El primer paso es construir un “utility project” o jar &amp;nbsp;que contenga una clase que implemente Filter y &amp;nbsp;nos haga un log de las diferentes p&amp;aacute;ginas que vayamos a solicitar.&lt;/p&gt; 
-&lt;pre&gt;
-
-package com.arquitecturajava;
-
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
-public class FiltroLog implements Filter {
-public FiltroLog() {
-// TODO Auto-generated constructor stub
-}
-public void destroy() {
-// TODO Auto-generated method stub
-}
-public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
-HttpServletRequest peticion= (HttpServletRequest)request;
-System.out.println(peticion.getRequestURI());
-chain.doFilter(request, response);
-}
-public void init(FilterConfig fConfig) throws ServletException {
-// TODO Auto-generated method stub
-}
-
-}
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-12-23T10:19:27Z</dc:date>
   </entry>
 </feed>
 
