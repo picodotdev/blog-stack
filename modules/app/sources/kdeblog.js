@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
+      "title" : "Resumen de KDE Blog del 2014"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/kde-e-v-busca-director-ejecutivo",
       "title" : "KDE e.V. busca Director Ejecutivo"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
       "title" : "GCompris se une a KDE Incubator"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/lanzado-kde-frameworks-5-5-extra-video",
-      "title" : "Lanzado KDE Frameworks 5.5 Extra: Video"
     }
   ]
 }

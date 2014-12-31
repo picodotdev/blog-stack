@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
+      "title" : "Resumen de KDE Blog del 2014"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
       "title" : "Introducción al teorema de CAP y NoSQL"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/hemeroteca-6",
       "title" : "Hemeroteca #6"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
-      "title" : "Sin más comentarios"
     }
   ]
 }
