@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
+      "title" : "Introducción al teorema de CAP y NoSQL"
+    },
+    {
       "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
       "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
       "title" : "Sin más comentarios"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/12/por-que-moverme",
-      "title" : "¿Por qué moverme?"
     }
   ]
 }
