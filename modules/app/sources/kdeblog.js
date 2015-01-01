@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
+      "title" : "Mis 5 aplicaciones KDE para el 2015"
+    },
+    {
       "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
       "title" : "Resumen de KDE Blog del 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/fedora-21-lista-para-su-descarga",
       "title" : "Fedora 21 lista para su descarga"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/gcompris-se-une-a-kde-incubator",
-      "title" : "GCompris se une a KDE Incubator"
     }
   ]
 }

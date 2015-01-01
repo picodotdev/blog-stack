@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
+      "title" : "Feliz 2015"
+    },
+    {
       "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
       "title" : "Introducción al teorema de CAP y NoSQL"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
       "title" : "Eclipse y el concepto de Delegación"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/java-9-y-npm-articulos-para-genbetadev",
-      "title" : "Java 9 y NPM artículos para GenBetaDev"
     }
   ]
 }

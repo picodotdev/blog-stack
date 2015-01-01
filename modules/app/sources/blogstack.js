@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
+      "title" : "Feliz 2015"
+    },
+    {
+      "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
+      "title" : "Mis 5 aplicaciones KDE para el 2015"
+    },
+    {
       "url" : "/post/jsitech/2014/12/se-va-el-2-14",
       "title" : "Se va el 2014!!"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
       "title" : "Hackeada la web de AEDE"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/12/no-me-gusta-la-limonada",
-      "title" : "No me gusta la limonada"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15",
-      "title" : "Felices fiestas y un mejor 2015"
     }
   ]
 }
