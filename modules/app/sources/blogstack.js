@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
+      "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
       "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2014/12/resumen-2-14",
       "title" : "Resumen 2014"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/1-mejores-temas-de-iconos-para-plasma-del-2-14",
-      "title" : "10 mejores temas de iconos para plasma del 2014"
     }
   ]
 }
