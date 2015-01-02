@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
+      "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
       "title" : "Feliz 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/1-mejores-temas-de-iconos-para-plasma-del-2-14",
       "title" : "10 mejores temas de iconos para plasma del 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
-      "title" : "Hackeada la web de AEDE"
     }
   ]
 }
