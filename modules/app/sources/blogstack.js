@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
+      "title" : "10 blogs sobre Software Libre para el 2015"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
       "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
       "title" : "KaOS 2014.12 listo para su descarga"
-    },
-    {
-      "url" : "/post/koalite/2014/12/resumen-2-14",
-      "title" : "Resumen 2014"
     }
   ]
 }
