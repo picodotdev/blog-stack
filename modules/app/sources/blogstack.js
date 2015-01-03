@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
+      "title" : "Instalar y usar un plugin ágil en Redmine"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
+      "title" : "Introducción al gestor de proyectos y tareas Redmine"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
       "title" : "10 blogs sobre Software Libre para el 2015"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
       "title" : "Mis 5 mejores aplicaciones KDE del 2014"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
-      "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
-      "title" : "KaOS 2014.12 listo para su descarga"
     }
   ]
 }

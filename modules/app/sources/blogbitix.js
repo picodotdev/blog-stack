@@ -3,16 +3,20 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
+      "title" : "Instalar y usar un plugin ágil en Redmine"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
+      "title" : "Introducción al gestor de proyectos y tareas Redmine"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
     },
     {
       "url" : "/post/blogbitix/2014/12/hemeroteca-6",
       "title" : "Hemeroteca #6"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
-      "title" : "Introducción al gestor de proyectos y tareas Redmine"
     },
     {
       "url" : "/post/blogbitix/2014/12/8-libros-para-mejorar-como-programadores",
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
       "title" : "Actualización del libro PlugIn Tapestry"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/doble-barra-de-botones-con-apache-tapestry",
-      "title" : "Doble barra de botones con Apache Tapestry"
     }
   ]
 }

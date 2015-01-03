@@ -3,10 +3,59 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-31T13:02:51Z</updated>
+  <updated>2015-01-03T12:03:30Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-31T13:02:51Z</dc:date>
+  <dc:date>2015-01-03T12:03:30Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Instalar y usar un plugin ágil en Redmine</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="software" />
+    <category term="software-libre" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-01-03T11:00:00Z</updated>
+    <published>2015-01-03T00:27:56Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Las metodolog&amp;iacute;as &amp;aacute;giles para la gesti&amp;oacute;n de proyectos son ya ampliamente usadas, como &lt;a href="http://es.wikipedia.org/wiki/Scrum"&gt;scrum&lt;/a&gt; o &lt;a href="http://picodotdev.github.io/blog-bitix/(http://es.wikipedia.org/wiki/Programaci%C3%B3n_extrema)"&gt;programaci&amp;oacute;n extrema&lt;/a&gt; (XP). Una diferencia entre las metodolog&amp;iacute;as &amp;aacute;giles y las metodolog&amp;iacute;as empleadas tradicionalmente como el modelo en cascada es que en las metodolog&amp;iacute;as &amp;aacute;giles se tiene en cuenta que se pueden producir cambios en el desarrollo del proyecto y suelen ser m&amp;aacute;s flexibles y adaptables ante estos cambios.&lt;/p&gt; 
+&lt;p&gt;En el modelo de metodolog&amp;iacute;a &amp;aacute;gil podemos usar un panel kanban donde ver de un vistazo r&amp;aacute;pido las tareas terminadas, las que est&amp;aacute;n en progreso y las pr&amp;oacute;ximas tareas planificadas reflejando la realidad del equipo de desarrollo. Reorganiz&amp;aacute;ndolas seg&amp;uacute;n prioridades que pueden cambiar de una semana a otra, en las metodolog&amp;iacute;as &amp;aacute;giles no se realiza una planificaci&amp;oacute;n completa inicial sino que se va realizando a medida que el proyecto progresa.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-01-03T00:27:56Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción al gestor de proyectos y tareas Redmine</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="software" />
+    <category term="software-libre" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-01-03T11:00:00Z</updated>
+    <published>2014-12-19T18:57:31Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Para desarrollar un proyecto de software se hace imprescindible disponer de algunas herramientas que nos permitan realizar las tareas. Una de estas herramientas es un &lt;a href="http://en.wikipedia.org/wiki/Issue_tracking_system"&gt;gestor de tareas, peticiones o errores&lt;/a&gt;, que nos permite recoger en una herramienta gran parte de la informaci&amp;oacute;n, conocer el estado, planificar y hacer el seguimiento las tareas necesario para desarrollar de forma ordenada, sin que perdamos nada de informaci&amp;oacute;n y pudiendo recuperarla en cualquier momento en un futuro.&lt;/p&gt; 
+&lt;p&gt;Como es habitual herramientas que gestionan tareas disponemos de varias algunas de las m&amp;aacute;s conocidas son &lt;a href="http://www.bugzilla.org/"&gt;Bugzilla&lt;/a&gt;, &lt;a href="https://www.atlassian.com/software/jira"&gt;JIRA&lt;/a&gt;, &lt;a href="https://www.mantisbt.org/"&gt;Mantis&lt;/a&gt;, &lt;a href="http://trac.edgewall.org/"&gt;Trac&lt;/a&gt; y la herramienta de la que hablar&amp;eacute; en este art&amp;iacute;culo, &lt;a href="http://www.redmine.org/"&gt;Redmine&lt;/a&gt;. Cada una de estas herramientas como gestores de tareas son parecidas pero se diferencian en algunas cosas como la licencia que tiene, el esquema de precios o la funcionalidad que ofrece. Redmine tiene una &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-12-19T18:57:31Z</dc:date>
+  </entry>
   <entry>
     <title>Se va el 2014!!</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/12/se-va-el-2-14" />
@@ -132,31 +181,6 @@
 &lt;p&gt;Tal como se indic&amp;oacute; esta vulnerabilidad solo afecta a clientes en Windows y Mac OS X, pero se les avisa a los clientes en Linux tomar precauci&amp;oacute;n, por que? Si hosteamos un servicio donde los usuarios extraen datos desde un cliente Windows o Mac, se recomienda que GIT sea actualizado en estos servicios para proteger los usuarios que estan usando una versi&amp;oacute;n de GIT sin actualizar.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2014-12-23T13:04:59Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción al gestor de proyectos y tareas Redmine</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="software" />
-    <category term="software-libre" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-12-19T18:57:31Z</updated>
-    <published>2014-12-19T18:57:31Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Para desarrollar un proyecto de software se hace imprescindible disponer de algunas herramientas que nos permitan realizar las tareas. Una de estas herramientas es un &lt;a href="http://en.wikipedia.org/wiki/Issue_tracking_system"&gt;gestor de tareas, peticiones o errores&lt;/a&gt;, que nos permite recoger en una herramienta gran parte de la informaci&amp;oacute;n, conocer el estado, planificar y hacer el seguimiento las tareas necesario para desarrollar de forma ordenada, sin que perdamos nada de informaci&amp;oacute;n y pudiendo recuperarla en cualquier momento en un futuro.&lt;/p&gt; 
-&lt;p&gt;Como es habitual herramientas que gestionan tareas disponemos de varias algunas de las m&amp;aacute;s conocidas son &lt;a href="http://www.bugzilla.org/"&gt;Bugzilla&lt;/a&gt;, &lt;a href="https://www.atlassian.com/software/jira"&gt;JIRA&lt;/a&gt;, &lt;a href="https://www.mantisbt.org/"&gt;Mantis&lt;/a&gt;, &lt;a href="http://trac.edgewall.org/"&gt;Trac&lt;/a&gt; y la herramienta de la que hablar&amp;eacute; en este art&amp;iacute;culo, &lt;a href="http://www.redmine.org/"&gt;Redmine&lt;/a&gt;. Cada una de estas herramientas como gestores de tareas son parecidas pero se diferencian en algunas cosas como la licencia que tiene, el esquema de precios o la funcionalidad que ofrece. Redmine tiene una &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-12-19T18:57:31Z</dc:date>
   </entry>
   <entry>
     <title>Julian Assange, habla en una entrevista sobre la privacidad</title>
@@ -661,20 +685,6 @@
 &lt;p&gt;&lt;strong&gt;Estad &lt;a href="http://twitter.com/dabidmp"&gt;atentos a mi Twitter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/laborategia/2014/11/participare-como-ponente-en-la-librecon-os-quiero-presentar-civi-crm-en-la-economia-social"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Dabid Martinez</dc:creator>
     <dc:date>2014-11-07T15:54:47Z</dc:date>
-  </entry>
-  <entry>
-    <title>Estamos Promoviendo el uso de Linux y Software Libre correctamente?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente" />
-    <category term="software-libre" />
-    <category term="linux" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-11-07T00:08:00Z</updated>
-    <published>2014-11-07T00:08:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.jsitech.com/wp-content/uploads/2014/11/FSFS-title2.jpg"&gt;&lt;img src="http://www.jsitech.com/wp-content/uploads/2014/11/FSFS-title2.jpg" alt="FSFS-title2" width="555" height="117" /&gt;&lt;/a&gt;Hace D&amp;iacute;as que quer&amp;iacute;a crear esta entrada por la sencilla raz&amp;oacute;n de que a veces muchos de los que queremos promover el &lt;strong&gt;Software Libre&lt;/strong&gt; y el uso de &lt;strong&gt;Linux&lt;/strong&gt; no lo hacemos de manera correcta, A que viene esto? Ultimamente he visto personas que quieren imponer el uso tanto del &lt;strong&gt;Software Libre&lt;/strong&gt; como de &lt;strong&gt;Linux&lt;/strong&gt;, ya sea porque entiende que el software &lt;strong&gt;propietario&lt;/strong&gt; atenta contra la libertad o cualquier otra raz&amp;oacute;n, pero debemos entender que todos vemos las cosas de manera distinta y a la mayor&amp;iacute;a de usuarios no le gusta que le impongan las cosas. Hace un tiempo recuerdo que vi en un grupo de &lt;strong&gt;Facebook&lt;/strong&gt; de software libre, un &lt;strong&gt;Post&lt;/strong&gt; de una persona que estaba solicitando ayuda o una aclaraci&amp;oacute;n con una implementaci&amp;oacute;n de un gestor base de datos, pero por el simple hecho de que lo estaba haciendo en &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-11-07T00:08:00Z</dc:date>
   </entry>
 </feed>
 

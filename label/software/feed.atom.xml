@@ -3,10 +3,59 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2014-12-29T10:02:51Z</updated>
+  <updated>2015-01-03T12:03:27Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2014-12-29T10:02:51Z</dc:date>
+  <dc:date>2015-01-03T12:03:27Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Instalar y usar un plugin ágil en Redmine</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="software" />
+    <category term="software-libre" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-01-03T11:00:00Z</updated>
+    <published>2015-01-03T00:27:56Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
+ &lt;br /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Las metodolog&amp;iacute;as &amp;aacute;giles para la gesti&amp;oacute;n de proyectos son ya ampliamente usadas, como &lt;a href="http://es.wikipedia.org/wiki/Scrum"&gt;scrum&lt;/a&gt; o &lt;a href="http://picodotdev.github.io/blog-bitix/(http://es.wikipedia.org/wiki/Programaci%C3%B3n_extrema)"&gt;programaci&amp;oacute;n extrema&lt;/a&gt; (XP). Una diferencia entre las metodolog&amp;iacute;as &amp;aacute;giles y las metodolog&amp;iacute;as empleadas tradicionalmente como el modelo en cascada es que en las metodolog&amp;iacute;as &amp;aacute;giles se tiene en cuenta que se pueden producir cambios en el desarrollo del proyecto y suelen ser m&amp;aacute;s flexibles y adaptables ante estos cambios.&lt;/p&gt; 
+&lt;p&gt;En el modelo de metodolog&amp;iacute;a &amp;aacute;gil podemos usar un panel kanban donde ver de un vistazo r&amp;aacute;pido las tareas terminadas, las que est&amp;aacute;n en progreso y las pr&amp;oacute;ximas tareas planificadas reflejando la realidad del equipo de desarrollo. Reorganiz&amp;aacute;ndolas seg&amp;uacute;n prioridades que pueden cambiar de una semana a otra, en las metodolog&amp;iacute;as &amp;aacute;giles no se realiza una planificaci&amp;oacute;n completa inicial sino que se va realizando a medida que el proyecto progresa.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-01-03T00:27:56Z</dc:date>
+  </entry>
+  <entry>
+    <title>Introducción al gestor de proyectos y tareas Redmine</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" />
+    <category term="blog-stack" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="software" />
+    <category term="software-libre" />
+    <category term="planeta-arch-linux" />
+    <category term="linux" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-01-03T11:00:00Z</updated>
+    <published>2014-12-19T18:57:31Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
+ &lt;br /&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Para desarrollar un proyecto de software se hace imprescindible disponer de algunas herramientas que nos permitan realizar las tareas. Una de estas herramientas es un &lt;a href="http://en.wikipedia.org/wiki/Issue_tracking_system"&gt;gestor de tareas, peticiones o errores&lt;/a&gt;, que nos permite recoger en una herramienta gran parte de la informaci&amp;oacute;n, conocer el estado, planificar y hacer el seguimiento las tareas necesario para desarrollar de forma ordenada, sin que perdamos nada de informaci&amp;oacute;n y pudiendo recuperarla en cualquier momento en un futuro.&lt;/p&gt; 
+&lt;p&gt;Como es habitual herramientas que gestionan tareas disponemos de varias algunas de las m&amp;aacute;s conocidas son &lt;a href="http://www.bugzilla.org/"&gt;Bugzilla&lt;/a&gt;, &lt;a href="https://www.atlassian.com/software/jira"&gt;JIRA&lt;/a&gt;, &lt;a href="https://www.mantisbt.org/"&gt;Mantis&lt;/a&gt;, &lt;a href="http://trac.edgewall.org/"&gt;Trac&lt;/a&gt; y la herramienta de la que hablar&amp;eacute; en este art&amp;iacute;culo, &lt;a href="http://www.redmine.org/"&gt;Redmine&lt;/a&gt;. Cada una de estas herramientas como gestores de tareas son parecidas pero se diferencian en algunas cosas como la licencia que tiene, el esquema de precios o la funcionalidad que ofrece. Redmine tiene una &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2014-12-19T18:57:31Z</dc:date>
+  </entry>
   <entry>
     <title>Mis 5 mejores aplicaciones KDE del 2014</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14" />
@@ -88,31 +137,6 @@
 &lt;p&gt;El objetivo incial de un sudoku es rellenar una cuadr&amp;iacute;cula de 9&amp;nbsp;&amp;times;&amp;nbsp;9 celdas (81 casillas) dividida en subcuadr&amp;iacute;culas de 3&amp;nbsp;&amp;times;&amp;nbsp;3 (tambi&amp;eacute;n llamadas “cajas” o “regiones”) con las cifras del 1 al 9 partiendo de algunos n&amp;uacute;meros ya dispuestos en algunas de las celdas.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2014-12-20T09:10:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción al gestor de proyectos y tareas Redmine</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="software" />
-    <category term="software-libre" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-12-19T18:57:31Z</updated>
-    <published>2014-12-19T18:57:31Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/redmine.png" alt="Redmine" title="Redmine" /&gt; 
- &lt;br /&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/bitnami.png" alt="Bitnami" title="Bitnami" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Para desarrollar un proyecto de software se hace imprescindible disponer de algunas herramientas que nos permitan realizar las tareas. Una de estas herramientas es un &lt;a href="http://en.wikipedia.org/wiki/Issue_tracking_system"&gt;gestor de tareas, peticiones o errores&lt;/a&gt;, que nos permite recoger en una herramienta gran parte de la informaci&amp;oacute;n, conocer el estado, planificar y hacer el seguimiento las tareas necesario para desarrollar de forma ordenada, sin que perdamos nada de informaci&amp;oacute;n y pudiendo recuperarla en cualquier momento en un futuro.&lt;/p&gt; 
-&lt;p&gt;Como es habitual herramientas que gestionan tareas disponemos de varias algunas de las m&amp;aacute;s conocidas son &lt;a href="http://www.bugzilla.org/"&gt;Bugzilla&lt;/a&gt;, &lt;a href="https://www.atlassian.com/software/jira"&gt;JIRA&lt;/a&gt;, &lt;a href="https://www.mantisbt.org/"&gt;Mantis&lt;/a&gt;, &lt;a href="http://trac.edgewall.org/"&gt;Trac&lt;/a&gt; y la herramienta de la que hablar&amp;eacute; en este art&amp;iacute;culo, &lt;a href="http://www.redmine.org/"&gt;Redmine&lt;/a&gt;. Cada una de estas herramientas como gestores de tareas son parecidas pero se diferencian en algunas cosas como la licencia que tiene, el esquema de precios o la funcionalidad que ofrece. Redmine tiene una &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-12-19T18:57:31Z</dc:date>
   </entry>
   <entry>
     <title>Lanzado digiKam Software Collection 4.6</title>
@@ -651,32 +675,6 @@
 &lt;p&gt;El contenedor de dependencias de Tapestry tiene algunas propiedades interesantes como que dos servicios pueden ser mutuamente dependientes y que se puede contribuir configuraci&amp;oacute;n a cualquier servicio para cambiar en cierta medida su comportamiento adem&amp;aacute;s de otras caracter&amp;iacute;sticas que explico m&amp;aacute;s en detalle en el libro &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/07/usar-apache-tapestry-en-una-aplicacion-standalone"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-07-31T11:06:58Z</dc:date>
-  </entry>
-  <entry>
-    <title>Servir recursos estáticos desde un CDN en Apache Tapestry</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry" />
-    <category term="blog-stack" />
-    <category term="programacion" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <category term="software" />
-    <category term="tapestry" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-07-26T19:00:00Z</updated>
-    <published>2014-07-26T10:35:50Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/tapestry.png" alt="Apache Tapestry" title="Apache Tapestry" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Un &lt;a href="http://en.wikipedia.org/wiki/Content_delivery_network"&gt;Content Delivery Network&lt;/a&gt; (CDN) no es m&amp;aacute;s que un servidor, servidores o servicio dedicado a servir el contenido est&amp;aacute;tico o actuar de cache para los clientes. Alguno de los motivos por los que podr&amp;iacute;amos querer usar un CDN en una aplicaci&amp;oacute;n son:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Algunos servicios CDN est&amp;aacute;n repartidos geogr&amp;aacute;ficamente por el mundo de modo que el contenido sea servido de un lugar m&amp;aacute;s cercano al usuario esto hace que el tiempo que tarda en cargar un p&amp;aacute;gina o servirse el contenido sea menor.&lt;/li&gt; 
- &lt;li&gt;Descargar la tarea de servir al menos parte del contenido de la aplicaci&amp;oacute;n al CDN har&amp;aacute; que no nos tengamos que preocupar de tener la capacidad para servirlo. Cuando se cargar una p&amp;aacute;gina se hacen varias peticiones al servidor para obtener el contenido como el html, im&amp;aacute;genes, estilos, … haciendo que los contenidos est&amp;aacute;ticos sean servidos por el CDN har&amp;aacute; que el servidor tenga menos carga, dependiendo del n&amp;uacute;mero de usuarios de la aplicaci&amp;oacute;n o los picos de tr&amp;aacute;fico notaremos una mejor&amp;iacute;a.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/07/servir-recursos-estaticos-desde-un-cdn-en-apache-tapestry"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-07-26T10:35:50Z</dc:date>
   </entry>
 </feed>
 
