@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
+      "title" : "Detectando procesos ocultos en Linux con Unhide"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
       "title" : "Cómo instalar Fedora 21, video-tutorial"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
-      "title" : "Intrusiones Mas destacadas 2014"
     }
   ]
 }

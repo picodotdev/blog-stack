@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
+      "title" : "Detectando procesos ocultos en Linux con Unhide"
+    },
+    {
       "url" : "/post/jsitech/2014/12/se-va-el-2-14",
       "title" : "Se va el 2014!!"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
       "title" : "Monitoreando Infraestructura con Zabbix 2.4"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/felicidades-a-la-comunidad-dragonjar",
-      "title" : "Felicidades a la Comunidad DragonJar"
     }
   ]
 }
