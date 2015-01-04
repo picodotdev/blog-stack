@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
+      "title" : "Cómo instalar Fedora 21, video-tutorial"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
       "title" : "Instalar y usar un plugin ágil en Redmine"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
       "title" : "Intrusiones Mas destacadas 2014"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
-      "title" : "Mis 5 mejores aplicaciones KDE del 2014"
     }
   ]
 }

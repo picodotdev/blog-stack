@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
+      "title" : "Cómo instalar Fedora 21, video-tutorial"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
       "title" : "10 blogs sobre Software Libre para el 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
       "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/primera-beta-de-calligra-2-9-disponible",
-      "title" : "Primera beta de Calligra 2.9 disponible"
     }
   ]
 }
