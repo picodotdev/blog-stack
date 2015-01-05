@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
+      "title" : "Entiendo los métodos de Java equals y hashcode"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
       "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
       "title" : "Tomcat Java DataSource y  @Resource"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
-      "title" : "Blogs sobre KDE y software libre"
     }
   ]
 }

@@ -3,10 +3,73 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-01-05T15:02:39Z</updated>
+  <updated>2015-01-05T17:02:19Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-01-05T15:02:39Z</dc:date>
+  <dc:date>2015-01-05T17:02:19Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Entiendo los métodos de Java equals y hashcode</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode" />
+    <category term="java-basico" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-01-05T16:30:54Z</updated>
+    <published>2015-01-05T16:30:54Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Todos los d&amp;iacute;as cuando programamos usamos objetos y en muchas ocasiones necesitamos comparar unos con otros. Para ello en muchas ocasiones usamos los m&amp;eacute;todos de &lt;strong&gt;de Java equals y hashcode.&lt;/strong&gt; Estos m&amp;eacute;todos generan muchas dudas entre los desarrolladores a la hora de usarlos.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/equals.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/equals.gif" alt="equals" width="202" height="201" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Vamos a crear una implementaci&amp;oacute;n por defecto para la clase Persona que realice un override sobre ambos m&amp;eacute;todos para entenderlos mejor.&lt;/p&gt; 
+&lt;pre&gt;
+
+package com.arquitecturajava;
+
+public class Persona {
+
+private String nombre;
+ private int edad;
+
+ public String getNombre() {
+ return nombre;
+ }
+ public void setNombre(String nombre) {
+ this.nombre = nombre;
+ }
+ public int getEdad() {
+ return edad;
+ }
+ public void setEdad(int edad) {
+ this.edad = edad;
+ }
+ @Override
+ public int hashCode() {
+ final int prime = 31;
+ int result = 1;
+ result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+ return result;
+ }
+ @Override
+ public boolean equals(Object obj) {
+ if (this == obj)
+ return true;
+ if (obj == null)
+ return false;
+ if (getClass() != obj.getClass())
+ return false;
+ Persona other = (Persona) obj;
+ if (nombre == null) {
+ if (other.nombre != null)
+ return false;
+ } else if (!nombre.equals(other.nombre))
+ return false;
+ return true;
+ }
+
+}
+
+&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-01-05T16:30:54Z</dc:date>
+  </entry>
   <entry>
     <title>White-Breeze, un sencillo tema de cursores para Plasma 5</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5" />
@@ -592,19 +655,6 @@
 &lt;p&gt;Poco despu&amp;eacute;s del ultimo articulo que publique tuve que tomar una de las decisiones mas duras de mi vida y debido a ello mi vida ha dado un giro muy grande. La decisi&amp;oacute;n que tome fue la de separarme de mi pareja, con lo que todo ello conlleva ya que tengo dos hijas peque&amp;ntilde;as. La situaci&amp;oacute;n en la que me encuentro ahora mismo ha hecho, entre otras cosas, que pierda la ilusi&amp;oacute;n y las ganas de escribir y de sentarme frente al ordenador. Los primeros d&amp;iacute;as han sido muy duros para mi, muy poco a poco voy intentando recuperarme pero me cuesta mucho hacerlo.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2014/12/no-me-gusta-la-limonada"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2014-12-25T20:38:31Z</dc:date>
-  </entry>
-  <entry>
-    <title>Felices fiestas y un mejor 2015</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15" />
-    <category term="kde" />
-    <author>
-      <name>baltolkien</name>
-    </author>
-    <updated>2014-12-25T09:10:49Z</updated>
-    <published>2014-12-25T09:10:49Z</published>
-    <content type="html">&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>baltolkien</dc:creator>
-    <dc:date>2014-12-25T09:10:49Z</dc:date>
   </entry>
 </feed>
 

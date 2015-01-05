@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
+      "title" : "Entiendo los métodos de Java equals y hashcode"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
       "title" : "Feliz 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
       "title" : "jQuery $.ajax ,$.get, $.post"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/eclipse-y-el-concepto-de-delegacion",
-      "title" : "Eclipse y el concepto de Delegación"
     }
   ]
 }
