@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
+      "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
+    },
+    {
       "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
       "title" : "Detectando procesos ocultos en Linux con Unhide"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
       "title" : "Blogs sobre KDE y software libre"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
-      "title" : "Integración entre Ansible y Docker"
     }
   ]
 }

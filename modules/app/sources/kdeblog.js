@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
+      "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
       "title" : "Cómo instalar Fedora 21, video-tutorial"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
       "title" : "Explorando Linux, serie de vídeos divulgativos"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/plasma-5-1-2-seguimos-corrigiendo-errores",
-      "title" : "Plasma 5.1.2, seguimos corrigiendo errores"
     }
   ]
 }
