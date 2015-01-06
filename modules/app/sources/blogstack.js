@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
+      "title" : "HangoutON, Seguridad esencial en Android"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
       "title" : "Entiendo los métodos de Java equals y hashcode"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/kde-e-v-busca-director-ejecutivo",
       "title" : "KDE e.V. busca Director Ejecutivo"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
-      "title" : "Tomcat Java DataSource y  @Resource"
     }
   ]
 }

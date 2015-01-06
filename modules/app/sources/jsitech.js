@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
+      "title" : "HangoutON, Seguridad esencial en Android"
+    },
+    {
       "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
       "title" : "Detectando procesos ocultos en Linux con Unhide"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/10/vulnerabilidad-reportada-en-ssl-3-poodle",
       "title" : "Vulnerabilidad Reportada en SSL 3.0 (POODLE)"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4",
-      "title" : "Monitoreando Infraestructura con Zabbix 2.4"
     }
   ]
 }
