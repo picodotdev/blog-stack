@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
+      "title" : "Los mejores juegos para Linux del 2014"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
       "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
       "title" : "KDE Aplicaciones 14.12 listo para su descarga"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/explorando-linux-serie-de-videos-divulgativos",
-      "title" : "Explorando Linux, serie de vídeos divulgativos"
     }
   ]
 }

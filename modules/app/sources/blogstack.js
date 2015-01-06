@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "HangoutON, Seguridad esencial en Android"
     },
     {
+      "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
+      "title" : "Los mejores juegos para Linux del 2014"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
       "title" : "Entiendo los métodos de Java equals y hashcode"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
       "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/kde-e-v-busca-director-ejecutivo",
-      "title" : "KDE e.V. busca Director Ejecutivo"
     }
   ]
 }
