@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
+      "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
+    },
+    {
       "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
       "title" : "HangoutON, Seguridad esencial en Android"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
       "title" : "Los números de 2014 en mi blog"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/visual-studio-2-15-considerara-las-faltas-de-ortografia-como-errores-de-compilacion",
-      "title" : "Visual Studio 2015 considerará las faltas de ortografía como errores de compilación"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
+      "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
       "title" : "Los mejores juegos para Linux del 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
       "title" : "Lanzado digiKam Software Collection 4.6"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/kde-aplicaciones-14-12-listo-para-su-descarga",
-      "title" : "KDE Aplicaciones 14.12 listo para su descarga"
     }
   ]
 }
