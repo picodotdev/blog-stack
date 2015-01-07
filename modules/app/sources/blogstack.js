@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
+      "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
       "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
       "title" : "Vídeo de los 30 años de la FSF"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
-      "title" : "Los números de 2014 en mi blog"
     }
   ]
 }

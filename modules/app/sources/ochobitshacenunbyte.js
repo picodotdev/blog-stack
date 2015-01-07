@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
+      "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2014/12/ffmpeg-2-5-2-ya-esta-disponible",
       "title" : "FFmpeg 2.5.2 ya está disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
       "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-version-7-de-trisquel-gnu",
-      "title" : "Probamos la versión 7 de Trisquel GNU"
     }
   ]
 }
