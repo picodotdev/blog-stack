@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
+      "title" : "El Binar10, diario independiente copyleft"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
       "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
       "title" : "Estado de las licencias Creative Commons"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/estado-del-estado-de-las-licencias-creative-commons",
-      "title" : "Estado del estado de las licencias Creative Commons"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
+      "title" : "El Binar10, diario independiente copyleft"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
       "title" : "Lee cómics en Linux con MComix"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
       "title" : "Introducción al teorema de CAP y NoSQL"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
-      "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
     }
   ]
 }
