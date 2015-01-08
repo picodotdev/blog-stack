@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
+      "title" : "Lee cómics en Linux con MComix"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
       "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
       "title" : "Web analytics con Piwik"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/10/instalar-famp-apache-mysql-y-php-en-freebsd-1",
-      "title" : "Instalar FAMP: Apache, MySQL y PHP en FreeBSD 10"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
+      "title" : "Lee cómics en Linux con MComix"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
       "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
       "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
-      "title" : "Vídeo de los 30 años de la FSF"
     }
   ]
 }
