@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/nuevo-portatil-nueva-distro-y-la-limonada",
+      "title" : "Nuevo portatil, nueva distro y la limonada"
+    },
+    {
       "url" : "/post/elblogdeliher/2014/12/no-me-gusta-la-limonada",
       "title" : "No me gusta la limonada"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
       "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/un-indicador-muy-util-para-las-maquinas-virtuales-en-ubuntu",
-      "title" : "Un indicador muy util para las maquinas virtuales en Ubuntu"
     }
   ]
 }

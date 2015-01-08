@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/nuevo-portatil-nueva-distro-y-la-limonada",
+      "title" : "Nuevo portatil, nueva distro y la limonada"
+    },
+    {
       "url" : "/post/kinisoftware/2015/01/test",
       "title" : "Test"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
       "title" : "Feliz 2015"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
-      "title" : "Mis 5 aplicaciones KDE para el 2015"
     }
   ]
 }
