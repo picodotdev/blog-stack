@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kinisoftware/2015/01/test",
+      "title" : "Test"
+    },
+    {
       "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
       "title" : "Fedora 19 queda oficialmente sin Soporte"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2014/12/se-va-el-2-14",
       "title" : "Se va el 2014!!"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
-      "title" : "Resumen de KDE Blog del 2014"
     }
   ]
 }

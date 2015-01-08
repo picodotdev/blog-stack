@@ -3,6 +3,10 @@ define("app/sources/kinisoftware", [], function() {
   "name" : "Kinisoftware",
   "posts" : [
     {
+      "url" : "/post/kinisoftware/2015/01/test",
+      "title" : "Test"
+    },
+    {
       "url" : "/post/kinisoftware/2014/03/inyeccion-de-dependencias-di-e-inversion-del-control-ioc",
       "title" : "Inyección de Dependencias (DI) e Inversión del Control (IoC)"
     },
