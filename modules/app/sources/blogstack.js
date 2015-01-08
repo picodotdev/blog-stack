@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
+      "title" : "Fedora 19 queda oficialmente sin Soporte"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
       "title" : "El Binar10, diario independiente copyleft"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
       "title" : "Resumen de KDE Blog del 2014"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
-      "title" : "Introducción al teorema de CAP y NoSQL"
     }
   ]
 }
