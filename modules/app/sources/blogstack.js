@@ -19,6 +19,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Lee cómics en Linux con MComix"
     },
     {
+      "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
+      "title" : "GCompris para Android disponible en Google Play"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
       "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
       "title" : "Mis 5 aplicaciones KDE para el 2015"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/se-va-el-2-14",
-      "title" : "Se va el 2014!!"
     }
   ]
 }

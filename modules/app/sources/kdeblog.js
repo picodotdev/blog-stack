@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
+      "title" : "GCompris para Android disponible en Google Play"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
       "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
       "title" : "KSudoku, el juego de Sudokus de KDE"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/lanzado-digikam-software-collection-4-6",
-      "title" : "Lanzado digiKam Software Collection 4.6"
     }
   ]
 }
