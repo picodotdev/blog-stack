@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
+      "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
       "title" : "Lee cómics en Linux con MComix"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7",
       "title" : "Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik",
-      "title" : "Web analytics con Piwik"
     }
   ]
 }

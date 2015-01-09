@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
+      "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/nuevo-portatil-nueva-distro-y-la-limonada",
       "title" : "Nuevo portatil, nueva distro y la limonada"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
       "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
-      "title" : "Feliz 2015"
     }
   ]
 }
