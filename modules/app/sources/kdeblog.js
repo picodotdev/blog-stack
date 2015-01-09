@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
+      "title" : "Plasma 5 protagonista de Barcelona Free Software"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
       "title" : "GCompris para Android disponible en Google Play"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/clock-to-color-wallpaper-plugin-para-plasma-5",
       "title" : "Clock-to-color wallpaper plugin para Plasma 5"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/ksudoku-el-juego-de-sudokus-de-kde",
-      "title" : "KSudoku, el juego de Sudokus de KDE"
     }
   ]
 }

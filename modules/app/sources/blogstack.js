@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Utilizando atributos con JSF HTML5"
     },
     {
+      "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
+      "title" : "Plasma 5 protagonista de Barcelona Free Software"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
       "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
       "title" : "10 blogs sobre Software Libre para el 2015"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
-      "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
     }
   ]
 }
