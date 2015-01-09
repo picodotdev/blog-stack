@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
+      "title" : "Utilizando atributos con JSF HTML5"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
       "title" : "Entiendo los métodos de Java equals y hashcode"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
       "title" : "Java EE 6 vs Spring Framework 4 (Video)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/jquery-ajax-get-post",
-      "title" : "jQuery $.ajax ,$.get, $.post"
     }
   ]
 }

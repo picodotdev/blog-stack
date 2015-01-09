@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
+      "title" : "Utilizando atributos con JSF HTML5"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
       "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
       "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
-      "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
     }
   ]
 }
