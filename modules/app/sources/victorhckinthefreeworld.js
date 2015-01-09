@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
+      "title" : "Un reloj binario en la línea de comandos"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
       "title" : "El Binar10, diario independiente copyleft"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
       "title" : "Colabora con la Free Software Foundation"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/estado-de-las-licencias-creative-commons",
-      "title" : "Estado de las licencias Creative Commons"
     }
   ]
 }

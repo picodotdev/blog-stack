@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
+      "title" : "Un reloj binario en la línea de comandos"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
       "title" : "Utilizando atributos con JSF HTML5"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
-      "title" : "10 blogs sobre Software Libre para el 2015"
     }
   ]
 }
