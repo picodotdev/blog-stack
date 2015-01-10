@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
+      "title" : "Lanzado KDE Frameworks 5.6"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
       "title" : "Instalar y usar un plugin ágil en Redmine"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
       "title" : "Los mejores juegos para Linux del 2014"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
-      "title" : "Entiendo los métodos de Java equals y hashcode"
     }
   ]
 }

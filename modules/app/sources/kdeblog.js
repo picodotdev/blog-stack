@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
+      "title" : "Lanzado KDE Frameworks 5.6"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",
       "title" : "Disponible Linux Mint 17.1 Rebecca KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
       "title" : "We are Linux! We love Free Software!"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/linux-mint-17-1-rebecca-kde-rc",
-      "title" : "Linux Mint 17.1 Rebecca KDE RC"
     }
   ]
 }
