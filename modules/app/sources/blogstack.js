@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",
+      "title" : "Disponible Linux Mint 17.1 Rebecca KDE"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
       "title" : "Un reloj binario en la línea de comandos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
       "title" : "Instalar y usar un plugin ágil en Redmine"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
-      "title" : "Introducción al gestor de proyectos y tareas Redmine"
     }
   ]
 }
