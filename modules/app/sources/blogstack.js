@@ -3,6 +3,22 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
+      "title" : "Instalar y usar un plugin ágil en Redmine"
+    },
+    {
+      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
+      "title" : "Introducción al gestor de proyectos y tareas Redmine"
+    },
+    {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
+      "title" : "Introducción a Bitnami"
+    },
+    {
+      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
+      "title" : "Introducción e inicio a Drupal"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",
       "title" : "Disponible Linux Mint 17.1 Rebecca KDE"
     },
@@ -65,22 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/entiendo-los-metodos-de-java-equals-y-hashcode",
       "title" : "Entiendo los métodos de Java equals y hashcode"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
-      "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
-      "title" : "Detectando procesos ocultos en Linux con Unhide"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
-      "title" : "Cómo instalar Fedora 21, video-tutorial"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
-      "title" : "Instalar y usar un plugin ágil en Redmine"
     }
   ]
 }

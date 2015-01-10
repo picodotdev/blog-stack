@@ -11,6 +11,14 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
     },
     {
+      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
+      "title" : "Introducción a Bitnami"
+    },
+    {
+      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
+      "title" : "Introducción e inicio a Drupal"
+    },
+    {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
       "title" : "Integración entre Ansible y Docker"
     },
@@ -33,10 +41,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/introduccion-y-caracteristicas-de-docker",
       "title" : "Introducción y características de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
-      "title" : "Introducción a Bitnami"
     },
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
       "title" : "Procesador de documentos LyX"
-    },
-    {
-      "url" : "/post/blogbitix/2014/08/actualizacion-del-libro-plugin-tapestry",
-      "title" : "Actualización del libro PlugIn Tapestry"
     }
   ]
 }
