@@ -11,6 +11,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Lanzado KDE Frameworks 5.6"
     },
     {
+      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
+      "title" : "Introducción e inicio a Drupal"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
       "title" : "Instalar y usar un plugin ágil en Redmine"
     },
@@ -21,10 +25,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
-      "title" : "Introducción e inicio a Drupal"
     },
     {
       "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",

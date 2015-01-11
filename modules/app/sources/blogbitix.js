@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
+      "title" : "Introducción e inicio a Drupal"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
       "title" : "Instalar y usar un plugin ágil en Redmine"
     },
@@ -13,10 +17,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
       "title" : "Introducción a Bitnami"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
-      "title" : "Introducción e inicio a Drupal"
     },
     {
       "url" : "/post/blogbitix/2014/11/integracion-entre-ansible-y-docker",
