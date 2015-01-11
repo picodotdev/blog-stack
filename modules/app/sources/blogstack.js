@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2015/01/scrum-funciona-al-combinar-capacidad-trabajo-y-compromiso",
+      "title" : "Scrum funciona al combinar capacidad, trabajo y compromiso."
+    },
+    {
       "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
       "title" : "Lanzado KDE Frameworks 5.6"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
       "title" : "HangoutON, Seguridad esencial en Android"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
-      "title" : "Los mejores juegos para Linux del 2014"
     }
   ]
 }
