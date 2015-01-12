@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
     },
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-nvidia-optimus-en-linux-mint-17",
+      "title" : "Cómo instalar nvidia optimus en Linux Mint 17"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/top-posts-2-14-en-variable-not-found",
       "title" : "Top posts 2014 en Variable not found"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
       "title" : "Lee cómics en Linux con MComix"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
-      "title" : "GCompris para Android disponible en Google Play"
     }
   ]
 }

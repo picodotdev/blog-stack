@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-nvidia-optimus-en-linux-mint-17",
+      "title" : "Cómo instalar nvidia optimus en Linux Mint 17"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
       "title" : "Lanzado KDE Frameworks 5.6"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/supertuxkart-el-juego-de-karts-de-linux",
       "title" : "SuperTuxKart, el juego de karts de linux"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/we-are-linux-we-love-free-software",
-      "title" : "We are Linux! We love Free Software!"
     }
   ]
 }
