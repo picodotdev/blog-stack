@@ -543,4 +543,17 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="31" author="picodotdev">
+        <comment>Agregación de fuente (12-01-2015)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="Destino DotNet"/>
+            <column name="alias" value="destinodotnet"/>
+            <column name="pageUrl" value="http://destinodotnet.com/"/>
+            <column name="url" value="http://destinodotnet.com/feed/"/>
+            <column name="author" value="Joel Martinez"/>
+            <column name="email" value="joel@destinodotnet.com"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

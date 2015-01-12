@@ -23,9 +23,9 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.jooq.ConnectionProvider;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
 import org.jooq.impl.DataSourceConnectionProvider;
 import org.jooq.impl.DefaultConfiguration;
-import org.jooq.impl.DefaultDSLContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.ResourceTransactionManager;
 
 @Configuration
-@ComponentScan({ "es.com.blogspot.elblogdepicodev.plugintapestry" })
+@ComponentScan({ "info.blogstack" })
 @EnableTransactionManagement
 public class AppConfiguration {
 
@@ -74,7 +74,7 @@ public class AppConfiguration {
 	
 	@Bean
 	public DSLContext dsl(org.jooq.Configuration config) {
-		return new DefaultDSLContext(config);
+		return DSL.using(config);
 	}
 	
 	@Bean

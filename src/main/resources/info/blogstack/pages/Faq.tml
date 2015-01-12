@@ -100,14 +100,14 @@
 	<h2>¿Por qué hay publicidad?</h2>
 
 	<p>Por el momento el coste de Blog Stack está solamente en el mantenimiento de dominio, unos 10 € al año, pero si necesitase una máquina virtual en alguna nube el coste
-		podría llegar a entre 103 o 176 (amazon ec2), 306 (google compute) o 438 (openshift) € anuales. El objetivo es que Blog Stack se mantenga a si mismo con sus ingresos, si es
+		podría llegar a entre 103 o 176 (amazon ec2), 306 (google compute) o 438 (openshift) € anuales. El objetivo es que Blog Stack se mantenga a si mismo con sus ingresos, si el
 		coste lo asumiese yo un día probablemente acabaría cerrando el servicio, también quiero que sea una recompensa a la dedicación en tiempo que necesita su mantenimiento y los
 		editores que crean el contenido. En mi bitácora personal los ingresos anuales en estos momentos son de unos 70 € anuales, no espero que que en BS sean mucho mayores pero
 		pasado un tiempo se verá como evolucionan.</p>
 
 	<p>Los anuncios que se muestran en Blog Stack son tres. Uno de tipo skycraper-horizontal, otro de tipo rectangulo-grande y un tercero de tipo skycraper-ancho. Un anuncio
 		se reservará para el editor y otro para Blog Stack, el tercero será de forma aleatoria para el editor o Blog Stack. El tipo de anuncio mostrado para cada bloque asignado
-		será aleatorio. Si una bitácora agregada no tiene cuenta de AdSense asociada se mostrarán 3 bloques de anuncios de Blog Stack. En conjunto el algoritmo de asignación de
+		será aleatorio en cada visualización. Si una bitácora agregada no tiene cuenta de AdSense asociada se mostrarán 3 bloques de anuncios de Blog Stack. En conjunto el algoritmo de asignación de
 		bloques hace que el reparto de publicidad sea del 50% para la fuente y 50% para Blog Stack, el algoritmo puede cambiar en un futuro a un porcentaje mayor para la bitácora si
 		la publicidad genera ingresos suficientes para el mantenimiento. Si un propietario quiere agregar una bitácora pero no quiere que se muestren anuncios en su contenido no
 		desearía que se quede fuera por ello, si se me comenta quitaré los anuncios en ese contenido agregado.</p>
@@ -144,7 +144,7 @@
 	<h2>¿Cómo funciona tecnológicamente?</h2>
 
 	<p>
-		El el artículo <a href="http://www.blogstack.info/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack/">Arquitectura y hospedaje de Blog Stack</a> comento de forma más 
+		En el artículo <a href="http://www.blogstack.info/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack/">Arquitectura y hospedaje de Blog Stack</a> comento de forma más 
 		detallada como funciona. A continuación lo explicaré brevemente. Actualmente BS es generado de forma estática en <a href="https://www.openshift.com/">OpenShift</a>, 
 		posteriormente servidor por <a href="https://pages.github.com/">GitHub Pages</a>. Esta generado usando el lenguaje 
 		<a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y empleando el framework <a href="http://tapestry.apache.org/">Apache Tapestry</a> y otra colección de herramientas:
@@ -156,7 +156,8 @@
 			aplicación.</li>
 		<li><a href="http://spring.io/">Spring</a>: para los servicios de acceso a los datos de una pequeña base de datos donde se indexa la información agregada. Ofrece la
 			transaccionalidad.</li>
-		<li><a href="http://hibernate.org/">Hibernate</a>: probablemente el framework de persistencia ORM más ampliamente utilizado en Java.</li>
+		<li><a href="http://www.jooq.org/">jOOQ</a>: una librería para el acceso a bases de datos realionales que evita la complejidad de los ORM y devuelve al primer lugar a una de las
+			cosas más importantes en una aplicación, los datos.</li>
 		<li><a href="http://www.h2database.com/html/main.html">H2</a>: como pequeña base de datos donde se guarda la información de las bitácoras, artículos, etiquetas, ...
 			indexada. Por el momento es más que suficiente, tienen la ventaja que la base de datos es un archivo y puedo descargarla fácilmente a mi equipo.</li>
 		<li><a href="http://rometools.github.io/rome/">Rome</a>: para el procesado de las bitácoras agregadas, hace tiempo que no tiene una nueva versión pero es la mejor

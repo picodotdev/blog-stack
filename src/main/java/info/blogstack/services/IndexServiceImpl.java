@@ -50,7 +50,7 @@ import com.sun.syndication.feed.synd.SyndCategory;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
-import com.sun.syndication.io.ParsingFeedException;
+import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
@@ -108,7 +108,7 @@ public class IndexServiceImpl implements IndexService {
 				HttpResponse response = client.execute(get);
 				HttpEntity entity = response.getEntity();
 				posts.addAll(index(indexation, source, new InputStreamReader(entity.getContent())));
-			} catch (ParsingFeedException | IOException e) {
+			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}
 		}
@@ -158,7 +158,7 @@ public class IndexServiceImpl implements IndexService {
 		return posts;
 	}
 
-	private List<PostRecord> index(IndexationRecord indexation, SourceRecord source, Reader reader) throws Exception {
+	private List<PostRecord> index(IndexationRecord indexation, SourceRecord source, Reader reader) throws IOException, IllegalArgumentException, FeedException  {
 		logger.info("Indexing {} source...", source.getName());
 		Reader fr = new XmlReader(IOUtils.toInputStream(IOUtils.toString(filterReader(reader))));
 		SyndFeed feed = new SyndFeedInput().build(fr);
