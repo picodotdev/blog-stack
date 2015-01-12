@@ -1,0 +1,556 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Programación asíncrona 2: Hilos (Thread) | Destino DotNet</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread"><span itemprop="headline">Programación asíncrona 2: Hilos (Thread)</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Joel Martinez</span> en la bitácora <a href="http://destinodotnet.com/">Destino DotNet</a>, <a href="http://destinodotnet.com/programacion-asincrona-con-hilos-thread/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-01-03T20:37" itemprop="datePublished">Publicado el sábado, 03 de enero de 2015 a las 20:37 UTC</span></div><div><span>
+Etiquetado como
+tutoriales</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div></div>
+<script></script>
+<div style="">
+ <a href="http://destinodotnet.com/#">
+  <div>
+   <i></i>Facebook0
+   <div></div>
+  </div></a>
+ <a href="https://twitter.com/intent/tweet?text=Programaci&oacute;n as&iacute;ncrona 2: Hilos (Thread) http://destinodotnet.com/feed/ %40destinodotnet">
+  <div>
+   <i></i>Twitter0
+   <div></div>
+  </div></a>
+ <a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/">
+  <div>
+   <i></i>Google+0
+   <div></div>
+  </div></a>
+ <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://destinodotnet.com/feed/&amp;title=Programaci&oacute;n as&iacute;ncrona 2: Hilos (Thread)&amp;summary=Siguiendo con la serie de art&iacute;culos referente a programaci&oacute;n as&iacute;ncrona, hoy toca hablar de una clase muy conocida y usada a partir del .NET Framework 2.0 (aunque exist&iacute;a desde la versi&oacute;n 1). Nos referimos a programaci&oacute;n as&iacute;ncrona con hilos, usados a trav&eacute;s de la clase System.Threading.Thread.Puedes seguir el primer art&iacute;culo ...">
+  <div>
+   <i></i>Linkedin0
+   <div></div>
+  </div></a>
+ <a>
+  <div>
+   <i></i>E-Mail0
+   <div></div>
+  </div></a>
+</div>
+<p>Siguiendo con la serie de art&iacute;culos referente a <strong>programaci&oacute;n as&iacute;ncrona</strong>, hoy toca hablar de una clase muy conocida y usada a partir del .NET Framework 2.0 (aunque exist&iacute;a desde la versi&oacute;n 1). Nos referimos a programaci&oacute;n as&iacute;ncrona con hilos, usados a trav&eacute;s de la clase <strong><em>System.Threading.Thread</em></strong>.</p> 
+<p>Puedes seguir el primer art&iacute;culo de esta serie aqu&iacute;: <a href="http://destinodotnet.com/programacion-asincrona-1-delegados/" title="Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos">Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos</a>.</p> 
+<h2>Creaci&oacute;n y ejecuci&oacute;n de un hilo</h2> 
+<p>Para crear el hilo, hacemos uso de la clase <em>Thread</em>, del espacio de nombres <em>System.Threading</em>.</p> 
+<p>En el siguiente ejemplo, crearemos 2 hilos para explicar los primeros conceptos. En cada hilo se imprimir&aacute; un enunciado sobre (&iexcl;oh, sorpresa!) el universo <em>Star Wars</em>.</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la clase de apoyo 'Soldado'
+            var objSoldado = new Soldado();
+
+            // Se declaran los 2 hilos, estableciendo que la funci&oacute;n a ejecutar ser&aacute; 'Soldado.ImprimeEnunciado'
+            Thread hilo1 = new Thread(objSoldado.ImprimeEnunciado);
+            Thread hilo2 = new Thread(objSoldado.ImprimeEnunciado);
+
+            // Se muestra el mensaje, desde el programa principal, que se llamar&aacute;n a la ejecuci&oacute;n de los hilos
+            // En la impresi&oacute;n de mensaje se especifica el identificador del hilo que se asigna internamente
+            Console.WriteLine(&quot;ID Hilo: {0} =&gt; Se llama a la ejecuci&oacute;n de los hilos desde el programa principal&quot;, Thread.CurrentThread.ManagedThreadId.ToString());
+
+            // Se llaman a ejecuci&oacute;n los 2 hilos, y se pasa como par&aacute;metro el mensaje un hecho para imprimir
+            hilo1.Start(&quot;Primer enunciado : El 'Stormtrooper' es un soldado del Imperio&quot;);
+            hilo2.Start(&quot;Segundo enunciado: El 'Clonetrooper' es un soldado de la Rep&uacute;blica&quot;);
+            
+            // Se espera a que termine la ejecuci&oacute;n de ambos hilos
+            while ((hilo1.IsAlive) || (hilo2.IsAlive)) 
+            {
+            }
+
+            // Una vez terminados, se muestra el mensaje de finalizaci&oacute;n
+            Console.WriteLine(&quot;ID Hilo: {0} =&gt; Finaliz&oacute; la ejecuci&oacute;n de los hilos&quot;, Thread.CurrentThread.ManagedThreadId.ToString());
+            Console.ReadLine();
+        }
+    }
+
+    // Clase de apoyo que contiene la funci&oacute;n que ejecutar&aacute;n los hilos
+    public class Soldado
+    {
+        public void ImprimeEnunciado(object texto)
+        {
+            // Se muestra el mensaje de ejecuci&oacute;n de la funci&oacute;n
+            // En la impresi&oacute;n de mensaje se especifica el identificador del hilo que se asigna internamente
+            Console.WriteLine(&quot;ID Hilo: {0} =&gt; {1}.&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), texto.ToString());
+        }
+    }
+}</pre>
+<p></p> 
+<p>Si ejecutamos el programa, el resultado ser&aacute;:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-1.png" alt="Resultado de ejecuci&oacute;n, Creaci&oacute;n y ejecuci&oacute;n de un hilo" /></p> 
+<p>Internamente se asigna un identificador a cada uno de los 3 procesos: el del programa principal y de sus 2 hilos creados (subprocesos). Adem&aacute;s podemos notar que a pesar que las llamadas a los hilos se ejecutaron en un orden espec&iacute;fico (primer enunciado, segundo enunciado), la ejecuci&oacute;n no se dio en ese orden (tuve que ejecutar varias veces el programa para conseguir este resultado). Esto sucede porque internamente se pone en una cola de ejecuci&oacute;n las llamadas a los hilos, pero <strong>es el procesador el que finalmente decide cu&aacute;l ejecutar primero</strong>.</p> 
+<h2>Paso de par&aacute;metros</h2> 
+<p>En el primer ejemplo pasamos un par&aacute;metro (el texto del enunciado) al hilo a trav&eacute;s de una variable tipo objeto (object), que luego convertimos a cadena (string) cuando lo recibimos en el m&eacute;todo. Esto sirve para ejemplos simples en los que s&oacute;lo necesitemos un par&aacute;metro, pero <strong>si queremos pasar m&aacute;s de uno o queremos una alternativa m&aacute;s elegante</strong>, tenemos varias opciones a elegir.</p> 
+<p>A continuaci&oacute;n detallo 3 de estas alternativas. En cada ejemplo desde el programa principal se pasar&aacute;n 2 par&aacute;metros al hilo para imprimirlos. &Eacute;stos ser&aacute;n:</p> 
+<ul> 
+ <li>Nombre de planeta (Cadena)</li> 
+ <li>N&uacute;mero de soles (Entero)</li> 
+</ul> 
+<h3>1. Agrupando variables en una estructura</h3> 
+<p>Creamos una estructura de apoyo (<em>struct</em>) para establecer los par&aacute;metros:</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la primera clase de apoyo para la funci&oacute;n: Proceso
+            var objProceso = new Proceso();
+
+            // Se instancia una variable con la segunda clase de apoyo para los par&aacute;metros: Parametro
+            var objParametro = new Parametro();
+
+            // Se declara el hilo a usar
+            Thread hilo1 = new Thread(objProceso.ImprimeConsola);
+
+            objParametro.NombrePlaneta = &quot;Coruscant&quot;;
+            objParametro.NumeroSoles = 1;
+
+            // Se ejecuta el hilo
+            hilo1.Start(objParametro);
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Proceso
+    {
+        public void ImprimeConsola(object objParametro)
+        {
+            // Se reciben y convierten los par&aacute;metros
+            string NombrePlaneta = ((Parametro)objParametro).NombrePlaneta;
+            int NumeroSoles = ((Parametro)objParametro).NumeroSoles;
+
+            // Se muestra el mensaje de ejecuci&oacute;n de la funci&oacute;n
+            Console.WriteLine(&quot;Id Hilo: {0} =&gt; Nombre de Planeta: {1}, N&uacute;mero de soles: {2}.&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), NombrePlaneta, NumeroSoles.ToString());
+        }
+    }
+
+    public struct Parametro
+    {
+        public string NombrePlaneta;
+        public int NumeroSoles;
+    }
+}</pre>
+<p></p> 
+<p>Al ejecutar el programa se ver&aacute; lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-2.png" alt="Resultado de ejecuci&oacute;n, Paso de par&aacute;metros a hilo usando estructura de apoyo" /></p> 
+<h3>2. Usando las variables de la clase de apoyo</h3> 
+<p>Otra manera de pasar par&aacute;metros a la ejecuci&oacute;n del hilo es usando la misma variable de apoyo para establecer los par&aacute;metros a usar. Tendr&iacute;amos:</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la primera clase de apoyo para la funci&oacute;n: Proceso
+            var objProceso = new Proceso();
+
+            // Se declara el hilo a usar
+            Thread hilo1 = new Thread(objProceso.ImprimeConsola);
+
+            objProceso.NombrePlaneta = &quot;Tatooine&quot;;
+            objProceso.NumeroSoles = 2;
+
+            // Se ejecuta el hilo
+            hilo1.Start();
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Proceso
+    {
+        public string NombrePlaneta { get; set; }
+        public int NumeroSoles { get; set; }
+
+        public void ImprimeConsola()
+        {
+            // Se muestra el mensaje de ejecuci&oacute;n de la funci&oacute;n
+            Console.WriteLine(&quot;ID Hilo: {0} =&gt; Nombre de Planeta: {1}, N&uacute;mero de soles: {2}.&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), NombrePlaneta, NumeroSoles.ToString());
+        }
+    }
+}</pre>
+<p></p> 
+<p>Al ejecutar el programa se ver&aacute; lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-3.png" alt="Resultado de ejecuci&oacute;n, Paso de par&aacute;metros a hilo usando clase de apoyo" /></p> 
+<h3>3. Usando un m&eacute;todo an&oacute;nimo como Inicializador</h3> 
+<p>Por &uacute;ltimo, otra alternativa es usando la clase <strong>ThreadStart</strong>, que es un inicializador del hilo. A este nuevo objeto le pasamos un m&eacute;todo an&oacute;nimo haciendo uso de la palabra clave <em>delegate</em>. El c&oacute;digo quedar&iacute;a as&iacute;:</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la primera clase de apoyo para la funci&oacute;n: Proceso
+            var objProceso = new Proceso();
+
+            // Se usa como inicializador un m&eacute;todo an&oacute;nimo
+            ThreadStart _ts = delegate { objProceso.ImprimeConsola(&quot;Naboo&quot;, 1); };
+
+            // Se declara el hilo a usar
+            Thread hilo1 = new Thread(_ts);
+
+            // Se ejecuta el hilo
+            hilo1.Start();
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Proceso
+    {
+        public void ImprimeConsola(string NombrePlaneta, int NumeroSoles)
+        {
+            // Se muestra el mensaje de ejecuci&oacute;n de la funci&oacute;n
+            Console.WriteLine(&quot;Id Hilo: {0} =&gt; Nombre de Planeta: {1}, N&uacute;mero de soles: {2}.&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), NombrePlaneta, NumeroSoles.ToString());
+        }
+    }
+}</pre>
+<p></p> 
+<p>Al ejecutar el programa se ver&aacute; lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-4.png" alt="Resultado de ejecuci&oacute;n, Paso de par&aacute;metros a hilo usando m&eacute;todo an&oacute;nimo como inicializador" /></p> 
+<p>La ventaja de este m&eacute;todo es que es <strong>m&aacute;s compacto</strong> con respecto a los anteriores, adem&aacute;s la <strong>comprobaci&oacute;n de los tipos de datos se hace en tiempo de compilaci&oacute;n</strong> a diferencia de usar una estructura de apoyo, en donde se comprueba el tipo de dato en tiempo de ejecuci&oacute;n.</p> 
+<h2>Acceso y bloqueo de recursos compartidos</h2> 
+<p>Tambi&eacute;n es importante verificar el funcionamiento de los hilos en el caso de recursos compartidos (variables que tienen referencia com&uacute;n a la misma instancia o variables est&aacute;ticas). Pongamos el siguiente ejemplo: creamos 2 hilos, y en cada uno de ellos <strong>se accede a un mismo recurso</strong> para ejecutar una secuencia de tareas.</p> 
+<p>Para este ejemplo tendremos 2 soldados (Stormtrooper y Clonetrooper) que acceder&aacute;n a un mismo recurso compartido (Veh&iacute;culo espacial). Dentro del hilo, la secuencia de tareas ser&aacute;:</p> 
+<ul> 
+ <li>Abordar el veh&iacute;culo espacial</li> 
+ <li>Conducir el veh&iacute;culo espacial</li> 
+ <li>Estacionar el veh&iacute;culo espacial</li> 
+</ul> 
+<p>El c&oacute;digo quedar&iacute;a as&iacute;:</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        // Variable que contiene el recurso compartido a usar:
+        static string RecursoCompartido = &quot;Veh&iacute;culo espacial&quot;;
+
+        static void Main(string[] args)
+        {
+            // Se instancia 2 inicializadores de hilo, con sus respectivos m&eacute;todos an&oacute;nimos
+            ThreadStart _ts1 = delegate { EjecutaSecuenciaTareas(&quot;Stormtrooper&quot;); };
+            ThreadStart _ts2 = delegate { EjecutaSecuenciaTareas(&quot;Clonetrooper&quot;); };
+
+            // Se declara los hilos
+            Thread hilo1 = new Thread(_ts1);
+            Thread hilo2 = new Thread(_ts2);
+
+            // Se ejecutan los hilos
+            hilo1.Start();
+            hilo2.Start();
+
+            Console.ReadLine();
+        }
+
+        static void EjecutaSecuenciaTareas(string NombreSoldado)
+        {
+            // Se muestra las tareas del hilo para el soldado
+            Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es abordado por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+            // Se hace una peque&ntilde;a pausa para la siguiente tarea
+            System.Threading.Thread.Sleep(1);
+            Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es conducido por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+            // Se hace una peque&ntilde;a pausa para la siguiente tarea
+            System.Threading.Thread.Sleep(1);
+            Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es estacionado por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+        }
+    }
+}</pre>
+<p></p> 
+<p>Si ejecutamos el programa nos mostrar&iacute;a lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-5.png" alt="Resultado de ejecuci&oacute;n, Acceso a recurso compartido sin bloqueo" /></p> 
+<p>Como vemos, <strong>las tareas de ambos soldados sobre el recurso compartido (Veh&iacute;culo espacial) se superponen</strong>, lo cual es incorrecto; ya que no es posible que los 2 soldados aborden, conduzcan y estacionen el mismo veh&iacute;culo espacial a la vez. Este ejemplo es conceptual, pero en un caso real se pueden hacer lecturas, c&aacute;lculos y actualizaciones sobre una variable compartida; y si no se tiene conciencia de esto <strong>se pueden duplicar o ejecutar tareas sobre variables de forma err&oacute;nea, generando datos incorrectos</strong>.</p> 
+<p>Para solucionar este problema usaremos la instrucci&oacute;n <strong><em>lock</em></strong> (con ayuda de la variable adicional <em>monitor</em>), para que las tareas que se ejecutan en un hilo <strong>no sean interrumpidas </strong>por otros subprocesos (hilos). Entonces, el segundo hilo tendr&aacute; que esperar a que se termine de ejecutar toda la secuencia de tareas del primer hilo.</p> 
+<p>El c&oacute;digo final quedar&iacute;a as&iacute;:</p> 
+<p></p>
+<pre>using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        // Variable que contiene el recurso compartido a usar:
+        static string RecursoCompartido = &quot;Veh&iacute;culo espacial&quot;;
+
+        // Variable que servir&aacute; para bloquear la ejecuci&oacute;n de un hilo
+        static object monitor = new object();
+
+        static void Main(string[] args)
+        {
+            // Se instancia 2 inicializadores de hilo, con sus respectivos m&eacute;todos an&oacute;nimos
+            ThreadStart _ts1 = delegate { EjecutaSecuenciaTareas(&quot;Stormtrooper&quot;); };
+            ThreadStart _ts2 = delegate { EjecutaSecuenciaTareas(&quot;Clonetrooper&quot;); };
+
+            // Se declara los hilos
+            Thread hilo1 = new Thread(_ts1);
+            Thread hilo2 = new Thread(_ts2);
+
+            // Se ejecutan los hilos
+            hilo1.Start();
+            hilo2.Start();
+
+            Console.ReadLine();
+        }
+
+        static void EjecutaSecuenciaTareas(string NombreSoldado)
+        {
+            lock (monitor)
+            {
+                // Se muestra las tareas del hilo para el soldado
+                Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es abordado por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+                // Se hace una peque&ntilde;a pausa para la siguiente tarea
+                System.Threading.Thread.Sleep(1);
+                Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es conducido por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+                // Se hace una peque&ntilde;a pausa para la siguiente tarea
+                System.Threading.Thread.Sleep(1);
+                Console.WriteLine(&quot;Id Hilo: {0} =&gt; El {1} es estacionado por el {2}&quot;, Thread.CurrentThread.ManagedThreadId.ToString(), RecursoCompartido, NombreSoldado);
+            }
+        }
+    }
+}</pre>
+<p></p> 
+<p>Y su ejecuci&oacute;n mostrar&iacute;a lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-6.png" alt="Resultado de ejecuci&oacute;n, Acceso a recurso compartido con bloqueo" /></p> 
+<p>Ahora s&iacute; se aprecia que el segundo hilo se ejecuta una vez que se terminen todas las tareas del primer hilo.</p> 
+<h2>Manejo de excepciones</h2> 
+<p>Cuando se trabaja con hilos hay que tener cuidado con el manejo de excepciones. Podr&iacute;amos pensar que en el siguiente c&oacute;digo se captura correctamente la excepci&oacute;n:</p> 
+<p></p>
+<pre>using System;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la primera clase de apoyo para la funci&oacute;n: Proceso
+            var objProceso = new Proceso();
+
+            // Se declara el hilo a usar
+            Thread hilo1 = new Thread(objProceso.Ejecutar);
+
+            // Se ejecuta el hilo
+            try
+            {
+                hilo1.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(&quot;Se captur&oacute; la excepci&oacute;n: {0}&quot;, ex.Message);
+            }
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Proceso
+    {
+        public void Ejecutar()
+        {
+            // Se lanza la excepci&oacute;n del hilo
+            throw new Exception(&quot;Excepci&oacute;n de subproceso&quot;);
+        }
+    }
+}</pre>
+<p></p> 
+<p>Cuando ejecutemos el programa obtendremos el siguiente error:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/programacion-asincrona-hilos-thread-pantalla-7.png" alt="Resultado de ejecuci&oacute;n, Excepci&oacute;n en hilo controlada desde programa principal" /></p> 
+<p>Como vemos, desde el programa principal no se puede controlar una excepci&oacute;n generada en un hilo. En general, <strong>cada subproceso (programa principal, hilo) debe tener su propio manejo de excepciones</strong>. El c&oacute;digo que s&iacute; funciona es el siguiente:</p> 
+<p></p>
+<pre>using System;
+using System.Threading;
+
+namespace ProgramacionAsincrona.Hilos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Se instancia una variable con la primera clase de apoyo para la funci&oacute;n: Proceso
+            var objProceso = new Proceso();
+
+            // Se declara el hilo a usar
+            Thread hilo1 = new Thread(objProceso.Ejecutar);
+
+            // Se ejecuta el hilo
+            hilo1.Start();
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Proceso
+    {
+        public void Ejecutar()
+        {
+            // Se lanza la excepci&oacute;n del hilo
+            try
+            {
+                throw new Exception(&quot;Excepci&oacute;n de subproceso&quot;);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(&quot;Se captur&oacute; la excepci&oacute;n: {0}&quot;, ex.Message);
+            }
+        }
+    }
+}</pre>
+<p></p> 
+<p>En este caso hemos trasladado la captura de la excepci&oacute;n desde el programa principal hacia el hilo. Esto a veces <strong>puede resultar engorroso</strong>, mas a&uacute;n si estamos acostumbrados a capturar todas las excepciones desde el programa principal, <strong>pero es algo necesario</strong>.</p> 
+<p>Para el caso de aplicaciones de escritorio Windows Forms, es muy conocida la t&eacute;cnica de <strong>centralizar el manejo de excepciones</strong> con el evento <em>Application.ThreadException</em>. Pero cuidado, con este evento no se capturar&iacute;an las excepciones producidas en los hilos. Una t&eacute;cnica con mayor alcance es usar el evento <a href="http://msdn.microsoft.com/es-pe/library/system.appdomain.unhandledexception.aspx" title="AppDomain.UnhandledException (Evento)"><em>AppDomain.UnhandledException</em></a>, que se ejecuta cuando existe una excepci&oacute;n no controlada a nivel de dominio de aplicaci&oacute;n (se incluyen los hilos claro). Ojo que esta t&eacute;cnica tambi&eacute;n tiene sus consideraciones. En <a href="https://rburnham.wordpress.com/2012/02/07/unhandled-exceptions-with-appdomain-currentdomain-unhandledexception-and-application-threadexception/" title="Unhandled Exceptions with AppDomain.CurrentDomain.UnhandledException and Application.ThreadException">este art&iacute;culo</a> puedes profundizar un poco en el tema.</p> 
+<h2>Conclusiones</h2> 
+<p>La clase <strong>Thread es muy utilizada </strong>actualmente, a pesar que el tema ha evolucionado en las versiones m&aacute;s recientes del Framework (lo veremos en los siguientes art&iacute;culos), por lo que hay que tener presente estas t&eacute;cnicas para una correcta gesti&oacute;n de esta clase. Adem&aacute;s, es importante tambi&eacute;n un <strong>buen dise&ntilde;o del programa</strong> para usar la <strong>cantidad correcta de hilos</strong>, ya que si bien es cierto dividir una tarea pesada en hilos puede mejorar la performance, si se abusa de ellos o no se gestiona la complejidad de usarlos de forma correcta, <strong>el resultado puede ser contraproducente</strong>.</p> 
+<h2>Saludo especial</h2> 
+<p>Quiero aprovechar el post para agradecerte por estar del otro lado y leer los art&iacute;culos del a&ntilde;o 2014 que se acaba de ir (si fuera el caso; si no, te invito a leerlos). Adem&aacute;s, saludarte por este a&ntilde;o nuevo y desearte los mejores deseos para este 2015, esperando que se cumpla todo lo que has planeado. Personalmente, dentro de mis objetivos primordiales est&aacute; aumentar la frecuencia de publicaci&oacute;n de art&iacute;culos, adem&aacute;s de tocar algunos temas (nuevos para m&iacute;) de las tecnolog&iacute;as .NET m&aacute;s recientes. Para esto ya estoy encaminado en la pr&aacute;ctica y preparaci&oacute;n de art&iacute;culos.</p> 
+<p>&iexcl;Gracias, un saludo afectuoso y lo mejor para este 2015!</p> 
+<div style="">
+ <a href="http://destinodotnet.com/#">
+  <div>
+   <i></i>Facebook0
+   <div></div>
+  </div></a>
+ <a href="https://twitter.com/intent/tweet?text=Programaci&oacute;n as&iacute;ncrona 2: Hilos (Thread) http://destinodotnet.com/feed/ %40destinodotnet">
+  <div>
+   <i></i>Twitter0
+   <div></div>
+  </div></a>
+ <a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/">
+  <div>
+   <i></i>Google+0
+   <div></div>
+  </div></a>
+ <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://destinodotnet.com/feed/&amp;title=Programaci&oacute;n as&iacute;ncrona 2: Hilos (Thread)&amp;summary=Siguiendo con la serie de art&iacute;culos referente a programaci&oacute;n as&iacute;ncrona, hoy toca hablar de una clase muy conocida y usada a partir del .NET Framework 2.0 (aunque exist&iacute;a desde la versi&oacute;n 1). Nos referimos a programaci&oacute;n as&iacute;ncrona con hilos, usados a trav&eacute;s de la clase System.Threading.Thread.Puedes seguir el primer art&iacute;culo ...">
+  <div>
+   <i></i>Linkedin0
+   <div></div>
+  </div></a>
+ <a>
+  <div>
+   <i></i>E-Mail0
+   <div></div>
+  </div></a>
+</div>
+<div></div>
+<p>La entrada <a href="http://destinodotnet.com/programacion-asincrona-con-hilos-thread/">Programaci&oacute;n as&iacute;ncrona 2: Hilos (Thread)</a> aparece primero en <a href="http://destinodotnet.com">Destino DotNet</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread" st_title="Programación asíncrona 2: Hilos (Thread) | Destino DotNet"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1313,
+      "url" : "http://www.blogstack.info/post/destinodotnet/2015/01/programacion-asincrona-2-hilos-thread"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "destinodotnet",
+      "name" : "Destino DotNet"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

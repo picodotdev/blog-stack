@@ -1,0 +1,272 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Programación asíncrona 1: Delegados asíncronos | Destino DotNet</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos"><span itemprop="headline">Programación asíncrona 1: Delegados asíncronos</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Joel Martinez</span> en la bitácora <a href="http://destinodotnet.com/">Destino DotNet</a>, <a href="http://destinodotnet.com/programacion-asincrona-1-delegados/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-07T16:16" itemprop="datePublished">Publicado el viernes, 07 de noviembre de 2014 a las 16:16 UTC</span></div><div><span>
+Etiquetado como
+tutoriales</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div></div>
+<script></script>
+<div style="">
+ <a href="http://destinodotnet.com/#">
+  <div>
+   <i></i>Facebook0
+   <div></div>
+  </div></a>
+ <a href="https://twitter.com/intent/tweet?text=Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos http://destinodotnet.com/feed/ %40destinodotnet">
+  <div>
+   <i></i>Twitter0
+   <div></div>
+  </div></a>
+ <a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/">
+  <div>
+   <i></i>Google+0
+   <div></div>
+  </div></a>
+ <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://destinodotnet.com/feed/&amp;title=Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos&amp;summary=La programaci&oacute;n as&iacute;ncrona es un esquema de programaci&oacute;n que puede mejorar mucho el rendimiento de tus desarrollos, si lo aplicas correctamente.Por ejemplo, a veces nuestros aplicativos se quedan congelados cuando el usuario interact&uacute;a con ellos. Esto ocurre porque hay algunas tareas pesadas que se est&aacute;n ejecutando, y como s&oacute;lo hay ...">
+  <div>
+   <i></i>Linkedin0
+   <div></div>
+  </div></a>
+ <a>
+  <div>
+   <i></i>E-Mail0
+   <div></div>
+  </div></a>
+</div>
+<p>La <strong>programaci&oacute;n as&iacute;ncrona</strong> es un esquema de programaci&oacute;n que puede <em><u>mejorar mucho el rendimiento de tus desarrollos, si lo aplicas correctamente</u></em>.</p> 
+<p>Por ejemplo, a veces nuestros aplicativos se quedan congelados cuando el usuario interact&uacute;a con ellos. Esto ocurre porque hay algunas tareas pesadas que se est&aacute;n ejecutando, y como <strong>s&oacute;lo hay un hilo de ejecuci&oacute;n</strong>, no le queda otra que esperar a que termine dicha tarea para estar nuevamente disponible. Mejorar este tipo de comportamientos puede darle un toque de <strong>profesionalidad</strong> a tus aplicativos que siempre es importante.</p> 
+<p>Hay varias formas de implementar la programaci&oacute;n as&iacute;ncrona. El d&iacute;a de hoy veremos la primera: <strong>Delegados as&iacute;ncronos</strong>.</p> 
+<h2>&iquest;Qu&eacute; es un Delegado?</h2> 
+<p>Un delegado es la implementaci&oacute;n de .NET de los <strong>punteros a funciones</strong>. Un delegado es un tipo de dato, por lo que se puede instanciar, y a trav&eacute;s de estas variables llamar a funciones que tienen la misma estructura (tipo de datos de retorno y par&aacute;metros) que el delegado.</p> 
+<p>Vamos con un ejemplo (muy) sencillo. Declaramos un delegado:</p> 
+<p></p>
+<pre>delegate int delegadoProducto(int a, int b);</pre>
+<p></p> 
+<p>Luego creamos una funci&oacute;n con la misma estructura del delegado (ojo que la creamos en una clase separada):</p> 
+<p></p>
+<pre>public class DelegadoSimple
+    {
+        public int Producto(int x, int y)
+        {
+            Console.WriteLine();
+            Console.WriteLine(&quot;DelegadoSimple.Producto: Calculando el producto de {0} por {1}&quot;, x.ToString(), y.ToString());
+            Console.WriteLine();
+            return x * y;
+        }
+    }</pre>
+<p></p> 
+<p>Ahora instanciamos un objeto de nuestro delegado, asign&aacute;ndole la funci&oacute;n que creamos en el paso anterior; y lo ejecutamos.</p> 
+<p></p>
+<pre>public static void Main(string[] args)
+        {
+            // Instanciamos un delegado
+            var objDelegado = new DelegadoSimple();
+
+            // Asignamos el objeto reci&eacute;n creado a la funci&oacute;n que creamos en la clase de apoyo
+            delegadoProducto variableDelegadoProducto = new delegadoProducto(objDelegado.Producto);
+
+            // Llamamos a la funci&oacute;n a trav&eacute;s del delegado
+            var resultado = variableDelegadoProducto(2, 3);
+
+            // Imprimimos el resultado de la ejecuci&oacute;n
+            Console.WriteLine(&quot;Resultado del producto es: {0}&quot;, resultado.ToString());
+            Console.ReadLine();
+        }</pre>
+<p></p> 
+<p>Como ven, s&oacute;lo se puede asignar funciones a objetos que tienen la misma estructura que su delegado.</p> 
+<p>La salida de la ejecuci&oacute;n es la siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/salida_llamada_delegado.png" alt="Resultado de ejecuci&oacute;n, llamada a delegado" /></p> 
+<p>Podr&iacute;a parecer que este esquema es innecesario, ya que se puede llamar directamente a la funci&oacute;n sin necesidad de usar un delegado, pero recuerda que es un ejemplo simple para fijar conceptos. Los <em><u>delegados son muy usados para la gesti&oacute;n de eventos, <strong>llamadas as&iacute;ncronas</strong>, accesos m&aacute;s permisivos en diferentes hilos de ejecuci&oacute;n e incluso m&eacute;todos an&oacute;nimos</u></em>. Puedes encontrar <strong>m&aacute;s informaci&oacute;n</strong> de delegados en este <a href="http://msdn.microsoft.com/es-es/library/bb972282.aspx" title="Delegados en .NET">enlace</a> o en este <a href="http://www.esasp.net/2009/11/c-delegado.html" title="Delegados en C#">otro enlace</a>.</p> 
+<h2>Llamada s&iacute;ncrona a un delegado</h2> 
+<p>Ahora que ya vimos c&oacute;mo <strong>crear un delegado y c&oacute;mo usarlo</strong>, vamos con un ejemplo un poco m&aacute;s elaborado para entender mejor el concepto de llamada s&iacute;ncrona.</p> 
+<p>Para este ejemplo vamos a usar a nuestros amigos jedis <strong>Anakin</strong> y <strong>Obi Wan</strong>. Ellos har&aacute;n un viaje interplanetario que les demora 5 segundos aproximadamente. Es <em><u>lo bueno de la velocidad de la luz</u></em>.</p> 
+<p>Tenemos el siguiente c&oacute;digo:</p> 
+<p></p>
+<pre>using System;
+using System.Diagnostics;
+
+namespace ProgramacionAsincrona.Delegados
+{
+    class Program
+    {
+        delegate int DelegadoViajeInterplanetario(string NombreViajero, Stopwatch temporizador);
+
+        static void Main(string[] args)
+        {
+            // Se instancia un temporizador para calcular el tiempo de ejecuci&oacute;n.
+            var temporizador = Stopwatch.StartNew();
+            
+            // Se instancia la clase de apoyo
+            var objViaje = new Viaje();
+
+            // Se crea el primer delegado, que representar&aacute; el primer viaje.
+            DelegadoViajeInterplanetario viajeAnakin = new DelegadoViajeInterplanetario(objViaje.ViajeInterplanetario);
+
+            // Se crea el segundo delegado, que representar&aacute; el segundo viaje.
+            DelegadoViajeInterplanetario viajeObiWan = new DelegadoViajeInterplanetario(objViaje.ViajeInterplanetario);
+
+            // Ahora ejecutamos los delegados que har&aacute;n los viajes
+            viajeAnakin(&quot;Anakin&quot;, temporizador);
+            viajeObiWan(&quot;ObiWan&quot;, temporizador);
+
+            // Hacemos una peque&ntilde;a pausa y luego mostramos el mensaje de fin de viajes
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine();
+            Console.WriteLine(&quot;=&gt; Finaliz&oacute; las llamadas a los viajes, a los {0} segundos.&quot;, temporizador.Elapsed.TotalSeconds.ToString());
+            Console.WriteLine();
+
+            Console.ReadLine();
+        }
+    }
+
+    public class Viaje
+    {
+        public int ViajeInterplanetario(string NombreViajero, Stopwatch temporizador)
+        {
+            Console.WriteLine();
+            Console.WriteLine(&quot;Inicio de viaje realizado por {0}.&quot;, NombreViajero);
+            System.Threading.Thread.Sleep(5000);
+            Console.WriteLine(&quot;Fin de viaje realizado por {0}, a los {1} segundos.&quot;, NombreViajero, temporizador.Elapsed.TotalSeconds.ToString());
+            return 0;
+        }
+    }
+
+}</pre>
+<p></p> 
+<p>Lo que hacemos en el c&oacute;digo es crear la funci&oacute;n <strong><em>ViajeInterplanetario</em></strong> que representar&aacute; los viajes que har&aacute;n los personajes.</p> 
+<p>Adem&aacute;s, se crean 2 delegados que suscriben esta funci&oacute;n y se llaman de forma s&iacute;ncrona (l&iacute;neas 24 y 25):</p> 
+<p></p>
+<pre>// Ahora ejecutamos los delegados que har&aacute;n los viajes  (llamadas s&iacute;ncronas)
+            viajeAnakin(&quot;Anakin&quot;, temporizador);
+            viajeObiWan(&quot;ObiWan&quot;, temporizador);</pre>
+<p></p> 
+<p>Tambi&eacute;n tenemos un objeto de apoyo llamado <strong><em>temporizador</em></strong>, que nos sirve para calcular el tiempo que demoran las llamadas y el programa principal.</p> 
+<p>Si ejecutamos el proyecto tenemos la siguiente salida:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/salida_delegado_sincrono.png" alt="Resultado de ejecuci&oacute;n, llamada s&iacute;ncrona a delegado" /></p> 
+<p>Puedes notar que la <strong>ejecuci&oacute;n es lineal</strong>: se llama al primer viaje, cuando &eacute;ste termina se llama al segundo viaje y cuando &eacute;ste segundo termina se muestra el mensaje de fin de llamadas de viajes. Esto sucede porque estamos llamando a los delegados de forma s&iacute;ncrona, que es <strong>casi lo mismo que llamar directamente a la funci&oacute;n</strong>. El tiempo total de ejecuci&oacute;n de todo el programa es un poco m&aacute;s de 10 segundos.</p> 
+<h2> Llamada as&iacute;ncrona a un delegado</h2> 
+<p>Para probar el siguiente concepto haremos un cambio en la llamada a los delegados para que se ejecuten de forma as&iacute;ncrona. Cambiamos las l&iacute;neas 24 y 25 por <strong>llamadas as&iacute;ncronas a los delegados</strong>:</p> 
+<p></p>
+<pre>// Ahora ejecutamos los delegados que har&aacute;n los viajes  (llamadas as&iacute;ncronas)
+            viajeAnakin.BeginInvoke(&quot;Anakin&quot;, temporizador, null, null);
+            viajeObiWan.BeginInvoke(&quot;ObiWan&quot;, temporizador, null, null);</pre>
+<p></p> 
+<p>Si ahora ejecutamos el programa, tendremos lo siguiente:</p> 
+<p><img src="http://destinodotnet.com/wp-content/uploads/salida_delegado_asincrono.png" alt="Resultado de ejecuci&oacute;n, llamada as&iacute;ncrona a delegado" /></p> 
+<p>Como puedes ver ahora la salida de la ejecuci&oacute;n es diferente. El programa principal hace las llamadas (as&iacute;ncronas) a los delegados y <em><u>sigue su ejecuci&oacute;n sin esperar a que estas llamadas terminen</u></em>. Internamente la ejecuci&oacute;n de dichas llamadas sucede en un <strong>hilo diferente</strong> al hilo del programa principal. Este manejo de hilos es interno, de forma transparente para nosotros.</p> 
+<p>Primero se muestran los mensajes de las llamadas a los viajes, luego se muestra el mensaje de fin de llamadas, para finalmente mostrar el mensaje de fin de viaje de cada llamada, que se <strong>ejecutaron de forma as&iacute;ncrona</strong>.</p> 
+<p>Esto hace que al final el tiempo de ejecuci&oacute;n de este programa, con la variante de las llamadas as&iacute;ncronas, sea de aproximadamente 5 segundos, que es pr&aacute;cticamente la <strong>mitad del tiempo</strong> compar&aacute;ndolo con el tiempo de ejecuci&oacute;n con llamadas s&iacute;ncronas del ejemplo anterior. Esto se explica porque <strong>los viajes se ejecutaron en “paralelo”</strong> (lo pongo en comillas porque hay toda una teor&iacute;a sobre los procesos en paralelo, que espero abordarlo en un art&iacute;culo posterior).</p> 
+<h2>Conclusiones</h2> 
+<p>Ya puedes imaginar el <strong>potencial</strong> de esta t&eacute;cnica, c&oacute;mo implementar este tipo de llamadas para algunos procesos que demanden muchos recursos y poder reducir los tiempos de ejecuci&oacute;n <em><em>dividiendo las tareas a trav&eacute;s de llamadas as&iacute;ncronas</em></em>. Pero no siempre es as&iacute;: funciona bien para tareas que implican muchos c&aacute;lculos (uso intensivo del procesador), pero para <em><u>el manejo de archivos (por ejemplo) las ejecuciones as&iacute;ncronas podr&iacute;an demorar igual o m&aacute;s</u></em> que si ejecut&aacute;ramos las tareas de forma secuencial.</p> 
+<p>Como reflexi&oacute;n final quiero decir que si bien es cierto que para entender el concepto de programaci&oacute;n as&iacute;ncrona se ha hablado bastante de hilos de ejecuci&oacute;n, hay que tener en claro que no son lo mismo. Los hilos son una <strong>herramienta</strong> que nos sirve para <strong>implementar la asincron&iacute;a</strong> en nuestros aplicativos.</p> 
+<p>Espero que este art&iacute;culo sea &uacute;til para entender la <strong>programaci&oacute;n as&iacute;ncrona</strong>. En los siguientes art&iacute;culos de esta serie explicar&eacute; <strong>otras formas</strong> que existen para su implementaci&oacute;n, tratando de seguir de forma <strong>cronol&oacute;gica </strong>la evoluci&oacute;n de este tema en las versiones del <strong>.NET Framework</strong>. </p> 
+<div style="">
+ <a href="http://destinodotnet.com/#">
+  <div>
+   <i></i>Facebook0
+   <div></div>
+  </div></a>
+ <a href="https://twitter.com/intent/tweet?text=Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos http://destinodotnet.com/feed/ %40destinodotnet">
+  <div>
+   <i></i>Twitter0
+   <div></div>
+  </div></a>
+ <a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/">
+  <div>
+   <i></i>Google+0
+   <div></div>
+  </div></a>
+ <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://destinodotnet.com/feed/&amp;title=Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos&amp;summary=La programaci&oacute;n as&iacute;ncrona es un esquema de programaci&oacute;n que puede mejorar mucho el rendimiento de tus desarrollos, si lo aplicas correctamente.Por ejemplo, a veces nuestros aplicativos se quedan congelados cuando el usuario interact&uacute;a con ellos. Esto ocurre porque hay algunas tareas pesadas que se est&aacute;n ejecutando, y como s&oacute;lo hay ...">
+  <div>
+   <i></i>Linkedin0
+   <div></div>
+  </div></a>
+ <a>
+  <div>
+   <i></i>E-Mail0
+   <div></div>
+  </div></a>
+</div>
+<div></div>
+<p>La entrada <a href="http://destinodotnet.com/programacion-asincrona-1-delegados/">Programaci&oacute;n as&iacute;ncrona 1: Delegados as&iacute;ncronos</a> aparece primero en <a href="http://destinodotnet.com">Destino DotNet</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos" st_title="Programación asíncrona 1: Delegados asíncronos | Destino DotNet"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1315,
+      "url" : "http://www.blogstack.info/post/destinodotnet/2014/11/programacion-asincrona-1-delegados-asincronos"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "destinodotnet",
+      "name" : "Destino DotNet"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
