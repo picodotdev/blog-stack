@@ -3,6 +3,10 @@ define("app/sources/kinisoftware", [], function() {
   "name" : "Kinisoftware",
   "posts" : [
     {
+      "url" : "/post/kinisoftware/2015/01/cambiando-de-piel",
+      "title" : "Cambiando de piel"
+    },
+    {
       "url" : "/post/kinisoftware/2015/01/test",
       "title" : "Test"
     },

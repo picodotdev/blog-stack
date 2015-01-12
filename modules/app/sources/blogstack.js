@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kinisoftware/2015/01/cambiando-de-piel",
+      "title" : "Cambiando de piel"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
       "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
       "title" : "El Binar10, diario independiente copyleft"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/lee-comics-en-linux-con-mcomix",
-      "title" : "Lee cómics en Linux con MComix"
     }
   ]
 }
