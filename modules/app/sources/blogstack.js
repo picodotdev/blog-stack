@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/mongodb-en-gnu-linux",
+      "title" : "MongoDB en GNU Linux"
+    },
+    {
       "url" : "/post/kinisoftware/2015/01/cambiando-de-piel",
       "title" : "Cambiando de piel"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
       "title" : "Fedora 19 queda oficialmente sin Soporte"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
-      "title" : "El Binar10, diario independiente copyleft"
     }
   ]
 }
