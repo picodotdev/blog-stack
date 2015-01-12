@@ -3,8 +3,8 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
-      "url" : "/post/navegapolis/2015/01/scrum-funciona-al-combinar-capacidad-trabajo-y-compromiso",
-      "title" : "Scrum funciona al combinar capacidad, trabajo y compromiso."
+      "url" : "/post/navegapolis/2015/01/scrum-funciona-con-capacidad-trabajo-y-compromiso",
+      "title" : "Scrum funciona con capacidad, trabajo y compromiso."
     },
     {
       "url" : "/post/navegapolis/2014/12/excipientes-y-principios-activos-de-scrum",

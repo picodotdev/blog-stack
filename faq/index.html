@@ -36,12 +36,12 @@ de anuncio mostrados en BS, deberás crear un bloque de anuncios skycraper-horiz
 darlo a conocer.</p><div class="text-center"><a href="/"><img title="Blog Stack" alt="Blog Stack" border="0" src="/assets/images/blog-stack-80x15.png"/></a></div><pre>
 &lt;a href="http://www.blogstack.info/"&gt;&lt;img src="http://www.blogstack.info/assets/images/blog-stack-80x15.png" border="0" alt="Blog Stack" title="Blog Stack"/&gt;&lt;/a&gt;
 </pre><h2>¿Cada cuanto tiempo se actualiza BS?</h2><p>Se busca nuevo contenido publicado en las bitácoras cada hora.</p><h2>¿Por qué hay publicidad?</h2><p>Por el momento el coste de Blog Stack está solamente en el mantenimiento de dominio, unos 10 € al año, pero si necesitase una máquina virtual en alguna nube el coste
-podría llegar a entre 103 o 176 (amazon ec2), 306 (google compute) o 438 (openshift) € anuales. El objetivo es que Blog Stack se mantenga a si mismo con sus ingresos, si es
+podría llegar a entre 103 o 176 (amazon ec2), 306 (google compute) o 438 (openshift) € anuales. El objetivo es que Blog Stack se mantenga a si mismo con sus ingresos, si el
 coste lo asumiese yo un día probablemente acabaría cerrando el servicio, también quiero que sea una recompensa a la dedicación en tiempo que necesita su mantenimiento y los
 editores que crean el contenido. En mi bitácora personal los ingresos anuales en estos momentos son de unos 70 € anuales, no espero que que en BS sean mucho mayores pero
 pasado un tiempo se verá como evolucionan.</p><p>Los anuncios que se muestran en Blog Stack son tres. Uno de tipo skycraper-horizontal, otro de tipo rectangulo-grande y un tercero de tipo skycraper-ancho. Un anuncio
 se reservará para el editor y otro para Blog Stack, el tercero será de forma aleatoria para el editor o Blog Stack. El tipo de anuncio mostrado para cada bloque asignado
-será aleatorio. Si una bitácora agregada no tiene cuenta de AdSense asociada se mostrarán 3 bloques de anuncios de Blog Stack. En conjunto el algoritmo de asignación de
+será aleatorio en cada visualización. Si una bitácora agregada no tiene cuenta de AdSense asociada se mostrarán 3 bloques de anuncios de Blog Stack. En conjunto el algoritmo de asignación de
 bloques hace que el reparto de publicidad sea del 50% para la fuente y 50% para Blog Stack, el algoritmo puede cambiar en un futuro a un porcentaje mayor para la bitácora si
 la publicidad genera ingresos suficientes para el mantenimiento. Si un propietario quiere agregar una bitácora pero no quiere que se muestren anuncios en su contenido no
 desearía que se quede fuera por ello, si se me comenta quitaré los anuncios en ese contenido agregado.</p><p>Blog Stack se mantiene gracias a la publicidad que incluye, si utilizas un bloqueador de anuncios como AdBlock considera deshabilitarlo para el dominio de Blog Stack,
@@ -57,7 +57,7 @@ Siempre trataré de responder a todos los correos que me lleguen a <a href="mail
 </p><p>A pesar de la buena voluntad y de que trataré que en todo momento funcione correctamente en algún momento puede que algo deje de funcionar o esté mal, si se da el caso
 trataré de restaurar el servicio o corregir el problema. Pero tened en cuenta que Blog Stack es un proyecto personal que mantengo por afición y en mi tiempo libre, puede
 pasar algo de tiempo hasta que responda y puede no estar libre de fallos puntuales.</p><h2>¿Cómo funciona tecnológicamente?</h2><p>
-El el artículo <a href="http://www.blogstack.info/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack/">Arquitectura y hospedaje de Blog Stack</a> comento de forma más
+En el artículo <a href="http://www.blogstack.info/post/blogbitix/2014/05/arquitectura-y-hospedaje-de-blog-stack/">Arquitectura y hospedaje de Blog Stack</a> comento de forma más
 detallada como funciona. A continuación lo explicaré brevemente. Actualmente BS es generado de forma estática en <a href="https://www.openshift.com/">OpenShift</a>,
 posteriormente servidor por <a href="https://pages.github.com/">GitHub Pages</a>. Esta generado usando el lenguaje
 <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y empleando el framework <a href="http://tapestry.apache.org/">Apache Tapestry</a> y otra colección de herramientas:
@@ -66,7 +66,8 @@ generar el contenido. Usar Tapestry de esta forma no es lo habitual pero el mode
 controlador + plantilla que siguen los componentes me resulta mejor que la separación entre controlador y vista que es lo habitual en encontrar en la mayoría de motores de
 plantillas. Además, si en un futuro BS se generase en vez como contenido estático mediante una aplicación web prácticamente podría reutilizar todo el código de la
 aplicación.</li><li><a href="http://spring.io/">Spring</a>: para los servicios de acceso a los datos de una pequeña base de datos donde se indexa la información agregada. Ofrece la
-transaccionalidad.</li><li><a href="http://hibernate.org/">Hibernate</a>: probablemente el framework de persistencia ORM más ampliamente utilizado en Java.</li><li><a href="http://www.h2database.com/html/main.html">H2</a>: como pequeña base de datos donde se guarda la información de las bitácoras, artículos, etiquetas, ...
+transaccionalidad.</li><li><a href="http://www.jooq.org/">jOOQ</a>: una librería para el acceso a bases de datos realionales que evita la complejidad de los ORM y devuelve al primer lugar a una de las
+cosas más importantes en una aplicación, los datos.</li><li><a href="http://www.h2database.com/html/main.html">H2</a>: como pequeña base de datos donde se guarda la información de las bitácoras, artículos, etiquetas, ...
 indexada. Por el momento es más que suficiente, tienen la ventaja que la base de datos es un archivo y puedo descargarla fácilmente a mi equipo.</li><li><a href="http://rometools.github.io/rome/">Rome</a>: para el procesado de las bitácoras agregadas, hace tiempo que no tiene una nueva versión pero es la mejor
 opción que he encontrado en Java.</li><li><a href="http://jsoup.org/">jsoup</a>: para filtrar el contenido agregado y evitar problemas de seguridad (por si alguien tuviera malas ideas ;) permitiendo
 contenido que se considera confiable.</li><li><a href="http://undertow.io/">Undertow</a>: para previsualizar el contenido estático generado mientras desarrollo.</li><li><a href="http://www.joda.org/joda-time/">Joda Time</a>: como mejor opción para el manejo de fechas que las propias ofrecidas hasta Java 7.</li><li>Otras: como <a href="http://gradle.org/">Gradle</a>, <a href="https://code.google.com/p/wro4j/">wro4j</a>, <a href="http://commons.apache.org/proper/commons-lang/">commons-lang3</a>,
@@ -78,7 +79,7 @@ arte, ciencia, educación, ocio, moda, noticias, literatura, cine, sociedad, eco
 desarrollo, es más, sería bien recibido, a través de código con «pull request» o creando «issues» con cualquier sugerencia o problema que se detecte.
 </p></article></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
-«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2014
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
 </div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
