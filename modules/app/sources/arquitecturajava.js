@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
+      "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
       "title" : "Utilizando atributos con JSF HTML5"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
       "title" : "Java Constructores this() y super()"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/10/java-ee-6-vs-spring-framework-4-video",
-      "title" : "Java EE 6 vs Spring Framework 4 (Video)"
     }
   ]
 }

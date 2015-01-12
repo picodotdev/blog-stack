@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
+      "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/top-posts-2-14-en-variable-not-found",
       "title" : "Top posts 2014 en Variable not found"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
       "title" : "GCompris para Android disponible en Google Play"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/como-instalar-iconos-circulares-en-gnu-linux-con-numix",
-      "title" : "Cómo instalar iconos circulares en GNU Linux con Numix"
     }
   ]
 }
