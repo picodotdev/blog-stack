@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/adios-net-hola-java",
+      "title" : "¿Adios .NET, hola Java?"
+    },
+    {
       "url" : "/post/navegapolis/2015/01/scrum-funciona-con-capacidad-trabajo-y-compromiso",
       "title" : "Scrum funciona con capacidad, trabajo y compromiso."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
       "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
-      "title" : "HangoutON, Seguridad esencial en Android"
     }
   ]
 }

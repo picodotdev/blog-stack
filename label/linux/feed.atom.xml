@@ -3,10 +3,31 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-01-12T00:13:22Z</updated>
+  <updated>2015-01-12T06:02:31Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-01-12T00:13:22Z</dc:date>
+  <dc:date>2015-01-12T06:02:31Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>¿Adios .NET, hola Java?</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2015/01/adios-net-hola-java" />
+    <category term="netcore" />
+    <category term="opinion" />
+    <category term="rant" />
+    <category term="development" />
+    <category term="linux" />
+    <category term="jvm" />
+    <author>
+      <name>Juan María Hernández</name>
+    </author>
+    <updated>2015-01-12T05:06:46Z</updated>
+    <published>2015-01-12T05:06:46Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Hace ya unos cuantos meses que llevo d&amp;aacute;ndole vueltas a la posibilidad de migrar parte de las aplicaciones que desarrollamos profesionalmente a entornos Linux.&lt;/p&gt; 
+&lt;p&gt;Hasta hace poco esto era algo impensable, ya que desarroll&amp;aacute;bamos aplicaciones de escritorio basadas en .NET y aplicaciones para dispositivos m&amp;oacute;viles con Windows Mobile, pero &amp;uacute;ltimamente cada vez son m&amp;aacute;s las aplicaciones basadas en HTML5 que forman parte de nuestro &lt;a href="http://www.agorapos.com/"&gt;software para punto de venta&lt;/a&gt;.&lt;/p&gt; 
+&lt;p&gt;Ese paso a aplicaciones HTML5 ha permitido que muchos de los clientes que se conectan al servidor central (desplegado localmente o &lt;em&gt;on-premises&lt;/em&gt;, para los modernos) sean dispositivos con Android, iOS o incluso Linux. &lt;/p&gt; 
+&lt;p&gt;&amp;iquest;El motivo fundamental? El coste del hardware y el coste de la licencia. Cuando tienes un equipo dedicado en exclusiva a realizar una tarea profesional, muchas veces el sistema operativo importa muy poco puesto que el usuario s&amp;oacute;lo utiliza una aplicaci&amp;oacute;n, y el coste de una tablet malucha con Android es mucho m&amp;aacute;s bajo que el de cualquier PC con pantalla t&amp;aacute;ctil y su correspondiente licencia de Windows.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/01/adios-net-hola-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Juan María Hernández</dc:creator>
+    <dc:date>2015-01-12T05:06:46Z</dc:date>
+  </entry>
   <entry>
     <title>Introducción e inicio a Drupal</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal" />
@@ -730,28 +751,6 @@
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/introduccion-a-ansible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2014-11-15T09:35:39Z</dc:date>
-  </entry>
-  <entry>
-    <title>Inicio básico de Docker</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" />
-    <category term="blog-stack" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <category term="planeta-arch-linux" />
-    <category term="linux" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2014-11-29T12:00:00Z</updated>
-    <published>2014-11-01T08:47:51Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" /&gt; 
- &lt;br /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En el &lt;a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/"&gt;art&amp;iacute;culo anterior introductorio sobre Docker&lt;/a&gt; comentaba cuales son sus principales caracter&amp;iacute;sticas, que diferencias tiene con la virtualizaci&amp;oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&amp;iacute;culo ser&amp;aacute; a modo de gu&amp;iacute;a r&amp;aacute;pida como empezar a usar &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt;. Comentar&amp;eacute; cuales son los comandos b&amp;aacute;sicos para manejar docker, las im&amp;aacute;genes y los contenedores.&lt;/p&gt; 
-&lt;p&gt;Antes de empezar con la gu&amp;iacute;a propiamente hay que tener en cuenta que otra de las caracter&amp;iacute;sticas de docker es que &amp;uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la &lt;a href="https://registry.hub.docker.com/u/phusion/baseimage/"&gt;imagen pushion&lt;/a&gt; tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&amp;iacute; upstart de las im&amp;aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&amp;oacute;n es no proporcionar una imagen con un mont&amp;oacute;n de servicios/procesos sino varias peque&amp;ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&amp;aacute;sicamente el sistema de archivos que usar&amp;aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-11-01T08:47:51Z</dc:date>
   </entry>
 </feed>
 

@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/adios-net-hola-java",
+      "title" : "¿Adios .NET, hola Java?"
+    },
+    {
       "url" : "/post/koalite/2014/12/resumen-2-14",
       "title" : "Resumen 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
       "title" : "El lado oscuro de los gestores de paquetes"
-    },
-    {
-      "url" : "/post/koalite/2014/07/por-favor-comenta-el-codigo",
-      "title" : "Por favor, comenta el código"
     }
   ]
 }
