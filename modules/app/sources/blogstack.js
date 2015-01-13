@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/elecciones-al-consejo-de-opensuse-2-15",
+      "title" : "Elecciones al consejo de openSUSE 2015"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-182",
       "title" : "Enlaces interesantes 182"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
       "title" : "Utilizando atributos con JSF HTML5"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
-      "title" : "Plasma 5 protagonista de Barcelona Free Software"
     }
   ]
 }

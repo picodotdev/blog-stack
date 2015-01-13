@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/elecciones-al-consejo-de-opensuse-2-15",
+      "title" : "Elecciones al consejo de openSUSE 2015"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
       "title" : "Un reloj binario en la línea de comandos"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/fin-del-soporte-para-opensuse-12-3",
       "title" : "Fin del soporte para openSUSE 12.3"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/colabora-con-la-free-software-foundation",
-      "title" : "Colabora con la Free Software Foundation"
     }
   ]
 }
