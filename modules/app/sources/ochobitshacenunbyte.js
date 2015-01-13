@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
+      "title" : "Ocultar Thumbs.db en Samba"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/mongodb-en-gnu-linux",
       "title" : "MongoDB en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
       "title" : "Instalar Ruby on Rails en GNU Linux"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync",
-      "title" : "Copias de seguridad con rsync"
     }
   ]
 }

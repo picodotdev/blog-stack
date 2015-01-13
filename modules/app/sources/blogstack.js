@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
+      "title" : "Ocultar Thumbs.db en Samba"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/mongodb-en-gnu-linux",
       "title" : "MongoDB en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kinisoftware/2015/01/test",
       "title" : "Test"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
-      "title" : "Fedora 19 queda oficialmente sin Soporte"
     }
   ]
 }
