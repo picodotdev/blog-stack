@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/tarjeta-wireless-broadcom-bcm43-en-kali-linux",
+      "title" : "Tarjeta Wireless Broadcom BCM43000 en Kali Linux"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/elecciones-al-consejo-de-opensuse-2-15",
       "title" : "Elecciones al consejo de openSUSE 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
       "title" : "Un reloj binario en la línea de comandos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/utilizando-atributos-con-jsf-html5",
-      "title" : "Utilizando atributos con JSF HTML5"
     }
   ]
 }

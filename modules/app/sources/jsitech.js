@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/tarjeta-wireless-broadcom-bcm43-en-kali-linux",
+      "title" : "Tarjeta Wireless Broadcom BCM43000 en Kali Linux"
+    },
+    {
       "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
       "title" : "Fedora 19 queda oficialmente sin Soporte"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
       "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
-    },
-    {
-      "url" : "/post/jsitech/2014/10/jackthestripper-para-fedora-linux-19-2",
-      "title" : "JackTheStripper para Fedora Linux 19/20"
     }
   ]
 }
