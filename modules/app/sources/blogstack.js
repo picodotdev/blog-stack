@@ -15,6 +15,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Ocultar Thumbs.db en Samba"
     },
     {
+      "url" : "/post/kdeblog/2015/01/cursores-breeze-las-novedades-para-plasma-5",
+      "title" : "Cursores Breeze: las novedades para Plasma 5"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/mongodb-en-gnu-linux",
       "title" : "MongoDB en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
       "title" : "Plasma 5 protagonista de Barcelona Free Software"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
-      "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
     }
   ]
 }
