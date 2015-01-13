@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-182",
+      "title" : "Enlaces interesantes 182"
+    },
+    {
+      "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-1-parte",
+      "title" : "Trabajar con ficheros xml desde python (1ª parte)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
       "title" : "Ocultar Thumbs.db en Samba"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/rosa-desktop-fresh-r5-con-kde-ya-esta-disponible",
       "title" : "Rosa Desktop Fresh R5 con KDE ya está disponible"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/nuevo-portatil-nueva-distro-y-la-limonada",
-      "title" : "Nuevo portatil, nueva distro y la limonada"
-    },
-    {
-      "url" : "/post/kinisoftware/2015/01/test",
-      "title" : "Test"
     }
   ]
 }
