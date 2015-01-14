@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar",
+      "title" : "RockStor almacenamiento libre y fácil de usar"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
       "title" : "Ocultar Thumbs.db en Samba"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
       "title" : "Vulnerabilidad grave en WordPress"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/instalar-ruby-on-rails-en-gnu-linux",
-      "title" : "Instalar Ruby on Rails en GNU Linux"
     }
   ]
 }
