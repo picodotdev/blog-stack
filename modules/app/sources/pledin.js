@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-2-parte",
+      "title" : "Trabajar con ficheros xml desde python (2ª parte)"
+    },
+    {
       "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-1-parte",
       "title" : "Trabajar con ficheros xml desde python (1ª parte)"
     },

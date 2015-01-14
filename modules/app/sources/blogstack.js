@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-2-parte",
+      "title" : "Trabajar con ficheros xml desde python (2ª parte)"
+    },
+    {
       "url" : "/post/jsitech/2015/01/tarjeta-wireless-broadcom-bcm43-en-kali-linux",
       "title" : "Tarjeta Wireless Broadcom BCM43000 en Kali Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",
       "title" : "Disponible Linux Mint 17.1 Rebecca KDE"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
-      "title" : "Un reloj binario en la línea de comandos"
     }
   ]
 }
