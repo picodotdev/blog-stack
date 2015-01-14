@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
+      "title" : "Lanzada la beta de Plasma 5.2"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/cursores-breeze-las-novedades-para-plasma-5",
       "title" : "Cursores Breeze: las novedades para Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/1-mejores-temas-de-iconos-para-plasma-del-2-14",
       "title" : "10 mejores temas de iconos para plasma del 2014"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/felices-fiestas-y-un-mejor-2-15",
-      "title" : "Felices fiestas y un mejor 2015"
     }
   ]
 }

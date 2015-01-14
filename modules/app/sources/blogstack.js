@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
+      "title" : "Lanzada la beta de Plasma 5.2"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar",
       "title" : "RockStor almacenamiento libre y fácil de usar"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
       "title" : "Introducción al gestor de proyectos y tareas Redmine"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/introduccion-a-bitnami",
-      "title" : "Introducción a Bitnami"
     }
   ]
 }
