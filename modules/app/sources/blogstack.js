@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
+      "title" : "¡Apoya al software libre y muestra ese apoyo!"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/tails-acaba-de-lanzar-su-version-1-2-3",
       "title" : "Tails acaba de lanzar su versión 1.2.3"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
       "title" : "Lanzado KDE Frameworks 5.6"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
-      "title" : "Introducción e inicio a Drupal"
     }
   ]
 }
