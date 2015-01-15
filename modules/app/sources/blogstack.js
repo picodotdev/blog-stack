@@ -15,6 +15,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Utilizando JPA NamedQueries"
     },
     {
+      "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
+      "title" : "Disponible KDE Aplicaciones 14.12.1"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
       "title" : "Lanzada la beta de Plasma 5.2"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2015/01/scrum-funciona-con-capacidad-trabajo-y-compromiso",
       "title" : "Scrum funciona con capacidad, trabajo y compromiso."
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
-      "title" : "Lanzado KDE Frameworks 5.6"
     }
   ]
 }
