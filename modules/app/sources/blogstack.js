@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/tails-acaba-de-lanzar-su-version-1-2-3",
+      "title" : "Tails acaba de lanzar su versión 1.2.3"
+    },
+    {
+      "url" : "/post/arquitecturajava/2015/01/utilizando-jpa-namedqueries",
+      "title" : "Utilizando JPA NamedQueries"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
       "title" : "Lanzada la beta de Plasma 5.2"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
       "title" : "Introducción e inicio a Drupal"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/instalar-y-usar-un-plugin-agil-en-redmine",
-      "title" : "Instalar y usar un plugin ágil en Redmine"
-    },
-    {
-      "url" : "/post/blogbitix/2014/12/introduccion-al-gestor-de-proyectos-y-tareas-redmine",
-      "title" : "Introducción al gestor de proyectos y tareas Redmine"
     }
   ]
 }

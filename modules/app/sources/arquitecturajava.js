@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/utilizando-jpa-namedqueries",
+      "title" : "Utilizando JPA NamedQueries"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
       "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
       "title" : "Java y MongoDB"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/java-constructores-this-y-super",
-      "title" : "Java Constructores this() y super()"
     }
   ]
 }

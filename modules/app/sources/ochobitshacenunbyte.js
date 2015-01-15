@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/tails-acaba-de-lanzar-su-version-1-2-3",
+      "title" : "Tails acaba de lanzar su versión 1.2.3"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar",
       "title" : "RockStor almacenamiento libre y fácil de usar"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/como-instalar-lamp-en-debian-7",
       "title" : "Cómo instalar LAMP en Debian 7"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress",
-      "title" : "Vulnerabilidad grave en WordPress"
     }
   ]
 }
