@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
+      "title" : "¿Cuales son las certificaciones Java?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
       "title" : "¡Apoya al software libre y muestra ese apoyo!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2015/01/adios-net-hola-java",
       "title" : "¿Adios .NET, hola Java?"
-    },
-    {
-      "url" : "/post/navegapolis/2015/01/scrum-funciona-con-capacidad-trabajo-y-compromiso",
-      "title" : "Scrum funciona con capacidad, trabajo y compromiso."
     }
   ]
 }

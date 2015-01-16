@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
+      "title" : "¿Cuales son las certificaciones Java?"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/utilizando-jpa-namedqueries",
       "title" : "Utilizando JPA NamedQueries"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
       "title" : "Usando el patron factory"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/java-y-mongodb",
-      "title" : "Java y MongoDB"
     }
   ]
 }
