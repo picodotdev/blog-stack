@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
+      "title" : "Cómo hacer un substring de una cadena HTML"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
+      "title" : "Cómo filtrar contenido HTML de forma segura"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
+      "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
       "title" : "¿Cuales son las certificaciones Java?"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
       "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-nvidia-optimus-en-linux-mint-17",
-      "title" : "Cómo instalar nvidia optimus en Linux Mint 17"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/01/top-posts-2-14-en-variable-not-found",
-      "title" : "Top posts 2014 en Variable not found"
-    },
-    {
-      "url" : "/post/koalite/2015/01/adios-net-hola-java",
-      "title" : "¿Adios .NET, hola Java?"
     }
   ]
 }

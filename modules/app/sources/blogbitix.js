@@ -3,6 +3,18 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
+      "title" : "Cómo hacer un substring de una cadena HTML"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
+      "title" : "Cómo filtrar contenido HTML de forma segura"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
+      "title" : "Qué es y cómo hacer «web scraping» en Java"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/introduccion-e-inicio-a-drupal",
       "title" : "Introducción e inicio a Drupal"
     },
@@ -51,14 +63,6 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Inicio básico de Docker"
     },
     {
-      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
-      "title" : "Qué es y cómo hacer «web scraping» en Java"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
-      "title" : "Cómo filtrar contenido HTML de forma segura"
-    },
-    {
       "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
       "title" : "Generar URLs semánticas y amigables"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
       "title" : "Compilar y cargar de forma dinámica una clase Java"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/procesador-de-documentos-lyx",
-      "title" : "Procesador de documentos LyX"
     }
   ]
 }
