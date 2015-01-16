@@ -19,6 +19,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "¿Cuales son las certificaciones Java?"
     },
     {
+      "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
+      "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
       "title" : "¡Apoya al software libre y muestra ese apoyo!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kinisoftware/2015/01/cambiando-de-piel",
       "title" : "Cambiando de piel"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/las-editoriales-tecnicas-mas-reconocidas-para-genbetadev",
-      "title" : "Las editoriales técnicas mas reconocidas (para GenBetaDev)"
     }
   ]
 }

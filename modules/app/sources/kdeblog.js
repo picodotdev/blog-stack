@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
+      "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
       "title" : "Disponible KDE Aplicaciones 14.12.1"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/raspberry-pi-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "Raspberry Pi en las III Jornadas Libres de la UNED Vila-real"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/kaos-2-14-12-listo-para-su-descarga",
-      "title" : "KaOS 2014.12 listo para su descarga"
     }
   ]
 }
