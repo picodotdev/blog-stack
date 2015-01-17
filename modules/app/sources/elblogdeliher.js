@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
+      "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
       "title" : "Linux no es dificil, por mi amigo Victor"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
       "title" : "Mi nuevo escritorio en Ubuntu 14.04"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
-      "title" : "Necesito un poco mas de informacion, plisssss"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
+      "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
       "title" : "Linux no es dificil, por mi amigo Victor"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
       "title" : "Ocultar Thumbs.db en Samba"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/cursores-breeze-las-novedades-para-plasma-5",
-      "title" : "Cursores Breeze: las novedades para Plasma 5"
     }
   ]
 }
