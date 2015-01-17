@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
+      "title" : "Linux no es dificil, por mi amigo Victor"
+    },
+    {
+      "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
+      "title" : "Cutegram para Linux, otro cliente de Telegram"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
       "title" : "Cómo hacer un substring de una cadena HTML"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/cursores-breeze-las-novedades-para-plasma-5",
       "title" : "Cursores Breeze: las novedades para Plasma 5"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/mongodb-en-gnu-linux",
-      "title" : "MongoDB en GNU Linux"
-    },
-    {
-      "url" : "/post/kinisoftware/2015/01/cambiando-de-piel",
-      "title" : "Cambiando de piel"
     }
   ]
 }

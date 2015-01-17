@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
+      "title" : "Linux no es dificil, por mi amigo Victor"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/nuevo-portatil-nueva-distro-y-la-limonada",
       "title" : "Nuevo portatil, nueva distro y la limonada"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/necesito-un-poco-mas-de-informacion-plisssss",
       "title" : "Necesito un poco mas de informacion, plisssss"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-liberar-espacio-del-disco-duro-con-apt-get-en-ubuntu",
-      "title" : "Como liberar espacio del disco duro con apt-get en Ubuntu"
     }
   ]
 }
