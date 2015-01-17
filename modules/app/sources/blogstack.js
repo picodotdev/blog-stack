@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
+      "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
       "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-1-parte",
       "title" : "Trabajar con ficheros xml desde python (1ª parte)"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/ocultar-thumbs-db-en-samba",
-      "title" : "Ocultar Thumbs.db en Samba"
     }
   ]
 }

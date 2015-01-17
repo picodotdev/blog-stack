@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
+      "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
       "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
       "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-nuevo-escritorio-en-ubuntu-14-4",
-      "title" : "Mi nuevo escritorio en Ubuntu 14.04"
     }
   ]
 }
