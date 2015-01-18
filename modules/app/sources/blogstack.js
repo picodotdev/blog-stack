@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-solucionar-el-problema-del-brillo-en-ubuntu",
+      "title" : "Como solucionar el problema del brillo en Ubuntu"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
       "title" : "Conferencia BilboStack 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar",
       "title" : "RockStor almacenamiento libre y fácil de usar"
-    },
-    {
-      "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-2-parte",
-      "title" : "Trabajar con ficheros xml desde python (2ª parte)"
     }
   ]
 }

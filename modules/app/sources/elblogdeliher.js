@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-solucionar-el-problema-del-brillo-en-ubuntu",
+      "title" : "Como solucionar el problema del brillo en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
       "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-cambiar-el-fondo-de-inicio-de-sesion-con-ubuntu-tweak",
       "title" : "Como cambiar el fondo de inicio de sesion con Ubuntu Tweak"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/vibrancy-colors-un-excelente-pack-de-iconos-para-instalar-en-ubuntu",
-      "title" : "Vibrancy colors, un excelente pack de iconos para instalar en Ubuntu"
     }
   ]
 }
