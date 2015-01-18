@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
-      "title" : "Un millón de gracias"
-    },
-    {
       "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
       "title" : "Conferencia BilboStack 2015"
+    },
+    {
+      "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
+      "title" : "Un millón de gracias"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/michelle-obama-y-gnu-social",
