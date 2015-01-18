@@ -3,12 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/victorhckinthefreeworld/2015/01/michelle-obama-y-gnu-social",
-      "title" : "Michelle Obama y GNU Social"
+      "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
+      "title" : "Un millón de gracias"
     },
     {
       "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
       "title" : "Conferencia BilboStack 2015"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2015/01/michelle-obama-y-gnu-social",
+      "title" : "Michelle Obama y GNU Social"
     },
     {
       "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-2-parte",
       "title" : "Trabajar con ficheros xml desde python (2ª parte)"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/tarjeta-wireless-broadcom-bcm43-en-kali-linux",
-      "title" : "Tarjeta Wireless Broadcom BCM43000 en Kali Linux"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/lasombradelhelicoptero", [], function() {
   "name" : "La sombra del helicóptero",
   "posts" : [
     {
+      "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
+      "title" : "Un millón de gracias"
+    },
+    {
       "url" : "/post/lasombradelhelicoptero/2014/12/ubuntu-mate-14-1-bendita-nostalgia",
       "title" : "Ubuntu Mate 14.10: bendita nostalgia"
     },
@@ -77,10 +81,6 @@ define("app/sources/lasombradelhelicoptero", [], function() {
     {
       "url" : "/post/lasombradelhelicoptero/2014/04/camino-a-la-libertad-openmailbox-y-owncloud",
       "title" : "Camino a la libertad: openmailbox y ownCloud"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2014/04/evo-lution-instalar-arch-linux-en-modo-grafico",
-      "title" : "Evo/Lution: instalar Arch Linux en modo gráfico"
     }
   ]
 }
