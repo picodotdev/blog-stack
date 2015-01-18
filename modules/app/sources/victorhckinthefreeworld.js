@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/michelle-obama-y-gnu-social",
+      "title" : "Michelle Obama y GNU Social"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
       "title" : "¡Apoya al software libre y muestra ese apoyo!"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/free-software-foundation-recopilacion-de-noticias-de-noviembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de noviembre de 2014"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/key-mon-y-muestra-lo-que-estas-pulsando-en-tu-raton",
-      "title" : "Key-mon y muestra lo que estás pulsando en tu ratón"
     }
   ]
 }

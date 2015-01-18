@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
+      "title" : "Conferencia BilboStack 2015"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
       "title" : "Cómo hacer un substring de una cadena HTML"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/monitorizar-archivos-con-java",
       "title" : "Monitorizar archivos con Java"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/compilar-y-cargar-de-forma-dinamica-una-clase-java",
-      "title" : "Compilar y cargar de forma dinámica una clase Java"
     }
   ]
 }
