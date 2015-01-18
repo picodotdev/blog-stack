@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
+      "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
       "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-182",
       "title" : "Enlaces interesantes 182"
-    },
-    {
-      "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-1-parte",
-      "title" : "Trabajar con ficheros xml desde python (1ª parte)"
     }
   ]
 }

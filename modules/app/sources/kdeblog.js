@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
+      "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
       "title" : "Cutegram para Linux, otro cliente de Telegram"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2014/12/kde-e-v-busca-director-ejecutivo",
       "title" : "KDE e.V. busca Director Ejecutivo"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/mis-5-mejores-aplicaciones-kde-del-2-14",
-      "title" : "Mis 5 mejores aplicaciones KDE del 2014"
     }
   ]
 }
