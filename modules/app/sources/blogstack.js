@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
+      "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-183",
       "title" : "Enlaces interesantes 183"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
       "title" : "¡Apoya al software libre y muestra ese apoyo!"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/tails-acaba-de-lanzar-su-version-1-2-3",
-      "title" : "Tails acaba de lanzar su versión 1.2.3"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
+      "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
+    },
+    {
       "url" : "/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-2-parte",
       "title" : "Trabajar con ficheros xml desde python (2ª parte)"
     },
