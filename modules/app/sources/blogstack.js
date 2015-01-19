@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/uberstudent-lanza-la-version-4-1",
+      "title" : "UberStudent lanza la versión 4.1"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
       "title" : "OpenExpo vuelve a Barcelona"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/utilizando-jpa-namedqueries",
       "title" : "Utilizando JPA NamedQueries"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
-      "title" : "Disponible KDE Aplicaciones 14.12.1"
     }
   ]
 }
