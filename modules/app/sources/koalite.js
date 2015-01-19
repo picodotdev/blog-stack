@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
+      "title" : "Especificación de tipos en ReactJS con propTypes"
+    },
+    {
       "url" : "/post/koalite/2015/01/adios-net-hola-java",
       "title" : "¿Adios .NET, hola Java?"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
       "title" : "Tres años de Koalite"
-    },
-    {
-      "url" : "/post/koalite/2014/07/el-lado-oscuro-de-los-gestores-de-paquetes",
-      "title" : "El lado oscuro de los gestores de paquetes"
     }
   ]
 }

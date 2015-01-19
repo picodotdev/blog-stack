@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
+      "title" : "Especificación de tipos en ReactJS con propTypes"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/como-solucionar-el-problema-del-brillo-en-ubuntu",
       "title" : "Como solucionar el problema del brillo en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
       "title" : "Lanzada la beta de Plasma 5.2"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar",
-      "title" : "RockStor almacenamiento libre y fácil de usar"
     }
   ]
 }

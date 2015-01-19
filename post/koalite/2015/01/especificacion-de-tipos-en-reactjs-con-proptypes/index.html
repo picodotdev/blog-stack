@@ -1,0 +1,179 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Especificación de tipos en ReactJS con propTypes | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes"><span itemprop="headline">Especificación de tipos en ReactJS con propTypes</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/42EeQZgXcBA/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-01-19T05:06" itemprop="datePublished">Publicado el lunes, 19 de enero de 2015 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+reactjs, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>, development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En las &uacute;ltimas semanas he dedicado bastante tiempo a desarrollar una aplicaci&oacute;n real con ReactJS y eso me ha permitido ver c&oacute;mo se comporta la librer&iacute;a en un proyecto m&aacute;s complejo que los t&iacute;picos tutoriales.</p> 
+<p>Entre mixins, funciones ligadas al ciclo de vida del componente y dem&aacute;s particularidades de ReactJS (de las que seguro que acabar&eacute; escribiendo algo), hay una funcionalidad que me ha resultado especialmente &uacute;til: <strong>la validaci&oacute;n de propiedades usando propTypes</strong>.</p> 
+<p>En este post vamos a ver qu&eacute; es <code>propTypes</code>, pero adem&aacute;s veremos c&oacute;mo podemos mejorar lo que nos ofrece ReactJS de serie y qu&eacute; otras ventajas nos aporta el uso de <code>propTypes</code>. </p> 
+<p>Pero vayamos por partes…</p> 
+<h3>Qu&eacute; es eso de propTypes</h3> 
+<p>Cuando hace un tiempo explicaba <a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">c&oacute;mo crear un componente en ReactJS</a>, ve&iacute;amos que necesitamos definir una funci&oacute;n <code>render</code> que se encargase de devolver el (Virtual) DOM asociado al componente, y que el componente pod&iacute;a recibir informaci&oacute;n inmutable de su componente padre a trav&eacute;s del objeto <code>this.props</code>. Si todo esto te suena a chino, puedes revisar <a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">c&oacute;mo funciona ReactJS</a>.</p> 
+<p><a href="http://facebook.github.io/react/docs/reusable-components.html#prop-validation">La propiedad <code>propTypes</code></a> podemos incluirla en el objeto que usamos para definir nuestro componente de ReactJS y nos permite establecer una serie de validaciones que se realizar&aacute;n sobre las propiedades recibidas por el componente en el momento de su creaci&oacute;n.</p> 
+<p>Podemos realizar validaciones de distinto tipo. Lo m&aacute;s sencillo es validar el tipo de la propiedad, por ejemplo si es un <code>number</code>, o un <code>string</code> o un <code>array</code>. Podemos tambi&eacute;n indicar si la propiedad es opcional o es obligatoria. Podemos definir la “forma” que tendr&aacute; la propiedad, es decir, podemos por ejemplo definir que ser&aacute; un objeto que contendr&aacute; una propiedad <code>id</code> de tipo <code>number</code> y una propiedad <code>name</code> de tipo <code>string</code>. Incluso podemos a&ntilde;adir una funci&oacute;n de validaci&oacute;n con l&oacute;gica personalizada para validar la propiedad.</p> 
+<p>Como ejemplo, podr&iacute;amos pensar en un componente que muestra los datos de un usuario (id, nombre y rol) y permite guardarlo o eliminarlo. El uso de ese componente ser&iacute;a algo as&iacute;:</p> 
+<pre>
+&lt;UserEditor user={theUser} onSave={saveUser} onDelete={deleteUser} /&gt;
+</pre> 
+<p>El componente recibe a trav&eacute;s del objeto <code>props</code> los datos actuales del usuario y las funciones que deber&aacute; invocar para guardar y eliminar el usuario. Esto podemos validarlo de la siguiente forma:</p> 
+<pre>
+var UserEditor = React.createClass({
+  propTypes: {
+    user: React.PropTypes.shape({
+      id: React.PropTypes.number.isRequired,
+      name: React.PropTypes.string.isRequired,
+      role: React.PropTypes.oneOf(['admin', 'power user', 'user'])
+    }).isRequired,
+    onSave: React.PropTypes.func.isRequired,
+    onDelete: React.PropTypes.func.isRequired
+  }
+});
+</pre> 
+<p>En ese c&oacute;digo se pueden ver unas cuantas de las opciones existentes para definir la validaci&oacute;n de las propiedades, como el uso de <code>shape</code> para definir estructuras m&aacute;s complejas (el “tipo” <code>user</code>) o el <code>oneOf</code> para definir “tipos” enumerados. En la <a href="http://facebook.github.io/react/docs/reusable-components.html#prop-validation">documentaci&oacute;n de ReactJS.propTypes</a> pod&eacute;is ver todas las opciones existentes.</p> 
+<h3>Aumentando el efecto de la validaci&oacute;n</h3> 
+<p>Con esto hemos definido el aspecto que deber&iacute;an tener las propiedades que recibe un componente pero, &iquest;qu&eacute; pasa cuando hay alg&uacute;n error? </p> 
+<p>Si estamos ejecutando la versi&oacute;n de producci&oacute;n de ReactJS, no pasa absolutamente nada. ReactJS desactiva la validaci&oacute;n de propiedades cuando ejecutamos la versi&oacute;n de producci&oacute;n de la librer&iacute;a por motivos de rendimiento.</p> 
+<p>Si estamos usando la versi&oacute;n de desarrollo de ReactJS, cuando se produzca un error de validaci&oacute;n se mostrar&aacute; un <code>warning</code> en la consola. S&iacute;, s&oacute;lo eso, un triste <code>warning</code> en la consola de Javascript del navegador que, probablemente no lleguemos a ver.</p> 
+<p>Para mejorar esto y utilizar la validaci&oacute;n de propiedades de una forma m&aacute;s cercana a lo que ser&iacute;an <a href="http://blog.koalite.com/2014/01/diseno-por-contrato/" title="Dise&ntilde;o por Contrato">precondiciones en dise&ntilde;o por contrato</a> podemos aprovecharnos de que Javacript es un lenguaje din&aacute;mico y aplicar un poco de <em>monkey patching</em> sobre el objeto <code>console</code>:</p> 
+<pre>
+function setReactWarnsAsErrors() {
+  var warn = window.console.warn;
+
+  window.console.warn = function() {
+    if (arguments &amp;&amp; arguments[0].match(/(^Warning: )|(react)/)) {
+      throw Error(arguments[0]);
+    }
+    warn.apply(window.console, arguments);
+  };
+}
+
+window.onError = function(error) {
+  window.alert('Unexpected Error: ' + error);
+}
+
+setReactWarnsAsErrors();
+</pre> 
+<p>No es que sea una soluci&oacute;n muy limpia (m&aacute;s bien todo lo contrario), pero al menos mientras estamos desarrollando los avisos nos saltar&aacute;n como errores y podremos detectar problemas m&aacute;s f&aacute;cilmente.</p> 
+<h3>Ventajas adicionales</h3> 
+<p>El uso de los <code>propTypes</code> tiene algunas ventajas adicionales que hace que sean especialemente interesantes desde mi punto de vista.</p> 
+<p>Por una parte, nos permite <strong>identificar el API del componente</strong> de una forma m&aacute;s c&oacute;moda. </p> 
+<p>Un problema que existe al definir un componente en ReactJS es que lo &uacute;nico obligatorio es definir su m&eacute;todo <code>render</code>, y &eacute;ste no recibe ning&uacute;n par&aacute;metro. Esto hace que si queremos saber qu&eacute; propiedades debemos pasarle al componente tengamos que leer todo el c&oacute;digo del m&eacute;todo <code>render</code> para saber qu&eacute; propiedades son necesarias. </p> 
+<p>Al definir la validaci&oacute;n de las propiedades con <code>propTypes</code> tendremos documentado en un punto todo lo que necesita el componente para trabajar y nos ayudar&aacute; a utilizarlo en el futuro. Es una buena forma de <a href="http://blog.koalite.com/2014/07/por-favor-comenta-el-codigo/" title="Por favor, comenta el c&oacute;digo">ahorrarnos un comentario de documentaci&oacute;n</a>.</p> 
+<p>Por otro lado, en aplicaciones Javascript es muy frecuente que trabajemos con un modelo de datos que est&aacute; definido de forma externa a nuestra aplicaci&oacute;n. En lugar de definir mediante funciones contructoras los objetos con los que vamos a trabajar, estos objetos llegan serializados en JSON desde APIs externas y, si queremos saber el contenido de esos objetos tenemos que saltar a otro proyecto o a consultar la documentaci&oacute;n del servicio que estamos consumiendo.</p> 
+<p>Podemos utilizar <code>propTypes</code> para <strong>documentar el modelo de objetos</strong> dentro de la aplicaci&oacute;n Javascript, pero con la ventaja de que no hace falta realizar una conversi&oacute;n entre el objeto JSON y el objeto construido, ya que s&oacute;lo definimos la forma, no el “tipo”. Duck Typing en estado puro.</p> 
+<p>Adem&aacute;s, podemos organizar la definici&oacute;n de estos objetos de manera que sea f&aacute;cil de reutilizar en lugar de definirlos <em>inline</em> en cada componente. As&iacute;, en el ejemplo anterior del usuario podr&iacute;amos tener:</p> 
+<pre>
+// Fichero: AppTypes.js
+var AppTypes = {};
+
+AppTypes.role = React.PropTypes.oneOf(['admin', 'power user', 'user']);
+AppTypes.user = React.PropTypes.shape({
+  id: React.PropTypes.number.isRequired,
+  name: React.PropTypes.string.isRequired,
+  role: AppTypes.role.isRequired
+});
+
+// Fichero UserEditor.jsx
+var UserEditor = React.createClass({
+  propTypes: {
+    user: AppTypes.user.isRequired,
+    onSave: React.PropTypes.func.isRequired,
+    onDelete: React.PropTypes.func.isRequired
+  }
+});
+</pre> 
+<p>De esta forma, podemos organizar la definici&oacute;n de los “modelos” usados por los componentes de la manera que queramos, por ejemplo en un &uacute;nico fichero si la aplicaci&oacute;n es lo bastante simple, y tambi&eacute;n podemos reutilizar esa definici&oacute;n de “tipos” en todos los componentes que vayan a trabajar con ellos.</p> 
+<h3>Conclusiones</h3> 
+<p>Hacer aplicaciones de juguete est&aacute; muy bien para familiarizarse con una tecnolog&iacute;a, pero hasta que no desarrollas una aplicaci&oacute;n de un cierta complejidad, hay partes que no llegas a apreciar.</p> 
+<p>El uso de <code>PropTypes</code> no es algo a lo que se le d&eacute; mucha importancia en los t&iacute;picos tutoriales y presentaciones sobre ReactJS, pero para nosotros ha sido extremadamente &uacute;til en la vida real.</p> 
+<p>Las ventajas que aporta en cuanto a validaci&oacute;n de precondiciones, documentaci&oacute;n del API de los componentes y documentaci&oacute;n del modelo de la aplicaci&oacute;n son lo bastante grandes como para que merezca la pena su uso.</p> 
+<p>Seguro que alguno de vosotros estar&aacute; pensando que todo esto es necesario &uacute;nicamente porque Javascript es un lenguaje de tipado din&aacute;mico. Tiene toda la raz&oacute;n del mundo. Si us&aacute;semos otro lenguaje con tipado est&aacute;tico y un sistema de tipos medianamente decente, todo esto no ser&iacute;a necesario (y tendr&iacute;amos alguna ventaja m&aacute;s), pero esa es otra discusi&oacute;n distinta.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">Crear un componente con ReactJS</a></li> 
+ <li><a href="http://blog.koalite.com/2014/09/como-utilizar-reactjs-con-browserify/" title="C&oacute;mo utilizar ReactJS con Browserify">C&oacute;mo utilizar ReactJS con Browserify</a></li> 
+ <li><a href="http://blog.koalite.com/2014/12/rutas-en-reactjs-con-react-router/" title="Rutas en ReactJS con React Router">Rutas en ReactJS con React Router</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/42EeQZgXcBA" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes" st_title="Especificación de tipos en ReactJS con propTypes | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1352,
+      "url" : "http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
