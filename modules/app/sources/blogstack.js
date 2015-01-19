@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-183",
+      "title" : "Enlaces interesantes 183"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/uberstudent-lanza-la-version-4-1",
       "title" : "UberStudent lanza la versión 4.1"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/tails-acaba-de-lanzar-su-version-1-2-3",
       "title" : "Tails acaba de lanzar su versión 1.2.3"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/utilizando-jpa-namedqueries",
-      "title" : "Utilizando JPA NamedQueries"
     }
   ]
 }
