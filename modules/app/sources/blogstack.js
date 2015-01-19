@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
+      "title" : "OpenExpo vuelve a Barcelona"
+    },
+    {
       "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
       "title" : "Especificación de tipos en ReactJS con propTypes"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
       "title" : "Disponible KDE Aplicaciones 14.12.1"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
-      "title" : "Lanzada la beta de Plasma 5.2"
     }
   ]
 }
