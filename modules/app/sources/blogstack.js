@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing",
+      "title" : "El concepto de Javascript Framing"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
       "title" : "¿Cuales son las certificaciones Java?"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
-      "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
     }
   ]
 }

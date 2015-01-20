@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing",
+      "title" : "El concepto de Javascript Framing"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
       "title" : "¿Cuales son las certificaciones Java?"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/nosql-y-bases-de-datos-key-value-cantabriatic",
       "title" : "NoSQL y bases de datos (key-value) ( Cantabriatic)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/usando-el-patron-factory",
-      "title" : "Usando el patron factory"
     }
   ]
 }
