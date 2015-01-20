@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
+      "title" : "Normas de diseño y codificación de .NET framework"
+    },
+    {
       "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
       "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
       "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/apoya-al-software-libre-y-muestra-ese-apoyo",
-      "title" : "¡Apoya al software libre y muestra ese apoyo!"
     }
   ]
 }
