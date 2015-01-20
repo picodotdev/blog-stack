@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
+      "title" : "Akademy 2015 se celebrará en A Coruña"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
       "title" : "Kanagram para dos jugadores ya es una realidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
       "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
-      "title" : "Mis 5 aplicaciones KDE para el 2015"
     }
   ]
 }

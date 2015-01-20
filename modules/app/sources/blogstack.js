@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
+      "title" : "Akademy 2015 se celebrará en A Coruña"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing",
       "title" : "El concepto de Javascript Framing"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
       "title" : "Cómo filtrar contenido HTML de forma segura"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
-      "title" : "Qué es y cómo hacer «web scraping» en Java"
     }
   ]
 }
