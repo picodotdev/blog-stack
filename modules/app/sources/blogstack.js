@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "El concepto de Javascript Framing"
     },
     {
+      "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
+      "title" : "Kanagram para dos jugadores ya es una realidad"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2014/10/que-es-y-como-hacer-web-scraping-en-java",
       "title" : "Qué es y cómo hacer «web scraping» en Java"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/cuales-son-las-certificaciones-java",
-      "title" : "¿Cuales son las certificaciones Java?"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
+      "title" : "Kanagram para dos jugadores ya es una realidad"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
       "title" : "OpenExpo vuelve a Barcelona"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/mis-5-aplicaciones-kde-para-el-2-15",
       "title" : "Mis 5 aplicaciones KDE para el 2015"
-    },
-    {
-      "url" : "/post/kdeblog/2014/12/resumen-de-kde-blog-del-2-14",
-      "title" : "Resumen de KDE Blog del 2014"
     }
   ]
 }
