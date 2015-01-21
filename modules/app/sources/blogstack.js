@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
+      "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
+    },
+    {
       "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
       "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
       "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
-      "title" : "Linux no es dificil, por mi amigo Victor"
     }
   ]
 }
