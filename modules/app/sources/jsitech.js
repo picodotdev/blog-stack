@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
+      "title" : "Liberación del Usuario \u2013 Video de la FSF"
+    },
+    {
       "url" : "/post/jsitech/2015/01/noticia-rapida-valve-actualiza-steam-para-resolver-bug",
       "title" : "Noticia Rápida \u2014 Valve actualiza Steam para resolver bug"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
       "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
-      "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
     }
   ]
 }

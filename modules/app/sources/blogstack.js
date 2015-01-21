@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
+      "title" : "Liberación del Usuario \u2013 Video de la FSF"
+    },
+    {
       "url" : "/post/jsitech/2015/01/noticia-rapida-valve-actualiza-steam-para-resolver-bug",
       "title" : "Noticia Rápida \u2014 Valve actualiza Steam para resolver bug"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
       "title" : "Cutegram para Linux, otro cliente de Telegram"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
-      "title" : "Cómo hacer un substring de una cadena HTML"
     }
   ]
 }
