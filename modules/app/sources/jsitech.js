@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/noticia-rapida-valve-actualiza-steam-para-resolver-bug",
+      "title" : "Noticia Rápida \u2014 Valve actualiza Steam para resolver bug"
+    },
+    {
       "url" : "/post/jsitech/2015/01/tarjeta-wireless-broadcom-bcm43-en-kali-linux",
       "title" : "Tarjeta Wireless Broadcom BCM43000 en Kali Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/estamos-promoviendo-el-uso-de-linux-y-software-libre-correctamente",
       "title" : "Estamos Promoviendo el uso de Linux y Software Libre correctamente?"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/arachni-framework-scanning-de-seguridad-aplicaciones-web",
-      "title" : "Arachni \u2013 Framework Scanning de Seguridad Aplicaciones Web"
     }
   ]
 }

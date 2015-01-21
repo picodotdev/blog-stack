@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/noticia-rapida-valve-actualiza-steam-para-resolver-bug",
+      "title" : "Noticia Rápida \u2014 Valve actualiza Steam para resolver bug"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
       "title" : "Akademy 2015 se celebrará en A Coruña"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/como-hacer-un-substring-de-una-cadena-html",
       "title" : "Cómo hacer un substring de una cadena HTML"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/como-filtrar-contenido-html-de-forma-segura",
-      "title" : "Cómo filtrar contenido HTML de forma segura"
     }
   ]
 }
