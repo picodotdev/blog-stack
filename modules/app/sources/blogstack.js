@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
+      "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
+    },
+    {
       "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
       "title" : "Liberación del Usuario \u2013 Video de la FSF"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/linux-no-es-dificil-por-mi-amigo-victor",
       "title" : "Linux no es dificil, por mi amigo Victor"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
-      "title" : "Cutegram para Linux, otro cliente de Telegram"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
+      "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
+    },
+    {
       "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
       "title" : "Liberación del Usuario \u2013 Video de la FSF"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
       "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/disponible-the-original-hacker-no-1-edicion-de-aniversario",
-      "title" : "Disponible The Original Hacker No. 10 Edición de Aniversario"
     }
   ]
 }
