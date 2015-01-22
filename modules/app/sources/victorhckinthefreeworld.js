@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/fork-me-probando-github-pages",
+      "title" : "Fork me! Probando GitHub Pages"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
       "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/escoge-regalar-libertad",
-      "title" : "Escoge regalar libertad"
     }
   ]
 }

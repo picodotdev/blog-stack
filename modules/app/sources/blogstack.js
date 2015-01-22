@@ -11,6 +11,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "La experiencia GCI 2014 con Haiku"
     },
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/fork-me-probando-github-pages",
+      "title" : "Fork me! Probando GitHub Pages"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
       "title" : "PC-BSD el sistema BSD más amigable"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
       "title" : "Especificación de tipos en ReactJS con propTypes"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/como-solucionar-el-problema-del-brillo-en-ubuntu",
-      "title" : "Como solucionar el problema del brillo en Ubuntu"
     }
   ]
 }
