@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
+      "title" : "PC-BSD el sistema BSD más amigable"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/uberstudent-lanza-la-version-4-1",
       "title" : "UberStudent lanza la versión 4.1"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
       "title" : "Probamos la beta de Fedora 21"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux",
-      "title" : "Búsquedas simples con AWK en GNU Linux"
     }
   ]
 }

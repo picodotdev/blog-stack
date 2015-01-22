@@ -7,6 +7,18 @@ define("app/sources/blogstack", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
+      "title" : "PC-BSD el sistema BSD más amigable"
+    },
+    {
+      "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
+      "title" : "Conferencia BilboStack 2015"
+    },
+    {
+      "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
+      "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
+    },
+    {
       "url" : "/post/elblogdeadrianarroyo/2015/01/post-mortem-de-torre-utopia",
       "title" : "Post Mortem de Torre Utopía"
     },
@@ -67,20 +79,8 @@ define("app/sources/blogstack", [], function() {
       "title" : "Como solucionar el problema del brillo en Ubuntu"
     },
     {
-      "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
-      "title" : "Conferencia BilboStack 2015"
-    },
-    {
       "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
       "title" : "Un millón de gracias"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/michelle-obama-y-gnu-social",
-      "title" : "Michelle Obama y GNU Social"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
-      "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
     }
   ]
 }

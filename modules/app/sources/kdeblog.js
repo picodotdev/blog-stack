@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
+      "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
       "title" : "Akademy 2015 se celebrará en A Coruña"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
       "title" : "10 blogs sobre Software Libre para el 2015"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/blogs-sobre-kde-y-el-software-libre-5-videocast-de-kde-espana",
-      "title" : "Blogs sobre KDE y el Software Libre, 5º videocast de KDE España"
     }
   ]
 }
