@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/01/post-mortem-de-torre-utopia",
+      "title" : "Post Mortem de Torre Utopía"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
       "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
-      "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
     }
   ]
 }

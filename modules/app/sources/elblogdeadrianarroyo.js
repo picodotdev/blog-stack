@@ -3,6 +3,10 @@ define("app/sources/elblogdeadrianarroyo", [], function() {
   "name" : "El blog de Adrián Arroyo",
   "posts" : [
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/01/post-mortem-de-torre-utopia",
+      "title" : "Post Mortem de Torre Utopía"
+    },
+    {
       "url" : "/post/elblogdeadrianarroyo/2014/11/que-nos-espera-en-haiku-beta",
       "title" : "¿Qué nos espera en Haiku Beta?"
     },
