@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku",
+      "title" : "La experiencia GCI 2014 con Haiku"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
       "title" : "PC-BSD el sistema BSD más amigable"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/como-solucionar-el-problema-del-brillo-en-ubuntu",
       "title" : "Como solucionar el problema del brillo en Ubuntu"
-    },
-    {
-      "url" : "/post/lasombradelhelicoptero/2015/01/un-millon-de-gracias",
-      "title" : "Un millón de gracias"
     }
   ]
 }

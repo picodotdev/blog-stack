@@ -1,0 +1,100 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku"><span itemprop="headline">La experiencia GCI 2014 con Haiku</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Adrián Arroyo</span> en la bitácora <a href="http://adrianarroyocalle.github.io/blog">El blog de Adrián Arroyo</a>, <a href="http://adrianarroyocalle.github.io/blog//2015/01/23/la-experiencia-gci-2014-haiku/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-01-22T23:00" itemprop="dateModified">Actualizado el jueves, 22 de enero de 2015 a las 23:00 UTC</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>El d&iacute;a 1 de diciembre comenzaba el <a href="http://www.google-melange.com/gci/homepage/google/gci2014">Google Code-In 2014</a> y hasta el 19 de enero pude trabajar en la organizaci&oacute;n que hab&iacute;a elegido, en este caso Haiku, como el a&ntilde;o anterior. </p> 
+<h1>HaikuToDo</h1> 
+<p><img src="http://adrianarroyocalle.github.io/blog/images/HaikuToDo-1.png" alt="HaikuToDo 1" /><br /> La tarea consist&iacute;a en reusar cierto c&oacute;digo de una aplicaci&oacute;n de tareas para crear un frontend en Haiku usando la BeAPI. Sin embargo ese c&oacute;digo no funcionaba. No ten&iacute;a sistema de compilaci&oacute;n y m&aacute;s tarde descubr&iacute; que carec&iacute;a de punto de entrada y ciertas headers no coincid&iacute;an con la implementaci&oacute;n. As&iacute; que lo hice de 0. En primera instancia us&eacute; SQlite para almacenar las tareas. Sin embargo me pidieron que mejorara mucho m&aacute;s la interfaz. Eso hice y en el camino tuvo que inventarme el sistema de categor&iacute;as. La siguiente tarea consist&iacute;a en reemplazar <a href="http://sqlite.org">SQlite</a> por algo espec&iacute;fico de Haiku y BeOS. Hablo de BeFS y su sistema de Queries. Gracias a C++ solo tuve que crear un objeto que implementase las operaciones de escritura con BeFS y pude mantener el de SQlite (hay que activarlo en tiempo de compilaci&oacute;n). La siguiente tarea consist&iacute;a en a&ntilde;adirle el soporte online. Val&iacute;a cualquiera pero eleg&iacute; Google Tasks porque ya ten&iacute;a cuenta. Toda la gesti&oacute;n de HTTP se deb&iacute;a realizar por las APIs nativas de Haiku. Estas son APIs que BeOS no lleg&oacute; a incorporar nunca. Adem&aacute;s el procesado de JSON corr&iacute;a a cargo de las APIs de Haiku que al igual que las de HTTP est&aacute;n indocumentadas. Obtener la informaci&oacute;n de Google puede parecer lioso pero una vez lo entiendes es bastante sencillo. Para la autenticaci&oacute;n, HaikuToDo abre WebPositive para que te registres con Google y recibes un c&oacute;digo. Ese c&oacute;digo lo pones en la aplicaci&oacute;n y se descargar&aacute;n tus tareas de Google. El soporte actual es de solo lectura. <a href="http://github.com/AdrianArroyoCalle/HaikuToDo">La aplicaci&oacute;n tiene licencia MIT y se puede descargar</a><br /> <img src="http://adrianarroyocalle.github.io/blog/images/HaikuToDo-2.png" alt="HaikuToDo 1" /></p> 
+<h1>SuperFreeCell</h1> 
+<p><img src="http://adrianarroyocalle.github.io/blog/images/SuperFreeCell-1.png" alt="HaikuToDo 1" /><br /> &iquest;Qui&eacute;n no ha jugado al solitario de Windows? &iquest;Y al Carta Blanca tambi&eacute;n conocido como <a href="https://es.wikipedia.org/wiki/FreeCell">FreeCell</a>? Seguro que alguno m&aacute;s pero tambi&eacute;n muchos. La tarea consist&iacute;a en hacer el clon de FreeCell para Haiku. Por supuesto usando la BeAPI, en concreto la gran flexibilidad de <a href="http://api.haiku-os.org/classBView.html">BView</a> para estas tareas. Para ello tom&eacute; como referencia BeSpider, el clon del solitario spider en Haiku. Luego comprend&iacute; que no entend&iacute;a mucho el c&oacute;digo y lo empec&eacute; a hacer a mi manera. Se me ocurri&oacute; hacer las cartas un objeto que se ten&iacute;a que dibujar. Error. La interaci&oacute;n con el resto del mundo se hecha en falta. Luego pens&eacute; en que heredasen BView. Error. El n&uacute;mero de glitches gr&aacute;ficos era digno de mencionar. Finalmente las cartas pasaron a ser estructuras simplemente e hice toda la l&oacute;gica en la BView del tablero. El resultado era mucho mejor. Cambi&eacute; el algoritmo de ordenaci&oacute;n de cartas (barajar, si alguien no se enter&aacute;) para ganar en velocidad. Antes us&eacute; uno con bucles muy simple pero lent&iacute;simo. Otros detalles fue que use DragMessage para mover las cartas y que las cartas son PNGs de BeSpider integrados dentro del ejecutable (una cosa que siempre he hechado en falta a Linux). Obviamente al hacer un clon tuve que jugar mucho a otras implementaciones de FreeCell. Jugu&eacute; a la de Windows 7, <a href="https://wiki.gnome.org/action/show/Apps/Aisleriot?action=show&amp;redirect=Aisleriot">Ubuntu 14.04</a> y <a href="https://play.google.com/store/apps/details?id=com.mobilityware.freecell">Android</a>. Todo sea por SuperFreeCell. <a href="http://github.com/AdrianArroyoCalle/SuperFreeCell">La aplicaci&oacute;n tiene licencia MIT y se puede descargar</a><br /> <img src="http://adrianarroyocalle.github.io/blog/images/SuperFreeCell-2.png" alt="HaikuToDo 1" /></p> 
+<h1>Haiku EGL</h1> 
+<p><a href="http://es.wikipedia.org/wiki/EGL">EGL</a> es una API del <a href="http://khronos.org">Khronos Group</a> para definir <em>superficies</em> sobre las que operar con otras APIs de Khronos Group, entre ellas OpenGL y OpenVG. EGL se ha usado sobre todo en m&oacute;viles pero el salto a escritorio es inminente (Wayland y Mir dependen de EGL para funcionar). La API es te&oacute;ricamente multiplataforma aunque en la pr&aacute;ctica hay que modificar el c&oacute;digo si usamos las X11 o Wayland o en este caso Haiku. La tarea consiste en portar EGL de manera que funcione en Haiku como wrapper de BGLView. La tarea requer&iacute;a modificar c&oacute;digo de Mesa 10. Tuve muchos problemas en esta tarea: documentaci&oacute;n nula, caracter&iacute;sticas exclusivas de C99 (y que no est&aacute;n en C++), desconocimiento de parte del sistema gr&aacute;fico tanto en Linux como en Haiku, desconocimiento de SCons, etc. Esto me llev&oacute; a implementar EGL en un principio como un driver DRM2. Pero luego descubr&iacute; que DRM2 solo funciona en Linux. As&iacute; que tuve que escribir un driver desde 0. Este crea una configuraci&oacute;n placebo y realiza operaciones b&aacute;sicas como crear una ventana y hacer el intercambio de b&uacute;feres.</p> 
+<h1>Haikuports</h1> 
+<p>El resto de tareas consist&iacute;an en portar software normal y corriente a Haiku. He portado con m&aacute;s o menos dificultad:<br /> - <a href="http://openscenegraph.org">OpenSceneGraph</a><br /> - <a href="http://bitbucket.org/SpartanJ/eepp">EntropiaEngine++</a><br /> - <a href="http://github.com/libuv/libuv">libuv</a></p> 
+<p>Quer&iacute;a haber portado Node.js pero depend&iacute;a de libuv que no estaba portado. Despu&eacute;s comprob&eacute; que nuestra versi&oacute;n del motor V8 estaba desactualizada para Node.js as&iacute; que no tuve tiempo para terminarla.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku" st_title="La experiencia GCI 2014 con Haiku | El blog de Adrián Arroyo"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "adrianarroyocallegithub";
+var disqus_title = "La experiencia GCI 2014 con Haiku";
+var disqus_url = "http://adrianarroyocalle.github.io/blog//2015/01/23/la-experiencia-gci-2014-haiku/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1369,
+      "url" : "http://www.blogstack.info/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "elblogdeadrianarroyo",
+      "name" : "El blog de Adrián Arroyo"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
