@@ -3,10 +3,42 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-01-20T11:03:01Z</updated>
+  <updated>2015-01-22T12:02:44Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-01-20T11:03:01Z</dc:date>
+  <dc:date>2015-01-22T12:02:44Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Internacionalización (i18n) en Javascript</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript" />
+    <category term="blog-stack" />
+    <category term="programacion" />
+    <category term="planeta-linux" />
+    <category term="planeta-codigo" />
+    <category term="javascript" />
+    <category term="software" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-01-23T09:00:00Z</updated>
+    <published>2015-01-23T09:00:00Z</published>
+    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
+ &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/javascript.png" alt="Javascript" title="Javascript" /&gt; 
+&lt;/div&gt; 
+&lt;p&gt;Si desarrollamos una aplicaci&amp;oacute;n web, que es usada en m&amp;uacute;ltiples idiomas y el lado del cliente tiene cierta complejidad quiz&amp;aacute; nos encontremos con la necesidad de proporcionar internacionalizaci&amp;oacute;n (i18n) para los textos o mensajes mediante una librer&amp;iacute;a javascript. Una de la que m&amp;aacute;s me ha gustado de las que he encontrado ha sido &lt;a href="http://i18next.com/"&gt;i18next&lt;/a&gt; pero hay &lt;a href="http://stackoverflow.com/questions/3084675/internationalization-in-javascript"&gt;varias opciones m&amp;aacute;s&lt;/a&gt;. La documentaci&amp;oacute;n de i18next no es muy extensa pero es suficiente, las funcionalidades que ofrece son:&lt;/p&gt; 
+&lt;ul&gt; 
+ &lt;li&gt;Soporte para variables (interpolaci&amp;oacute;n)&lt;/li&gt; 
+ &lt;li&gt;Soporte para variables anidadas&lt;/li&gt; 
+ &lt;li&gt;Soporte para m&amp;uacute;ltiples formas plurales e indefinidos&lt;/li&gt; 
+ &lt;li&gt;Soporte sprintf&lt;/li&gt; 
+ &lt;li&gt;Integraci&amp;oacute;n con jquery&lt;/li&gt; 
+ &lt;li&gt;B&amp;uacute;squeda de locales&lt;/li&gt; 
+ &lt;li&gt;Obtenci&amp;oacute;n de traducciones del servidor&lt;/li&gt; 
+ &lt;li&gt;Cacheo de recursos en el navegador&lt;/li&gt; 
+ &lt;li&gt;Algunas otras adicionales&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-01-23T09:00:00Z</dc:date>
+  </entry>
   <entry>
     <title>El concepto de Javascript Framing</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing" />
@@ -718,49 +750,6 @@ var chart = new Chart(context).Pie([
 &lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/arquitecturas-web-y-mean-stack-para-cantabriatic/"&gt;Arquitecturas Web y MEAN Stack (CantabriaTIC)&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/arquitecturas-web-y-mean-stack-cantabriatic"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-08-14T10:31:23Z</dc:date>
-  </entry>
-  <entry>
-    <title>JQuery Ajax y Eventos Globales</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales" />
-    <category term="html5" />
-    <category term="jquery" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-08-06T11:02:30Z</updated>
-    <published>2014-08-06T11:02:30Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Ajax es una tecnolog&amp;iacute;a con la que trabajamos en el d&amp;iacute;a a d&amp;iacute;a pero que siempre tiene cosas que quedan por aprender. En este caso vamos a hablar de JQuery y como maneja los eventos de Ajax a nivel global. Para ello vamos a poner en ejemplo sencillo en el que usamos JQuery para hacer dos peticiones Ajax.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;html&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery-2.1.1.min.js&amp;quot;&amp;gt;
-&amp;lt;/script&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-$(document).ready(function() {
-
-$.get(&amp;quot;/hola&amp;quot;,function(datos) {
-
-alert(datos);
-alert(&amp;quot;peticion finalizada&amp;quot;);
-
-});
-$.get(&amp;quot;/hola2&amp;quot;,function(datos) {
-
-alert(datos);
-alert(&amp;quot;peticion finalizada&amp;quot;);
-});
-
-});
-
-&amp;lt;/script&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/pre&gt; 
-&lt;p&gt;Como podemos se trata de un programa que realiza dos peticiones Ajax y se trae unos datos usando $.get() . Despu&amp;eacute;s de realizar esta operaci&amp;oacute;n nos saca a traves de un alert los datos y un mensaje de petici&amp;oacute;n finalizada.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jquery-ajax-y-eventos-globales"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-08-06T11:02:30Z</dc:date>
   </entry>
 </feed>
 

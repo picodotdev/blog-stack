@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
+      "title" : "Internacionalización (i18n) en Javascript"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/como-anadir-un-nuevo-motor-de-busqueda-en-qbittorrent",
       "title" : "Como añadir un nuevo motor de busqueda en Qbittorrent"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/nuevo-repositorio-o-ppa-para-qbittorrent-en-ubuntu",
-      "title" : "Nuevo repositorio o PPA para Qbittorrent en Ubuntu"
     }
   ]
 }
