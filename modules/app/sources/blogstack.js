@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/arquitecturajava/2015/01/que-es-un-microservicio",
+      "title" : "¿Qué es un Microservicio?"
+    },
+    {
       "url" : "/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku",
       "title" : "La experiencia GCI 2014 con Haiku"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
       "title" : "OpenExpo vuelve a Barcelona"
-    },
-    {
-      "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
-      "title" : "Especificación de tipos en ReactJS con propTypes"
     }
   ]
 }
