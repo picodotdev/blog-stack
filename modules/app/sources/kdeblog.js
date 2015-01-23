@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
+      "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
       "title" : "Cómo instalar Fedora 21, video-tutorial"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/1-blogs-sobre-software-libre-para-el-2-15",
-      "title" : "10 blogs sobre Software Libre para el 2015"
     }
   ]
 }

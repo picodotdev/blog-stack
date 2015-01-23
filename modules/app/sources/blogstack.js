@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
+      "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/que-es-un-microservicio",
       "title" : "¿Qué es un Microservicio?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/uberstudent-lanza-la-version-4-1",
       "title" : "UberStudent lanza la versión 4.1"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
-      "title" : "OpenExpo vuelve a Barcelona"
     }
   ]
 }
