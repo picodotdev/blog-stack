@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
+      "title" : "Cómo activar Baloo en Linux Mint 17.1"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
       "title" : "Internacionalización (i18n) en Javascript"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-183",
       "title" : "Enlaces interesantes 183"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/uberstudent-lanza-la-version-4-1",
-      "title" : "UberStudent lanza la versión 4.1"
     }
   ]
 }

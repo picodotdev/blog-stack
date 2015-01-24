@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
+      "title" : "Cómo activar Baloo en Linux Mint 17.1"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
       "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
       "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-fedora-21-video-tutorial",
-      "title" : "Cómo instalar Fedora 21, video-tutorial"
     }
   ]
 }
