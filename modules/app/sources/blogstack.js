@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
+      "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
       "title" : "Cómo activar Baloo en Linux Mint 17.1"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
       "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-183",
-      "title" : "Enlaces interesantes 183"
     }
   ]
 }

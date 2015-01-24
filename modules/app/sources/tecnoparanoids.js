@@ -3,6 +3,10 @@ define("app/sources/tecnoparanoids", [], function() {
   "name" : "TecnoParanoids",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
+      "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-en-los-domingosnegros-de-elbinario-net",
       "title" : "TecnoParanoids en los #DOMINGOSNEGROS de elbinario.net"
     },
