@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
+      "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
       "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
-    },
-    {
-      "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
-      "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
     }
   ]
 }

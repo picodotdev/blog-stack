@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
+      "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
       "title" : "Cómo activar Baloo en Linux Mint 17.1"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
       "title" : "Los mejores juegos para Linux del 2014"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/white-breeze-un-sencillo-tema-de-cursores-para-plasma-5",
-      "title" : "White-Breeze, un sencillo tema de cursores para Plasma 5"
     }
   ]
 }
