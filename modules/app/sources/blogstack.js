@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
+      "title" : "Retrospectiva de un proyecto con ReactJS"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
       "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
       "title" : "Kanagram para dos jugadores ya es una realidad"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
-      "title" : "Normas de diseño y codificación de .NET framework"
     }
   ]
 }

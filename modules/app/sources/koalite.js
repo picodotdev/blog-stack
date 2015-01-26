@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
+      "title" : "Retrospectiva de un proyecto con ReactJS"
+    },
+    {
       "url" : "/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes",
       "title" : "Especificación de tipos en ReactJS con propTypes"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
       "title" : "Utilizar Chart.js con Knockout.js"
-    },
-    {
-      "url" : "/post/koalite/2014/07/tres-anos-de-koalite",
-      "title" : "Tres años de Koalite"
     }
   ]
 }

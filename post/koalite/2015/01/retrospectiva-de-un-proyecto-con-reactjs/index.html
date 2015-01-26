@@ -1,0 +1,129 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Retrospectiva de un proyecto con ReactJS | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs"><span itemprop="headline">Retrospectiva de un proyecto con ReactJS</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/JmfLnvQUDIA/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-01-26T05:06" itemprop="datePublished">Publicado el lunes, 26 de enero de 2015 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+reactjs, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>, development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Los que segu&iacute;s este blog desde hace tiempo sab&eacute;is que me gusta ir comentando c&oacute;mo evolucionan mis preferencias a la hora de desarrollar software y que no suelo tener problema en admitir c&oacute;mo &eacute;stas cambian con el tiempo. Hace tiempo escrib&iacute; sobre <a href="http://blog.koalite.com/2013/10/angularjs-6-meses-despues/" title="AngularJS, 6 meses despu&eacute;s">c&oacute;mo hab&iacute;a ido mi primer proyecto serio con AngularJS</a> y, unos meses despu&eacute;s, que era <a href="http://blog.koalite.com/2014/06/angularjs-gracias-por-los-servicios-prestados/" title="AngularJS, gracias por los servicios prestados">lo que empezaba a no gustarme de ese AngularJS</a>.</p> 
+<p>Como era de esperar viendo todos <a href="http://blog.koalite.com/tag/reactjs/">los posts que he escrito sobre ReactJS</a> recientemente, nuestra &uacute;ltima aplicaci&oacute;n web la hemos desarrollado con esta librer&iacute;a y, ahora que acabamos de liberar la primera versi&oacute;n, es el momento de hacer un peque&ntilde;o balance.</p> 
+<p>Antes de entrar en materia, me gustar&iacute;a dejar claras un par de cosas. </p> 
+<p>Este post trata sobre las experiencias de un equipo concreto desarrollando una aplicaci&oacute;n concreta, por lo que puede que tu caso sea completamente diferente. Adem&aacute;s, todav&iacute;a es pronto para conocer las implicaciones a medio plazo del uso de ReactJS, por ejemplo a nivel de mantenimiento de la aplicaci&oacute;n; ya llegar&aacute; el momento de escribir ese post dentro de unos meses.</p> 
+<p>Puede parecer que esto se trata de un AngularJS vs ReactJS, y en cierto modo es as&iacute; puesto que son los dos estilos que conozco de primera mano. Aunque <a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">ReactJS y AngularJS tengan objetivos distintos</a> y no sean comparables, lo cierto es que el uso de uno u otro afecta directamente a la forma de trabajar y eso s&iacute; es comparable.</p> 
+<h3>Los componentes b&aacute;sicos</h3> 
+<p>Toda la aplicaci&oacute;n la hemos organizado alrededor del uso de librer&iacute;as independientes, en contraposici&oacute;n a usar un framework “todo incluido” como AngularJS o Durandal. La librer&iacute;a b&aacute;sica ha sido ReactJS, pero tambi&eacute;n hemos usado jQuery (muy poco, la verdad) y lodash para hacer m&aacute;s soportable el uso de Javascript.</p> 
+<p>Para orquestar la “compilaci&oacute;n” de la aplicaci&oacute;n, que sigue una <a href="http://blog.koalite.com/2014/10/formas-de-organizar-el-codigo/" title="Formas de organizar el c&oacute;digo">organizaci&oacute;n basada en features</a>, hemos utilizado <a href="http://blog.koalite.com/2014/09/como-utilizar-reactjs-con-browserify/" title="C&oacute;mo utilizar ReactJS con Browserify">grunt con browserify y las react-tools</a>, adem&aacute;s de alg&uacute;n <em>minificador</em> de css, mocha para tests unitarios y <a href="http://blog.koalite.com/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt/" title="Test de extremo a extremo con Nightwatch y Grunt">nightwatch para tests de extremo a extremo</a>.</p> 
+<p>En el aspecto visual, acabamos descartando el uso de frameworks css porque necesit&aacute;bamos un layout un poco extra&ntilde;o, basado en columnas css con scroll horizontal y, pese a nuestro escaso talento para el dise&ntilde;o gr&aacute;fico, resultaba m&aacute;s f&aacute;cil hacerlo a mano que convencer a Bootstrap o alguno de sus amigos de hacerlo por nosotros.</p> 
+<h3>Las partes malas</h3> 
+<p>Antes de empezar a glosar las bondades de nuestra soluci&oacute;n y lo listos que somos por haberla empleado (ejem), creo que es m&aacute;s honesto ver los puntos que han resultado m&aacute;s complicados, inc&oacute;modos, o costosos, que tambi&eacute;n los ha habido.</p> 
+<p>Lo primero que hay que tener en cuenta cuando se opta por una soluci&oacute;n de estas caracter&iacute;sticas, basada en librer&iacute;as independientes, es que vas a necesitar dedicarle algo de tiempo a coordinar todas estas librer&iacute;as, decidir c&oacute;mo “compilarlas”, “modularizarlas” y dem&aacute;s. En nuestro caso, eso supuso aproximadamente una semana de experimentos hasta que encontramos un flujo de trabajo que nos resultara c&oacute;modo. </p> 
+<p>La parte m&aacute;s complicada, sin duda, fue el montaje de los <a href="http://blog.koalite.com/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt/" title="Test de extremo a extremo con Nightwatch y Grunt">tests de extremo a extremo con nightwatch</a>. Con AngularJS acabamos un poco hartos de karma y nos acabamos pasando a protractor, que tampoco es que fuera una maravilla, pero al menos el montaje fue mucho m&aacute;s sencillo que con nightwatch.</p> 
+<p>Otro factor a considerar es el uso de JSX para generar las vistas. Al quedar tan mezclado el JSX usado para generar el Virtual DOM con el c&oacute;digo Javascript usado para coordinar los componentes, hay que ser cuidadoso para que aquello no acabe siendo un l&iacute;o mezclando l&oacute;gica de presentaci&oacute;n y l&oacute;gica de negocio.</p> 
+<p>Ha habido momentos en los que nos ha tocado refactorizar c&oacute;digo que empezaba a ser demasiado complicado en alg&uacute;n componente, o en los que empez&aacute;bamos a tener c&oacute;digo duplicado en varios componentes sin darnos cuenta. Al ser tan sencillo a&ntilde;adir nuevo comportamiento a un componente, es f&aacute;cil que se te vaya de las manos.</p> 
+<p>El uso de JSX tiene otro efecto, no tan importante, pero que tambi&eacute;n puede resultar molesto, y es el uso de herramientas para trabajar con &eacute;l. Aunque s&oacute;lo sea para colorear la sintaxis e indentarlo correctamente, hay que hacer algunos ajustes. Al final hemos acabado con distintas soluciones, algunos utilizando WebStorm, otros Sublime y otros emacs.</p> 
+<h3>Las partes buenas</h3> 
+<p>Sin duda, lo mejor de utilizar ReactJS es la naturalidad con la que se hace todo. </p> 
+<p>Seguramente sea por el uso de JSX, que s&iacute;, que como mencionaba antes tiene sus riesgos, pero permite una cohesi&oacute;n mucho mayor del c&oacute;digo en los componentes. En AngularJS cuando quer&iacute;as reutilizar un componente usando una directiva o un controller, generalmente acababas saltando entre dos ficheros, el que conten&iacute;a la plantilla de HTML y el que conten&iacute;a el c&oacute;digo en Javascript, y eso hac&iacute;a que fuese mucho m&aacute;s inc&oacute;modo trabajar. </p> 
+<p>La gesti&oacute;n del ciclo de vida del componente, con sus <code>componentDidMount</code>, <code>componentWillUnmount</code>, etc., resulta muy intuitiva y decidir d&oacute;nde y cu&aacute;ndo hay que hacer las cosas suele ser bastante directo. </p> 
+<p>Tambi&eacute;n ayuda mucho la separaci&oacute;n entre informaci&oacute;n mutable e inmutable. Simplifica mucho la forma de razonar sobre los componentes, sobre todo si lo comparamos con el sistema de <code>scopes</code> anidados/aislados/clonados de AngularJS, que resultaba especialmente complejo.</p> 
+<p>Gracias a que es m&aacute;s sencillo razonar sobre los componentes, en parte por la mayor cohesi&oacute;n entre el c&oacute;digo Javascript y el DOM (JSX), y en parte por la inmutabilidad, hemos podido partir la aplicaci&oacute;n en componentes m&aacute;s peque&ntilde;os, reutilizables y simples.</p> 
+<p>Los componentes nos han permitido aplicar un patr&oacute;n m&aacute;s parecido a MVP que a MVVM. Sin entrar en <em>flame wars</em>, siempre me ha parecido que ese patr&oacute;n aportaba una mejor separaci&oacute;n de responsabilidades y, fundamentalmente, hac&iacute;a que fuese m&aacute;s sencillo razonar sobre la aplicaci&oacute;n.</p> 
+<p>Al final los componentes que representan “pantallas” de la aplicaci&oacute;n acaban haciendo una labor “doble” de Vista y Presenter, siendo la vista el m&eacute;todo <code>render</code> y el resto del c&oacute;digo del componente haciendo las veces de Presenter. </p> 
+<p>Que no haya una separaci&oacute;n mayor (todo est&aacute; en el mismo objeto) es algo que reconozco que me pone un poco nervioso. Si lo piensas fr&iacute;amente (y eres un poco disciplinado), al final no importa tanto en qu&eacute; objeto se encuentre cada cosa sino la forma en que interact&uacute;an. De todas formas no descarto que en un futuro acabemos separ&aacute;ndolo.</p> 
+<p>En cualquier caso, toda la l&oacute;gica de negocio queda siempre fuera del componente en otros m&oacute;dulos o funciones, y que se acoplen vista y presenter tampoco es tan grave (en realidad siempre lo van a estar aunque no queramos aceptarlo).</p> 
+<p>Una parte que pens&eacute; que echar&iacute;a m&aacute;s de menos es el sistema de m&oacute;dulos e inyecci&oacute;n de dependencias de AngularJS, pero la verdad es que con browserify para poder modularizar la aplicaci&oacute;n esto no ha sido nada problem&aacute;tico. </p> 
+<p>Supongo que si hubi&eacute;semos querido escribir m&aacute;s tests unitarios con mocks lo hubi&eacute;ramos notado m&aacute;s, pero como nuestra pol&iacute;tica desde hace tiempo es <a href="http://blog.koalite.com/2013/07/refactorizando-tests-unitarios-hacia-tests-sin-dependencias/" title="Refactorizando tests unitarios hacia tests sin dependencias">aislar la l&oacute;gica de la interacci&oacute;n para facilitar los tests</a>, esto no ha sido un problema.</p> 
+<p>Una ventaja adicional de utilizar browserify es que facilita la experiencia de depuraci&oacute;n. Puedes utilizar todas las versiones completas de las librer&iacute;as (sin minificar) durante el desarrollo y, en la fase de compilaci&oacute;n, <em>browserificarlas</em> junto con tu aplicaci&oacute;n y minificarlo todo junto.</p> 
+<p>Eso se supone que ayudar&iacute;a tambi&eacute;n al rendimiento porque tendr&iacute;as autom&aacute;ticamente un <em>bundle</em> con todo tu Javascript, pero ahora mismo es algo que en nuestro caso no nos preocupa mucho. De hecho, una de las te&oacute;ricas ventajas de ReactJS, su rendimiento, para nosotros es poco importante. Tampoco tuvimos problemas de rendimiento con AngularJS pese a la mala fama que tiene a veces.</p> 
+<h3>Conclusiones</h3> 
+<p>Utilizar ReactJS en una aplicaci&oacute;n real requiere un esfuero adicional con respecto a otras soluciones porque necesitas buscar soluciones para todas las cosas que no cubre la librer&iacute;a. </p> 
+<p>Que esto merezca la pena o no, es una cuesti&oacute;n dif&iacute;cil de responder y depende mucho de las circunstancias de cada uno. A mi personalmente me deja m&aacute;s tranquilo tener m&aacute;s grados de libertad y elecci&oacute;n en el futuro si quiero cambiar alguna parte, pero esto no es gratis.</p> 
+<p>Si tuviera que definir c&oacute;mo ha sido la experiencia de trabajar con ReactJS en una sola palabra ser&iacute;a <strong>divertido</strong>. Est&aacute; todo tan al alcance de la mano y es todo tan directo, sin tener que dar vueltas entre capas y capas de abstracci&oacute;n, que trabajar con ReactJS resulta muy placentero.</p> 
+<p>Lo que m&aacute;s me preocupa a medio plazo, y posiblemente venga derivado de eso, es que los componentes se puedan acabar convirtiendo en monstruos complejos llenas de casos l&iacute;mite para tratar con el DOM. Si llega ese punto, como dec&iacute;a antes, mi plan consiste en extraer m&aacute;s l&oacute;gica de los componentes (lo que ser&iacute;a el Presenter) para generar una separaci&oacute;n mayor.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2014/12/rutas-en-reactjs-con-react-router/" title="Rutas en ReactJS con React Router">Rutas en ReactJS con React Router</a></li> 
+ <li><a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">ReactJS: un enfoque diferente</a></li> 
+ <li><a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">Crear un componente con ReactJS</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/JmfLnvQUDIA" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs" st_title="Retrospectiva de un proyecto con ReactJS | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1386,
+      "url" : "http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
