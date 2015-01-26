@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes",
+      "title" : "Introducción a Docker para torpes"
+    },
+    {
       "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
       "title" : "Retrospectiva de un proyecto con ReactJS"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing",
       "title" : "El concepto de Javascript Framing"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
-      "title" : "Kanagram para dos jugadores ya es una realidad"
     }
   ]
 }

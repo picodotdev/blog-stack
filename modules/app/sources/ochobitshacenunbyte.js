@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes",
+      "title" : "Introducción a Docker para torpes"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
       "title" : "PC-BSD el sistema BSD más amigable"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
       "title" : "Controla la red OpenNetAdmin"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/probamos-la-beta-de-fedora-21",
-      "title" : "Probamos la beta de Fedora 21"
     }
   ]
 }
