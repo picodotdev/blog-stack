@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
+      "title" : "KDE-Services lanza su versión 2.0-6"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
       "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
       "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/los-mejores-juegos-para-linux-del-2-14",
-      "title" : "Los mejores juegos para Linux del 2014"
     }
   ]
 }

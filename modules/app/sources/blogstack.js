@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Introducción a Docker para torpes"
     },
     {
+      "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
+      "title" : "KDE-Services lanza su versión 2.0-6"
+    },
+    {
       "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
       "title" : "Retrospectiva de un proyecto con ReactJS"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
       "title" : "Akademy 2015 se celebrará en A Coruña"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing",
-      "title" : "El concepto de Javascript Framing"
     }
   ]
 }
