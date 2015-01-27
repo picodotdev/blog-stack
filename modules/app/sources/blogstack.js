@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
+      "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
-    },
-    {
-      "url" : "/post/elblogdeadrianarroyo/2015/01/post-mortem-de-torre-utopia",
-      "title" : "Post Mortem de Torre Utopía"
     }
   ]
 }

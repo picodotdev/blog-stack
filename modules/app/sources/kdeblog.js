@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
+      "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
       "title" : "Cómo transferir imágenes de digiKam a tu móvil"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
       "title" : "Plasma 5 protagonista de Barcelona Free Software"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
-      "title" : "GCompris para Android disponible en Google Play"
     }
   ]
 }
