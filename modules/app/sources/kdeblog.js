@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
+      "title" : "Cómo transferir imágenes de digiKam a tu móvil"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
       "title" : "KDE-Services lanza su versión 2.0-6"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/gcompris-para-android-disponible-en-google-play",
       "title" : "GCompris para Android disponible en Google Play"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/faenzaflattr-un-completo-pack-de-iconos-planos-para-plasma",
-      "title" : "FaenzaFlattr, un completo pack de iconos planos para Plasma"
     }
   ]
 }

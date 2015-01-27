@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
+      "title" : "Cómo transferir imágenes de digiKam a tu móvil"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-184",
       "title" : "Enlaces interesantes 184"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
       "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
-      "title" : "Liberación del Usuario \u2013 Video de la FSF"
     }
   ]
 }
