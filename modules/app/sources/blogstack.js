@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
+      "title" : "Normas de diseño y codificación de .NET framework"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
       "title" : "Java Security y anotaciones JAAS"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2015/01/post-mortem-de-torre-utopia",
       "title" : "Post Mortem de Torre Utopía"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
-      "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
     }
   ]
 }
