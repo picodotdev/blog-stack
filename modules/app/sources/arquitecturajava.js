@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
+      "title" : "Java Security y anotaciones JAAS"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/que-es-un-microservicio",
       "title" : "¿Qué es un Microservicio?"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
       "title" : "Java wait notify y threads"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/integracion-de-jpa-mongodb",
-      "title" : "Integración de JPA MongoDB"
     }
   ]
 }

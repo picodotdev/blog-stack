@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
+      "title" : "Java Security y anotaciones JAAS"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
       "title" : "Cómo transferir imágenes de digiKam a tu móvil"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/free-software-foundation-recopilacion-de-noticias-de-diciembre-de-2-14",
       "title" : "Free Software Foundation. Recopilación de noticias de diciembre de 2014"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
-      "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
     }
   ]
 }
