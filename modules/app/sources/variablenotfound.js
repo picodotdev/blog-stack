@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-184",
+      "title" : "Enlaces interesantes 184"
+    },
+    {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/10/a-seattle-episode-iv",
       "title" : "¡A Seattle! (episode IV)"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6",
-      "title" : "Mejoras en bloques try/catch de C# 6"
     }
   ]
 }

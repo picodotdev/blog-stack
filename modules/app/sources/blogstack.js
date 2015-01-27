@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-184",
+      "title" : "Enlaces interesantes 184"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/mi-nino-cumple-un-anito",
       "title" : "Mi niño cumple un añito"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/liberacion-del-usuario-video-de-la-fsf",
       "title" : "Liberación del Usuario \u2013 Video de la FSF"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/noticia-rapida-valve-actualiza-steam-para-resolver-bug",
-      "title" : "Noticia Rápida \u2014 Valve actualiza Steam para resolver bug"
     }
   ]
 }
