@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc",
+      "title" : "Ghost: Vulnerabilidad fantasma en GNU Linux con Glibc"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes",
       "title" : "Introducción a Docker para torpes"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
       "title" : "Control de acceso en MediaWiki"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/11/controla-la-red-opennetadmin",
-      "title" : "Controla la red OpenNetAdmin"
     }
   ]
 }

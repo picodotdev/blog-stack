@@ -3,10 +3,32 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-01-26T13:02:40Z</updated>
+  <updated>2015-01-28T16:02:49Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-01-26T13:02:40Z</dc:date>
+  <dc:date>2015-01-28T16:02:49Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Ghost: Vulnerabilidad fantasma en GNU Linux con Glibc</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc" />
+    <category term="blog-stack" />
+    <category term="noticias" />
+    <category term="glibc" />
+    <category term="gnu" />
+    <category term="linux" />
+    <author>
+      <name>davidochobits</name>
+    </author>
+    <updated>2015-01-28T15:03:35Z</updated>
+    <published>2015-01-28T15:03:35Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;Detr&amp;aacute;s de tan estra&amp;ntilde;o t&amp;iacute;tulo se esconde un grave error descubierto en una de las librer&amp;iacute;as &lt;strong&gt;GNU C&lt;/strong&gt;, concretamente &lt;strong&gt;&lt;em&gt;glibc&lt;/em&gt;&lt;/strong&gt;, que afecta a la mayor&amp;iacute;a de sistemas &lt;strong&gt;GNU Linux&lt;/strong&gt;.&lt;/p&gt; 
+&lt;p&gt;Dicho vulnerabilidad permite a un hipot&amp;eacute;tico atacante ejecutar un c&amp;oacute;digo en nuestro sistema de forma remota y obtener su control.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/01/ghost.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/01/ghost-300x200.jpg" alt="ghost" width="300" height="200" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;El problema se debe a un desbordamiento de b&amp;uacute;fer basado en &lt;strong&gt;&lt;em&gt;heap&lt;/em&gt;&lt;/strong&gt; que se encuentra en los “&lt;em&gt; __nss_hostname_digits_dots ()&lt;/em&gt;” en &lt;strong&gt;&lt;em&gt;glibc&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;La vulnerabilidad, &lt;strong&gt;CVE-2015-0235&lt;/strong&gt;, ya ha sido apodado &lt;strong&gt;FANTASMA&lt;/strong&gt; debido a su relaci&amp;oacute;n con la funci&amp;oacute;n &lt;strong&gt;&lt;em&gt;_gethostbyname&lt;/em&gt;&lt;/strong&gt;. Investigadores de &lt;a title="Qualys" href="https://www.qualys.com/"&gt;&lt;strong&gt;Qualys&lt;/strong&gt;&lt;/a&gt; descubrieron el fallo, y dicen que se remonta a la versi&amp;oacute;n &lt;strong&gt;&lt;em&gt;glibc 2.2&lt;/em&gt; &lt;/strong&gt;en sistemas &lt;strong&gt;GNU Linux&lt;/strong&gt; publicados en noviembre de&lt;strong&gt; 2000&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;Parece ser que hubo un intento de soluci&amp;oacute;n en 2013 en la versiones de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>davidochobits</dc:creator>
+    <dc:date>2015-01-28T15:03:35Z</dc:date>
+  </entry>
   <entry>
     <title>Introducción a Docker para torpes</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes" />
@@ -796,33 +818,6 @@
 &lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/la-version-beta-2-de-black-lab-linux-6-ya-ha-sido-lanzada"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-29T15:30:24Z</dc:date>
-  </entry>
-  <entry>
-    <title>Virtualizando con KVM</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
-    <category term="xen" />
-    <category term="blog-stack" />
-    <category term="virtualizacion" />
-    <category term="kvm" />
-    <category term="comandos" />
-    <category term="virsh" />
-    <category term="vmware" />
-    <category term="virtualbox" />
-    <category term="gnu" />
-    <category term="debian" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-09-26T12:19:12Z</updated>
-    <published>2014-05-15T14:41:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-05-15T14:41:31Z</dc:date>
   </entry>
 </feed>
 

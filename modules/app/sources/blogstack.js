@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc",
+      "title" : "Ghost: Vulnerabilidad fantasma en GNU Linux con Glibc"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
       "title" : "Low-dash y HTMLStorage para GenBetaDev"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku",
       "title" : "La experiencia GCI 2014 con Haiku"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/fork-me-probando-github-pages",
-      "title" : "Fork me! Probando GitHub Pages"
     }
   ]
 }
