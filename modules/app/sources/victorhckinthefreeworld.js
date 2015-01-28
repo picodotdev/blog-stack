@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/di-no-a-lectores-de-pdf-privativos",
+      "title" : "¡Di no a lectores de PDF privativos!"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/fork-me-probando-github-pages",
       "title" : "Fork me! Probando GitHub Pages"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
       "title" : "Linux la alternativa a Google como buscador de internet"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/los-bangs-de-opensuse-en-el-buscador-duckduckgo",
-      "title" : "Los !bangs de openSUSE en el buscador DuckDuckGo"
     }
   ]
 }
