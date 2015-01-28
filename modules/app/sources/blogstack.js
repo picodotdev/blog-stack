@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
+      "title" : "[Bash script] Hacer un mirror de un servidor FTP"
+    },
+    {
       "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
       "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
       "title" : "PC-BSD el sistema BSD más amigable"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
-      "title" : "Conferencia BilboStack 2015"
     }
   ]
 }

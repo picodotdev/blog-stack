@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
+      "title" : "[Bash script] Hacer un mirror de un servidor FTP"
+    },
+    {
       "url" : "/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script",
       "title" : "Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/01/pasando-argumentos-a-un-timertask-en-java",
       "title" : "Pasando argumentos a un TimerTask en Java"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/ci-xxiv-ataques-de-red-lasicos-intel-edison-representacion-de-pi-rsync-entrevista-de-trabajo-face-substitution",
-      "title" : "CI XXIV: Ataques de red lásicos, Intel Edison, representación de PI, RSYNC, entrevista de trabajo, face substitution"
     }
   ]
 }
