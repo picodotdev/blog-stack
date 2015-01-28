@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
+      "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
+    },
+    {
       "url" : "/post/jsitech/2015/01/alerta-atacantes-explotando-una-vulnerabilidad-zero-day-en-flash-player",
       "title" : "ALERTA \u2013 Atacantes explotando una vulnerabilidad Zero-Day en Flash Player"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
       "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/ya-tenemos-versiones-de-jackthestripper-para-red-hat-linux-enterprise-6-7",
-      "title" : "Ya Tenemos Versiones de JackTheStripper para Red Hat Linux Enterprise 6/7"
     }
   ]
 }

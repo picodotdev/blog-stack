@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
+      "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
       "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
       "title" : "Conferencia BilboStack 2015"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
-      "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
     }
   ]
 }
