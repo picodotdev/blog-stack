@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
+      "title" : "Low-dash y HTMLStorage para GenBetaDev"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
       "title" : "[Bash script] Hacer un mirror de un servidor FTP"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/fork-me-probando-github-pages",
       "title" : "Fork me! Probando GitHub Pages"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/pc-bsd-el-sistema-bsd-mas-amigable",
-      "title" : "PC-BSD el sistema BSD más amigable"
     }
   ]
 }

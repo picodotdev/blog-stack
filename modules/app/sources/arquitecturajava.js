@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
+      "title" : "Low-dash y HTMLStorage para GenBetaDev"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
       "title" : "Java Security y anotaciones JAAS"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
       "title" : "Entendiendo el Servlet Lifecycle"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/java-wait-notify-y-threads",
-      "title" : "Java wait notify y threads"
     }
   ]
 }
