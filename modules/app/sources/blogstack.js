@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
+      "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/di-no-a-lectores-de-pdf-privativos",
       "title" : "¡Di no a lectores de PDF privativos!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
       "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/que-es-un-microservicio",
-      "title" : "¿Qué es un Microservicio?"
     }
   ]
 }

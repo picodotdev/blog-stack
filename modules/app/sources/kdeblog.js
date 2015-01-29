@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
+      "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
       "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/disponible-linux-mint-17-1-rebecca-kde",
       "title" : "Disponible Linux Mint 17.1 Rebecca KDE"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/plasma-5-protagonista-de-barcelona-free-software",
-      "title" : "Plasma 5 protagonista de Barcelona Free Software"
     }
   ]
 }
