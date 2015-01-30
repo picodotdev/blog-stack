@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
+      "title" : "Un mes con reKonq, el navegador web de KDE"
+    },
+    {
       "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
       "title" : "Los datos y nosotros los informáticos"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
       "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
-    },
-    {
-      "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
-      "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
     }
   ]
 }
