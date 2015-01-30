@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/duckduckgo-con-estilo-linea-de-comandos",
+      "title" : "DuckDuckGo con estilo línea de comandos."
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
       "title" : "Richard Stallman de nuevo por España"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
       "title" : "Logotipo para openSUSE Conference 2015"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
-      "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
     }
   ]
 }

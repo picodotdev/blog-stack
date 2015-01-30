@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/duckduckgo-con-estilo-linea-de-comandos",
+      "title" : "DuckDuckGo con estilo línea de comandos."
+    },
+    {
       "url" : "/post/jsitech/2015/01/hangout-post-explotacion-con-meterpreter",
       "title" : "Hangout , Post-Explotación con Meterpreter"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
       "title" : "KDE-Services lanza su versión 2.0-6"
-    },
-    {
-      "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
-      "title" : "Retrospectiva de un proyecto con ReactJS"
     }
   ]
 }
