@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/kali-nethunter",
+      "title" : "Kali NetHunter"
+    },
+    {
       "url" : "/post/jsitech/2015/01/hangout-post-explotacion-con-meterpreter",
       "title" : "Hangout , Post-Explotación con Meterpreter"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
       "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
-      "title" : "Avisos de Seguridad Linux"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/kali-nethunter",
+      "title" : "Kali NetHunter"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/duckduckgo-con-estilo-linea-de-comandos",
       "title" : "DuckDuckGo con estilo línea de comandos."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes",
       "title" : "Introducción a Docker para torpes"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
-      "title" : "KDE-Services lanza su versión 2.0-6"
     }
   ]
 }
