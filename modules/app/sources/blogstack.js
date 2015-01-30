@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/hangout-post-explotacion-con-meterpreter",
+      "title" : "Hangout , Post-Explotación con Meterpreter"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
       "title" : "Un mes con reKonq, el navegador web de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
       "title" : "Retrospectiva de un proyecto con ReactJS"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
-      "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/01/hangout-post-explotacion-con-meterpreter",
+      "title" : "Hangout , Post-Explotación con Meterpreter"
+    },
+    {
       "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
       "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/avisos-de-seguridad-linux",
       "title" : "Avisos de Seguridad Linux"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/hangout-servidor-web-seguro-en-linux-con-jackthestripper",
-      "title" : "Hangout \u2013 Servidor Web Seguro en Linux con JackTheStripper"
     }
   ]
 }
