@@ -3,12 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
-      "title" : "Richard Stallman de nuevo por España"
-    },
-    {
       "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
       "title" : "Los datos y nosotros los informáticos"
+    },
+    {
+      "url" : "/post/arquitecturajava/2015/01/que-es-cors",
+      "title" : "¿Que es CORS ?"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
+      "title" : "Richard Stallman de nuevo por España"
     },
     {
       "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
       "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
-      "title" : "Cómo activar Baloo en Linux Mint 17.1"
     }
   ]
 }

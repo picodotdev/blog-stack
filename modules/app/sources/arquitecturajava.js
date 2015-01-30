@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/01/que-es-cors",
+      "title" : "¿Que es CORS ?"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
       "title" : "Low-dash y HTMLStorage para GenBetaDev"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
       "title" : "Java HttpSession Timeout"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/11/entendiendo-el-servlet-lifecycle",
-      "title" : "Entendiendo el Servlet Lifecycle"
     }
   ]
 }
