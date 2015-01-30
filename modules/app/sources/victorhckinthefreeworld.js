@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
+      "title" : "Richard Stallman de nuevo por España"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/di-no-a-lectores-de-pdf-privativos",
       "title" : "¡Di no a lectores de PDF privativos!"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/como-descargar-videos-de-rtve-mediante-firefox",
       "title" : "Cómo descargar vídeos de RTVE mediante Firefox"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/linux-la-alternativa-a-google-como-buscador-de-internet",
-      "title" : "Linux la alternativa a Google como buscador de internet"
     }
   ]
 }

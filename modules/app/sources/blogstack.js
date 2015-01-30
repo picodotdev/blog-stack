@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
+      "title" : "Richard Stallman de nuevo por España"
+    },
+    {
+      "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
+      "title" : "Los datos y nosotros los informáticos"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
       "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
       "title" : "Cómo activar Baloo en Linux Mint 17.1"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
-      "title" : "Internacionalización (i18n) en Javascript"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
-      "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
     }
   ]
 }

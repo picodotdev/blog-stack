@@ -3,6 +3,10 @@ define("app/sources/elblogdejose", [], function() {
   "name" : "El blog de Jose",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
+      "title" : "Los datos y nosotros los informáticos"
+    },
+    {
       "url" : "/post/elblogdejose/2014/08/sabias-que-el-uso-de-la-annotation-override-nos-advierte-de-errores-en-el-codigo",
       "title" : "Sabias que el uso de la annotation override nos advierte de errores en el código"
     },
