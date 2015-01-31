@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
+      "title" : "Internacionalización (i18n) en Javascript"
+    },
+    {
+      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
+      "title" : "Generar URLs semánticas y amigables"
+    },
+    {
       "url" : "/post/jsitech/2015/01/kali-nethunter",
       "title" : "Kali NetHunter"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-184",
       "title" : "Enlaces interesantes 184"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/mi-nino-cumple-un-anito",
-      "title" : "Mi niño cumple un añito"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/introduccion-a-docker-para-torpes",
-      "title" : "Introducción a Docker para torpes"
     }
   ]
 }

@@ -7,6 +7,10 @@ define("app/sources/blogbitix", [], function() {
       "title" : "Internacionalización (i18n) en Javascript"
     },
     {
+      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
+      "title" : "Generar URLs semánticas y amigables"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/conferencia-bilbostack-2-15",
       "title" : "Conferencia BilboStack 2015"
     },
@@ -69,10 +73,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
       "title" : "Inicio básico de Docker"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
-      "title" : "Generar URLs semánticas y amigables"
     },
     {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
