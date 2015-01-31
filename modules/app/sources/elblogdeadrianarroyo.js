@@ -3,6 +3,10 @@ define("app/sources/elblogdeadrianarroyo", [], function() {
   "name" : "El blog de Adrián Arroyo",
   "posts" : [
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/01/convertir-a-haiku-en-rolling-release",
+      "title" : "Convertir a Haiku en rolling release"
+    },
+    {
       "url" : "/post/elblogdeadrianarroyo/2015/01/la-experiencia-gci-2-14-con-haiku",
       "title" : "La experiencia GCI 2014 con Haiku"
     },

@@ -19,6 +19,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Generar URLs semánticas y amigables"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/01/convertir-a-haiku-en-rolling-release",
+      "title" : "Convertir a Haiku en rolling release"
+    },
+    {
       "url" : "/post/jsitech/2015/01/kali-nethunter",
       "title" : "Kali NetHunter"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
       "title" : "Normas de diseño y codificación de .NET framework"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
-      "title" : "Java Security y anotaciones JAAS"
     }
   ]
 }
