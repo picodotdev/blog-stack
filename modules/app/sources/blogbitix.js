@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
+      "title" : "Fechas y usos horarios en Java"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
       "title" : "Internacionalización (i18n) en Javascript"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/09/agregador-blog-stack-redisenado",
       "title" : "Agregador Blog Stack rediseñado"
-    },
-    {
-      "url" : "/post/blogbitix/2014/09/configuracion-usando-codigo-java",
-      "title" : "Configuración usando código Java"
     }
   ]
 }

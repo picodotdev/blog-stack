@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
+      "title" : "Fechas y usos horarios en Java"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
       "title" : "KGoldRunner, el clásico  de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/java-security-y-anotaciones-jaas",
       "title" : "Java Security y anotaciones JAAS"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
-      "title" : "Cómo transferir imágenes de digiKam a tu móvil"
     }
   ]
 }
