@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/que-le-pasa-a-ubuntu",
+      "title" : "¿Que le pasa a Ubuntu?"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
       "title" : "Fechas y usos horarios en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
       "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework",
-      "title" : "Normas de diseño y codificación de .NET framework"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/que-le-pasa-a-ubuntu",
+      "title" : "¿Que le pasa a Ubuntu?"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/mi-nino-cumple-un-anito",
       "title" : "Mi niño cumple un añito"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
       "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-experiencia-con-los-moviles-chinos",
-      "title" : "Mi experiencia con los moviles chinos"
     }
   ]
 }
