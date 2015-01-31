@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
+      "title" : "KGoldRunner, el clásico  de KDE"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
       "title" : "Internacionalización (i18n) en Javascript"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
       "title" : "Cómo transferir imágenes de digiKam a tu móvil"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/01/enlaces-interesantes-184",
-      "title" : "Enlaces interesantes 184"
     }
   ]
 }

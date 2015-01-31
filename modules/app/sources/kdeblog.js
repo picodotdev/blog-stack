@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
+      "title" : "KGoldRunner, el clásico  de KDE"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
       "title" : "Un mes con reKonq, el navegador web de KDE"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-instalar-nvidia-optimus-en-linux-mint-17",
       "title" : "Cómo instalar nvidia optimus en Linux Mint 17"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/lanzado-kde-frameworks-5-6",
-      "title" : "Lanzado KDE Frameworks 5.6"
     }
   ]
 }
