@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
+      "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/01/duckduckgo-con-estilo-linea-de-comandos",
       "title" : "DuckDuckGo con estilo línea de comandos."
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
       "title" : "We are Linux, pero también We are GNU"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/logotipo-para-opensuse-conference-2-15",
-      "title" : "Logotipo para openSUSE Conference 2015"
     }
   ]
 }

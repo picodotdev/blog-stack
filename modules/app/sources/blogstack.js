@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
+      "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
       "title" : "Como iniciar sesion con Cairo Dock sin Unity"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
       "title" : "[Bash script] Hacer un mirror de un servidor FTP"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
-      "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
     }
   ]
 }
