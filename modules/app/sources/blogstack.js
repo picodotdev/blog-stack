@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
+      "title" : "Como iniciar sesion con Cairo Dock sin Unity"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
       "title" : "Fechas y usos horarios en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/breve-review-libro-basic-security-testing-with-kali-linux",
       "title" : "Breve Review \u2013 Libro Basic Security Testing With Kali Linux"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
-      "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
     }
   ]
 }

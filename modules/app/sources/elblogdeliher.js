@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
+      "title" : "Como iniciar sesion con Cairo Dock sin Unity"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/que-le-pasa-a-ubuntu",
       "title" : "¿Que le pasa a Ubuntu?"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
       "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-instalar-o-desinstalar-componentes-de-libreoffice-por-separado-en-ubuntu",
-      "title" : "Como instalar o desinstalar componentes de Libreoffice por separado en Ubuntu"
     }
   ]
 }
