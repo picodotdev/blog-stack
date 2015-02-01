@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
+      "title" : "Filtros asíncronos en MVC 6"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
       "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
       "title" : "Low-dash y HTMLStorage para GenBetaDev"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
-      "title" : "[Bash script] Hacer un mirror de un servidor FTP"
     }
   ]
 }
