@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
+      "title" : "1.000.000 de visitas al blog! Gracias!!"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
       "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
       "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/we-are-linux-pero-tambien-we-are-gnu",
-      "title" : "We are Linux, pero también We are GNU"
     }
   ]
 }

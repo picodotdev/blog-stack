@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/02/redis-base-de-datos-no-relacional",
+      "title" : "Redis, base de datos no relacional"
+    },
+    {
       "url" : "/post/pledin/2015/01/presentacion-introduccion-al-lenguaje-xsd-xml-schema-definition",
       "title" : "Presentación: Introducción al lenguaje XSD (XML Schema Definition)"
     },
@@ -77,10 +81,6 @@ define("app/sources/pledin", [], function() {
     {
       "url" : "/post/pledin/2013/11/configuracion-de-un-servidor-dns-esclavo-2-parte",
       "title" : "Configuración de un servidor DNS esclavo (2ª parte)"
-    },
-    {
-      "url" : "/post/pledin/2013/11/gns3-anadiendo-hosts-a-nuestras-topologias",
-      "title" : "GNS3, añadiendo hosts a nuestras topologías"
     }
   ]
 }

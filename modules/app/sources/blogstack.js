@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
+      "title" : "1.000.000 de visitas al blog! Gracias!!"
+    },
+    {
+      "url" : "/post/pledin/2015/02/redis-base-de-datos-no-relacional",
+      "title" : "Redis, base de datos no relacional"
+    },
+    {
       "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
       "title" : "Filtros asíncronos en MVC 6"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/di-no-a-lectores-de-pdf-privativos",
       "title" : "¡Di no a lectores de PDF privativos!"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc",
-      "title" : "Ghost: Vulnerabilidad fantasma en GNU Linux con Glibc"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/low-dash-y-htmlstorage-para-genbetadev",
-      "title" : "Low-dash y HTMLStorage para GenBetaDev"
     }
   ]
 }
