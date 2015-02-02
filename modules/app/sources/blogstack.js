@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
+      "title" : "Crear una base de datos MySQL en GNU Linux"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-185",
       "title" : "Enlaces interesantes 185"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
       "title" : "Los datos y nosotros los informáticos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/01/que-es-cors",
-      "title" : "¿Que es CORS ?"
     }
   ]
 }

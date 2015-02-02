@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
+      "title" : "Crear una base de datos MySQL en GNU Linux"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/01/ghost-vulnerabilidad-fantasma-en-gnu-linux-con-glibc",
       "title" : "Ghost: Vulnerabilidad fantasma en GNU Linux con Glibc"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
       "title" : "Controla los medios con emshare"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/control-de-acceso-en-mediawiki",
-      "title" : "Control de acceso en MediaWiki"
     }
   ]
 }
