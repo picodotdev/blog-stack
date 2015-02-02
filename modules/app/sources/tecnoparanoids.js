@@ -3,6 +3,10 @@ define("app/sources/tecnoparanoids", [], function() {
   "name" : "TecnoParanoids",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
+      "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/01/tecnoparanoids-n-25-elbinario-net-redes-libres-y-descentralizadas",
       "title" : "TecnoParanoids nº25: elbinario.net, redes libres y descentralizadas"
     },

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
+      "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
       "title" : "GNU Health en openSUSE, Software libre al servicio de las personas"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/hangout-post-explotacion-con-meterpreter",
       "title" : "Hangout , Post-Explotación con Meterpreter"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
-      "title" : "Un mes con reKonq, el navegador web de KDE"
     }
   ]
 }
