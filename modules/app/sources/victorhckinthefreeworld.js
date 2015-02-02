@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
+      "title" : "GNU Health en openSUSE, Software libre al servicio de las personas"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
       "title" : "1.000.000 de visitas al blog! Gracias!!"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
       "title" : "Difunde redes sociales libres como Diaspora*"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/julian-assange-habla-en-una-entrevista-sobre-la-privacidad",
-      "title" : "Julian Assange, habla en una entrevista sobre la privacidad"
     }
   ]
 }

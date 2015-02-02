@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
+      "title" : "GNU Health en openSUSE, Software libre al servicio de las personas"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
       "title" : "Crear una base de datos MySQL en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
       "title" : "Un mes con reKonq, el navegador web de KDE"
-    },
-    {
-      "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
-      "title" : "Los datos y nosotros los informáticos"
     }
   ]
 }
