@@ -1,0 +1,116 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Featuritis en lenguajes de programación | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion"><span itemprop="headline">Featuritis en lenguajes de programación</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/o15YPlZTKAA/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-02T05:06" itemprop="datePublished">Publicado el lunes, 02 de febrero de 2015 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+programming-languages, development</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>La semana pasada se publicaron las notas sobre <a href="https://github.com/dotnet/roslyn/issues/98&quot;&quot;">la primera reuni&oacute;n de dise&ntilde;o de C# 7</a> (s&iacute;, a&uacute;n no est&aacute; completa la versi&oacute;n 6 pero ya se est&aacute; trabajando en lo que ser&aacute; la siguiente versi&oacute;n). Todav&iacute;a es muy pronto para saber en qu&eacute; se acabar&aacute; convirtiendo C# 7, pero entre las caracter&iacute;sticas que se est&aacute;n valorando hay algunas de las que no pasaron el corte para C# 6 y que me parecen realmente interesantes, como el pattern matching, las estructuras de datos inmutables o las referencias no nullables.</p> 
+<p>Sin embargo, no quiero centrar este post en las (posibles) mejoras que nos traer&aacute; C# 7, sino en otro tema que cada vez es m&aacute;s frecuente: la acumulaci&oacute;n de caracter&iacute;sticas en los lenguajes de programaci&oacute;n.</p> 
+<h3>Lenguajes cada vez m&aacute;s completos/complejos</h3> 
+<p>Como bien dec&iacute;a <a href="https://twitter.com/eiximenis/status/560350334049341440">Eduard Tom&aacute;s en twitter</a>, parece que la tendencia actual es a&ntilde;adir m&aacute;s y m&aacute;s funcionalidades a los lenguajes para facilitar el uso de distintos estilos de programaci&oacute;n. </p> 
+<p>Hace unos cuantos a&ntilde;os lo habitual era que un lenguaje fuese orientado a objetos, o funcional, o l&oacute;gico, pero hoy en d&iacute;a incluso los lenguajes m&aacute;s conservadores, como Java, mezclan varios de estos paradigmas. Esto tiene unas ventajas claras porque nos permite utilizar un mismo lenguaje para resolver distintos tipos de problemas usando el enfoque m&aacute;s adecuado en cada caso, pero tambi&eacute;n tiene algunos inconvenientes asociados.</p> 
+<p>Para a&ntilde;adir soporte para todos estos escenarios, la mayor&iacute;a de los lenguajes (aqu&iacute; LISP y sus derivados son una excepci&oacute;n) necesitan crear nuevas construcciones sint&aacute;cticas, que en ocasiones implican cambios reales en la sem&aacute;ntica del lenguaje, pero que en muchas ocasiones son &uacute;nicamente azucar sint&aacute;ctico que el compilador se encarga de traducir a construcciones m&aacute;s b&aacute;sicas del lenguaje. Es decir, no se trata tanto de hacer cosas nuevas, sino de hacer m&aacute;s c&oacute;modamente cosas viejas.</p> 
+<p>En el caso de C# (que es el lenguaje que m&aacute;s y mejor conozco), tenemos ejemplos claros de esto en las enumeraciones con yield, las funciones lambda o el uso de async/await. En todos estos casos es el compilador el que traduce estas construcciones a clases normales y corrientes para simplificar el uso de estas t&eacute;cnicas.</p> 
+<p>Todo esto est&aacute; muy bien, al fin y al cabo lo que hace es facilitarnos la vida a los programadores, pero tambi&eacute;n introduce una complejidad adicional a la hora de comprender el lenguaje y estas “mejoras” no siempre acaban siendo muy utilizadas (&iquest;cu&aacute;ntos hab&eacute;is usado m&eacute;todos parciales en C#? O mejor, &iquest;cu&aacute;ntos sab&eacute;is lo que son los m&eacute;todos parciales en C#?).</p> 
+<p>Llevando esta idea al extremo tenemos lenguajes como Scala o Kotlin, en los que existe una sintaxis espec&iacute;fica para hacer casi cualquier cosa que te puedas imaginar, pero en los que a veces al comparar un proyecto con otro parece que estas viendo lenguajes diferentes.</p> 
+<p>En el otro extremo, tenemos lenguajes como Go, que tiene como uno de sus objetivos fundamentales mantener una sintaxis sencilla y tener “pocas funcionalidades”. Se trata de una decisi&oacute;n consciente de los dise&ntilde;adores del lenguaje para mantenerlo simple, y su argumento es que no merece la pena a&ntilde;adir azucar sint&aacute;ctico para cosas que, en realidad, se pueden hacer en unas pocas l&iacute;neas de c&oacute;digo ganando (supuestamente) en claridad y obteniendo un c&oacute;digo m&aacute;s expl&iacute;cito.</p> 
+<p>Preferir una opci&oacute;n a otra no deja de tener un componente subjetivo importante y, simplificando mucho el asunto, podr&iacute;amos verlo como un balance entre expresividad y simplicidad. Yo, personalmente, a d&iacute;a de hoy me inclino m&aacute;s por la expresividad, pero comprendo la otra postura y conozco a defensores de Go que no cambiar&iacute;an su lenguaje por uno con caracter&iacute;sticas m&aacute;s avanzadas.</p> 
+<p>En el fondo, con los lenguajes de programaci&oacute;n acaba ocurriendo como con la mayor&iacute;a de aplicaciones inform&aacute;ticas, tienden a <a href="http://blog.koalite.com/2011/12/la-otra-podredumbre-del-software/">crecer en funcionalidades y pueden acabar colapsados por ellas</a>. Se pueden hacer excesivamente complicados de utilizar por la abundancia de opciones y, sobre todo, porque la intersecci&oacute;n de las distintas funcionalidades d&eacute; lugar a situaciones poco previsibles.</p> 
+<h3>Extender sin modificar el lenguaje</h3> 
+<p>Para a&ntilde;adir nuevas opciones a un lenguaje existen alternativas que no implican modificar el propio lenguaje.</p> 
+<p>Es posible intentar delegar estas nuevas funcionalidades en librer&iacute;as, de manera que no haya que tocar “el n&uacute;cleo” del lenguaje y que la inclusi&oacute;n de las nuevas caracter&iacute;sticas sea opcional. Esto es frecuente en lenguajes como Clojure, donde existen librer&iacute;as para utilizar <a href="https://github.com/clojure/core.match">pattern matching</a>, <a href="https://github.com/clojure/core.async">comunicaci&oacute;n as&iacute;ncrona al estilo go</a>, o incluso <a href="https://github.com/clojure/core.logic">programaci&oacute;n l&oacute;gica</a>.</p> 
+<p>Utilizando esta aproximaci&oacute;n es posible a&ntilde;adir funcionalidades al lenguaje sin complicarlo en exceso, aunque es cierto que hay lenguajes que soportan esta idea mejor que otros. Adem&aacute;s, esto no evita el “problema” de perder, en cierto modo, familiaridad con el lenguaje, ya que dependiendo de las librer&iacute;as que se utilicen en cada proyecto, el aspecto del mismo puede variar sustancialmente.</p> 
+<p>Otra forma de afrontar el problema de a&ntilde;adir funcionalidades a un lenguaje sin sobrecargarlo es, directamente, utilizar otro lenguaje. Puede sonar raro, pero en realidad es algo bastante frecuente y lo hacemos continuamente, integrando dentro de un sistema partes escritas en distintos lenguajes. </p> 
+<p>Si la interoperabilidad entre lenguajes est&aacute; bien resuelta, y en esto tanto .NET como la JVM tienen bastante ganado, es una opci&oacute;n viable que puede dar buenos resultados. Tampoco se trata de una alternativa exenta de problemas, porque saltar entre lenguajes implica un cambio de contexto y eso supone un coste cognitivo adicional.</p> 
+<p>A cambio, permite que mientras estamos trabajando con cada lenguaje podamos centrarnos en la forma “can&oacute;nica” de usarlo y puede ayudarnos a comprender mejor c&oacute;mo resolver cada problema.</p> 
+<h3>Conclusiones</h3> 
+<p>No soy ning&uacute;n experto en dise&ntilde;o de lenguajes y no s&eacute; cu&aacute;l es la mejor forma de resolver el problema, pero creo que a&ntilde;adir a tu lenguaje favorito todas las caracter&iacute;sticas que se te ocurran no parece la mejor salida. </p> 
+<p>Encontrar un equilibrio entre expresividad y simplicidad es complicado, y las alternativas, como la extensi&oacute;n mediante librer&iacute;as o la integraci&oacute;n con otros lenguajes, aunque tienen sus ventajas, tampoco est&aacute;n exentas de problemas.</p> 
+<p>Lo bueno es que siempre habr&aacute; lenguajes que opten por tener muchas funcionalidades y otros que prefieran mantener una filosof&iacute;a m&aacute;s simple. Cada cual que elija lo que m&aacute;s le guste.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2012/04/inyeccion-de-dependencias-en-javascript-y-otros-lenguajes-dinamicos/" title="Inyecci&oacute;n de dependencias en Javascript (y otros lenguajes din&aacute;micos)">Inyecci&oacute;n de dependencias en Javascript (y otros lenguajes din&aacute;micos)</a></li> 
+ <li><a href="http://blog.koalite.com/2013/07/como-elegir-un-lenguaje-de-programacion/" title="C&oacute;mo elegir un lenguaje de programaci&oacute;n">C&oacute;mo elegir un lenguaje de programaci&oacute;n</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/o15YPlZTKAA" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion" st_title="Featuritis en lenguajes de programación | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1416,
+      "url" : "http://www.blogstack.info/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

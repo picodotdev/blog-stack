@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
+      "title" : "Featuritis en lenguajes de programación"
+    },
+    {
       "url" : "/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs",
       "title" : "Retrospectiva de un proyecto con ReactJS"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
       "title" : "No subestimes el poder de un log"
-    },
-    {
-      "url" : "/post/koalite/2014/08/utilizar-chart-js-con-knockout-js",
-      "title" : "Utilizar Chart.js con Knockout.js"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
+      "title" : "Featuritis en lenguajes de programación"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
       "title" : "Nuevo año, nuevo tema para el blog"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
       "title" : "Richard Stallman de nuevo por España"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
-      "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
     }
   ]
 }
