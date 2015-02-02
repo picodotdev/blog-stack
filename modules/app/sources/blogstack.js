@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-185",
+      "title" : "Enlaces interesantes 185"
+    },
+    {
       "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
       "title" : "Featuritis en lenguajes de programación"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/que-es-cors",
       "title" : "¿Que es CORS ?"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/richard-stallman-de-nuevo-por-espana",
-      "title" : "Richard Stallman de nuevo por España"
     }
   ]
 }
