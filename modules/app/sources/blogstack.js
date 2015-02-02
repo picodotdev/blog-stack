@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
+      "title" : "Nuevo año, nuevo tema para el blog"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
       "title" : "1.000.000 de visitas al blog! Gracias!!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
       "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/di-no-a-lectores-de-pdf-privativos",
-      "title" : "¡Di no a lectores de PDF privativos!"
     }
   ]
 }

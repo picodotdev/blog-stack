@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
+      "title" : "Nuevo año, nuevo tema para el blog"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/01/bash-script-hacer-un-mirror-de-un-servidor-ftp",
       "title" : "[Bash script] Hacer un mirror de un servidor FTP"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/02/ci-xxv-nueva-web-de-renfe-vacuna-vih-clickable-paper-qr-penalizacion-google-lightworks-en-linux-y-mas",
       "title" : "CI XXV: Nueva web de Renfe, vacuna VIH, clickable paper, QR, penalización Google, Lightworks en Linux y más"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/01/pasando-argumentos-a-un-timertask-en-java",
-      "title" : "Pasando argumentos a un TimerTask en Java"
     }
   ]
 }
