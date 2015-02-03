@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
+      "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
       "title" : "Mi camiseta de DuckDuckGo !!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeadrianarroyo/2015/01/convertir-a-haiku-en-rolling-release",
       "title" : "Convertir a Haiku en rolling release"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/kali-nethunter",
-      "title" : "Kali NetHunter"
     }
   ]
 }

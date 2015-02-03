@@ -1,0 +1,109 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs"><span itemprop="headline">Introducción a las bases de datos como servicio (DBaaS). RedisLabs.</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://www.josedomingo.org/pledin/">PLEDIN</a>, <a href="http://www.josedomingo.org/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-03T19:32" itemprop="datePublished">Publicado el martes, 03 de febrero de 2015 a las 19:32 UTC</span></div><div><span>
+Etiquetado como
+cloud-computing, redis, base-de-datos, dbaas, general</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2015/02/&iacute;ndice.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2015/02/&iacute;ndice.png" alt="&iacute;ndice" width="487" height="103" /></a></p> 
+<p>Entendiendo las bases de datos como una aplicaci&oacute;n m&aacute;s cualquiera, y extendiendo el concepto de SaaS (software como servicio), se puede entender las DBaaS como una nueva manera de acceder al uso de una base de datos, respondiendo a los principios del cloud computing:</p> 
+<ul> 
+ <li>Vamos a tener disponible nuestro servicio, en nuestro caso, una base de datos, de forma autom&aacute;tica y bajo demanda, es decir sin que ning&uacute;n operador de la empresa que ofrece el servicio tenga que realizar ninguna operaci&oacute;n para que el cliente obtenga el servicio.</li> 
+ <li>La base de datos debe ser accesible desde internet.</li> 
+ <li>Se puede ofrecer el servicio usando el modelo de recurso compartido, donde varios usuarios pueden estar compartiendo recursos, por lo tanto es necesario garantizar el aislamiento y la seguridad entre usuarios.</li> 
+ <li>Elasticidad, que es la propiedad que me permite aumentar o disminuir la capacidad de mi recurso, mi base de datos, de forma autom&aacute;tica y en cualquier momento.</li> 
+ <li>El pago por uso.</li> 
+</ul> 
+<p>Evidentemente a ser la base de datos un software, es necesario combinar los DBaaS con un PaaS o un IaaS para conseguir una infraestructura totalmente operativa. Los DBaaS ofrecen tanto bases de datos relacionales (MySql, PostgreSQL,..), como base de datos no relacionales o noSQL c&oacute;mo Redis, CouchDB o MongoDB. Como ejemplo de empresas que ofrecen estos servicios tenemos <a href="http://aws.amazon.com/es/dynamodb/?nc2=h_l3_db">Amazon, que ofrece Amazon DynamoDB</a> o <a href="https://www.cleardb.com/home.view">ClearDB que ofrece un servicio MySQL</a>.</p> 
+<h2>RedisLabs: Redis como DBaaS</h2> 
+<p>Como vimos en el <a title="Redis, base de datos no relacional" href="http://www.josedomingo.org/pledin/2015/02/redis-base-de-datos-no-relacional/">art&iacute;culo anterior</a>, Redis es una base de datos no relacional, que guarda la informaci&oacute;n en conjuntos clave-valor. La empresa <a href="https://redislabs.com/">RedisLabs</a> nos ofrece Redis como DBaaS. Nos podemos dar de alta en la p&aacute;gina y podemos obtener de forma gratuita a una instancia con una base de datos Redis con una limitaci&oacute;n de 25 Mb de memoria y 10 conexiones simultaneas. Para empezar a trabajar con esta infraestructura es suficiente, si necesitamos m&aacute;s recursos podemos obtenerlos por una <a href="https://redislabs.com/pricing">cuota mensual</a>. Tras darte de alta en la p&aacute;gina, puedes dar de alta una nueva base de datos con el plan gratuito, y puedes obtener el servicio de una nueva base de datos, como observamos en la siguiente imagen:</p> 
+<p><a href="http://www.josedomingo.org/pledin/wp-content/uploads/2015/02/redis.png"><img src="http://www.josedomingo.org/pledin/wp-content/uploads/2015/02/redis.png" alt="redis" width="592" height="498" /></a></p> 
+<p>En el par&aacute;metro <em><strong>Endpoint</strong></em> obtenemos la direcci&oacute;n de la instancia y el puerto al que nos tenemos que conectar. Adem&aacute;s hemos configurado una contrase&ntilde;a para el acceso a nuestra base de datos, la puedes ver en el par&aacute;metro <em><strong>Redis Password</strong></em>. Usando por lo tanto un cliente de redis, podemos realizar la conexi&oacute;n a la base de datos y empezar a trabajar con ella:</p> 
+<pre># redis-cli -h pub-redis-99999.us-east-1-3.3.ec2.garantiadata.com -p 12345
+pub-redis-99999.us-east-1-3.3.ec2.garantiadata.com:12345&gt; AUTH la_contrase&ntilde;a
+OK
+pub-redis-99999.us-east-1-3.3.ec2.garantiadata.com:12345&gt; SET usuario pepe
+OK
+pub-redis-99999.us-east-1-3.3.ec2.garantiadata.com:12345&gt; GET usuario
+&quot;pepe&quot;</pre> 
+<p>Como siempre esto es s&oacute;lo una introducci&oacute;n sobre DBaaS, si quieres seguir form&aacute;ndote sobre el tema, te recomiendo leer el art&iacute;culo <a href="http://jj.github.io/dbaas/">Dbaas, Database as a Service, una introducci&oacute;n usando Redis</a> de <a href="https://github.com/JJ">J.J. Merelo</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs" st_title="Introducción a las bases de datos como servicio (DBaaS). RedisLabs. | PLEDIN"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1423,
+      "url" : "http://www.blogstack.info/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "pledin",
+      "name" : "PLEDIN"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

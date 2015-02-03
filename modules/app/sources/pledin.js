@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
+      "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
+    },
+    {
       "url" : "/post/pledin/2015/02/redis-base-de-datos-no-relacional",
       "title" : "Redis, base de datos no relacional"
     },
@@ -77,10 +81,6 @@ define("app/sources/pledin", [], function() {
     {
       "url" : "/post/pledin/2013/11/configurar-subdominios-en-bind9",
       "title" : "Configurar subdominios en bind9"
-    },
-    {
-      "url" : "/post/pledin/2013/11/configuracion-de-un-servidor-dns-esclavo-2-parte",
-      "title" : "Configuración de un servidor DNS esclavo (2ª parte)"
     }
   ]
 }
