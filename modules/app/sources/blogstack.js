@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
+      "title" : "Mi camiseta de DuckDuckGo !!"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
       "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/01/kali-nethunter",
       "title" : "Kali NetHunter"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/duckduckgo-con-estilo-linea-de-comandos",
-      "title" : "DuckDuckGo con estilo línea de comandos."
     }
   ]
 }

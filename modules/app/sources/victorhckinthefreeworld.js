@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
+      "title" : "Mi camiseta de DuckDuckGo !!"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
       "title" : "GNU Health en openSUSE, Software libre al servicio de las personas"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
       "title" : "Sin más comentarios"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/difunde-redes-sociales-libres-como-diaspora",
-      "title" : "Difunde redes sociales libres como Diaspora*"
     }
   ]
 }
