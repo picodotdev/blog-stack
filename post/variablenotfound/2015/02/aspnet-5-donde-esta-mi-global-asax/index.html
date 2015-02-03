@@ -1,0 +1,165 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>ASPNET 5, ¿dónde está mi Global.asax? | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax"><span itemprop="headline">ASPNET 5, ¿dónde está mi Global.asax?</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/M1mVvLgylio/aspnet-5-donde-esta-mi-globalasax.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-03T08:22" itemprop="dateModified">Actualizado el martes, 03 de febrero de 2015 a las 08:22 UTC</span></div><div><span>
+Etiquetado como
+aspnet5, novedades, aspnetmvc</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="" src="http://lh6.ggpht.com/-JQCrc1GCDm4/VH4eSo3prdI/AAAAAAAADt0/bu3jKKvPoks/image23.png?imgmax=800" height="145" title="" width="198" />El c&eacute;lebre Global.asax ha estado con nosotros durante m&aacute;s de diez a&ntilde;os, y, junto con el Web.config y algunos otros, ha sido uno de los archivos que encontr&aacute;bamos siempre en la carpeta ra&iacute;z de toda aplicaci&oacute;n web basada en ASP.NET. 
+<br />
+<br />Durante lustros lo hemos usado para introducir c&oacute;digo de inicializaci&oacute;n de nuestras aplicaciones y para tomar el control en distintos momentos del proceso de las peticiones: al recibirse una solicitud, al retornar la respuesta, al comenzar una sesi&oacute;n, al finalizarla, al autenticar las peticiones… en fin, que es f&aacute;cil echarlo de menos cuando abrimos o creamos nuestra primera aplicaci&oacute;n ASP.NET 5.
+<br />
+<br />Pero como ya hemos comentado por aqu&iacute; en 
+<a href="http://www.variablenotfound.com/2014/12/quo-vadis-aspnet-mvc.html">alguna ocasi&oacute;n</a>, con ASP.NET 5 nuestro entra&ntilde;able 
+<strong>Global.asax desaparece para no volver</strong>, en primer lugar porque la propia clase 
+<code>HttpApplication</code>, donde se originan esos eventos en los que introduc&iacute;amos nuestro c&oacute;digo, es parte inseparable de 
+<code>System.Web</code>, y ya sabemos que uno de los principales objetivos de ASP.NET 5 es 
+<a href="http://www.variablenotfound.com/2014/12/quo-vadis-aspnet-mvc.html">desligarse por completo de este pesado lastre</a>. Pero hay algunos motivos estructurales m&aacute;s, que veremos a continuaci&oacute;n.
+<br />
+<br />En ASP.NET 5 las peticiones son conducidas a trav&eacute;s de una tuber&iacute;a (conocida como&nbsp;
+<em>pipeline</em>), por donde pasar&aacute;n tanto los datos enviados en la petici&oacute;n como la respuesta enviada de vuelta al cliente. En este 
+<em>pipeline</em> encontraremos “enganchados” una serie de componentes, llamados 
+<em>middlewares</em>, que tienen la capacidad de observar, capturar, procesar, e incluso alterar el contenido de las solicitudes y las respuestas conforme van pasando por el interior del pipeline. 
+<br />
+<br />Hay middlewares destinados a realizar tareas relativamente peque&ntilde;as como almacenar cierta informaci&oacute;n de la petici&oacute;n o respuesta en un log o mostrar p&aacute;ginas de error personalizadas, pero en el pipeline tambi&eacute;n podemos encontrar componentes de mucho m&aacute;s calado e incluso frameworks completos, como el propio framework MVC o SignalR.
+<br />
+<br />Pero lo interesante es que, a diferencia del monol&iacute;tico ASP.NET cl&aacute;sico (previos al 5), estos middlewares son todos opcionales y en nuestras aplicaciones instalaremos s&oacute;lo los que vayamos a necesitar. En el siguiente diagrama se muestra un ejemplo de pipeline configurado con tres middlewares destinados a una tarea espec&iacute;fica (
+<i>logging</i>, tratamiento de errores y autorizaci&oacute;n), el framework MVC, y finalmente nuestra aplicaci&oacute;n:
+<br />
+<img alt="ASP.NET 5 pipeline example" src="http://lh3.ggpht.com/-mp4agGt22ec/VM5prxOJnbI/AAAAAAAADw0/ddN1Z-OqaQI/image%25255B6%25255D.png?imgmax=800" height="437" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET 5 pipeline example" width="690" />
+<br />Los middlewares observan continuamente toda la informaci&oacute;n que circula a trav&eacute;s del pipeline en sentido ascendente (peticiones) y descendente (respuestas) y a cada uno de ellos, en el orden en que se encuentran, se les da la oportunidad de realizar las siguientes acciones:
+<br />
+<ul>
+ <li>Ejecutar una tarea y despu&eacute;s permitir que la petici&oacute;n contin&uacute;e su andadura por el pipeline. Por ejemplo, un middleware puede guardar en un log algunos datos de la petici&oacute;n y pasar el control al siguiente m&oacute;dulo en el pipeline, de forma que el proceso siga adelante. <br />&nbsp;</li>
+ <li>Procesar directamente la petici&oacute;n y retornar la respuesta, como ocurrir&iacute;a con el framework ASP.NET MVC que vemos al final del pipeline<em> </em>en el diagrama anterior. La petici&oacute;n llegar&iacute;a al mismo, &eacute;ste ejecutar&iacute;a nuestra aplicaci&oacute;n, y el resultado ser&iacute;a enviado de vuelta, de nuevo a trav&eacute;s del pipeline para que otros middlewares puedan procesarlo. <br />&nbsp;</li>
+ <li>Cortocircuitar el proceso y enviar un retorno personalizado. Por ejemplo, el middleware de autorizaci&oacute;n podr&iacute;a realizar una comprobaci&oacute;n de seguridad sobre la petici&oacute;n, y llegado el caso, directamente retornara una redirecci&oacute;n a la p&aacute;gina de login sin dar la posibilidad de que se ejecuten otros m&oacute;dulos posicionados posteriormente en el pipeline. <br />&nbsp;</li>
+ <li>Dejar que el resto de m&oacute;dulos se ejecuten y tomar el control cuando pase la&nbsp; respuesta a la petici&oacute;n, observ&aacute;ndola, post-proces&aacute;ndola, o sustituy&eacute;ndola por otra. Por ejemplo, en el diagrama anterior tendr&iacute;amos un middleware de gesti&oacute;n de errores examinando los resultados retornados al cliente, sustituyendo las respuestas con un HTTP 500 por una p&aacute;gina de error personalizada. </li>
+</ul>Observad que todo va enganchado al pipeline y act&uacute;a de la misma forma, incluso los frameworks de cierto tama&ntilde;o como ASP.NET MVC. Bueno, salvo nuestra aplicaci&oacute;n, porque est&aacute; construida sobre un marco de trabajo que nos a&iacute;sla de detalles de menor nivel.
+<br />
+<br />Muy bien, &iquest;pero y qu&eacute; tiene que ver todo esto con mi desaparecido Global.asax? Bueno, pues un poco s&iacute; ;) 
+<br />
+<br />En primer lugar, este enfoque requiere de la existencia de un punto de arranque de la aplicaci&oacute;n, entre otras cosas porque en alg&uacute;n sitio hay que configurar el pipeline, es decir, introducir en &eacute;l los middlewares que vamos a usar en nuestra aplicaci&oacute;n. 
+<br />
+<br />Y ah&iacute; es donde entra en juego 
+<strong>la clase <code>Startup</code></strong>, introducida como 
+<a href="http://www.variablenotfound.com/2013/10/owin-y-katana-iv-startup-y-configuration.html">clase de inicializaci&oacute;n de OWIN/Katana</a> en MVC 5, Web API 2 o SignalR 2, como 
+<strong>el nuevo punto de entrada de nuestras aplicaciones web</strong> ASP.NET. El siguiente c&oacute;digo muestra una clase 
+<code>Startup</code> b&aacute;sica, cuyo m&eacute;todo 
+<code>Configure()</code>, invocado autom&aacute;ticamente por la infraestructura de ASP.NET, a&ntilde;ade al pipeline un middleware para gestionar errores, otro para permitir el acceso a contenidos est&aacute;ticos del sistema de archivos (css, js, html...), y finalmente el framework MVC:
+<br />
+<br />
+<img alt="" src="http://lh6.ggpht.com/-517ovxI668w/VM5psXtydyI/AAAAAAAADw4/GHXnV_6PHb4/image%25255B16%25255D.png?imgmax=800" height="277" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="529" />
+<br />
+<br />Por tanto, si queremos incluir c&oacute;digo que se ejecute al arrancar la aplicaci&oacute;n, la clase 
+<code>Startup</code>, y m&aacute;s concretamente su m&eacute;todo 
+<code>Configure()</code>, ser&aacute; el sitio correcto para ello. De esta forma supliremos la ausencia del Global.asax y su evento 
+<code>Application_Start()</code>. Por cierto, la representaci&oacute;n gr&aacute;fica del pipeline configurado anteriormente ser&iacute;a algo as&iacute;:
+<br />
+<img alt="ASP.NET 5 pipeline example" src="http://lh5.ggpht.com/-wILbgu_s1Y0/VM5pszsPdZI/AAAAAAAADxE/vmPW7SJlCCs/image%25255B22%25255D.png?imgmax=800" height="368" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET 5 pipeline example" width="548" />
+<br />
+<br />Por otra parte, esta estructura modular en la que se basa el nuevo funcionamiento de ASP.NET, el pipeline en el que cada aplicaci&oacute;n instala los middlewares que necesita, hace que el Global.asax o un componente similar que concentre la mayor&iacute;a de eventos generados durante el proceso de las peticiones deje totalmente de tener sentido, porque 
+<strong>no existe un punto centralizado en el que dichos eventos sean gestionados</strong>.
+<br />
+<br />Por ejemplo, si se produce un error en alg&uacute;n momento del proceso de la petici&oacute;n, ser&aacute; un middleware el encargado de procesarlo. Si un usuario inicia una sesi&oacute;n (el cl&aacute;sico 
+<code>Session_Start()</code>del Global.asax) ser&aacute; el middleware encargado de proveer el servicio de sesi&oacute;n el que deba informar de estos eventos, o si queremos simplemente realizar alguna acci&oacute;n al principio y al final de cada petici&oacute;n, tendremos que implementar un middleware y posicionarlo al comienzo del pipeline, para que procese antes que otros las peticiones entrantes y procese despu&eacute;s de todos los dem&aacute;s los resultados retornados.
+<br />
+<br />As&iacute;, el c&oacute;digo que introduc&iacute;amos anteriormente en el&nbsp;
+<code>Global.asax</code>&nbsp;en eventos como los cl&aacute;sicos&nbsp;
+<code>Application_BeginRequest()</code>&nbsp;o&nbsp;
+<code>Application_Error()</code>&nbsp;pasar&aacute;n a ser middlewares personalizados, o configuraciones espec&iacute;ficas de los middlewares que permitan especificar callbacks cuando alguno de los eventos se produzcan.
+<br />
+<br />En resumen, aunque seguro que alguna vez echaremos de menos las soluciones tan sencillas y directas que nos ofrec&iacute;a el Global.asax en distintos escenarios, con ASP.NET 5 vamos a poder continuar haciendo lo mismo, incluso mucho m&aacute;s, gracias a su arquitectura modular. 
+<br />
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=M1mVvLgylio:8Pkc_wYmqDA:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=M1mVvLgylio:8Pkc_wYmqDA:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=M1mVvLgylio:8Pkc_wYmqDA:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=M1mVvLgylio:8Pkc_wYmqDA:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/M1mVvLgylio" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax" st_title="ASPNET 5, ¿dónde está mi Global.asax? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1421,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
