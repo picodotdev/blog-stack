@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
+      "title" : "Disponible KDE Aplicaciones 14.12.2"
+    },
+    {
       "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
       "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
     },
@@ -11,12 +15,20 @@ define("app/sources/blogstack", [], function() {
       "title" : "Mi camiseta de DuckDuckGo !!"
     },
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
+      "title" : "Lanzado digiKam Software Collection 4.7"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
       "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
     },
     {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
       "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/digikam-recipes-4-3-1-listo-para-su-descarga",
+      "title" : "DigiKam Recipes 4.3.1 listo para su descarga"
     },
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
       "title" : "KGoldRunner, el clásico  de KDE"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript",
-      "title" : "Internacionalización (i18n) en Javascript"
-    },
-    {
-      "url" : "/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables",
-      "title" : "Generar URLs semánticas y amigables"
-    },
-    {
-      "url" : "/post/elblogdeadrianarroyo/2015/01/convertir-a-haiku-en-rolling-release",
-      "title" : "Convertir a Haiku en rolling release"
     }
   ]
 }

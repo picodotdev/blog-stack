@@ -3,6 +3,18 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
+      "title" : "Disponible KDE Aplicaciones 14.12.2"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
+      "title" : "Lanzado digiKam Software Collection 4.7"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/digikam-recipes-4-3-1-listo-para-su-descarga",
+      "title" : "DigiKam Recipes 4.3.1 listo para su descarga"
+    },
+    {
       "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
       "title" : "KGoldRunner, el clásico  de KDE"
     },
@@ -69,18 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
       "title" : "Disponible KDE Aplicaciones 14.12.1"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/lanzada-la-beta-de-plasma-5-2",
-      "title" : "Lanzada la beta de Plasma 5.2"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/cursores-breeze-las-novedades-para-plasma-5",
-      "title" : "Cursores Breeze: las novedades para Plasma 5"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-nvidia-optimus-en-linux-mint-17",
-      "title" : "Cómo instalar nvidia optimus en Linux Mint 17"
     }
   ]
 }
