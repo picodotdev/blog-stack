@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
+      "title" : "Ejemplo PhoneGAP con Node.js."
+    },
+    {
       "url" : "/post/arquitecturajava/2015/01/que-es-cors",
       "title" : "¿Que es CORS ?"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
       "title" : "Java 8 Date Time API"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-httpsession-timeout",
-      "title" : "Java HttpSession Timeout"
     }
   ]
 }

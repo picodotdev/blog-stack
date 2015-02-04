@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
+      "title" : "Ejemplo PhoneGAP con Node.js."
+    },
+    {
       "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
       "title" : "Disponible KDE Aplicaciones 14.12.2"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/que-le-pasa-a-ubuntu",
       "title" : "¿Que le pasa a Ubuntu?"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
-      "title" : "KGoldRunner, el clásico  de KDE"
     }
   ]
 }
