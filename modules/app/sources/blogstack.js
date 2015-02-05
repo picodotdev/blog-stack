@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2015/02/video-experimento-con-espruino",
+      "title" : "Vídeo: Experimento con Espruino"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
       "title" : "Nuevo año, nuevo tema para el blog"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
-      "title" : "1.000.000 de visitas al blog! Gracias!!"
     }
   ]
 }

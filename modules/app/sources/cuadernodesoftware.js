@@ -3,6 +3,10 @@ define("app/sources/cuadernodesoftware", [], function() {
   "name" : "Cuaderno de software",
   "posts" : [
     {
+      "url" : "/post/cuadernodesoftware/2015/02/video-experimento-con-espruino",
+      "title" : "Vídeo: Experimento con Espruino"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2014/12/por-que-moverme",
       "title" : "¿Por qué moverme?"
     },
@@ -77,10 +81,6 @@ define("app/sources/cuadernodesoftware", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2014/06/autonomia-maestria-y-proposito-hay-que-ganarselos",
       "title" : "Autonomía, maestría y propósito: hay que ganárselos"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2014/05/home-inventory-productividad",
-      "title" : "Home Inventory \u2013 Productividad"
     }
   ]
 }
