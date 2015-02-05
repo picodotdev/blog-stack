@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
+      "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
       "title" : "Ejemplo PhoneGAP con Node.js."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
       "title" : "Fechas y usos horarios en Java"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/que-le-pasa-a-ubuntu",
-      "title" : "¿Que le pasa a Ubuntu?"
     }
   ]
 }

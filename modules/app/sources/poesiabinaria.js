@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
+      "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
       "title" : "Nuevo año, nuevo tema para el blog"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/02/concurrencia-cuando-varios-hilos-threads-pelean-por-el-acceso-a-un-recurso-ejemplos-en-c",
       "title" : "Concurrencia, cuando varios hilos (threads) pelean por el acceso a un recurso [ejemplos en C]"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/02/ci-xxv-nueva-web-de-renfe-vacuna-vih-clickable-paper-qr-penalizacion-google-lightworks-en-linux-y-mas",
-      "title" : "CI XXV: Nueva web de Renfe, vacuna VIH, clickable paper, QR, penalización Google, Lightworks en Linux y más"
     }
   ]
 }
