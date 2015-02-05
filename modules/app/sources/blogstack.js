@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
+      "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
       "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
       "title" : "Como iniciar sesion con Cairo Dock sin Unity"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java",
-      "title" : "Fechas y usos horarios en Java"
     }
   ]
 }

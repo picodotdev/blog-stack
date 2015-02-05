@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
+      "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
       "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/02/cancelando-y-reanudando-una-tarea-con-timer-y-timertask-en-java",
       "title" : "Cancelando y reanudando una tarea con Timer y TimerTask en Java"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/02/concurrencia-cuando-varios-hilos-threads-pelean-por-el-acceso-a-un-recurso-ejemplos-en-c",
-      "title" : "Concurrencia, cuando varios hilos (threads) pelean por el acceso a un recurso [ejemplos en C]"
     }
   ]
 }
