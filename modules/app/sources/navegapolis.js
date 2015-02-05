@@ -3,6 +3,10 @@ define("app/sources/navegapolis", [], function() {
   "name" : "Navegapolis",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2015/02/cuestionarios-para-autoevaluacion-cmm-y-cmmi",
+      "title" : "Cuestionarios para autoevaluación CMM y CMMI"
+    },
+    {
       "url" : "/post/navegapolis/2015/01/scrum-funciona-con-capacidad-trabajo-y-compromiso",
       "title" : "Scrum funciona con capacidad, trabajo y compromiso."
     },

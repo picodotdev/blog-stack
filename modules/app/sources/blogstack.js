@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/navegapolis/2015/02/cuestionarios-para-autoevaluacion-cmm-y-cmmi",
+      "title" : "Cuestionarios para autoevaluación CMM y CMMI"
+    },
+    {
       "url" : "/post/cuadernodesoftware/2015/02/video-experimento-con-espruino",
       "title" : "Vídeo: Experimento con Espruino"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
       "title" : "Featuritis en lenguajes de programación"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/nuevo-ano-nuevo-tema-para-el-blog",
-      "title" : "Nuevo año, nuevo tema para el blog"
     }
   ]
 }
