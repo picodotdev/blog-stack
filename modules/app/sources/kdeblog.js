@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
+      "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
       "title" : "Disponible KDE Aplicaciones 14.12.2"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
       "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/disponible-kde-aplicaciones-14-12-1",
-      "title" : "Disponible KDE Aplicaciones 14.12.1"
     }
   ]
 }

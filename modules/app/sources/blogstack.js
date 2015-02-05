@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
+      "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
       "title" : "Cómo limitar el tiempo de sesión ssh"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/02/redis-base-de-datos-no-relacional",
       "title" : "Redis, base de datos no relacional"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
-      "title" : "Filtros asíncronos en MVC 6"
     }
   ]
 }
