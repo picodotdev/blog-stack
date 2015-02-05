@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
+      "title" : "Las bases refrigeradoras de los portatiles"
+    },
+    {
+      "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
+      "title" : "Convertir fechas y husos horarios en Java"
+    },
+    {
       "url" : "/post/navegapolis/2015/02/cuestionarios-para-autoevaluacion-cmm-y-cmmi",
       "title" : "Cuestionarios para autoevaluación CMM y CMMI"
     },
@@ -25,10 +33,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
       "title" : "Cómo limitar el tiempo de sesión ssh"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
-      "title" : "Convertir fechas y husos horarios en Java"
     },
     {
       "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-185",
       "title" : "Enlaces interesantes 185"
-    },
-    {
-      "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
-      "title" : "Featuritis en lenguajes de programación"
     }
   ]
 }

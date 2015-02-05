@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
+      "title" : "Las bases refrigeradoras de los portatiles"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
       "title" : "Se acercan cambios :D"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
-      "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
     }
   ]
 }
