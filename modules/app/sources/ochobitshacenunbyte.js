@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
+      "title" : "Cómo limitar el tiempo de sesión ssh"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
       "title" : "Crear una base de datos MySQL en GNU Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
       "title" : "Qué es y cómo se instala build-essentials"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare",
-      "title" : "Controla los medios con emshare"
     }
   ]
 }

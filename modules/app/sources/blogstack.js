@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
+      "title" : "Cómo limitar el tiempo de sesión ssh"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
       "title" : "Convertir fechas y husos horarios en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6",
       "title" : "Filtros asíncronos en MVC 6"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
-      "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
     }
   ]
 }
