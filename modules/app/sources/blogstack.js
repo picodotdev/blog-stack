@@ -3,8 +3,16 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
+      "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
       "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
+    },
+    {
+      "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
+      "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
     },
     {
       "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
@@ -17,10 +25,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
       "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
-      "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
     },
     {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/1-de-visitas-al-blog-gracias",
       "title" : "1.000.000 de visitas al blog! Gracias!!"
-    },
-    {
-      "url" : "/post/pledin/2015/02/redis-base-de-datos-no-relacional",
-      "title" : "Redis, base de datos no relacional"
     }
   ]
 }

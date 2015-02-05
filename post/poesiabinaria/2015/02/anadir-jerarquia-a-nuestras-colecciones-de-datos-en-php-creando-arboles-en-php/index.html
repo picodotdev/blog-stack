@@ -1,4 +1,4 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php"><span itemprop="headline">Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/php"><img title="php" alt="php" src="/assets/images/labels/php.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2015/02/jerarquia-en-arrays-php/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-05T09:10" itemprop="datePublished">Publicado el jueves, 05 de febrero de 2015 a las 09:10 UTC</span></div><div><span>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php"><span itemprop="headline">Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/php"><img title="php" alt="php" src="/assets/images/labels/php.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2015/02/jerarquia-en-arrays-php/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-05T16:10" itemprop="datePublished">Publicado el jueves, 05 de febrero de 2015 a las 16:10 UTC</span></div><div><span>
 Etiquetado como
 fotos, peticiones, elementos, jerarquia, complejidad, rendimiento, <a href="/label/php"><span itemprop="articleSection">php</span></a>, arboles, datos, base, coleccion, buildtree, general, categorias</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php" st_title="Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNS8wMi8xNDcyNDE5NzgwMF9jMDJiNzk5ZDQ5X2suanBn"><img title="14724197800_c02b799d49_k" src="http://totaki.com/poesiabinaria/wp-content/uploads/2015/02/14724197800_c02b799d49_k-745x558.jpg" alt="" width="745" height="558" /></a></p> 
 <p>Es una pr&aacute;ctica muy com&uacute;n categorizar nuestros. Hacer que existan categor&iacute;as/sub-categor&iacute;as/sub-sub-categor&iacute;as sin l&iacute;mite al igual que directorios o carpetas hay en nuestro ordenador necesitamos tener todo clasificado. Es decir, queremos introducir jerarqu&iacute;a en nuestros datos, hacer que unos campos dependan de otros.<br /> Pero cuando guardamos la informaci&oacute;n en base de datos, normalmente se guardar&aacute;n en una tabla con dos dimensiones, por lo que perdemos esa sensaci&oacute;n de que hay unos datos dentro de otros. Lo normal en estos casos, es que en cada fila de nuestra tabla haya un campo extra que apunta al identificador de la entrada que establecemos como padre.</p> 
@@ -344,110 +344,110 @@ fotos, peticiones, elementos, jerarquia, complejidad, rendimiento, <a href="/lab
      </div></td>
     <td>
      <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      &lt;?php
+      &lt;!--?php &lt;/p--&gt;
       <br /> 
       <br /> $ex = 
       <a href="http://www.php.net/array">array</a>(
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 1,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'G&eacute;nero',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 0),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 2,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'T&eacute;cnica',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 0),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 3,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Prehistoria',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 7),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 4,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Edad antigua',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 7),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 7,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Hist&oacute;rica',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 1),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 5,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; '&Oacute;leo',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 2),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 6,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Retrato',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 1),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 8,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Soporte',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 0),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 9,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Lienzo',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 8),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 10,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Edad media',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 7),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 11,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Paisaje',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 1),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 12,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Bodeg&oacute;n',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 1),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 13,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Cera',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 2),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 14,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Acuarela',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 2),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 15,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Papel',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 8),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 16,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Vidrio',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 8),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 17,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Edad moderna',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 7),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 
-      <a href="http://www.php.net/array">array</a>('id' =&gt; 18,
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'nombre' =&gt; 'Edad contempor&aacute;nea',
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'parentId' =&gt; 7),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; );
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 1,
+      <br /> 'nombre' =&amp;gt; 'G&eacute;nero',
+      <br /> 'parentId' =&amp;gt; 0),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 2,
+      <br /> 'nombre' =&amp;gt; 'T&eacute;cnica',
+      <br /> 'parentId' =&amp;gt; 0),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 3,
+      <br /> 'nombre' =&amp;gt; 'Prehistoria',
+      <br /> 'parentId' =&amp;gt; 7),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 4,
+      <br /> 'nombre' =&amp;gt; 'Edad antigua',
+      <br /> 'parentId' =&amp;gt; 7),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 7,
+      <br /> 'nombre' =&amp;gt; 'Hist&oacute;rica',
+      <br /> 'parentId' =&amp;gt; 1),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 5,
+      <br /> 'nombre' =&amp;gt; '&Oacute;leo',
+      <br /> 'parentId' =&amp;gt; 2),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 6,
+      <br /> 'nombre' =&amp;gt; 'Retrato',
+      <br /> 'parentId' =&amp;gt; 1),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 8,
+      <br /> 'nombre' =&amp;gt; 'Soporte',
+      <br /> 'parentId' =&amp;gt; 0),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 9,
+      <br /> 'nombre' =&amp;gt; 'Lienzo',
+      <br /> 'parentId' =&amp;gt; 8),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 10,
+      <br /> 'nombre' =&amp;gt; 'Edad media',
+      <br /> 'parentId' =&amp;gt; 7),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 11,
+      <br /> 'nombre' =&amp;gt; 'Paisaje',
+      <br /> 'parentId' =&amp;gt; 1),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 12,
+      <br /> 'nombre' =&amp;gt; 'Bodeg&oacute;n',
+      <br /> 'parentId' =&amp;gt; 1),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 13,
+      <br /> 'nombre' =&amp;gt; 'Cera',
+      <br /> 'parentId' =&amp;gt; 2),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 14,
+      <br /> 'nombre' =&amp;gt; 'Acuarela',
+      <br /> 'parentId' =&amp;gt; 2),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 15,
+      <br /> 'nombre' =&amp;gt; 'Papel',
+      <br /> 'parentId' =&amp;gt; 8),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 16,
+      <br /> 'nombre' =&amp;gt; 'Vidrio',
+      <br /> 'parentId' =&amp;gt; 8),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 17,
+      <br /> 'nombre' =&amp;gt; 'Edad moderna',
+      <br /> 'parentId' =&amp;gt; 7),
+      <br /> 
+      <a href="http://www.php.net/array">array</a>('id' =&amp;gt; 18,
+      <br /> 'nombre' =&amp;gt; 'Edad contempor&aacute;nea',
+      <br /> 'parentId' =&amp;gt; 7),
+      <br /> );
       <br /> 
       <br /> function buildTree($data, $rootId=0)
       <br /> {
-      <br /> &nbsp; $tree = 
-      <a href="http://www.php.net/array">array</a>('children' =&gt; 
+      <br /> $tree = 
+      <a href="http://www.php.net/array">array</a>('children' =&amp;gt; 
       <a href="http://www.php.net/array">array</a>(),
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; 'root' =&gt; 
+      <br /> 'root' =&amp;gt; 
       <a href="http://www.php.net/array">array</a>()
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; );
-      <br /> &nbsp; foreach ($data as $ndx=&gt;$node)
-      <br /> &nbsp; &nbsp; {
-      <br /> &nbsp; &nbsp; &nbsp; $id = $node['id'];
-      <br /> &nbsp; &nbsp; &nbsp; /* Puede que exista el children creado si los hijos entran antes que el padre */
-      <br /> &nbsp; &nbsp; &nbsp; $node['children'] = (
+      <br /> );
+      <br /> foreach ($data as $ndx=&amp;gt;$node)
+      <br /> {
+      <br /> $id = $node['id'];
+      <br /> /* Puede que exista el children creado si los hijos entran antes que el padre */
+      <br /> $node['children'] = (
       <a href="http://www.php.net/isset">isset</a>($tree['children'][$id]))?$tree['children'][$id]['children']:
       <a href="http://www.php.net/array">array</a>();
-      <br /> &nbsp; &nbsp; &nbsp; $tree['children'][$id] = $node;
+      <br /> $tree['children'][$id] = $node;
       <br /> 
-      <br /> &nbsp; &nbsp; &nbsp; if ($node['parentId'] == $rootId)
-      <br /> &nbsp; &nbsp; $tree['root'][$id] = &amp;$tree['children'][$id];
-      <br /> &nbsp; &nbsp; &nbsp; else
-      <br /> &nbsp; &nbsp; {
-      <br /> &nbsp; &nbsp; &nbsp; $tree['children'][$node['parentId']]['children'][$id] = &amp;$tree['children'][$id];
-      <br /> &nbsp; &nbsp; }
+      <br /> if ($node['parentId'] == $rootId)
+      <br /> $tree['root'][$id] = &amp;amp;$tree['children'][$id];
+      <br /> else
+      <br /> {
+      <br /> $tree['children'][$node['parentId']]['children'][$id] = &amp;amp;$tree['children'][$id];
+      <br /> }
       <br /> 
-      <br /> &nbsp; &nbsp; }
-      <br /> &nbsp; return $tree;
+      <br /> }
+      <br /> return $tree;
       <br /> }
       <br /> 
       <br /> 

@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
+      "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
       "title" : "Como iniciar sesion con Cairo Dock sin Unity"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/como-mover-una-ventana-que-no-podemos-mover-solo-con-el-raton-en-ubuntu",
       "title" : "Como mover una ventana que no podemos mover solo con el ratón en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/mi-recomendacion-para-hacer-las-particiones-para-instalar-ubuntu",
-      "title" : "Mi recomendacion para hacer las particiones para instalar Ubuntu"
     }
   ]
 }
