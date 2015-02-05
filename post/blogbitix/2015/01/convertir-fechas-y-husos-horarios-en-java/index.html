@@ -1,0 +1,179 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Convertir fechas y husos horarios en Java | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java"><span itemprop="headline">Convertir fechas y husos horarios en Java</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2015/01/convertir-fechas-y-husos-horarios-en-java/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-05T11:00" itemprop="dateModified">Actualizado el jueves, 05 de febrero de 2015 a las 11:00 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a>, planeta-codigo, <a href="/label/software"><span itemprop="articleSection">software</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" />
+ <br /> 
+</div> 
+<p>Aunque en muchas aplicaciones no ser&aacute; necesario si desarrollamos una aplicaci&oacute;n que trabaje con diferentes paises y fechas probablemente deberemos tener en cuenta m&uacute;ltiples <a href="http://es.wikipedia.org/wiki/Huso_horario">husos horarios</a> o zonas horarias. Seg&uacute;n estos husos horarios, por ejemplo, en el momento que son las 12:00 en Madrid hora local no son las 12:00 en Buenos Aires, si dos ciudades emplean diferente huso horario hay que tenerlo en cuenta para obtener la hora local en cada ciudad.</p> 
+<p>Hasta la versi&oacute;n 7 de Java el trabajo con fechas era complicado con las clases proporcionadas <a href="http://docs.oracle.com/javase/7/docs/api/java/util/GregorianCalendar.html">GregorianCalendar</a> y <a href="http://docs.oracle.com/javase/7/docs/api/java/sql/Date.html">Date</a>, una alternativa a la API de Java para el manejo de fechas hasta esta versi&oacute;n era emplear la librer&iacute;a <a href="http://www.joda.org/joda-time/">JodaTime</a>. JodaTime ofrece una API mejor y m&aacute;s completa para el manejo de fechas hasta la versi&oacute;n de Java 7. Con la <a href="http://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html">nueva API para fechas de Java 8</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/">entre otras novedades inclu&iacute;das</a>, la situaci&oacute;n ha mejorado pero hasta que tengamos oportunidad de usar esta versi&oacute;n puede que pase bastante tiempo y sigamos obligados a usar JodaTime si tenemos posibilidad de usar esta librer&iacute;a o usar directamente la API de Java 7 si no podemos.</p> 
+<p>Otro aspecto que debemos tener en cuenta en una aplicaci&oacute;n es en que huso horario vamos a guardar las fechas en la base de datos, para simplificar lo recomendable es guardar siempre las fechas en el mismo huso horario. Podemos elegir cualquier huso horario quiz&aacute; la local del lugar donde estamos o una mas gen&eacute;rica como UTC.</p> 
+<p>Podemos convertir la fecha de un huso horario a otro ya sea usando JodaTime, Java 7 o Java 8, por ejemplo &iquest;si en Madrid (Espa&ntilde;a) son las 12:00 que hora ser&iacute;a en ese momento en Buenos Aires (Argentina)? El c&oacute;digo que podemos emplear en Java para cambiar de zona horaria y averiguarlo es el siguiente:</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/d496b20ddb45510694f4.js?file=Main.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.timezone;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// JodaTime
+		{
+			DateTime fecha = new DateTime(2015, 1, 31, 12, 00, DateTimeZone.forID(&quot;Europe/Madrid&quot;));
+
+			System.out.println(&quot;JodaTime&quot;);
+			System.out.printf(&quot;Hora Madrid:\t\t %s\n&quot;, fecha);
+			System.out.printf(&quot;Hora Buenos Aires:\t %s\n&quot;, fecha.withZone(DateTimeZone.forID(&quot;America/Argentina/Buenos_Aires&quot;)));
+		}
+		
+		// Java 8
+		{
+			ZonedDateTime fecha = ZonedDateTime.of(2015, 1, 31, 12, 00, 00, 00, ZoneId.of(&quot;Europe/Madrid&quot;));
+
+			System.out.println(&quot;\nJava 8&quot;);
+			System.out.printf(&quot;Hora Madrid:\t\t %s\n&quot;, fecha);
+			System.out.printf(&quot;Hora Buenos Aires:\t %s\n&quot;, fecha.withZoneSameInstant(ZoneId.of(&quot;America/Argentina/Buenos_Aires&quot;)));			
+		}
+
+		// Java 7
+		{
+			Calendar calendar = new GregorianCalendar();
+			calendar.set(2015, 0, 31, 12, 0, 0);
+
+			SimpleDateFormat sdfMadrid = new SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ssXXX&quot;);
+			sdfMadrid.setTimeZone(TimeZone.getTimeZone(&quot;Europe/Madrid&quot;));
+
+			SimpleDateFormat sdfArgentina = new SimpleDateFormat(&quot;yyyy-MM-dd'T'HH:mm:ssXXX&quot;);
+			sdfArgentina.setTimeZone(TimeZone.getTimeZone(&quot;America/Argentina/Buenos_Aires&quot;));
+
+			System.out.println(&quot;\nJava 7&quot;);
+			System.out.printf(&quot;Hora Madrid:\t\t %s\n&quot;, sdfMadrid.format(calendar.getTime()));
+			System.out.printf(&quot;Hora Buenos Aires:\t %s\n&quot;, sdfArgentina.format(calendar.getTime()));
+		}
+	}
+}</code></pre>
+ </noscript>
+</div> 
+<div>
+ <script src="https://gist.github.com/picodotdev/d496b20ddb45510694f4.js?file=output.txt"></script> 
+ <noscript>
+  <pre><code>JodaTime
+Hora Madrid:		 2015-01-31T12:00:00.000+01:00
+Hora Buenos Aires:	 2015-01-31T08:00:00.000-03:00
+
+Java 8
+Hora Madrid:		 2015-01-31T12:00+01:00[Europe/Madrid]
+Hora Buenos Aires:	 2015-01-31T08:00-03:00[America/Argentina/Buenos_Aires]
+
+Java 7
+Hora Madrid:		 2015-01-31T12:00:00+01:00
+Hora Buenos Aires:	 2015-01-31T08:00:00-03:00</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Java 7 requiere unas pocas l&iacute;neas de c&oacute;digo fuente m&aacute;s y en este caso se hace usando un SimpleDateFormat, en el caso de JodaTime y Java 8 el c&oacute;digo es bastante similar.</p> 
+<p>El huso horario de Madrid es <em>Europe/Madrid</em> y el huso horario de Buenos Aires es <em>America/Argentina/Buenos_Aires</em> en el momento de escribir este art&iacute;culo Madrid tiene un desplazamiento respecto a UTC de +01:00 y Buenos Aires de +03:00 con lo que entre estas dos ciudades hay una diferencia de cuatro horas en tiempo local. Quiz&aacute; nos interese conocer el <a href="http://www.timeanddate.com/worldclock/">tiempo local actual en una ciudad</a> y con el <a href="http://www.timeanddate.com/worldclock/converter.html">conversor entre husos horarios</a> podemos comprobar que hemos programado correctamente la conversi&oacute;n en c&oacute;digo.</p> 
+<p>Finalmente, hay que tener en cuenta que los <a href="http://es.wikipedia.org/wiki/Horario_de_verano">horarios de verano</a> que se establecen en cada pa&iacute;s con la intenci&oacute;n de ajustar normalmente el horario a las horas de luz y de este modo ahorrar energ&iacute;a. Estos horarios de verano los establece cada pa&iacute;s y var&iacute;an m&aacute;s a menudo de lo que podemos creer, a veces son una cuesti&oacute;n pol&iacute;tica. En el JDK para actualizar estos horarios de verano debemos actualizar el JDK esperando que <a href="http://www.oracle.com/">Oracle</a> los haya actualizado debidamente o usar la herramienta <a href="http://www.oracle.com/us/technologies/java/tzupdater-readme-136440.html">Timezone Updater Tool</a>. El actualizar el JDK o usar la herramienta Timezone Updater Tool en un servidor para esto puede ser un problema o simplemente es algo que no controlamos como desarrolladores de la aplicaci&oacute;n por no estar el servidor bajo nuestro control, esta es otra ventaja de usar JodaTime ya que esta librer&iacute;a como dependencia del proyecto si est&aacute; bajo nuestro control y podemos ir actualizando la versi&oacute;n de la misma en la que los horarios de verano si est&aacute;n actualizados.</p> 
+<p>Referencia:<br /> <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html">Java 7 Date API</a><br /> <a href="http://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html">Java 8 Time API</a><br /> <a href="http://www.joda.org/joda-time/">JodaTime</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/03/novedades-y-nuevas-caracteristicas-de-java-8/">Novedades y nuevas caracter&iacute;sticas de Java 8</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java" st_title="Convertir fechas y husos horarios en Java | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "Convertir fechas y husos horarios en Java";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2015/01/convertir-fechas-y-husos-horarios-en-java/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1430,
+      "url" : "http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

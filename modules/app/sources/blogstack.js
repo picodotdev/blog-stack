@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
+      "title" : "Convertir fechas y husos horarios en Java"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
       "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/richard-stallman-software-libre-en-tu-ordenador-y-en-la-red",
       "title" : "Richard Stallman: \u201cSoftware libre en tu ordenador y en la red\u201d"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",
-      "title" : "Como iniciar sesion con Cairo Dock sin Unity"
     }
   ]
 }
