@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/localstorage-html5-y-lodash",
+      "title" : "LocalStorage HTML5 y LoDash"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
       "title" : "Ejemplo PhoneGAP con Node.js."
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
       "title" : "jQuery selectors y extensibilidad"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-8-date-time-api",
-      "title" : "Java 8 Date Time API"
     }
   ]
 }

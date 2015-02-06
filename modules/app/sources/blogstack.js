@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/localstorage-html5-y-lodash",
+      "title" : "LocalStorage HTML5 y LoDash"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
       "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
       "title" : "Crear una base de datos MySQL en GNU Linux"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-185",
-      "title" : "Enlaces interesantes 185"
     }
   ]
 }
