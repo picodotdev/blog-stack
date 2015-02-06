@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
+      "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
       "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
       "title" : "Cutegram para Linux, otro cliente de Telegram"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/ayuda-a-crear-los-iconos-breeze-de-plasma-5",
-      "title" : "Ayuda a crear los iconos Breeze de Plasma 5"
     }
   ]
 }

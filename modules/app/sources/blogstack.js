@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "LocalStorage HTML5 y LoDash"
     },
     {
+      "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
+      "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
       "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/gnu-health-en-opensuse-software-libre-al-servicio-de-las-personas",
       "title" : "GNU Health en openSUSE, Software libre al servicio de las personas"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux",
-      "title" : "Crear una base de datos MySQL en GNU Linux"
     }
   ]
 }
