@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/02/5-aniversario-del-blog",
+      "title" : "5º aniversario del blog"
+    },
+    {
       "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
       "title" : "Convertir fechas y husos horarios en Java"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/11/introduccion-a-ansible",
       "title" : "Introducción a Ansible"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/inicio-basico-de-docker",
-      "title" : "Inicio básico de Docker"
     }
   ]
 }
