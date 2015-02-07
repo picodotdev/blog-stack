@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/02/como-hacer-un-downgrade-de-un-paquete-en-arch-linux",
+      "title" : "Cómo hacer un «downgrade» de un paquete en Arch Linux"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
       "title" : "KDiamond, la versión KDE de Bejeweled"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
       "title" : "Lanzado digiKam Software Collection 4.7"
-    },
-    {
-      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
-      "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
     }
   ]
 }
