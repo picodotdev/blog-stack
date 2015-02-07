@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
+      "title" : "KDiamond, la versión KDE de Bejeweled"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
       "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
       "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/cutegram-para-linux-otro-cliente-de-telegram",
-      "title" : "Cutegram para Linux, otro cliente de Telegram"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
+      "title" : "KDiamond, la versión KDE de Bejeweled"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/5-aniversario-del-blog",
       "title" : "5º aniversario del blog"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
       "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/digikam-recipes-4-3-1-listo-para-su-descarga",
-      "title" : "DigiKam Recipes 4.3.1 listo para su descarga"
     }
   ]
 }
