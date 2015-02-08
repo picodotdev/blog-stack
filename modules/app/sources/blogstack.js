@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
+      "title" : "Finalizó la recaudación de fondos para GCompris"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/como-hacer-un-downgrade-de-un-paquete-en-arch-linux",
       "title" : "Cómo hacer un «downgrade» de un paquete en Arch Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
       "title" : "Mi camiseta de DuckDuckGo !!"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
-      "title" : "Lanzado digiKam Software Collection 4.7"
     }
   ]
 }

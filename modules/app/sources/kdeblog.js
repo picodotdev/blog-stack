@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
+      "title" : "Finalizó la recaudación de fondos para GCompris"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
       "title" : "KDiamond, la versión KDE de Bejeweled"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
       "title" : "OpenExpo vuelve a Barcelona"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/the-kde-end-of-year-2-14-recauda-22-885",
-      "title" : "The KDE End of Year 2014 recauda \u200a22\u2009885 \u20ac"
     }
   ]
 }
