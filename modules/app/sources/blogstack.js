@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/el-2-14-para-poesia-binaria",
+      "title" : "El 2014 para Poesía Binaria"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-186",
       "title" : "Enlaces interesantes 186"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
       "title" : "Ejemplo PhoneGAP con Node.js."
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
-      "title" : "Disponible KDE Aplicaciones 14.12.2"
     }
   ]
 }
