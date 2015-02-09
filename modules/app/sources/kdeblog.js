@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
+      "title" : "Fecha de lanzamiento de Krita 2.9"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
       "title" : "Finalizó la recaudación de fondos para GCompris"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
       "title" : "Kanagram para dos jugadores ya es una realidad"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/openexpo-vuelve-a-barcelona",
-      "title" : "OpenExpo vuelve a Barcelona"
     }
   ]
 }

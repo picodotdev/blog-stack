@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
+      "title" : "Fecha de lanzamiento de Krita 2.9"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/el-2-14-para-poesia-binaria",
       "title" : "El 2014 para Poesía Binaria"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
       "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/02/ejemplo-phonegap-con-node-js",
-      "title" : "Ejemplo PhoneGAP con Node.js."
     }
   ]
 }
