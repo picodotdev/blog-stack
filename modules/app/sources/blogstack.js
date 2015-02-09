@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
+      "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
       "title" : "Fecha de lanzamiento de Krita 2.9"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
       "title" : "Cómo limitar el tiempo de sesión ssh"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/un-hito-en-el-blog-256-2-8-me-gusta-en-facebook-y-otras-cosas-del-256",
-      "title" : "Un hito en el blog 256 = 2^8 Me gusta en Facebook y otras cosas del 256"
     }
   ]
 }

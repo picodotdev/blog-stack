@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
+      "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
+    },
+    {
       "url" : "/post/jsitech/2015/01/kali-nethunter",
       "title" : "Kali NetHunter"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
       "title" : "Protegiendo la Sección Admin de WordPress"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/aide-y-como-instalarlo-en-linux-centos-rhel-fedora",
-      "title" : "AIDE y como instalarlo en Linux CentOS/RHEL/Fedora"
     }
   ]
 }
