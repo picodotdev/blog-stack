@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas",
+      "title" : "NHibernate Avanzado: Proyecciones anidadas"
+    },
+    {
       "url" : "/post/koalite/2015/02/featuritis-en-lenguajes-de-programacion",
       "title" : "Featuritis en lenguajes de programación"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/09/reactjs-un-enfoque-diferente",
       "title" : "ReactJS: un enfoque diferente"
-    },
-    {
-      "url" : "/post/koalite/2014/09/no-subestimes-el-poder-de-un-log",
-      "title" : "No subestimes el poder de un log"
     }
   ]
 }

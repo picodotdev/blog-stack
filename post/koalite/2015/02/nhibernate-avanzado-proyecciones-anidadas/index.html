@@ -1,0 +1,176 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>NHibernate Avanzado: Proyecciones anidadas | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas"><span itemprop="headline">NHibernate Avanzado: Proyecciones anidadas</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/9iPPNHcihk4/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-09T05:06" itemprop="datePublished">Publicado el lunes, 09 de febrero de 2015 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+nhibernate, orm, development, <a href="/label/c"><span itemprop="articleSection">c</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Una de los argumentos m&aacute;s repetidos en contra de los ORMs es su falta de eficiencia, especialmente a la hora de hacer lecturas de grandes vol&uacute;menes de datos. </p> 
+<p>En realidad, esto suele estar provocado por un mal uso del ORM e intentar cargar muchas entidades en memoria para mostrar s&oacute;lo un par de datos de cada entidad, pero hay una manera f&aacute;cil de solucionar esto: usar proyecciones para cargar s&oacute;lo los datos que necesitamos. </p> 
+<p>Todos los ORMs que conozco tienen alg&uacute;n sistema para construir este tipo de proyecciones, pero cuando los datos no son completamente “planos”, la cosa se complica un poco. Con NHibernate podemos generar proyecciones anidadas, es decir, en las que un objeto tiene asociada una colecci&oacute;n de valores de una manera <em>relativamente</em> sencilla usando <code>IResultTransformer</code>.</p> 
+<p>Como esto no es algo que haga todo los d&iacute;as y la documentaci&oacute;n de NHibernate es como es (o sea, mala), en este post vamos a ver c&oacute;mo podemos conseguirlo y seguro que mi yo del futuro lo agradece en alg&uacute;n momento.</p> 
+<h3>Un modelo de ejemplo</h3> 
+<p>Supongamos que tenemos un modelo simplificado para un blog en el que tenemos las entidades <code>Post</code> y <code>Tag</code>, cada una con varias propiedades, y con una relaci&oacute;n muchos a muchos a entre ellas:</p> 
+<p><img src="http://blog.koalite.com/wp-content/uploads/post-tag.png" alt="Modelo de Entidades" width="436" height="206" /></p> 
+<p>Sobre este modelo, queremos obtener un resumen en el que aparezca el t&iacute;tulo del post y los tags asociados, es decir, queremos cargar algo parecido a esto:</p> 
+<pre>
+public class PostSummary
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string[] Tags { get; set; }
+}
+</pre> 
+<p>Para cargar los objetos <code>PostSummary</code> no podemos utilizar una proyecci&oacute;n directa, ya que cada objeto contiene, adem&aacute;s de informaci&oacute;n proyectada de la entidad <code>Post</code>, una colecci&oacute;n (un array en este caso) con informaci&oacute;n proyectada de la entidad <code>Tag</code>.</p> 
+<h3>Transfomers</h3> 
+<p>Los <code>Transformers</code> de NHibernate nos permite transformar resultado de una consulta en objetos, generalmente “tontos”, con la informaci&oacute;n de la consulta. NHibernate incluye de serie transformers para construir el objeto a partir de sus propiedades o a partir de su constructor. Ya hablamos un poco sobre ellos al <a href="http://blog.koalite.com/2012/06/carga-de-datos-con-nhibernate-vs-dapper/">comparar el rendimiento de NHibernate y Dapper para cargar datos</a>.</p> 
+<p>Si necesitamos algo m&aacute;s complicado, como en este caso, podemos crear nuestro propio transformer, que es una clase que debe implementar el siguiente interfaz:</p> 
+<pre>
+public interface IResultTransformer
+{
+    object TransformTuple(object[] tuple, string[] aliases);
+    IList TransformList(IList collection);
+}
+</pre> 
+<p>El primer m&eacute;todo, <code>TransformTuple</code>, se encargar&aacute; de generar un objeto a partir de la informaci&oacute;n obtenida de la consulta. Los par&aacute;metros son los valores devueltos en cada “fila” de la consulta, y los alias asociados a cada valor. El segundo m&eacute;todo, <code>TransformList</code>, nos permite manipular la colecci&oacute;n generada al ejecutar el primer m&eacute;todo sobre cada resultado de la consulta. </p> 
+<p>Puede parecer complicado, pero con un ejemplo veremos que no lo es tanto.</p> 
+<p>Para conseguir generar la proyecci&oacute;n que queremos hacer, podr&iacute;amos tener un <code>QueryObject</code> con esta pinta:</p> 
+<pre>
+public class PostSummaryQuery : IQuery&lt;IEnumerable&lt;PostSummary&gt;&gt;
+{
+    public IEnumerable&lt;PostSummary&gt; Execute(ISession session) 
+    {
+        return session.CreateSQLQuery(@&quot;
+            select p.Id, p.Name, t.Name
+            from Post p 
+                 inner join PostTag pt on p.Id = pt.PostId 
+                 inner join Tag t on pt.TagId = t.Id&quot;)
+            .SetResultTransformer(new PostSummaryResultTransformer())
+            .List&lt;PostSummary&gt;();
+    }
+
+    private class PostSummaryResultTransformer : IResutlTransformer
+    {
+        private class Row
+        {
+            public int PostId;
+            public string PostTitle;
+            public string TagName;
+        }
+
+        public object TransformTuple(object[] tuple, string[] aliases)
+        {
+            return new Row 
+            {
+                PostId = Convert.ToInt32(tuple[0]),
+                PostTitle = Convert.ToString(tuple[1]),
+                TagName = Convert.ToString(tuple[2])
+            };
+        }
+
+        public IList TransformList(IList collection)
+        {
+            return collection.Cast&lt;Row&gt;()
+                       .GroupBy(x =&gt; new {x.PostId, x.PostTitle})
+                       .Select(x =&gt; new PostSummary
+                       {
+                           Id = x.Key.PostId,
+                           Title = x.Key.PostTitle,
+                           Tags = x.Select(y =&gt; y.TagName).ToArray()
+                       }).ToArray();
+        }
+    }
+}
+</pre> 
+<p>Como v&eacute;is, en el m&eacute;todo <code>TransformTuple</code> estamos construyendo una estructura de datos auxiliar, el objeto <code>Row</code>, en que vamos procesando los resultados intermedios procedentes directamente de la consulta SQL, y en el m&eacute;todo <code>TransformList</code> realizamos una agrupaci&oacute;n en memoria para construir la estructura final de nuestra proyecci&oacute;n con la colecci&oacute;n de tags asociada a cada post.</p> 
+<h3>Resumen</h3> 
+<p>Los ORMs modernos incluyen muchas caracter&iacute;sticas que nos permiten obtener una buena eficiencia para la mayor&iacute;a de las situaciones que podamos encontrarnos. </p> 
+<p>Si eres de los que creen que <a href="http://blog.koalite.com/2014/04/por-que-sigo-usando-un-orm/" title="Por qu&eacute; sigo usando un ORM">usar un ORM aporta muchas ventajas</a> para desarrollar aplicaciones, es importante que conozcas este tipo de t&eacute;cnicas para minimizar el impacto en el rendimiento y conseguir un buen equilibrio entre la potencia del ORM y la velocidad de la aplicaci&oacute;n.</p> 
+<p>Desgraciadamente, en el caso de NHibernate la documentaci&oacute;n existente deja mucho que desear, estando muy repartida en distintos sitios y encontr&aacute;ndose en muchos casos desactualizada, por lo que no siempre es sencillo encontrar las mejores formas de resolver un problema.</p> 
+<p><strong>Posts relacionados:</strong></p>
+<ol> 
+ <li><a href="http://blog.koalite.com/2012/06/carga-de-datos-con-nhibernate-vs-dapper/" title="Carga de datos con NHibernate vs Dapper">Carga de datos con NHibernate vs Dapper</a></li> 
+ <li><a href="http://blog.koalite.com/2011/08/sql-server-ce-y-nhibernate-precision-y-escala-en-columnas-numeric/" title="SQL Server CE y NHibernate: Precisi&oacute;n y escala en columnas NUMERIC">SQL Server CE y NHibernate: Precisi&oacute;n y escala en columnas NUMERIC</a></li> 
+ <li><a href="http://blog.koalite.com/2011/08/modificar-la-configuracion-de-nhibernate-por-codigo/" title="Modificar la configuraci&oacute;n de NHibernate por c&oacute;digo">Modificar la configuraci&oacute;n de NHibernate por c&oacute;digo</a></li> 
+</ol>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/9iPPNHcihk4" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas" st_title="NHibernate Avanzado: Proyecciones anidadas | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1443,
+      "url" : "http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

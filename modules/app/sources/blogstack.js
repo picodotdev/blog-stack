@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas",
+      "title" : "NHibernate Avanzado: Proyecciones anidadas"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
       "title" : "Finalizó la recaudación de fondos para GCompris"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
       "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
-      "title" : "Mi camiseta de DuckDuckGo !!"
     }
   ]
 }
