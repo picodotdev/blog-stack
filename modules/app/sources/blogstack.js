@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-186",
+      "title" : "Enlaces interesantes 186"
+    },
+    {
       "url" : "/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas",
       "title" : "NHibernate Avanzado: Proyecciones anidadas"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
       "title" : "Disponible KDE Aplicaciones 14.12.2"
-    },
-    {
-      "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
-      "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
     }
   ]
 }
