@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
+      "title" : "Taller Metasploit Framework"
+    },
+    {
       "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
       "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
       "title" : "Reforzar la Seguridad de WordPress con WPHardening"
-    },
-    {
-      "url" : "/post/jsitech/2014/11/protegiendo-la-seccion-admin-de-wordpress",
-      "title" : "Protegiendo la Sección Admin de WordPress"
     }
   ]
 }

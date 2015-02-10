@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
+      "title" : "Taller Metasploit Framework"
+    },
+    {
       "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
       "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
       "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
-      "title" : "Cómo limitar el tiempo de sesión ssh"
     }
   ]
 }
