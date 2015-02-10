@@ -1,0 +1,240 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>La clase Startup en ASPNET 5 | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5"><span itemprop="headline">La clase Startup en ASPNET 5</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/desarrollo"><img title="desarrollo" alt="desarrollo" src="/assets/images/labels/desarrollo.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/lqGT-9HcblE/la-clase-startup-en-aspnet-5.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-10T08:35" itemprop="dateModified">Actualizado el martes, 10 de febrero de 2015 a las 08:35 UTC</span></div><div><span>
+Etiquetado como
+<a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a>, aspnet5, novedades</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET 5" src="http://lh4.ggpht.com/-qqqUMZtk2Y0/VNdsvihOLAI/AAAAAAAADyE/E7xgLnb3fMw/image7.png?imgmax=800" height="152" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET 5" width="193" />Hace poco habl&aacute;bamos del 
+<a href="http://www.variablenotfound.com/2015/02/aspnet-5-donde-esta-mi-globalasax.html">destierro del Global.asax en ASP.NET 5</a>, y de c&oacute;mo la clase 
+<code>Startup</code>, siguiendo la convenci&oacute;n establecida por este framework, era el lugar elegido para introducir c&oacute;digo de inicializaci&oacute;n.
+<br />
+<br />Pero adem&aacute;s del c&oacute;digo personalizado que podamos introducir, es donde, por defecto, se configuran aspectos tan importantes como los middlewares que guiar&aacute;n el proceso de las peticiones, o la inyecci&oacute;n de dependencias incluida de serie en el framework.
+<br />
+<br />En este post vamos a estudiar un poco m&aacute;s a fondo la clase de inicializaci&oacute;n de ASP.NET 5, y comenzaremos viendo qu&eacute; vamos a encontrar en ella, y las convenciones a las que hay que ce&ntilde;irse para que el entorno pueda inicializarse correctamente.
+<br />
+<h4>1. Convenciones de la clase Startup</h4>Cuando arranca una aplicaci&oacute;n web, los componentes de infraestructura de ASP.NET buscan esta clase en su ensamblado principal, produci&eacute;ndose un error si no se encuentra. Para que todo funcione bien esta clase de inicializaci&oacute;n debe cumplir una serie de requisitos que se describen a continuaci&oacute;n:
+<br />
+<ul>
+ <li>Debe llamarse <code>Startup</code>, y ser p&uacute;blica e instanciable. Puede encontrarse en cualquier espacio de nombres, aunque el sistema la localizar&aacute; m&aacute;s r&aacute;pidamente si est&aacute; en el espacio de nombres ra&iacute;z del proyecto (por ejemplo, <code>MyApp.StartUp</code>). <br />&nbsp; </li>
+ <li>Debe contener, como m&iacute;nimo, un m&eacute;todo llamado <code>Configure()</code> de tipo <code>void</code>, que es el que se ejecutar&aacute; justo al iniciar la aplicaci&oacute;n. <strong>Podr&iacute;amos decir que este m&eacute;todo el equivalente al cl&aacute;sico <code>Application_Start()</code> del Global.asax</strong>. y es donde configuraremos todos los aspectos b&aacute;sicos de la misma, como los middlewares que incluiremos en el pipeline.&nbsp; <br />&nbsp; </li>
+ <li>Opcionalmente, puede contener un m&eacute;todo llamado <code>ConfigureServices()</code>, que es donde se introducir&aacute; el c&oacute;digo de inicializaci&oacute;n espec&iacute;fico para el sistema de inyecci&oacute;n de dependencias. Lo explicaremos m&aacute;s adelante.</li>
+</ul>Por tanto, teniendo en cuenta las convenciones, el siguiente c&oacute;digo es una clase de inicializaci&oacute;n v&aacute;lida, aunque nuestra aplicaci&oacute;n no har&iacute;a nada porque no estamos introduciendo en el 
+<em>pipeline</em> ning&uacute;n 
+<em>middleware</em> para procesar las peticiones:
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-Uo4va6-SAM8/VNdswByZ2sI/AAAAAAAADyI/eZS4ShX6znA/image23.png?imgmax=800" height="116" title="" width="274" />
+<br />
+<h4>2. Configuraciones espec&iacute;ficas por entorno</h4>Existe una variante en el nombrado de la clase y sus m&eacute;todos que permite especificar distintas configuraciones de arranque en funci&oacute;n del nombre del entorno en el que estemos ejecutando la aplicaci&oacute;n. Los nombres de entorno son configurables, por ejemplo podemos tener un entorno llamado “development” para el desarrollo, otro llamado “release” para producci&oacute;n, “staging” para pruebas, etc.
+<br />
+<br />La forma de establecer el entorno activo en el servidor est&aacute; todav&iacute;a muy verde al encontrarse en desarrollo; la f&oacute;rmula m&aacute;s sencilla a d&iacute;a de hoy es establecer una variable de entorno a nivel de sistema llamada 
+<code>ASPNET_ENV</code> (o 
+<code>KRE_ENV</code> si estamos usando una versi&oacute;n beta anterior a la actual).
+<br />
+<br />
+<code>SET ASPNET_ENV=Release</code>
+<br />
+<br />En teor&iacute;a tambi&eacute;n se podr&iacute;a modificar mediante el archivo de configuraci&oacute;n del proceso host, o incluso pas&aacute;ndolo como par&aacute;metro al servidor utilizado, pero la verdad es que el comportamiento que he encontrado hasta el momento y la falta de ejemplos ha hecho que desista de intentarlo.
+<br />
+<br />En cualquier caso, si queremos hacer uso de esta caracter&iacute;stica y 
+<strong>crear configuraciones distintas para cada entorno de ejecuci&oacute;n</strong>, podemos optar por una o varias de las siguientes convenciones:
+<br />
+<ul>
+ <li>Si existe una clase llamada <code>Startup[EnvironmentName]</code>, por ejemplo <code>StartupDevelopment</code>, se usar&aacute; &eacute;sta en lugar de la clase por defecto <code>Startup</code>. <br />&nbsp; </li>
+ <li>Si en la clase de inicializaci&oacute;n seleccionada seg&uacute;n la convenci&oacute;n usada existe un m&eacute;todo llamado <code>Configure[EnvironmentName]</code>, por ejemplo <code>ConfigureRelease()</code>, se usar&aacute; &eacute;ste en lugar de <code>Configure()</code> a secas. <br />&nbsp; </li>
+ <li>De la misma forma, si existe un m&eacute;todo llamado <code>Configure[EnvironmentName]Services</code>, como <code>por ejemplo ConfigureDevelopmentServices()</code>, se usar&aacute; &eacute;ste en lugar de <code>ConfigureServices()</code>. </li>
+</ul>Por ejemplo, el siguiente c&oacute;digo muestra una clase de inicializaci&oacute;n con dos m&eacute;todos 
+<code>Configure()</code>, uno para cuando se ejecuta en un entorno llamado “Development” y otro para cuando estamos en el entorno “Release”:
+<br />
+<h4><img alt="" src="http://lh4.ggpht.com/-kZtu7mbkci4/VNdswprmj4I/AAAAAAAADyQ/_j4P-ZOKxEM/image%25255B2%25255D.png?imgmax=800" height="210" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="470" /></h4>
+<h4>3. Un primer vistazo a Configure()</h4>El m&eacute;todo 
+<code>Configure()</code> (o su variante 
+<code>Configure[Environment]</code>) es donde introduciremos normalmente c&oacute;digo de inicializaci&oacute;n y configuraremos el pipeline de ejecuci&oacute;n, introduciendo en &eacute;l los middlewares que usaremos en nuestra aplicaci&oacute;n.
+<br />
+<br />Aunque en los ejemplos anteriores lo hemos presentado sin par&aacute;metros, 
+<strong>nunca ser&aacute; as&iacute;</strong>. Lo habitual ser&aacute; encontrarlo aceptando diversos par&aacute;metros, que ser&aacute;n suministrados por el 
+<em>runtime</em> utilizando el sistema integrado de inyecci&oacute;n de dependencias, y lo m&iacute;nimo que llevaremos a la pr&aacute;ctica ser&aacute; algo como lo siguiente:
+<br />
+<br />
+<img alt="image" src="http://lh3.ggpht.com/-VnFThnO6PcE/VNdsxIfPk7I/AAAAAAAADyY/28v35xsE-YA/image%25255B8%25255D.png?imgmax=800" height="83" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="325" />
+<br />
+<br />Ese objeto 
+<code>app</code> que implementa el interfaz 
+<code>IApplicationBuilder</code> es una representaci&oacute;n del pipeline que la infraestructura de ASP.NET suministrar&aacute; a nuestro m&eacute;todo, cuyos m&eacute;todos y extensores son las herramientas que utilizaremos para configurar los middlewares. Aunque volveremos a hablar de ello en pr&oacute;ximos posts, de momento pod&eacute;is echar un vistazo a algunas entradas sobre OWIN (por ejemplo 
+<a href="http://www.variablenotfound.com/2013/10/owin-y-katana-v-middlewares.html">middlewares personalizados</a>, 
+<a href="http://www.variablenotfound.com/2013/11/owin-y-katana-v-map-y-run.html" title="Owin y Katana (VI)- Map() y Run()">Map() y Run()</a>) porque se hace exactamente igual.
+<br />
+<br />Por ver un ejemplo r&aacute;pido, el siguiente c&oacute;digo corresponde al m&eacute;todo Configure() creado por la plantilla de proyectos ASP.NET MVC 6:
+<br />
+<br />
+<img alt="" src="http://lh3.ggpht.com/-toT8bKnTLt0/VNdsxY2aOrI/AAAAAAAADyg/u0pxcLfRdlk/image%25255B14%25255D.png?imgmax=800" height="386" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="663" />
+<br />
+<br />
+<i>(Nota: he simplificado algo el c&oacute;digo original para que sea m&aacute;s sencillo de leer)</i>
+<br />
+<br />Aunque sea la primera vez que le ech&aacute;is el vistazo, si ten&eacute;is claro el concepto de middleware seguro que podr&eacute;is entender el c&oacute;digo sin problema. En l&iacute;neas generales:
+<br />
+<ul>
+ <li>En primer lugar, si el entorno es “Development”, se a&ntilde;aden al pipeline los middlewares que aportan la funcionalidad browser link (para depuraci&oacute;n de HTML, CSS) y p&aacute;ginas de error detalladas.</li>
+ <li>En caso contrario, se a&ntilde;ade un manejador para p&aacute;ginas de error “civilizada”, apto para entornos de producci&oacute;n.</li>
+ <li>A continuaci&oacute;n, se a&ntilde;ade el manejador para archivos est&aacute;ticos (HTML, JS, etc.)</li>
+ <li>Seguidamente, se inserta el middleware proporcionado por Identity Framework, que se encargar&aacute; de proporcionar el entorno de seguridad a m&oacute;dulos posteriores del pipeline.</li>
+ <li>Finalmente, se a&ntilde;ade el framework MVC, en el que se configuran las rutas por defecto.</li>
+</ul>Esos m&eacute;todos 
+<code>UseXXX()</code> que vemos son los que introducen los middlewares en el pipeline, y como vemos, en algunos casos incluyen par&aacute;metros o configuraciones espec&iacute;ficas. En todos los casos se trata de m&eacute;todos de extensi&oacute;n definidos sobre 
+<code>IApplicationBuilder</code> por cada uno de los middlewares para facilitar el trabajo con ellos.
+<br />
+<br />Gr&aacute;ficamente, estas ser&iacute;an las configuraciones del pipeline para el entorno de desarrollo y otros entornos que hemos configurado anteriormente:
+<br />
+<br />
+<table>
+ <thead>
+  <tr> 
+   <td>
+    <div style="text-align: center;">
+     Entorno “Development”
+    </div></td> 
+   <td>
+    <div style="text-align: center;">
+     Entornos distintos a “Development”
+    </div></td> 
+  </tr>
+ </thead>
+ <tbody>
+  <tr> 
+   <td width="300"><a href="http://lh4.ggpht.com/-ylIQiUTrzO8/VNdsyM8cKBI/AAAAAAAADyo/qsu6RAYPDew/s1600-h/image%25255B35%25255D.png"><img alt="ASP.NET Pipeline en el entorno &quot;Development&quot;" src="http://lh5.ggpht.com/-SyhdhSEwMQM/VNdsyhRXKiI/AAAAAAAADyw/41WzkY6k5rg/image_thumb.png?imgmax=800" height="218" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET Pipeline en el entorno &quot;Development&quot;" width="353" /></a></td> 
+   <td width="300"><a href="http://lh3.ggpht.com/-l3Im7OlPwTg/VNdszM4PNAI/AAAAAAAADy8/M1gpCBOrU2w/s1600-h/image%25255B36%25255D.png"><img alt="ASP.NET Pipeline en el entorno distinto a &quot;Development&quot;" src="http://lh3.ggpht.com/-DyHqjrYohes/VNdszlppsHI/AAAAAAAADzA/2lGOJhI81fQ/image_thumb%25255B1%25255D.png?imgmax=800" height="213" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET Pipeline en el entorno distinto a &quot;Development&quot;" width="347" /></a></td> 
+  </tr>
+ </tbody>
+</table>
+<br />Observad tambi&eacute;n que en el c&oacute;digo anterior se ha a&ntilde;adido al m&eacute;todo 
+<code>Configure()</code> un par&aacute;metro de entrada de tipo 
+<code>IHostingEnvironment</code> que posibilita el acceso a distintas propiedades del entorno de ejecuci&oacute;n, y que se utiliza m&aacute;s tarde para averiguar el nombre del entorno. 
+<br />
+<br />Esta ser&aacute; la forma habitual de actuar al implementar nuestro propio 
+<code>Configure()</code>: cuando necesitemos los servicios de alg&uacute;n componente del framework, simplemente lo a&ntilde;adiremos como par&aacute;metro de entrada, y el sistema de inyecci&oacute;n de dependencias se encargar&aacute; de proporcionarnos una instancia.
+<br />
+<h4>4. Un vistazo r&aacute;pido a ConfigureServices()</h4>El otro m&eacute;todo que encontraremos normalmente en la clase 
+<code>Startup</code>, aunque a diferencia del anterior no es obligatorio, es 
+<code>ConfigureServices()</code>. &Eacute;ste 
+<strong>se ejecuta antes que <code>Configure()</code></strong> y su fin principal es registrar componentes en el sistema de inyecci&oacute;n de dependencias, es decir, aqu&iacute; es donde registraremos las equivalencias entre interfaces y clases que el sistema necesita conocer para poder proporcionarnos las dependencias de nuestros componentes correctamente resueltas.
+<br />
+<br />La pinta que tiene este m&eacute;todo en la plantilla de proyectos ASP.NET 5 es la siguiente:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-DH0Mzr45Ac8/VNds0GWUeJI/AAAAAAAADzI/g_0ch0PFiVg/image%25255B39%25255D.png?imgmax=800" height="179" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="497" />
+<br />
+<br />El objeto 
+<code>IServiceCollection</code> que recibimos como par&aacute;metro representa al contenedor donde se registran los servicios que usar&aacute; la aplicaci&oacute;n, y las llamadas que podemos observar en el c&oacute;digo a los m&eacute;todos 
+<code>AddXXX()</code>&nbsp;son extensores de este interfaz implementados por los middlewares o frameworks que requieren una configuraci&oacute;n de servicios.
+<br />
+<br />
+<img align="right" alt="" src="http://lh5.ggpht.com/-aYJpSOgQ4ew/VNds0xNWN-I/AAAAAAAADzQ/Bb9NNUQjHD0/image%25255B44%25255D.png?imgmax=800" height="390" style="margin: 0px 0px 10px 10px;" title="" width="400" />Por ejemplo, la llamada 
+<code>services.AddMvc()</code> hace que el framework MVC que registre sus servicios en el contenedor. Esto tendremos que hacerlo para cada middleware o framework que a&ntilde;adamos al pipeline y que requiera cierta configuraci&oacute;n, como MVC, Identity framework o Entity framework. 
+<br />
+<br />De hecho, 
+<strong>si no a&ntilde;adimos esta configuraci&oacute;n de servicios inicial, habr&aacute; frameworks que no dejen ni siquiera iniciar la aplicaci&oacute;n</strong>, como se puede observar en la captura de la derecha. Otros, como Identity, no se quejar&aacute;n en el arranque, simplemente provocar&aacute;n errores cuando se vaya a utilizar algunas de sus caracter&iacute;sticas que requieran de instancias de clases proporcionadas por este marco de trabajo.
+<br />
+<br />Por otra parte, adem&aacute;s de usar 
+<code>ConfigureServices()</code> para configurar los servicios de los frameworks, middlewares u otros componentes utilizados a nivel de infraestructura, este tambi&eacute;n ser&aacute; un buen lugar para introducir el registro de servicios de nuestras aplicaciones, para lo que el interfaz 
+<code>IServiceCollection</code> nos aporta algunos extensores m&aacute;s, como los que vemos a continuaci&oacute;n:
+<br />
+<br />
+<pre>services.AddScoped&lt;IMyRepository, MyRepository&gt;();<br />services.AddSingleton&lt;ISomething, Something&gt;();</pre>
+<br />El tema de inyecci&oacute;n de dependencias en ASP.NET 5 es bastante amplio, y seguro que le dedicaremos alg&uacute;n post m&aacute;s adelante. Por adelantar algo, podr&iacute;amos decir que en la mayor&iacute;a de escenarios no ser&aacute; necesario utilizar contenedor de inversi&oacute;n de control, como los tradicionales Unity, Ninject o Autofac para registrar nuestras dependencias y obtener instancias, puesto que ASP.NET 5 trae ya de serie mecanismos que cubrir&aacute;n muchos de los casos comunes. Pero, por supuesto, podremos seguir us&aacute;ndolos si es lo que nos interesa… lo importante, como siempre, es tener opciones :)
+<br />
+<br />Bueno, y creo que con esto es suficiente para tener una idea de lo que encontraremos en el c&oacute;digo de inicializaci&oacute;n de ASP.NET 5; un primer paso para empezar a conocer una clase que nos acompa&ntilde;ar&aacute; durante los pr&oacute;ximos a&ntilde;os cuando desarrollemos para la web, y a la que tenemos que ir empezando a tomarle cari&ntilde;o ;)
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=lqGT-9HcblE:WbFroFYojic:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=lqGT-9HcblE:WbFroFYojic:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=lqGT-9HcblE:WbFroFYojic:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=lqGT-9HcblE:WbFroFYojic:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/lqGT-9HcblE" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5" st_title="La clase Startup en ASPNET 5 | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/desarrollo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1449,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

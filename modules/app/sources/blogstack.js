@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5",
+      "title" : "La clase Startup en ASPNET 5"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
       "title" : "Taller Metasploit Framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
       "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php",
-      "title" : "Añadir jerarquía a nuestras colecciones de datos en PHP. Creando árboles en PHP"
     }
   ]
 }
