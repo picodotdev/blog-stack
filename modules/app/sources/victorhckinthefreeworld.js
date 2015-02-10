@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/dono-a-kde-pago-por-disfrutar-de-la-libertad-del-software",
+      "title" : "Dono a KDE. Pago por disfrutar de la libertad del software."
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/mi-camiseta-de-duckduckgo",
       "title" : "Mi camiseta de DuckDuckGo !!"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/hackeada-la-web-de-aede",
       "title" : "Hackeada la web de AEDE"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/sin-mas-comentarios",
-      "title" : "Sin más comentarios"
     }
   ]
 }

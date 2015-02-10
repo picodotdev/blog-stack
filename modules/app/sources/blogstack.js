@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/dono-a-kde-pago-por-disfrutar-de-la-libertad-del-software",
+      "title" : "Dono a KDE. Pago por disfrutar de la libertad del software."
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
       "title" : "Convertir fechas y husos horarios en Java"
-    },
-    {
-      "url" : "/post/navegapolis/2015/02/cuestionarios-para-autoevaluacion-cmm-y-cmmi",
-      "title" : "Cuestionarios para autoevaluación CMM y CMMI"
     }
   ]
 }
