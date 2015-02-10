@@ -3,12 +3,12 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
-      "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
-      "title" : "Las bases refrigeradoras de los portatiles"
-    },
-    {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
+    },
+    {
+      "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
+      "title" : "Las bases refrigeradoras de los portatiles"
     },
     {
       "url" : "/post/elblogdeliher/2015/01/como-iniciar-sesion-con-cairo-dock-sin-unity",

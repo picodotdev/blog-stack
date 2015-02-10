@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
+      "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
       "title" : "Java ServletContext y  aislamiento."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/navegapolis/2015/02/cuestionarios-para-autoevaluacion-cmm-y-cmmi",
       "title" : "Cuestionarios para autoevaluación CMM y CMMI"
-    },
-    {
-      "url" : "/post/cuadernodesoftware/2015/02/video-experimento-con-espruino",
-      "title" : "Vídeo: Experimento con Espruino"
     }
   ]
 }
