@@ -11,6 +11,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "La clase Startup en ASPNET 5"
     },
     {
+      "url" : "/post/kdeblog/2015/02/acousticbrainz-y-essentia-en-las-charlas-de-barcelona-free-software",
+      "title" : "AcousticBrainz y Essentia en las charlas de Barcelona Free Software"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
       "title" : "Taller Metasploit Framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/cuadernodesoftware/2015/02/video-experimento-con-espruino",
       "title" : "Vídeo: Experimento con Espruino"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
-      "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     }
   ]
 }

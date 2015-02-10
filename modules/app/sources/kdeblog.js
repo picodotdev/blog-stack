@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/acousticbrainz-y-essentia-en-las-charlas-de-barcelona-free-software",
+      "title" : "AcousticBrainz y Essentia en las charlas de Barcelona Free Software"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
       "title" : "Fecha de lanzamiento de Krita 2.9"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
       "title" : "Akademy 2015 se celebrará en A Coruña"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kanagram-para-dos-jugadores-ya-es-una-realidad",
-      "title" : "Kanagram para dos jugadores ya es una realidad"
     }
   ]
 }
