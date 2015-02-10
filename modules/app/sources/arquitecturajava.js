@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
+      "title" : "Java ServletContext y  aislamiento."
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/localstorage-html5-y-lodash",
       "title" : "LocalStorage HTML5 y LoDash"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
       "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/jquery-selectors-y-extensibilidad",
-      "title" : "jQuery selectors y extensibilidad"
     }
   ]
 }

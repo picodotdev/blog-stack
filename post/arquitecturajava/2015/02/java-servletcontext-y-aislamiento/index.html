@@ -1,0 +1,186 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Java ServletContext y  aislamiento. | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento"><span itemprop="headline">Java ServletContext y  aislamiento.</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/java-servletcontext-y-aislamiento/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-10T10:23" itemprop="datePublished">Publicado el martes, 10 de febrero de 2015 a las 10:23 UTC</span></div><div><span>
+Etiquetado como
+jee, java-web, java-conceptos</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>El ServletContext es uno de los objetos m&aacute;s utilizados de las aplicaciones web a la hora de compartir informaci&oacute;n entre los distintos componentes web como Servlets y JSP. <strong>Su funcionalidad esta orientada a almacenar claves/valores que sean&nbsp;comunes para toda la aplicaci&oacute;n.</strong></p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00126.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00126-278x300.gif" alt="001" width="278" height="300" /></a></p> 
+<p>En principio cada aplicaci&oacute;n web se encuentra aislada<strong> y es independiente de las otras</strong>.</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00222.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00222.gif" alt="002" width="491" height="295" /></a></p> 
+<p>&nbsp;</p> 
+<p>Sin embargo muchas veces la gente me pregunta si hay alguna forma de comunicar ambas aplicaciones a<strong> nivel de API de Java.</strong></p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00511.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00511.gif" alt="005" width="491" height="309" /></a></p> 
+<h2>Java ServletContext y comunicaci&oacute;n</h2> 
+<p><strong>La respuesta es s&iacute;.</strong> La comunicaci&oacute;n entre aplicaciones es posible a<strong> trav&eacute;s de su ServletContext aunque no siempre es recomendable y depende siempre la configuraci&oacute;n del Servidor de Aplicaciones.</strong> Vamos a ver un ejemplo partiendo de una aplicaci&oacute;n web que contenga el siguiente fichero web.xml</p> 
+<pre>
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot; version=&quot;3.0&quot;&gt;
+&lt;display-name&gt;Web001&lt;/display-name&gt;
+
+&lt;context-param&gt;
+&lt;param-name&gt;nombre&lt;/param-name&gt;
+&lt;param-value&gt;cecilio&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;/web-app&gt;
+
+</pre> 
+<p>Para acceder al nombre utilizaremos un Servlet que obtiene una referencia al ServletContext y nos los imprime por pantalla.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(&quot;/Servlet001&quot;)
+public class Servlet001 extends HttpServlet {
+private static final long serialVersionUID = 1L;
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+PrintWriter pw= response.getWriter();
+ServletContext contexto=request.getServletContext();
+pw.println(contexto.getInitParameter(&quot;nombre&quot;));
+pw.close();
+}
+
+&amp;nbsp;
+
+</pre> 
+<p>El resultado es el siguiente:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00374.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00374-300x90.png" alt="003" width="300" height="90" /></a></p> 
+<p>Como vemos estamos en la aplicaci&oacute;n Web001 y accedemos al Servlet001. Ahora bien <strong>&iquest;c&oacute;mo podemos hacer lo mismo &nbsp;desde otra aplicaci&oacute;n?. </strong>El c&oacute;digo a nivel de API es muy sencillo simplemente solicitaremos a la aplicaci&oacute;n Web002 que acceda al contexto de la&nbsp;Web001 vamos a verlo.</p> 
+<pre>
+
+package com.arquitecturajava;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class ServletRemoto
+ */
+@WebServlet(&quot;/ServletRemoto&quot;)
+public class ServletRemoto extends HttpServlet {
+ private static final long serialVersionUID = 1L;
+
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+ PrintWriter pw= response.getWriter();
+ ServletContext contexto= request.getServletContext();
+ ServletContext otroContexto=contexto.getContext(&quot;/Web001&quot;);
+ otroContexto.getInitParameter(&quot;nombre&quot;);
+ pw.println(otroContexto.getInitParameter(&quot;nombre&quot;));
+ pw.close();
+ }
+
+}
+
+</pre> 
+<p>El resultado ser&aacute; el siguiente que como vemos es otra aplicaci&oacute;n:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00464.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00464.png" alt="004" width="453" height="94" /></a></p> 
+<p>Para que nos funcione correctamente deberemos configurar alguna cosa especifica de nuestro servidor que permita llamadas entre contextos ya que de entrada pueden estar aislados. <strong>En el caso del tomcat vale ir al server.xml y a&ntilde;adir que las aplicaciones soportan crossContext=”true”.</strong></p> 
+<pre>
+&lt;Context crossContext=&quot;true&quot; docBase=&quot;Web001&quot; path=&quot;/Web001&quot; reloadable=&quot;true&quot; source=&quot;org.eclipse.jst.jee.server:Web001&quot;/&gt;
+ &lt;Context crossContext=&quot;true&quot; docBase=&quot;Web002&quot; path=&quot;/Web002&quot; reloadable=&quot;true&quot; source=&quot;org.eclipse.jst.jee.server:Web002&quot;/&gt;
+
+</pre> 
+<p>Hay que tener claro que estas casu&iacute;sticas deber&iacute;an reducirse al m&iacute;nimo para reducir el acomplamiento, pero a veces nos pueden ser &uacute;tiles.</p> 
+<p>Otros art&iacute;culos relacionados: <a title="Java y ServletContext" href="http://www.arquitecturajava.com/java-servletcontext/">ServletContext&nbsp;</a>&nbsp;,<a title="Java ServletContextListener" href="http://www.arquitecturajava.com/servletcontextlistener/">ServletContextListener</a>&nbsp;, <a title="Servlets 3.0 (I)" href="http://www.arquitecturajava.com/servlets-3-0-i/">Servlet 3.0</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/java-servletcontext-y-aislamiento/">Java ServletContext y aislamiento.</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" st_title="Java ServletContext y  aislamiento. | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1450,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

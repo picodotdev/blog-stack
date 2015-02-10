@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
+      "title" : "Java ServletContext y  aislamiento."
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5",
       "title" : "La clase Startup en ASPNET 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
-      "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
     }
   ]
 }
