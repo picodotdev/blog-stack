@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
+      "title" : "Taller Metasploit Framework \u2013 1"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
       "title" : "Taller Metasploit Framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
       "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening",
-      "title" : "Reforzar la Seguridad de WordPress con WPHardening"
     }
   ]
 }

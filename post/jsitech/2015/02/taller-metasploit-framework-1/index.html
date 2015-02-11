@@ -1,0 +1,112 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Taller Metasploit Framework – 1 | JsiTech</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/jsitech/2015/02/taller-metasploit-framework-1"><span itemprop="headline">Taller Metasploit Framework – 1</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/seguridad"><img title="seguridad" alt="seguridad" src="/assets/images/labels/seguridad.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Jason Soto</span> en la bitácora <a href="http://www.jsitech.com/">JsiTech</a>, <a href="http://jsitech.com/seguridad/taller-metasploit-framework-1/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-11T17:07" itemprop="datePublished">Publicado el miércoles, 11 de febrero de 2015 a las 17:07 UTC</span></div><div><span>
+Etiquetado como
+ethical-hacking, kalilinux, taller, <a href="/label/seguridad"><span itemprop="articleSection">seguridad</span></a>, metasploit</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://jsitech.com/wp-content/uploads/2015/01/metas.png"><img src="http://jsitech.com/wp-content/uploads/2015/01/metas.png" alt="metas" width="800" height="434" /></a>Siguiendo con la Serie de Art&iacute;culos del <strong>Taller de Metasploit</strong>, y antes de entrar en materia con la herramienta quiero hablar un poco de lo que es <strong>Metasploit</strong>, aunque brevemente habia hablado de ella hace ya un tiempo vamos a detallar un poco mas.</p> 
+<p>El <strong>Framework de Metasploit</strong> es una herramienta de c&oacute;digo libre utilizado para el desarrollo y ejecuci&oacute;n de <strong>Exploits</strong> a un objetivo remoto. Lo que se destaca de esta herramienta es que tiene una de las base de datos de exploits p&uacute;blicos y probados mas grande, pero adem&aacute;s de contar con dicha base de datos nos permite desarrollar nuestros propios exploits e integrarlos con el framework.</p> 
+<p>Adem&aacute;s de permitirnos todo esto de los exploits, <strong>Metasploit</strong> no se limita solo a eso, nos permite llevar a cabo tareas de<strong> reconocimiento</strong> y <strong>escaneo de vulnerabilidades</strong> dentro del framework lo que nos ayuda bastante en un proceso de penetraci&oacute;n y del que hablaremos en las entradas que siguen.</p> 
+<p>Es una herramienta bastante poderosa para llevar a cabo <strong>Test de Penetraci&oacute;n</strong> y aunque nos facilita un poco m&aacute;s la ejecuci&oacute;n de <strong>exploits</strong>, si requiere de tiempo y paciencia para entenderlo a fondo.</p> 
+<p>Para que conozcamos un poco sobre los test de penetraci&oacute;n, recomiendo que lean la entrada “<a href="http://jsitech.com/seguridad/pruebas-de-penetracion-fundamentos/"><strong>Pruebas de Penetraci&oacute;n-Fundamentos</strong></a>”, y donde hablamos sobre el procedimiento seg&uacute;n PTES (<strong>Penetration Testing Execution Standard</strong><strong>).</strong></p> 
+<p><strong>Volviendo a Metasploit, cu&aacute;les son los pasos B&aacute;sicos que seguimos dentro del Framework para ejecutar un exploit?</strong></p> 
+<ul> 
+ <li>Seleccionamos el <strong>Exploit</strong> y el <strong>Objetivo</strong></li> 
+ <li>Configuramos las opciones para ver si el equipo Remoto es Vulnerable</li> 
+ <li>Seleccionamos el <strong>Payload</strong></li> 
+ <li>Ejecutamos el <strong>Exploit</strong></li> 
+</ul> 
+<p><strong>Vamos a detallar un poco mas esto para que lo entendamos.</strong></p> 
+<h1><strong>Que es un Exploit?</strong></h1> 
+<p>Es el c&oacute;digo que le permite a un atacante aprovechar la vulnerabilidad de un sistema</p> 
+<h1><strong>Que es una Vulnerabilidad?</strong></h1> 
+<p>Es una debilidad en un sistema o aplicaci&oacute;n que le permite al atacante comprometer la seguridad del sistema</p> 
+<h1><strong>Qu&eacute; es un Payload?</strong></h1> 
+<p>Son las instrucciones ejecutadas en el sistema luego de la explotaci&oacute;n.</p> 
+<p>Si Tenemos &eacute;xito pues dependiendo del <strong>payload</strong> que hayamos seleccionado, son muchas las tareas que podemos ejecutar contra el equipo comprometido, pero eso lo veremos mas adelante. Aqui solo quer&iacute;a que veamos lo m&aacute;s b&aacute;sico para que entendamos con lo que vamos a trabajar.</p> 
+<p>En la pr&oacute;xima entrada vamos a preparar el<strong> entorno</strong>, Montaremos varias m&aacute;quinas virtuales incluyendo <strong>Kali Linux</strong> desde donde ejecutaremos <strong>Metasploit.</strong></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1" st_title="Taller Metasploit Framework – 1 | JsiTech"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/seguridad/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta seguridad</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1455,
+      "url" : "http://www.blogstack.info/post/jsitech/2015/02/taller-metasploit-framework-1"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "jsitech",
+      "name" : "JsiTech"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3255217622954305",
+        "adSlot" : "8776737477"
+      }
+    }
+  ]
+]); });</script></body></html>

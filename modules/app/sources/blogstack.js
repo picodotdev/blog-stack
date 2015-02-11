@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
+      "title" : "Taller Metasploit Framework \u2013 1"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/3-trucos-para-digikam",
       "title" : "3 trucos para digiKam"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
       "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
-      "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
     }
   ]
 }
