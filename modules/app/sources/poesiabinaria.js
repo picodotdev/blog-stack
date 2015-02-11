@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/21-consultas-sql-para-administrar-facilmente-nuestro-wordpress",
+      "title" : "21 Consultas SQL para administrar fácilmente nuestro WordPress"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/el-2-14-para-poesia-binaria",
       "title" : "El 2014 para Poesía Binaria"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/02/variables-compartidas-entre-procesos-hijos-en-c-fork",
       "title" : "Variables compartidas entre procesos hijos en C [fork()]"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/02/listview-con-busqueda-rapida-en-gtkmm",
-      "title" : "ListView con búsqueda rápida en GTKMM"
     }
   ]
 }

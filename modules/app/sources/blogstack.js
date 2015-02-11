@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/21-consultas-sql-para-administrar-facilmente-nuestro-wordpress",
+      "title" : "21 Consultas SQL para administrar fácilmente nuestro WordPress"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/dono-a-kde-pago-por-disfrutar-de-la-libertad-del-software",
       "title" : "Dono a KDE. Pago por disfrutar de la libertad del software."
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
       "title" : "Las bases refrigeradoras de los portatiles"
-    },
-    {
-      "url" : "/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java",
-      "title" : "Convertir fechas y husos horarios en Java"
     }
   ]
 }
