@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/3-trucos-para-digikam",
+      "title" : "3 trucos para digiKam"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/acousticbrainz-y-essentia-en-las-charlas-de-barcelona-free-software",
       "title" : "AcousticBrainz y Essentia en las charlas de Barcelona Free Software"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
       "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/akademy-2-15-se-celebrara-en-a-coruna",
-      "title" : "Akademy 2015 se celebrará en A Coruña"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/3-trucos-para-digikam",
+      "title" : "3 trucos para digiKam"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/21-consultas-sql-para-administrar-facilmente-nuestro-wordpress",
       "title" : "21 Consultas SQL para administrar fácilmente nuestro WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-donde-esta-mi-global-asax",
       "title" : "ASPNET 5, ¿dónde está mi Global.asax?"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/las-bases-refrigeradoras-de-los-portatiles",
-      "title" : "Las bases refrigeradoras de los portatiles"
     }
   ]
 }
