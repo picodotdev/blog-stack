@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace",
+      "title" : "Ejemplo de Javascript NameSpace"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
       "title" : "Java ServletContext y  aislamiento."
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
       "title" : "Extendiendo Java EL"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/mysql-y-coordenadas-geo-cantabriatic",
-      "title" : "MysQL y Coordenadas GEO (CantabriaTIC)"
     }
   ]
 }

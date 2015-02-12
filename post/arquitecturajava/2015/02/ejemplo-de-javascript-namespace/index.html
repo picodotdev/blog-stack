@@ -1,0 +1,146 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo de Javascript NameSpace | Arquitectura Java</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace"><span itemprop="headline">Ejemplo de Javascript NameSpace</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Cecilio Álvarez Caules</span> en la bitácora <a href="http://www.arquitecturajava.com/">Arquitectura Java</a>, <a href="http://www.arquitecturajava.com/ejempo-de-javascript-namespace/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-12T09:13" itemprop="datePublished">Publicado el jueves, 12 de febrero de 2015 a las 09:13 UTC</span></div><div><span>
+Etiquetado como
+design-patterns, buenas-practicas, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Cada d&iacute;a tenemos <strong>m&aacute;s c&oacute;digo de JavaScript y necesitamos organizarlo</strong>. Uno de los problemas m&aacute;s habituales de JavaScript es su falta total de estructura y aislamiento. Muchas veces acabamos con un mont&oacute;n de variables definidas <strong>a nivel global.</strong> Para evitar este tipo de problem&aacute;tica podemos definir <strong>Namespaces que nos a&iacute;slen unos elementos de otros</strong>. Vamos a ver un ejemplo sencillo.</p> 
+<pre>
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+/*
+var MIESPACIOA= MIESPACIOA || {};
+
+MIESPACIOA.persona= {nombre:&quot;pedro&quot;,edad:20};
+
+console.log(MIESPACIOA.persona.nombre);
+
+var MIESPACIOB= MIESPACIOB || {};
+
+MIESPACIOB.persona= {nombre:&quot;maria&quot;,edad:15};
+
+console.log(MIESPACIOB.persona.nombre);
+
+&lt;/script&gt;
+
+</pre> 
+<p>Acabamos de crear dos javascript namespace en cada uno de los cuales <strong>hemos almacenado un objeto</strong>. Eso s&iacute; ambos objetos tienen el mismo nombre “persona” aunque almacenan datos diferentes .Si esto lo hubi&eacute;ramos realizado a nivel global el programa no funcionar&iacute;a. <strong>Sin embargo al almacenarlo en “namespaces” todo funcionar&aacute; correctamente.</strong></p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00223.gif"><img src="http://www.arquitecturajava.com/wp-content/uploads/00223.gif" alt="002" width="290" height="214" /></a></p> 
+<p>Si imprimimos los datos por la consola el resultado ser&aacute;:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/001148.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/001148-300x29.png" alt="001" width="300" height="29" /></a></p> 
+<p>Trabajar con Namespaces e<strong>s cr&iacute;tico en las aplicaciones JavaScript actuales</strong> . Muchos desarrolladores Java se encuentran m&aacute;s c&oacute;modos con una sintaxis de Namespace m&aacute;s cercana a su lenguaje. Para ello podemos dise&ntilde;ar la siguiente funci&oacute;n que nos generar&aacute; los Namespaces de una forma m&aacute;s sencilla.</p> 
+<pre>
+
+var MIAPPLICACION = {};
+MIAPPLICACION.namespace = function (espacios) {
+ var listaEspacios = espacios.split('.');
+
+ var espacioPadre = this;
+
+ for (var i = 0; i &lt; listaEspacios.length; i++) {
+
+ var nuevoEspacio=listaEspacios[i]; 
+
+ console.log(nuevoEspacio);
+
+ if (!espacioPadre[nuevoEspacio]) {
+
+ espacioPadre[nuevoEspacio] = {};
+ }
+
+ espacioPadre = espacioPadre[nuevoEspacio];
+ }
+
+};
+//creaci&oacute;n namespace
+MIAPPLICACION.namespace(&quot;com.arquitecturajava&quot;);
+
+console.log(MIAPPLICACION);
+</pre> 
+<p>El resultado que nos imprimir&aacute; la consola ser&aacute;:</p> 
+<p><a href="http://www.arquitecturajava.com/wp-content/uploads/00375.png"><img src="http://www.arquitecturajava.com/wp-content/uploads/00375-300x96.png" alt="003" width="300" height="96" /></a></p> 
+<p>Como vemos hemos generado la estructura de Namespaces que dese&aacute;bamos.</p> 
+<p>Otros art&iacute;culos relacionados: <a title="El universo de las plantillas (templates)" href="http://www.arquitecturajava.com/el-universo-de-las-plantillas-templates/">Javascript Templates</a>&nbsp;, <a title="Usando JQuery Context" href="http://www.arquitecturajava.com/usando-jquery-context/">JQuery Context</a>&nbsp;,<a title="JavaScript JsPerf" href="http://www.arquitecturajava.com/javascript-jsperf/">Javascript JPerf</a></p> 
+<p>La entrada <a href="http://www.arquitecturajava.com/ejempo-de-javascript-namespace/">Ejemplo de Javascript NameSpace</a> aparece primero en <a href="http://www.arquitecturajava.com">Arquitectura Java</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace" st_title="Ejemplo de Javascript NameSpace | Arquitectura Java"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1457,
+      "url" : "http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "arquitecturajava",
+      "name" : "Arquitectura Java"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

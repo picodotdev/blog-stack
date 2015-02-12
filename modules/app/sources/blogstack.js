@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace",
+      "title" : "Ejemplo de Javascript NameSpace"
+    },
+    {
       "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
       "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/02/5-aniversario-del-blog",
       "title" : "5º aniversario del blog"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/02/localstorage-html5-y-lodash",
-      "title" : "LocalStorage HTML5 y LoDash"
     }
   ]
 }
