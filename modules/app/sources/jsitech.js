@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
+      "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
       "title" : "Taller Metasploit Framework \u2013 1"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
       "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/hangout-en-directo-asegurando-una-implementacion-de-wordpress-con-jts-y-wphardening",
-      "title" : "Hangout en Directo \u2013 Asegurando una implementación de WordPress con JTS y WPHardening"
     }
   ]
 }

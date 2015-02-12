@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
+      "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
       "title" : "Taller Metasploit Framework \u2013 1"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/localstorage-html5-y-lodash",
       "title" : "LocalStorage HTML5 y LoDash"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
-      "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
     }
   ]
 }
