@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tercer-informe-de-2-14-de-kde-e-v-quarterly-report",
+      "title" : "Tercer informe de 2014 de KDE e.V. Quarterly Report"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace",
       "title" : "Ejemplo de Javascript NameSpace"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
       "title" : "KDiamond, la versión KDE de Bejeweled"
-    },
-    {
-      "url" : "/post/blogbitix/2015/02/5-aniversario-del-blog",
-      "title" : "5º aniversario del blog"
     }
   ]
 }

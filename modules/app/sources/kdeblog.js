@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tercer-informe-de-2-14-de-kde-e-v-quarterly-report",
+      "title" : "Tercer informe de 2014 de KDE e.V. Quarterly Report"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/3-trucos-para-digikam",
       "title" : "3 trucos para digiKam"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
       "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kde-en-las-iii-jornadas-libres-de-la-uned-vila-real",
-      "title" : "KDE en las III Jornadas Libres de la UNED Vila-real"
     }
   ]
 }
