@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/probando-kubuntu-15-4-vivid-vervet",
+      "title" : "Probando Kubuntu 15.04 \u201cVivid Vervet\u201d"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tercer-informe-de-2-14-de-kde-e-v-quarterly-report",
       "title" : "Tercer informe de 2014 de KDE e.V. Quarterly Report"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/02/como-hacer-un-downgrade-de-un-paquete-en-arch-linux",
       "title" : "Cómo hacer un «downgrade» de un paquete en Arch Linux"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
-      "title" : "KDiamond, la versión KDE de Bejeweled"
     }
   ]
 }

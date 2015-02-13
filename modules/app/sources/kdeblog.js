@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/probando-kubuntu-15-4-vivid-vervet",
+      "title" : "Probando Kubuntu 15.04 \u201cVivid Vervet\u201d"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tercer-informe-de-2-14-de-kde-e-v-quarterly-report",
       "title" : "Tercer informe de 2014 de KDE e.V. Quarterly Report"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
       "title" : "Cómo activar Baloo en Linux Mint 17.1"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/calendario-de-lanzamientos-de-kde-aplicaciones-15-4",
-      "title" : "Calendario de lanzamientos de KDE Aplicaciones 15.04"
     }
   ]
 }
