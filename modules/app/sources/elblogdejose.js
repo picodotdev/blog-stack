@@ -3,6 +3,10 @@ define("app/sources/elblogdejose", [], function() {
   "name" : "El blog de Jose",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
+      "title" : "Mi CV en formato mapa mental"
+    },
+    {
       "url" : "/post/elblogdejose/2015/01/los-datos-y-nosotros-los-informaticos",
       "title" : "Los datos y nosotros los informáticos"
     },

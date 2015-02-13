@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
+      "title" : "Mi CV en formato mapa mental"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2015/02/descarga-y-prueba-opensuse-13-2-con-plasma-5-6",
+      "title" : "Descarga y prueba openSUSE 13.2 con Plasma 5.6"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-27-migrar-a-gnu-linux-y-llamadas-cifradas-desde-smartphones",
       "title" : "TecnoParanoids nº27: Migrar a GNU/Linux y llamadas cifradas desde Smartphones"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-186",
       "title" : "Enlaces interesantes 186"
-    },
-    {
-      "url" : "/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas",
-      "title" : "NHibernate Avanzado: Proyecciones anidadas"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
-      "title" : "Finalizó la recaudación de fondos para GCompris"
     }
   ]
 }
