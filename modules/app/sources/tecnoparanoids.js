@@ -3,6 +3,10 @@ define("app/sources/tecnoparanoids", [], function() {
   "name" : "TecnoParanoids",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-27-migrar-a-gnu-linux-y-llamadas-cifradas-desde-smartphones",
+      "title" : "TecnoParanoids nº27: Migrar a GNU/Linux y llamadas cifradas desde Smartphones"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-26-jabber-xmpp-noticias-the-hacker-crackdown",
       "title" : "TecnoParanoids nº26: Jabber/XMPP + Noticias + The Hacker Crackdown"
     },
