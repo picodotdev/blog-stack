@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
+      "title" : "Amo el Software Libre \u2013 #ILOVEFS"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
       "title" : "La palabra clave assert de Java y un ejemplo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
       "title" : "Fecha de lanzamiento de Krita 2.9"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/el-2-14-para-poesia-binaria",
-      "title" : "El 2014 para Poesía Binaria"
     }
   ]
 }

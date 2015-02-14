@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
+      "title" : "Amo el Software Libre \u2013 #ILOVEFS"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/probando-kubuntu-15-4-vivid-vervet",
       "title" : "Probando Kubuntu 15.04 \u201cVivid Vervet\u201d"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
       "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-activar-baloo-en-linux-mint-17-1",
-      "title" : "Cómo activar Baloo en Linux Mint 17.1"
     }
   ]
 }
