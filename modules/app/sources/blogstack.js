@@ -3,12 +3,12 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
-      "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
-      "title" : "Amo el Software Libre \u2013 #ILOVEFS"
-    },
-    {
       "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
       "title" : "La palabra clave assert de Java y un ejemplo"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
+      "title" : "Amo el Software Libre \u2013 #ILOVEFS"
     },
     {
       "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
