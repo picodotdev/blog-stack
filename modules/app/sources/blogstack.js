@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
+      "title" : "La palabra clave assert de Java y un ejemplo"
+    },
+    {
       "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
       "title" : "Mi CV en formato mapa mental"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/poesiabinaria/2015/02/el-2-14-para-poesia-binaria",
       "title" : "El 2014 para Poesía Binaria"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-186",
-      "title" : "Enlaces interesantes 186"
     }
   ]
 }

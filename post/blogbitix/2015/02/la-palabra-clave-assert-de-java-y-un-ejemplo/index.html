@@ -1,0 +1,164 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>La palabra clave assert de Java y un ejemplo | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo"><span itemprop="headline">La palabra clave assert de Java y un ejemplo</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-14T09:40" itemprop="dateModified">Actualizado el sábado, 14 de febrero de 2015 a las 09:40 UTC</span></div><div><span>
+Etiquetado como
+blog-stack, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a>, planeta-codigo</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
+ <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/java.png" alt="Java" title="Java" />
+ <br /> 
+</div> 
+<p>La palabra clave o reservada <em>assert</em> sirve para aseverar que en un determinado momento del c&oacute;digo una determinada condici&oacute;n debe ser cierta. Est&aacute; disponible en <a href="http://www.oracle.com/technetwork/es/java/javase/downloads/index.html">Java</a> desde la versi&oacute;n 1.4 pero al menos yo con bastantes a&ntilde;os de experiencia en programaci&oacute;n en este lenguaje a&uacute;n no he usado de forma amplia y posiblemente le pase a mucha de la gente y a&uacute;n as&iacute; hemos sobrevivido durante todo este tiempo.</p> 
+<p>Sin embargo, puede resultarnos bastante &uacute;til. Una de las situaciones en que puede ayudarnos es para descubrir una condici&oacute;n no v&aacute;lida en el momento del <em>assert</em> y no donde se produce una excepci&oacute;n en otro punto del c&oacute;digo que puede no ser la causa real del error. Por ejemplo, supongamos que un m&eacute;todo privado no acepta un par&aacute;metro con valor <em>null</em>, una variable no puede ser <em>null</em> o una colecci&oacute;n no ha de estar vac&iacute;a por poner solo unos pocos ejemplos de condiciones, si en un punto del c&oacute;digo estamos seguros que es un error que esa condici&oacute;n sea falsa podemos hacer que el programa falle con una excepci&oacute;n ah&iacute; y no m&aacute;s tarde a consecuencia de que las condiciones no se cumpl&iacute;an. Otra forma en la que nos ayudan los <em>assert</em> es como documentaci&oacute;n, en vez de poner un comentario o en el javadoc indicando una condici&oacute;n que se ha de cumplir podemos ponerlo con un <em>assert</em>. Normalmente se usan en:</p> 
+<ul> 
+ <li>Precondiciones: en m&eacute;todos privados que el llamador ha de cumplir.</li> 
+ <li>Postcondiciones: para verificar el resultado prometido por el m&eacute;todo.</li> 
+ <li><em>Class invariants</em>: para validar el estado de una clase seg&uacute;n est&aacute; definido en su contrato, siempre se debe cumplir independientemente de las operaciones que se realicen.</li> 
+ <li>C&oacute;digo no alcanzable en tiempo de ejecuci&oacute;n: partes del programa que se espera que no sea alcanzable, como cl&aacute;usulas <em>else</em> o <em>default</em> en sentencias <em>switch</em>.</li> 
+</ul> 
+<p>Y no deben usarse para:</p> 
+<ul> 
+ <li>No se deben usar para comprobar argumentos en m&eacute;todos p&uacute;blicos: los <em>asserts</em> pueden habilitarse o deshabilitarse, comprobar los argumentos se considera parte de las responsabilidades del m&eacute;todo y su especificaci&oacute;n.</li> 
+ <li>No se deben usar para realizar tareas: ya que los <em>asserts</em> pueden deshabilitarse las tareas dejar&iacute;an de ejecutarse y de proporcionar la funcionalidad del programa.</li> 
+</ul> 
+<p>Nos pueden entrar dudas de cuando emplear un <em>assert</em> y cuando un <em>if</em> o una excepci&oacute;n. Las excepciones se encargan de hacer que el programa sea robusto controlando las situaciones inesperadas pero posibles, los <em>assert</em> se encargan de que el programa sea correcto. Los <em>assert</em> deber&iacute;an ser usados para asegurar algo, mientras que las excepciones deber&iacute;an usarse para comprobar algo que podr&iacute;a ocurrir. Un <em>assert</em> termina la ejecuci&oacute;n (ya que no se suele capturar la excepci&oacute;n que se produce) mientras que una excepci&oacute;n permite al programa continuar con la ejecuci&oacute;n. Los <em>asserts</em> no deben ser sustitutos de condiciones de validaci&oacute;n que deber&iacute;a hacer el programa en m&eacute;todos p&uacute;blicos de una clase. Los <em>assert</em> son una herramienta en tiempo de desarrollo, las excepciones adem&aacute;s son una herramienta para la ejecuci&oacute;n en producci&oacute;n.</p> 
+<p>Un peque&ntilde;o ejemplo de los <em>asserts</em> podr&iacute;a ser el siguiente en la que en el m&eacute;todo <em>nextNumber</em> hay una postcondici&oacute;n seg&uacute;n la cual el m&eacute;todo debe devolver un n&uacute;mero entero entre 0 y 9 (incluidos):</p> 
+<p></p>
+<div>
+ <script src="https://gist.github.com/picodotdev/f1d5c62204a76403e2e8.js?file=Main.java"></script> 
+ <noscript>
+  <pre><code>package io.github.picodotdev.blogbitix.asserts;
+
+import java.util.Random;
+
+public class Main {
+
+	private Random random;
+	
+	public Main() {
+		random = new Random();
+	}
+
+	/**
+	 * Devuelve un n&uacute;mero entero entre 0 y 9.  
+	 */
+	public int nextNumber() {
+		int i = random.nextInt(40);
+
+		// Si el c&aacute;lculo del n&uacute;mero fuese m&aacute;s complejo incluyendo un assert
+		// podemos asegurar el valor generado por este m&eacute;todo.
+		assert i &gt;= 0 &amp;&amp; i &lt; 10: String.format(&quot;El n&uacute;mero aleatorio devuelto no cumple la postcondici&oacute;n (%d)&quot;, i);
+		
+		return i;
+	}
+	
+	public static void main(String[] args) {
+		Main main = new Main();
+		System.out.println(main.nextNumber());
+	}
+}</code></pre>
+ </noscript>
+</div> 
+<p></p> 
+<p>Un <em>assert</em> cuya expresi&oacute;n se eval&uacute;a como falso produce una excepci&oacute;n del tipo <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/AssertionError.html">java.lang.AssertionError</a> pero para ello se han de habilitar en tiempo de ejecuci&oacute;n como el par&aacute;metro <em>-ea</em> de la m&aacute;quina virtual. En <a href="https://eclipse.org">eclipse</a> podemos cambiarlo en la configuraci&oacute;n de ejecuci&oacute;n del programa en la pesta&ntilde;a <em>Arguments</em> y <em>VM arguments</em> tal como se ven en la siguiente captura de pantalla:</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/activacion-assert-java.png" title="Activaci&oacute;n asserts en eclipse"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/activacion-assert-java-thumb.png" /></a> 
+</div> 
+<p>En la primera de las siguentes capturas de pantalla puede verse como el programa se ejecuta sin producir una excepci&oacute;n a pesar de no cumplirse el <em>assert</em> del m&eacute;todo <em>nextNumber</em> ya que los <em>asserts</em> no fueron activados, en la segunda captura activando los <em>assert</em> se lanza una excepci&oacute;n al no cumplirse la postcondici&oacute;n.</p> 
+<div style="text-align: center;"> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/no-excepcion.png" title="Ejecuci&oacute;n sin excepci&oacute;n"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/no-excepcion-thumb.png" /></a> 
+ <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/excepcion-assert.png" title="Ejecuci&oacute;n con excepci&oacute;n"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/67/excepcion-assert-thumb.png" /></a> 
+</div> 
+<p>En el recomendable art&iacute;culo <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html"><em>Programming With Assertions</em></a> se comenta de forma m&aacute;s detallada y amplia el funcionamiento y uso adecuado de la palabra clave <em>assert</em> de Java.</p> 
+<p>El funcionamiento de los <em>assert</em> en <a href="http://groovy.codehaus.org/">Groovy</a> es distinto. En groovy los <em>assert</em> no pueden deshabilitarse, est&aacute;n siempre habilitados y por tanto no hace falta usar el par&aacute;metro <em>-ea</em> de la m&aacute;quina virtual que empleamos en Java. No es un <em>bug</em> es una <em>feature</em>, en Java los <em>asserts</em> se consideran una herramienta en tiempo de desarrollo o depuraci&oacute;n y por tanto podemos habilitarlos mientras desarrollamos y no habilitarlos en producci&oacute;n, una de las razones es que los <em>asserts</em> pueden suponer una penalizaci&oacute;n de rendimiento si las comprobaciones son costosas en tiempo o carga de CPU cosa que no queremos en producci&oacute;n donde el c&oacute;digo ya se considera correcto.</p> 
+<p>Referencia:<br /> <a href="http://docs.oracle.com/javase/8/docs/technotes/guides/language/assert.html">Programming With Assertions</a><br /> <a href="http://stackoverflow.com/questions/18907487/correct-use-java-assert-keyword">Correct use Java “assert” keyword</a><br /> <a href="http://stackoverflow.com/questions/1957645/when-to-use-an-assertion-and-when-to-use-an-exception">When to use an assertion and when to use an exception</a><br /> <a href="http://stackoverflow.com/questions/8077757/is-groovys-assert-a-good-idea-for-production-code-unlike-javas-assert">Is Groovy’s assert a good idea for production code, unlike Java’s assert?</a><br /> <a href="http://www.flowstopper.org/2013/11/java-should-i-assert-or-throw.html">Java: Should I assert or throw AssertionError?</a>[alfresco]: <a href="http://www.alfresco.com/">http://www.alfresco.com/</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo" st_title="La palabra clave assert de Java y un ejemplo | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
+var disqus_shortname = "blog-bitix";
+var disqus_title = "La palabra clave assert de Java y un ejemplo";
+var disqus_url = "http://picodotdev.github.io/blog-bitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo/";
+</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1463,
+      "url" : "http://www.blogstack.info/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo"
+    }
+  ],
+  "app/disqus",
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "blogbitix",
+      "name" : "Blog Bitix"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      },
+      "ad" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
