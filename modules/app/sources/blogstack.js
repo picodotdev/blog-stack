@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
+      "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
       "title" : "Tercera beta de Calligra 2.9 disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
       "title" : "Taller Metasploit Framework"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
-      "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
     }
   ]
 }

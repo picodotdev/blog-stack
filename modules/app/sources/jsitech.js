@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
+      "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
+    },
+    {
       "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
       "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/conociendo-owasp",
       "title" : "Conociendo OWASP"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/ayuda-a-traducir-al-espanol-owasp-testing-guide-4",
-      "title" : "Ayuda a Traducir al Español OWASP Testing Guide 4.0"
     }
   ]
 }
