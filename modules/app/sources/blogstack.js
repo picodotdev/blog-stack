@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
+      "title" : "Tercera beta de Calligra 2.9 disponible"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
       "title" : "La palabra clave assert de Java y un ejemplo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/noticia-rapida-kali-linux-1-1-lanzado",
       "title" : "NOTICIA RÁPIDA \u2013 Kali Linux 1.1.0 Lanzado"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/fecha-de-lanzamiento-de-krita-2-9",
-      "title" : "Fecha de lanzamiento de Krita 2.9"
     }
   ]
 }

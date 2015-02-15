@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
+      "title" : "Tercera beta de Calligra 2.9 disponible"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
       "title" : "Amo el Software Libre \u2013 #ILOVEFS"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
       "title" : "KDE-Services lanza su versión 2.0-6"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/5-nuevos-temas-para-pairs-el-juego-de-parejas-de-kde",
-      "title" : "5 nuevos temas para Pairs, el juego de parejas de KDE"
     }
   ]
 }
