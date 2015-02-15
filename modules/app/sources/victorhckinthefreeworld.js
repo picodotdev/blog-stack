@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
+      "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/descarga-y-prueba-opensuse-13-2-con-plasma-5-6",
       "title" : "Descarga y prueba openSUSE 13.2 con Plasma 5.6"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
       "title" : "Los números de 2014 en mi blog"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/blogs-sobre-kde-y-software-libre",
-      "title" : "Blogs sobre KDE y software libre"
     }
   ]
 }

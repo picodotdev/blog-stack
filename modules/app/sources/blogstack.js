@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
+      "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
+    },
+    {
+      "url" : "/post/elblogdeliher/2015/02/como-vaciar-la-papelera-cuando-no-se-puede-en-ubuntu",
+      "title" : "Como vaciar la papelera cuando no se puede en Ubuntu"
+    },
+    {
       "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
       "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5",
       "title" : "La clase Startup en ASPNET 5"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/acousticbrainz-y-essentia-en-las-charlas-de-barcelona-free-software",
-      "title" : "AcousticBrainz y Essentia en las charlas de Barcelona Free Software"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/taller-metasploit-framework",
-      "title" : "Taller Metasploit Framework"
     }
   ]
 }

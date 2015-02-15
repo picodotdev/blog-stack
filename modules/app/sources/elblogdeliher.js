@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/como-vaciar-la-papelera-cuando-no-se-puede-en-ubuntu",
+      "title" : "Como vaciar la papelera cuando no se puede en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
       "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/se-acercan-cambios-d",
-      "title" : "Se acercan cambios :D"
     }
   ]
 }
