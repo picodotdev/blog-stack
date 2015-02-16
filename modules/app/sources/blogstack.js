@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/cohesion-y-acoplamiento",
+      "title" : "Cohesión y Acoplamiento"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
       "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
       "title" : "Java ServletContext y  aislamiento."
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5",
-      "title" : "La clase Startup en ASPNET 5"
     }
   ]
 }

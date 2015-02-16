@@ -1,0 +1,122 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cohesión y Acoplamiento | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2015/02/cohesion-y-acoplamiento"><span itemprop="headline">Cohesión y Acoplamiento</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/JbCk1red-9s/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-16T05:06" itemprop="datePublished">Publicado el lunes, 16 de febrero de 2015 a las 05:06 UTC</span></div><div><span>
+Etiquetado como
+development, software-develoment</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Junto con ponerle nombres a las cosas, uno de los aspectos m&aacute;s complicados a la hora de desarrollar software es decidir c&oacute;mo asignar las distintas responsabilidades de la aplicaci&oacute;n, en qu&eacute; componentes repartirlas y c&oacute;mo agruparlas. Existe mucha literatura al respecto y si quer&eacute;is empezar por algunos cl&aacute;sicos, al menos en lo que a dise&ntilde;o orientado a objeto se refiere, pod&eacute;is echarle un vistazo a los <a href="http://en.wikipedia.org/wiki/GRASP_(object-oriented_design)">patrones GASP</a>.</p> 
+<p>En este post vamos a centrarnos en dos aspectos que, aunque a primera vista pueden parecer ortogonales, en ocasiones est&aacute;n m&aacute;s ligados de lo que nos gustar&iacute;a: la cohesi&oacute;n y el acoplamiento.</p> 
+<p>Podr&iacute;amos definir la <a href="http://en.wikipedia.org/wiki/Cohesion_(computer_science)">cohesi&oacute;n</a> como lo estrecha que es la relaci&oacute;n entre los componentes de algo. Si hablamos de clases, una clase tendr&aacute; una cohesi&oacute;n alta si sus m&eacute;todos est&aacute;n relacionados entre s&iacute;, tienen una “tem&aacute;tica” com&uacute;n, trabajan con tipos similares, etc. Si pasamos a componentes de mayor tama&ntilde;o, como paquetes o librer&iacute;as, tendr&iacute;amos una cohesi&oacute;n alta cuando las clases que lo forman est&aacute;n muy relacionadas entre s&iacute;, con un objetivo claro y focalizado.</p> 
+<p>El <a href="http://en.wikipedia.org/wiki/Coupling_%28computer_programming%29">acoplamiento</a> es la manera que se relacionan varios componentes entre ellos. Si existen muchas relaciones entre los componentes, con muchas dependencias entre ellos, tendremos un grado de acoplamiento alto. Si los componentes son independientes unos de otros, el acoplamiento ser&aacute; bajo. Al igual que con la cohesi&oacute;n, podemos ver el acoplamiento a distintos niveles y existe acoplamiento entre los m&eacute;todos de una misma clase (o las funciones de un m&oacute;dulo), entre distintas clases o entre distintos paquetes. Adem&aacute;s, existen varios tipos de acoplamiento, desde acoplamiento a trav&eacute;s de datos comunes, acoplamiento temporal (es necesario utilizar los componentes en un orden concreto), etc.</p> 
+<p>Como dec&iacute;a al principio del post, a priori ambas dimensiones son independientes, pero en la pr&aacute;ctica no siempre es as&iacute;. Algo parecido ve&iacute;amos al hablar sobre la <a href="http://blog.koalite.com/2014/06/ley-de-demeter-tell-dont-ask-y-god-object/">Ley de Demeter; Don’t Ask y God Object</a>: si queremos aumentar la cohesi&oacute;n podemos acabar creando un alto acoplamiento entre distintas funcionalidades del sistema.</p> 
+<p>Podemos mostrar ambas dimensiones en un gr&aacute;fico:</p> 
+<p><img src="http://blog.koalite.com/wp-content/uploads/cohesion-acoplamiento.png" alt="cohesi&oacute;n y acoplamiento" width="403" height="301" /></p> 
+<p>Est&aacute; claro que lo ideal es situarnos en el cuadrante de alta cohesi&oacute;n y bajo acoplamiento (eso es Bueno™), y lo peor que nos puede pasar es acabar en la situaci&oacute;n opuesta, con baja cohesi&oacute;n y alto acoplamiento (eso es Malo™), pero si tenemos que perder uno u otro, &iquest;qu&eacute; sacrificios estamos haciendo? &iquest;Qu&eacute; es lo que nos perdemos y lo que ganamos en cada caso?</p> 
+<h3>Favorecer la alta cohesi&oacute;n</h3> 
+<p>Supongamos que nos movemos hacia el cuadrante de la alta cohesi&oacute;n a costa de aumentar tambi&eacute;n el acoplamiento.</p> 
+<p>Un c&oacute;digo muy cohesionado tiende a ser m&aacute;s autocontenido y, precisamente por eso, suele ser m&aacute;s f&aacute;cil de entender como un todo porque tiene menos dependencias externas y un API m&aacute;s definida. Podemos tratarlo como una caja negra que encapsula de forma f&eacute;rrea toda la l&oacute;gica e informaci&oacute;n que contiene y eso hace que sea m&aacute;s sencillo olvidarse de su implementaci&oacute;n interna. </p> 
+<p>Adem&aacute;s, si aumentamos la cohesi&oacute;n podemos tener menos componentes, lo que nos ayuda a descubrir las funcionalidades del sistema y a tener m&aacute;s claro d&oacute;nde asignar cada responsabilidad.</p> 
+<p>En un componente con una alta cohesi&oacute;n podemos llegar a mezclar responsabilidades que, en algunos casos, podr&iacute;amos ver como independientes. Por ejemplo, en una aplicaci&oacute;n podr&iacute;amos tener un componente que encapsula a la vez DOM, CSS y Javascript. Esto facilita su uso porque s&oacute;lo hay que considerar un componente a la hora de utilizarlo, pero limita la flexibilidad porque estamos <em>acoplando</em> responsabilidades que, tal vez, deber&iacute;amos separar (el aspecto con el CSS y la funcionalidad con el Javascript).</p> 
+<p>El riesgo claro de esto es acabar construyendo un supercomponente que hace mil cosas en aras de la cohesi&oacute;n. Lo curioso es que en ese escenario, la b&uacute;squeda de la cohesi&oacute;n nos lleva justamente a todo lo contrario, acabar con un componente poco cohesionado en el que existen operaciones que realizan tareas que no tienen nada que ven entre ellas.</p> 
+<p>Tambi&eacute;n hay que tener en cuenta la p&eacute;rdida de libertad que mencion&aacute;bamos antes: al acoplar m&aacute;s la funcionalidad, ser&aacute; m&aacute;s complicado reemplazar partes de la misma para adecuarla a nuevos escenarios.</p> 
+<h3>Favorecer el bajo acoplamiento</h3> 
+<p>Si preferimos situarnos en el cuadrante del bajo acoplamiento a costa de perder cohesi&oacute;n, tendremos un escenario diferente.</p> 
+<p>Al favorecer el bajo acoplamiento lo normal es que tengamos componentes m&aacute;s peque&ntilde;os, con responsabilidad m&aacute;s definida y, por tanto m&aacute;s f&aacute;ciles de entender por separado.</p> 
+<p>Estos componentes ser&aacute;n, en general, m&aacute;s reutilizables, precisamente porque al ser independientes unos de otros e incluir menos funcionalidades habr&aacute; m&aacute;s escenarios en los que tengan cabida.</p> 
+<p>Ambos factores ayudan a tener un sistema m&aacute;s flexible, en el que podemos reconfigurar las relaciones entre las funcionalidades que ya tenemos implementadas para a&ntilde;adir otras nuevas.</p> 
+<p>Un riesgo asociado a un dise&ntilde;o en el que todos los componentes est&aacute;n muy desacoplados unos de otros es que al tender a ser componentes m&aacute;s peque&ntilde;os y reutilizables, se acaban reutilizando en muchos contextos, por lo que aquello que inicialmente era una ventaja porque nos permit&iacute;a desacoplar aspectos dentro de una funcionalidad, acaba por acoplar unas funcionalidades con otras a trav&eacute;s del uso de componentes comunes.</p> 
+<p>Adem&aacute;s, comprender la estructura global de un sistema en el que todo est&aacute; muy desacoplado puede ser m&aacute;s dif&iacute;cil porque necesitamos comprender no s&oacute;lo los componentes individuales sino las relaciones entre ellos, y &eacute;stas suelen ser menos expl&iacute;citas y directas para poder reducir el acoplamiento.</p> 
+<h3>Distintos niveles, distintas prioridades</h3> 
+<p>Al definir la cohesi&oacute;n y el acoplamiento ve&iacute;amos que ambos conceptos pueden aplicarse a distintos niveles y, en mi experiencia, dependiendo del nivel en el que nos estemos moviendo, merece la pena preocuparse m&aacute;s de una cosa u otra.</p> 
+<p>Dentro de una funcionalidad concreta, prefiero primar la alta cohesi&oacute;n. </p> 
+<p>Si tengo un componente para mostrar en pantalla resultados deportivos, prefiero que el componente sea lo m&aacute;s autocontenido y cohesivo posible para facilitar su reutilizaci&oacute;n, aunque ello implique un mayor acoplamiento entre sus distintas facetas y tenga en un mismo “paquete” el c&oacute;digo CSS, la obtenci&oacute;n del datos del servidor y el HTML necesario para renderizarlo.</p> 
+<p>Igualmente, si tengo un componente (una clase o un grupo de clases) para representar una factura, prefiero primar la cohesi&oacute;n aunque eso me haga perder flexibilidad, por ejemplo a la hora de cambiar la forma en que se calculan los impuestos. A veces esto se manifiesta en el uso de clases privadas, en no utilizar inyecci&oacute;n de dependencias o en minimizar el API externa.</p> 
+<p>Cuando se trata de coordinar las distintas funcionalidades de una aplicaci&oacute;n, le doy m&aacute;s importancia a conseguir un bajo acoplamiento.</p> 
+<p>Intento evitar dependencias r&iacute;gida entre las distintas funcionalidades, introduciendo niveles de indirecci&oacute;n entre ellas mediante interfaces, estructuras de datos b&aacute;sicas para el intercambio de datos y, en general, cualquier cosa que me permita minimizar el conocimiento de unas con respecto a las otras.</p> 
+<p>Si tengo un m&oacute;dulo de facturaci&oacute;n y otro de gesti&oacute;n de clientes, probablemente intentar&eacute; que el m&oacute;dulo de facturaci&oacute;n no tenga dependencias directas sobre el m&oacute;dulo de clientes y limitar&eacute; el acceso al mismo al m&iacute;nimo, tratando de no compartir estructuras de datos complejas (clases) para facilitar la evoluci&oacute;n por separado de cada m&oacute;dulo. Algo parecido a lo que comentaba al hablar sobre <a href="http://blog.koalite.com/2013/04/diseno-de-modelos/">dise&ntilde;o de modelos</a>.</p> 
+<h3>Conclusiones</h3> 
+<p>No hay (o la menos yo no la tengo) una respuesta clara a qu&eacute; debemos primar en caso de que no podamos conseguir una alta cohesi&oacute;n y un bajo acoplamiento, en funci&oacute;n de cada proyecto (y cada equipo de desarrollo) puede ser m&aacute;s importante dar prioridad a una u otra cosa.</p> 
+<p>Como siempre, lo importante es conocer las implicaciones de las decisiones que tomamos y ser capaces de valorar lo que estamos consiguiendo y lo que estamos perdiendo por el camino. </p> 
+<p>No hay posts relacionados.</p>
+<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/JbCk1red-9s" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento" st_title="Cohesión y Acoplamiento | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1469,
+      "url" : "http://www.blogstack.info/post/koalite/2015/02/cohesion-y-acoplamiento"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "koalite",
+      "name" : "Koalite"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>
