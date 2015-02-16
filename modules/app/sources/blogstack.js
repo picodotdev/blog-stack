@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
+      "title" : "Fondos de escritorio 18"
+    },
+    {
       "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
       "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
       "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
-      "title" : "Taller Metasploit Framework \u2013 1"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
+      "title" : "Fondos de escritorio 18"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-instalar-el-tema-faience-en-ubuntu-mediante-ppa",
       "title" : "Como instalar el tema Faience en Ubuntu mediante PPA"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
       "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
-      "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
     }
   ]
 }
