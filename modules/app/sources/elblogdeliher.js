@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/que-es-dconf-y-para-que-sirve-en-ubuntu",
+      "title" : "Que es dconf y para que sirve en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
       "title" : "Fondos de escritorio 18"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/tema-de-ventanas-zukitwo-como-instalarlo-en-ubuntu-mediante-ppa",
       "title" : "Tema de ventanas Zukitwo, como instalarlo en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/solucion-al-problema-de-no-poder-instalar-plugins-en-atom-en-ubuntu",
-      "title" : "Solucion al problema de no poder instalar plugins en Atom en Ubuntu"
     }
   ]
 }

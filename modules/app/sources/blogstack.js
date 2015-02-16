@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/que-es-dconf-y-para-que-sirve-en-ubuntu",
+      "title" : "Que es dconf y para que sirve en Ubuntu"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
       "title" : "Fondos de escritorio 18"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace",
       "title" : "Ejemplo de Javascript NameSpace"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/un-libro-a-la-semana-metasploit-the-penetration-tester-s-guide",
-      "title" : "Un Libro a la Semana \u2013 Metasploit, The Penetration Tester\u2019s Guide"
     }
   ]
 }
