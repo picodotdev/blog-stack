@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-187",
+      "title" : "Enlaces interesantes 187"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5",
       "title" : "La clase Startup en ASPNET 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/11/enlaces-interesantes-177",
       "title" : "Enlaces interesantes 177"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/11/problemas-al-compilar-aplicaciones-mvc-3-y-4-desde-hace-unos-dias",
-      "title" : "¿Problemas al compilar aplicaciones MVC 3 y 4 desde hace unos días?"
     }
   ]
 }

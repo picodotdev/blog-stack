@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-187",
+      "title" : "Enlaces interesantes 187"
+    },
+    {
       "url" : "/post/koalite/2015/02/cohesion-y-acoplamiento",
       "title" : "Cohesión y Acoplamiento"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
       "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento",
-      "title" : "Java ServletContext y  aislamiento."
     }
   ]
 }
