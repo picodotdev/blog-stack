@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
+      "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
+    },
+    {
       "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
       "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora",
       "title" : "Vulnerabilidad en GIT.. Actualice ahora."
-    },
-    {
-      "url" : "/post/jsitech/2014/12/conociendo-owasp",
-      "title" : "Conociendo OWASP"
     }
   ]
 }

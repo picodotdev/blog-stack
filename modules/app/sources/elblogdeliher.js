@@ -3,6 +3,10 @@ define("app/sources/elblogdeliher", [], function() {
   "name" : "El blog de Liher",
   "posts" : [
     {
+      "url" : "/post/elblogdeliher/2015/02/como-instalar-el-tema-faience-en-ubuntu-mediante-ppa",
+      "title" : "Como instalar el tema Faience en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/elblogdeliher/2015/02/como-vaciar-la-papelera-cuando-no-se-puede-en-ubuntu",
       "title" : "Como vaciar la papelera cuando no se puede en Ubuntu"
     },
@@ -77,10 +81,6 @@ define("app/sources/elblogdeliher", [], function() {
     {
       "url" : "/post/elblogdeliher/2014/11/experiencia-de-mariano-farina-y-su-doogee-dg-31",
       "title" : "Experiencia de Mariano Farina y su Doogee DG 310"
-    },
-    {
-      "url" : "/post/elblogdeliher/2014/11/quieres-un-portatil-bueno-con-ubuntu-preinstalado-visita-tuxy-es",
-      "title" : "¿Quieres un portatil bueno con Ubuntu preinstalado? Visita Tuxy.es"
     }
   ]
 }

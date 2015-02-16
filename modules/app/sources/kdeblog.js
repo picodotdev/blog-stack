@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-kde-frameworks-5-7-video",
+      "title" : "Lanzado KDE Frameworks 5.7 + Vídeo"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
       "title" : "Tercera beta de Calligra 2.9 disponible"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
       "title" : "Cómo transferir imágenes de digiKam a tu móvil"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kde-services-lanza-su-version-2-6",
-      "title" : "KDE-Services lanza su versión 2.0-6"
     }
   ]
 }

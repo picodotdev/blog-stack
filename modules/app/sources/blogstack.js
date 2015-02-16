@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
+      "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/lanzado-kde-frameworks-5-7-video",
+      "title" : "Lanzado KDE Frameworks 5.7 + Vídeo"
+    },
+    {
+      "url" : "/post/elblogdeliher/2015/02/como-instalar-el-tema-faience-en-ubuntu-mediante-ppa",
+      "title" : "Como instalar el tema Faience en Ubuntu mediante PPA"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/19-cosas-chulas-que-se-pueden-hacer-en-una-terminal-de-linux",
       "title" : "19 Cosas chulas que se pueden hacer en una terminal de Linux"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/taller-metasploit-framework-1",
       "title" : "Taller Metasploit Framework \u2013 1"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/3-trucos-para-digikam",
-      "title" : "3 trucos para digiKam"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/21-consultas-sql-para-administrar-facilmente-nuestro-wordpress",
-      "title" : "21 Consultas SQL para administrar fácilmente nuestro WordPress"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/dono-a-kde-pago-por-disfrutar-de-la-libertad-del-software",
-      "title" : "Dono a KDE. Pago por disfrutar de la libertad del software."
     }
   ]
 }
