@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/19-cosas-chulas-que-se-pueden-hacer-en-una-terminal-de-linux",
+      "title" : "19 Cosas chulas que se pueden hacer en una terminal de Linux"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-187",
       "title" : "Enlaces interesantes 187"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/dono-a-kde-pago-por-disfrutar-de-la-libertad-del-software",
       "title" : "Dono a KDE. Pago por disfrutar de la libertad del software."
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu",
-      "title" : "Como optimizar la RAM y la SWAP configurando el swappiness en Ubuntu"
     }
   ]
 }
