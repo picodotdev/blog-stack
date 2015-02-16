@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/sabemos-donde-vives",
+      "title" : "¡Sabemos donde vives!"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
       "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
       "title" : "Vídeo de los 30 años de la FSF"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/los-numeros-de-2-14-en-mi-blog",
-      "title" : "Los números de 2014 en mi blog"
     }
   ]
 }
