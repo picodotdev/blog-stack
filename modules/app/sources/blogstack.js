@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin",
+      "title" : "Limitar el acceso a phpmyadmin"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
       "title" : "Java Collections List vs Set (I)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/descarga-y-prueba-opensuse-13-2-con-plasma-5-6",
       "title" : "Descarga y prueba openSUSE 13.2 con Plasma 5.6"
-    },
-    {
-      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-27-migrar-a-gnu-linux-y-llamadas-cifradas-desde-smartphones",
-      "title" : "TecnoParanoids nº27: Migrar a GNU/Linux y llamadas cifradas desde Smartphones"
     }
   ]
 }

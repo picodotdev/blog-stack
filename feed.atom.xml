@@ -3,10 +3,44 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-17T10:02:27Z</updated>
+  <updated>2015-02-17T13:02:28Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-17T10:02:27Z</dc:date>
+  <dc:date>2015-02-17T13:02:28Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Limitar el acceso a phpmyadmin</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin" />
+    <category term="blog-stack" />
+    <category term="programas" />
+    <category term="web" />
+    <category term="phpmyadmin" />
+    <category term="php" />
+    <category term="apache2" />
+    <author>
+      <name>davidochobits</name>
+    </author>
+    <updated>2015-02-17T12:49:30Z</updated>
+    <published>2015-02-17T12:49:30Z</published>
+    <content type="html">&lt;p&gt;&lt;p&gt;No es ninguna novedad ni sorprender&amp;aacute; a nadie que hable de &lt;strong&gt;phpmyadmin&lt;/strong&gt;, una herramienta escrita en &lt;strong&gt;php&lt;/strong&gt;, que nos ayudar&amp;aacute; a gestionar las bases de datos de nuestro servidor. Lo que muchas veces podemos obviar es que si un delincuente inform&amp;aacute;tico, mal llamados hackers, accediese a dicho panel, le facilitar&amp;iacute;amos el camino, cosa que debemos evitar.&lt;/p&gt; 
+&lt;h2&gt;Hoy veremos c&amp;oacute;mo limitar el acceso a phpmyadmin&lt;/h2&gt; 
+&lt;p&gt;Realmente en un par de pasos lo tendremos resuelto. Debemos de modificar un par de archivos para que s&amp;oacute;lo se puede acceder a dicho panel desde unas IP espec&amp;iacute;ficas.&lt;/p&gt; 
+&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/phpmyadmin.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/phpmyadmin.jpg" alt="phpmyadmin" width="150" height="120" /&gt;&lt;/a&gt;&lt;/p&gt; 
+&lt;p&gt;Primero de todo crearemos un archivo &lt;strong&gt;&lt;em&gt;.htaccess&lt;/em&gt; &lt;/strong&gt;donde indicaremos las IP admitidias y denegaremos todo el resto.&lt;/p&gt; 
+&lt;p&gt;El archivo lo debemos de crear en la carpeta /usr/share/phpmyadmin&lt;/p&gt; 
+&lt;div&gt; 
+ &lt;table&gt; 
+  &lt;tbody&gt; 
+   &lt;tr&gt; 
+    &lt;td&gt;&lt;pre&gt;1
+&lt;/pre&gt;&lt;/td&gt; 
+    &lt;td&gt;&lt;pre&gt;cd /usr/share/phpmyadmin/&lt;/pre&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/tbody&gt;
+ &lt;/table&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>davidochobits</dc:creator>
+    <dc:date>2015-02-17T12:49:30Z</dc:date>
+  </entry>
   <entry>
     <title>Java Collections List vs Set (I)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/02/java-collections-list-vs-set-i" />
@@ -686,29 +720,6 @@ console.log(MIESPACIOB.persona.nombre);
 &lt;p&gt;Cuando instalamos Linux en un ordenador, sea &lt;a href="http://www.ubuntu.com/"&gt;Ubuntu&lt;/a&gt; o cualquier otra distribuci&amp;oacute;n Linux, llega el momento de crear las particiones. En ese momento hay que crear las que cada uno crea necesarias, en mi caso yo creo una de &lt;strong&gt;Swap&lt;/strong&gt; de 2GB y otra raiz o “/”, solo hago dos particiones para cada distro que instalo en mi ordenador, si instalo Linux a otra persona le creo 3, la de Swap y la “home” y la ra&amp;iacute;z separadas. Como habr&amp;eacute;is podido deducir el &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeliher/2015/02/como-optimizar-la-ram-y-la-swap-configurando-el-swappiness-en-ubuntu"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Liher</dc:creator>
     <dc:date>2015-02-05T17:26:14Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java ServletContext y  aislamiento.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento" />
-    <category term="jee" />
-    <category term="java-web" />
-    <category term="java-conceptos" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2015-02-10T10:23:40Z</updated>
-    <published>2015-02-10T10:23:40Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;El ServletContext es uno de los objetos m&amp;aacute;s utilizados de las aplicaciones web a la hora de compartir informaci&amp;oacute;n entre los distintos componentes web como Servlets y JSP. &lt;strong&gt;Su funcionalidad esta orientada a almacenar claves/valores que sean&amp;nbsp;comunes para toda la aplicaci&amp;oacute;n.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00126.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00126-278x300.gif" alt="001" width="278" height="300" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;En principio cada aplicaci&amp;oacute;n web se encuentra aislada&lt;strong&gt; y es independiente de las otras&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00222.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00222.gif" alt="002" width="491" height="295" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Sin embargo muchas veces la gente me pregunta si hay alguna forma de comunicar ambas aplicaciones a&lt;strong&gt; nivel de API de Java.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00511.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00511.gif" alt="005" width="491" height="309" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Java ServletContext y comunicaci&amp;oacute;n&lt;/h2&gt; 
-&lt;p&gt;&lt;strong&gt;La respuesta es s&amp;iacute;.&lt;/strong&gt; La comunicaci&amp;oacute;n entre aplicaciones es posible a&lt;strong&gt; trav&amp;eacute;s de su ServletContext aunque no siempre es recomendable y depende siempre la configuraci&amp;oacute;n del Servidor de Aplicaciones.&lt;/strong&gt; Vamos a ver un ejemplo partiendo de una aplicaci&amp;oacute;n web que contenga el siguiente fichero web.xml&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/java-servletcontext-y-aislamiento"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2015-02-10T10:23:40Z</dc:date>
   </entry>
 </feed>
 

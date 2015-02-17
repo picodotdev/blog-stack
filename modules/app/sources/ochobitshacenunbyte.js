@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin",
+      "title" : "Limitar el acceso a phpmyadmin"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh",
       "title" : "Cómo limitar el tiempo de sesión ssh"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/obtener-informacion-del-kernel-con-dmesg",
       "title" : "Obtener información del kernel con dmesg"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/que-es-y-como-se-instala-build-essentials",
-      "title" : "Qué es y cómo se instala build-essentials"
     }
   ]
 }
