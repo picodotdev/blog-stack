@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
+      "title" : "Java Collections List vs Set (I)"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-27-migrar-a-gnu-linux-y-llamadas-cifradas-desde-smartphones",
       "title" : "TecnoParanoids nº27: Migrar a GNU/Linux y llamadas cifradas desde Smartphones"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/probando-kubuntu-15-4-vivid-vervet",
-      "title" : "Probando Kubuntu 15.04 \u201cVivid Vervet\u201d"
     }
   ]
 }

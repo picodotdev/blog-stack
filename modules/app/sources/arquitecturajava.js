@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
+      "title" : "Java Collections List vs Set (I)"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace",
       "title" : "Ejemplo de Javascript NameSpace"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
       "title" : "Java EE 6 uso de  filtros dinámicos"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/extendiendo-java-el",
-      "title" : "Extendiendo Java EL"
     }
   ]
 }
