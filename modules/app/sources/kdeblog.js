@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/netrunner-15-disponible-para-su-descarga-con-plasma-5",
+      "title" : "Netrunner 15 disponible para su descarga con Plasma 5"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/lanzado-kde-frameworks-5-7-video",
       "title" : "Lanzado KDE Frameworks 5.7 + Vídeo"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
       "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-transferir-imagenes-de-digikam-a-tu-movil",
-      "title" : "Cómo transferir imágenes de digiKam a tu móvil"
     }
   ]
 }

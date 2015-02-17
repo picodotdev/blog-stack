@@ -11,6 +11,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Java Collections List vs Set (I)"
     },
     {
+      "url" : "/post/kdeblog/2015/02/netrunner-15-disponible-para-su-descarga-con-plasma-5",
+      "title" : "Netrunner 15 disponible para su descarga con Plasma 5"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
       "title" : "Mi CV en formato mapa mental"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/descarga-y-prueba-opensuse-13-2-con-plasma-5-6",
-      "title" : "Descarga y prueba openSUSE 13.2 con Plasma 5.6"
     }
   ]
 }
