@@ -1,0 +1,226 @@
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>ASPNET 5, ¿y dónde está mi Web.config? | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config"><span itemprop="headline">ASPNET 5, ¿y dónde está mi Web.config?</span></a></h2></header><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/2NGxhexwnKw/aspnet-5-y-donde-esta-mi-webconfig.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2015-02-17T08:25" itemprop="dateModified">Actualizado el martes, 17 de febrero de 2015 a las 08:25 UTC</span></div><div><span>
+Etiquetado como
+aspnet5, novedades, aspnetmvc</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="ASP.NET 5" src="http://lh3.ggpht.com/-Q7qUr5Nvy4U/VODYnqKwv2I/AAAAAAAADzk/prHxkSiMFYE/image3.png?imgmax=800" height="113" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET 5" width="143" />
+<br />Hace s&oacute;lo unos d&iacute;as coment&aacute;bamos la pr&oacute;xima 
+<a href="http://www.variablenotfound.com/2015/02/aspnet-5-donde-esta-mi-globalasax.html">desaparici&oacute;n del Global.asax</a> a partir de ASP.NET 5 y su sustituci&oacute;n por 
+<a href="http://www.variablenotfound.com/2015/02/la-clase-startup-en-aspnet-5.html">la clase Startup</a>
+<code></code>, pero no es esto lo &uacute;nico que va a dejar de acompa&ntilde;arnos durante nuestras andanzas digitales. Como vimos tambi&eacute;n hace alg&uacute;n tiempo, 
+<a href="http://www.variablenotfound.com/2015/02/la-clase-startup-en-aspnet-5.html">el nuevo enfoque de ASP.NET hace que se prescindan de muchos elementos</a> que ya no tienen sentido.
+<br />
+<br />Y en esta ocasi&oacute;n hablaremos sobre 
+<strong>la desaparici&oacute;n del Web.config</strong>, el c&eacute;lebre archivo de configuraci&oacute;n que lleva con nosotros desde los inicios de ASP.NET. Nacido en momentos en que se pensaba que XML era la panacea y muy ligado al denostado System.Web, ha sido &uacute;til durante a&ntilde;os para configurar aspectos relativos a la compilaci&oacute;n y ejecuci&oacute;n de las aplicaciones web en el servidor, as&iacute; como el “sitio oficial” para introducir de 
+<em>settings</em> como cadenas de conexi&oacute;n y otros valores configurables de nuestros sistemas.
+<br />
+<br />
+<em>Pero, antes de continuar, un disclaimer: ASP.NET 5 est&aacute; a&uacute;n en desarrollo, y parte de lo que se diga aqu&iacute; puede no ser del todo cierto ma&ntilde;ana mismo, aunque posiblemente los conceptos fundamentales s&iacute; lo ser&aacute;n. O eso espero ;)</em>
+<br />
+<em></em>
+<br />
+<a></a>
+<br />Est&aacute; claro que los tiempos han cambiado: ASP.NET es multiplataforma (tanto en tiempo de ejecuci&oacute;n como a la hora de desarrollar sobre &eacute;l), tenemos a Roslyn proporcionando servicios de compilaci&oacute;n sobre la marcha, hay un nuevo modelo de ejecuci&oacute;n de peticiones, existen nuevas tendencias, queremos librarnos de System.Web ;) … son demasiados cambios para poder mantener al viejo Web.config y por eso era hora de jubilarlo, o al menos 
+<em>casi totalmente</em>.
+<br />
+<br />Poco m&aacute;s o menos, en las configuraciones que us&aacute;bamos en un proyecto (y usamos a&uacute;n a d&iacute;a de hoy) encontramos las siguientes tipolog&iacute;as:
+<br />
+<ul>
+ <li><strong>Settings personalizados o de aplicaci&oacute;n</strong>, como una cadena de conexi&oacute;n, la direcci&oacute;n de correo a la que vamos a enviar mensajes de notificaci&oacute;n, o la clave del API de un servicio externo. Las encontr&aacute;bamos en la secci&oacute;n <code>&lt;appSettings&gt;</code> o en <a href="https://msdn.microsoft.com/es-es/library/ms228056(v=vs.100).aspx">custom settings</a> del Web.config. <br />&nbsp; </li>
+ <li><strong>Opciones de compilaci&oacute;n</strong> que indicaban c&oacute;mo hab&iacute;a de ser compilado el c&oacute;digo desplegado al servidor (vistas, c&oacute;digo en App_Code, y similares). <br />&nbsp; </li>
+ <li><strong>Opciones de servidor y runtime</strong>, como los handlers o m&oacute;dulos que procesan las peticiones, opciones de seguridad o de comportamiento del framework. <br />&nbsp; </li>
+ <li><strong>Configuraciones destinadas a tiempo de dise&ntilde;o e IDEs</strong>, como las referencias del proyecto, los archivos incluidos en el mismo, o el modo de compilaci&oacute;n a utilizar durante la <em>build</em>. </li>
+</ul>En versiones de ASP.NET anteriores a la 5, los tres primeros aspectos se defin&iacute;an en ese 
+<a href="http://buscon.rae.es/drae/srv/search?val=batiburrillos">batiburrillo</a> en el que se hab&iacute;a convertido el Web.config. Para el &uacute;ltimo punto, en cambio, se utilizaban los archivos .csproj o .vbproj que entend&iacute;an entornos como Visual Studio.
+<br />
+<img align="right" alt="image" src="http://lh5.ggpht.com/-uorW4KxdHoI/VODYoHs4QUI/AAAAAAAADzs/stBED_cjU6g/image12.png?imgmax=800" height="298" style="margin: 0px 0px 10px 10px;" title="image" width="203" />
+<br />
+<br />Como se puede observar en la captura de pantalla de la derecha, nuestro viejo conocido Web.config ya no existir&aacute; en la carpeta ra&iacute;z de nuestros proyectos, aunque tendremos nuevas f&oacute;rmulas, mucho m&aacute;s potentes, para introducir las configuraciones:
+<br />
+<ul>
+ <li>Existir&aacute;n <strong>configuraciones de las herramientas</strong>, como los archivos de configuraci&oacute;n de <a href="http://bower.io/">Bower</a>, <a href="http://gruntjs.com/">Grunt</a> o <a href="https://www.npmjs.com/">Npm</a>, aunque cada una de ellas estar&aacute; normalmente en su propio archivo. En la captura anterior pod&eacute;is verlas en bower.json, gruntfile.js y package.json respectivamente.<br />&nbsp;</li>
+ <li>Todo lo relativo a la <strong>compilaci&oacute;n</strong> del proyecto, lenguajes, referencias, metadatos, frameworks usados, etc., se mueve al <strong>archivo project.json</strong>, de existencia obligatoria en toda aplicaci&oacute;n ASP.NET 5. <br />&nbsp; </li>
+ <li>Todo lo relativo al <strong>runtime</strong>, como los m&oacute;dulos que procesar&aacute;n las peticiones o configuraci&oacute;n de seguridad se desplaza, como ya sabemos, a la <strong>clase <code>Startup</code> y los middlewares</strong> que en ella establezcamos. Es decir, este tipo de configuraci&oacute;n se realizar&aacute; totalmente mediante c&oacute;digo en la clase de inicializaci&oacute;n.<br />&nbsp;</li>
+ <li>Los <strong>settings personalizados</strong> propios de nuestra aplicaci&oacute;n pasar&aacute;n a definirse en <strong>uno o varios archivos de configuraci&oacute;n</strong>, que podr&aacute;n encontrarse escritos usando pr&aacute;cticamente <strong>cualquier origen, formato</strong> o sintaxis, desde archivos locales .json, .ini, .xml u otros, hasta or&iacute;genes remotos, bases de datos, o incluso las variables de entorno del equipo en que se ejecute la aplicaci&oacute;n. </li>
+</ul>Vamos a detenernos en algunos de estos puntos.
+<br />
+<h4>Project.json</h4>Este archivo, obligatorio en toda aplicaci&oacute;n ASP.NET a partir de la versi&oacute;n 5, contiene la configuraci&oacute;n necesaria para construir, empaquetar y ejecutar el proyecto. En 
+<a href="https://github.com/aspnet/Home/wiki/Project.json-file">esta direcci&oacute;n de Github</a> pod&eacute;is encontrar mucho m&aacute;s detalle sobre su contenido, pero a grandes rasgos, encontraremos en &eacute;l:
+<br />
+<ul>
+ <li>Las dependencias con otros paquetes que presenta nuestro proyecto.</li>
+ <li>Las configuraciones de compilaci&oacute;n disponible (por ejemplo, Debug o Release), con opciones de compilaci&oacute;n para cada una de ellas.</li>
+ <li>Los frameworks que emplearemos en el proyecto y las referencias a ensamblados incluidas para cada uno de ellos.</li>
+ <li>Las carpetas y archivos que contienen c&oacute;digo a compilar.</li>
+ <li>D&oacute;nde se encuentra la carpeta que actuar&aacute; como “ra&iacute;z” en el servidor web, normalmente wwwroot.</li>
+ <li>Opciones de compilaci&oacute;n (defines, versi&oacute;n de lenguaje, etc.) para Roslyn.</li>
+ <li>Comandos disponibles en la aplicaci&oacute;n.</li>
+ <li>Scripts a ejecutar antes o despu&eacute;s de la build del sistema.</li>
+ <li>Algunos metadatos, como el nombre del proyecto, versi&oacute;n o autor.</li>
+</ul>Este archivo es exactamente igual para cualquier IDE o incluso sistema operativo. No hay dependencias de ning&uacute;n tipo con Visual Studio ni similares; partiendo de la informaci&oacute;n contenida aqu&iacute;, podemos lanzar la aplicaci&oacute;n desde l&iacute;nea de comandos o empaquetar el resultado para enviarlo a un sitio web. Recordad que una de las ideas de fondo es que podamos desarrollar aplicaciones ASP.NET desde cualquier plataforma.
+<br />
+<h4>Definici&oacute;n de settings personalizados</h4>En los settings personalizados, encontramos otras de las grandes novedades de ASP.NET 5, la capacidad de tener m&uacute;ltiples archivos u or&iacute;genes de configuraci&oacute;n, y pr&aacute;cticamente en cualquier formato.
+<br />
+<br />En primer lugar, el hecho de tener m&aacute;s de un archivo de configuraci&oacute;n, adem&aacute;s de permitirnos “trocear” las configuraciones extensas de forma l&oacute;gica, va a simplificar y facilitar enormemente la utilizaci&oacute;n de componentes de terceros. Ya no ser&aacute; necesario, como hasta ahora, retocar nuestro archivo de configuraci&oacute;n principal cada vez que instalamos un componente externo, sino que cada componente podr&aacute; traer su propio archivo. 
+<br />
+<br />La carga de los distintos archivos de configuraci&oacute;n se realiza, como no pod&iacute;a ser de otra forma, en la clase&nbsp; 
+<code>Startup</code>. La siguiente porci&oacute;n c&oacute;digo carga en el constructor de la clase de inicializaci&oacute;n los settings contenidos en varios archivos JSON en el que se encuentran los settings de la aplicaci&oacute;n:
+<br />
+<br />
+<img alt="" src="http://lh6.ggpht.com/-KLv5z3amkbk/VODYoinv5cI/AAAAAAAADzw/36-8eAqoDzY/image%25255B17%25255D.png?imgmax=800" height="162" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="349" />
+<br />
+<br />M&aacute;s adelante veremos un ejemplo de archivo de settings escrito en JSON. De momento, es interesante destacar que si el mismo setting se encuentra en varios archivos de configuraci&oacute;n, 
+<strong>el &uacute;ltimo valor ser&aacute; el que prevalezca</strong>, en el orden en que los or&iacute;genes de datos hayan sido configurados. Podemos usar esta caracter&iacute;stica para crear una estructura de valores por defecto que puedan ser sobrescritos de forma sencilla sin modificar las configuraciones iniciales.
+<br />
+<br />En segundo lugar, el hecho de que podamos utilizar pr&aacute;cticamente cualquier formato se debe a que el sistema de configuraci&oacute;n es muy extensible, lo que abre la puerta a posibilidades que anteriormente eran bastante m&aacute;s dif&iacute;ciles de implementar y, sobre todo, utilizando un interfaz de programaci&oacute;n com&uacute;n. En el siguiente c&oacute;digo vemos c&oacute;mo podr&iacute;amos a&ntilde;adir varios or&iacute;genes m&aacute;s de configuraci&oacute;n, como un archivo .ini adicional o las variables de entorno del sistema:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-OGRszJXpDiY/VODYpKEnibI/AAAAAAAADz4/t6AwHsYxkzo/image29.png?imgmax=800" height="153" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="316" />
+<br />
+<br />Aunque a&uacute;n est&aacute;n trabajando en ello y podr&iacute;a variar un poco, ASP.NET 5 incorpora de momento los siguientes or&iacute;genes de configuraci&oacute;n:
+<br />
+<ul>
+ <li>Archivos .ini</li>
+ <li>Archivos .json</li>
+ <li>Archivos .xml</li>
+ <li>Par&aacute;metros de l&iacute;nea de comandos, si arrancamos la aplicaci&oacute;n usando esta opci&oacute;n. Ser&iacute;an par&aacute;metros que pasamos en la llamada como “/key=value” o “--key=value”</li>
+ <li>Variables de entorno del sistema.</li>
+</ul>Y lo mejor es que se trata de un sistema extensible, podemos crear nuestro propio proveedor implementando el interfaz 
+<code>Microsoft.Framework.ConfigurationModel.</code>
+<code>IConfigurationSource</code> y a&ntilde;adi&eacute;ndolo en la clase de inicializaci&oacute;n :)
+<br />
+<h4>&iquest;Y c&oacute;mo accedo a los settings desde mi c&oacute;digo?</h4>Desde el punto de vista del consumidor, es decir, de los procesos que deben obtener los valores de configuraci&oacute;n, por supuesto que 
+<strong>no utilizaremos <code>ConfigurationManager</code> </strong>ni otras clases ligadas a las versiones anteriores de ASP.NET. El framework nos ofrece un mecanismo gen&eacute;rico mediante el cual podremos acceder a los valores de los settings independientemente del lugar o formato desde donde se hayan obtenido.
+<br />
+<br />Para ello, s&oacute;lo tenemos que usar el m&eacute;todo 
+<code>Get()</code> de una instancia de 
+<code><code>IConfiguration</code></code>, definido en el espacio de nombres 
+<code>Microsoft.Framework.ConfigurationModel, </code>que podr&iacute;amos recibir, por ejemplo, inyectado en el constructor del controlador:
+<br />
+<br />
+<img alt="" src="http://lh5.ggpht.com/-7nkYBkm-ov4/VODYpjMWjJI/AAAAAAAAD0A/UPiPKzzdB9Q/image%25255B6%25255D.png?imgmax=800" height="268" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="510" />
+<br />
+<img alt="" src="http://lh3.ggpht.com/-6aRBfS3jphU/VODYqaYZXVI/AAAAAAAAD0I/WqmuLzMN-KU/image%25255B18%25255D.png?imgmax=800" height="128" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="460" />
+<br />
+<br />El c&oacute;digo anterior servir&iacute;a para obtener el valor del correo electr&oacute;nico en un archivo de settings creado en formato JSON o INI como se muestra en los cuadros. Observad que para acceder a una propiedad que se encuentra en una secci&oacute;n (como MySettings/Email) se ha utilizado como separador los dos puntos.
+<br />
+<br />Obviamente, para que esto funcione antes tendremos que haber registrado en el contenedor de inyecci&oacute;n de dependencias de ASP.NET que la instancia de 
+<code>Configuration</code> sobre la que hemos a&ntilde;adido los distintos or&iacute;genes ser&aacute; la ofrecida cuando se solicite un objeto 
+<code>IConfiguration</code>, pero eso es 
+<a href="http://www.elaviso.com/temas-de-actualidad-/4762-%E2%80%9Ceso-es-harina-de-otro-costal%E2%80%9D.html">harina de otro costal</a> ;)
+<br />
+<h4>Eh, pero… &iexcl;a&uacute;n estoy viendo un Web.config al publicar el proyecto!</h4>Efectivamente, as&iacute; es, y por eso antes hablaba de “jubilaci&oacute;n casi total”: al publicar un el proyecto con la herramienta Publish de Visual Studio, o simplemente al empaquetarlo mediante l&iacute;nea de comandos (
+<code>kpm pack</code>), se puede ver un bonito Web.config en la carpeta 
+<code>wwwroot</code>. Esto es as&iacute; porque hay configuraciones que deben seguir siendo desplegadas y son usadas por servidores como IIS para poder ejecutar correctamente la aplicaci&oacute;n. De hecho, si publicamos o empaquetamos un proyecto MVC creado directamente desde la plantilla por defecto, en la carpeta 
+<em>wwwroot</em> encontraremos el Web.config con el siguiente contenido a d&iacute;a de hoy:
+<br />
+<br />
+<img alt="" src="http://lh4.ggpht.com/-aGhe0d4EzI8/VODYqlR1HfI/AAAAAAAAD0U/7id64tDEBqA/image15.png?imgmax=800" height="176" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="505" />
+<br />
+<img align="right" alt="image" src="http://lh4.ggpht.com/-lxj98BER-Vo/VODYrFVn7OI/AAAAAAAAD0Y/DcR1dhA6UFc/image20.png?imgmax=800" height="260" title="image" width="360" />
+<br />
+<br />Son las opciones b&aacute;sicas para que el host pueda ejecutar la aplicaci&oacute;n, y 
+<strong>se generado autom&aacute;ticamente</strong> cada vez que hacemos un despliegue o empaquetamos el proyecto para desplegarlo a un servidor.
+<br />
+<br />A&uacute;n as&iacute;, si quisi&eacute;ramos a&ntilde;adir alguna configuraci&oacute;n adicional a este archivo, podemos hacerlo creando un Web.config en la carpeta 
+<em>wwwroot</em> de nuestro proyecto e introduciendo en &eacute;l &uacute;nicamente lo que necesitemos. Los procesos de empaquetado lo tendr&aacute;n en cuenta y lo utilizar&aacute;n como base a la hora de generar el Web.config que ir&aacute; finalmente al servidor.
+<br />
+<br />Pero observad que en cualquier caso, este archivo no forma parte del ra&iacute;z de nuestro proyecto, sino que se encuentra en 
+<em>wwwroot</em>, que, como sabemos, es la carpeta donde se encuentra el contenido est&aacute;tico que subiremos al servidor en ASP.NET 5.
+<br />
+<br />Bueno, y vamos a dejarlo aqu&iacute;. Espero que este vuelo a vista de p&aacute;jaro sobre la configuraci&oacute;n de aplicaciones ASP.NET 5 os sea de utilidad para iros orientando en este nuevo entorno que se avecina.
+<br />
+<br />Publicado en 
+<a href="http://www.variablenotfound.com/">Variable not found</a>.
+<div> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=2NGxhexwnKw:2-cuW9r3qgs:4cEx4HpKnUU" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=2NGxhexwnKw:2-cuW9r3qgs:F7zBnMyn0Lo" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=2NGxhexwnKw:2-cuW9r3qgs:gIN9vFwOqvQ" /></a> 
+ <a href="http://feeds.feedburner.com/~ff/vnf?a=2NGxhexwnKw:2-cuW9r3qgs:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
+</div>
+<img src="http://feeds.feedburner.com/~r/vnf/~4/2NGxhexwnKw" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config" st_title="ASPNET 5, ¿y dónde está mi Web.config? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+El contenido agregado conserva la licencia de su bitácora.<br/>
+«Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
+</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+  "waitSeconds" : 300,
+  "shim" : {
+    "t5/core/typeahead" : [
+      "jquery"
+    ],
+    "bootstrap/affix" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/alert" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/modal" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tab" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/transition" : [
+      "jquery"
+    ],
+    "bootstrap/button" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/scrollspy" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/collapse" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/dropdown" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/tooltip" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/carousel" : [
+      "bootstrap/transition"
+    ],
+    "bootstrap/popover" : [
+      "bootstrap/tooltip"
+    ]
+  },
+  "baseUrl" : "/modules"
+};
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+  "app/analytics",
+  [
+    "app/karmacracy:init",
+    {
+      "selector" : "#widget",
+      "id" : 1478,
+      "url" : "http://www.blogstack.info/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config"
+    }
+  ],
+  "app/facebook",
+  "app/googleplus",
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts",
+      "source" : "variablenotfound",
+      "name" : "Variable not found"
+    }
+  ],
+  [
+    "app/lastPosts:init",
+    {
+      "id" : "lastPosts_0",
+      "source" : "blogstack",
+      "name" : "Blog Stack"
+    }
+  ],
+  [
+    "app/adsensem:init",
+    {
+      "blogstack" : {
+        "adClient" : "ca-pub-3533636310991304",
+        "adSlot" : "1397019380"
+      }
+    }
+  ]
+]); });</script></body></html>

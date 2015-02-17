@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
+      "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/sabemos-donde-vives",
       "title" : "¡Sabemos donde vives!"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/probando-kubuntu-15-4-vivid-vervet",
       "title" : "Probando Kubuntu 15.04 \u201cVivid Vervet\u201d"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/tercer-informe-de-2-14-de-kde-e-v-quarterly-report",
-      "title" : "Tercer informe de 2014 de KDE e.V. Quarterly Report"
     }
   ]
 }
