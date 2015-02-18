@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/truco-viejo-pero-aun-efectivo-vulnerando-windows-con-utilman-bypass",
+      "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
       "title" : "Amo el Software Libre \u2013 #ILOVEFS"
-    },
-    {
-      "url" : "/post/elblogdejose/2015/02/mi-cv-en-formato-mapa-mental",
-      "title" : "Mi CV en formato mapa mental"
     }
   ]
 }

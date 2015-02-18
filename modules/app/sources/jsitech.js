@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/truco-viejo-pero-aun-efectivo-vulnerando-windows-con-utilman-bypass",
+      "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
+    },
+    {
       "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
       "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
       "title" : "Intrusiones Mas destacadas 2014"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/vulnerabilidad-en-git-actualice-ahora",
-      "title" : "Vulnerabilidad en GIT.. Actualice ahora."
     }
   ]
 }
