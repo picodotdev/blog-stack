@@ -7,6 +7,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
     },
     {
+      "url" : "/post/kdeblog/2015/02/plasma-sprint-2-15-de-barcelona",
+      "title" : "Plasma Sprint 2015 de Barcelona"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
       "title" : "La palabra clave assert de Java y un ejemplo"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/amo-el-software-libre-ilovefs",
-      "title" : "Amo el Software Libre \u2013 #ILOVEFS"
     }
   ]
 }

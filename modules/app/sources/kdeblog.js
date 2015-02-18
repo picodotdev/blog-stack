@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/plasma-sprint-2-15-de-barcelona",
+      "title" : "Plasma Sprint 2015 de Barcelona"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/netrunner-15-disponible-para-su-descarga-con-plasma-5",
       "title" : "Netrunner 15 disponible para su descarga con Plasma 5"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
       "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/plasma-5-2-precioso-y-lleno-de-funcionalidades",
-      "title" : "Plasma 5.2 precioso y lleno de funcionalidades"
     }
   ]
 }
