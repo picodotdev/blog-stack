@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/las-11-mejores-distribuciones-de-gnu-linux-del-2-15",
+      "title" : "Las 11 mejores distribuciones de GNU/Linux del 2015"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/sabemos-donde-vives",
       "title" : "¡Sabemos donde vives!"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
       "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2014/12/video-de-los-3-anos-de-la-fsf",
-      "title" : "Vídeo de los 30 años de la FSF"
     }
   ]
 }

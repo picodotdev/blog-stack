@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/las-11-mejores-distribuciones-de-gnu-linux-del-2-15",
+      "title" : "Las 11 mejores distribuciones de GNU/Linux del 2015"
+    },
+    {
       "url" : "/post/jsitech/2015/02/truco-viejo-pero-aun-efectivo-vulnerando-windows-con-utilman-bypass",
       "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
       "title" : "Tercera beta de Calligra 2.9 disponible"
-    },
-    {
-      "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
-      "title" : "La palabra clave assert de Java y un ejemplo"
     }
   ]
 }
