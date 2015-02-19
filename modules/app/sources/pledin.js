@@ -3,6 +3,10 @@ define("app/sources/pledin", [], function() {
   "name" : "PLEDIN",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/02/ii-semana-informatica-universidad-de-almeria",
+      "title" : "II Semana Informática. Universidad de Almería."
+    },
+    {
       "url" : "/post/pledin/2015/02/introduccion-a-las-bases-de-datos-como-servicio-dbaas-redislabs",
       "title" : "Introducción a las bases de datos como servicio (DBaaS). RedisLabs."
     },
@@ -77,10 +81,6 @@ define("app/sources/pledin", [], function() {
     {
       "url" : "/post/pledin/2014/01/openwebinars-por-que-openstack-software-libre-para-la-nube",
       "title" : "OpenWebinars \u2013 ¿Por qué OpenStack? Software libre para la nube"
-    },
-    {
-      "url" : "/post/pledin/2013/11/configurar-subdominios-en-bind9",
-      "title" : "Configurar subdominios en bind9"
     }
   ]
 }

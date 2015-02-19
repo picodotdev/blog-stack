@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/pledin/2015/02/ii-semana-informatica-universidad-de-almeria",
+      "title" : "II Semana Informática. Universidad de Almería."
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/intercambiar-datos-entre-hojas-de-calculo-calc-o-excel-usando-una-columna-de-referencia",
       "title" : "Intercambiar datos entre hojas de cálculo Calc o Excel usando una columna de referencia"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
       "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/como-vaciar-la-papelera-cuando-no-se-puede-en-ubuntu",
-      "title" : "Como vaciar la papelera cuando no se puede en Ubuntu"
     }
   ]
 }
