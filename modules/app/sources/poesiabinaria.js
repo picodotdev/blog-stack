@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/intercambiar-datos-entre-hojas-de-calculo-calc-o-excel-usando-una-columna-de-referencia",
+      "title" : "Intercambiar datos entre hojas de cálculo Calc o Excel usando una columna de referencia"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/19-cosas-chulas-que-se-pueden-hacer-en-una-terminal-de-linux",
       "title" : "19 Cosas chulas que se pueden hacer en una terminal de Linux"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo",
       "title" : "Cómo crear un volumen cifrado en un archivo"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/03/creando-un-mutex-con-semaforos-entre-procesos-hijos-en-c-fork",
-      "title" : "Creando un mutex con semáforos entre procesos hijos en C [fork()]"
     }
   ]
 }

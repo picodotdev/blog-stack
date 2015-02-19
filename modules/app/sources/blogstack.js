@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/intercambiar-datos-entre-hojas-de-calculo-calc-o-excel-usando-una-columna-de-referencia",
+      "title" : "Intercambiar datos entre hojas de cálculo Calc o Excel usando una columna de referencia"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
       "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/como-vaciar-la-papelera-cuando-no-se-puede-en-ubuntu",
       "title" : "Como vaciar la papelera cuando no se puede en Ubuntu"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
-      "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
     }
   ]
 }
