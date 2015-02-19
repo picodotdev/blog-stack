@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
+      "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/plasma-sprint-2-15-de-barcelona",
       "title" : "Plasma Sprint 2015 de Barcelona"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
       "title" : "Un mes con reKonq, el navegador web de KDE"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/como-instalar-kubuntu-14-1-tutorial-y-video",
-      "title" : "Cómo instalar Kubuntu 14.10: tutorial y vídeo"
     }
   ]
 }

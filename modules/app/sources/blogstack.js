@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
+      "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/las-11-mejores-distribuciones-de-gnu-linux-del-2-15",
       "title" : "Las 11 mejores distribuciones de GNU/Linux del 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/olvidemonos-por-un-momento-de-los-cibercriminales-el-peligro-esta-dentro-de-la-organizacion",
       "title" : "Olvidemonos por un momento de los Cibercriminales \u2013 El Peligro está dentro de la organización."
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/tercera-beta-de-calligra-2-9-disponible",
-      "title" : "Tercera beta de Calligra 2.9 disponible"
     }
   ]
 }
