@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/como-poner-temporizadores-o-alarmas-con-krunner",
+      "title" : "Cómo poner temporizadores o alarmas con Krunner"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
       "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
       "title" : "KGoldRunner, el clásico  de KDE"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/un-mes-con-rekonq-el-navegador-web-de-kde",
-      "title" : "Un mes con reKonq, el navegador web de KDE"
     }
   ]
 }

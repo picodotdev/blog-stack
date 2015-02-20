@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
+      "title" : "Utilizando Spring Profiles"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
       "title" : "Java Collections List vs Set (I)"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/los-tipos-de-javascript-y-vagrant-dos-articulos-para-genbetadev",
       "title" : "Los tipos de Javascript  y Vagrant  dos artículos para GenBetaDev"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/java-ee-6-uso-de-filtros-dinamicos",
-      "title" : "Java EE 6 uso de  filtros dinámicos"
     }
   ]
 }

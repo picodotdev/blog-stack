@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
+      "title" : "Utilizando Spring Profiles"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/como-poner-temporizadores-o-alarmas-con-krunner",
+      "title" : "Cómo poner temporizadores o alarmas con Krunner"
+    },
+    {
       "url" : "/post/pledin/2015/02/ii-semana-informatica-universidad-de-almeria",
       "title" : "II Semana Informática. Universidad de Almería."
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-187",
       "title" : "Enlaces interesantes 187"
-    },
-    {
-      "url" : "/post/koalite/2015/02/cohesion-y-acoplamiento",
-      "title" : "Cohesión y Acoplamiento"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/nuevo-modulo-para-yast-para-consultar-el-registro-del-sistema-con-systemd",
-      "title" : "Nuevo módulo para YaST para consultar el registro del sistema con Systemd"
     }
   ]
 }
