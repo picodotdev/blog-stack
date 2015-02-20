@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
+      "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
+    },
+    {
       "url" : "/post/jsitech/2015/02/truco-viejo-pero-aun-efectivo-vulnerando-windows-con-utilman-bypass",
       "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
       "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/intrusiones-mas-destacadas-2-14",
-      "title" : "Intrusiones Mas destacadas 2014"
     }
   ]
 }

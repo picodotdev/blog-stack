@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
+      "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/las-11-mejores-distribuciones-de-gnu-linux-del-2-15",
       "title" : "Las 11 mejores distribuciones de GNU/Linux del 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
       "title" : "El Binar10, diario independiente copyleft"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/protonmail-el-servicio-de-correo-cifrado-desde-suiza-sin-complicaciones",
-      "title" : "ProtonMail el servicio de correo cifrado desde Suiza sin complicaciones"
     }
   ]
 }

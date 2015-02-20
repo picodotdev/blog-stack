@@ -3,6 +3,14 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
+      "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
+    },
+    {
+      "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
+      "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
       "title" : "Utilizando Spring Profiles"
     },
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/como-instalar-el-tema-faience-en-ubuntu-mediante-ppa",
       "title" : "Como instalar el tema Faience en Ubuntu mediante PPA"
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/19-cosas-chulas-que-se-pueden-hacer-en-una-terminal-de-linux",
-      "title" : "19 Cosas chulas que se pueden hacer en una terminal de Linux"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-187",
-      "title" : "Enlaces interesantes 187"
     }
   ]
 }
