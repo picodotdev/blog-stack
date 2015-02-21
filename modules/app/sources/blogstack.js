@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
+      "title" : "Ejemplo de listener de eventos de Hibernate"
+    },
+    {
       "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
       "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
     },
@@ -17,10 +21,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
       "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
-    },
-    {
-      "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
-      "title" : "Ejemplo de listener de eventos de Hibernate"
     },
     {
       "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
