@@ -15,6 +15,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
     },
     {
+      "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
+      "title" : "Ejemplo de listener de eventos de Hibernate"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
       "title" : "Utilizando Spring Profiles"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
       "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/lanzado-kde-frameworks-5-7-video",
-      "title" : "Lanzado KDE Frameworks 5.7 + Vídeo"
     }
   ]
 }

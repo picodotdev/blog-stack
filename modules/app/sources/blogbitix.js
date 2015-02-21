@@ -3,6 +3,10 @@ define("app/sources/blogbitix", [], function() {
   "name" : "Blog Bitix",
   "posts" : [
     {
+      "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
+      "title" : "Ejemplo de listener de eventos de Hibernate"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/la-palabra-clave-assert-de-java-y-un-ejemplo",
       "title" : "La palabra clave assert de Java y un ejemplo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogbitix", [], function() {
     {
       "url" : "/post/blogbitix/2014/12/ejercicios-katas-para-mejorar-habilidades-de-programacion-practicando",
       "title" : "Ejercicios (katas) para mejorar habilidades de programación practicando"
-    },
-    {
-      "url" : "/post/blogbitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile",
-      "title" : "Cómo crear una imagen para Docker usando un Dockerfile"
     }
   ]
 }
