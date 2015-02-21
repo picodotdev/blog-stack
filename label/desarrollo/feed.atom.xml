@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-10T10:02:17Z</updated>
+  <updated>2015-02-21T01:25:00Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-10T10:02:17Z</dc:date>
+  <dc:date>2015-02-21T01:25:00Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>La clase Startup en ASPNET 5</title>
@@ -18,17 +18,7 @@
     </author>
     <updated>2015-02-10T09:39:20Z</updated>
     <published>2015-02-10T08:35:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET 5" src="http://lh4.ggpht.com/-qqqUMZtk2Y0/VNdsvihOLAI/AAAAAAAADyE/E7xgLnb3fMw/image7.png?imgmax=800" height="152" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET 5" width="193" /&gt;Hace poco habl&amp;aacute;bamos del 
-&lt;a href="http://www.variablenotfound.com/2015/02/aspnet-5-donde-esta-mi-globalasax.html"&gt;destierro del Global.asax en ASP.NET 5&lt;/a&gt;, y de c&amp;oacute;mo la clase 
-&lt;code&gt;Startup&lt;/code&gt;, siguiendo la convenci&amp;oacute;n establecida por este framework, era el lugar elegido para introducir c&amp;oacute;digo de inicializaci&amp;oacute;n. 
-&lt;br /&gt; 
-&lt;br /&gt;Pero adem&amp;aacute;s del c&amp;oacute;digo personalizado que podamos introducir, es donde, por defecto, se configuran aspectos tan importantes como los middlewares que guiar&amp;aacute;n el proceso de las peticiones, o la inyecci&amp;oacute;n de dependencias incluida de serie en el framework. 
-&lt;br /&gt; 
-&lt;br /&gt;En este post vamos a estudiar un poco m&amp;aacute;s a fondo la clase de inicializaci&amp;oacute;n de ASP.NET 5, y comenzaremos viendo qu&amp;eacute; vamos a encontrar en ella, y las convenciones a las que hay que ce&amp;ntilde;irse para que el entorno pueda inicializarse correctamente. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;h4&gt;1. Convenciones de la clase Startup&lt;/h4&gt;Cuando arranca una aplicaci&amp;oacute;n web, los componentes de infraestructura de ASP.NET buscan esta clase en su ensamblado principal, produci&amp;eacute;ndose un error si no se encuentra. Para que todo funcione bien esta clase de inicializaci&amp;oacute;n debe cumplir una serie de requisitos que se describen a continuaci&amp;oacute;n:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hace poco hablábamos del destierro del Global.asax en ASP.NET 5, y de cómo la clase Startup, siguiendo la convención establecida por este framework, era el lugar elegido para introducir código de inicialización. Pero además del código personalizado que podamos introducir, es donde, por defecto, se configuran aspectos tan importantes como los middlewares que guiarán el proceso de las peticiones, o la inyección de dependencias incluida de serie en el framework. En este post vamos a estudiar un poco más a fondo la clase de inicialización de ASP.NET 5, y comenzaremos viendo qué vamos a encontrar en ella, y las convenciones a las que hay que ceñirse para que el entorno pueda inicializarse correctamente. 1. Convenciones de la clase StartupCuando arranca una aplicación web, los componentes de infraestructura[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/02/la-clase-startup-en-aspnet-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-02-10T08:35:00Z</dc:date>
   </entry>
@@ -42,12 +32,7 @@
     </author>
     <updated>2015-01-27T17:18:37Z</updated>
     <published>2015-01-20T08:25:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Framework design guidelines" src="http://lh6.ggpht.com/-NlEjyNEjqj8/VLwE0KYNpyI/AAAAAAAADwk/1iS9c-CQwLM/image4.png?imgmax=800" height="191" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Framework design guidelines" width="141" /&gt;Hace relativamente poco tiempo, y como parte del popular salto al 
-&lt;em&gt;open source&lt;/em&gt; del nuevo stack de Microsoft, se publicaron en Github las directrices 
-&lt;a href="https://github.com/dotnet/corefx/wiki/Framework%20Design%20Guidelines%20Digest"&gt;o normas de codificaci&amp;oacute;n&lt;/a&gt; que deben seguirse para contribuir en el desarrollo de .NET Core. Se trata de un resumen simplificado del contenido del libro “ 
-&lt;a href="http://www.amazon.com/dp/0321545613"&gt;Framework design guidelines&lt;/a&gt;” publicado por Krzysztof Cwalina y Brad Abrams en 2008. 
-&lt;br /&gt; 
-&lt;br /&gt;Aunque creo que este mismo documento o versiones anteriores lo he le&amp;iacute;do en otras ocasiones, la verdad es que sigue result&amp;aacute;ndome muy interesante porque me recuerda normas y convenciones que conviene tener en cuenta al desarrollar marcos de trabajo y componentes. No hay que olvidar que estas directrices han sido refinadas y mejoradas con los a&amp;ntilde;os, acumulando ya la experiencia de muchos a&amp;ntilde;os y muchos desarrolladores que han trabajado en .NET framework, as&amp;iacute; que se trata de una base de conocimiento nada despreciable. De hecho, estas pautas son las bases del dise&amp;ntilde;o de frameworks dentro de la propia Microsoft.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hace relativamente poco tiempo, y como parte del popular salto al open source del nuevo stack de Microsoft, se publicaron en Github las directrices o normas de codificación que deben seguirse para contribuir en el desarrollo de .NET Core. Se trata de un resumen simplificado del contenido del libro “ Framework design guidelines” publicado por Krzysztof Cwalina y Brad Abrams en 2008. Aunque creo que este mismo documento o versiones anteriores lo he leído en otras ocasiones, la verdad es que sigue resultándome muy interesante porque me recuerda normas y convenciones que conviene tener en cuenta al desarrollar marcos de trabajo y componentes. No hay que olvidar que estas directrices han sido refinadas y mejoradas con los años, acumulando ya la experiencia de muchos años y muchos desarrolladores[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/01/normas-de-diseno-y-codificacion-de-net-framework"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-01-20T08:25:00Z</dc:date>
   </entry>
@@ -62,13 +47,7 @@
     </author>
     <updated>2014-10-15T11:45:00Z</updated>
     <published>2014-10-15T11:45:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Parche inform&amp;aacute;tico" src="http://lh3.ggpht.com/-2H-hXqq8lew/VDkBqjkbnSI/AAAAAAAADoo/rUX7YBOGQWo/image%25255B3%25255D.png?imgmax=800" height="147" style="background-image: none; border: 0px currentColor; display: inline; float: right; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Parche inform&amp;aacute;tico" width="118" /&gt;Siempre he pensado que el t&amp;eacute;rmino “parche” aplicado al desarrollo de software se utilizaba por analog&amp;iacute;a con el mundo real. Al fin y al cabo, poner un parche en una aplicaci&amp;oacute;n es conceptualmente bastante parecido a hacerlo en una rueda pinchada, &amp;iquest;no? 
-&lt;br /&gt; 
-&lt;br /&gt;Pero no, como en otras ocasiones que ya 
-&lt;a href="http://www.variablenotfound.com/2008/09/foto-del-primer-bug-informtico.html"&gt;hemos visto por aqu&amp;iacute;&lt;/a&gt;, no es un tema nada conceptual. La realidad es bastante m&amp;aacute;s pragm&amp;aacute;tica, y el uso de la palabra “parche” es literal y simplemente responde a razones hist&amp;oacute;ricas. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Y es que resulta que en los albores de la inform&amp;aacute;tica, cuando los programas se escrib&amp;iacute;an a base de realizar perforaciones en cintas de papel, los errores detectados s&amp;oacute;lo se pod&amp;iacute;an corregir parcheando f&amp;iacute;sicamente la zona afectada y volviendo a perforar para aplicar las correcciones.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/software-patch-literalmente"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Siempre he pensado que el término “parche” aplicado al desarrollo de software se utilizaba por analogía con el mundo real. Al fin y al cabo, poner un parche en una aplicación es conceptualmente bastante parecido a hacerlo en una rueda pinchada, ¿no? Pero no, como en otras ocasiones que ya hemos visto por aquí, no es un tema nada conceptual. La realidad es bastante más pragmática, y el uso de la palabra “parche” es literal y simplemente responde a razones históricas. Y es que resulta que en los albores de la informática, cuando los programas se escribían a base de realizar perforaciones en cintas de papel, los errores detectados sólo se podían corregir parcheando físicamente la zona afectada y volviendo a perforar para aplicar las correcciones. Una tarea casi más propia de un sastre que de un[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/software-patch-literalmente"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-10-15T11:45:00Z</dc:date>
   </entry>
@@ -84,24 +63,7 @@
     </author>
     <updated>2014-10-05T11:54:29Z</updated>
     <published>2014-09-16T07:19:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Novedades de C# 6.0" src="http://lh6.ggpht.com/-tcWG2kQAscs/VBV5zgRCYsI/AAAAAAAADjI/OOFKDrvm-W0/image_thumb%25255B4%25255D.png?imgmax=800" height="248" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Novedades de C# 6.0" width="197" /&gt;Hace alg&amp;uacute;n tiempo comentamos alguna de las novedades que se incluir&amp;aacute;n en la pr&amp;oacute;xima versi&amp;oacute;n de C#, concretamente 
-&lt;a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html"&gt;el nuevo operador de navegaci&amp;oacute;n segura “?.”&lt;/a&gt;, pero la cosa no acaba aqu&amp;iacute;: se avecinan un buen n&amp;uacute;mero de cambios que prometen seguir mejorando nuestro lenguaje favorito :-) 
-&lt;br /&gt; 
-&lt;br /&gt;Por ejemplo, una nueva caracter&amp;iacute;stica que tendremos disponible es la inicializaci&amp;oacute;n de propiedades autom&amp;aacute;ticas, algo que antes tambi&amp;eacute;n pod&amp;iacute;amos hacer, aunque de forma menos directa. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Es decir, hasta el momento para inicializar una propiedad autom&amp;aacute;tica ten&amp;iacute;amos que hacerlo en el constructor de la clase, como sigue: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh5.ggpht.com/-G2W1mWI-gr8/VBV50F6_HbI/AAAAAAAADjM/k9ayghG2XCc/image%25255B22%25255D.png?imgmax=800" height="169" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="333" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Pues bien, en la nueva versi&amp;oacute;n podremos usar una nueva construcci&amp;oacute;n mucho m&amp;aacute;s directa: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh3.ggpht.com/--k8YyyUHqsw/VBV50k_bZQI/AAAAAAAADjY/Y4zP_Ps1p6k/image%25255B23%25255D.png?imgmax=800" height="91" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="391" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Simplemente a&amp;ntilde;adimos la expresi&amp;oacute;n de igualdad tras la declaraci&amp;oacute;n, y listo. Adem&amp;aacute;s del obvio ahorro en pulsaciones de teclas, el resultado a nivel de c&amp;oacute;digo es m&amp;aacute;s expresivo y legible, puesto que mantiene unida la definici&amp;oacute;n de la propiedad con su valor inicial.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hace algún tiempo comentamos alguna de las novedades que se incluirán en la próxima versión de C#, concretamente el nuevo operador de navegación segura “?.”, pero la cosa no acaba aquí: se avecinan un buen número de cambios que prometen seguir mejorando nuestro lenguaje favorito :-) Por ejemplo, una nueva característica que tendremos disponible es la inicialización de propiedades automáticas, algo que antes también podíamos hacer, aunque de forma menos directa. Es decir, hasta el momento para inicializar una propiedad automática teníamos que hacerlo en el constructor de la clase, como sigue: Pues bien, en la nueva versión podremos usar una nueva construcción mucho más directa: Simplemente añadimos la expresión de igualdad tras la declaración, y listo. Además del obvio ahorro en pulsaciones[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-09-16T07:19:00Z</dc:date>
   </entry>
@@ -117,39 +79,7 @@
     </author>
     <updated>2014-08-30T17:27:38Z</updated>
     <published>2014-08-30T17:27:38Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt;&lt;/div&gt; 
-&lt;script&gt;&lt;/script&gt; 
-&lt;div style=""&gt; 
- &lt;a href="http://destinodotnet.com/#"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Facebook0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://twitter.com/intent/tweet?text=ASP .NET MVC: Tutorial inicial http://destinodotnet.com/feed/ %40destinodotnet"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Twitter0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Google+0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=http://destinodotnet.com/feed/&amp;amp;title=ASP .NET MVC: Tutorial inicial&amp;amp;summary=Estaba elaborando un art&amp;iacute;culo sobre autenticaci&amp;oacute;n/autorizaci&amp;oacute;n, pero repar&amp;eacute; que es mejor primero hacer uno completo como tutorial introductorio sobre ASP .NET MVC. S&amp;eacute; que hay muuuuchos art&amp;iacute;culos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontr&amp;eacute; en otros. Aqu&amp;iacute; ..."&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Linkedin0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;E-Mail0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Estaba elaborando un art&amp;iacute;culo sobre autenticaci&amp;oacute;n/autorizaci&amp;oacute;n, pero repar&amp;eacute; que es mejor primero hacer uno completo como &lt;strong&gt;tutorial introductorio sobre ASP .NET MVC&lt;/strong&gt;. S&amp;eacute; que hay muuuuchos art&amp;iacute;culos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontr&amp;eacute; en otros. Aqu&amp;iacute; vamos entonces con un primer acercamiento a esta maravillosa tecnolog&amp;iacute;a.&lt;/p&gt; 
-&lt;h2&gt;Un poco de teor&amp;iacute;a&lt;/h2&gt; 
-&lt;h3&gt;Definici&amp;oacute;n&lt;/h3&gt; 
-&lt;p&gt;&lt;strong&gt;MVC&lt;/strong&gt; son las siglas de &lt;strong&gt;Model View Controller&lt;/strong&gt;, o &lt;strong&gt;Modelo Vista Controlador&lt;/strong&gt; en espa&amp;ntilde;ol. Es un patr&amp;oacute;n de arquitectura de software que se ha vuelto muy com&amp;uacute;n en estos a&amp;ntilde;os, pero sus or&amp;iacute;genes se remontan a la d&amp;eacute;cada del 70. Lo que propone este patr&amp;oacute;n es la separaci&amp;oacute;n de la interfaz de usuario con l&amp;oacute;gica de negocio y el manejo de los datos. Para esto se divide en 3 componentes:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/08/asp-net-mvc-tutorial-inicial"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Facebook0 Twitter0 Google+0 Linkedin0 E-Mail0 Estaba elaborando un artículo sobre autenticación/autorización, pero reparé que es mejor primero hacer uno completo como tutorial introductorio sobre ASP .NET MVC. Sé que hay muuuuchos artículos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontré en otros. Aquí vamos entonces con un primer acercamiento a esta maravillosa tecnología. Un poco de teoría Definición MVC son las siglas de Model View Controller, o Modelo Vista Controlador en español. Es un patrón de arquitectura de software que se ha vuelto muy común en estos años, pero sus orígenes se remontan a la década del 70. Lo que propone este patrón es la separación de la interfaz de usuario con lógica de negocio y el manejo de los datos. Para esto[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/08/asp-net-mvc-tutorial-inicial"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Joel Martinez</dc:creator>
     <dc:date>2014-08-30T17:27:38Z</dc:date>
   </entry>
@@ -168,36 +98,7 @@
     </author>
     <updated>2014-07-17T14:50:57Z</updated>
     <published>2014-07-17T14:50:57Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt;&lt;/div&gt; 
-&lt;script&gt;&lt;/script&gt; 
-&lt;div style=""&gt; 
- &lt;a href="http://destinodotnet.com/#"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Facebook0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://twitter.com/intent/tweet?text=Colecci&amp;oacute;n de herramientas para desarrollo en .NET http://destinodotnet.com/feed/ %40destinodotnet"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Twitter0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Google+0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=http://destinodotnet.com/feed/&amp;amp;title=Colecci&amp;oacute;n de herramientas para desarrollo en .NET&amp;amp;summary=En nuestro trabajo diario como desarrollador DotNet requerimos diversas herramientas para cumplir nuestros objetivos. Algunas son imprescindibles, otras nos ayudan a ser m&amp;aacute;s productivos y otras simplemente las usamos porque nos gusta su funcionamiento, sin perder el foco de la productividad. Para las tecnolog&amp;iacute;as .NET existen muchas de &amp;eacute;stas y ..."&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Linkedin0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;E-Mail0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En nuestro trabajo diario como &lt;strong&gt;desarrollador DotNet&lt;/strong&gt; requerimos diversas herramientas para cumplir nuestros objetivos. Algunas son imprescindibles, otras nos ayudan a ser m&amp;aacute;s productivos y otras simplemente las usamos porque nos gusta su funcionamiento, sin perder el foco de la productividad. Para las &lt;strong&gt;tecnolog&amp;iacute;as .NET&lt;/strong&gt; existen muchas de &amp;eacute;stas y de muy buena calidad, algunas de Microsoft y otras de terceros. En este post haremos un repaso de las principales &lt;strong&gt;herramientas para desarrollo en .NET&lt;/strong&gt;: las imprescindibles y las que merecen que le demos una oportunidad.&lt;br /&gt; &lt;br /&gt; Una indicaci&amp;oacute;n importante: todas las herramientas de este listado (a excepci&amp;oacute;n del Visual Studio) son gratuitas. Adem&amp;aacute;s, se han clasificado en categor&amp;iacute;as para un mejor orden.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/07/coleccion-de-herramientas-para-desarrollo-en-net"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Facebook0 Twitter0 Google+0 Linkedin0 E-Mail0 En nuestro trabajo diario como desarrollador DotNet requerimos diversas herramientas para cumplir nuestros objetivos. Algunas son imprescindibles, otras nos ayudan a ser más productivos y otras simplemente las usamos porque nos gusta su funcionamiento, sin perder el foco de la productividad. Para las tecnologías .NET existen muchas de éstas y de muy buena calidad, algunas de Microsoft y otras de terceros. En este post haremos un repaso de las principales herramientas para desarrollo en .NET: las imprescindibles y las que merecen que le demos una oportunidad. Una indicación importante: todas las herramientas de este listado (a excepción del Visual Studio) son gratuitas. Además, se han clasificado en categorías para un mejor orden. Herramientas .NET[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/07/coleccion-de-herramientas-para-desarrollo-en-net"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Joel Martinez</dc:creator>
     <dc:date>2014-07-17T14:50:57Z</dc:date>
   </entry>
@@ -217,188 +118,9 @@
     </author>
     <updated>2014-06-26T07:53:45Z</updated>
     <published>2014-06-26T07:53:45Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/eclipse-logo-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/06/eclipse-logo-150.jpg" alt="eclipse-logo-150" width="150" height="149" /&gt;&lt;/a&gt;La &lt;a title="Eclipse Foundation" href="http://eclipse.org/"&gt;Fundaci&amp;oacute;n Eclipse&lt;/a&gt; acaba de anunciar el lanzamiento de la nueva versi&amp;oacute;n, llamada Luna. Impulsada por una fant&amp;aacute;stica comunidad de desarrolladores, que han raelizado un trabajo duro con el resultado de m&amp;aacute;s de 61 millones de l&amp;iacute;neas de c&amp;oacute;digo. Luna incluye muchas novedades como soporte para Java 8, muchas m&amp;aacute;s bibliotecas y mejoras para el interfaz de usuario.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;h2&gt;El trabajo de toda una comunidad&lt;/h2&gt; 
-&lt;p&gt;&lt;strong&gt;Mike Milinkovich,&lt;/strong&gt; director ejecutivo de la Fundaci&amp;oacute;n Eclipse comenta en el anuncio oficial: “&lt;em&gt;Felicidades a todos los desarroladores que hacen posible Eclipse. Es el trabajo duro de estos desarrolladores que hacen posible &amp;eacute;ste lanzamiento. El beneficio para la comunidad en general ha sido que Eclipse es un proveedor fiable y confiable de la tecnolog&amp;iacute;a de c&amp;oacute;digo abierto para la mayor industria de software&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;La Fundación Eclipse acaba de anunciar el lanzamiento de la nueva versión, llamada Luna. Impulsada por una fantástica comunidad de desarrolladores, que han raelizado un trabajo duro con el resultado de más de 61 millones de líneas de código. Luna incluye muchas novedades como soporte para Java 8, muchas más bibliotecas y mejoras para el interfaz de usuario. El trabajo de toda una comunidad Mike Milinkovich, director ejecutivo de la Fundación Eclipse comenta en el anuncio oficial: “Felicidades a todos los desarroladores que hacen posible Eclipse. Es el trabajo duro de estos desarrolladores que hacen posible éste lanzamiento. El beneficio para la comunidad en general ha sido que Eclipse es un proveedor fiable y confiable de la tecnología de código abierto para la mayor industria de software “[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/06/eclipse-luna-ya-esta-disponible"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-06-26T07:53:45Z</dc:date>
-  </entry>
-  <entry>
-    <title>Error 404 en archivo .woff usando Bootstrap</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap" />
-    <category term="trucos" />
-    <category term="bootstrap" />
-    <category term="aspnetmvc" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-05-27T15:58:00Z</updated>
-    <published>2014-05-27T15:58:00Z</published>
-    <content type="html">&lt;p&gt;Un truquillo r&amp;aacute;pido para un problema que seguro encontramos al utilizar 
-&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; en proyectos MVC (bueno, en realidad en cualquier tipo de proyecto ASP.NET publicado en IIS), y que espero os sea de utilidad: c&amp;oacute;mo solucionar el inc&amp;oacute;modo error 404 que encontramos al acceder a una p&amp;aacute;gina en la que se utiliza Glyphicons. 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="Error 404 al descargar archivo woff" src="http://lh4.ggpht.com/-dDFYMScsXM4/U19yZ_xFdwI/AAAAAAAADaE/bGiYiINJrhA/image%25255B9%25255D.png?imgmax=800" height="120" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Error 404 al descargar archivo woff" width="603" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt;Resulta que cuando en nuestras p&amp;aacute;ginas usamos Glyphicons, esos 
-&lt;a href="http://getbootstrap.com/components/#glyphicons-glyphs"&gt;iconos tan chulos que vienen de serie con Bootstrap&lt;/a&gt;, se tiene que descargar al navegador la fuente de caracteres utilizada, que se encuentra en varios formatos en la carpeta /fonts del proyecto. 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;div style="clear: both; text-align: center;"&gt; 
- &lt;a href="https://images-blogger-opensocial.googleusercontent.com/gadgets/proxy?url=http%3A%2F%2Flh5.ggpht.com%2F-t1H_yH6xMLU%2FU19ya53CujI%2FAAAAAAAADaI%2FcVlzcGKlhQU%2Fimage%2525255B13%2525255D.png%3Fimgmax%3D800&amp;amp;container=blogger&amp;amp;gadget=a&amp;amp;rewriteMime=image%2F*"&gt;&lt;img align="right" alt="Archivos de fuentes de caracteres incluidos en Bootstrap" src="http://lh5.ggpht.com/-t1H_yH6xMLU/U19ya53CujI/AAAAAAAADaI/cVlzcGKlhQU/image%25255B13%25255D.png?imgmax=800" height="163" style="margin-top: 0px;" title="Archivos de fuentes de caracteres incluidos en Bootstrap" width="245" /&gt;&lt;/a&gt; 
-&lt;/div&gt;Esto es as&amp;iacute; porque cada browser/dispositivo requiere un formato de fuente determinada; por ejemplo, Google Chrome utiliza .woff, y en este escenario es en el que se produce el error.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/05/error-4-4-en-archivo-woff-usando-bootstrap"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-05-27T15:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Attribute routing en ASPNET MVC y Web API (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/attribute-routing-en-aspnet-mvc-y-web-api-i" />
-    <category term="routing" />
-    <category term="webapi" />
-    <category term="aspnetmvc" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-03-25T23:21:54Z</updated>
-    <published>2014-03-25T17:05:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="mvc" src="http://lh5.ggpht.com/-SdKB9xTXbdI/Uu6nSWVdqSI/AAAAAAAADTw/WAkrbhBFLMo/mvc2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="mvc" width="142" /&gt;Como seguro sab&amp;eacute;is, una de las novedades que acompa&amp;ntilde;an a MVC 5 es la inclusi&amp;oacute;n de un nuevo mecanismo para la definici&amp;oacute;n de rutas llamado 
-&lt;em&gt;attribute routing&lt;/em&gt;, que b&amp;aacute;sicamente consiste en acercar el registro de rutas a las acciones y controladores que las utilizan en lugar de definirlas en el tradicional y lejano RouteConfig.cs. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;A nivel de c&amp;oacute;digo la idea es permitir definir las rutas utilizando atributos de la siguiente forma: 
-&lt;br /&gt; 
-&lt;pre&gt;public class ProductController: Controller&lt;br /&gt; {&lt;br /&gt;    [Route(&amp;quot;product/{category}/{product}&amp;quot;)] &lt;br /&gt;    public ActionResult Show(string category, string product) &lt;br /&gt;    { &lt;br /&gt;        ... &lt;br /&gt;    } &lt;br /&gt; }&lt;/pre&gt;Las ventajas que tiene este enfoque sobre el tradicional, llamado ahora 
-&lt;em&gt;rutado por convenciones&lt;/em&gt;, es que permite un control m&amp;aacute;s detallado de las rutas y que hace el c&amp;oacute;digo bastante m&amp;aacute;s legible, pues de un simple vistazo podemos ver tanto la acci&amp;oacute;n que ejecutar&amp;aacute; una petici&amp;oacute;n como la URL mediante la cual llegaremos a ella. Adem&amp;aacute;s, es m&amp;aacute;s sencillo de utilizar y m&amp;aacute;s previsible en muchos casos.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/attribute-routing-en-aspnet-mvc-y-web-api-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-03-25T17:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>La nueva versión de Apache soluciona fallos de seguridad</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/la-nueva-version-de-apache-soluciona-fallos-de-seguridad" />
-    <category term="apache" />
-    <category term="comunidad-open-source" />
-    <category term="sistemas-operativos" />
-    <category term="dos" />
-    <category term="desarrollo" />
-    <category term="http" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-03-21T16:54:53Z</updated>
-    <published>2014-03-21T16:43:04Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/apache.jpeg"&gt;&lt;img alt="apache" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/apache.jpeg" width="256" height="176" /&gt;&lt;/a&gt; El famoso software de c&amp;oacute;digo abierto &lt;a title="Apache HTTP Server" href="http://httpd.apache.org/"&gt;Apache HTTP Server&lt;/a&gt;, ha lanzado la nueva versi&amp;oacute;n 2.4.9, donde corrige dos problemas graves de seguridad.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;El primer de ellos soluciona un fallo que podr&amp;iacute;a dar lugar una ataque de denegaci&amp;oacute;n de servicio &lt;a title="Denegaci&amp;oacute;n de Servicio" href="http://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio"&gt;(DoS)&lt;/a&gt;. Dicho error ha sido clasificado por el “&lt;a title="National Vulnerabilty Database" href="http://nvd.nist.gov/"&gt;National Vulnerability Database&lt;/a&gt;” de la siguiente manera (traducido del ingl&amp;eacute;s) :&lt;/p&gt; 
-&lt;p&gt;“&lt;em&gt;La funci&amp;oacute;n log_cookie en mod_log_config.c en el m&amp;oacute;dulo mod_log_config, en el Servidor Apache HTTP antes de la 2.4.8 (anterior versi&amp;oacute;n) permite a atacantes remotos provocar una denegaci&amp;oacute;n de servicio (fallo de segmentaci&amp;oacute;n y ca&amp;iacute;da del demonio) a trav&amp;eacute;s de una galleta hecha a mano que no est&amp;aacute; controlada adecuadamente durante el truncamiento.&lt;/em&gt;“&lt;/p&gt; 
-&lt;p&gt;La soluci&amp;oacute;n a esta vulnerabilidad desde la nueva versi&amp;oacute;n de Apache, hace que el servidor limpie el registro de cookies de forma que ya no reconoce las cookies que no valen.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/la-nueva-version-de-apache-soluciona-fallos-de-seguridad"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-03-21T16:43:04Z</dc:date>
-  </entry>
-  <entry>
-    <title>Soporte para enums en ASPNET MVC 5.1</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1" />
-    <category term="aspnetmvc" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-03-18T17:58:23Z</updated>
-    <published>2014-03-18T17:10:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET MVC" src="http://lh4.ggpht.com/-hRjGd44kO18/UxM14zKRI4I/AAAAAAAADVo/lLl6fBXT-vg/mvc%25255B2%25255D.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 11px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC" width="142" /&gt;Soportar de forma medio decente tipos enumerados ( 
-&lt;em&gt;enums&lt;/em&gt;) no era algo que no pudi&amp;eacute;ramos hacer con versiones anteriores de ASP.NET MVC, pero ya iba siendo hora de que el producto incluyera de serie herramientas para facilitarlo un poco. Y por fin, la revisi&amp;oacute;n 5.1 de ASP.NET MVC algo ha aportado al respecto :) 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;En primer lugar, MVC 5.1 ha a&amp;ntilde;adido a la colecci&amp;oacute;n de helpers HTML el extensor 
-&lt;code&gt;EnumDropDownListFor()&lt;/code&gt;, que, como su nombre indica, crea un cuadro desplegable para seleccionar valores de un tipo enumerado (o un 
-&lt;em&gt;nullable&lt;/em&gt; de dicho tipo): 
-&lt;br /&gt; 
-&lt;pre&gt;// Model:&lt;br /&gt;&lt;br /&gt;public enum Color&lt;br /&gt;{&lt;br /&gt;    Black, White, Green, Blue, Red&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;public class Point&lt;br /&gt;{&lt;br /&gt;    public int X { get; set; }&lt;br /&gt;    public int Y { get; set; }&lt;br /&gt;    public Color Color { get; set; }&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;// View:&lt;br /&gt;@model Point&lt;br /&gt;...&lt;br /&gt;@Html.LabelFor(m =&amp;gt; m.Color)&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/soporte-para-enums-en-aspnet-mvc-5-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-03-18T17:10:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mejoras de EditorFor() y Editor() en MVC 5.1</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/mejoras-de-editorfor-y-editor-en-mvc-5-1" />
-    <category term="novedades" />
-    <category term="aspnetmvc" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-03-12T01:00:50Z</updated>
-    <published>2014-03-11T12:10:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET MVC" src="http://lh5.ggpht.com/-bbz56V2yXoM/Uu6LsmK8FpI/AAAAAAAADTY/wg7Dyo2zKdQ/mvc2.png?imgmax=800" height="77" style="display: inline; float: right; margin: 0px 0px 10px 10px;" title="ASP.NET MVC" width="142" /&gt;Est&amp;aacute; claro que 
-&lt;a href="http://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt; ha calado hondo en los productos de la familia ASP.NET como marco de trabajo “oficial” para la maquetaci&amp;oacute;n de las p&amp;aacute;ginas o vistas. Tanto es as&amp;iacute;, que incluso hay una caracter&amp;iacute;stica introducida en la revisi&amp;oacute;n 5.1 de MVC para facilitar el trabajo con el mismo, aunque siendo estrictos, puede beneficiar tambi&amp;eacute;n al que opte por otro framework o incluso prefiera soluciones m&amp;aacute;s artesanas. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Hasta MVC 5.0 inclusive, las sobrecargas de los helpers 
-&lt;code&gt;Html.EditorFor()&lt;/code&gt; y 
-&lt;code&gt;Html.Editor()&lt;/code&gt; que utiliz&amp;aacute;bamos para generar editores de propiedades del modelo dispon&amp;iacute;an de sobrecargas que permit&amp;iacute;an indicar, adem&amp;aacute;s de la propiedad en cuesti&amp;oacute;n: 
-&lt;br /&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;El nombre de la plantilla &lt;/strong&gt;(&lt;code&gt;templateName&lt;/code&gt;) a utilizar, en la pr&amp;aacute;ctica, el nombre del archivo .cshtml ubicado en &lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/mejoras-de-editorfor-y-editor-en-mvc-5-1"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-03-11T12:10:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>BlueFish, un potente editor para desarrollo web.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web" />
-    <category term="web" />
-    <category term="programacion" />
-    <category term="gnu-linux" />
-    <category term="css" />
-    <category term="c" />
-    <category term="bluefish" />
-    <category term="php" />
-    <category term="desarrollo" />
-    <category term="python" />
-    <category term="html" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-03-10T13:21:25Z</updated>
-    <published>2014-03-10T13:17:15Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/bluefish.png"&gt;&lt;img alt="bluefish" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/bluefish-150x150.png" width="150" height="150" /&gt;&lt;/a&gt;En castellano usamos frecuentemente la frase “Hay muchos peces en el mar”, seg&amp;uacute;n la circunstancia. Hoy hablaremos de un jugoso pez azul, que nos puede facilitar mucho las cosas, sobre todo para los desarrolladores web.&lt;/p&gt; 
-&lt;p&gt;En &lt;a title="GNU/Linux art&amp;iacute;culo" href="http://www.ochobitshacenunbyte.com/?p=31"&gt;GNU/Linux &lt;/a&gt;tenemos un sin fin de editores. Bluefish es un potente editor de texto enfocado al desarrollador.&amp;nbsp; C&amp;oacute;mo caracter&amp;iacute;sticas principales tenemos el resaltado de sintaxis, el apoyo a los proyectos, la sangr&amp;iacute;a, la auto-realizaci&amp;oacute;n, etc&amp;eacute;tera.&amp;nbsp; &amp;iquest;Qu&amp;eacute; diferencia Bluefish de otros editores con funciones similares?&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Partimos de la base que puede editar c&amp;oacute;digo para lenguajes como C, C++, Python entre otros. Pero d&amp;oacute;nde desmarca claramente es para el desarrollo web, ya que tiene soporte para HTML, CSS y PHP, adem&amp;aacute;s proporciona una lista todas las etiquetas HTML, y eso facilita mucha las cosas.&amp;nbsp; &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-03-10T13:17:15Z</dc:date>
-  </entry>
-  <entry>
-    <title>El operador “?.” en C# y VB.NET, más cerca</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" />
-    <category term="novedades" />
-    <category term="c" />
-    <category term="vb-net" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-03-04T13:05:00Z</updated>
-    <published>2014-03-04T13:05:00Z</published>
-    <content type="html">&lt;p&gt;&lt;a href="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s1600-h/programacion.jpg"&gt;&lt;img align="right" alt="" src="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s400/programacion.jpg" style="height: 200px; margin: 0px 0px 0px 10px;" /&gt;&lt;/a&gt; 
-&lt;br /&gt;El operador “?.”, tambi&amp;eacute;n llamado 
-&lt;em&gt;safe navigation operator&lt;/em&gt;, era la caracter&amp;iacute;stica m&amp;aacute;s demandada para el lenguaje C# en 
-&lt;a href="http://visualstudio.uservoice.com/"&gt;Uservoice&lt;/a&gt;, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se est&amp;aacute; considerando la posibilidad de incluir este &amp;uacute;til azucarillo sint&amp;aacute;ctico tanto en C# como en VB. 
-&lt;br /&gt; 
-&lt;br /&gt;Para los que no lo conozc&amp;aacute;is, se trata de una construcci&amp;oacute;n que permite acceder a propiedades de objetos sin temor a las 
-&lt;em&gt;null reference exceptions &lt;/em&gt;lanzadas cuando estos objetos son nulos. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Mejor ve&amp;aacute;moslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco m&amp;aacute;s abajo: 
-&lt;br /&gt; 
-&lt;pre&gt;public class Person&lt;br /&gt;{&lt;br /&gt;    public Person Father { get; set; }&lt;br /&gt;    public string Name { get; set; }&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-03-04T13:05:00Z</dc:date>
   </entry>
 </feed>
 

@@ -1,152 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Quo vadis, ASP.NET MVC? | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc"><span itemprop="headline">Quo vadis, ASP.NET MVC?</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/asp-net"><img title="asp-net" alt="asp-net" src="/assets/images/labels/asp-net.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/pkKbM2Z4mB8/quo-vadis-aspnet-mvc.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-03T09:25" itemprop="dateModified">Actualizado el miércoles, 03 de diciembre de 2014 a las 09:25 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/asp-net"><span itemprop="articleSection">asp-net</span></a>, novedades, aspnetmvc</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><img align="right" alt="" src="http://lh6.ggpht.com/-JQCrc1GCDm4/VH4eSo3prdI/AAAAAAAADt0/bu3jKKvPoks/image23.png?imgmax=800" height="145" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="198" />Aunque a&uacute;n en beta e inmersa en un intenso proceso de desarrollo, la pr&oacute;xima versi&oacute;n de ASP.NET MVC est&aacute; tomando forma en los hornos de Microsoft, y, sin ser definitivas, ya se pueden ver cu&aacute;les ser&aacute;n las novedades principales que la acompa&ntilde;ar&aacute;n. 
-<br />
-<br />En futuros posts iremos entrando en mayor detalle, pero de momento vamos a echar un vistazo desde una cierta distancia para tener la idea general sobre d&oacute;nde estamos y la evoluci&oacute;n que vamos a encontrar en las nuevas versiones de tecnolog&iacute;as y plataformas, de forma que podamos ver en qu&eacute; nos afectar&aacute; como desarrolladores y, en definitiva, para qu&eacute; tenemos que irnos preparando.
-<br />
-<blockquote>
- <i>Disclaimer: estamos a&uacute;n en una fase en la que algunas cosas pueden cambiar y a&uacute;n no existe informaci&oacute;n exhaustiva de muchos detalles, por lo que pueden existir ausencias o imprecisiones. Pero bueno, digo yo que el grueso ser&aacute; m&aacute;s o menos correcto ;-)</i>
-</blockquote>
-<h3><a></a>Piedras en la mochila</h3>En estos momentos, tenemos una versi&oacute;n de ASP.NET MVC estable, potente, r&aacute;pida y con una gran comunidad de desarrolladores, tanto noveles como los que encontraron en este framework la alternativa a Webforms que estaban esperando. En los cinco a&ntilde;os transcurridos desde la aparici&oacute;n oficial de la primera versi&oacute;n, se ha convertido, sin duda, en el est&aacute;ndar de facto para el desarrollo web basado en tecnolog&iacute;as Microsoft.
-<br />
-<br />
-<img align="right" alt="image" src="http://lh5.ggpht.com/-QQnCENTVisg/VH4eTY8B4NI/AAAAAAAADt8/rw5PjuTJzso/image5.png?imgmax=800" height="234" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image" width="176" />Sin embargo, ASP.NET MVC a&uacute;n arrastra una pesada losa heredada de los primeros tiempos de .NET, all&aacute; por 2002: el mastod&oacute;ntico 
-<em>core</em> de ASP.NET, llamado de forma gen&eacute;rica “System.Web”. Este n&uacute;cleo, que conforma la monol&iacute;tica infraestructura b&aacute;sica sobre la que corren casi todas las aplicaciones ASP.NET actuales, es enorme, complejo, pesado, muy ligado a tecnolog&iacute;as y servidores, y en muchos aspectos est&aacute; mal dise&ntilde;ado, o al menos no dise&ntilde;ado con los par&aacute;metros y buenas pr&aacute;cticas que hoy en d&iacute;a entendemos como razonables. 
-<br />
-<br />MVC sigue irremediablemente atado a System.Web porque internamente lo utiliza en demasiados puntos, y esta dependencia no es buena para la evoluci&oacute;n del framework, ni para la apertura de nuevas fronteras como el salto a entornos multiplataforma, adem&aacute;s de suponer un lastre importante en cuanto la velocidad y consumo de recursos de las peticiones, tan importantes en entornos escalables y servicios en la nube.
-<br />
-<br />OWIN y Katana, de los que 
-<a href="http://www.variablenotfound.com/search/label/tutorial-owin-katana">hemos hablado por aqu&iacute; extensamente</a>, vinieron al rescate hace alg&uacute;n tiempo como los aislantes que necesit&aacute;bamos entre los marcos de trabajo de alto nivel y la infraestructura, y las &uacute;ltimas versiones de los frameworks m&aacute;s j&oacute;venes como WebAPI y SignalR los utilizaron de forma correcta para desvincularse totalmente de System.Web. Esta independencia hizo posible que pudieran alojarse servicios WebAPI o SignalR en cualquier tipo de proceso (aplicaci&oacute;n web, servicio windows, aplicaci&oacute;n de consola…) y que fueran muy eficientes.
-<br />
-<br />Sin embargo, migrar MVC a los conceptos propuestos por OWIN para&nbsp; no era una tarea sencilla, por lo que la versi&oacute;n 5 continu&oacute; atada a System.Web, y el uso de componentes OWIN/Katana se limitaba a la inclusi&oacute;n de middlewares de plataformas ajenas al framework MVC, como Identity Framework.
-<br />
-<h3>Los nuevos aires</h3>
-<img align="right" alt="" src="http://lh6.ggpht.com/-eBYQyvNOuX4/VH4eT86cjYI/AAAAAAAADuA/qDoeE6iwG2c/image37.png?imgmax=800" height="181" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="394" />
-<br />Y estando as&iacute; el patio, aparece por el horizonte .NET Core 5 (aka Core CLR), un subconjunto del .NET tradicional escrito desde cero, 
-<a href="http://github.com/dotnet/corefx">open source</a>, con vocaci&oacute;n multiplataforma (soportado directamente en Linux y Mac), f&aacute;cilmente distribuible a trav&eacute;s de Nuget y optimizado en el mundo web para obtener lo mejor de los entornos servidor, tanto cloud como on premise.
-<br />
-<br />.NET Core 5 no supone, al menos de momento, la desaparici&oacute;n del .NET “cl&aacute;sico”, cuya pr&oacute;xima versi&oacute;n ser&aacute; la 4.6, y que seguir&aacute; una l&iacute;nea m&aacute;s continuista con las versiones anteriores. NET Core es s&oacute;lo 
-<strong>una alternativa optimizada para distintos entornos, entre ellos los servidores</strong>, pero seremos nosotros los que decidiremos sobre qu&eacute; infraestructura queremos construir. Pero por poner un ejemplo de las ventajas de Core CLR en el mundo web, se estima que al usarlo una petici&oacute;n t&iacute;pica puede requerir 2Kb de memoria de servidor para ser procesada, frente a los 30Kb que se ocupar&iacute;a en caso de seguir usando la infraestructura tradicional. Imaginad la repercusi&oacute;n que puede tener esto en cuanto a aprovechamiento de recursos de un servidor.
-<br />
-<br />&iquest;Y qu&eacute; tiene todo esto que ver con ASP.NET MVC 6? Pues la respuesta est&aacute; en ASP.NET 5. La pr&oacute;xima versi&oacute;n de ASP.NET ser&aacute; un framework unificado en el que encontraremos tecnolog&iacute;as de desarrollo como MVC, WebPages o SignalR, y que podr&aacute; correr sobre .NET 4.6 en Windows/IIS o sobre .NET Core en cualquier plataforma (por supuesto, incluida Windows). 
-<br />
-<br />Si todo esto os parece algo confuso, que probablemente lo es, pod&eacute;is profundizar en 
-<a href="http://blogs.msdn.com/b/cesardelatorre/archive/2014/11/18/what-is-net-core-5-and-asp-net-5-within-net-2015-preview.aspx">este gran post de C&eacute;sar de la Torre</a>, de donde he 
-<em>tomado prestado</em> el par de diagramas que veis por aqu&iacute; porque creo que resumen muy bien la estructura general del nuevo escenario:
-<br />
-<br />
-<img alt="" src="http://lh3.ggpht.com/-lh9jYxwVPEI/VH4eUEvgnzI/AAAAAAAADuI/SxIk3MGMGXw/image2.png?imgmax=800" height="210" title="" width="702" />
-<br />
-<h3>Algunas novedades de ASP.NET 5</h3>Siguiendo la l&iacute;nea iniciada por la idea “One ASP.NET” que casi monopoliz&oacute; las novedades en la &uacute;ltima oleada de tecnolog&iacute;as de desarrollo para la web, en ASP.NET 5 crearemos aplicaciones web de cualquier tipo usando una 
-<strong>infraestructura com&uacute;n</strong>, a la que iremos a&ntilde;adiendo las piezas necesarias para cubrir nuestras necesidades: MVC, SignalR, seguridad, logging, etc. Con esto se consigue una modularidad que hasta ahora era imposible de serie, aunque muy a la filosof&iacute;a OWIN que ya comenz&oacute; a cuajar tiempo atr&aacute;s; de hecho, si en su momento comprendisteis o trabajasteis con OWIN/Katana la forma de configurar sistemas ASP.NET 5 os resultar&aacute; bastante familiar.
-<br />
-<br />Y dado este nuevo contexto, el primer cambio que encontraremos en MVC 6 y el resto de frameworks es que no hay ning&uacute;n tipo de v&iacute;nculo con componentes de ASP.NET cl&aacute;sico (System.Web), lo cual incide en muchos&nbsp; aspectos generales, como el propio tama&ntilde;o del framework o su la velocidad de ejecuci&oacute;n, pero tambi&eacute;n en detalles que nos afectar&aacute;n a la hora de desarrollar.
-<br />
-<br />Por ejemplo, 
-<strong>el global.asax dejaba de tener sentido</strong> como tal, pues en su interior encontr&aacute;bamos c&oacute;digo vinculado a eventos de objetos propios de ASP.NET cl&aacute;sico. El c&oacute;digo de inicializaci&oacute;n, de nuevo, ser&aacute; m&aacute;s 
-<a href="http://www.variablenotfound.com/2013/10/owin-y-katana-iv-startup-y-configuration.html">parecido al de sistemas basados en OWIN</a> y la implementaci&oacute;n de funcionalidades trasversales como un logging las haremos a base de construir middlewares. 
-<strong>Tampoco ser&aacute; ya necesario el archivo Web.config</strong>, que durante tantos a&ntilde;os ha servido para configurar tanto el servidor como las aplicaciones. Los archivos de configuraci&oacute;n de los proyectos han cambiado a un modelo mucho m&aacute;s potente y flexible que estudiaremos en su momento.
-<br />
-<br />Claro, y puestos a retocar infraestructura, se ha aprovechado para poner al d&iacute;a algunas asignaturas pendientes en ASP.NET, como la 
-<strong>inyecci&oacute;n de dependencias</strong>, que ahora vendr&aacute; integrada de serie y aplicada internamente en todos los frameworks, o el 
-<strong>uso de la asincron&iacute;a de forma generalizada</strong>. Si hasta ahora hab&eacute;is ignorado los c&eacute;lebres async/await, 
-<code>Task</code> y otras hierbas similares,&nbsp; me temo que tendr&eacute;is que iros poniendo al d&iacute;a si quer&eacute;is sacar provecho de las tecnolog&iacute;as que se avecinan.
-<br />
-<br />
-<strong>Roslyn es otro gran protagonista</strong> en el nuevo ASP.NET, tanto que incluso est&aacute; dispuesto a cambiar la forma en que desarrollamos. El ciclo “Editar&gt;Salvar&gt;Ejecutar&gt;Parar&gt;Editar…” se va a simplificar porque ya no har&aacute; falta compilar de forma expl&iacute;cita, ser&aacute; Roslyn el que se encargue por detr&aacute;s de esta tarea. Por ejemplo, si cambiamos el c&oacute;digo de un controlador bastar&aacute; con recargar la p&aacute;gina en el navegador para ver el resultado, no habr&aacute; que parar la ejecuci&oacute;n y volver a empezar. Como podr&eacute;is suponer, esto no s&oacute;lo afecta al workflow del proceso de desarrollo, sino que adem&aacute;s posibilita otros escenarios de despliegue que hasta ahora no exist&iacute;an. Es un cambio fuerte para los que llevamos a&ntilde;os con ASP.NET, pero seguro que podemos acostumbrarnos&nbsp; ;-)
-<br />
-<br />En cuanto al tooling, tambi&eacute;n cambia bastante la cosa. Todas las herramientas de build y ejecuci&oacute;n pueden lanzarse f&aacute;cilmente desde la 
-<strong>l&iacute;nea de comandos</strong>, supongo que porque se trata del com&uacute;n m&uacute;ltiplo en un contexto multiplataforma. As&iacute;, es posible realizar estas tareas exactamente de la misma forma independientemente de si estamos 
-<strong>en Windows, Mac o Linux</strong>. Pero ojo, esto no significa que tengamos que usar oscuros comandos continuamente en nuestro d&iacute;a a d&iacute;a, seguro que Visual Studio y otras herramientas proporcionar&aacute;n interfaces m&aacute;s similares a los que estamos acostumbrados a utilizar, aunque probablemente determinadas acciones estar&aacute;n accesibles exclusivamente, al menos de momento, desde l&iacute;nea de comandos.
-<br />
-<img align="right" alt="image" src="http://lh3.ggpht.com/-0RAneq7zu-E/VH4eUlFuxDI/AAAAAAAADuQ/210_mOB8FPI/image10.png?imgmax=800" height="327" style="margin: 0px 0px 10px 10px;" title="image" width="204" />
-<br />Puede usarse cualquier tipo de editor para programar aplicaciones ASP.NET, e incluso existen proyectos como&nbsp; 
-<a href="http://www.omnisharp.net/">Omnisharp</a> para 
-<strong>llevar utilidades como intellisense o herramientas de refactorizaci&oacute;n a editores ajenos a Microsoft</strong> como 
-<a href="http://brackets.io/">Brackets</a>, 
-<a href="http://www.gnu.org/software/emacs/">Emacs</a> o 
-<a href="http://www.sublimetext.com/">Sublime Text</a>, desde 
-<strong>cualquier sistema operativo</strong>. De nuevo, la idea es que el desarrollo de aplicaciones ASP.NET pueda hacerse desde cualquier plataforma y herramienta, y dejar que el desarrollador decida si prefiere alejarse de Windows/Visual Studio.
-<br />
-<br />De la misma forma, y siguiendo una tendencia que se apunta desde hace ya alg&uacute;n tiempo, 
-<strong>Visual Studio 2015 se alinea y hace uso de herramientas ya asentadas en otras comunidades de desarrolladores web</strong>, como el gestor de paquetes de frontend 
-<a href="http://bower.io/">Bower</a> o el sistema de automatizaci&oacute;n 
-<a href="http://gruntjs.com/">Grunt</a>. Esto, unido a la necesidad de dar un poco de coherencia a las necesidades de mejora en la organizaci&oacute;n interna de los propios proyectos, tiene tambi&eacute;n su incidencia en la estructura de carpetas de las soluciones, que seguir&aacute;n a partir de ahora un esquema m&aacute;s cercano a la realidad del desarrollo web.
-<br />
-<br />Observad que todo lo que estamos comentando son cambios y novedades generales de la infraestructura de ASP.NET 5 y, por tanto, aplicable para todos los frameworks que se construyan sobre ella. Nada espec&iacute;fico de MVC hasta el momento.
-<br />
-<h3>Y entonces… &iquest;qu&eacute; cambios concretos encontraremos en ASP.NET MVC 6?</h3>Pues en primer lugar, encontraremos los cambios derivados de todas las novedades introducidas en ASP.NET 5 anteriormente comentados: 
-<br />
-<ul>
- <li>Posibilidad de crear aplicaciones MVC sobre .NET 4.6 o Core CLR. </li>
- <li>La estructura de los proyectos cambiar&aacute;. </li>
- <li>Cambios en el workflow de desarrollo debido a la compilaci&oacute;n autom&aacute;tica. Si queremos. </li>
- <li>Tendremos nuevas f&oacute;rmulas para configurar los proyectos y aplicaciones. </li>
- <li>En la mayor&iacute;a de los casos no ser&aacute; necesario usar contenedores IoC para inyectar dependencias, puesto que ASP.NET ya incluir&aacute; este mecanismo de serie. </li>
- <li>Desplegable en cualquier plataforma (Windows, Linux, Mac), y ejecutable en cualquier tipo de host (IIS&nbsp; u otro servidores web, servicios del sistema operativo, aplicaciones…) </li>
-</ul>Pero claro, no pod&iacute;a queda ah&iacute; la cosa. Ya hab&iacute;amos comentado por aqu&iacute; en alguna ocasi&oacute;n que la ausencia de una infraestructura com&uacute;n estaba haciendo que nacieran arquitecturas y componentes paralelos, duplicados, por cada uno de los frameworks de desarrollo web. Esto era especialmente notable con MVC y WebAPI, que compart&iacute;an muchos conceptos y entre los que exist&iacute;a mucha duplicidad a nivel de arquitectura y componentes. Estaba claro que era un escenario dif&iacute;cil de sostener a largo plazo, por lo que se ha aprovechado el momento para 
-<strong>unificar MVC y WebAPI. </strong>
-<br />
-<strong><br /></strong>A lo bestia, podr&iacute;amos decir que 
-<strong>MVC se ha comido a WebAPI</strong>. Un ejemplo pr&aacute;ctico es que ya no existir&aacute; la clase 
-<code>ApiController</code>, sino que su comportamiento habr&aacute; sido absorbido por los habituales controladores MVC (que por cierto, podr&aacute;n ser objetos POCO puros). Esto implica algunas modificaciones al sistema de routing, al binding, a los mecanismos de negociaci&oacute;n de contenidos, y a la forma de retornar resultados desde las acciones, pero estos cambios afectar&aacute;n principalmente a las aplicaciones WebAPI, las basadas exclusivamente en MVC sufrir&aacute;n poco debido a esta unificaci&oacute;n.
-<br />
-<br />Otra novedad interesante es la 
-<strong>introducci&oacute;n de los View Componentes</strong>, un nuevo tipo de elementos reutilizables que permiten realizar acciones y componer porciones de vista de forma m&aacute;s eficiente y mejor integrada que las conocidas acciones hija o vistas parciales. Lo veremos en mayor detalle m&aacute;s adelante, pero si quer&eacute;is ir echando un vistazo, el amigo Eduard 
-<a href="http://geeks.ms/blogs/etomas/archive/2014/09/09/asp-net-mvc6-vnext-viewcomponents.aspx">escribi&oacute; sobre ellos</a> hace unos meses.
-<br />
-<br />Con MVC6 encontraremos tambi&eacute;n una nueva versi&oacute;n de Razor que incluye tambi&eacute;n novedades interesantes para la capa vista, como la integraci&oacute;n de la asincron&iacute;a en procesos de renderizado, flush parciales de p&aacute;ginas, inyecci&oacute;n de dependencias sobre las propias vistas, o los nuevos e interesant&iacute;simos 
-<strong>tag helpers</strong>, para mi gusto una de las novedades m&aacute;s interesantes de esta revisi&oacute;n, pues permiten seguir eliminando ruido de las vistas y hacerlas m&aacute;s f&aacute;ciles de leer y escribir. Pod&eacute;is ir leyendo algo sobre ello 
-<a href="http://geeks.ms/blogs/unai/archive/2014/11/20/mvc-6-tag-helper.aspx">en el blog de Unai</a>.
-<br />
-<br />En general, no se trata de grandes novedades en s&iacute; mismas. De hecho, de no ser por los cambios en infraestructura y las modificaciones internas que esto ha acarreado casi casi podr&iacute;a pasar por un incremento menor de versi&oacute;n.
-<br />
-<h3>Pero lo importante, &iquest;me doler&aacute;, doctor?</h3>
-<img align="right" alt="" src="http://lh6.ggpht.com/-kPIrWR_n5vc/VH4eU90UqGI/AAAAAAAADuY/sxBQqN-IUCk/image20.png?imgmax=800" height="194" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="161" />Pues depende, amigo. Para las nuevas aplicaciones, probablemente 
-<strong>ASP.NET 5 y MVC 6 ser&aacute;n las plataformas naturales</strong> sobre la que trabajaremos siempre que el entorno de desarrollo y explotaci&oacute;n nos lo permitan. Las novedades de ASP.NET y MVC comenzaremos a usarlas de forma progresiva y seguro que en poco tiempo nos haremos con el nuevo entorno. En este sentido, no creo que el aterrizaje de MVC 6 sea demasiado doloroso.
-<br />
-<br />La entrada de 
-<strong>ASP.NET 5 tampoco afectar&aacute; especialmente a aplicaciones escritas con versiones anteriores de los frameworks como MVC 5</strong>, pues seguir&aacute;n ejecut&aacute;ndose sin problema sobre .NET 4.6, el entorno completo. Pero obviamente no podr&aacute;n beneficiarse de las novedades de ASP.NET 5 si no son migradas.
-<br />
-<br />Y 
-<strong>los problemas los encontraremos precisamente en la migraci&oacute;n</strong> de una aplicaci&oacute;n existente MVC 5 o anteriores a MVC 6. Pero observad que la mayor parte de una aplicaci&oacute;n MVC convencional podr&iacute;a valer: los controladores seguir&aacute;n siendo controladores, seguiremos teniendo vistas, y nuestro modelo podr&iacute;a seguir siendo el mismo (dependiendo de c&oacute;mo lo hayamos construido, claro). Las mejoras al propio framework MVC 6 (view components, controladores POCO, inyecci&oacute;n de dependencias de ASP.NET…) son opcionales y podemos usarlas seg&uacute;n las necesitemos, pero no nos van a condicionar una migraci&oacute;n, exceptuando quiz&aacute;s la unificaci&oacute;n con WebAPI, que s&iacute; implicar&iacute;a la adaptaci&oacute;n o reescritura de componentes.
-<br />
-<br />Por ello, las cosas m&aacute;s complicadas en una migraci&oacute;n vendr&aacute;n provocadas principalmente por los cambios en la infraestructura, que van a impedir que se pueda de forma directa, “a la copy&amp;paste”. 
-<strong>Los m&uacute;ltiples breaking changes nos obligar&aacute;n siempre a revisar, replantear y reescribir en algunos casos partes de nuestra aplicaci&oacute;n</strong> como:
-<br />
-<ul>
- <li>La propia estructura de proyecto. </li>
- <li>La configuraci&oacute;n (lo que antes ten&iacute;amos en el web.config). </li>
- <li>El routing. </li>
- <li>C&oacute;digo de inicializaci&oacute;n (lo que hasta ahora ten&iacute;amos en el <code>Application_Start</code>) o eventos de aplicaci&oacute;n. </li>
- <li>El sistema de inyecci&oacute;n de dependencias. </li>
- <li>M&oacute;dulos, handlers y otros espec&iacute;menes de esta fauna. </li>
- <li>Todos los controladores WebAPI, debido a la fusi&oacute;n con MVC.</li>
- <li>Si pensamos usar Core CLR y en nuestra aplicaci&oacute;n hacemos uso de caracter&iacute;sticas no soportadas (recordar que se trata de un subconjunto de .NET, no incluye todo), tendremos que reescribirlas usando las alternativas que tengamos disponibles.Y si no las hay, tendremos un problema. </li>
- <li>Lo mismo ocurrir&aacute; si hacemos uso de componentes de terceros que tengan dependencias a componentes no soportados. </li>
- <li>Si usamos temas algo avanzadillos y hemos sustituido o extendido componentes internos del framework por personalizaciones podr&iacute;amos encontrar tambi&eacute;n algunos problemas, pues muchos se han reescrito para dar cabida a los cambios en infraestructura. </li>
- <li>… y seguro que se me olvidan cosas y que conforme vayamos conociendo mejor MVC 6 iremos descubriendo algunos temas conflictivos m&aacute;s. </li>
-</ul>Visto lo visto, seguro que habr&aacute; aplicaciones cuya migraci&oacute;n requiera tal esfuerzo que ni siquiera las intentaremos migrar a MVC 6, quedando en su versi&oacute;n original&nbsp;
-<i>in aeternum</i>, mientras que m&aacute;s sencillas y asequibles. En cualquier caso, desde Microsoft proporcionar&aacute;n algunas herramientas para ayudarnos en los procesos de migraci&oacute;n, aunque de momento la &uacute;nica ayuda que tenemos disponible es la utilidad 
-<a href="http://www.microsoft.com/en-us/download/details.aspx?id=42678">API Portability analizer</a>, que nos ayuda a detectar en nuestras aplicaciones los puntos en los que hacemos uso de APIs que limitan la posibilidad de portarla a otros entornos.
-<br />
-<br />En definitiva, si bien los cambios a nivel de plataformas de desarrollo de alto nivel como ASP.NET MVC no son enormes (salvo para WebAPI, descanse en paz ;-)), el replanteamiento de la infraestructura (desde ASP.NET hacia abajo) s&iacute; convierte esta nueva oleada de tecnolog&iacute;as en una revoluci&oacute;n bastante interesante, probablemente la de mayor calado casi desde el origen del framework, y a la que tendremos que prestar la atenci&oacute;n que merece durante los meses venideros.
-<br />
-<br />Publicado en 
-<a href="http://www.variablenotfound.com/">Variable not found</a>.
-<div> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=pkKbM2Z4mB8:Aywyw1eeHag:4cEx4HpKnUU" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=pkKbM2Z4mB8:Aywyw1eeHag:F7zBnMyn0Lo" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=pkKbM2Z4mB8:Aywyw1eeHag:gIN9vFwOqvQ" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=pkKbM2Z4mB8:Aywyw1eeHag:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
-</div>
-<img src="http://feeds.feedburner.com/~r/vnf/~4/pkKbM2Z4mB8" height="1" width="1" alt="" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/asp-net/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta asp-net</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Quo vadis, ASP.NET MVC? | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/pkKbM2Z4mB8/quo-vadis-aspnet-mvc.html">Quo vadis, ASP.NET MVC?</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-12-03T09:25" itemprop="dateModified">miércoles, 03 de diciembre de 2014 </span>,
+<span>fuente <a target="target" href="http://www.variablenotfound.com">Variable not found</a></span>,
+etiquetas
+<a href="/label/asp-net"><span itemprop="articleSection">asp-net</span></a> 
+</p><p class="text-justify" itemprop="description">
+Aunque aún en beta e inmersa en un intenso proceso de desarrollo, la próxima versión de ASP.NET MVC está tomando forma en los hornos de Microsoft, y, sin ser definitivas, ya se pueden ver cuáles serán las novedades principales que la acompañarán. En futuros posts iremos entrando en mayor detalle, pero de momento vamos a echar un vistazo desde una cierta distancia para tener la idea general sobre dónde estamos y la evolución que vamos a encontrar en las nuevas versiones de tecnologías y plataformas, de forma que podamos ver en qué nos afectará como desarrolladores y, en definitiva, para qué tenemos que irnos preparando. Disclaimer: estamos aún en una fase en la que algunas cosas pueden cambiar y aún no existe información exhaustiva de muchos detalles, por lo que pueden existir ausencias o imprecisiones. [...]
+</p><p><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/pkKbM2Z4mB8/quo-vadis-aspnet-mvc.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc" st_title="Quo vadis, ASP.NET MVC? | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -191,34 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 1184,
-      "url" : "http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "variablenotfound",
-      "name" : "Variable not found"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -226,6 +68,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

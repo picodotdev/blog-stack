@@ -1,91 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Inicio básico de Docker | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/11/inicio-basico-de-docker"><span itemprop="headline">Inicio básico de Docker</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-11-29T12:00" itemprop="dateModified">Actualizado el sábado, 29 de noviembre de 2014 a las 12:00 UTC</span></div><div><span>
-Etiquetado como
-blog-stack, planeta-linux, planeta-codigo, planeta-arch-linux, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
- <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/docker.png" alt="Docker" title="Docker" />
- <br /> 
-</div> 
-<p>En el <a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/">art&iacute;culo anterior introductorio sobre Docker</a> comentaba cuales son sus principales caracter&iacute;sticas, que diferencias tiene con la virtualizaci&oacute;n y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este art&iacute;culo ser&aacute; a modo de gu&iacute;a r&aacute;pida como empezar a usar <a href="https://www.docker.com/">docker</a>. Comentar&eacute; cuales son los comandos b&aacute;sicos para manejar docker, las im&aacute;genes y los contenedores.</p> 
-<p>Antes de empezar con la gu&iacute;a propiamente hay que tener en cuenta que otra de las caracter&iacute;sticas de docker es que &uacute;nicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la <a href="https://registry.hub.docker.com/u/phusion/baseimage/">imagen pushion</a> tiene un sistema de inicio adaptado al funcionamiento de docker (no siendo as&iacute; upstart de las im&aacute;genes de ubuntu o systemd usado por otras distribuciones) con el que podemos iniciar otros procesos, en cualquier caso es recomendable que un contenedor sino tiene un solo proceso tenga unos pocos procesos relacionados con el servicio que proporciona la imagen, la recomendaci&oacute;n es no proporcionar una imagen con un mont&oacute;n de servicios/procesos sino varias peque&ntilde;as cuyos servicios colaboren. Una imagen de un contenedor es b&aacute;sicamente el sistema de archivos que usar&aacute; el proceso que iniciamos en el contenedor, necesitamos obtener o construir una imagen para iniciar los contenedores y trabajar con docker.</p> 
-<p>Primeramente deberemos instalar el paquete de docker, en el caso de <a href="https://wiki.archlinux.org">Arch Linux</a> con el siguiente comando:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-1.sh"></script> 
- <noscript>
-  <pre><code>$ sudo pacman -S docker</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Para poder usar docker sin emplear el comando sudo deberemos crear y a&ntilde;adir nuestro usuario al grupo docker:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-2.sh"></script> 
- <noscript>
-  <pre><code># groupadd docker
-# usermod -aG docker picodotdev</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Una vez instalado el paquete y a&ntilde;adido nuestro usuario al grupo docker podemos iniciar el servicio de docker, en Arch Linux con systemd:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-3.sh"></script> 
- <noscript>
-  <pre><code>$ sudo systemctl start docker.service</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Con el comando &laquo;docker images&raquo;, &laquo;docker ps&raquo;, &laquo;docker ps -a&raquo; podemos respectivamente ver las im&aacute;genes de docker disponibles en nuestro sistema, las instancias de los contenedores iniciadas y las instancias de los contenedores incluyendo las no iniciadas.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-4.sh"></script> 
- <noscript>
-  <pre><code>$ docker images
-$ docker ps
-$ docker ps -a</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<div style="text-align: center;"> 
- <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-images.png" title="docker-images"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-images-thumb.png" /></a> 
-</div> 
-<p>Con los comandos &laquo;docker rm [contenedor]&raquo; y &laquo;docker rmi [imagen]&raquo; podemos eliminar las instancias de contenedores y las im&aacute;genes que no est&eacute;n siendo usadas por ning&uacute;n contenedor, si est&aacute;n siendo usadas deberemos eliminar primero el contenedor.</p> 
-<p>Una vez conocemos los comandos b&aacute;sicos para gestionar las im&aacute;genes y contenedores a&uacute;n nos quedan conocer los comandos para obtener las im&aacute;genes y como iniciarlas. No hace falta que las im&aacute;genes las construyamos nosotros desde cero sino que podemos utilizar las que otras personas han construido. Docker dispone de un <a href="https://registry.hub.docker.com/">registro o repositorio de im&aacute;genes</a> en el que la comunidad (otras personas) publica las que ellos han construido, en este registro podemos encontrar im&aacute;genes para cualquier servicio de los m&aacute;s utilizados ya sea <a href="http://www.mysql.com/">mysql</a>, <a href="http://nginx.org/">nginx</a>, <a href="http://redis.io/">redis</a>, <a href="https://wordpress.org/">wordpress</a>, <a href="http://www.postgresql.org/">postgresql</a>, <a href="http://www.ubuntu.com/">ubuntu</a>, <a href="http://www.centos.org/">centos</a>, … Este repositorio de im&aacute;genes hace que podamos disponer de estos servicios muy f&aacute;cilmente, sin embargo, hay que tener en cuenta que algunas im&aacute;genes no son construidas por alguien “oficial” de ese servicio, cualquier persona puede construir una imagen de un servicio y hacerlo disponible en el repositorio esto hace que algunas im&aacute;genes puedan no ser de la m&aacute;xima calidad o que est&eacute;n apropiadamente mantenidas. Por ello, es recomendable utilizar las im&aacute;genes m&aacute;s descargadas y usadas, a pesar de todo con docker si una imagen no nos gusta podemos basarnos en ella para construir una que se adapte totalmente a nuestras necesidades y con la que nos sintamos c&oacute;modos.</p> 
-<p>Para obtener una imagen usamos el comando &laquo;docker pull [imagen]&raquo; indicando el usuario que cre&oacute; la imagen, el nombre de la imagen y el tag. En el siguiente enlace en la pesta&ntilde;a tags podemos ver las <a href="https://registry.hub.docker.com/_/debian/">im&aacute;genes para docker de debian y sus tag</a>:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-5.sh"></script> 
- <noscript>
-  <pre><code>$ docker pull debian:7.7</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<div style="text-align: center;"> 
- <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-pull.png" title="docker-pull"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-pull-thumb.png" /></a> 
-</div> 
-<p>Una vez descargada la imagen podemos iniciar un contenedor de la imagen con:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/85b091f62b462deee318.js?file=docker-6.sh"></script> 
- <noscript>
-  <pre><code>$ docker run -i -t --name debian debian:7.7 /bin/sh</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>En la terminal que se inicia podemos usar cualquier comando que usar&iacute;amos en un sistema <a href="https://www.debian.org/">debian</a> como apt-get.</p> 
-<p>Este es el momento para explicar otra de las peculiaridades de los contenedores de docker y es que estos no conservan el estado de una ejecuci&oacute;n a otra y cada vez que ejecutemos el comando se crear&aacute; una nueva instancia del contenedor. Para conseguir la persistencia al crear las im&aacute;genes se pueden establecer puntos de montaje, esta persistencia est&aacute; externalizada en otros contenedores con el solo prop&oacute;sito de servir como vol&uacute;menes de datos, tambi&eacute;n se puede montar un directorio del sistema anfitri&oacute;n.</p> 
-<p>Si usamos el comando &laquo;uname -a&raquo; puede verse que aunque el contenedor usa el sistema de archivos de una distribuci&oacute;n debian el kernel empleado es el del sistema anfitri&oacute;n, esto es as&iacute; porque los contenedores docker en esencia no son m&aacute;s que procesos dentro del sistema.</p> 
-<div style="text-align: center;"> 
- <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-run.png" title="docker-run"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/50/docker-run-thumb.png" /></a> 
-</div> 
-<p>Continuando esta serie de art&iacute;culos sobre docker explicar&eacute; como construir una imagen mediante los Dockerfiles con la que podamos usar una base de datos mysql y explicar&eacute; en m&aacute;s detalle como podemos conseguir la persistencia que necesitaremos para almacenar los datos de la base de datos usando otro contenedor con este prop&oacute;sito.</p> 
-<p>Referencia:<br /> <a href="http://picodotdev.github.io/blog-bitix/2014/10/introduccion-y-caracteristicas-de-docker/">Introducci&oacute;n y caracter&iacute;sticas de Docker</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/como-crear-una-imagen-para-docker-usando-un-dockerfile/">C&oacute;mo crear una imagen para Docker usando un Dockerfile</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-ansible/">Introducci&oacute;n a Ansible</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/integracion-entre-ansible-y-docker/">Integraci&oacute;n entre Ansible y Docker</a><br /> <a href="http://picodotdev.github.io/blog-bitix/2014/11/introduccion-a-bitnami/">Introducci&oacute;n a Bitnami</a><br /> <a href="https://registry.hub.docker.com/">https://registry.hub.docker.com/</a><br /> <a href="http://phusion.github.io/baseimage-docker/">http://phusion.github.io/baseimage-docker/</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "blog-bitix";
-var disqus_title = "Inicio básico de Docker";
-var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Inicio básico de Docker | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/">Inicio básico de Docker</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-11-29T12:00" itemprop="dateModified">sábado, 29 de noviembre de 2014 </span>,
+<span>fuente <a target="target" href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>,
+etiquetas
+<a href="/label/linux"><span itemprop="articleSection">linux</span></a> 
+</p><p class="text-justify" itemprop="description">
+En el artículo anterior introductorio sobre Docker comentaba cuales son sus principales características, que diferencias tiene con la virtualización y algunos casos y motivos por los que nos puede interesar usarlo. El objetivo de este artículo será a modo de guía rápida como empezar a usar docker. Comentaré cuales son los comandos básicos para manejar docker, las imágenes y los contenedores. Antes de empezar con la guía propiamente hay que tener en cuenta que otra de las características de docker es que únicamente se inicia un solo proceso, cuando este finaliza finaliza la instancia del contenedor. Aunque en principio un contenedor solo tiene un proceso, podemos usar como proceso inicial uno que arranque otros, la imagen pushion tiene un sistema de inicio adaptado al funcionamiento de docker [...]
+</p><p><a itemprop="sameAs" target="target" href="http://picodotdev.github.io/blog-bitix/2014/11/inicio-basico-de-docker/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker" st_title="Inicio básico de Docker | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -130,35 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 1077,
-      "url" : "http://www.blogstack.info/post/blogbitix/2014/11/inicio-basico-de-docker"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "blogbitix",
-      "name" : "Blog Bitix"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -170,6 +72,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

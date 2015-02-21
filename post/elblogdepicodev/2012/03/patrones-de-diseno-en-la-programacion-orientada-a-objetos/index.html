@@ -1,107 +1,21 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Patrones de diseño en la programación orientada a objetos | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos"><span itemprop="headline">Patrones de diseño en la programación orientada a objetos</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-03-08T07:25" itemprop="dateModified">Actualizado el sábado, 08 de marzo de 2014 a las 07:25 UTC</span></div><div><span>
-Etiquetado como
-planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="Java" height="200" src="http://2.bp.blogspot.com/-hC2-QuC33AU/TBeztET3lAI/AAAAAAAAAZ8/EzZnNZw5do0/s200/java.png" title="Java" width="107" />
-</div>La programaci&oacute;n orientada a objetos (POO) es un paradigma en la que los sistemas se dise&ntilde;an mediante clases y relaciones entre ellas. Se utilizan conceptos como la herencia, polimorfismo, abstraci&oacute;n, encapsulamiento y ocultaci&oacute;n. Resumidamente estas propiedades son:
-<br />
-<ul>
- <li>Clase: Abstracci&oacute;n que recoge las propiedades y comportamiento de los objetos en el sistema. Una clase puede instanciarse en objetos tantas veces como se necesite.</li>
- <li>Objeto: instancia de una clase que se relaciona con el resto de objetos a trav&eacute;s de los m&eacute;todos definidos en sus clases.</li>
- <li>Herencia: las clases no est&aacute;n aisladas y se relacionan entre ellas, mediante esta propiedad forman una jerarqu&iacute;a en la que las clases heredan las propiedades y m&eacute;todos de las clases superiores.</li>
- <li>Polimorfismo: es la propiedad de las instancias de las clases, los objetos, por la que pueden responder de forma diferente a un mismo nombre de m&eacute;todo en funci&oacute;n de su tipo concreto.</li>
- <li>Abstracci&oacute;n: Permite modelar una entidad del &aacute;mbito de trabajo con las caracter&iacute;sticas relevantes para el sistema.</li>
- <li>Encapsulamiento: los elementos relacionados se agrupan juntos en una misma clase para aumentar la cohesi&oacute;n.</li>
- <li>Ocultaci&oacute;n: las clases tienen una interfaz a trav&eacute;s de la cual el resto de clases interactuan con ella de forma que no necesiten conocer sus detalles y evita que clases externas modifiquen el estado de manera inesperada.</li>
-</ul>Conocer estas propiedades es importante para programar en un lenguaje orietado a objetos sin embargo no es suficiente para dise&ntilde;ar sistemas que sean f&aacute;ciles de mantener y que permitan adaptarse a nuevos cambios sin redise&ntilde;ar los sistemas.
-<br />
-<br />Aqu&iacute; es donde aparecen los patrones de dise&ntilde;o y unos principios a la hora de dise&ntilde;ar los sistemas OO. Los patrones de dise&ntilde;o son formas identificadas que resuelve de forma correcta diferentes problemas comunes a algunos escenarios. Los principios son unas gu&iacute;as que dirigen el dise&ntilde;o que realizamos y que en gran medida est&aacute;n presentes en los patrones de dise&ntilde;o.
-<br />
-<br />Muy resumidamente los patrones de dise&ntilde;o tienen como objetivo permitir hacer frente a toda constante que posee cualquier aplicaci&oacute;n, 
-<b>el cambio</b>, de tal forma que permitan escalar a los sistemas incorporando nuevas funcionalidades y prefiriendo a&ntilde;adir nuevo c&oacute;digo a modificar c&oacute;digo existente. 
-<br />
-<br />Algunos principios que deber&iacute;an guiar nuestras decisiones son:
-<br />
-<ul>
- <li>Encapsula lo que var&iacute;a</li>
- <li>Favorece la composici&oacute;n sobre herencia</li>
- <li>Programa sobre interfaces, no implementaciones</li>
- <li>Abierto a extensi&oacute;n, cerrado a cambio</li>
- <li>Depende sobre abstracciones, no sobre clases concretas</li>
- <li>Conocimiento solo de clase amigas</li>
- <li>No nos llames, nosotros te llamaremos</li>
- <li>Una clase deber&iacute;a tener solo una raz&oacute;n para cambiarla</li>
- <li>Inversi&oacute;n de dependencias</li>
-</ul>Algunos patrones identificados y que resulven de forma correcta algunos problemas son:
-<br />
-<ul>
- <li><a href="http://en.wikipedia.org/wiki/Strategy_pattern">Strategy</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Factory_pattern">Factory</a></li>
- <ul>
-  <li>Simple factory</li>
-  <li>Factory method</li>
-  <li>Abstract factory</li>
- </ul>
- <li><a href="http://en.wikipedia.org/wiki/Singleton_pattern">Singleton</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Command_pattern">Command</a></li>
- <ul>
-  <li><a href="http://en.wikipedia.org/wiki/Null_Object_pattern">Null object</a></li>
- </ul>
- <li><a href="http://en.wikipedia.org/wiki/Adapter_pattern">Adapter</a> &amp; <a href="http://en.wikipedia.org/wiki/Facade_pattern">Facade</a></li>
- <ul>
-  <li>Object adapter</li>
-  <li>Class adapter</li>
- </ul>
- <li><a href="http://en.wikipedia.org/wiki/Template_method_pattern">Template Method</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Iterator_pattern">Iterator</a> &amp; <a href="http://en.wikipedia.org/wiki/Composite_pattern">Composite</a></li>
- <li><a href="http://en.wikipedia.org/wiki/State_pattern">State</a></li>
- <li><a href="http://en.wikipedia.org/wiki/Proxy_pattern">Proxy Patttern</a></li>
- <li>Compound Pattterns</li>
- <li>Otros</li>
- <ul>
-  <li><a href="http://en.wikipedia.org/wiki/Bridge_pattern">Bridge</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Builder_pattern">Builder</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">Chain of responsability</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Flyweight_pattern">Flyweight</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Interpreter_pattern">Interpreter</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Mediator_pattern">Mediator</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Memento_pattern">Memento</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Prototype_pattern">Prototype</a></li>
-  <li><a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor</a></li>
- </ul>
-</ul>Un muy buen libro que recoge todos estos principios y patrones es &laquo;
-<a href="http://www.amazon.es/gp/product/B00IG2CTG2/ref=as_li_tf_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B00IG2CTG2&amp;linkCode=as2&amp;tag=blobit-21">Head First Design Patterns</a>
-<img src="http://ir-es.amazon-adsystem.com/e/ir?t=blobit-21&amp;l=as2&amp;o=30&amp;a=B00IG2CTG2" width="1" height="1" alt="" style="border:none !important; margin:0px !important;" />&raquo; y en el que se describe de forma m&aacute;s detallada y con ejemplos la aplicaci&oacute;n de los principios y el uso de los patrones de una forma sencilla y bien explicada. Aunque es un libro con los ejemplos en Java es una lectura muy recomendada para cualquiera que quiera subir un nivel como desarrollador.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?t=blobit-21&amp;o=30&amp;p=8&amp;l=as1&amp;asins=B00IG2CTG2&amp;ref=tf_til&amp;fc1=000000&amp;IS2=1&amp;lt1=_blank&amp;m=amazon&amp;lc1=0000FF&amp;bc1=000000&amp;bg1=FFFFFF&amp;f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
-</div>
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="margin-left: 1em; margin-right: 1em;"></div>Despu&eacute;s de leer el libro es buena idea tener una hoja de referencia con todos los patrones, en DZone hay una disponible que se puede descargar libremente 
-<a href="http://refcardz.dzone.com/refcardz/design-patterns">design patterns cheat sheet</a>. Si no quieres registrarte para descargarla usa 
-<a href="http://www.bugmenot.com/">Bug me not</a>.
-<br />
-<br />Referencia:
-<br />
-<a href="http://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos">Programaci&oacute;n orientada a objetos (Wikipedia)</a>
-<br />
-<a href="http://shop.oreilly.com/product/9780596007126.do">Libro Head First - Desing Patterns de O'Reilly </a>
-<br />
-<a href="http://elblogdepicodev.blogspot.com.es/2012/04/ejemplo-del-patron-de-diseno-command-y.html">Ejemplo del patr&oacute;n de dise&ntilde;o Command y programaci&oacute;n concurrente en Java</a>
-<br />
-<a href="http://elblogdepicodev.blogspot.com.es/2013/08/ejemplo-del-patron-de-diseno-state.html">Ejemplo del patr&oacute;n de dise&ntilde;o State</a>
-<br />
-<a href="http://picodotdev.github.io/blog-bitix/2014/01/ejemplo-del-patron-de-diseno-no-operation/">Ejemplo del patr&oacute;n de dise&ntilde;o No Operation</a></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Patrones de diseño en la programación orientada a objetos";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Patrones de diseño en la programación orientada a objetos | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html">Patrones de diseño en la programación orientada a objetos</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-03-08T07:25" itemprop="dateModified">sábado, 08 de marzo de 2014 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a> 
+<a href="/label/java"><span itemprop="articleSection">java</span></a> 
+</p><p class="text-justify" itemprop="description">
+La programación orientada a objetos (POO) es un paradigma en la que los sistemas se diseñan mediante clases y relaciones entre ellas. Se utilizan conceptos como la herencia, polimorfismo, abstración, encapsulamiento y ocultación. Resumidamente estas propiedades son: Clase: Abstracción que recoge las propiedades y comportamiento de los objetos en el sistema. Una clase puede instanciarse en objetos tantas veces como se necesite. Objeto: instancia de una clase que se relaciona con el resto de objetos a través de los métodos definidos en sus clases. Herencia: las clases no están aisladas y se relacionan entre ellas, mediante esta propiedad forman una jerarquía en la que las clases heredan las propiedades y métodos de las clases superiores. Polimorfismo: es la propiedad de las instancias de las [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2012/03/patrones-de-diseno-en-la-programacion.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos" st_title="Patrones de diseño en la programación orientada a objetos | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -146,35 +60,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 112,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/03/patrones-de-diseno-en-la-programacion-orientada-a-objetos"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -186,6 +73,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

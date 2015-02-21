@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-01T19:02:17Z</updated>
+  <updated>2015-02-21T01:25:10Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-01T19:02:17Z</dc:date>
+  <dc:date>2015-02-21T01:25:10Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Filtros asíncronos en MVC 6</title>
@@ -19,11 +19,7 @@
     </author>
     <updated>2015-02-01T18:20:38Z</updated>
     <published>2014-12-16T12:45:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="ASP.NET MVC 6" src="http://lh5.ggpht.com/-okFiI0ZHS50/VI3PXlfh_aI/AAAAAAAADus/WpuMJQIZY8c/ASPNETMVC2.png?imgmax=800" height="77" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="ASP.NET MVC 6" width="142" /&gt;Como ya hemos visto por aqu&amp;iacute; en alguna ocasi&amp;oacute;n, hace tiempo que MVC soporta 
-&lt;a href="http://www.variablenotfound.com/2012/09/asincronia-en-mvc-4.html"&gt;controladores as&amp;iacute;ncronos&lt;/a&gt;, permitiendo la implementaci&amp;oacute;n de acciones muy eficientes desde el punto de vista de la utilizaci&amp;oacute;n de los recursos del servidor. 
-&lt;br /&gt; 
-&lt;br /&gt;Sin embargo, en cuanto pretend&amp;iacute;amos llevar a los 
-&lt;em&gt;action filters&lt;/em&gt; la misma filosof&amp;iacute;a nos encontr&amp;aacute;bamos con que la infraestructura no estaba preparada, es decir, no ten&amp;iacute;amos una forma clara de introducir llamadas as&amp;iacute;ncronas en el cuerpo de los filtros. Como consecuencia, todas las tareas que se realizaban en su interior eran puramente s&amp;iacute;ncronas y dejaban bloqueados los hilos destinados a procesar peticiones mientras se completaban las operaciones, lo cual es especialmente un despilfarro cuando se trata de tareas de entrada/salida.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Como ya hemos visto por aquí en alguna ocasión, hace tiempo que MVC soporta controladores asíncronos, permitiendo la implementación de acciones muy eficientes desde el punto de vista de la utilización de los recursos del servidor. Sin embargo, en cuanto pretendíamos llevar a los action filters la misma filosofía nos encontrábamos con que la infraestructura no estaba preparada, es decir, no teníamos una forma clara de introducir llamadas asíncronas en el cuerpo de los filtros. Como consecuencia, todas las tareas que se realizaban en su interior eran puramente síncronas y dejaban bloqueados los hilos destinados a procesar peticiones mientras se completaban las operaciones, lo cual es especialmente un despilfarro cuando se trata de tareas de entrada/salida. Afortunadamente esto parece que va a[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/filtros-asincronos-en-mvc-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-12-16T12:45:00Z</dc:date>
   </entry>
@@ -38,13 +34,7 @@
     </author>
     <updated>2014-12-03T09:25:51Z</updated>
     <published>2014-12-03T09:15:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="" src="http://lh6.ggpht.com/-JQCrc1GCDm4/VH4eSo3prdI/AAAAAAAADt0/bu3jKKvPoks/image23.png?imgmax=800" height="145" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="198" /&gt;Aunque a&amp;uacute;n en beta e inmersa en un intenso proceso de desarrollo, la pr&amp;oacute;xima versi&amp;oacute;n de ASP.NET MVC est&amp;aacute; tomando forma en los hornos de Microsoft, y, sin ser definitivas, ya se pueden ver cu&amp;aacute;les ser&amp;aacute;n las novedades principales que la acompa&amp;ntilde;ar&amp;aacute;n. 
-&lt;br /&gt; 
-&lt;br /&gt;En futuros posts iremos entrando en mayor detalle, pero de momento vamos a echar un vistazo desde una cierta distancia para tener la idea general sobre d&amp;oacute;nde estamos y la evoluci&amp;oacute;n que vamos a encontrar en las nuevas versiones de tecnolog&amp;iacute;as y plataformas, de forma que podamos ver en qu&amp;eacute; nos afectar&amp;aacute; como desarrolladores y, en definitiva, para qu&amp;eacute; tenemos que irnos preparando. 
-&lt;br /&gt; 
-&lt;blockquote&gt; 
- &lt;i&gt;Disclaimer: estamos a&amp;uacute;n en una fase en la que algunas cosas pueden cambiar y a&amp;uacute;n no existe informaci&amp;oacute;n exhaustiva de muchos detalles, por lo que pueden existir ausencias o imprecisiones. Pero bueno, digo yo que el grueso ser&amp;aacute; m&amp;aacute;s o menos correcto ;-)&lt;/i&gt;
-&lt;/blockquote&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Aunque aún en beta e inmersa en un intenso proceso de desarrollo, la próxima versión de ASP.NET MVC está tomando forma en los hornos de Microsoft, y, sin ser definitivas, ya se pueden ver cuáles serán las novedades principales que la acompañarán. En futuros posts iremos entrando en mayor detalle, pero de momento vamos a echar un vistazo desde una cierta distancia para tener la idea general sobre dónde estamos y la evolución que vamos a encontrar en las nuevas versiones de tecnologías y plataformas, de forma que podamos ver en qué nos afectará como desarrolladores y, en definitiva, para qué tenemos que irnos preparando. Disclaimer: estamos aún en una fase en la que algunas cosas pueden cambiar y aún no existe información exhaustiva de muchos detalles, por lo que pueden existir ausencias o imprecisiones.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/12/quo-vadis-asp-net-mvc"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-12-03T09:15:00Z</dc:date>
   </entry>
@@ -61,40 +51,7 @@
     </author>
     <updated>2014-10-04T17:21:11Z</updated>
     <published>2014-10-04T17:21:11Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt;&lt;/div&gt; 
-&lt;script&gt;&lt;/script&gt; 
-&lt;div style=""&gt; 
- &lt;a href="http://destinodotnet.com/#"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Facebook0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://twitter.com/intent/tweet?text=Localizaci&amp;oacute;n en aplicativos .NET http://destinodotnet.com/feed/ %40destinodotnet"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Twitter0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Google+0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=http://destinodotnet.com/feed/&amp;amp;title=Localizaci&amp;oacute;n en aplicativos .NET&amp;amp;summary=Este art&amp;iacute;culo trata un tema muy interesante que quiero abordar: c&amp;oacute;mo aplicar la localizaci&amp;oacute;n en aplicativos .NET. En los &amp;uacute;ltimos a&amp;ntilde;os, la globalizaci&amp;oacute;n ha tomado mucha fuerza en los sistemas de informaci&amp;oacute;n, ya no es raro tener a usuarios que sean, culturalmente, diferentes o que est&amp;eacute;n ubicados en diferentes regiones.Por ..."&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Linkedin0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;E-Mail0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Este art&amp;iacute;culo trata un tema muy interesante que quiero abordar: c&amp;oacute;mo aplicar la &lt;strong&gt;localizaci&amp;oacute;n en aplicativos .NET&lt;/strong&gt;. En los &amp;uacute;ltimos a&amp;ntilde;os, la globalizaci&amp;oacute;n ha tomado mucha fuerza en los sistemas de informaci&amp;oacute;n, ya no es raro tener a &lt;u&gt;&lt;em&gt;usuarios que sean, culturalmente, diferentes o que est&amp;eacute;n ubicados en diferentes regiones&lt;/em&gt;&lt;/u&gt;.&lt;/p&gt; 
-&lt;p&gt;Por esto es muy importante que nuestro aplicativo tenga en cuenta esta caracter&amp;iacute;stica, y m&amp;aacute;s importante a&amp;uacute;n es que su &lt;strong&gt;implementaci&amp;oacute;n se d&amp;eacute; desde el principio&lt;/strong&gt;, ya que nos puede ahorrar mucho trabajo compar&amp;aacute;ndolo si lo implement&amp;aacute;ramos de forma posterior.&lt;/p&gt; 
-&lt;h2&gt;Conceptos&lt;/h2&gt; 
-&lt;h3&gt;&amp;iquest;Qu&amp;eacute; es Globalizaci&amp;oacute;n?&lt;/h3&gt; 
-&lt;p&gt;La &lt;strong&gt;globalizaci&amp;oacute;n&lt;/strong&gt; es la &lt;u&gt;&lt;em&gt;generaci&amp;oacute;n de un esquema en nuestro aplicativo que controle y gestione la interface de usuario de forma localizada&lt;/em&gt;&lt;/u&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/10/localizacion-en-aplicativos-net"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Facebook0 Twitter0 Google+0 Linkedin0 E-Mail0 Este artículo trata un tema muy interesante que quiero abordar: cómo aplicar la localización en aplicativos .NET. En los últimos años, la globalización ha tomado mucha fuerza en los sistemas de información, ya no es raro tener a usuarios que sean, culturalmente, diferentes o que estén ubicados en diferentes regiones. Por esto es muy importante que nuestro aplicativo tenga en cuenta esta característica, y más importante aún es que su implementación se dé desde el principio, ya que nos puede ahorrar mucho trabajo comparándolo si lo implementáramos de forma posterior. Conceptos ¿Qué es Globalización? La globalización es la generación de un esquema en nuestro aplicativo que controle y gestione la interface de usuario de forma localizada, basándose en[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/10/localizacion-en-aplicativos-net"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Joel Martinez</dc:creator>
     <dc:date>2014-10-04T17:21:11Z</dc:date>
   </entry>
@@ -110,39 +67,7 @@
     </author>
     <updated>2014-08-30T17:27:38Z</updated>
     <published>2014-08-30T17:27:38Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt;&lt;/div&gt; 
-&lt;script&gt;&lt;/script&gt; 
-&lt;div style=""&gt; 
- &lt;a href="http://destinodotnet.com/#"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Facebook0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://twitter.com/intent/tweet?text=ASP .NET MVC: Tutorial inicial http://destinodotnet.com/feed/ %40destinodotnet"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Twitter0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Google+0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=http://destinodotnet.com/feed/&amp;amp;title=ASP .NET MVC: Tutorial inicial&amp;amp;summary=Estaba elaborando un art&amp;iacute;culo sobre autenticaci&amp;oacute;n/autorizaci&amp;oacute;n, pero repar&amp;eacute; que es mejor primero hacer uno completo como tutorial introductorio sobre ASP .NET MVC. S&amp;eacute; que hay muuuuchos art&amp;iacute;culos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontr&amp;eacute; en otros. Aqu&amp;iacute; ..."&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Linkedin0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;E-Mail0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Estaba elaborando un art&amp;iacute;culo sobre autenticaci&amp;oacute;n/autorizaci&amp;oacute;n, pero repar&amp;eacute; que es mejor primero hacer uno completo como &lt;strong&gt;tutorial introductorio sobre ASP .NET MVC&lt;/strong&gt;. S&amp;eacute; que hay muuuuchos art&amp;iacute;culos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontr&amp;eacute; en otros. Aqu&amp;iacute; vamos entonces con un primer acercamiento a esta maravillosa tecnolog&amp;iacute;a.&lt;/p&gt; 
-&lt;h2&gt;Un poco de teor&amp;iacute;a&lt;/h2&gt; 
-&lt;h3&gt;Definici&amp;oacute;n&lt;/h3&gt; 
-&lt;p&gt;&lt;strong&gt;MVC&lt;/strong&gt; son las siglas de &lt;strong&gt;Model View Controller&lt;/strong&gt;, o &lt;strong&gt;Modelo Vista Controlador&lt;/strong&gt; en espa&amp;ntilde;ol. Es un patr&amp;oacute;n de arquitectura de software que se ha vuelto muy com&amp;uacute;n en estos a&amp;ntilde;os, pero sus or&amp;iacute;genes se remontan a la d&amp;eacute;cada del 70. Lo que propone este patr&amp;oacute;n es la separaci&amp;oacute;n de la interfaz de usuario con l&amp;oacute;gica de negocio y el manejo de los datos. Para esto se divide en 3 componentes:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/08/asp-net-mvc-tutorial-inicial"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Facebook0 Twitter0 Google+0 Linkedin0 E-Mail0 Estaba elaborando un artículo sobre autenticación/autorización, pero reparé que es mejor primero hacer uno completo como tutorial introductorio sobre ASP .NET MVC. Sé que hay muuuuchos artículos en la web sobre esto, pero en este trato de darle un estilo particular y un orden que no encontré en otros. Aquí vamos entonces con un primer acercamiento a esta maravillosa tecnología. Un poco de teoría Definición MVC son las siglas de Model View Controller, o Modelo Vista Controlador en español. Es un patrón de arquitectura de software que se ha vuelto muy común en estos años, pero sus orígenes se remontan a la década del 70. Lo que propone este patrón es la separación de la interfaz de usuario con lógica de negocio y el manejo de los datos. Para esto[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/08/asp-net-mvc-tutorial-inicial"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Joel Martinez</dc:creator>
     <dc:date>2014-08-30T17:27:38Z</dc:date>
   </entry>
@@ -158,14 +83,7 @@
     </author>
     <updated>2014-07-22T11:55:00Z</updated>
     <published>2014-07-22T11:55:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Debug" src="http://lh4.ggpht.com/-Ox2wyj3ZYSU/U8LGWzoGCtI/AAAAAAAADh0/ZB26rBsBkE0/image2.png?imgmax=800" height="128" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Debug" width="128" /&gt;Hay veces que desde Javascript nos interesa ejecutar un c&amp;oacute;digo u otro en funci&amp;oacute;n de si la ejecuci&amp;oacute;n se est&amp;aacute; produciendo en un servidor de desarrollo o en uno de producci&amp;oacute;n. Por ejemplo, en el primer caso suele ser interesante disponer de 
-&lt;em&gt;logs&lt;/em&gt; o herramientas de ayuda a la depuraci&amp;oacute;n, mientras que en el segundo lo normal es que queramos introducir c&amp;oacute;digo m&amp;aacute;s eficiente y sin este tipo de condimentos. 
-&lt;br /&gt; 
-&lt;br /&gt;En este post vamos a ver algunas t&amp;eacute;cnicas muy b&amp;aacute;sicas que nos permitir&amp;aacute;n ejecutar un c&amp;oacute;digo u otro en el lado cliente de aplicaciones ASP.NET MVC (o ASP.NET en general) en funci&amp;oacute;n del modo de compilaci&amp;oacute;n. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;h3&gt;1. El lado servidor&lt;/h3&gt;En el lado servidor es bastante f&amp;aacute;cil de conseguir porque disponemos de directivas de compilaci&amp;oacute;n que nos permiten detectar si estamos generando los binarios en modo depuraci&amp;oacute;n:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hay veces que desde Javascript nos interesa ejecutar un código u otro en función de si la ejecución se está produciendo en un servidor de desarrollo o en uno de producción. Por ejemplo, en el primer caso suele ser interesante disponer de logs o herramientas de ayuda a la depuración, mientras que en el segundo lo normal es que queramos introducir código más eficiente y sin este tipo de condimentos. En este post vamos a ver algunas técnicas muy básicas que nos permitirán ejecutar un código u otro en el lado cliente de aplicaciones ASP.NET MVC (o ASP.NET en general) en función del modo de compilación. 1. El lado servidorEn el lado servidor es bastante fácil de conseguir porque disponemos de directivas de compilación que nos permiten detectar si estamos generando los binarios en modo depuración:[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/07/if-debug-en-javascript-bueno-o-algo-asi"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-07-22T11:55:00Z</dc:date>
   </entry>
@@ -180,13 +98,7 @@
     </author>
     <updated>2014-06-17T10:57:59Z</updated>
     <published>2014-06-10T16:10:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Microsoft ASP.NET" src="http://lh6.ggpht.com/-mH6-_IMLFg8/U5Si-5UiF6I/AAAAAAAADfk/kuu_-w0KQMM/image%25255B7%25255D.png?imgmax=800" height="54" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Microsoft ASP.NET" width="122" /&gt;Hay muchos escenarios, y relativamente habituales, en los que es interesante lanzar una tarea desatendida, en segundo plano, desde una aplicaci&amp;oacute;n ASP.NET: manipulaci&amp;oacute;n de archivos, env&amp;iacute;o de mensajes, acceso a recursos externos costosos, procesos de colas, generaci&amp;oacute;n de archivos, etc. 
-&lt;br /&gt; 
-&lt;br /&gt;En general, es un enfoque que puede interesarnos siempre que se trate de realizar un trabajo pesado, que no requiera intervenci&amp;oacute;n alguna por parte del usuario ni siquiera para darle feedback del progreso o terminaci&amp;oacute;n, y que pueda ejecutarse de forma independiente a las peticiones HTTP que acceden a la aplicaci&amp;oacute;n. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Imaginad una acci&amp;oacute;n como la siguiente, donde se recibe un texto y se llama al m&amp;eacute;todo 
-&lt;code&gt;SendEmailToAllMyContacts()&lt;/code&gt; para hac&amp;eacute;rselo llegar, por ejemplo, a 1.000 contactos:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hay muchos escenarios, y relativamente habituales, en los que es interesante lanzar una tarea desatendida, en segundo plano, desde una aplicación ASP.NET: manipulación de archivos, envío de mensajes, acceso a recursos externos costosos, procesos de colas, generación de archivos, etc. En general, es un enfoque que puede interesarnos siempre que se trate de realizar un trabajo pesado, que no requiera intervención alguna por parte del usuario ni siquiera para darle feedback del progreso o terminación, y que pueda ejecutarse de forma independiente a las peticiones HTTP que acceden a la aplicación. Imaginad una acción como la siguiente, donde se recibe un texto y se llama al método SendEmailToAllMyContacts() para hacérselo llegar, por ejemplo, a 1.000 contactos: [HttpPost] public ActionResult EmailEverybody(string[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/06/ejecutar-tareas-en-segundo-plano-en-asp-net-4-5-2"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-06-10T16:10:00Z</dc:date>
   </entry>

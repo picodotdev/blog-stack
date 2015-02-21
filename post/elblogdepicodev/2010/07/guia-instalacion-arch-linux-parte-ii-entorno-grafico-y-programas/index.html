@@ -1,397 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas"><span itemprop="headline">Guía instalación Arch Linux (Parte II, entorno gráfico y programas)</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/arch-linux"><img title="arch-linux" alt="arch-linux" src="/assets/images/labels/arch-linux.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2012-08-06T20:25" itemprop="dateModified">Actualizado el lunes, 06 de agosto de 2012 a las 20:25 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>, gnulinux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">Despu&eacute;s de completar la 
-<a href="http://elblogdepicodev.blogspot.com/2010/05/guia-instalacion-arch-linux-parte-i.html">instalaci&oacute;n base de Arch Linux</a> en la que tenemos un sistema funcional pero &uacute;nicamente accesible mediante la linea de comandos todav&iacute;a nos queda camino por recorrer para tener un entorno de escritorio gr&aacute;fico m&aacute;s c&oacute;modo que &uacute;nicamente la shell de bash y las varias consolas tty.
-<br />
-<br />En esta segunda parte me centrar&eacute; en como partiendo de una instalaci&oacute;n base de Arch Linux conseguimos un entorno con las opciones m&aacute;s comunes de todo sistema. Algunas de ellas no son imprescindibles as&iacute; que si tu caso es que tienes un sistema sin bluetooth puedes saltarte el paso e ir al siguiente. Esta gu&iacute;a no presente ser exhaustiva ni incluir las preferencias de todos los posibles usuarios simplemente es la receta que utilizo yo para instalar mi sistema que publico por si a alguien le ayuda y para mi mismo a modo de consulta.
-<br />
-<br />
-<b>Creaci&oacute;n de usuarios</b>
-<br />La primera acci&oacute;n que realizaremos es crear el usuario con el que iniciaremos sesi&oacute;n en el sistema para utilizarlo en vez del usuario root.
-<br />
-<br />Habiendo iniciado sesi&oacute;n con el usuario root a&ntilde;adimos nuestro usuario con el comando:
-<br />
-<br />
-<div>
- <pre># useradd -m -G users,lp,optical,storage,video,wheel,power -s /bin/bash arch</pre>
-</div>
-<br />Esto nos crear&aacute; un usuario que pertenecer&aacute; a los grupos (users,lp,optical,storage,video,wheel,power), la shell preferida ser&aacute; bash y el nombre del usuario ser&aacute; arch. Posteriormente asignamos al usuario que acabamos de crear una contrase&ntilde;a:
-<br />
-<br />
-<div>
- <pre># passwd arch</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-OW9BvMKtd80/TdbD-QkaljI/AAAAAAAAAvk/ADwNhhm3w3s/s1600/guia-instalacion-al-p2-1.png"><img height="150" src="http://4.bp.blogspot.com/-OW9BvMKtd80/TdbD-QkaljI/AAAAAAAAAvk/ADwNhhm3w3s/s200/guia-instalacion-al-p2-1.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />
-<b>Comando sudo (<a href="http://wiki.archlinux.org/index.php/Sudo">wiki sudo</a>)</b>
-<br />El comando sudo permite ejecutar comandos como otro usuario, por ejemplo, ejecutar comandos desde el usuario arch (que no tiene permisos de superusuario, root) como el usuario root sin tener que iniciar sesi&oacute;n como root. Esto se hace asi por motivos de seguridad con lo que es recomendable instalarlo y usarlo en vez de iniciar sesi&oacute;n como root para hacer tareas administrativas como instalar programas o actualizar el sistema.
-<br />
-<br />Para ello instalamos el paquete sudo con:
-<br />
-<br />
-<div>
- <pre># pacman -S sudo</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-1zvZqJd1dbA/TdbEFChfgUI/AAAAAAAAAvw/DpwqYRa6hQk/s1600/guia-instalacion-al-p2-2.png"><img height="150" src="http://3.bp.blogspot.com/-1zvZqJd1dbA/TdbEFChfgUI/AAAAAAAAAvw/DpwqYRa6hQk/s200/guia-instalacion-al-p2-2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />Y damos permisos a los usuarios del grupo wheel para ejecutar el comando sudo (si nos fijamos, el grupo wheel ha sido uno de los grupos al que le hemos asignado al usuario que hemos creado en el paso anterior)
-<br />
-<br />
-<div>
- <pre># visudo</pre>
-</div>
-<br />Eliminanos el # dejando la siguiente l&iacute;nea como:
-<br />
-<br />
-<div>
- <pre>%wheel ALL=(ALL) ALL</pre>
-</div>
-<br />Salimos del editor visudo con :w (ecribir cambios) y luego :q (para salir)
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-Sobp_y8EdiY/TdbEMP6aoDI/AAAAAAAAAv8/crJI7_PSlhQ/s1600/guia-instalacion-al-p2-3.png"><img height="150" src="http://3.bp.blogspot.com/-Sobp_y8EdiY/TdbEMP6aoDI/AAAAAAAAAv8/crJI7_PSlhQ/s200/guia-instalacion-al-p2-3.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />
-<b>yaourt (<a href="http://wiki.archlinux.org/index.php/Yaourt">wiki yaourt</a>)</b>
-<br />yaourt es una utilizad que nos permitir&aacute; instalar programas del repositorio 
-<a href="http://wiki.archlinux.org/index.php/AUR">AUR</a> y del que tal vez necesitemos instalar alg&uacute;n programa.
-<br />
-<br />Para ello editamos el archivo /etc/pacman.conf para a&ntilde;adir el repositorio donde se encuentra y poder instalarlo. A&ntilde;adimos al final del mismo las l&iacute;neas:
-<br />
-<br />
-<div>
- <pre>[archlinuxfr]<br />Server = http://repo.archlinux.fr/x86_64</pre>
-</div>
-<br />Ten en cuenta la arquitectura del procesador, x86_64 para una CPU de 64 bits, i686 para una CPU de 32 bits. Ahora sincronizamos los repositorios para que se obtengan los paquetes del repositorio que acabamos de a&ntilde;adir ejecutando:
-<br />
-<br />
-<div>
- <pre># pacman -Syu<br /># pacman -S yaourt</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-BZnSUCpznD4/TdbEUfA1vQI/AAAAAAAAAwE/u-UdoQvapmA/s1600/guia-instalacion-al-p2-5+%25281%2529.png"><img height="150" src="http://1.bp.blogspot.com/-BZnSUCpznD4/TdbEUfA1vQI/AAAAAAAAAwE/u-UdoQvapmA/s200/guia-instalacion-al-p2-5+%25281%2529.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />No esta dem&aacute;s instalar el 
-<a href="http://aur.archlinux.org/packages.php?ID=9845">paquete aurvote</a> y usarlo para votar sobre los paquetes de 
-<a href="http://wiki.archlinux.org/index.php/Arch_User_Repository">AUR</a> que encontremos &uacute;tiles, de esta forma estaremos contribuyendo un poco a Arch Linux. Si un paquete gana los suficientes votos tal vez un desarrollador de Arch Linux se encargue de &eacute;l y lo pase al repositorio community o extra. Una vez instalado y configurado con nuestro usuario y contrase&ntilde;a de AUR como se nos indica al usarlo por primera vez su uso es tan simple como:
-<br />
-<br />
-<div>
- <pre>$ aurvote -v [paquete]</pre>
-</div>
-<br />Tambi&eacute;n nos preguntar&aacute; si queremos votar por un paquete cuando lo instalemos desde AUR. Pero tampoco debemos votar indiscriminadamente a todo lo que instalemos desde AUR para que los votos sean efectivos solo debemos votar por aquellos que realmente nos son muy &uacute;tiles o que desear&iacute;amos tener en el repositorio community o extra.
-<br />
-<br />
-<b>Ajustes del sistema de archivos</b>
-<br />El sitema de archivos ext se comprueban en busca de errores cada cierto n&uacute;mero de inicios del sistema o cada cierto tiempo, lo que ocurra antes. Sin embargo, los valores por defecto son muy peque&ntilde;os por lo que con el siguiente comando los aumentaremos un poco:
-<br />
-<br />
-<div>
- <pre># tune2fs -c 50 -i 2m /dev/sda1<br /># tune2fs -c 50 -i 2m /dev/sda3</pre>
-</div>
-<br />Lo hacemos para la partici&oacute;n del sistema y donde est&aacute;n nuestros archivos (sda2 seg&uacute;n esta gu&iacute;a). Estos valores son para 50 inicios del sistema o cada 2 meses, lo que ocurra antes aunque podemos asignar los valores que nos parezcan los m&aacute;s adecuados para nuestro sistema.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-VUZ6bzHjFOY/TdbEUwvDKkI/AAAAAAAAAwI/Y3AszxJpxVM/s1600/guia-instalacion-al-p2-6.png"><img height="150" src="http://4.bp.blogspot.com/-VUZ6bzHjFOY/TdbEUwvDKkI/AAAAAAAAAwI/Y3AszxJpxVM/s200/guia-instalacion-al-p2-6.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />
-<b>Xorg (<a href="http://wiki.archlinux.org/index.php/Xorg">wiki Xorg</a>)</b>
-<br />Bien, hasta ahora iremos con uno de los componentes m&aacute;s importantes del que ser&aacute; nuestro entorno de trabajo, el servidor X o Xorg. El comando para iniciar la instalaci&oacute;n del mismo es:
-<br />
-<br />
-<div>
- <pre># pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils xorg-twm xorg-xclock xterm</pre>
-</div>
-<br />Si disponemos de un port&aacute;til con touchpad instalamos tambi&eacute;n el paquete:
-<br />
-<br />
-<div>
- <pre># pacman -S xf86-input-synaptics</pre>
-</div>
-<br />Instalamos despu&eacute;s el paquete dbus con:
-<br />
-<br />
-<div>
- <pre># pacman -S dbus</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-QGe8nect8N0/TdbED5k_apI/AAAAAAAAAvs/qBblSKew-9I/s1600/guia-instalacion-al-p2-1-v2.png"><img height="150" src="http://4.bp.blogspot.com/-QGe8nect8N0/TdbED5k_apI/AAAAAAAAAvs/qBblSKew-9I/s200/guia-instalacion-al-p2-1-v2.png" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-1zvZqJd1dbA/TdbEFChfgUI/AAAAAAAAAvw/DpwqYRa6hQk/s1600/guia-instalacion-al-p2-2.png"><img height="150" src="http://3.bp.blogspot.com/-1zvZqJd1dbA/TdbEFChfgUI/AAAAAAAAAvw/DpwqYRa6hQk/s200/guia-instalacion-al-p2-2.png" width="200" /></a>
-</div>
-<br />&nbsp;&nbsp;Y lo a&ntilde;adimos a la lista de demonios que se inician con el sistema:
-<br />
-<br />
-<div>
- <pre># nano /etc/rc.conf</pre>
-</div>
-<br />dejando:
-<br />
-<br />
-<div>
- <pre>DAEMONS=(hwclock syslog-ng <b>dbus</b> network netfs crond)</pre>
-</div>
-<br />Podemos inicial el demonio dbus manualmente con:
-<br />
-<br />
-<div>
- <pre># /etc/rc.d/dbus start</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-dlJZgbZwK08/TdbEbrz1IpI/AAAAAAAAAwM/EtSURR196OM/s1600/guia-instalacion-al-p2-9.png"><img height="150" src="http://2.bp.blogspot.com/-dlJZgbZwK08/TdbEbrz1IpI/AAAAAAAAAwM/EtSURR196OM/s200/guia-instalacion-al-p2-9.png" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-0rxMkenN0gc/TdbEcmJaRzI/AAAAAAAAAwQ/gvQcdxpNqpA/s1600/guia-instalacion-al-p2-10.png"><img height="150" src="http://2.bp.blogspot.com/-0rxMkenN0gc/TdbEcmJaRzI/AAAAAAAAAwQ/gvQcdxpNqpA/s200/guia-instalacion-al-p2-10.png" width="200" /></a>
-</div>
-<br />
-<b>Guest Additions para invitado Virtualbox (<a href="https://wiki.archlinux.org/index.php/Arch_Linux_VirtualBox_Guest">wiki Virtualbox</a>)</b>
-<br />Si estamos instalando Arch Linux en m&aacute;quina virtual de VirtualBox deber&iacute;amos instalar las Guest Additions para ello instalaremos el paquete:
-<br />
-<div>
- <pre># pacman -S virtualbox-guest-additions</pre>
-</div>
-<br />Tal y como se nos indica despu&eacute;s de instalar ese paquete a&ntilde;adiremos al final de la lista de m&oacute;dulos los siguientes (en la m&aacute;quina virtual): vboxguest, vboxsf y vboxvideo.
-<br />
-<br />
-<div>
- <pre>MODULES=(vboxguest vboxsf vboxvideo)</pre>
-</div>
-<br />
-<b>Controlador tarjeta gr&aacute;fica (<a href="http://wiki.archlinux.org/index.php/NVIDIA">wiki nvidia</a>) (<a href="https://wiki.archlinux.org/index.php/Xorg">wiki otros drivers</a>)</b>
-<br />Para instalar el controlador de la tarjeta gŕafica nvidia que nos proporcionar&aacute; aceleraci&oacute;n 3D ejecutamos:
-<br />
-<br />
-<div>
- <pre># pacman -S nvidia nvidia-utils</pre>
-</div>
-<br />Si tenemos una tarjeta nvidia un poco antigua deberemos instalar los paquetes (nvidia-173xx nvidia-173xx-utils o nvidia-96xx nvidia-96xx-utils). Desde las &uacute;ltimas versiones del servidor X este es capaz de funcionar sin un archivo de configuraci&oacute;n. Para probar si ese es nuestro caso inciamos el servidor X con el siguiente comando, y deberemos ver un entorno X b&aacute;sico como el de la captura de pantalla:
-<br />
-<br />
-<div>
- <pre># startx</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-yUZOxIw2HcU/TdbEqcpXeRI/AAAAAAAAAwc/0sksuMGrRtk/s1600/guia-instalacion-al-p2-11.png"><img height="150" src="http://1.bp.blogspot.com/-yUZOxIw2HcU/TdbEqcpXeRI/AAAAAAAAAwc/0sksuMGrRtk/s200/guia-instalacion-al-p2-11.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />Para salir del entorno X y volver a la consola tecleamos en el terminal:
-<br />
-<br />
-<div>
- <pre># exit</pre>
-</div>
-<br />Si necesitamos disponer de un archivo de configuraci&oacute;n para que funcione el servidor X o queremos modificar alguna de las opciones del servidor X utilizamos la herramienta nvidia-xconfig:
-<br />
-<br />
-<div>
- <pre># nvidia-xconfig</pre>
-</div>
-<br />Por ejemplo tal vez queramos que cuando se inicie el sistema no aparezca el logo de nvidia, para ello modificamos la secci&oacute;n Device y a&ntilde;adimos la opci&oacute;n NoLogo:
-<br />
-<br />
-<div>
- <pre>Section &quot;Device&quot;<br />    Identifier    &quot;Card0&quot;<br />    Driver        &quot;nvidia&quot;<br />    VendorName    &quot;nVidia Corporation&quot;<br />    BoardName     &quot;G84 [GeForce 8600M GT]&quot;<br />    <b>Option     &quot;NoLogo&quot; &quot;true&quot;</b><br />EndSection</pre>
-</div>
-<br />Para las tarjetas gr&aacute;ficas ATI bastar&aacute; con que instalemos el paquete xf86-video-ati con:
-<br />
-<br />
-<div>
- <pre># pacman -S xf86-video-ati</pre>
-</div>
-<br />Para nvidia tambi&eacute;n podemos instalar el controlador de c&oacute;digo abierto nouveau y para ATI podemos instalar el controlador privativo 
-<a href="https://wiki.archlinux.org/index.php/ATI_Catalyst">Catalyst</a>.
-<br />
-<br />
-<b>Entorno de escritorio (<a href="http://wiki.archlinux.org/index.php/GNOME">wiki Gnome</a>)</b>
-<br />Ahora instalaremos un entorno Gnome completo con los siguientes paquetes. Si conoces que no vas a usar alg&uacute;n componente de Gnome no hace falta instalarlo pero aseg&uacute;rate que instalas todos los paquetes esenciales por lo que si no conoces que hace alg&uacute;n paquete inst&aacute;lalo (en la wiki viene una descripci&oacute;n de que hace cada uno de ellos):
-<br />
-<br />
-<div>
- <pre># pacman -S gnome gnome-extra gnome-system-tools gksu gamin</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-o310A6ZR6QY/TdbEJgLjpqI/AAAAAAAAAv0/vOJO2FDTmMg/s1600/guia-instalacion-al-p2-2-v2.png"><img height="150" src="http://3.bp.blogspot.com/-o310A6ZR6QY/TdbEJgLjpqI/AAAAAAAAAv0/vOJO2FDTmMg/s200/guia-instalacion-al-p2-2-v2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />Finalmente configuramos el sistema para que se inicie el entorno gr&aacute;fico para iniciar sesi&oacute;n, GDM. Para ello volvemos a modificar el archivo /etc/rc.conf a&ntilde;adiendo los demonios gamin (sustituto para fam) y gdm tal que:
-<br />
-<br />
-<div>
- <pre># nano /etc/rc.conf</pre>
-</div>
-<br />
-<div>
- <pre>DAEMONS=(syslog-ng dbus network netfs crond gamin gdm)</pre>
-</div>
-<br />Adem&aacute;s a&ntilde;adimos a la lista de m&oacute;dulos el m&oacute;dulo fuse en el mismo archivo tal que:
-<br />
-<br />
-<div>
- <pre>MODULES=(fuse)</pre>
-</div>
-<br />Ya estamos listos para que el sistema se arranque con el entorno de escritorio GNOME, reiniciamos el sistema con:
-<br />
-<br />
-<div>
- <pre># shutdown -r now</pre>
-</div>
-<br />Y veremos las siguientes pantallas mientras se inicia hasta llegar a GDM. Podemos iniciar sesi&oacute;n con el usuario que hemos creado al principio:
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-VBlrChgaH1M/TdbD-4uTPJI/AAAAAAAAAvo/uhlHTyisXwA/s1600/guia-instalacion-al-p1-19-v2.png"><img height="150" src="http://1.bp.blogspot.com/-VBlrChgaH1M/TdbD-4uTPJI/AAAAAAAAAvo/uhlHTyisXwA/s200/guia-instalacion-al-p1-19-v2.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-jgzUuPzeHKg/TdbD9BpLi5I/AAAAAAAAAvg/OJxB2QS0QNg/s1600/guia-instalacion-al-p1-18-v2.png"><img height="149" src="http://4.bp.blogspot.com/-jgzUuPzeHKg/TdbD9BpLi5I/AAAAAAAAAvg/OJxB2QS0QNg/s200/guia-instalacion-al-p1-18-v2.png" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-3CB_7QLdkwA/TdbEiok9qXI/AAAAAAAAAwU/JoJFpaknFgM/s1600/guia-instalacion-al-p2-10-v2.jpg"><img height="150" src="http://1.bp.blogspot.com/-3CB_7QLdkwA/TdbEiok9qXI/AAAAAAAAAwU/JoJFpaknFgM/s200/guia-instalacion-al-p2-10-v2.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-qtI-yVJPqmc/TdbEpqh3NtI/AAAAAAAAAwY/cPdulA0nQ4w/s1600/guia-instalacion-al-p2-11-v2.jpg"><img height="112" src="http://2.bp.blogspot.com/-qtI-yVJPqmc/TdbEpqh3NtI/AAAAAAAAAwY/cPdulA0nQ4w/s200/guia-instalacion-al-p2-11-v2.jpg" width="200" /></a>
-</div>
-<br />
-<b>Sistemas de archivos</b>
-<br />Si solemos conectar a nuestro sistema memorias USB formateadas con el formato ntfs o fat32 deberemos instalar los siguientes paquetes para poder acceder a ellas:
-<br />
-<br />
-<div>
- <pre># pacman -S ntfs-3g ntfsprogs dosfstools</pre>
-</div>
-<br />Una vez instalados estos paquetes podremos dar formato ntfs o fat32 a nuestras memorias USB con la utilidad de discos de Gnome.
-<br />
-<br />
-<b>Sonido</b>
-<br />Gnome 3 tiene una dependecia sobre 
-<a href="https://wiki.archlinux.org/index.php/PulseAudio">pulseaudio</a> con lo que el sonido nos deber&iacute;a funciona sin tener que hacer ninguna configuraci&oacute;n.
-<br />
-<br />
-<b>Bluetooth (<a href="http://wiki.archlinux.org/index.php/Bluetooth">wiki Bluetooth</a>)</b>
-<br />Al igual que el sonido Gnome 3 ya incorpora los paquetes necesarios para hacer funcionar bluetooth. Lo &uacute;nico que tendremos que hacer es iniciar el servicio con:
-<br />
-<br />
-<div>
- <pre># /etc/rc.d/bluetooth start</pre>
-</div>
-<br />Si queremos que se inicie autom&aacute;ticamente cuando lo haga el sistema lo a&ntilde;adimos a la lista de demonios en el archivo /etc/rc.conf:
-<br />
-<br />
-<div>
- <pre>DAEMONS=(... <b>bluetooth</b>)</pre>
- <pre></pre>
- <pre></pre>
-</div>
-<b>Gestor de conexiones de red (<a href="http://wiki.archlinux.org/index.php/NetworkManager">wiki NetworkManager</a>)</b>
-<br />NetworkManager es un gestor de conexiones de red con el que podremos ver la red a la que estamos conectados y las redes wifi a las que podemos conectarnos.
-<br />
-<br />Para utilizarlo instalamos los paquetes:
-<br />
-<br />
-<div>
- <pre># pacman -S networkmanager network-manager-applet</pre>
-</div>
-<br />A&ntilde;adimos a los demonios &laquo;networkmanager&raquo; dejando lo siguiente en el archivo /etc/rc.conf (los puntos suspensivos son otras opciones que pudiese haber):
-<br />
-<br />
-<div>
- <pre>DAEMONS=(... !network ...<b>networkmanager</b> gdm)</pre>
-</div>
-<br />Finalmente a&ntilde;adimos a nuestro usuario al grupo network con:
-<br />
-<br />
-<div>
- <pre># gpasswd -a arch network</pre>
-</div>
-<br />
-<b>Firewall (<a href="http://wiki.archlinux.org/index.php/Firewalls">wiki firewalls</a>)</b>
-<br />Conviene tener instalado un firewall en nuestro sistema para minimizar el riesgo de posibles agujeros de seguridad. Uno que hace m&aacute;s sencillo de utilizar iptables es ufw aunque hay que usarlo a trav&eacute;s de la linea de comandos.
-<br />
-<br />
-<div>
- <pre># pacman -S ufw</pre>
-</div>
-<br />Para iniciarlo con el sistema hay que a&ntilde;adirlo a la lista de demonios:
-<br />
-<br />
-<div>
- <pre>DAEMONS=(... <b>ufw</b> networkmanager...)</pre>
-</div>
-<br />Una vez que definamos la reglas que queremos que se carguen con el inicio del sistema ejecutamos:
-<br />
-<br />
-<div>
- <pre># /etc/rc.d/iptables save</pre>
-</div>
-<br />
-<b>Instalaci&oacute;n programas</b>
-<br />Bien, ya queda poco, ahora vamos a instalar los programas que usaremos habitualmente. Hay un mont&oacute;n de programas disponibles en los repositorios de paquetes de Arch Linux aqu&iacute; s&oacute;lo pondr&eacute; una peque&ntilde;a lista de los m&aacute;s comunes que nos pueden interesar para cada una de las tareas que realizamos en el uso diario del sistema, sin embargo, para cada categor&iacute;a siempre tendremos m&aacute;s de una alternativa s&oacute;lo es cuesti&oacute;n de buscar las que m&aacute;s nos gusten seg&uacute;n nuestras preferencias. La instalaci&oacute;n de los paquetes es muy simple a trav&eacute;s del comando pacman.
-<br />
-<br />
-<div>
- <pre># pacman -S [paquete]</pre>
-</div>
-<br />Retoque fotogr&aacute;fico: gimp
-<br />Gestor fotogr&aacute;fico: shotwell, f-spot
-<br />P2P: transmission, mldonkey
-<br />Mensajer&iacute;a instant&aacute;nea: pidgin
-<br />Ofim&aacute;tica: libreoffice-{common,base,calc,draw,impress,math,writer,gnome,es} abiword
-<br />M&uacute;sica: banshee, rhythmbox
-<br />V&iacute;deo: vlc
-<br />Archivos multimedia (mp3, ...): gstreamer0.10-plugins
-<br />Navegador: chromium firefox firefox-i18n-es flashplugin
-<br />Formatos archivadores: zip unzip unrar
-<br />
-<br />Nota: para abrir los puertos para transmission y mldonkey utilizando ufw las l&iacute;neas de comandos son:
-<br />
-<br />
-<div>
- <pre># ufw allow 51413<br /># ufw allow 4662<br /># /etc/rc.d/iptables save</pre>
-</div>
-<br />Virtualbox est&aacute; en el repositorio community desde la versi&oacute;n 4.0 por lo que si lo necesitamos lo instalamos con:
-<br />
-<br />
-<div>
- <pre>$ yaourt -S virtualbox virtualbox-additions</pre>
-</div>
-<br />A partir de este momento cada vez que se ponga en los repositorios de paquetes de Arch una nueva vesi&oacute;n de un programa y queramos actualizarlo solo tendremos que hacer lo siguiente para tener todo el sistema actualizado:
-<br />
-<br />
-<div>
- <pre>$ yaourt -Syu --aur</pre>
-</div>
-<br />Para finalizar hay que tener en cuenta que al ser Arch Linux una distribuci&oacute;n rolling release algunas de estas opciones variar&aacute;n para cuando leas esta gu&iacute;a as&iacute; que es recomendable leer la 
-<a href="http://wiki.archlinux.org/index.php/Official_Arch_Linux_Install_Guide">gu&iacute;a oficial de instalaci&oacute;n</a>, la 
-<a href="http://wiki.archlinux.org/">wiki de Arch Linux</a> as&iacute; como las wikis de cada unos de los apartados para encontrar en alg&uacute;n caso informaci&oacute;n que puede estar m&aacute;s actualizada.
-<br />
-<br />Para tener un sistema m&aacute;s personalizado tal vez te interese alguna de las 
-<a href="http://elblogdepicodev.blogspot.com/search/label/personalizaci%C3%B3n">entradas sobre personalizaci&oacute;n</a> que he escrito as&iacute; como disponer de un 
-<a href="http://elblogdepicodev.blogspot.com/2010/03/arch-linux-cheat-cube.html">cheat cube de Arch</a> para tener una chuleta a mano con los comandos m&aacute;s utilizados.
-<br />
-<br />Una vez hayas llegado hasta aqu&iacute; &iexcl;Enhorabuena de nuevo! &iexcl;Ya s&oacute;lo queda disfrutar del equipo!, espero que a aquellos que est&eacute;n por instalar Arch Linux esta gu&iacute;a les sirva de ayuda.
-<br />
-<br />
-<b>Actualizaci&oacute;n:</b> Esta gu&iacute;a fue editada por &uacute;ltima vez el 
-<b>05-08-2011</b>.</span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Guía instalación Arch Linux (Parte II, entorno gráfico y programas)";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html">Guía instalación Arch Linux (Parte II, entorno gráfico y programas)</a></h1></header><p class="post-info"><span class="text-center" datetime="2012-08-06T20:25" itemprop="dateModified">lunes, 06 de agosto de 2012 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a> 
+</p><p class="text-justify" itemprop="description">
+Después de completar la instalación base de Arch Linux en la que tenemos un sistema funcional pero únicamente accesible mediante la linea de comandos todavía nos queda camino por recorrer para tener un entorno de escritorio gráfico más cómodo que únicamente la shell de bash y las varias consolas tty. En esta segunda parte me centraré en como partiendo de una instalación base de Arch Linux conseguimos un entorno con las opciones más comunes de todo sistema. Algunas de ellas no son imprescindibles así que si tu caso es que tienes un sistema sin bluetooth puedes saltarte el paso e ir al siguiente. Esta guía no presente ser exhaustiva ni incluir las preferencias de todos los posibles usuarios simplemente es la receta que utilizo yo para instalar mi sistema que publico por si a alguien le ayuda [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas" st_title="Guía instalación Arch Linux (Parte II, entorno gráfico y programas) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -436,35 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 181,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/07/guia-instalacion-arch-linux-parte-ii-entorno-grafico-y-programas"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -476,6 +72,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

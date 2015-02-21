@@ -1,133 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cómo utilizar ReactJS con Browserify | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/koalite/2014/09/como-utilizar-reactjs-con-browserify"><span itemprop="headline">Cómo utilizar ReactJS con Browserify</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/javascript"><img title="javascript" alt="javascript" src="/assets/images/labels/javascript.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Juan María Hernández</span> en la bitácora <a href="http://blog.koalite.com/">Koalite</a>, <a href="http://feedproxy.google.com/~r/KoalitesBlog/~3/86y1QMY6ZMA/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-09-22T05:06" itemprop="datePublished">Publicado el lunes, 22 de septiembre de 2014 a las 05:06 UTC</span></div><div><span>
-Etiquetado como
-reactjs, <a href="/label/javascript"><span itemprop="articleSection">javascript</span></a>, development, browserify, grunt</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>En los &uacute;ltimos posts vimos <a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">qu&eacute; nos ofrece ReactJS</a> a otras librer&iacute;as para desarrollar interfaces de usuario con Javascript y construimos un <a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">componente de ejemplo con ReactJS</a> para hacernos una idea de c&oacute;mo trabajar con ReactJS.</p> 
-<p>Como ya vimos al crear el componente de ejemplo, ReactJS permite utilizar una sintaxis especial llamada JSX para generar las vistas, y es necesario realizar de alguna forma la conversi&oacute;n de este JSX al c&oacute;digo Javascript puro que se encargar&aacute; de construir el DOM. Esto se puede hacer <a href="http://facebook.github.io/react/docs/tooling-integration.html">directamente en el browser</a>, pero es preferible hacerlo durante la “compilaci&oacute;n” de la aplicaci&oacute;n para minimizar el impacto en los clientes que accedan a nuestra aplicaci&oacute;n web.</p> 
-<p>En este post vamos a ver c&oacute;mo podemos aprovechar <a href="http://blog.koalite.com/2013/09/node-js-de-servidor-a-navaja-suiza/" title="Node.js, de servidor a navaja suiza">herramientas basadas en node.js</a> para crear un <a href="http://blog.koalite.com/2013/10/desarrolla-en-javascript-mas-comodamente-usando-grunt/" title="Desarrolla en javascript m&aacute;s c&oacute;modamente usando grunt">flujo de trabajo basado en grunt</a> que nos facilite el desarrollo de aplicaciones ReactJS.</p> 
-<h3>Browserify</h3> 
-<p><a href="http://browserify.org/">Browserify</a> es una herramienta que permite organizar una aplicaci&oacute;n Javascript en varios archivos y referenciar unos desde otros a trav&eacute;s de <code>require('module')</code>, como si se tratase de una aplicaci&oacute;n para node.js. </p> 
-<p>Browserify se encargar&aacute; de unir estos archivos de manera “inteligente”, es decir, incluyendo s&oacute;lo los m&oacute;dulos necesarios en el orden adecuado, y generar un &uacute;nico fichero listo para ser utilizado en el browser, ya sea incluy&eacute;ndolo directamente en la p&aacute;gina o a trav&eacute;s de alguno de los sistemas de carga de m&oacute;dulos (AMD, CommonJS, UMD, etc.).</p> 
-<p>Para nuestro ejemplo vamos a usar browserify junto a grunt, por lo que deberemos instalar las siguientes herramientas:</p> 
-<pre>
-npm install grunt-cli -g
-npm install grunt --save-dev
-npm install grunt-browserify --save-dev
-npm install grunt-contrib-wath --save-dev
-</pre> 
-<p>T&eacute;cnicamente, la &uacute;ltima dependencia no es necesaria, pero nos resultar&aacute; &uacute;til para detectar autom&aacute;ticamente cambios en el c&oacute;digo fuente y recompilar la aplicaci&oacute;n.</p> 
-<p>Con esto instalado, podr&iacute;amos crear un fichero de configuraci&oacute;n para grunt como &eacute;ste:</p> 
-<pre>
-/*global module, require */
-
-module.exports = function(grunt) {
-  var srcFiles = ['Gruntfile.js', './lib/**/*.js', './specs/**/*.js'];
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),    
-    browserify: {
-      build: {
-        options: {
-          standalone: &quot;app&quot;
-        },
-        src: './lib/index.js',
-        dest: './dist/app.js'
-      }
-    },
-    watch: {
-      dev: {
-        files: srcFiles,
-        tasks: ['browserify'],
-        options: { spawn: false }
-      }
-    }
-  });
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.registerTask('default', ['browserify']);
-  grunt.registerTask('dev', ['watch']);
-};
-</pre> 
-<p>Ya vimos en su momento <a href="http://blog.koalite.com/2013/10/desarrolla-en-javascript-mas-comodamente-usando-grunt/" title="Desarrolla en javascript m&aacute;s c&oacute;modamente usando grunt">c&oacute;mo configurar grunt</a>, as&iacute; que nos centraremos en la configuraci&oacute;n de browserify. </p> 
-<p>En la configuraci&oacute;n del task de browserify debemos indicar el archivo que contiene el “punto de entrada” a nuestra aplicaci&oacute;n. A partir de &eacute;l, browserify ir&aacute; analizando los m&oacute;dulos importados y detectar&aacute; autom&aacute;ticamente todos los archivos que necesita incluir en el resultado final. Tambi&eacute;n debemos indicar el nombre del fichero de salida, en este caso <code>./dist/app.js</code> y el “tipo” de resultado que queremos generar, en este caso <code>app</code> para indicar que ser&aacute; un script que incluiremos directamente en una p&aacute;gina sin utilizar ning&uacute;n sistema de carga de m&oacute;dulos.</p> 
-<p>Adem&aacute;s hemos a&ntilde;adido un task <code>watch</code> (y un alias <code>dev</code> para ese task) que se encarga de detectar cambios en los fuentes y relanzar el proceso de compilaci&oacute;n, haci&eacute;ndonos la vida un poco m&aacute;s c&oacute;moda durante el desarrollo.</p> 
-<h3>React-Tools</h3> 
-<p>Lo que hemos visto hasta ahora es completamente gen&eacute;rico y podemos utilizarlo para cualquier tipo de aplicaci&oacute;n. Si queremos desarrollar una aplicaci&oacute;n con ReactJS, vamos a necesitar instalar algunos paquetes m&aacute;s:</p> 
-<pre>
-npm install react --save-dev
-npm install react-tools --save-dev
-npm install grunt-react --save-dev
-</pre> 
-<p><code>react</code> es el m&oacute;dulo npm de ReactJS. Ser&iacute;a equivalente a incluir el script de ReactJS en la p&aacute;gina, pero nos permite usarlo al “estilo node.js” usando un <code>require('react')</code> desde los archivos que luego pasaremos por browserify.</p> 
-<p><code>react-tools</code> contiene, entre otras cosas, herramientas para transformar el c&oacute;digo JSX en c&oacute;digo Javascript, y <code>grunt-react</code> contiene todo lo necesario para integrar <code>react-tools</code> con grunt.</p> 
-<p>Con esto instalado, podemos modificar la configuraci&oacute;n de browserify en grunt para incluir la transformaci&oacute;n de los JSX:</p> 
-<pre>
-  // ... el resto de la configuraci&oacute;n no cambia
-  browserify: {
-    options: {
-      transform: [ require('grunt-react').browserify ]
-    },
-    build: {
-      options: {
-        standalone: 'app'
-      },
-      src: './lib/index.js',
-      dst: './dist/app.js'
-    }
-  },
-  // ... resto de configuraci&oacute;n
-</pre> 
-<h3>Escribiendo el c&oacute;digo</h3> 
-<p>Todo esto est&aacute; muy bien, pero llevamos un rato y no hacemos m&aacute;s que instalar herramientas. &iquest;C&oacute;mo se escribe el c&oacute;digo ahora que hemos montado todo esto?</p> 
-<p>Si volvemos al <a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">ejemplo de ReactJS</a> que vimos en el post anterior, ahora podr&iacute;amos partirlo en tres ficheros y organizarlo un poco (esto es, claramente, innecesario en un caso tan simple como &eacute;ste, pero bueno).</p> 
-<p>En un primer fichero podemos definir el componente para mostrar un &uacute;nico elemento de la lista y dejarlo en un fichero <code>BeerItem.js</code>:</p> 
-<pre>
-/** @jsx React.DOM */
-
-var React = require('react');
-
-var BeerItem = React.createClass({
-  // ... c&oacute;digo del post anterior
-});
-
-module.exports = BeerItem;
-</pre> 
-<p>Utilizamos el t&iacute;pico sistema de m&oacute;dulos de node.js, con su <code>require</code> para acceder a otros m&oacute;dulos y su <code>exports</code> para definir lo que exporta este m&oacute;dulo. Es importante recordar que cada fichero debe empezar con la directiva <code>/** @jsx React.DOM */</code> para que el preprocesador de ReactJS sepa c&oacute;mo tratarlo.</p> 
-<p>La estructura del c&oacute;digo para la lista completa (<code>BeerList.js</code>) es similar:</p> 
-<pre>
-/** @jsx React.DOM */
-
-var React = require('react');
-var BeerItem = require('./BeerItem.js');
-
-var BeerList = React.createClass({
-  // .... c&oacute;digo de post anterior
-});
-
-module.exports = BeerList;
-</pre> 
-<p>Aqu&iacute; adem&aacute;s del m&oacute;dulo <code>react</code> que instalamos antes, estamos referenciando el m&oacute;dulo <code>BeerItem</code> que acabamos de crear.</p> 
-<p>Para finalizar, tendr&iacute;amos el fichero <code>index.js</code> con el punto de entrada de la aplicaci&oacute;n:</p> 
-<pre>
-/** @jsx React.DOM */
-
-var React = require('react');
-var BeerList = require('./BeerList');
-
-React.renderComponent(&lt;BeerList/&gt;, document.getElementById('content'));
-</pre> 
-<p>Ahora para compilar el resultado final, podemos ejecutar <code>grunt</code>, y si queremos que se ejecut&eacute; autom&aacute;ticamente cada vez que cambiamos algo, <code>grunt dev</code>. </p> 
-<p>Ten&eacute;is el <a href="https://github.com/jmhdez/reactjs-playground"><strong>proyecto completo en github</strong></a> por si quer&eacute;is jugar un rato con &eacute;l.</p> 
-<h3>Resumen</h3> 
-<p>La sintaxis JSX usada por ReactJS para mezclar Javascript y HTML es algo que puede causar rechazo, sobre todo a los que est&eacute;n muy preocupados por el rendimiento de las p&aacute;ginas y la comodidad a la hora de trabajar. </p> 
-<p>Con el conjunto de herramientas que hemos visto en este post no hay que sacrificar rendimiento al cargar nuestras p&aacute;ginas parseando el JSX (cosa que, por ejemplo, si ocurre con las directivas de angularjs) y podemos conseguir un flujo de trabajo muy c&oacute;modo a la hora de desarrollar.</p> 
-<p><strong>Posts relacionados:</strong></p>
-<ol> 
- <li><a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS">Crear un componente con ReactJS</a></li> 
- <li><a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente">ReactJS: un enfoque diferente</a></li> 
- <li><a href="http://blog.koalite.com/2014/08/utilizar-chart-js-con-knockout-js/" title="Utilizar Chart.js con Knockout.js">Utilizar Chart.js con Knockout.js</a></li> 
-</ol>
-<img src="http://feeds.feedburner.com/~r/KoalitesBlog/~4/86y1QMY6ZMA" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/javascript/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta javascript</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Cómo utilizar ReactJS con Browserify | Koalite</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/KoalitesBlog/~3/86y1QMY6ZMA/">Cómo utilizar ReactJS con Browserify</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-09-22T05:06" itemprop="dateModified">lunes, 22 de septiembre de 2014 </span>,
+<span>fuente <a target="target" href="http://blog.koalite.com/">Koalite</a></span>,
+etiquetas
+<a href="/label/javascript"><span itemprop="articleSection">javascript</span></a> 
+</p><p class="text-justify" itemprop="description">
+En los últimos posts vimos qué nos ofrece ReactJS a otras librerías para desarrollar interfaces de usuario con Javascript y construimos un componente de ejemplo con ReactJS para hacernos una idea de cómo trabajar con ReactJS. Como ya vimos al crear el componente de ejemplo, ReactJS permite utilizar una sintaxis especial llamada JSX para generar las vistas, y es necesario realizar de alguna forma la conversión de este JSX al código Javascript puro que se encargará de construir el DOM. Esto se puede hacer directamente en el browser, pero es preferible hacerlo durante la “compilación” de la aplicación para minimizar el impacto en los clientes que accedan a nuestra aplicación web. En este post vamos a ver cómo podemos aprovechar herramientas basadas en node.js para crear un flujo de trabajo basado [...]
+</p><p><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/KoalitesBlog/~3/86y1QMY6ZMA/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" st_title="Cómo utilizar ReactJS con Browserify | Koalite"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -172,34 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 908,
-      "url" : "http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "koalite",
-      "name" : "Koalite"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -207,6 +68,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

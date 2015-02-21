@@ -1,246 +1,23 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Experimentos: Instalando Magento desde SSH | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh"><span itemprop="headline">Experimentos: Instalando Magento desde SSH</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/php"><img title="php" alt="php" src="/assets/images/labels/php.png"/></a><a class="label" href="/label/windows"><img title="windows" alt="windows" src="/assets/images/labels/windows.png"/></a><a class="label" href="/label/mysql"><img title="mysql" alt="mysql" src="/assets/images/labels/mysql.png"/></a><a class="label" href="/label/apache"><img title="apache" alt="apache" src="/assets/images/labels/apache.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/06/experimentos-magento-ss-2/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-06-19T08:36" itemprop="datePublished">Publicado el jueves, 19 de junio de 2014 a las 08:36 UTC</span></div><div><span>
-Etiquetado como
-pruebas, navegador, configuracion, instalacion, servidores, tienda, <a href="/label/php"><span itemprop="articleSection">php</span></a>, ssh, putty, <a href="/label/mysql"><span itemprop="articleSection">mysql</span></a>, remoto, datos, hosts, descarga, base, <a href="/label/windows"><span itemprop="articleSection">windows</span></a>, servidor, <a href="/label/apache"><span itemprop="articleSection">apache</span></a>, ecommerce, magento, general</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9tYWdlbnRvX29rLmpwZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/magento_ok-560x308.jpg" alt="" title="magento_ok" width="560" height="308" /></a><br /> <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL21hZ2VudG8uY29tLw==">Magento</a> es un software hecho en PHP para gesti&oacute;n integral de e-commerce. [<a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL2VzLndpa2lwZWRpYS5vcmcvd2lraS9NYWdlbnRv">Link a wikipedia</a>]. Existen una versi&oacute;n comercial y una versi&oacute;n <em>open</em>, llamada Community Edition, y es esta &uacute;ltima con la que vamos a experimentar.</p> 
-<p>Hay miles de gu&iacute;as por Internet para instalar Magento. Esta no pretende ser la m&aacute;s completa, pero s&iacute; una chuleta r&aacute;pida para mis futuras instalaciones y experimentos. Aunque me alegrar&eacute; mucho si a alguien le resulta &uacute;til. De todas formas, si tienes alg&uacute;n <em>truco</em>, o haces algo de forma especial durante la instalaci&oacute;n de Magento (hacer alg&uacute;n cambio que nos ahorre dolores de cabeza o algo as&iacute;), me encantar&iacute;a que me dejaras un comentario.</p> 
-<h2>Conexi&oacute;n al servidor</h2> 
-<p>Lo primero es conectarte al servidor (o contratarlo). Yo para hacer pruebas he utilizado un servidor de <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS8/cmVmY29kZT1mYTEwZTQwOTlkYmM=">DigitalOcean</a> y tengo un <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL2dhc3Bhci50b3Rha2kuY29tL2VzL2NvbmZpZ3VyYWNpb24tYmFzaWNhLWRlLXVuLXNlcnZpZG9yLWRlZGljYWRvLXZwcy1vLWNsb3VkLWJhc2Fkby1lbi1saW51eC8=">LAMP configurado</a>.</p> 
-<p>Bueno, para experimentar, mientras no tenemos un dominio o no queremos utilizarlo (por ejemplo cuando estamos desarrollando, no queremos que el mundo entero vea lo que estamos haciendo), podemos editar el archivo <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL2VzLndpa2lwZWRpYS5vcmcvd2lraS9BcmNoaXZvX2hvc3Rz">hosts</a> de nuestro ordenador. En sistemas tipo unix estar&aacute; en /etc/hosts (debemos editarlo como root). En sistemas Windows, lo encontraremos, por ejemplo en C:\Windows\System32\drivers\etc\hosts (editar como administrador, o tambi&eacute;n puedes editarlo grabando en otro sitio, Documentos por ejemplo, y mover el archivo a la carpeta donde debe estar, eso s&iacute;, cuidado que el archivo no tiene extensi&oacute;n, ni txt ni nada). Ah&iacute; introducimos una l&iacute;nea donde tengamos la IP del servidor con el que estamos probando un espacio y el host con el que queremos acceder. Por ejemplo:</p> 
-<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
- <table>
-  <tbody>
-   <tr>
-    <td>
-     <div>
-      1
-      <br />
-     </div></td>
-    <td>
-     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      123.213.123.123 magentotest.com
-     </div></td>
-   </tr>
-  </tbody>
- </table>
-</div> 
-<p>A partir de ahora, siempre que accedamos a http://magentotest.com lo haremos a nuestro servidor.</p> 
-<p>Ahora, para hacerlo por SSH (podemos subir los archivos por FTP si tu servidor lo soporta o lo has configurado, pero por SSH me parece mucho m&aacute;s r&aacute;pido y m&aacute;s seguro). Los usuarios de Unix no tendr&eacute;is problema porque tendr&eacute;is la herramienta ya instalada, pod&eacute;is abrir un terminal y escribir:</p> 
-<blockquote>
- <p>$ ssh usuario@magentotest.com</p>
-</blockquote> 
-<p>y ya estar&eacute;is conectados tras escribir la contrase&ntilde;a. Los usuarios de Windows, tendr&eacute;is que descargar y ejecutar <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3d3dy5jaGlhcmsuZ3JlZW5lbmQub3JnLnVrL35zZ3RhdGhhbS9wdXR0eS9kb3dubG9hZC5odG1s">Putty</a> (por ejemplo) para poder acceder al servidor, configurar el servidor (magentotest.com, es el que us&eacute; yo para la prueba), decir el nombre de usuario y podr&eacute;is entrar.</p> 
-<p>Acceder&eacute;is a una consola de Unix y os ir&eacute; contando comando a comando qu&eacute; hacer.</p> 
-<h2>Consideraciones de mi entorno de pruebas</h2> 
-<p>Al igual que he utilizado magentotest.com para hacer las pruebas del dominio, encontramos varias consideraciones, voy a crear un VirtualHost de Apache y voy a poner la web en la carpeta de mi usuario test, aunque puede que en tu servidor no tengas que hacerlo as&iacute;, o tengas una manera de trabajar establecida, por lo que te puedes saltar este paso, eso s&iacute;, has de saber que los archivos de la web estar&aacute;n en /home/test/www/magento/www (pero s&oacute;lo para la gu&iacute;a, en realidad los archivos pueden estar donde quieras.</p> 
-<p>Para hablar con propiedad, las cosas que haya que hacer como root las expresar&eacute; como:</p> 
-<blockquote>
- <p># comando</p>
-</blockquote> 
-<p>y las que puedan ser como usuario normal, lo har&eacute; como </p> 
-<blockquote>
- <p>$ comando</p>
-</blockquote> 
-<p>Para ejecutar comandos como root, en muchos sistemas podremos usar:</p> 
-<blockquote>
- <p>$ sudo comando</p>
-</blockquote> 
-<p>y tras pedirnos nuestra clave podremos ejecutar el comando en cuesti&oacute;n con privilegios de superusuario, en otros sitios podremos hacer:</p> 
-<blockquote>
- <p>$ su -c ‘comando’</p>
-</blockquote> 
-<p>y nos pedir&aacute; la clave de root para continuar, aunque tambi&eacute;n podremos hacer:</p> 
-<blockquote>
- <p>$ su<br /> [nos pedir&aacute; la clave de root]<br /> # comando </p>
-</blockquote> 
-<p>Tambi&eacute;n es importante que en nuestro servidor, si estamos en el entorno de pruebas, configuremos tambi&eacute;n el archivo hosts, en este caso como es un servidor tipo Unix lo encontraremos en /etc/hosts en el que a&ntilde;adiremos la misma l&iacute;nea de antes. Para editarlo desde consola, podemos utilizar nano como root:</p> 
-<blockquote>
- <p># nano /etc/hosts</p>
-</blockquote> 
-<p>incluimos la l&iacute;nea que asocia la ip de nuestro servidor con el host:</p> 
-<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
- <table>
-  <tbody>
-   <tr>
-    <td>
-     <div>
-      1
-      <br />
-     </div></td>
-    <td>
-     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      123.213.123.123 magentotest.com
-     </div></td>
-   </tr>
-  </tbody>
- </table>
-</div> 
-<p>y pulsamos Control+X para salir. Nos preguntar&aacute; si queremos guardar antes de salir, por lo que respondemos con S (de s&iacute;) o Y (de yes) dependiendo del idioma y tras ello pulsamos Intro para aceptar el archivo.</p> 
-<p>Si tienes experiencia con sistema *nix, tal vez prefieras utilizar otro editor diferente a nano, aunque para la gu&iacute;a, yo creo que es un editor bastante sencillo.</p> 
-<h3>Configurando el VirtualHost</h3> 
-<p>Esto es s&oacute;lo para Apache y s&oacute;lo para esta gu&iacute;a, quiero que quede completa y detallada, por lo que voy a explicar c&oacute;mo podemos crear el host de Apache y dirigirlo a la ruta donde queramos. Si ya lo tienes configurado, o usas otro servidor web, s&aacute;ltate este paso sin problemas.</p> 
-<p>Lo que queremos aqu&iacute; es que la ruta /home/test/www/magento/www/ sea la ruta donde est&aacute;n almacenados los archivos que responden al servidor <em>magentotest.com</em>. Por lo que creo un archivo en /etc/apache2/sites-available/magentotest.com (si usamos Apache 2.4 el archivo debe ser /etc/apache2/sites-available/magentotest.com<strong>.conf</strong>):</p> 
-<blockquote>
- <p># nano /etc/apache2/sites-available/magentotest.com</p>
-</blockquote> 
-<p>y el contenido del archivo debe quedar m&aacute;s o menos as&iacute;:</p> 
-<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
- <table>
-  <tbody>
-   <tr>
-    <td>
-     <div>
-      1
-      <br />2
-      <br />3
-      <br />4
-      <br />5
-      <br />6
-      <br />7
-      <br />8
-      <br />9
-      <br />10
-      <br />11
-      <br />12
-      <br />13
-      <br />14
-      <br />15
-      <br />16
-      <br />17
-      <br />18
-      <br />19
-      <br />20
-      <br />
-     </div></td>
-    <td>
-     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      &lt;VirtualHost *:80&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ServerName magentotest.com
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ServerAdmin webmaster@localhost
-      <br /> 
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; DocumentRoot /home/test/www/magento/www/
-      <br /> 
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;Directory /&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Options FollowSymLinks
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AllowOverride All
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Directory&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;Directory /home/test/www/magento/www/&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Options Indexes FollowSymLinks MultiViews
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AllowOverride All
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Require all granted
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;/Directory&gt;
-      <br /> 
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ErrorLog ${APACHE_LOG_DIR}/error.log
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; CustomLog ${APACHE_LOG_DIR}/access.log combined
-      <br /> 
-      <br /> &lt;/VirtualHost&gt;
-     </div></td>
-   </tr>
-  </tbody>
- </table>
-</div> 
-<p>Tras salvarlo, debemos activar la web y recargar el servicio:</p> 
-<blockquote>
- <p># a2ensite magentotest.com[.conf]<br /> # service apache2 reload</p>
-</blockquote> 
-<p>Ya tenemos el virtualhost preparado, aunque si accedemos desde nuestro navegador a http://magentotest.com/ seguramente no veamos nada, porque no tenemos archivos en la ruta. Continuemos.</p> 
-<h3>mcrypt</h3> 
-<p>Magento necesita este m&oacute;dulo de PHP para funcionar. Pero en versiones de PHP &gt; 5.5, suele venir desactivado por defecto. Por lo que tendremos que hacer:</p> 
-<blockquote>
- <p> # php5enmod mcrypt<br /> # service apache restart </p>
-</blockquote> 
-<h2>Preparando la base de datos</h2> 
-<p>Si tienes un usuario y una base de datos con la que trabajar puedes saltarte este paso. Muchos prefieren utilizar el usuario root de MySQL para todo, a m&iacute; me gusta que cada aplicaci&oacute;n tenga su usuario y sus bases de datos, para hacer esto, desde nuestra sesi&oacute;n de ssh podemos hacer lo siguiente:</p> 
-<blockquote>
- <p>$ mysql -uroot -p<br /> <em>[nos pedir&aacute; el password del usuario root de Mysql]</em><br /> Welcome to the MySQL monitor. Commands end with ; or \g.<br /> Your MySQL connection id is 42<br /> Server version: 5.5.35-1ubuntu1 (Ubuntu)<br /> <em>[estas l&iacute;neas no tienen por qu&eacute; coincidir al 100%]</em><br /> Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.</p> 
- <p>Oracle is a registered trademark of Oracle Corporation and/or its<br /> affiliates. Other names may be trademarks of their respective<br /> owners.</p> 
- <p>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.</p> 
- <p>mysql&gt; CREATE SCHEMA tiendamagento;<br /> Query OK, 1 row affected (0.00 sec)</p> 
- <p>mysql&gt; GRANT ALL PRIVILEGES ON tiendamagento.* TO magentodbuser@localhost IDENTIFIED BY ‘passwordseguro’;<br /> Query OK, 0 rows affected (0.01 sec)</p> 
- <p>mysql&gt; quit<br /> Bye </p>
-</blockquote> 
-<p>A partir de ahora, para tiendamagento, el usuario de base de datos ser&aacute; ‘magentodbuser’, su clave ‘passwordseguro0 y la base de datos ‘tiendamagento’.<br /> Si tu base de datos no est&aacute; en la misma m&aacute;quina que el servidor web, en lugar de ‘localhost’ al establecer los privilegios, tendremos que poner el host donde tenemos el servidor web entre comillas, o ‘%’ para aceptar conexiones desde cualquier servidor (cuidado con esto, ser&aacute; cosa del firewall dejar pasar las conexiones desde hosts desconocidos, aunque por ejemplo, si MySQL est&aacute; escuchando s&oacute;lo en VPN no habr&iacute;a problema).</p> 
-<h2>Descargando y descomprimiendo</h2> 
-<p>Una de las grandes ventajas de instalar v&iacute;a ssh es esta, podemos hacer que el servidor se descargue Magento (que seguramente tardar&aacute; mucho menos que nuestro ordenador de casa) y descomprimirlo ah&iacute;, y esto ser&aacute; mucho m&aacute;s r&aacute;pido que transmitir todos los archivos descomprimidos desde nuestro ordenador.</p> 
-<p>Como dijimos antes, la instalaci&oacute;n se har&aacute; en /home/test/www/magento/www; personalmente me gusta tener un directorio o carpeta llamado tar o tarball donde almaceno todos los archivos que tengo que descargar en las versiones que me las descargu&eacute; en su momento (tambi&eacute;n podemos descargarlo y borrarlo, ya nosotros elegimos):</p> 
-<blockquote>
- <p>$ cd /home/test/www/magento<br /> /home/test/www/magento/ $ mkdir tarball<br /> /home/test/www/magento/ $ cd tarball </p>
-</blockquote> 
-<p>En el momento de creaci&oacute;n de la gu&iacute;a, la &uacute;ltima versi&oacute;n de Magento es la 1.9.0.1 que podemos descargar de: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3d3dy5tYWdlbnRvY29tbWVyY2UuY29tL2Rvd25sb2Fkcy9hc3NldHMvMS45LjAuMS9tYWdlbnRvLTEuOS4wLjEudGFyLmJ6Mg==">http://www.magentocommerce.com/downloads/assets/1.9.0.1/magento-1.9.0.1.tar.bz2</a> sin necesidad de tener que identificarnos ni registrarnos. Por lo tanto podemos hacer lo siguiente:</p> 
-<blockquote>
- <p> /home/test/www/magento/tarball/ $ wget http://www.magentocommerce.com/downloads/assets/1.9.0.1/magento-1.9.0.1.tar.bz2<br /> –2014-06-14 22:23:53– http://www.magentocommerce.com/downloads/assets/1.9.0.1/magento-1.9.0.1.tar.bz2<br /> Resolving www.magentocommerce.com (www.magentocommerce.com)… 192.69.184.97<br /> Connecting to www.magentocommerce.com (www.magentocommerce.com)|192.69.184.97|:80… connected.<br /> HTTP request sent, awaiting response… 200 OK<br /> Length: 19079762 (18M) [application/octet-stream]<br /> Saving to: ‘magento-1.9.0.1.tar.bz2’</p> 
- <p>26% [==============================&gt; ] 5,081,161 413KB/s eta 34s </p>
-</blockquote> 
-<p>Cuando llegue al 100% podemos descomprimirlo en /home/test/www/magento:</p> 
-<blockquote>
- <p>/home/test/www/magento/tarball/ $ cd..<br /> /home/test/www/magento/ $ tar xvjf tarball/magento-1.9.0.1.tar.bz2<br /> <em>[mostrar&aacute; por pantalla todos los arhivos]</em></p>
-</blockquote> 
-<p>Como se ha descomprimido todo dentro de un nuevo directorio llamado <strong>magento</strong>, podemos renombrarlo a www para que podamos acceder via web:</p> 
-<blockquote>
- <p>/home/test/www/magento/ $ mv magento www<br /> # service apache reload</p>
-</blockquote> 
-<p>(He reiniciado el servidor web porque si no detect&oacute; el directorio www cuando lo iniciamos antes, no habr&aacute; cargado la configuraci&oacute;n del VirtualHost que hab&iacute;amos creado)</p> 
-<h2>Cambiando los permisos</h2> 
-<p>Magento tiene un potente sistema de gesti&oacute;n interna y de actualizaci&oacute;n, por lo que es recomendable dejar que el servidor web tenga permiso de escritura sobre los archivos del mismo.<br /> Personalmente, este tipo de cosas prefiero hacerlo a nivel de grupo. En Unix tenemos 3 “niveles” (due&ntilde;o, grupo y otros) para los diferentes permisos de un archivo (lectura – read -, escritura – write – y ejecuci&oacute;n – eXecution – ). Por lo que b&aacute;sicamente tenemos 9 flags de permiso ( DUE&Ntilde;O (r, w, x), GRUPO (r, w, x), OTROS (r, w, x).</p> 
-<p>En principio los due&ntilde;os somos nosotros (usuario test, en vuestro server ser&aacute; el usuario con el que hab&eacute;is conectado). el grupo, por defecto suele tener el mismo nombre que el usuario (otras veces no), Por otro lado, el servidor web (Apache, en esta gu&iacute;a, aunque podr&aacute; ser cualquier otro), por seguridad, acceder&aacute; al sistema con un usuario y ese usuario pertenecer&aacute; a un grupo (en lugar de acceder como root a cualquier sitio).</p> 
-<p>Muchos optan por dar a Magento permisos de escritura para otros, aunque permitir&iacute;amos a otros usuarios (u otras aplicaciones acceder), yo prefiero establecer el grupo de los ficheros al usado por el servidor web (generalmente www-data y dar permisos de escritura a nivel de grupo:</p> 
-<blockquote>
- <p> /home/test/www/magento # chgrp -R www-data www<br /> /home/test/www/magento # chmod -R g+w www </p>
-</blockquote> 
-<h2>Empezamos con la instalaci&oacute;n gr&aacute;fica</h2> 
-<p>Ya estamos listos para coger nuestro navegador favorito en nuestro ordenador y acceder a http://magentotest.com . Si todo ha salido bien, estaremos ante esta pantalla:<br /> <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDQwNjA1LnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-040605-560x326.png" alt="" title="Screenshot 19-06-2014-040605" width="560" height="326" /></a>. Leemos la licencia (bueno, s&eacute; que poca gento lo hace), la aceptamos, y continuamos.</p> 
-<p>Ahora configuramos las opciones de localizaci&oacute;n (m&aacute;s o menos &eacute;stas se ajustan a lo que yo quiero montar, pero si est&aacute;s en otro pa&iacute;s, quieres usar otra moneda y otro idioma, s&oacute;lo hay que ponerlo en este paso.<br /> <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDQwNjE4LnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-040618-560x318.png" alt="" title="Screenshot 19-06-2014-040618" width="560" height="318" /></a></p> 
-<h2>Configuraci&oacute;n de la base de datos</h2> 
-<p>Tras ello veremos esta pantalla:<br /> <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDQwNjI3LnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-040627-560x504.png" alt="" title="Screenshot 19-06-2014-040627" width="560" height="504" /></a><br /> Aqu&iacute; rellenamos con los datos que hemos establecido anteriormente para la base de datos. El prefijo de las tablas (que he puesto como mage_) nos valdr&aacute; para tener las tablas algo m&aacute;s controladas, y sobre todo para que, si instalamos otra aplicaci&oacute;n en la misma base de datos sepamos de qu&eacute; aplicaci&oacute;n es cada tabla. Magento utiliza muuuchas tablas.</p> 
-<p>Al final del todo he marcado para utilizar mod rewrite (para generar URLs amigables), aqu&iacute; podemos seleccionar SSL por ejemplo, o Skip Base URL Validation si no hemos establecido el fichero hosts del servidor o si por alguna restricci&oacute;n la tienda, actualmente no es accesible desde la URL.</p> 
-<h2>Crear nuestro usuario</h2> 
-<p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDUwNjI1LnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-050625-560x420.png" alt="" title="Screenshot 19-06-2014-050625" width="560" height="420" /></a><br /> Desde esta pantalla escribimos los datos del usuario administrador de la web. Si no ponemos clave de cifrado al final se generar&aacute; una y nos invitar&aacute; a copiarla.</p> 
-<p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDUwNjU4LnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-050658-560x560.png" alt="" title="Screenshot 19-06-2014-050658" width="560" height="560" /></a><br /> Hemos terminado !! No tenemos por qu&eacute; rellenar la encuesta. Podemos pulsar uno de los botones de abajo para ir al Frontend o al Backend de la aplicaci&oacute;n. Como vemos, se ha generado una clave de cifrado y la podemos copiar ahora.</p> 
-<p>Ya podemos acceder a la p&aacute;gina principal y veremos algo as&iacute;:<br /> <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNi9TY3JlZW5zaG90LTE5LTA2LTIwMTQtMDUwNjIzLnBuZw=="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/06/Screenshot-19-06-2014-050623-560x276.png" alt="" title="Screenshot 19-06-2014-050623" width="560" height="276" /></a><br /> o a la zona interna mucho m&aacute;s completa.</p> 
-<h2>Mensaje de error de Apache tras la instalaci&oacute;n</h2> 
-<p>Si vemos que el log de errores de Apache (o de nuestro servidor) se empieza a llenar con mensajes como este:</p> 
-<blockquote>
- <p> [Sat Jun 14 23:09:13.058968 2014] [access_compat:error] [pid 6785] [client 95.85.14.216:47433] AH01797: client denied by server configuration: /home/test/www/magento/www/app/etc/local.xml </p>
-</blockquote> 
-<p>debemos saber que es una comprobaci&oacute;n de seguridad que hace siempre que estamos utilizando el Backend de administraci&oacute;n de la web, aunque se puede desactivar, y ganaremos algo de velocidad.</p> 
-<p>Tenemos que crear el archivo: /home/test/www/magento/www/app/design/adminhtml/default/default/layout/local.xml</p> 
-<p>y poner en &eacute;l lo siguiente:</p> 
-<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;">
- <table>
-  <tbody>
-   <tr>
-    <td>
-     <div>
-      1
-      <br />2
-      <br />3
-      <br />4
-      <br />5
-      <br />6
-      <br />
-     </div></td>
-    <td>
-     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      &lt;layout&gt;
-      <br /> &nbsp; &nbsp; &lt;default&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;remove name=&quot;notification_security&quot; /&gt;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &lt;remove name=&quot;notification_survey&quot; /&gt;
-      <br /> &nbsp; &nbsp; &lt;/default&gt;
-      <br /> &lt;/layout&gt;
-     </div></td>
-   </tr>
-  </tbody>
- </table>
-</div> 
-<p>Tras ello, acceder al backend de administraci&oacute;n e ir a Sistema &gt; Gesti&oacute;n de cach&eacute; y all&iacute; vaciar la cach&eacute; de Magento. No deber&iacute;a haber m&aacute;s problemas en este sentido.</p> 
-<h2>Todo por el momento</h2> 
-<p>Hasta aqu&iacute; llega esta gu&iacute;a, poco a poco quiero ir complet&aacute;ndola con m&aacute;s detalles. Si no se ajustan con la instalaci&oacute;n, ser&aacute;n nuevos posts.</p> 
-<div>
- <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F06%2Fexperimentos-magento-ss-2%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
-</div> 
-<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2305" width="1" height="1" style="display: none;" />
-<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/06/experimentos-magento-ss-2/">Experimentos: Instalando Magento desde SSH</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/php/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta php</a></li><li><a href="/label/mysql/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta mysql</a></li><li><a href="/label/windows/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta windows</a></li><li><a href="/label/apache/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta apache</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Experimentos: Instalando Magento desde SSH | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://totaki.com/poesiabinaria/2014/06/experimentos-magento-ss-2/">Experimentos: Instalando Magento desde SSH</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-06-19T08:36" itemprop="dateModified">jueves, 19 de junio de 2014 </span>,
+<span>fuente <a target="target" href="http://totaki.com/poesiabinaria/">Poesía binaria</a></span>,
+etiquetas
+<a href="/label/php"><span itemprop="articleSection">php</span></a> 
+<a href="/label/mysql"><span itemprop="articleSection">mysql</span></a> 
+<a href="/label/windows"><span itemprop="articleSection">windows</span></a> 
+<a href="/label/apache"><span itemprop="articleSection">apache</span></a> 
+</p><p class="text-justify" itemprop="description">
+Magento es un software hecho en PHP para gestión integral de e-commerce. [Link a wikipedia]. Existen una versión comercial y una versión open, llamada Community Edition, y es esta última con la que vamos a experimentar. Hay miles de guías por Internet para instalar Magento. Esta no pretende ser la más completa, pero sí una chuleta rápida para mis futuras instalaciones y experimentos. Aunque me alegraré mucho si a alguien le resulta útil. De todas formas, si tienes algún truco, o haces algo de forma especial durante la instalación de Magento (hacer algún cambio que nos ahorre dolores de cabeza o algo así), me encantaría que me dejaras un comentario. Conexión al servidor Lo primero es conectarte al servidor (o contratarlo). Yo para hacer pruebas he utilizado un servidor de DigitalOcean y tengo [...]
+</p><p><a itemprop="sameAs" target="target" href="http://totaki.com/poesiabinaria/2014/06/experimentos-magento-ss-2/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh" st_title="Experimentos: Instalando Magento desde SSH | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -285,34 +62,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 621,
-      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/06/experimentos-instalando-magento-desde-ssh"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "poesiabinaria",
-      "name" : "Poesía binaria"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -320,6 +71,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

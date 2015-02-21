@@ -1,62 +1,21 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>El operador “?.” en C# y VB.NET, más cerca | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"><span itemprop="headline">El operador “?.” en C# y VB.NET, más cerca</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/c"><img title="c" alt="c" src="/assets/images/labels/c.png"/></a><a class="label" href="/label/desarrollo"><img title="desarrollo" alt="desarrollo" src="/assets/images/labels/desarrollo.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">José M. Aguilar</span> en la bitácora <a href="http://www.variablenotfound.com">Variable not found</a>, <a href="http://feedproxy.google.com/~r/vnf/~3/d9YI9_92fQU/el-operador-en-c-y-vbnet-mas-cerca.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-03-04T13:05" itemprop="dateModified">Actualizado el martes, 04 de marzo de 2014 a las 13:05 UTC</span></div><div><span>
-Etiquetado como
-novedades, <a href="/label/c"><span itemprop="articleSection">c</span></a>, vb-net, <a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><a href="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s1600-h/programacion.jpg"><img align="right" alt="" src="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s400/programacion.jpg" style="height: 200px; margin: 0px 0px 0px 10px;" /></a>
-<br />El operador “?.”, tambi&eacute;n llamado 
-<em>safe navigation operator</em>, era la caracter&iacute;stica m&aacute;s demandada para el lenguaje C# en 
-<a href="http://visualstudio.uservoice.com/">Uservoice</a>, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se est&aacute; considerando la posibilidad de incluir este &uacute;til azucarillo sint&aacute;ctico tanto en C# como en VB.
-<br />
-<br />Para los que no lo conozc&aacute;is, se trata de una construcci&oacute;n que permite acceder a propiedades de objetos sin temor a las 
-<em>null reference exceptions </em>lanzadas cuando estos objetos son nulos.
-<br />
-<a></a>
-<br />Mejor ve&aacute;moslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco m&aacute;s abajo:
-<br />
-<pre>public class Person<br />{<br />    public Person Father { get; set; }<br />    public string Name { get; set; }<br />    [...]<br />}<br /><br />string name = me.Father.Father.Name; <br />Console.WriteLine(&quot;My grandpa’s name is: &quot;+ name);</pre>Obviamente, si la variable 
-<code>me</code> contiene un nulo nuestra aplicaci&oacute;n se detendr&iacute;a lanz&aacute;ndonos una cruel excepci&oacute;n. Y lo mismo ocurrir&iacute;a si el nulo lo encontramos en 
-<code>me.Father</code> o en 
-<code>me.Father.Father</code>, &iquest;verdad?
-<br />
-<br />Por esta raz&oacute;n, lo habitual es proteger nuestras aplicaciones contra estos casos introduciendo comprobaciones en cada uno de los puntos para impedir la cat&aacute;strofe y ofrecer un resultado razonable cuando aparezcan dichos valores nulos:
-<br />
-<pre>string name =  me != null &amp;&amp; me.Father != null &amp;&amp; me.Father.Father!= null <br />               ? me.Father.Father.Name <br />               : null; <br />Console.WriteLine(&quot;My grandpa’s name is: &quot; + (name ?? &quot;I don’t know&quot;));</pre>La caracter&iacute;stica que en palabras de Mads Torgersen (PM de C# en Microsoft) est&aacute; siendo “seriamente considerada”, consistir&iacute;a en a&ntilde;adir a los lenguajes C# y VB.NET un 
-<strong>nuevo</strong> 
-<strong>operador de navegaci&oacute;n segura</strong> “?.” (interrogaci&oacute;n punto) que se utilizar&iacute;a en lugar del punto para navegar por grafos de objetos y, a diferencia de &eacute;ste, 
-<strong>retornar&iacute;a null al encontrarse con un valor nulo durante la navegaci&oacute;n</strong>.
-<br />
-<br />As&iacute;, el c&oacute;digo anterior podr&iacute;a escribirse de una forma bastante m&aacute;s limpia y legible:
-<br />
-<pre>var name = me?.Father?.Father?.Name; <br />Console.WriteLine(&quot;My grandpa’s name is &quot; + ( name ?? &quot;I don’t know&quot;));</pre>En este caso da igual si el nulo est&aacute; en 
-<code>me</code>, en 
-<code>me.Father </code>o en 
-<code>me.Father.Father</code>: 
-<strong>en todos ellos la expresi&oacute;n completa retornar&iacute;a <em>null</em></strong>. 
-<br />
-<br />Pero a&uacute;n hay m&aacute;s: la inclusi&oacute;n de este operador no s&oacute;lo se aplicar&iacute;a a la navegaci&oacute;n por propiedades, sino a otras construcciones del lenguaje como la invocaci&oacute;n a m&eacute;todos, evitando la excepci&oacute;n si el objeto sobre el que se act&uacute;a es nulo:
-<br />
-<pre>var myFamily = me?.GetFamily();</pre>O tambi&eacute;n el acceso a valores mediante un &iacute;ndice:
-<br />
-<pre>var myMary = me?.Children?[&quot;mary&quot;];</pre>En definitiva, se trata de una caracter&iacute;stica muy interesante para simplificar nuestro c&oacute;digo y hacerlo m&aacute;s legible. Seg&uacute;n Torgersen, se va a prototipar durante los pr&oacute;ximos meses, por lo que ser&iacute;a posible encontrarlo ya en la pr&oacute;xima versi&oacute;n de C#.
-<br />
-<br />Fuentes:
-<br />
-<ul>
- <li><a href="http://blogs.msdn.com/b/jerrynixon/archive/2014/02/26/at-last-c-is-getting-sometimes-called-the-safe-navigation-operator.aspx">At last, C# is getting “?.”, sometimes called the Safe Navigation Operator</a> </li>
- <li><a href="http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/3990187-add-operator-to-c-">Uservoice suggestion: Add &quot;?.&quot; operator to C#</a> </li>
-</ul>Publicado en 
-<a href="http://www.variablenotfound.com/">Variable not found</a>.
-<div> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:ecdYMiMMAMM"><img src="http://feeds.feedburner.com/~ff/vnf?d=ecdYMiMMAMM" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:yIl2AUoC8zA"><img src="http://feeds.feedburner.com/~ff/vnf?d=yIl2AUoC8zA" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:qj6IDK7rITs"><img src="http://feeds.feedburner.com/~ff/vnf?d=qj6IDK7rITs" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:4cEx4HpKnUU"><img src="http://feeds.feedburner.com/~ff/vnf?i=d9YI9_92fQU:NDYY9CZQSu8:4cEx4HpKnUU" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:F7zBnMyn0Lo"><img src="http://feeds.feedburner.com/~ff/vnf?i=d9YI9_92fQU:NDYY9CZQSu8:F7zBnMyn0Lo" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:gIN9vFwOqvQ"><img src="http://feeds.feedburner.com/~ff/vnf?i=d9YI9_92fQU:NDYY9CZQSu8:gIN9vFwOqvQ" /></a> 
- <a href="http://feeds.feedburner.com/~ff/vnf?a=d9YI9_92fQU:NDYY9CZQSu8:I9og5sOYxJI"><img src="http://feeds.feedburner.com/~ff/vnf?d=I9og5sOYxJI" /></a> 
-</div>
-<img src="http://feeds.feedburner.com/~r/vnf/~4/d9YI9_92fQU" height="1" width="1" /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/c/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta c</a></li><li><a href="/label/desarrollo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desarrollo</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>El operador “?.” en C# y VB.NET, más cerca | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/d9YI9_92fQU/el-operador-en-c-y-vbnet-mas-cerca.html">El operador “?.” en C# y VB.NET, más cerca</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-03-04T13:05" itemprop="dateModified">martes, 04 de marzo de 2014 </span>,
+<span>fuente <a target="target" href="http://www.variablenotfound.com">Variable not found</a></span>,
+etiquetas
+<a href="/label/c"><span itemprop="articleSection">c</span></a> 
+<a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a> 
+</p><p class="text-justify" itemprop="description">
+El operador “?.”, también llamado safe navigation operator, era la característica más demandada para el lenguaje C# en Uservoice, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se está considerando la posibilidad de incluir este útil azucarillo sintáctico tanto en C# como en VB. Para los que no lo conozcáis, se trata de una construcción que permite acceder a propiedades de objetos sin temor a las null reference exceptions lanzadas cuando estos objetos son nulos. Mejor veámoslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco más abajo: public class Person {     public Person Father { get; set; }     public string Name { get; set; }     [...] } string [...]
+</p><p><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/d9YI9_92fQU/el-operador-en-c-y-vbnet-mas-cerca.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" st_title="El operador “?.” en C# y VB.NET, más cerca | Variable not found"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -101,34 +60,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 410,
-      "url" : "http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "variablenotfound",
-      "name" : "Variable not found"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -136,6 +69,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

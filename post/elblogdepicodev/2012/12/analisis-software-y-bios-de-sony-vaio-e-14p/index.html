@@ -1,220 +1,23 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p"><span itemprop="headline">Análisis software y BIOS de Sony Vaio E 14P</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/software-libre"><img title="software-libre" alt="software-libre" src="/assets/images/labels/software-libre.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a><a class="label" href="/label/arch-linux"><img title="arch-linux" alt="arch-linux" src="/assets/images/labels/arch-linux.png"/></a><a class="label" href="/label/tecnologia"><img title="tecnologia" alt="tecnologia" src="/assets/images/labels/tecnologia.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2012/12/analisis-software-y-bios-sony-vaio-e-14p.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2013-01-27T03:07" itemprop="dateModified">Actualizado el domingo, 27 de enero de 2013 a las 03:07 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/software-privativo"><span itemprop="articleSection">software-privativo</span></a>, <a href="/label/microsoft"><span itemprop="articleSection">microsoft</span></a>, <a href="/label/tecnologia"><span itemprop="articleSection">tecnologia</span></a>, <a href="/label/desempaquetado"><span itemprop="articleSection">desempaquetado</span></a>, <a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a>, <a href="/label/hardware"><span itemprop="articleSection">hardware</span></a>, <a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a>, gnulinux</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="Sony" src="http://4.bp.blogspot.com/-950mEwCo2ik/ULElzrzUEeI/AAAAAAAABoE/d7aj7fZwIPA/s1600/sony.png" title="Sony" />
-</div>
-<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="Windows 8" src="http://2.bp.blogspot.com/-oJ_bynnlfOI/UMt2wkfcJkI/AAAAAAAAB-U/g8vWHPyACMk/s1600/Windows8.png" title="Windows 8" />
-</div>Esta ser&aacute; la &uacute;ltima entrada que escribir&eacute; sobre el port&aacute;til Sony Vaio E 14P. En la primera entrada coment&eacute; 
-<a href="http://elblogdepicodev.blogspot.com.es/2012/12/mi-guia-para-eleccion-de-portatil-nuevo.html">que es lo que buscaba y porque finalmente eleg&iacute; este modelo</a>. En la segunda hice un 
-<a href="http://elblogdepicodev.blogspot.com.es/2012/12/desempaquetado-sony-vaio-e-14p.html">reportaje gr&aacute;fico amplio</a> con muchos detalles desde el aspecto externo, teclado y hasta de los m&oacute;dulos de memoria y disco duro por si alguien tuviese inter&eacute;s de ampliar la memoria o ponerle un disco duro SSD.
-<br />
-<br />
-<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="Linux" height="200" src="http://4.bp.blogspot.com/-gf0CBdHQ0EI/TQJrCzG9OZI/AAAAAAAAAiY/NcJAFNmleAw/s200/tux.png" title="Linux" width="169" />
-</div>En esta entrada me centrar&eacute; en los aspectos una vez encendido el port&aacute;til como es el caso de la BIOS UEFI, el software preinstalado que incorpora y analizar el equipo con programas como CPU-Z, GPU-Z y HWINFO que proporcionan muchos detalles del hardware.
-<br />
-<br />
-<h3>Primer arranque del sistema</h3>Antes de poder usar el equipo que viene con Windows 8 preinstalado sin posibilidad de otra opci&oacute;n por gracia del 
-<a href="http://elblogdepicodev.blogspot.com.es/2011/05/impuesto-windows.html">impuesto windows</a> debemos pasar por unas cuantas pantallas para configurar Windows 8, entre ellas aceptar la licencia que muy pocos se leen entera, la cuenta de usuario y poco m&aacute;s. Pasados unos minutos tenemos a nuestra disposici&oacute;n la nueva interfaz de Windows, Metro UI. Podemos acceder al escritorio cl&aacute;sico pero echaremos en falta el bot&oacute;n inicio con lo que para abrir una aplicaci&oacute;n deberemos abrir la barra de encantamientos y despu&eacute;s de unos click iniciaremos la aplicaci&oacute;n que queramos.
-<br />
-<br />Los peores defectos que le he encontrado a W8 es la falta del bot&oacute;n inicio en el escritorio cl&aacute;sico y que algunas aplicaciones nos hacen pasar de la interfaz metro al escritorio cl&aacute;sico m&aacute;s a menudo de lo que tal vez deseemos. Tambi&eacute;n comentar que quiz&aacute; en un primer momento nos encontremos algo perdidos en la interfaz metro ya que es muy diferente a lo que est&aacute;bamos acostumbrados hasta ahora en Windows y hay que aprender como usar algunas opciones que ya conoc&iacute;amos, adem&aacute;s quiz&aacute; nos cueste un poco acceder a las opciones de configuraci&oacute;n, nada que no pueda resolver un poco de tiempo de uso. No lo he usado ni lo usar&eacute; mucho pero no tengo nada peor que decir. Por lo dem&aacute;s me parece que tiene algunos detalles interesantes, la interfaz ha sido simplificada teniendo menos detalles que distraigan, la interfaz Ribbon se ha incorporado en el explorador de archivos y otras aplicaciones como Paint. Se inicia muy r&aacute;pido, en menos de 10 segundos podemos estar en la pantalla de inicio de sesi&oacute;n, y algunas otras cosas menores como que se puede pausar el proceso de copiar archivos, &uacute;til si esto nos est&aacute; ralentizando el equipo.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-aawwBhALab8/UMtsBluvtZI/AAAAAAAAB2c/suZiVOM0Jic/s1600/IMG_20121124_170552.jpg"><img height="181" src="http://2.bp.blogspot.com/-aawwBhALab8/UMtsBluvtZI/AAAAAAAAB2c/suZiVOM0Jic/s200/IMG_20121124_170552.jpg" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-K_FUjBQfzGE/UMtt9nE15-I/AAAAAAAAB5k/v2zAOQ6uprQ/s1600/Windows+8-1.png"><img height="150" src="http://4.bp.blogspot.com/-K_FUjBQfzGE/UMtt9nE15-I/AAAAAAAAB5k/v2zAOQ6uprQ/s200/Windows+8-1.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-PTqC-KMWK70/UMtt-qzLkeI/AAAAAAAAB5o/eoAT0nANolg/s1600/Windows+8-2.png"><img height="150" src="http://1.bp.blogspot.com/-PTqC-KMWK70/UMtt-qzLkeI/AAAAAAAAB5o/eoAT0nANolg/s200/Windows+8-2.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-oNHjuYdeZt4/UMtt_XNsEeI/AAAAAAAAB5w/SJjGvNdJIHA/s1600/Windows+8-3.png"><img height="150" src="http://4.bp.blogspot.com/-oNHjuYdeZt4/UMtt_XNsEeI/AAAAAAAAB5w/SJjGvNdJIHA/s200/Windows+8-3.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-m7eR5EfJjrE/UMtuAZ5igmI/AAAAAAAAB58/NdmQm-zbftg/s1600/Windows+8-4.png"><img height="150" src="http://3.bp.blogspot.com/-m7eR5EfJjrE/UMtuAZ5igmI/AAAAAAAAB58/NdmQm-zbftg/s200/Windows+8-4.png" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-8Us16jOeyXs/UMtuBo4_WvI/AAAAAAAAB6A/e6rGCvPJ7E0/s1600/Windows+8-5.png"><img height="150" src="http://3.bp.blogspot.com/-8Us16jOeyXs/UMtuBo4_WvI/AAAAAAAAB6A/e6rGCvPJ7E0/s200/Windows+8-5.png" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;"></div>&nbsp;Despu&eacute;s de la configuraci&oacute;n inicial anterior veremos Windows con el siguiente aspecto:
-<br />
-<br />
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://4.bp.blogspot.com/-rGuQNiVv1dE/UMtxKURVY9I/AAAAAAAAB9E/npSXzwMmAKs/s1600/Windows+8-Inicio-1.png"><img height="112" src="http://4.bp.blogspot.com/-rGuQNiVv1dE/UMtxKURVY9I/AAAAAAAAB9E/npSXzwMmAKs/s200/Windows+8-Inicio-1.png" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>La nueva interfaz Metro</td>
-  </tr>
- </tbody>
-</table>
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-JBgcNQPcQqE/UMtxMqzANmI/AAAAAAAAB9M/rIwSRNMR8vA/s1600/Windows+8-Inicio-2.png"><img height="112" src="http://2.bp.blogspot.com/-JBgcNQPcQqE/UMtxMqzANmI/AAAAAAAAB9M/rIwSRNMR8vA/s200/Windows+8-Inicio-2.png" width="200" /></a>
-</div>
-<br />
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://3.bp.blogspot.com/-fQKfcNJ3DWQ/UMtxHRXv1HI/AAAAAAAAB88/0ky1nkkfZiU/s1600/Windows+8-Escritorio.png"><img height="112" src="http://3.bp.blogspot.com/-fQKfcNJ3DWQ/UMtxHRXv1HI/AAAAAAAAB88/0ky1nkkfZiU/s200/Windows+8-Escritorio.png" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>El escritorio cl&aacute;sico</td>
-  </tr>
- </tbody>
-</table>
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://2.bp.blogspot.com/-eqQaVZzNi0k/UMtzo7IedQI/AAAAAAAAB98/unAi1tO7lUY/s1600/Windows8-Barra+de+encantamientos-1.png"><img height="112" src="http://2.bp.blogspot.com/-eqQaVZzNi0k/UMtzo7IedQI/AAAAAAAAB98/unAi1tO7lUY/s200/Windows8-Barra+de+encantamientos-1.png" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>La barra de encantamientos</td>
-  </tr>
- </tbody>
-</table>
-<div style="clear: both; text-align: left;">
- Un usuario con algo de conocimientos probablemente decida m&aacute;s bien pronto que tarde reinstalar Windows desde cero para eliminar toda esa cantidad de software que probablemente no use que lo &uacute;nico que hace es ocupar sitio en el disco duro en el mejor de los casos y enlentecer el equipo en el peor, adem&aacute;s de para recuperar el espacio que se reserva en las particiones de recuperaci&oacute;n del sistema. Son unos cuantos desde&nbsp;el t&iacute;pico antivirus hasta diversos programas fotogr&aacute;ficos y utilidades para grabar DVD.
-</div>
-<div style="clear: both; text-align: left;">
- <br />
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-nR157WDCig4/UMtxkv-g86I/AAAAAAAAB9U/CSyWrFivp9Y/s1600/Windows+8-Aplicaciones-1.png"><img height="112" src="http://4.bp.blogspot.com/-nR157WDCig4/UMtxkv-g86I/AAAAAAAAB9U/CSyWrFivp9Y/s200/Windows+8-Aplicaciones-1.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-cqF-rtFlciM/UMtxl05-cEI/AAAAAAAAB9c/jMGp1TzrAS8/s1600/Windows+8-Aplicaciones-2.png"><img height="112" src="http://4.bp.blogspot.com/-cqF-rtFlciM/UMtxl05-cEI/AAAAAAAAB9c/jMGp1TzrAS8/s200/Windows+8-Aplicaciones-2.png" width="200" /></a>
-</div>
-<br />El nuevo administrador de tareas y el explorador de archivos y el paint con la barra de acciones Ribbon.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-TUWjI0tNi9Y/UMtx4gvtllI/AAAAAAAAB9k/QL7wiRvfM0U/s1600/Windows+8-Administrador-Tareas.png"><img height="107" src="http://4.bp.blogspot.com/-TUWjI0tNi9Y/UMtx4gvtllI/AAAAAAAAB9k/QL7wiRvfM0U/s200/Windows+8-Administrador-Tareas.png" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-gBELzBeFy0M/UMtx5mhTu4I/AAAAAAAAB9s/-zrs4ZquIOU/s1600/Windows+8-Explorador.png"><img height="107" src="http://2.bp.blogspot.com/-gBELzBeFy0M/UMtx5mhTu4I/AAAAAAAAB9s/-zrs4ZquIOU/s200/Windows+8-Explorador.png" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-VEXLsmzYgi8/UMtx6gvEOUI/AAAAAAAAB9w/y_0_KBD6k0Y/s1600/Windows+8-Paint.png"><img height="107" src="http://2.bp.blogspot.com/-VEXLsmzYgi8/UMtx6gvEOUI/AAAAAAAAB9w/y_0_KBD6k0Y/s200/Windows+8-Paint.png" width="200" /></a>
-</div>
-<h3>Informaci&oacute;n del sistema</h3>A trav&eacute;s de varios programas como 
-<a href="http://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a>, 
-<a href="http://www.techpowerup.com/gpuz/">GPU-Z</a>, 
-<a href="http://www.hwinfo.com/">HWINFO</a> y 
-<a href="http://www.magicaljellybean.com/keyfinder/">Magical Jelly Bean</a> podemos conocer la mayor&iacute;a de detalles del hardware de nuestro equipo &nbsp;y la clave de la licencia de Windows que necesitaremos obtener con un programa como este ya que los equipos con Windows 8 ya no vienen con la t&iacute;pica pegatina situada en la parte inferior del port&aacute;til (al menos en el caso de Sony), la necesitaremos si queremos hacer una reinstalaci&oacute;n para eliminar todo el crapware con el que viene instalado el sistema o queremos aprovechar todo el espacio del disco duro que est&aacute; ocupado por una partici&oacute;n de recuperaci&oacute;n oculta.
-<br />
-<br />De un disco duro de 500 GB la partici&oacute;n del sistema se queda en 435 GiB ocupando 41 GiB Windows 8 y todo el software preinstalado.&nbsp;El particionado de f&aacute;brica del equipo es el siguiente:
-<br />
-<ul>
- <li>sda 465 GiB</li>
- <li>sda1 260 MiB EFI</li>
- <li>sda2 1,5 GiB Basic Data Partition</li>
- <li>sda3 260 MiB EFI</li>
- <li>sda4 128 MiB Microsoft Reserved Partition</li>
- <li>sda5 435,5 GiB Basic Data Partition</li>
- <li>sda6 28,2 GiB Basic Data Partition</li>
-</ul>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-fSETEWUoi5Q/UMtuNpLqHBI/AAAAAAAAB6M/Sy4wTIHc6Ww/s1600/CPU-Z-1.png"><img height="193" src="http://3.bp.blogspot.com/-fSETEWUoi5Q/UMtuNpLqHBI/AAAAAAAAB6M/Sy4wTIHc6Ww/s200/CPU-Z-1.png" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-iov-uTn-rHI/UMtuOZ1hP9I/AAAAAAAAB6Q/vSpWl8TVNW4/s1600/CPU-Z-2.png"><img height="193" src="http://3.bp.blogspot.com/-iov-uTn-rHI/UMtuOZ1hP9I/AAAAAAAAB6Q/vSpWl8TVNW4/s200/CPU-Z-2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-LbP5kBQh0j4/UMtuPGcU3dI/AAAAAAAAB6Y/7mH61F71GEw/s1600/CPU-Z-3.png"><img height="193" src="http://1.bp.blogspot.com/-LbP5kBQh0j4/UMtuPGcU3dI/AAAAAAAAB6Y/7mH61F71GEw/s200/CPU-Z-3.png" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-ndYb7kMgfwI/UMtuP-J6bhI/AAAAAAAAB6g/ficq6JEFByM/s1600/CPU-Z-4.png"><img height="193" src="http://2.bp.blogspot.com/-ndYb7kMgfwI/UMtuP-J6bhI/AAAAAAAAB6g/ficq6JEFByM/s200/CPU-Z-4.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-fQkZA2RdCrg/UMtuQxUHmRI/AAAAAAAAB6o/lO6hpGUYHxU/s1600/CPU-Z-5.png"><img height="193" src="http://3.bp.blogspot.com/-fQkZA2RdCrg/UMtuQxUHmRI/AAAAAAAAB6o/lO6hpGUYHxU/s200/CPU-Z-5.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-DI2r1beJn9M/UMtuRqgy2qI/AAAAAAAAB60/1Atm0awHG6E/s1600/CPU-Z-6.png"><img height="193" src="http://4.bp.blogspot.com/-DI2r1beJn9M/UMtuRqgy2qI/AAAAAAAAB60/1Atm0awHG6E/s200/CPU-Z-6.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-8NfS4zRWC6I/UMtuSgu_xCI/AAAAAAAAB68/sFzdsHBNrXs/s1600/CPU-Z-7.png"><img height="193" src="http://4.bp.blogspot.com/-8NfS4zRWC6I/UMtuSgu_xCI/AAAAAAAAB68/sFzdsHBNrXs/s200/CPU-Z-7.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-2UMjN5Ek8Qg/UMt13iHvU-I/AAAAAAAAB-E/Qf5N2IE0VzE/s1600/GPU-Z-1.gif"><img height="200" src="http://3.bp.blogspot.com/-2UMjN5Ek8Qg/UMt13iHvU-I/AAAAAAAAB-E/Qf5N2IE0VzE/s200/GPU-Z-1.gif" width="161" /></a>
- <a href="http://1.bp.blogspot.com/-RXl2NrDr2AU/UMt14YXCbYI/AAAAAAAAB-I/xFB-7wZVHpU/s1600/GPU-Z-2.gif"><img height="200" src="http://1.bp.blogspot.com/-RXl2NrDr2AU/UMt14YXCbYI/AAAAAAAAB-I/xFB-7wZVHpU/s200/GPU-Z-2.gif" width="161" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-uT7KixFeQiU/UMtuVi-mF3I/AAAAAAAAB7U/CyStKKj6htE/s1600/HWINFO-1.png"><img height="183" src="http://3.bp.blogspot.com/-uT7KixFeQiU/UMtuVi-mF3I/AAAAAAAAB7U/CyStKKj6htE/s200/HWINFO-1.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-xV449ROV75M/UMtuWR2G3sI/AAAAAAAAB7Y/9k0xrNJHS5I/s1600/Windows+Product+Key.png"><img height="150" src="http://4.bp.blogspot.com/-xV449ROV75M/UMtuWR2G3sI/AAAAAAAAB7Y/9k0xrNJHS5I/s200/Windows+Product+Key.png" width="200" /></a>&nbsp;
-</div>
-<br />
-<h3>BIOS UEFI</h3>Todos los port&aacute;tiles en los que venga preinstalado Windows 8 la BIOS ser&aacute; de tipo 
-<a href="http://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a> ya que es requisito de &eacute;ste (eso creo) y mediante el Secure Boot que hace que un virus no se apropie del sistema al iniciarse. Otras opciones que se pueden configurar en la BIOS adem&aacute;s de activar o desactivar el mencionado Secure Boot, son modificar las claves v&aacute;lidas de Secure Boot, el soporte para virtualizar que viene desactivado en la mayor&iacute;a de port&aacute;tiles, las contrase&ntilde;as para iniciar el sistema y entrar a la configuraci&oacute;n de la BIOS. Tambi&eacute;n, se puede desactivar el inicio del sistema en modo UEFI e iniciarlo en modo compatibilidad con los sistemas BIOS tradicionales si planeamos instalar un sistema operativo que a&uacute;n no tenga soporte para UEFI aunque la mayor&iacute;a de las distribuciones Linux ya lo hace perfectamente no a&uacute;n as&iacute; con el Secure Boot, que deberemos desactivarlo. En la configuraci&oacute;n de la BIOS no se pueden cambiar ninguna opci&oacute;n m&aacute;s, por ejemplo, no se puede cambiar nada para hacer overclock.
-<br />
-<br />La forma de entrar a la configuraci&oacute;n de la BIOS y poder iniciar el sistema desde un medio que no sea el disco duro (como memoria USB o red) es pulsando la tecla ASSIST estando el equipo apagado, una vez que el sistema se ha encendido no se puede entrar a la BIOS, tampoco iniciar desde otro medio ni reiniciando aunque en ese momento pulsemos las teclas F2, F8, F10, F12 que otros sistemas proporcionan, lo que es un peque&ntilde;o incordio pero por suerte no es algo que necesitaremos muy a menudo.
-<br />
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://2.bp.blogspot.com/-VhtJ3qh-oxs/UMx5i1dGZmI/AAAAAAAACA8/HkXAcBDMCf8/s1600/Sony_Vaio_E14P_170342.jpg"><img height="165" src="http://2.bp.blogspot.com/-VhtJ3qh-oxs/UMx5i1dGZmI/AAAAAAAACA8/HkXAcBDMCf8/s200/Sony_Vaio_E14P_170342.jpg" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>Las opciones de arranque pulsando la tecla ASSIST</td>
-  </tr>
- </tbody>
-</table>
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-aXSJoHWe1Ak/UMtu2fqoXsI/AAAAAAAAB7s/GxXFCH2ROYY/s1600/Sony_Vaio_E14P_170437.jpg"><img height="136" src="http://4.bp.blogspot.com/-aXSJoHWe1Ak/UMtu2fqoXsI/AAAAAAAAB7s/GxXFCH2ROYY/s200/Sony_Vaio_E14P_170437.jpg" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-sJO1tUXLCUM/UMtu3oFN7tI/AAAAAAAAB70/FwjXQrHXFPQ/s1600/Sony_Vaio_E14P_170450.jpg"><img height="135" src="http://1.bp.blogspot.com/-sJO1tUXLCUM/UMtu3oFN7tI/AAAAAAAAB70/FwjXQrHXFPQ/s200/Sony_Vaio_E14P_170450.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-PUnKeWhWV_8/UMtu5Nsbq2I/AAAAAAAAB78/uE7QcvEnX0I/s1600/Sony_Vaio_E14P_170503.jpg"><img height="129" src="http://1.bp.blogspot.com/-PUnKeWhWV_8/UMtu5Nsbq2I/AAAAAAAAB78/uE7QcvEnX0I/s200/Sony_Vaio_E14P_170503.jpg" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-Jke_UptnSR0/UMtu6cwH8YI/AAAAAAAAB8E/iMIA6T9t5cI/s1600/Sony_Vaio_E14P_170512.jpg"><img height="130" src="http://4.bp.blogspot.com/-Jke_UptnSR0/UMtu6cwH8YI/AAAAAAAAB8E/iMIA6T9t5cI/s200/Sony_Vaio_E14P_170512.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-mNWNJU-jGts/UMtu7-uiJYI/AAAAAAAAB8M/gVRBodFjQxA/s1600/Sony_Vaio_E14P_170530.jpg"><img height="128" src="http://2.bp.blogspot.com/-mNWNJU-jGts/UMtu7-uiJYI/AAAAAAAAB8M/gVRBodFjQxA/s200/Sony_Vaio_E14P_170530.jpg" width="200" /></a>
-</div>
-<br />Estas son las opciones que nos muestra Windows 8 iniciando con &laquo;Recuperar o mantener el sistema&raquo;.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-1IXGJMQgAtk/UMtvnCnBxYI/AAAAAAAAB8U/SCYILQu-9m4/s1600/Windows+8-6.png"><img height="150" src="http://3.bp.blogspot.com/-1IXGJMQgAtk/UMtvnCnBxYI/AAAAAAAAB8U/SCYILQu-9m4/s200/Windows+8-6.png" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-JOm71-YjoVU/UMtvn27nZlI/AAAAAAAAB8Y/pr4q8BfyjKI/s1600/Windows+8-7.png"><img height="150" src="http://3.bp.blogspot.com/-JOm71-YjoVU/UMtvn27nZlI/AAAAAAAAB8Y/pr4q8BfyjKI/s200/Windows+8-7.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-VM3Cm1WjUVs/UMtvoi25twI/AAAAAAAAB8g/W70aJQ9VEZM/s1600/Windows+8-8.png"><img height="150" src="http://3.bp.blogspot.com/-VM3Cm1WjUVs/UMtvoi25twI/AAAAAAAAB8g/W70aJQ9VEZM/s200/Windows+8-8.png" width="200" /></a>
-</div>
-<br />
-<h3>GNU/Linux</h3>Hasta lo que he probado el equipo funciona perfectamente con GNU/Linux salvo el arranque directamente con GRUB que con la BIOS UEFI se queda colgado con la pantalla en negro, el problema se soluciona usando rEFInd tal y como se recomienda en la 
-<a href="https://wiki.archlinux.org/index.php/Beginners_Guide">gu&iacute;a de instalaci&oacute;n de Arch Linux</a>. En estos momentos ya tengo instado Arch Linux en el equipo y todo es reconocido y funciona perfectamente, desde el tocuhpad multit&aacute;ctil, la red cableada, la wifi, el lector de tarjetas SD, la webcam, la grabadora DVD, ...
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-GA7HIrFIfpc/UMtwC_u8RoI/AAAAAAAAB80/STtTs8jVyhI/s1600/Sony_Vaio_E14P_210400.jpg"><img height="148" src="http://3.bp.blogspot.com/-GA7HIrFIfpc/UMtwC_u8RoI/AAAAAAAAB80/STtTs8jVyhI/s200/Sony_Vaio_E14P_210400.jpg" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-wMz5v1XY79c/UMtwCHRKTBI/AAAAAAAAB8s/DgfkSBMrcmI/s1600/Sony_Vaio_E14P_210257.jpg"><img height="148" src="http://4.bp.blogspot.com/-wMz5v1XY79c/UMtwCHRKTBI/AAAAAAAAB8s/DgfkSBMrcmI/s200/Sony_Vaio_E14P_210257.jpg" width="200" /></a>
-</div>
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://1.bp.blogspot.com/-5nX0nAKth3I/UMvYRjTUUtI/AAAAAAAAB_k/7UiWu-9Tiys/s1600/ArchLinux-1.jpg"><img height="112" src="http://1.bp.blogspot.com/-5nX0nAKth3I/UMvYRjTUUtI/AAAAAAAAB_k/7UiWu-9Tiys/s200/ArchLinux-1.jpg" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>El equipo funcionando con GNU/LInux...</td>
-  </tr>
- </tbody>
-</table>
-<table>
- <tbody>
-  <tr>
-   <td><a href="http://4.bp.blogspot.com/-S6fZfh6eYU8/UMvYTisAHPI/AAAAAAAAB_o/1mwcpZvwLVg/s1600/ArchLinux-2.jpg"><img height="112" src="http://4.bp.blogspot.com/-S6fZfh6eYU8/UMvYTisAHPI/AAAAAAAAB_o/1mwcpZvwLVg/s200/ArchLinux-2.jpg" width="200" /></a></td>
-  </tr>
-  <tr>
-   <td>..., con Arch Linux y GNOME&nbsp;</td>
-  </tr>
- </tbody>
-</table>&nbsp;Y con estas tres entradas queda completado este amplio &laquo;review&raquo;, an&aacute;lisis y galer&iacute;a de fotos de este modelo de port&aacute;til de Sony que espero que a alguien que est&eacute; buscando comprar port&aacute;til le ayude en su elecci&oacute;n.
-<br />
-<br /> 
-<div> Sony Vaio E 14P
- <br /> Revisi&oacute;n por picodotdev el 14 de diciembre.
- <br /> An&aacute;lisis de los programas preinstalados y del port&aacute;til con programas (CPU-Z, GPU-Z, HWINFO)
- <br />  Valor: 4.5
-</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Análisis software y BIOS de Sony Vaio E 14P";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2012/12/analisis-software-y-bios-sony-vaio-e-14p.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/software-privativo/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-privativo</a></li><li><a href="/label/microsoft/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta microsoft</a></li><li><a href="/label/tecnologia/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tecnologia</a></li><li><a href="/label/desempaquetado/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta desempaquetado</a></li><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li><li><a href="/label/hardware/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta hardware</a></li><li><a href="/label/software-libre/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software-libre</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2012/12/analisis-software-y-bios-sony-vaio-e-14p.html">Análisis software y BIOS de Sony Vaio E 14P</a></h1></header><p class="post-info"><span class="text-center" datetime="2013-01-27T03:07" itemprop="dateModified">domingo, 27 de enero de 2013 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/software-libre"><span itemprop="articleSection">software-libre</span></a> 
+<a href="/label/software"><span itemprop="articleSection">software</span></a> 
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a> 
+<a href="/label/tecnologia"><span itemprop="articleSection">tecnologia</span></a> 
+</p><p class="text-justify" itemprop="description">
+Esta será la última entrada que escribiré sobre el portátil Sony Vaio E 14P. En la primera entrada comenté que es lo que buscaba y porque finalmente elegí este modelo. En la segunda hice un reportaje gráfico amplio con muchos detalles desde el aspecto externo, teclado y hasta de los módulos de memoria y disco duro por si alguien tuviese interés de ampliar la memoria o ponerle un disco duro SSD. En esta entrada me centraré en los aspectos una vez encendido el portátil como es el caso de la BIOS UEFI, el software preinstalado que incorpora y analizar el equipo con programas como CPU-Z, GPU-Z y HWINFO que proporcionan muchos detalles del hardware. Primer arranque del sistemaAntes de poder usar el equipo que viene con Windows 8 preinstalado sin posibilidad de otra opción por gracia del impuesto [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2012/12/analisis-software-y-bios-sony-vaio-e-14p.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p" st_title="Análisis software y BIOS de Sony Vaio E 14P | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -259,35 +62,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 74,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2012/12/analisis-software-y-bios-de-sony-vaio-e-14p"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -299,6 +75,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

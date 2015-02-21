@@ -1,146 +1,23 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Transacciones en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry"><span itemprop="headline">Transacciones en Apache Tapestry</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a><a class="label" href="/label/tapestry"><img title="tapestry" alt="tapestry" src="/assets/images/labels/tapestry.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2013/11/transacciones-en-apache-tapestry.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2013-11-09T16:00" itemprop="dateModified">Actualizado el sábado, 09 de noviembre de 2013 a las 16:00 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a>, planeta-codigo, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: both; text-align: center;"></div>
-<div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="Apache Tapestry" height="133" src="http://4.bp.blogspot.com/-OGvCbjBk0zU/TOq7Y6w6wfI/AAAAAAAAAiU/Pfuzt5kkDBQ/s320/tapestry.png" title="Apache Tapestry" width="320" />
-</div>Tapestry no proporciona de por s&iacute; un soporte completo a las aplicaciones que necesitan realizar operaciones en una base de datos relacional de forma transaccional. La dependencia tapestry-hibernate provee la anotaci&oacute;n 
-<a href="http://tapestry.apache.org/current/apidocs/org/apache/tapestry5/hibernate/annotations/CommitAfter.html">@CommitAfter para Hibernate</a> y la dependencia tapestry-jpa otra del mismo nombre para JPA pero esta anotaci&oacute;n en ambos casos proporciona una funcionalidad muy b&aacute;sica y probablemente no no sirva en casos de uso complejos. Esto ha sido objeto de discusi&oacute;n varias veces en la lista de distribuci&oacute;n de los usuarios 
-<a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Transactions-and-AfterCommit-td5722996.html">[1]</a> 
-<a href="http://apache-tapestry-mailing-list-archives.1045711.n5.nabble.com/Re-Transactions-and-AfterCommit-td5723025.html">[2]</a> y el JIRA de Tapestry&nbsp;
-<a href="https://issues.apache.org/jira/browse/TAP5-2159">[3]</a>.
-<br />
-<br />Con la anotaci&oacute;n CommitAfter si se produce una excepci&oacute;n no controlada (&laquo;unchecked&raquo;) se har&aacute; un rollback de la transacci&oacute;n y, esto es importante, a&uacute;n produciendose una excepci&oacute;n controlada (&laquo;checked&raquo;) se har&aacute; el commit de la transacci&oacute;n y es responsabilidad del programador tratar la excepci&oacute;n adecuadamente. Se puede usar en los m&eacute;todos de los servicios y en los m&eacute;todos manejadores de eventos de los componentes.
-<br />
-<br />Sabiendo como funciona la anotaci&oacute;n se nos plantean preguntas:
-<br />
-<ol>
- <li>&iquest;Cu&aacute;l es el comportamiento cuando un m&eacute;todo del servicio anotado llame a otro tambi&eacute;n anotado del mismo servicio?</li>
- <li>&iquest;Que pasa si cada m&eacute;todo est&aacute; en un servicio diferente?</li>
-</ol>Para el primer caso (m&eacute;todos del mismo servicio) se har&aacute; una sola transacci&oacute;n ya que las anotaciones y los advices se aplican en el proxy del servicio no en la implementaci&oacute;n. En el segundo caso (m&eacute;todos en diferentes servicios) se iniciar&aacute; una transacci&oacute;n pero haciendo un commit en la salida de cada m&eacute;todo.
-<br />
-<br />Si tenemos una aplicaci&oacute;n compleja probablemente se nos plantear&aacute; el caso de tener varios servicios que se llaman entre si y que ambos necesiten compartir la transacci&oacute;n, en esta situaci&oacute;n la anotaci&oacute;n CommitAfter probablemente no nos sirva por hacer un commit en la salida de cada m&eacute;todo.
-<br />
-<br />Tapestry no pretende proporcionar una soluci&oacute;n propia que cubra todas las necesidades transaccionales que puedan tener todas las aplicaciones sino que con la anotaci&oacute;n CommitAfter pretende soportar los casos simples, para casos m&aacute;s complejos ya existen otras opciones que est&aacute;n ampliamente probadas. Si necesitamos un mejor soporte para las transacciones que el que ofrece Tapestry 
-<a href="http://elblogdepicodev.blogspot.com.es/2013/11/integracion-y-transacciones-con-spring.html">debemos optar por Spring</a> o por los EJB. Sin embargo, la soluci&oacute;n de Spring nos obliga a definir los servicios transaccionales como servicios de Spring y los EJBs nos obligan a desplegar la aplicaci&oacute;n en un servidor de aplicaciones que soporte un contenedor de EJB como 
-<a href="http://www.jboss.org/jbossas">JBoss</a>/
-<a href="http://wildfly.org/">Wildfy</a>, 
-<a href="http://geronimo.apache.org/">Gernimo</a>, 
-<a href="http://tomee.apache.org/apache-tomee.html">TomEE</a>, ... Si nuestro caso no es tan complejo como para necesitar mucho de lo que ofrece Spring o no queremos o podemos usar un servidor que soporte EJB podemos aplicar el ejemplo ya comentado en 
-<a href="http://tawus.wordpress.com/2011/04/23/tapestry-magic-5-advising-services/">Tapestry Magic #5: Advising Services.</a> 
-<br />
-<br />En esta entrada pondr&eacute; un ejemplo completo usando la soluci&oacute;n de Tapestry Magic #5 pero con la adici&oacute;n de una anotaci&oacute;n que permite definir m&aacute;s propiedades de las transacciones y la diferencia respecto a la anotaci&oacute;n CommitAfter de que independientemente de si se produce una excepci&oacute;n checked o unchecked se hace un rollback de la transacci&oacute;n. La anotaci&oacute;n Transactional permite definir si la transacci&oacute;n es de solo lectura, definir un timeout para completar la transacci&oacute;n o el nivel de aislamiento de la transacci&oacute;n adem&aacute;s de la estrategia de propagaci&oacute;n. Aunque no sea una soluci&oacute;n tan buena como la de usar Spring o EJBs, puede ser suficiente para muchos m&aacute;s casos que la anotaci&oacute;n CommitAfter.
-<br />
-<br />La soluci&oacute;n consiste en implementar una nueva anotaci&oacute;n para los m&eacute;todos transaccionales que he llamado Transactional, unos advices con las diferentes estrategias de transaccionalidad (REQUIRED, SUPPORTS, NEVER, NESTED, MANDATORY), un advisor que aplicar&aacute; una estrategia transaccional en funci&oacute;n de la anotaci&oacute;n Transactional de los m&eacute;todos y un poco de configuraci&oacute;n para el contenedor IoC que define los servicios y aplica la decoraci&oacute;n a los m&eacute;todos anotados.
-<br />
-<br />Hay que tener en cuenta que esta soluci&oacute;n es una prueba de concepto que he probado en este ejemplo y puede presentar problemas que a&uacute;n desconozco en una aplicaci&oacute;n real. Una vez dicho esto ve&aacute;mos el c&oacute;digo.
-<br />
-<br />Primero la anotaci&oacute;n, el enumerado de las estrategias de propagaci&oacute;n de transacciones, el DTO (Data Transfer Object) con las propiedades de la anotaci&oacute;n y la interfaz del servicio transaccional.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=Transactional.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/Transactional.java">Transactional.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=Propagation.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/Propagation.java">Propagation.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=TransactionDefinition.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/TransactionDefinition.java">Transactional.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=TransactionService.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/TransactionService.java">TransactionService.java</a>
- <br />
-</noscript> Ahora el advisor que usar&aacute; el servicio transaccional y en funci&oacute;n de la estrategia de propagaci&oacute;n aplicar&aacute; el advice adecuado.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=TransactionAdvisor.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/TransactionAdvisor.java">TransactionAdvisor.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=TransactionAdvisorImpl.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/Transactional.java">TransactionAdvisorImpl.java</a>
- <br />
-</noscript> El funcionamiento de las estrategias transaccionales son: 
-<br />
-<ul>
- <li>REQUIRED: si no hay una transaccion activa inicia una y hace el commit al finalizar. Si existe una al entrar en el m&eacute;todo simplemente ejecuta la l&oacute;gica usando la transacci&oacute;n actual </li>
- <li>MANDATORY: requiere que haya una transacci&oacute;n iniciada, en caso contrario produce una excepci&oacute;n. </li>
- <li>NESTED: inicia una nueva transacci&oacute;n siempre a&uacute;n existiendo ya una, con lo que puede haber varias transacciones a la vez de forma anidada.</li>
- <li>NEVER: es el caso contrario de MANDATORY, si existe una transacci&oacute;n produce una excepci&oacute;n.</li>
- <li>SUPPORTS: puede ejecutarse tanto dentro como fuera de una transacci&oacute;n.</li>
-</ul>Probablemente con la anotaci&oacute;n REQUIRED tengamos suficiente para la mayor&iacute;a de los casos, para la estrategia NESTED necesitaremos soporte del motor de la base de datos que no todos tienen, el resto son otras posibilidades comunes en el &aacute;mbito de las transacciones: MANDATORY, NEVER, SUPPORTS.
-<br />
-<br />Y ahora las implementaciones de las estrategias de propagaci&oacute;n que iniciar&aacute;n, har&aacute;n el rollbak y commit de forma adecuada a la estrategia usando el servicio transaccional.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=RequiredTransactionAdvice.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/RequiredTransactionAdvice.java">RequiredTransactionAdvice.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=NestedTransactionAdvice.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/NestedTransactionAdvice.java">NestedTransactionAdvice.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=MandatoryTransactionAdvice.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/MandatoryTransactionAdvice.java">MandatoryTransactionAdvice.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=NeverTransactionAdvice.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/NeverTransactionAdvice.java">NeverTransactionAdvice.java</a>
- <br />
-</noscript> A continuaci&oacute;n la implementaci&oacute;n del servicio transaccional para el caso de Hibernate.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=HibernateTransactionServiceImpl.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/HibernateTransactionServiceImpl.java">HibernateTransactionServiceImpl.java</a>
- <br />
-</noscript> Finalmente el gestor de sesiones de Hibernate y la configuraci&oacute;n necesaria en el m&oacute;dulo de la aplicaci&oacute;n.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=HibernateSessionManagerImpl.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/HibernateSessionManagerImpl.java">HibernateSessionManagerImpl.java</a>
- <br />
-</noscript>
-<script src="https://gist.github.com/picodotdev/7264990.js?file=AppModule.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/AppModule.java">AppModule.java</a>
- <br />
-</noscript> Si te ha parecido interesante esta entrada puedes descargar el 
-<a href="http://elblogdepicodev.blogspot.com.es/2013/07/libro-sobre-desarrollo-de-aplicaciones.html">libro PlugIn Tapestry</a> en el que explico m&aacute;s en detalle como desarrollar aplicaciones web en Tapestry y en el que descubrir&aacute;s como resolver problemas comunes en las aplicaciones web de una forma tan buena como esta.
-<br />
-<br />Si quieres probarlo en tu equipo lo puedes hacer de forma muy sencilla con los siguientes comandos y sin instalar nada. Si no dispones de git para clonar 
-<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/PlugInTapestry">mi repositorio de GitHub</a> puedes obtener el 
-<a href="https://github.com/picodotdev/elblogdepicodev/archive/master.zip">c&oacute;digo fuente del repositorio en un archivo zip</a>.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/7264990.js?file=git.sh"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/7264990/raw/git.sh">git.sh</a>
- <br />
-</noscript> Referencia:
-<br />
-<a href="http://elblogdepicodev.blogspot.com.es/2013/11/integracion-y-transacciones-con-spring.html">Integraci&oacute;n y transacciones con Spring en Apache Tapestry </a></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Transacciones en Apache Tapestry";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2013/11/transacciones-en-apache-tapestry.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/tapestry/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta tapestry</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Transacciones en Apache Tapestry | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2013/11/transacciones-en-apache-tapestry.html">Transacciones en Apache Tapestry</a></h1></header><p class="post-info"><span class="text-center" datetime="2013-11-09T16:00" itemprop="dateModified">sábado, 09 de noviembre de 2013 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a> 
+<a href="/label/java"><span itemprop="articleSection">java</span></a> 
+<a href="/label/software"><span itemprop="articleSection">software</span></a> 
+<a href="/label/tapestry"><span itemprop="articleSection">tapestry</span></a> 
+</p><p class="text-justify" itemprop="description">
+Tapestry no proporciona de por sí un soporte completo a las aplicaciones que necesitan realizar operaciones en una base de datos relacional de forma transaccional. La dependencia tapestry-hibernate provee la anotación @CommitAfter para Hibernate y la dependencia tapestry-jpa otra del mismo nombre para JPA pero esta anotación en ambos casos proporciona una funcionalidad muy básica y probablemente no no sirva en casos de uso complejos. Esto ha sido objeto de discusión varias veces en la lista de distribución de los usuarios [1] [2] y el JIRA de Tapestry  [3]. Con la anotación CommitAfter si se produce una excepción no controlada («unchecked») se hará un rollback de la transacción y, esto es importante, aún produciendose una excepción controlada («checked») se hará el commit de la transacción [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2013/11/transacciones-en-apache-tapestry.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry" st_title="Transacciones en Apache Tapestry | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -185,35 +62,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 7,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/11/transacciones-en-apache-tapestry"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -225,6 +75,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

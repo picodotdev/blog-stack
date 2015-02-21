@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-12T10:02:24Z</updated>
+  <updated>2015-02-21T01:25:01Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-12T10:02:24Z</dc:date>
+  <dc:date>2015-02-21T01:25:01Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Ejemplo de Javascript NameSpace</title>
@@ -18,28 +18,26 @@
     </author>
     <updated>2015-02-12T09:13:02Z</updated>
     <published>2015-02-12T09:13:02Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Cada d&amp;iacute;a tenemos &lt;strong&gt;m&amp;aacute;s c&amp;oacute;digo de JavaScript y necesitamos organizarlo&lt;/strong&gt;. Uno de los problemas m&amp;aacute;s habituales de JavaScript es su falta total de estructura y aislamiento. Muchas veces acabamos con un mont&amp;oacute;n de variables definidas &lt;strong&gt;a nivel global.&lt;/strong&gt; Para evitar este tipo de problem&amp;aacute;tica podemos definir &lt;strong&gt;Namespaces que nos a&amp;iacute;slen unos elementos de otros&lt;/strong&gt;. Vamos a ver un ejemplo sencillo.&lt;/p&gt; 
-&lt;pre&gt;
+    <content type="html">&lt;p&gt;Cada día tenemos más código de JavaScript y necesitamos organizarlo. Uno de los problemas más habituales de JavaScript es su falta total de estructura y aislamiento. Muchas veces acabamos con un montón de variables definidas a nivel global. Para evitar este tipo de problemática podemos definir Namespaces que nos aíslen unos elementos de otros. Vamos a ver un ejemplo sencillo. 
 
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+&lt;script type="text/javascript"&gt;
 
 /*
 var MIESPACIOA= MIESPACIOA || {};
 
-MIESPACIOA.persona= {nombre:&amp;quot;pedro&amp;quot;,edad:20};
+MIESPACIOA.persona= {nombre:"pedro",edad:20};
 
 console.log(MIESPACIOA.persona.nombre);
 
 var MIESPACIOB= MIESPACIOB || {};
 
-MIESPACIOB.persona= {nombre:&amp;quot;maria&amp;quot;,edad:15};
+MIESPACIOB.persona= {nombre:"maria",edad:15};
 
 console.log(MIESPACIOB.persona.nombre);
 
-&amp;lt;/script&amp;gt;
+&lt;/script&gt;
 
-&lt;/pre&gt; 
-&lt;p&gt;Acabamos de crear dos javascript namespace en cada uno de los cuales &lt;strong&gt;hemos almacenado un objeto&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+ Acabamos de crear dos javascript namespace en cada uno de los cuales hemos almacenado un objeto. Eso sí ambos objetos tienen el[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/ejemplo-de-javascript-namespace"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2015-02-12T09:13:02Z</dc:date>
   </entry>
@@ -54,69 +52,20 @@ console.log(MIESPACIOB.persona.nombre);
     </author>
     <updated>2015-02-06T10:33:49Z</updated>
     <published>2015-02-06T10:33:49Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;La combinaci&amp;oacute;n de HTML5 con librer&amp;iacute;as de Javascript suele ser una combinaci&amp;oacute;n ganadora y que aporta una gran flexibilidad .Muchas veces podemos necesitar trabajar con datos de forma local y hacer diversos filtros y operaciones sobre ellos. Es muy habitual trabajar con LocalStorage HTML5 y por ejemplo LowDash para realizar operaciones a nivel local, vamos a ver un ejemplo cl&amp;aacute;sico. &lt;strong&gt;Para ello vamos ha almacenar una estructura JSON en un LocalStorage usando JSON.stringify().&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/00125.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/00125.gif" alt="001" width="465" height="320" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Vamos a verlo en c&amp;oacute;digo a trav&amp;eacute;s del bot&amp;oacute;n de salvar:&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;pre&gt;
+    <content type="html">&lt;p&gt;La combinación de HTML5 con librerías de Javascript suele ser una combinación ganadora y que aporta una gran flexibilidad .Muchas veces podemos necesitar trabajar con datos de forma local y hacer diversos filtros y operaciones sobre ellos. Es muy habitual trabajar con LocalStorage HTML5 y por ejemplo LowDash para realizar operaciones a nivel local, vamos a ver un ejemplo clásico. Para ello vamos ha almacenar una estructura JSON en un LocalStorage usando JSON.stringify(). Vamos a verlo en código a través del botón de salvar:   
 
-&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;
-&amp;lt;script src=&amp;quot;jquery-1.11.1.js&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script src=&amp;quot;jquery-1.11.1.js&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;lowdash.js&amp;quot;&amp;gt;
-&amp;lt;/script&amp;gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery-1.11.1.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery-1.11.1.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="lowdash.js"&gt;
+&lt;/script&gt;
 
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+&lt;script type="text/javascript"&gt;
 
 $(document).ready(function() {
 
-$(&amp;quot;#salvar&amp;quot;).click(function() {
-
-var lista={&amp;quot;personas&amp;quot;: [
- {
- &amp;quot;nombre&amp;quot;: &amp;quot;pedro&amp;quot;,
- &amp;quot;apellidos&amp;quot;: &amp;quot;perez&amp;quot;
- },
- {
- &amp;quot;nombre&amp;quot;: &amp;quot;ana&amp;quot;,
- &amp;quot;apellidos&amp;quot;: &amp;quot;gomez&amp;quot;
- },
- {
- &amp;quot;nombre&amp;quot;: &amp;quot;david&amp;quot;,
- &amp;quot;apellidos&amp;quot;: &amp;quot;gonzalez&amp;quot;
- },
- {
- &amp;quot;nombre&amp;quot;: &amp;quot;maria&amp;quot;,
- &amp;quot;apellidos&amp;quot;: &amp;quot;gomez&amp;quot;
- },
- ]
-}
-
-sessionStorage[&amp;quot;personas&amp;quot;]= JSON.stringify(lista);
-
-});
-
-$(&amp;quot;#ordenar&amp;quot;).click(function() {
-
- var personas= JSON.parse(sessionStorage[&amp;quot;personas&amp;quot;]);
- console.log(personas.personas);
- var resultado=_.sortBy(personas.personas,'nombre');
- console.log(resultado);
-
-});
-
-});
-
-&amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;input type=&amp;quot;button&amp;quot; id=&amp;quot;salvar&amp;quot; value=&amp;quot;salvar&amp;quot;/&amp;gt;
-&amp;lt;input type=&amp;quot;button&amp;quot; id=&amp;quot;ordenar&amp;quot; value=&amp;quot;ordenar&amp;quot;/&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/localstorage-html5-y-lodash"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+$("#salvar").click(function()[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/localstorage-html5-y-lodash"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2015-02-06T10:33:49Z</dc:date>
   </entry>
@@ -133,15 +82,7 @@ $(&amp;quot;#ordenar&amp;quot;).click(function() {
     </author>
     <updated>2015-01-31T00:00:00Z</updated>
     <published>2015-01-23T09:00:00Z</published>
-    <content type="html">&lt;p&gt;&lt;div style="float: right; text-align: right;"&gt; 
- &lt;img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/javascript.png" alt="Javascript" title="Javascript" /&gt; 
-&lt;/div&gt; 
-&lt;p&gt;Si desarrollamos una aplicaci&amp;oacute;n web, que es usada en m&amp;uacute;ltiples idiomas y el lado del cliente tiene cierta complejidad quiz&amp;aacute; nos encontremos con la necesidad de proporcionar internacionalizaci&amp;oacute;n (i18n) para los textos o mensajes mediante una librer&amp;iacute;a javascript. Una de la que m&amp;aacute;s me ha gustado de las que he encontrado ha sido &lt;a href="http://i18next.com/"&gt;i18next&lt;/a&gt; pero hay &lt;a href="http://stackoverflow.com/questions/3084675/internationalization-in-javascript"&gt;varias opciones m&amp;aacute;s&lt;/a&gt;, incluidas dos que merecen ser nombradas que son &lt;a href="http://airbnb.github.io/polyglot.js/"&gt;polyglot&lt;/a&gt; y &lt;a href="https://github.com/SlexAxton/messageformat.js"&gt;messageformat&lt;/a&gt;, estas tres opciones son parecidas pero no tiene exactamente las mismas funcionalidades deberemos evaluarlas para elegir una seg&amp;uacute;n lo que necesitemos.&lt;/p&gt; 
-&lt;p&gt;La documentaci&amp;oacute;n de i18next no es muy extensa pero es suficiente, las funcionalidades que ofrece son:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Soporte para variables (interpolaci&amp;oacute;n)&lt;/li&gt; 
- &lt;li&gt;Soporte para variables anidadas&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Si desarrollamos una aplicación web, que es usada en múltiples idiomas y el lado del cliente tiene cierta complejidad quizá nos encontremos con la necesidad de proporcionar internacionalización (i18n) para los textos o mensajes mediante una librería javascript. Una de la que más me ha gustado de las que he encontrado ha sido i18next pero hay varias opciones más, incluidas dos que merecen ser nombradas que son polyglot y messageformat, estas tres opciones son parecidas pero no tiene exactamente las mismas funcionalidades deberemos evaluarlas para elegir una según lo que necesitemos. La documentación de i18next no es muy extensa pero es suficiente, las funcionalidades que ofrece son: Soporte para variables (interpolación) Soporte para variables anidadas Soporte para múltiples formas plurales[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-01-23T09:00:00Z</dc:date>
   </entry>
@@ -157,13 +98,7 @@ $(&amp;quot;#ordenar&amp;quot;).click(function() {
     </author>
     <updated>2015-01-30T07:21:37Z</updated>
     <published>2015-01-30T07:21:37Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;CORS &amp;nbsp;(Cross Origin Resource Sharing)&lt;/strong&gt; es una tecnolog&amp;iacute;a que cada d&amp;iacute;a necesitamos utilizar m&amp;aacute;s a la hora de desarrollar aplicaciones m&amp;oacute;viles y web. &lt;strong&gt;&amp;iquest;C&amp;oacute;mo funciona exactamente?&lt;/strong&gt; . En una aplicaci&amp;oacute;n web cl&amp;aacute;sica nosotros podemos cargar una p&amp;aacute;gina y solicitar que esta cargue din&amp;aacute;micamente datos v&amp;iacute;a AJAX.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/diagrama1.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/diagrama1.gif" alt="diagrama1" width="509" height="307" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Eso s&amp;iacute; esos datos que vienen v&amp;iacute;a AJAX tienen que pertenecer al mismo dominio&lt;/strong&gt;. En el caso de que esto no sea as&amp;iacute; la aplicaci&amp;oacute;n no podr&amp;aacute; cargar los datos por limitaciones de seguridad. Los problemas comienzan cuando nosotros tenemos aplicaciones que necesitan acceder a esos datos &lt;strong&gt;pero no se encuentran bajo el mismo dominio&lt;/strong&gt;. Un ejemplo muy habitual es una aplicaci&amp;oacute;n Movil empaquetada con PhoneGAP.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/diagrama2.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/diagrama2.gif" alt="diagrama2" width="463" height="248" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;En este caso la petici&amp;oacute;n no nos funcionar&amp;aacute; ya que hemos cargado una p&amp;aacute;gina HTML sin descargarla del servidor por lo tanto la p&amp;aacute;gina con datos AJAX que solicitamos no est&amp;aacute; evidentemente en el mismo dominio.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/que-es-cors"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;CORS  (Cross Origin Resource Sharing) es una tecnología que cada día necesitamos utilizar más a la hora de desarrollar aplicaciones móviles y web. ¿Cómo funciona exactamente? . En una aplicación web clásica nosotros podemos cargar una página y solicitar que esta cargue dinámicamente datos vía AJAX.   Eso sí esos datos que vienen vía AJAX tienen que pertenecer al mismo dominio. En el caso de que esto no sea así la aplicación no podrá cargar los datos por limitaciones de seguridad. Los problemas comienzan cuando nosotros tenemos aplicaciones que necesitan acceder a esos datos pero no se encuentran bajo el mismo dominio. Un ejemplo muy habitual es una aplicación Movil empaquetada con PhoneGAP.   En este caso la petición no nos funcionará ya que hemos cargado una página HTML sin descargarla del[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/que-es-cors"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2015-01-30T07:21:37Z</dc:date>
   </entry>
@@ -178,10 +113,7 @@ $(&amp;quot;#ordenar&amp;quot;).click(function() {
     </author>
     <updated>2015-01-26T05:06:13Z</updated>
     <published>2015-01-26T05:06:13Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Los que segu&amp;iacute;s este blog desde hace tiempo sab&amp;eacute;is que me gusta ir comentando c&amp;oacute;mo evolucionan mis preferencias a la hora de desarrollar software y que no suelo tener problema en admitir c&amp;oacute;mo &amp;eacute;stas cambian con el tiempo. Hace tiempo escrib&amp;iacute; sobre &lt;a href="http://blog.koalite.com/2013/10/angularjs-6-meses-despues/" title="AngularJS, 6 meses despu&amp;eacute;s"&gt;c&amp;oacute;mo hab&amp;iacute;a ido mi primer proyecto serio con AngularJS&lt;/a&gt; y, unos meses despu&amp;eacute;s, que era &lt;a href="http://blog.koalite.com/2014/06/angularjs-gracias-por-los-servicios-prestados/" title="AngularJS, gracias por los servicios prestados"&gt;lo que empezaba a no gustarme de ese AngularJS&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como era de esperar viendo todos &lt;a href="http://blog.koalite.com/tag/reactjs/"&gt;los posts que he escrito sobre ReactJS&lt;/a&gt; recientemente, nuestra &amp;uacute;ltima aplicaci&amp;oacute;n web la hemos desarrollado con esta librer&amp;iacute;a y, ahora que acabamos de liberar la primera versi&amp;oacute;n, es el momento de hacer un peque&amp;ntilde;o balance.&lt;/p&gt; 
-&lt;p&gt;Antes de entrar en materia, me gustar&amp;iacute;a dejar claras un par de cosas. &lt;/p&gt; 
-&lt;p&gt;Este post trata sobre las experiencias de un equipo concreto desarrollando una aplicaci&amp;oacute;n concreta, por lo que puede que tu caso sea completamente diferente. Adem&amp;aacute;s, todav&amp;iacute;a es pronto para conocer las implicaciones a medio plazo del uso de ReactJS, por ejemplo a nivel de mantenimiento de la aplicaci&amp;oacute;n; ya llegar&amp;aacute; el momento de escribir ese post dentro de unos meses.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Los que seguís este blog desde hace tiempo sabéis que me gusta ir comentando cómo evolucionan mis preferencias a la hora de desarrollar software y que no suelo tener problema en admitir cómo éstas cambian con el tiempo. Hace tiempo escribí sobre cómo había ido mi primer proyecto serio con AngularJS y, unos meses después, que era lo que empezaba a no gustarme de ese AngularJS. Como era de esperar viendo todos los posts que he escrito sobre ReactJS recientemente, nuestra última aplicación web la hemos desarrollado con esta librería y, ahora que acabamos de liberar la primera versión, es el momento de hacer un pequeño balance. Antes de entrar en materia, me gustaría dejar claras un par de cosas. Este post trata sobre las experiencias de un equipo concreto desarrollando una aplicación concreta,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/01/retrospectiva-de-un-proyecto-con-reactjs"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2015-01-26T05:06:13Z</dc:date>
   </entry>
@@ -194,12 +126,11 @@ $(&amp;quot;#ordenar&amp;quot;).click(function() {
     </author>
     <updated>2015-01-20T10:09:59Z</updated>
     <published>2015-01-20T10:09:59Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Javascript es infinito y es muy habitual encontrarse con problemas o retos en el d&amp;iacute;a a d&amp;iacute;a. Uno de los problemas m&amp;aacute;s habituales se denomina Javascript Framing. &lt;strong&gt;&amp;iquest;Qu&amp;eacute; es esto? . &lt;/strong&gt;Esta situaci&amp;oacute;n ocurre de una manera muy habitual cuando tenemos eventos como por ejemplo “mouseover” en una p&amp;aacute;gina. Vamos a dise&amp;ntilde;ar un ejemplo que nos permita entender su funcionamiento.&lt;/p&gt; 
-&lt;pre&gt;
+    <content type="html">&lt;p&gt;Javascript es infinito y es muy habitual encontrarse con problemas o retos en el día a día. Uno de los problemas más habituales se denomina Javascript Framing. ¿Qué es esto? . Esta situación ocurre de una manera muy habitual cuando tenemos eventos como por ejemplo “mouseover” en una página. Vamos a diseñar un ejemplo que nos permita entender su funcionamiento. 
 
-&amp;lt;html&amp;gt;
-&amp;lt;head&amp;gt;
-&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type="text/css"&gt;
 
 #zona {
 
@@ -208,29 +139,29 @@ height: 200px;
 background-color: blue;
 }
 
-&amp;lt;/style&amp;gt;
-&amp;lt;script src=&amp;quot;jquery-1.11.1.js&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+&lt;/style&gt;
+&lt;script src="jquery-1.11.1.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
 
 $(document).ready(function() {
-$(&amp;quot;#zona&amp;quot;).mousemove(function(evento) {
+$("#zona").mousemove(function(evento) {
 
-$(&amp;quot;#mensaje&amp;quot;).html(evento.clientX +&amp;quot;,&amp;quot;+ evento.clientY);
+$("#mensaje").html(evento.clientX +","+ evento.clientY);
 })
 
 });
-&amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;div id=&amp;quot;zona&amp;quot;&amp;gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="zona"&gt;
 
-&amp;lt;/div&amp;gt;
-&amp;lt;div id=&amp;quot;mensaje&amp;quot;&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
+&lt;/div&gt;
+&lt;div id="mensaje"&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/el-concepto-de-javascript-framing"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2015-01-20T10:09:59Z</dc:date>
   </entry>
@@ -245,580 +176,9 @@ $(&amp;quot;#mensaje&amp;quot;).html(evento.clientX +&amp;quot;,&amp;quot;+ even
     </author>
     <updated>2015-01-19T05:06:37Z</updated>
     <published>2015-01-19T05:06:37Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En las &amp;uacute;ltimas semanas he dedicado bastante tiempo a desarrollar una aplicaci&amp;oacute;n real con ReactJS y eso me ha permitido ver c&amp;oacute;mo se comporta la librer&amp;iacute;a en un proyecto m&amp;aacute;s complejo que los t&amp;iacute;picos tutoriales.&lt;/p&gt; 
-&lt;p&gt;Entre mixins, funciones ligadas al ciclo de vida del componente y dem&amp;aacute;s particularidades de ReactJS (de las que seguro que acabar&amp;eacute; escribiendo algo), hay una funcionalidad que me ha resultado especialmente &amp;uacute;til: &lt;strong&gt;la validaci&amp;oacute;n de propiedades usando propTypes&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;En este post vamos a ver qu&amp;eacute; es &lt;code&gt;propTypes&lt;/code&gt;, pero adem&amp;aacute;s veremos c&amp;oacute;mo podemos mejorar lo que nos ofrece ReactJS de serie y qu&amp;eacute; otras ventajas nos aporta el uso de &lt;code&gt;propTypes&lt;/code&gt;. &lt;/p&gt; 
-&lt;p&gt;Pero vayamos por partes…&lt;/p&gt; 
-&lt;h3&gt;Qu&amp;eacute; es eso de propTypes&lt;/h3&gt; 
-&lt;p&gt;Cuando hace un tiempo explicaba &lt;a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS"&gt;c&amp;oacute;mo crear un componente en ReactJS&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;En las últimas semanas he dedicado bastante tiempo a desarrollar una aplicación real con ReactJS y eso me ha permitido ver cómo se comporta la librería en un proyecto más complejo que los típicos tutoriales. Entre mixins, funciones ligadas al ciclo de vida del componente y demás particularidades de ReactJS (de las que seguro que acabaré escribiendo algo), hay una funcionalidad que me ha resultado especialmente útil: la validación de propiedades usando propTypes. En este post vamos a ver qué es propTypes, pero además veremos cómo podemos mejorar lo que nos ofrece ReactJS de serie y qué otras ventajas nos aporta el uso de propTypes. Pero vayamos por partes… Qué es eso de propTypes Cuando hace un tiempo explicaba cómo crear un componente en ReactJS, veíamos que necesitamos definir una función[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/01/especificacion-de-tipos-en-reactjs-con-proptypes"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2015-01-19T05:06:37Z</dc:date>
-  </entry>
-  <entry>
-    <title>Testing continuo con Qunit, Phantom y Grunt</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt" />
-    <category term="nodejs" />
-    <category term="javascript" />
-    <category term="grunt" />
-    <category term="tdd" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-12-24T01:32:00Z</updated>
-    <published>2014-12-24T01:32:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Voy a mostrar un lindo ejemplo de la combinaci&amp;oacute;n de tres herramientas:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;QUnit &lt;/li&gt; 
- &lt;li&gt;PhantomJs &lt;/li&gt; 
- &lt;li&gt;GruntJs &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;La idea es utilizarlas en conjuto para poder hacer testing continuo, es decir, que mientras uno va programando (con TDD) los test se ejecuten autom&amp;aacute;ticamente.&lt;/p&gt; 
-&lt;h3&gt;Las herramientas&lt;/h3&gt; 
-&lt;p&gt;Vamos a usar QUnit para el &lt;em&gt;unit testing&lt;/em&gt; de &lt;em&gt;Javascript&lt;/em&gt;, y &lt;em&gt;PhantomJs&lt;/em&gt; para ejecutar los test sin necesidad del navegador, luego vamos a agregar &lt;em&gt;GruntJs&lt;/em&gt; para que todo esto se haga autom&amp;aacute;ticamente. &lt;/p&gt; 
-&lt;p&gt;Si bien tal vez no sea la mejor forma de hacer esto, es un buen ejercicio de integraci&amp;oacute;n. Manos a la obra.&lt;/p&gt; 
-&lt;h3&gt;Qunit&lt;/h3&gt; 
-&lt;p&gt;Antes que nada vamos a crear un par de carpetas y agregar &lt;em&gt;QUnit&lt;/em&gt; al proyecto, para esto creamos una p&amp;aacute;gina &lt;em&gt;html &lt;/em&gt;con el siguiente contenido &lt;a href="http://qunitjs.com/"&gt;seg&amp;uacute;n se indica&lt;/a&gt; en el sitio de &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/testing-continuo-con-qunit-phantom-y-grunt"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-12-24T01:32:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Rutas en ReactJS con React Router</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router" />
-    <category term="reactjs" />
-    <category term="javascript" />
-    <category term="development" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-12-22T05:06:19Z</updated>
-    <published>2014-12-22T05:06:19Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Cuando hace unas semanas ve&amp;iacute;amos &lt;a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS"&gt;qu&amp;eacute; es ReactJS&lt;/a&gt; explicaba que ReactJS no es un framework “todo incluido” (como Angular o Durandal), sino que es m&amp;aacute;s bien una librer&amp;iacute;a que se limita a la generaci&amp;oacute;n de vistas. Esto tiene la ventaja de que nuestra aplicaci&amp;oacute;n queda mucho menos acoplada a ReactJS, pero tambi&amp;eacute;n hace que cuando necesitemos m&amp;aacute;s cosas nos toque buscar opciones y decidir c&amp;oacute;mo queremos hacerlas, c&amp;oacute;mo vimos al hablar de &lt;a href="http://blog.koalite.com/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt/" title="Test de extremo a extremo con Nightwatch y Grunt"&gt;tests de extremo a extremo con Nightwatch&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;En muchas aplicaciones web actuales se acaban manejando rutas desde la parte cliente, y esa es una de las cosas que ReactJS no incluye de serie, pero que podemos implementar utilizando distintas librer&amp;iacute;as. En este caso vamos a ver una que me ha gustado especialmente: &lt;a href="https://github.com/rackt/react-router"&gt;React Router&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/12/rutas-en-reactjs-con-react-router"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-12-22T05:06:19Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tips de Javascript: String multilínea</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-12-15T13:05:00Z</updated>
-    <published>2014-12-15T13:05:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En ocasiones necesitamos escribir un &lt;em&gt;string&lt;/em&gt; largo en nuestro c&amp;oacute;digo, no viene al caso el por qu&amp;eacute;.&lt;/p&gt; 
-&lt;p&gt;La forma m&amp;aacute;s com&amp;uacute;n de solucionarlo ser&amp;iacute;a esta:&lt;/p&gt; 
-&lt;pre&gt;var texto = 'Hola a todos, este es un texto largo'
-+ ' largo que intento poner en varias '
-+ 'l&amp;iacute;neas pero javascript no soporta esto o si?';
-
-console.log(texto);&lt;/pre&gt; 
-&lt;p&gt;Por supesto que esto funciona, pero es un poco engorroso y feo adem&amp;aacute;s. &lt;/p&gt; 
-&lt;p&gt;Bien, me he sorprendido al saber que mucha gente no sabe que &lt;em&gt;Javascript&lt;/em&gt; tiene una sint&amp;aacute;xis especial para esto, y es sencillamente agregar una barra invertida al final de cada l&amp;iacute;nea, de este modo:&lt;/p&gt; 
-&lt;pre&gt;var texto = 'Hola a todos, este es un texto largo\
-largo que intento poner en varias \
-l&amp;iacute;neas pero javascript no soporta esto o si?';
-
-console.log(texto);&lt;/pre&gt; 
-&lt;p&gt;Un detalle importante es que s&amp;oacute;lo funciona con comillas simples.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/tips-de-javascript-string-multilinea"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-12-15T13:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>50 Ejemplos de Angular, paso a paso.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso" />
-    <category term="javascript" />
-    <category term="angujarjs" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-12-02T17:24:00Z</updated>
-    <published>2014-12-02T17:24:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Recientemente di un &lt;a href="http://www.leomicheloni.com/post/2014/11/02/Taller-sobre-AngularJs-en-Buenos-Aires.aspx"&gt;taller sobre AngularJs&lt;/a&gt; en Buenos Aires, guiado por un grupo de ejemplos de los conceptos que yo creo m&amp;aacute;s relevantes del tema.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="https://github.com/leomicheloni/angularjs-lab"&gt;Esto ejemplos&lt;/a&gt; est&amp;aacute;n disponibles en &lt;a href="https://github.com/leomicheloni"&gt;mi cuenta de github&lt;/a&gt;.&lt;/p&gt; 
-&lt;h3&gt;C&amp;oacute;mo correr los ejemplos?&lt;/h3&gt; 
-&lt;p&gt;Las instrucciones para correr los ejemplos desde un &lt;em&gt;runner&lt;/em&gt; hecho para la ocasi&amp;oacute;n se encuentran tambi&amp;eacute;n en gitub.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/50EjemplosdeAngularpasoapaso/0807A9DF/image.png"&gt;&lt;img title="image" style="border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px; display: inline" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/50EjemplosdeAngularpasoapaso/594481ED/image_thumb.png" width="426" height="269" /&gt;&lt;/a&gt; &lt;/p&gt; 
-&lt;p&gt;Cualquier comentario no dudes en &lt;a href="http://twiter.com/leomicheloni"&gt;contactarme&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Nos leemos.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/12/5-ejemplos-de-angular-paso-a-paso"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-12-02T17:24:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tips de Javascript: para qué sirve setTimeout = 0?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-11-28T22:37:00Z</updated>
-    <published>2014-11-28T22:37:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Tal vez hayan visto este c&amp;oacute;digo:&lt;/p&gt; 
-&lt;pre&gt;setTimeout(function(){
- //hacer ago
-}, 0);&lt;/pre&gt; 
-&lt;p&gt;B&amp;aacute;sicamente es un &lt;em&gt;timeout&lt;/em&gt; (es decir, esperar un tiempo y llamar al &lt;em&gt;callback&lt;/em&gt;) con el tiempo en 0. Uno pensar&amp;iacute;a que esto se debe ejecutar inmediatamente, pero no es as&amp;iacute;, de hecho, el tiempo que puede tardar en teor&amp;iacute;a podr&amp;iacute;a ser infinito, ve&amp;aacute;mos un ejemplo:&lt;/p&gt; 
-&lt;pre&gt;console.log( +new Date );
-	
-setTimeout(function(){
-	console.log( + new Date );	
-		console.log(&amp;quot;timeout&amp;quot;);
-}, 0);&lt;/pre&gt; 
-&lt;p&gt;&lt;a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TipsdeJavascriptparaqusirvesetTimeout0/6A6F5E64/image.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/TipsdeJavascriptparaqusirvesetTimeout0/17844B33/image_thumb.png" width="284" height="142" /&gt;&lt;/a&gt; &lt;/p&gt; 
-&lt;p&gt;Este peque&amp;ntilde;o c&amp;oacute;digo escribe los milisegundos y nos permite ver cu&amp;aacute;nto tard&amp;oacute; la ejecuci&amp;oacute;n.&lt;/p&gt; 
-&lt;p&gt;Digamos que es casi inmediato, en este caso tard&amp;oacute; unos 21 ms en ejecutarse. Veamos el siguiente ejemplo.&lt;/p&gt; 
-&lt;pre&gt;console.log( +new Date );
-
-setTimeout(function(){
-	console.log( + new Date );	
-	console.log(&amp;quot;timeout&amp;quot;);
-}, 0);
-
-
-for(var i = 0; i&amp;lt; 1000; i++){
-	console.log(&amp;quot;&amp;quot;);
-}&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/tips-de-javascript-para-que-sirve-settimeout"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-11-28T22:37:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Introducción a Grunt: Javascript task runner</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner" />
-    <category term="nodejs" />
-    <category term="agilidad" />
-    <category term="javascript" />
-    <category term="grunt" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-11-26T01:06:00Z</updated>
-    <published>2014-11-26T01:06:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img style="float: none; margin-left: auto; display: block; margin-right: auto" src="http://gruntjs.com/img/grunt-logo.png" width="209" height="246" /&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Hay tres palabras que siempre hay que tener presentes: automatizar, automatizar y automatizar. Toda tarea repetitiva y m&amp;aacute;s a&amp;uacute;n si la misma nos aleja de nuestra tarea real, es importante encontrar la forma de automatizarla.&lt;/p&gt; 
-&lt;h3&gt;Automatizar para ser feliz&lt;/h3&gt; 
-&lt;p&gt;Para evitar errores, para evitar hacer cosas repetitivas (aburridas) y para mejorar nuestro proceso de desarrollo, recordemos: automatizar, automatizar y automatizar.&lt;/p&gt; 
-&lt;h3&gt;Grunt, el task runner para Javascript.&lt;/h3&gt; 
-&lt;p&gt;Hay algunas tareas que casi simpre vamos hacer cuando desarrollemos una aplicaci&amp;oacute;n en &lt;em&gt;Javascript&lt;/em&gt;:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Minificar &lt;/li&gt; 
- &lt;li&gt;Correr pruebas &lt;/li&gt; 
- &lt;li&gt;Ejecutar inspecci&amp;oacute;n de c&amp;oacute;digo &lt;/li&gt; 
- &lt;li&gt;Generar un paquete &lt;/li&gt; 
- &lt;li&gt;Comprimir &lt;/li&gt; 
- &lt;li&gt;Compilar &lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;Cualquiera de estas tareas se pueden hacer con Grunt, que b&amp;aacute;sicamente es eso: un ejecutor de tareas, como &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/introduccion-a-grunt-javascript-task-runner"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-11-26T01:06:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Vulnerabilidad grave en WordPress</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress" />
-    <category term="blog-stack" />
-    <category term="web" />
-    <category term="javascript" />
-    <category term="wordpress" />
-    <category term="bug" />
-    <author>
-      <name>calendula</name>
-    </author>
-    <updated>2014-11-25T15:10:24Z</updated>
-    <published>2014-11-25T08:18:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Leo en diferentes sitios de Internet, que la compa&amp;ntilde;&amp;iacute;a de Tecnolog&amp;iacute;a Finlandesa &lt;strong&gt;Klikki Oy&lt;/strong&gt; ha localizado una vulnerabilidad grave en &lt;strong&gt;WordPress&lt;/strong&gt;. Afecta los sitios creados sobre la versi&amp;oacute;n 3 del famosos gestor de contenidos o CMS. Se calcula que el 86 % de los sitios est&amp;aacute;n afectados.&lt;/p&gt; 
-&lt;p&gt;Para aprovechar dicha vulnerabilidad el atacante utiliza un campo de entrada de texto, c&amp;oacute;mo en el formulario de comentarios sin autentificar, que est&amp;aacute; activiado de forma predeterminada.&lt;br /&gt; La versi&amp;oacute;n 3 fue lanzada en 2010, la versi&amp;oacute;n 4 no lleva dicho bug. Durante cuatro a&amp;ntilde;os el bug ha acompa&amp;ntilde;ado a WordPress sin corregirse.&lt;/p&gt; 
-&lt;h2&gt;&amp;iquest;C&amp;oacute;mo funciona?&lt;/h2&gt; 
-&lt;p&gt;El atacante puede aprovechar dicho bug, introduciendo un comentario de texto,&amp;nbsp; en este caso un &lt;strong&gt;JavaScript malicioso&lt;/strong&gt;. Dicho c&amp;oacute;digo se ejecutar&amp;aacute; cuando el administrador de la web o blog se digne a leerlo. De &amp;eacute;sta manera el c&amp;oacute;digo podr&amp;iacute;a ejecutar tareas administrativas en nuestro WordPress.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/vulnerabilidad-grave-en-wordpress"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>calendula</dc:creator>
-    <dc:date>2014-11-25T08:18:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Test de extremo a extremo con Nightwatch y Grunt</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt" />
-    <category term="nightwatch" />
-    <category term="javascript" />
-    <category term="development" />
-    <category term="testing" />
-    <category term="grunt" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-11-24T05:06:18Z</updated>
-    <published>2014-11-24T05:06:18Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hace unos meses escrib&amp;iacute;a sobre mi decisi&amp;oacute;n de &lt;a href="http://blog.koalite.com/2014/06/angularjs-gracias-por-los-servicios-prestados/" title="AngularJS, gracias por los servicios prestados"&gt;abandonar AngularJS&lt;/a&gt; para futuros desarrollos, y despu&amp;eacute;s de evaluar algunas alternativas, nos ha gustado &lt;a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente"&gt;el enfoque de ReactJS&lt;/a&gt;, por lo que ser&amp;aacute; la librer&amp;iacute;a b&amp;aacute;sica que usaremos en nuestro pr&amp;oacute;ximo proyecto.&lt;/p&gt; 
-&lt;p&gt;AngularJS tiene sus cosas buenas, y una de ellas es que con AngularJS tienes un conjunto de herramientas bien establecidas para casi todas las facetas del desarrollo. Concretamente, para los tests de extremo a extremo inicialmente se recomendaba usar &lt;a href="https://github.com/karma-runner/karma-ng-scenario"&gt;Karma con sus ng-scenario&lt;/a&gt;, y posteriormente &lt;a href="https://github.com/angular/protractor"&gt;protractor&lt;/a&gt;, basado en Selenium. &lt;/p&gt; 
-&lt;p&gt;Al cambiar a una librer&amp;iacute;a como ReactJS, con un alcance m&amp;aacute;s limitado, tienes m&amp;aacute;s libertad para elegir las herramientas que vas a usar, pero eso implica que tambi&amp;eacute;n tienes que hacer m&amp;aacute;s esfuerzo para buscarlas e integrarlas unas con otras.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/11/test-de-extremo-a-extremo-con-nightwatch-y-grunt"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-11-24T05:06:18Z</dc:date>
-  </entry>
-  <entry>
-    <title>Web analytics con Piwik</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik" />
-    <category term="lemp" />
-    <category term="piwik" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="web" />
-    <category term="lamp" />
-    <category term="javascript" />
-    <category term="tras" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2014-11-23T13:26:08Z</updated>
-    <published>2014-11-21T11:18:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Si queremos analizar el tr&amp;aacute;fico que pasa por nuestra web por norma general nos solemos decantar por &lt;strong&gt;Google Analytics&lt;/strong&gt;. El problema es que es software privativo, no podemos ver su c&amp;oacute;digo fuente, ni saber si lleva c&amp;oacute;digo malicioso en dicho c&amp;oacute;digo, o si pasa nuestros datos a terceros.&lt;/p&gt; 
-&lt;p&gt;Investigando un poco me he encontrado con &lt;strong&gt;Piwik&lt;/strong&gt;, una aplicaci&amp;oacute;n free software, que utiliza la licencia &lt;strong&gt;GNU GPL&lt;/strong&gt; en su versi&amp;oacute;n &lt;strong&gt;3&lt;/strong&gt;. Funciona sobre un servidor web, tanto con &lt;strong&gt;Apache&lt;/strong&gt; c&amp;oacute;mo con &lt;strong&gt;Nginx&lt;/strong&gt; o &lt;strong&gt;IIS&lt;/strong&gt;, adem&amp;aacute;s utiliza bases de datos tipo &lt;strong&gt;MySQL&lt;/strong&gt; y &lt;strong&gt;PHP&lt;/strong&gt;. Es decir, con un servidor&lt;a title="C&amp;oacute;mo instalar LAMP en Debian 7" href="http://www.ochobitshacenunbyte.com/2014/11/13/como-instalar-lamp-en-debian-7/"&gt;&lt;strong&gt; LAMP&lt;/strong&gt;&lt;/a&gt; o &lt;a title="Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7" href="http://www.ochobitshacenunbyte.com/2014/11/14/instalar-lemp-nginx-mariadb-o-mysql-y-php-en-debian-7/"&gt;&lt;strong&gt;LEMP&lt;/strong&gt;&lt;/a&gt; nos ir&amp;aacute; sobre la seda.&lt;/p&gt; 
-&lt;p&gt;Si ya tenemos nuestro servidor web instalado debemos de instalar unas librerias adicionales.&lt;/p&gt; 
-&lt;p&gt;Para generar los gr&amp;aacute;ficos utiliza &lt;strong&gt;PHP GD Extension&lt;/strong&gt;, por lo tanto instalaremos los siguientes paquetes:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/web-analytics-con-piwik"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2014-11-21T11:18:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Javascript Hoisting, scope de variables</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables" />
-    <category term="javascript" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-11-18T13:10:00Z</updated>
-    <published>2014-11-18T13:10:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Una caracter&amp;iacute;stica de Javascript dif&amp;iacute;cil de comprender (sobre todo comprender si es un bug o un feature) es el scope de las variables declaradas dentro de una funci&amp;oacute;n.&lt;/p&gt; 
-&lt;h3&gt;El int&amp;eacute;rprete de Javascript mueve las declaraciones al principio de la funci&amp;oacute;n.&lt;/h3&gt; 
-&lt;p&gt;Esto quiere decir que si yo declaro una variable por la mitad del c&amp;oacute;digo de una funci&amp;oacute;n su declaraci&amp;oacute;n (no la asignaci&amp;oacute;n) se mueve al principio, veamos un ejemplo:&lt;/p&gt; 
-&lt;pre&gt;var a = 'hola';
-
-function saludar() {
-	console.log(a);
-	var a = 'chau';
-	console.log(a);
-};
-
-saludar();&lt;/pre&gt; 
-&lt;p&gt;&lt;a href="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/78A426BA/image.png"&gt;&lt;img title="image" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; display: inline; border-top-width: 0px" alt="image" src="http://www.leomicheloni.com/image.axd?picture=WindowsLiveWriter/JavascriptHoistingscopedevariables/16190878/image_thumb.png" width="359" height="157" /&gt;&lt;/a&gt; &lt;/p&gt; 
-&lt;p&gt;En este caso esperamos que le primer mensaje en imprimirse diga “hola” sin embargo dice “undefined” &amp;iquest;por qu&amp;eacute;? simple: para el interprete la declaraci&amp;oacute;n est&amp;aacute; al principio de la funci&amp;oacute;n, es decir, que lo que en realidad se ejecuta es esto:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/javascript-hoisting-scope-de-variables"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-11-18T13:10:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Taller sobre AngularJs en Buenos Aires</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires" />
-    <category term="javascript" />
-    <category term="angujarjs" />
-    <author>
-      <name>leonardo</name>
-    </author>
-    <updated>2014-11-02T23:34:00Z</updated>
-    <published>2014-11-02T23:34:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;img src="http://fc07.deviantart.net/fs71/f/2013/333/8/2/angularjs_by_abhishekghosh-d6w57fs.png" /&gt;&lt;/p&gt; 
-&lt;p&gt;Este jueves 6 de Noviembre voy a estar una vez m&amp;aacute;s en las instalaci&amp;oacute;n del Microsoft User Group en Buenos Aires, esta vez con un taller sobre AngularJs.&lt;/p&gt; 
-&lt;h3&gt;Ejemplos pr&amp;aacute;cticos&lt;/h3&gt; 
-&lt;p&gt;El taller se desarrollar&amp;aacute; a trav&amp;eacute;s de 50 ejemplos pr&amp;aacute;cticos, los mismo quedar&amp;aacute;n publicados en Github.&lt;/p&gt; 
-&lt;p&gt;Le idea es ir avanzando paso a paso con ejemplos para que una vez terminados los dos encuentros tener las herramientas b&amp;aacute;sicas para empezar a trabjar con Angular.&lt;/p&gt; 
-&lt;p&gt;Dejo el &lt;a href="http://www.mug-it.org.ar/Event.aspx?Event=188"&gt;link con la informaci&amp;oacute;n para anotarse&lt;/a&gt;. Nos vemos!&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2014/11/taller-sobre-angularjs-en-buenos-aires"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>leonardo</dc:creator>
-    <dc:date>2014-11-02T23:34:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Crear mapas HTML5 interactivos con RaphaelJS</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/10/crear-mapas-html5-interactivos-con-raphaeljs" />
-    <category term="municipios" />
-    <category term="xml" />
-    <category term="web" />
-    <category term="vectorial" />
-    <category term="javascript" />
-    <category term="interactivo" />
-    <category term="malaga" />
-    <category term="ajax" />
-    <category term="antequera" />
-    <category term="marbella" />
-    <category term="wikipedia" />
-    <category term="villanueva" />
-    <category term="imagen-digital" />
-    <category term="raphael" />
-    <category term="imagen" />
-    <category term="raphaeljs" />
-    <category term="svg" />
-    <category term="poblacion" />
-    <category term="ronda" />
-    <category term="general" />
-    <category term="mapa" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2014-10-10T09:11:05Z</updated>
-    <published>2014-10-10T09:11:05Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;script src="http://totaki.com/poesiabinaria/ejemplos/js/lib/raphael-min.js"&gt;&lt;/script&gt;&lt;br /&gt; Vivimos en pleno auge del HTML5 y es que con esta tecnolog&amp;iacute;a se pueden hacer cosas muy interesantes, de forma muy r&amp;aacute;pida, elegante y multiplataforma sin necesidad de recurrir a herramientas de terceros como Flash, y eso est&amp;aacute; muy bien. Personalmente nunca me gust&amp;oacute; Flash, as&amp;iacute; que, tenemos muchas cosas chulas por hacer.&lt;/p&gt; 
-&lt;p&gt;Hace unos d&amp;iacute;as, para un peque&amp;ntilde;o proyecto surgi&amp;oacute; la idea de crear un mapa interactivo de municipios, la idea est&amp;aacute; bien y hay mucho trabajo que hacer. Pero por un lado, tenemos cierta informaci&amp;oacute;n ya disponible, por ejemplo los mapas y los nombres de los municipios los podemos encontrar por Internet f&amp;aacute;cilmente. Los mapas los podemos encontrar por ejemplo en &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3d3dy5uYnNwLmVzLzIwMDkvMDIvMjUvbWFwYXMtZGUtbG9zLW11bmljaXBpb3MtZGUtZXNwYW5hLWVuLXZlY3RvcmlhbC8="&gt;esta&lt;/a&gt; web. En realidad es una recopilaci&amp;oacute;n de mapas de la Wikipedia (he copiado la recopilaci&amp;oacute;n &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/10/crear-mapas-html5-interactivos-con-raphaeljs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2014-10-10T09:11:05Z</dc:date>
-  </entry>
-  <entry>
-    <title>Arquitecturas JavaScript para desarrolladores Java</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java" />
-    <category term="mvc" />
-    <category term="arquitecturas-web" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-10-10T06:37:19Z</updated>
-    <published>2014-10-10T06:37:19Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;El mundo de Javascript se terminar&amp;aacute; haciendo un hueco como parte de las arquitecturas que manejamos&lt;/strong&gt;. Habr&amp;aacute; situaciones en las que substituyan a cosas que hemos desarrollado en Java y habr&amp;aacute; otras ocasiones que nos sirvan de complemento. Uno de los problemas m&amp;aacute;s habituales en estas nuevas arquitecturas javascript &lt;strong&gt;es podernos hacer una composici&amp;oacute;n de lugar de los distintos productos que existen&lt;/strong&gt;. Vamos a realizar una peque&amp;ntilde;a introducci&amp;oacute;n a estos.&lt;/p&gt; 
-&lt;h2&gt;Java Virtual Machine&lt;/h2&gt; 
-&lt;p&gt;En el mundo Java todos trabajamos con la JVM y de una forma m&amp;aacute;s que habitual utilizamos alg&amp;uacute;n servidor de aplicaciones encima de ella.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001JVM.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001JVM.gif" alt="001JVM" width="231" height="206" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;El mundo de Javascript es muy similar en cuanto a las grandes estructuras y en este caso las tecnolog&amp;iacute;as que paralelizan a la maquina virtual y al servidor de aplicaciones son :Google V8 y Node.js&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/arquitecturas-javascript-para-desarrolladores-java"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-10-10T06:37:19Z</dc:date>
-  </entry>
-  <entry>
-    <title>jQuery find vs filter</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/jquery-find-vs-filter" />
-    <category term="jquery" />
-    <category term="javascript" />
-    <category term="conceptos-js" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-10-08T13:45:44Z</updated>
-    <published>2014-10-08T13:45:44Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;jQuery lo usamos todos los d&amp;iacute;as pero siempre quedan cosas que revisar.&lt;/strong&gt; Una de las preguntas m&amp;aacute;s habituales que me hacen es la diferencia existente entre usar &lt;strong&gt;el m&amp;eacute;todo de JQuery find vs &amp;nbsp;filter&lt;/strong&gt;&amp;nbsp;.Vamos ha verlo a detalle a traves de un sencillo ejemplo del manejo de una tabla. Supongamos que queremos cambiar de color la &amp;uacute;ltima de columna de la tabla. Algo como lo siguiente :&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/001141.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/001141.png" alt="001" width="298" height="95" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Esta operaci&amp;oacute;n en jQuery parece de entrada muy sencilla. Vamos a ver el c&amp;oacute;digo fuente de la tabla en HTML.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;table&amp;gt;
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1A&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2A&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3A&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1B&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2B&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3B&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-&amp;lt;tr&amp;gt;
-&amp;lt;td&amp;gt;columna1C&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna2C&amp;lt;/td&amp;gt;
-&amp;lt;td&amp;gt;columna3C&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;
-
-&amp;lt;/table&amp;gt;
-
-&amp;amp;nbsp;
-
-&lt;/pre&gt; 
-&lt;h2&gt;Usando filter() en jQuery&lt;/h2&gt; 
-&lt;p&gt;Parece muy razonable seleccionar la &amp;uacute;ltima fila seleccionando los td de la tabla y aplicando filter() sobre el &amp;uacute;ltimo:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/jquery-find-vs-filter"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-10-08T13:45:44Z</dc:date>
-  </entry>
-  <entry>
-    <title>Sublime Text editor y su exito para CantabriaTIC</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-10-01T07:34:31Z</updated>
-    <published>2014-10-01T07:34:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Como siempre intentando aportar algo a la comunidad de Cantabria sobre temas TIC en este caso es una peque&amp;ntilde;a reflexi&amp;oacute;n sobre el exito de Sublime como editor de texto. Podeis acceder al articulo &lt;a href="http://www.cantabriatic.com/sublime-text-editor-y-modularidad/"&gt;aqu&amp;iacute;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/sublime-text-editor-y-su-exito-para-cantabriatic/"&gt;Sublime Text editor y su exito para CantabriaTIC&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/10/sublime-text-editor-y-su-exito-para-cantabriatic"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-10-01T07:34:31Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo utilizar ReactJS con Browserify</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify" />
-    <category term="reactjs" />
-    <category term="javascript" />
-    <category term="development" />
-    <category term="browserify" />
-    <category term="grunt" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-09-22T05:06:01Z</updated>
-    <published>2014-09-22T05:06:01Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En los &amp;uacute;ltimos posts vimos &lt;a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente"&gt;qu&amp;eacute; nos ofrece ReactJS&lt;/a&gt; a otras librer&amp;iacute;as para desarrollar interfaces de usuario con Javascript y construimos un &lt;a href="http://blog.koalite.com/2014/09/crear-un-componente-con-reactjs/" title="Crear un componente con ReactJS"&gt;componente de ejemplo con ReactJS&lt;/a&gt; para hacernos una idea de c&amp;oacute;mo trabajar con ReactJS.&lt;/p&gt; 
-&lt;p&gt;Como ya vimos al crear el componente de ejemplo, ReactJS permite utilizar una sintaxis especial llamada JSX para generar las vistas, y es necesario realizar de alguna forma la conversi&amp;oacute;n de este JSX al c&amp;oacute;digo Javascript puro que se encargar&amp;aacute; de construir el DOM. Esto se puede hacer &lt;a href="http://facebook.github.io/react/docs/tooling-integration.html"&gt;directamente en el browser&lt;/a&gt;, pero es preferible hacerlo durante la “compilaci&amp;oacute;n” de la aplicaci&amp;oacute;n para minimizar el impacto en los clientes que accedan a nuestra aplicaci&amp;oacute;n web.&lt;/p&gt; 
-&lt;p&gt;En este post vamos a ver c&amp;oacute;mo podemos aprovechar &lt;a href="http://blog.koalite.com/2013/09/node-js-de-servidor-a-navaja-suiza/" title="Node.js, de servidor a navaja suiza"&gt;herramientas basadas en node.js&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/como-utilizar-reactjs-con-browserify"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-09-22T05:06:01Z</dc:date>
-  </entry>
-  <entry>
-    <title>JavaScript Console y otros métodos</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos" />
-    <category term="herramientas" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-09-17T17:03:14Z</updated>
-    <published>2014-09-17T17:03:14Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Cuando trabajamos con Javascript el uso de del objeto Console es cotidiano. Sin embargo algunos de los m&amp;eacute;todos de Javascript Console no son muy conocidos aunque s&amp;iacute; son ciertamente &amp;uacute;tiles. Vamos a echar un vistazo a algunos de ellos.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/consola.gif"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/consola-300x289.gif" alt="consola" width="300" height="289" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;h2&gt;Consola y otros m&amp;eacute;todos&lt;/h2&gt; 
-&lt;p&gt;Quiz&amp;aacute; dos de los m&amp;eacute;todos mas &amp;uacute;tiles en algunos momentos son los dos siguientes :&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;console.time:&lt;/strong&gt; Inicializa una variable para almacenar el tiempo transcurrido.&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;console.timeEnd:&lt;/strong&gt; Asigna un valor final a esta variable .&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;De esta forma podemos calcular el tiempo transcurrido entre un grupo de operaciones para hacernos una idea de forma r&amp;aacute;pida de cuanto le esta costando al motor de Javascript ejecutar un determinado bloque de c&amp;oacute;digo.&lt;/p&gt; 
-&lt;pre&gt;
-
-&amp;lt;html&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-
-console.time(&amp;quot;iniciando lista&amp;quot;);
-
-var lista= new Array(1000000);
-
-for(var i=0;i&amp;lt;1000000;i++) {
-
-lista[i]=i;
-
-}
-
-console.timeEnd(&amp;quot;iniciando lista&amp;quot;);
-&amp;lt;/script&amp;gt;
-
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-
-&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/javascript-console-y-otros-metodos"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-09-17T17:03:14Z</dc:date>
-  </entry>
-  <entry>
-    <title>Crear un componente con ReactJS</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/crear-un-componente-con-reactjs" />
-    <category term="reactjs" />
-    <category term="javascript" />
-    <category term="development" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-09-15T05:06:57Z</updated>
-    <published>2014-09-15T05:06:57Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En el anterior post explicaba cu&amp;aacute;l es &lt;a href="http://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" title="ReactJS: un enfoque diferente"&gt;el enfoque de ReactJS para construir interfaces de usuario&lt;/a&gt;. Despu&amp;eacute;s de sentar las bases de la filosof&amp;iacute;a que hay detr&amp;aacute;s de ReactJS, en este post vamos a ver un peque&amp;ntilde;o ejemplo que nos permita hacernos una idea m&amp;aacute;s clara que c&amp;oacute;mo se utiliza ReactJS.&lt;/p&gt; 
-&lt;h3&gt;El componente de ejemplo&lt;/h3&gt; 
-&lt;p&gt;El componente de ejemplo que vamos a construir est&amp;aacute; formado por una lista cervezas en la que podemos ir incrementando la cantidad de cervezas ingeridas y nos mostrar&amp;aacute; el total consumido hasta el momento. El aspecto ser&amp;aacute; algo as&amp;iacute;:&lt;/p&gt; 
-&lt;p&gt;&lt;img src="http://blog.koalite.com/wp-content/uploads/react-sample.png" alt="react-sample" width="312" height="134" /&gt;&lt;/p&gt; 
-&lt;p&gt;Lo primero que necesitamos es decidir de qu&amp;eacute; forma vamos a organizar la informaci&amp;oacute;n que vamos a mostrar, decidiendo qu&amp;eacute; componentes vamos a crear y qu&amp;eacute; informaci&amp;oacute;n ser&amp;aacute; inmutable (propiedades) en cada componente y qu&amp;eacute; informaci&amp;oacute;n ser&amp;aacute; mutable (estado) en cada componente.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/crear-un-componente-con-reactjs"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-09-15T05:06:57Z</dc:date>
-  </entry>
-  <entry>
-    <title>Angularjs Batarang y Scopes</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes" />
-    <category term="html5" />
-    <category term="mvc" />
-    <category term="angular-js" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-09-12T11:43:30Z</updated>
-    <published>2014-09-12T11:43:30Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Una de las cosas que no he explicado en el libro de Angular.js es como instalar y comenzar a utilizar &amp;nbsp;Google Batarang que es el plugin de Angular.js para google Chrome y que nos permitir&amp;aacute; trabajar de una forma m&amp;aacute;s sencilla con Angular.js permitiendonos ver el contenido de los objetos que se encuentran en los diferentes scopes y muchas m&amp;aacute;s cosas.&lt;/p&gt; 
-&lt;h2&gt;Instalaci&amp;oacute;n&lt;/h2&gt; 
-&lt;p&gt;Instalar el plugin de Batarang es muy sencillo simplemente vamos &lt;a href="https://chrome.google.com/webstore/category/apps?utm_campaign=en&amp;amp;utm_source=en-et-na-us-oc-webstrhm&amp;amp;utm_medium=et"&gt;a la Chrome Web Store&amp;nbsp;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/google-tienda.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/google-tienda.png" alt="google tienda" width="964" height="395" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Una vez estamos en la tienda buscamos el plugin de Batarang y lo instalamos:&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/batarang.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/batarang.png" alt="batarang" width="981" height="627" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Angularjs Batarang y Scopes&lt;/h2&gt; 
-&lt;p&gt;Una vez instalado el plugin podemos comenzar a utilizar ya que es bastante sencillo. En la zona de inspectores nos aparecer&amp;aacute; una nueva pesta&amp;ntilde;a que se denomina Angular.js y que debemos activar.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/activar.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/activar.png" alt="activar" width="662" height="160" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Una vez activado podemos comenzar a utilizarlo y ver por ejemplo que objetos hay en cada uno de los diferentes $scopes de la aplicaci&amp;oacute;n:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/angularjs-batarang-y-scopes"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-09-12T11:43:30Z</dc:date>
-  </entry>
-  <entry>
-    <title>Desarrollo Web con Angular.js  (nº1 en Amazon.es programación)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion" />
-    <category term="mobile" />
-    <category term="libros" />
-    <category term="angular-js" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-09-10T10:30:21Z</updated>
-    <published>2014-09-10T10:30:21Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Hace unos meses publiqu&amp;eacute; otro libro &lt;a href="http://www.arquitecturajava.com/libroarquitectura-java-jpa-domain-driven-design/"&gt;Arquitectura Java JPA Domain Driven Design&amp;nbsp;&lt;/a&gt;y que tambi&amp;eacute;n se puso numero 1 en la secci&amp;oacute;n de programaci&amp;oacute;n en Amazon.&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/elmasvendido.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/elmasvendido.png" alt="elmasvendido" width="895" height="176" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;Puedo estar contento de que los dos libros que he escrito en kindle est&amp;aacute;n teniendo &amp;eacute;xito. Aprovecho a agradecer a la gente que me lee el blog el inter&amp;eacute;s en este &amp;uacute;ltimo libro que no esta tan ligado a la plataforma Java. Pero me gustar&amp;iacute;a aprovechar para hacer una reflexi&amp;oacute;n sobre Angular.js. En este blog no he escrito nada sobre este framework (escribir&amp;eacute; a futuro) y sin embargo se est&amp;aacute;n vendiendo copias del libro &lt;img src="http://www.arquitecturajava.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" /&gt; . Eso quiere decir que poco a poco el framework va cogiendo empuje &lt;strong&gt;y que este pr&amp;oacute;ximo a&amp;ntilde;o se empezar&amp;aacute; a utilizar m&amp;aacute;s tengamoslo en cuenta.&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
-&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/desarrollo-web-con-angular-js-no1-en-amazon-programacion/"&gt;Desarrollo Web con Angular.js (n&amp;ordm;1 en Amazon.es programaci&amp;oacute;n)&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/desarrollo-web-con-angular-js-n-1-en-amazon-es-programacion"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-09-10T10:30:21Z</dc:date>
-  </entry>
-  <entry>
-    <title>Libro: Arquitecturas Web y Angular js</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js" />
-    <category term="html5" />
-    <category term="angular-js" />
-    <category term="spa" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-09-08T11:32:04Z</updated>
-    <published>2014-09-08T11:32:04Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Cada d&amp;iacute;a Angular.js esta m&amp;aacute;s de moda , pero tambi&amp;eacute;n cada d&amp;iacute;a que pasa la aglomeraci&amp;oacute;n de art&amp;iacute;culos y tem&amp;aacute;ticas diferentes sobre el framework aumenta lo que hace dif&amp;iacute;cil entender como funciona . Este verano me he animado a escribir una gu&amp;iacute;a que sirva a la gente para asentar los conceptos fundamentales y perder el miedo a usar este framework tan interesante.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.arquitecturajava.com/wp-content/uploads/portada1.png"&gt;&lt;img src="http://www.arquitecturajava.com/wp-content/uploads/portada1.png" alt="portada" width="190" height="245" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Contenido&lt;/h2&gt; 
-&lt;p&gt;Como el t&amp;iacute;tulo indica, el libro &lt;strong&gt;esta muy orientado a entender los conceptos de Arquitectura que se encuentran detr&amp;aacute;s de este framework y el porqu&amp;eacute; de su enfoque tan innovador.&lt;/strong&gt; He hecho especial hincapi&amp;eacute; en que el libro le sea &amp;uacute;til a personas de cualquier plataforma ya que solo &lt;strong&gt;incluye c&amp;oacute;digo de JavaScript&lt;/strong&gt;. El libro como siempre empieza de cero. La tabla de contenidos es la siguiente: Tabla de Contenidos:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/libro-arquitecturas-web-y-angular-js"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-09-08T11:32:04Z</dc:date>
-  </entry>
-  <entry>
-    <title>ReactJS: un enfoque diferente</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/09/reactjs-un-enfoque-diferente" />
-    <category term="reactjs" />
-    <category term="javascript" />
-    <category term="development" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-09-08T05:06:50Z</updated>
-    <published>2014-09-08T05:06:50Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En los &amp;uacute;ltimos a&amp;ntilde;os el auge de las aplicaciones basadas en HTML5 y Javascript ha sido imparable, y si a este lo unimos que Javascript no ofrece un conjunto de librer&amp;iacute;as est&amp;aacute;ndar que dicte una forma can&amp;oacute;nica de hacer las cosas (como s&amp;iacute; ocurre en otras plataformas como .NET o Java), es natural que este auge haya venido acompa&amp;ntilde;ado de la aparici&amp;oacute;n de muchas librer&amp;iacute;as y frameworks para desarrollar este tipo de aplicaciones.&lt;/p&gt; 
-&lt;p&gt;&lt;img src="http://blog.koalite.com/wp-content/uploads/logo-reactjs.png" alt="logo-reactjs" width="600" height="167" /&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://facebook.github.io/react/index.html"&gt;ReactJS&lt;/a&gt; es otra librer&amp;iacute;a m&amp;aacute;s dise&amp;ntilde;ada para ayudarnos a desarrollar aplicaciones SPA, con una fuerte carga de interactividad en el cliente gracias al uso de Javascript. Ha sido desarrollada por Facebook y est&amp;aacute; publicada como Open Source con una licencia Apache 2.0. &lt;/p&gt; 
-&lt;p&gt;Lo interesante de ReactJS es que aporta un enfoque distinto al que podemos ver en otras herramientas como &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/09/reactjs-un-enfoque-diferente"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-09-08T05:06:50Z</dc:date>
-  </entry>
-  <entry>
-    <title>Arquitecturas y Modularidad</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/09/arquitecturas-y-modularidad" />
-    <category term="jee" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-09-05T12:12:53Z</updated>
-    <published>2014-09-05T12:12:53Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Video sobre Arquitecturas y Modularidad que compara las plataformas .NET , Java EE con Node.js&lt;/p&gt; 
-&lt;p&gt;&lt;iframe width="500" height="281" src="http://www.youtube.com/embed/wNZILxFpo18?feature=oembed" frameborder="0" allowfullscreen=""&gt;&lt;/iframe&gt;&lt;/p&gt; 
-&lt;p&gt;La entrada &lt;a href="http://www.arquitecturajava.com/arquitecturas-y-modularidad/"&gt;Arquitecturas y Modularidad&lt;/a&gt; aparece primero en &lt;a href="http://www.arquitecturajava.com"&gt;Arquitectura Java&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/arquitecturas-y-modularidad"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-09-05T12:12:53Z</dc:date>
   </entry>
 </feed>
 

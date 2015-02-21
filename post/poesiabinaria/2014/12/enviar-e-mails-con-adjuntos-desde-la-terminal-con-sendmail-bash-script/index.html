@@ -1,374 +1,21 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script"><span itemprop="headline">Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/linux"><img title="linux" alt="linux" src="/assets/images/labels/linux.png"/></a><a class="label" href="/label/bash"><img title="bash" alt="bash" src="/assets/images/labels/bash.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Gaspar Fernández</span> en la bitácora <a href="http://totaki.com/poesiabinaria/">Poesía binaria</a>, <a href="http://totaki.com/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-12-15T09:10" itemprop="datePublished">Publicado el lunes, 15 de diciembre de 2014 a las 09:10 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/bash"><span itemprop="articleSection">bash</span></a>, e-mail, servidores, mensaje, argumentos, correo, gist, ssh, remoto, electronico, script, sesion, terminal, email, sendmail, servidor, general, <a href="/label/linux"><span itemprop="articleSection">linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8xMi8xNjA5ODc0MDAxXzgyODQzZTZjNTZfby5qcGc="><img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/12/1609874001_82843e6c56_o-560x373.jpg" alt="" title="1609874001_82843e6c56_o" width="560" height="373" /></a></p> 
-<p>En varias ocasiones, he necesitado enviar un e-mail a un compa&ntilde;ero de trabajo (o a m&iacute; mismo) con informaci&oacute;n reci&eacute;n extra&iacute;da de un servidor (por ejemplo un CSV de base de datos o informaci&oacute;n subida desde la web) y lo que he hecho al final ha sido baj&aacute;rmelo por SSH y una vez en mi ordenador he enviado el archivo donde ha sido necesario. Si eres como yo, que siempre tengo una sesi&oacute;n SSH abierta en mi servidor, ganar&aacute;s un par de minutos con este script.</p> 
-<p>El siguiente script env&iacute;a un correo electr&oacute;nico utilizando sendmail. sendmail no es dif&iacute;cil, simplemente tenemos que escribir como entrada del correo las cabeceras necesarias y el mensaje, aunque podemos echar unos minutos hasta que se puede enviar correctamente el mensaje.<br /> El problema con las cabeceras viene cuando tenemos que enviar archivos adjuntos, ya que las cabeceras que tenemos que enviar son un poco m&aacute;s complejas, y luego tenemos que codificar el archivo para que encaje en un e-mail y es algo que a mano resulta muy pesado.</p> 
-<p>Pues nada, si salvamos esto como gemail.sh s&oacute;lo tenemos que hacer lo siguiente:</p> 
-<blockquote>
- <p>$ email.sh destino@servidor.com “Asunto del mensaje” “Hola mundo! Te mando un mensaje”</p>
-</blockquote> 
-<p>para enviar un mensaje normal, si queremos enviar adjuntos:</p> 
-<blockquote>
- <p>$ email.sh destino@servidor.com “Asunto del mensaje” “Hola mundo! Te mando un mensaje” fichero1 fichero2</p>
-</blockquote> 
-<p>siempre y cuando existan los archivos, la cosa ir&aacute; bien, aunque tambi&eacute;n podemos insertar cabeceras nuevas en el correo, por ejemplo From (para especificar el remitente), CC y BCC (para copias) y Reply-to (para responder a esta direcci&oacute;n), etc. de la siguiente manera:</p> 
-<blockquote>
- <p>$ email.sh destino@servidor.com “Asunto del mensaje” “Hola mundo! Te mando un mensaje” “From: Yo mismo ” “CC: un_amigo@direccion.com” fichero1 fichero2…</p>
-</blockquote> 
-<p>Siempre y cuando tengamos sendmail configurado, todos los e-mails se enviar&aacute;n. Si alg&uacute;n e-mail no ha salido, podemos ver en /var/log/mail.log y /var/log/mail.err qu&eacute; ha pasado con el env&iacute;o, ya que sendmail se limita a encolar los mensajes, que ya se podr&aacute;n enviar con el m&eacute;todo que tengamos configurado (postfix, nullailer, etc)</p> 
-<div style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;">
- <table>
-  <tbody>
-   <tr>
-    <td>
-     <div>
-      1
-      <br />2
-      <br />3
-      <br />4
-      <br />5
-      <br />6
-      <br />7
-      <br />8
-      <br />9
-      <br />10
-      <br />11
-      <br />12
-      <br />13
-      <br />14
-      <br />15
-      <br />16
-      <br />17
-      <br />18
-      <br />19
-      <br />20
-      <br />21
-      <br />22
-      <br />23
-      <br />24
-      <br />25
-      <br />26
-      <br />27
-      <br />28
-      <br />29
-      <br />30
-      <br />31
-      <br />32
-      <br />33
-      <br />34
-      <br />35
-      <br />36
-      <br />37
-      <br />38
-      <br />39
-      <br />40
-      <br />41
-      <br />42
-      <br />43
-      <br />44
-      <br />45
-      <br />46
-      <br />47
-      <br />48
-      <br />49
-      <br />50
-      <br />51
-      <br />52
-      <br />53
-      <br />54
-      <br />55
-      <br />56
-      <br />57
-      <br />58
-      <br />59
-      <br />60
-      <br />61
-      <br />62
-      <br />63
-      <br />64
-      <br />65
-      <br />66
-      <br />67
-      <br />68
-      <br />69
-      <br />70
-      <br />71
-      <br />72
-      <br />73
-      <br />74
-      <br />75
-      <br />76
-      <br />77
-      <br />78
-      <br />79
-      <br />80
-      <br />81
-      <br />82
-      <br />83
-      <br />84
-      <br />85
-      <br />86
-      <br />87
-      <br />88
-      <br />89
-      <br />90
-      <br />91
-      <br />92
-      <br />93
-      <br />94
-      <br />95
-      <br />96
-      <br />97
-      <br />98
-      <br />99
-      <br />100
-      <br />101
-      <br />102
-      <br />103
-      <br />104
-      <br />105
-      <br />106
-      <br />107
-      <br />108
-      <br />109
-      <br />110
-      <br />111
-      <br />112
-      <br />113
-      <br />114
-      <br />115
-      <br />116
-      <br />117
-      <br />118
-      <br />119
-      <br />120
-      <br />121
-      <br />122
-      <br />123
-      <br />124
-      <br />125
-      <br />126
-      <br />127
-      <br />128
-      <br />129
-      <br />130
-      <br />131
-      <br />132
-      <br />133
-      <br />134
-      <br />135
-      <br />136
-      <br />137
-      <br />138
-      <br />139
-      <br />140
-      <br />141
-      <br />142
-      <br />143
-      <br />144
-      <br />145
-      <br />146
-      <br />147
-      <br />148
-      <br />149
-      <br />150
-      <br />151
-      <br />152
-      <br />153
-      <br />154
-      <br />155
-      <br />156
-      <br />157
-      <br />158
-      <br />159
-      <br />160
-      <br />161
-      <br />162
-      <br />163
-      <br />164
-      <br />
-     </div></td>
-    <td>
-     <div style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">
-      #!/bin/bash
-      <br /> 
-      <br /> # This program is free software: you can redistribute it and/or modify
-      <br /> # it under the terms of the GNU General Public License as published by
-      <br /> # the Free Software Foundation, either version 3 of the License, or
-      <br /> # (at your option) any later version.
-      <br /> 
-      <br /> # This program is distributed in the hope that it will be useful,
-      <br /> # but WITHOUT ANY WARRANTY; without even the implied warranty of
-      <br /> # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. &nbsp;See the
-      <br /> # GNU General Public License for more details.
-      <br /> 
-      <br /> # You should have received a copy of the GNU General Public License
-      <br /> # along with this program. &nbsp;If not, see &lt;http://www.gnu.org/licenses/&gt;.
-      <br /> 
-      <br /> # gemail.sh &nbsp;Copyright (C) 2014 &nbsp;Gaspar Fern&aacute;ndez &lt;gaspar.fernandez@totaki.com&gt;
-      <br /> 
-      <br /> # This bash script will help you to use sendmail allowing us to send e-mails from
-      <br /> # the terminal in a friendly way just say destination, subject and body in the command
-      <br /> # arguments. It allows us also to send mail attachments with local files.
-      <br /> #
-      <br /> # I find it interesting when using remotely a server with SSH and I must send a file
-      <br /> # located in it to someone. I wrote this little script to send the file directly to
-      <br /> # the destination.
-      <br /> 
-      <br /> # Changelog:
-      <br /> # - 20141129: Initial idea of the script and wrote basic functionality
-      <br /> # - 20141206: Code clean up
-      <br /> # - 20141208: Allows us to send many attachments 
-      <br /> # - 20141211: Removed extra \n when no extra headers
-      <br /> # - 20141212: Preview mode and additional sendmail find
-      <br /> 
-      <br /> # To do:
-      <br /> # &nbsp;- Doc and examples !!!
-      <br /> 
-      <br /> #MAIL_BOUNDARY=&quot;m41lb0und4ry&quot; &nbsp; &nbsp; &nbsp; # We can randomize it later
-      <br /> MAIL_BOUNDARY=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | head -c 40`
-      <br /> SENDMAIL_COMMAND=`which sendmail`
-      <br /> SENDMAIL_COMMAND=&quot;&quot;;
-      <br /> function showUsage()
-      <br /> {
-      <br /> # We must extend this help to use headers ans so
-      <br /> &nbsp; &nbsp; echo $1
-      <br /> &nbsp; &nbsp; echo &quot;Use:&quot;
-      <br /> &nbsp; &nbsp; echo $2 destination subject body [attachment1] [attachment2] ... [attachmentN]
-      <br /> &nbsp; &nbsp; echo
-      <br /> &nbsp; &nbsp; exit
-      <br /> }
-      <br /> 
-      <br /> function findSendmail()
-      <br /> {
-      <br /> # Try to find again sendmail in extra paths not in $PATH
-      <br /> &nbsp; &nbsp; EXTRAPATHS=(&quot;/usr/sbin/&quot; &quot;/sbin/&quot; &quot;/usr/local/sbin/&quot;)
-      <br /> 
-      <br /> &nbsp; &nbsp; for p in &quot;${EXTRAPATHS[@]}&quot;;
-      <br /> &nbsp; &nbsp; do
-      <br /> &nbsp; &nbsp; if [ -x &quot;${p}sendmail&quot; ]
-      <br /> &nbsp; &nbsp; then
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; echo &quot;${p}sendmail&quot;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; return
-      <br /> &nbsp; &nbsp; fi 
-      <br /> &nbsp; &nbsp; done
-      <br /> }
-      <br /> 
-      <br /> function callsend()
-      <br /> {
-      <br /> &nbsp; &nbsp; _TO=$1
-      <br /> &nbsp; &nbsp; _PREVIEW=$2
-      <br /> 
-      <br /> &nbsp; &nbsp; if (( $_PREVIEW==1 ))
-      <br /> &nbsp; &nbsp; then
-      <br /> &nbsp; &nbsp; cat
-      <br /> &nbsp; &nbsp; else
-      <br /> &nbsp; &nbsp; $SENDMAIL_COMMAND
-      <br /> &nbsp; &nbsp; fi
-      <br /> }
-      <br /> 
-      <br /> #Basic arguments of our program
-      <br /> TO=$1
-      <br /> SUBJECT=$2
-      <br /> BODY=$3
-      <br /> PREVIEW=0
-      <br /> 
-      <br /> # Additional sendmail find if not in PATH
-      <br /> if [ -z &quot;$SENDMAIL_COMMAND&quot; ];
-      <br /> then
-      <br /> &nbsp; &nbsp; SENDMAIL_COMMAND=`findSendmail`
-      <br /> fi
-      <br /> 
-      <br /> if [ -z &quot;$SENDMAIL_COMMAND&quot; ];
-      <br /> then
-      <br /> &nbsp; &nbsp; echo &quot;No sendmail found in your PATH. Make sure you have it!&quot;
-      <br /> &nbsp; &nbsp; exit;
-      <br /> fi
-      <br /> 
-      <br /> if (( $# &lt; 3 ))
-      <br /> then
-      <br /> &nbsp; &nbsp; showUsage &quot;Invalid arguments&quot; $0
-      <br /> fi
-      <br /> 
-      <br /> # Fill attachments and additional user headers
-      <br /> ATTACHMENTS=&quot;&quot;
-      <br /> MOREHEADERS=&quot;&quot;
-      <br /> for (( i=4; $i&lt;=$#; i++))
-      <br /> do
-      <br /> &nbsp; &nbsp; ATTACH=&quot;${!i}&quot;
-      <br /> &nbsp; &nbsp; if [ ! -r &quot;$ATTACH&quot; ];
-      <br /> &nbsp; &nbsp; then
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; # Not an attachment, ok but it can be an additional header it will have : let's check it
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; OLDIFS=$IFS
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; IFS=&quot;:&quot;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; read -a HEADER &lt;&lt;&lt; &quot;$ATTACH&quot;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; IFS=$OLDIFS
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; case ${HEADER[0]} in
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &quot;From&quot; | &quot;Reply-to&quot; | &quot;Date&quot; | &quot;X-Mailer&quot; | &quot;Organization&quot; | &quot;CC&quot; | &quot;BCC&quot; )
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if [ -z &quot;$MOREHEADERS&quot; ]
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; then
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MOREHEADERS=$ATTACH
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MOREHEADERS=&quot;`echo -e &quot;$MOREHEADERS&quot;&quot;\n&quot;&quot;$ATTACH&quot;`&quot;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fi 
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ;;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &quot;preview&quot;)
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PREVIEW=1
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ;;
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; *)
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; showUsage &quot;Attachment not found&quot; $0
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; esac
-      <br /> &nbsp; &nbsp; else
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ATTACH_MIME=`file --mime-type -b &quot;$ATTACH&quot;`
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ATTACH_NAME=`basename &quot;$ATTACH&quot;`
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ATTACH_BASE64=`base64 &quot;$ATTACH&quot;`
-      <br /> &nbsp; &nbsp; &nbsp; &nbsp; ATTACHMENTS=&quot;$ATTACHMENTS
-      <br /> --$MAIL_BOUNDARY
-      <br /> Content-Type: $ATTACH_MIME; name=\&quot;$ATTACH_NAME\&quot;
-      <br /> Content-Transfer-Encoding: base64
-      <br /> Content-Disposition: attachment; filename=\&quot;$ATTACH_NAME\&quot;
-      <br /> 
-      <br /> $ATTACH_BASE64&quot;
-      <br /> &nbsp; &nbsp; fi
-      <br /> done
-      <br /> 
-      <br /> # Send message
-      <br /> ( echo &quot;To: $TO&quot;;
-      <br /> &nbsp; echo &quot;Subject: $SUBJECT&quot;;
-      <br /> &nbsp; if [ -n &quot;$MOREHEADERS&quot; ]; then
-      <br /> &nbsp; &nbsp; &nbsp; echo -e &quot;$MOREHEADERS&quot;
-      <br /> &nbsp; fi
-      <br /> &nbsp; echo &quot;MIME-Version: 1.0&quot;;
-      <br /> &nbsp; echo &quot;Content-Type: multipart/mixed; boundary=\&quot;$MAIL_BOUNDARY\&quot;&quot;;
-      <br /> &nbsp; echo &quot;--&quot;$MAIL_BOUNDARY;
-      <br /> &nbsp; echo &quot;Content-Type: text/plain&quot;;
-      <br /> &nbsp; echo -e &quot;Content-Disposition: inline\n&quot;;
-      <br /> &nbsp; echo &quot;$BODY&quot;;
-      <br /> &nbsp; echo -e &quot;$ATTACHMENTS&quot;
-      <br /> &nbsp; echo &quot;--&quot;$MAIL_BOUNDARY&quot;--&quot;) | callsend $TO $PREVIEW
-      <br /> 
-      <br /> RESULT=$?
-      <br /> if (( $RESULT==0 ))
-      <br /> then
-      <br /> &nbsp; &nbsp; echo &quot;Message sent successfully&quot;;
-      <br /> else
-      <br /> &nbsp; &nbsp; echo &quot;Could not send message&quot;
-      <br /> fi
-     </div></td>
-   </tr>
-  </tbody>
- </table>
-</div> 
-<p>Este c&oacute;digo lo encontr&aacute;is tambi&eacute;n en mi <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly9naXRodWIuY29tL2JsYWtleWVkL2dzY3JpcHRz">Github</a>.</p> 
-<p>Foto: <a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cHM6Ly93d3cuZmxpY2tyLmNvbS9waG90b3MvZXNwYXJ0YS8xNjA5ODc0MDAxL2luL3Bob3RvbGlzdC04U0RFTnEtcnRFMlYtM3NnMnNpLXhralFnLTg0bnN0eC1hQk03Y1EtZEFQZWdnLTVFRThoNi03R3hOa2stN0F6ODRRLWF2cTNMNC03NXJMWS1wd0tXcUUtOGtSTGd1LThmczR0US1heG5LeTMtNTVNY3JXLTU1TWNxTC02NWlLaGQtNDk4MVdULTRqRFM5RS01Nkw2MnQtOGU5UTJnLWRIbzNtaC1wOVlIR0QtY2d5cGE1LWtqcTl1LThlZGJmYi04cnRDVFctOHBhdjQtZGpNSkptLTd0Q1J5Mi04ZTk3eDYtOW5zVkZkLTh4cFVKLTZvTTh2LWF3cmtGbS00am8zc3ItNVRmb3ZjLTVvdEYxNC00ZHd4QmctN2llRjlLLTRqblRuUi05WDlkVGstYnZHZHJvLThTRFdCby1vN3dFTi0yam1pSFYtOHZzYTJ6LTd5VDc5ag==">Esparta Palma</a> (Flickr CC-by)</p> 
-<div>
- <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftotaki.com%2Fpoesiabinaria%2F2014%2F12%2Fenviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script%2F&amp;layout=standard&amp;show_faces=true&amp;width=500&amp;action=like&amp;font=segoe+ui&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:500px; height:80px;"></iframe>
-</div> 
-<img src="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?view=1&amp;post_id=2395" width="1" height="1" style="display: none;" />
-<p>La entrada <a href="http://totaki.com/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script/">Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]</a> aparece primero en <a href="http://totaki.com/poesiabinaria">Poes&iacute;a Binaria</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/bash/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta bash</a></li><li><a href="/label/linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://totaki.com/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script/">Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script]</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-12-15T09:10" itemprop="dateModified">lunes, 15 de diciembre de 2014 </span>,
+<span>fuente <a target="target" href="http://totaki.com/poesiabinaria/">Poesía binaria</a></span>,
+etiquetas
+<a href="/label/linux"><span itemprop="articleSection">linux</span></a> 
+<a href="/label/bash"><span itemprop="articleSection">bash</span></a> 
+</p><p class="text-justify" itemprop="description">
+En varias ocasiones, he necesitado enviar un e-mail a un compañero de trabajo (o a mí mismo) con información recién extraída de un servidor (por ejemplo un CSV de base de datos o información subida desde la web) y lo que he hecho al final ha sido bajármelo por SSH y una vez en mi ordenador he enviado el archivo donde ha sido necesario. Si eres como yo, que siempre tengo una sesión SSH abierta en mi servidor, ganarás un par de minutos con este script. El siguiente script envía un correo electrónico utilizando sendmail. sendmail no es difícil, simplemente tenemos que escribir como entrada del correo las cabeceras necesarias y el mensaje, aunque podemos echar unos minutos hasta que se puede enviar correctamente el mensaje. El problema con las cabeceras viene cuando tenemos que enviar archivos [...]
+</p><p><a itemprop="sameAs" target="target" href="http://totaki.com/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script" st_title="Enviar e-mails con adjuntos desde la terminal con sendmail [Bash script] | Poesía binaria"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -413,34 +60,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 1224,
-      "url" : "http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "poesiabinaria",
-      "name" : "Poesía binaria"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -448,6 +69,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

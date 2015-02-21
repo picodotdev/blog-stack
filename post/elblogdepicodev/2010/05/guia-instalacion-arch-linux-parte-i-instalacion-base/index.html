@@ -1,415 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base"><span itemprop="headline">Guía instalación Arch Linux (Parte I, instalación base)</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/arch-linux"><img title="arch-linux" alt="arch-linux" src="/assets/images/labels/arch-linux.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2010/05/guia-instalacion-arch-linux-parte-i.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2012-07-01T02:16" itemprop="dateModified">Actualizado el domingo, 01 de julio de 2012 a las 02:16 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name">Si has le&iacute;do sobre Arch Linux, te gustan sus caracter&iacute;sticas y 
-<a href="http://wiki.archlinux.org/index.php/The_Arch_Way">filosof&iacute;a</a>, crees que se puede adaptar a tus necesidades y est&aacute;s dispuesto a probarlo ya sea en una m&aacute;quina virtual o directamente sobre el metal, esta entrada puede que te ayude en alguno de los pasos que hay que dar para instalarlo.
-<br />
-<br />Esta gu&iacute;a no contempla todos los casos de posibles configuraciones (me ser&iacute;a imposible hacer una gu&iacute;a tan ambiciosa) sino m&aacute;s bien es una gu&iacute;a de los pasos que he dado para configurar mi sistema, aunque no se adapte a tu sistema o tus preferencias al 100% puede que te de ideas o informaci&oacute;n. Antes de empezar a realizar la instalaci&oacute;n es recomendable leer la 
-<a href="http://wiki.archlinux.org/index.php/Official_Arch_Linux_Install_Guide">gu&iacute;a oficial de instalaci&oacute;n de Arch</a> y la 
-<a href="http://wiki.archlinux.org/index.php/Beginners'_Guide">gu&iacute;a no oficial para principiantes</a> ya que al ser Arch Linux una distribuci&oacute;n rolling release algunos apartados pueden variar ligeramente seg&uacute;n pasa el tiempo y en esos enlaces se puede consultar informaci&oacute;n m&aacute;s actualizada. En esta primera parte explicar&eacute; los pasos a seguir para realizar la instalaci&oacute;n base y conseguiremos un sistema arrancable y usable pero sin entorno ni programas gr&aacute;ficos.
-<br />
-<br />Antes de nada recomiendo ir apuntando las acciones y comandos que se van haciendo durante en la instalaci&oacute;n ya que ser&aacute;n unos cuantos, de esta manera podremos repetir la instalaci&oacute;n en alg&uacute;n otro momento sin tener que averiguar de nuevo que hicimos en alg&uacute;n punto y sabremos que archivos modificamos y que hicimos en ellos.
-<br />
-<br />Cuando est&eacute;s listo all&aacute; vamos... :)
-<br />
-<br />
-<b>Descargar el medio de instalaci&oacute;n</b>
-<br />El primer paso es descargar el medio para instalar Arch Linux. Para ello accedemos a la p&aacute;gina de descarga en la que veremos varios medios de instalaci&oacute;n (imagen de CD, imagen de USB, netinstall) y lugares desde la que podremos descargarlo a trav&eacute;s de bittorrent o mediante descarga directa. Si dispones de acceso a internet con tarifa plana y banda ancha y dispones de un sistema que pueda iniciar la instalaci&oacute;n desde un puerto USB (es m&aacute;s r&aacute;pido que instalar desde un CD) mediante una memoria USB te recomiendo que realices la 
-<a href="http://www.archlinux.org/download/">descarga de la imagen m&iacute;nima de instalaci&oacute;n</a>&nbsp;(netinstall image) para realizar la instalaci&oacute;n a trav&eacute;s de la red ya que de esta manera los paquetes que se instalar&aacute;n ser&aacute;n los m&aacute;s actuales ya que se descagar&aacute;n de la red. Selecciona un mirror (por ejemplo, kernel.org), la imagen para tu arquitectura de procesador (x86 para 32 bits o amd64 para 64 bits), la imagen m&aacute;s reciente disponible (en el momento de escribir esta entrada los medios tienen la fecha de 2010.05) y si te es posible haz la descarga mediante bittorrent.
-<br />
-<br />Una vez que disponemos del medio de instalaci&oacute;n el siguiente paso ser&aacute; grabarlo en un CD o en una memoria USB, disponemos de varias formas de hacerlo, mediante linea de comandos o mediante interfaz gr&aacute;fica. Para grabarlo en una memoria USB ejecuta el siguiente comando (Cuidado: el contenido de la memoria USB se borrar&aacute;):
-<br />
-<br />
-<div>
- <pre>$ dd if=archlinux-2011.08.19-netinstall-x86_64.iso of=/dev/sdx</pre>
-</div>
-<br />Donde &laquo;if&raquo; es el par&aacute;metro para la imagen de instalaci&oacute;n que hemos descargado y &laquo;of&raquo; es el par&aacute;metro del dispositivo para la memoria USB. Si est&aacute;s grabando la imagen desde Windows deber&aacute;s descargarte el programa 
-<a href="http://www.chrysocome.net/dd">dd para windows</a>. Otra opci&oacute;n para grabar la imagen en una memoria USB es utilizar el programa 
-<a href="http://unetbootin.sourceforge.net/">UNetbootin</a> que se basa en una interfaz gr&aacute;fica donde seleccionaremos la imagen y la memoria USB donde queremos grabarla, sirver para otras distribuciones y dispone de una versi&oacute;n para Windows, Linux y Mac. Lo &uacute;nico que tendremos que tener en cuenta es que deberemos formatear la memoria USB con formato FAT o FAT32 ya que las BIOS no son capaces de arrancar el sistema desde una memoria USB en formato NTFS.
-<br />
-<br />Si est&aacute;s realizando la instalaci&oacute;n en una m&aacute;quina virtual ignora los p&aacute;rrafos para grabar la imagen y configura tu programa de virtualizaci&oacute;n para iniciar la m&aacute;quina virtual desde la imagen descargada.
-<br />
-<br />
-<b>Iniciando la instalaci&oacute;n</b>
-<br />Como la instalaci&oacute;n de Arch Linux se hace en modo texto antes de iniciar la instalaci&oacute;n es recomendable conocer el modo de nuestra gr&aacute;fica para la resoluci&oacute;n nativa del monitor. De esta forma ejecutaremos el programa de instalaci&oacute;n en la resoluci&oacute;n nativa del monitor viendo mejor las fuentes si tenemos un monitor TFT, sino por defecto la instalaci&oacute;n se har&aacute; en una resoluci&oacute;n de 640x480 y las fuentes posiblemente las veamos un poco borrosas. Para conocer los modos de nuestra gr&aacute;fica ejecutamos:
-<br />
-<br />
-<div>
- <pre>$ sudo hwinfo --framebuffer</pre>
-</div>
-<br />Para mi tarjeta gr&aacute;fica (una nVidia Geforce 8600M GT) y mi monitor (de resoluci&oacute;n nativa 1440x900) el modo nativo es: 0x365. Apunta el n&uacute;mero que obtengas para tu sistema lo necesitaremos al iniciar la instalaci&oacute;n (
-<a href="http://en.wikipedia.org/wiki/VESA_BIOS_Extensions">tabla de modos de v&iacute;deo</a>, apartado Linux video mode numbers).
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-Rk22GacPOYs/Tda258F6qOI/AAAAAAAAAr0/DvX3ZKEXTcU/s1600/guia-instalacion-al-p1-1.jpg"><img height="200" src="http://4.bp.blogspot.com/-Rk22GacPOYs/Tda258F6qOI/AAAAAAAAAr0/DvX3ZKEXTcU/s200/guia-instalacion-al-p1-1.jpg" width="176" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />Ahora si estamos listos para iniciar la instalaci&oacute;n, inserta el CD o la memoria USB, reinicia el sistema y config&uacute;ralo para iniciar desde el CD o la memoria USB. Llegaremos a la siguiente pantalla:
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-QEibViuqs8c/Tda3NmRhGnI/AAAAAAAAAr8/xgeISfSdalc/s1600/guia-instalacion-al-p1-2.jpg"><img height="150" src="http://2.bp.blogspot.com/-QEibViuqs8c/Tda3NmRhGnI/AAAAAAAAAr8/xgeISfSdalc/s200/guia-instalacion-al-p1-2.jpg" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />En alg&uacute;n caso puede que no sea necesario introducir el siguiente par&aacute;metro y el medio de instalaci&oacute;n detectara autom&aacute;ticamente la resoluci&oacute;n nativa de nuestra pantalla, si lo detecta autom&aacute;ticamente te puedes saltar este paso. Seleccionamos la opci&oacute;n Boot Arch Linux y pulsamos la tecla tabulado (TAB) para editar el comando de inicio y poder iniciar la instalaci&oacute;n en la resoluci&oacute;n nativa del monitor, a&ntilde;adimos al final de esa l&iacute;nea vga=0x0365 para mi caso de una resoluci&oacute;n 1440x900 o vga=0x0344 para una m&aacute;quina virtual con VirtualBox y una resoluci&oacute;n de 1024x768x32 (o el modo de la resoluci&oacute;n nativa para tu tarjeta gr&aacute;fica si es diferente). Una vez editado pulsamos la tecla Intro donde veremos los mensajes de inicio del sistema. Una vez que se termine de iniciar el sistema iniciamos sesi&oacute;n con el usuario &laquo;root&raquo; y sin password como se nos indica en en mensaje de bienvenida.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/--NJbbC_p9fc/Tda3P17xbVI/AAAAAAAAAsI/LrrE-WXPQEU/s1600/guia-instalacion-al-p1-3.jpg"><img height="150" src="http://4.bp.blogspot.com/--NJbbC_p9fc/Tda3P17xbVI/AAAAAAAAAsI/LrrE-WXPQEU/s200/guia-instalacion-al-p1-3.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-AuP3aF62xEU/Tda3QU4GHgI/AAAAAAAAAsM/8jDIairj1is/s1600/guia-instalacion-al-p1-4.jpg"><img height="150" src="http://1.bp.blogspot.com/-AuP3aF62xEU/Tda3QU4GHgI/AAAAAAAAAsM/8jDIairj1is/s200/guia-instalacion-al-p1-4.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-ErD8cdnLqeE/Tda3SwbhMII/AAAAAAAAAsU/PkfsguFPXgs/s1600/guia-instalacion-al-p1-5.jpg"><img height="150" src="http://2.bp.blogspot.com/-ErD8cdnLqeE/Tda3SwbhMII/AAAAAAAAAsU/PkfsguFPXgs/s200/guia-instalacion-al-p1-5.jpg" width="200" /></a>
-</div>
-<br />
-<b>Configuraci&oacute;n del teclado</b>
-<br />El primer paso que daremos es configurar la distribuci&oacute;n del teclado para nuestro sistema de lo contrario habr&aacute; teclas que no introduzcan el caracter que esperamos. Esto se puede hacer de dos formas con el comando loadkeys donde el par&aacute;metro &laquo;es&raquo; indica la distribuci&oacute;n para un teclado en espa&ntilde;ol o mediante el comando km que nos mostrar&aacute; un men&uacute; con todas las posibles distribuciones de teclado reconocidas. Para un teclado con una distribuci&oacute;n de teclas en espa&ntilde;ol seleccionaremos 386.querty/es.map.gz.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-8sm_edN1pY4/Tda3U9u5yNI/AAAAAAAAAsY/OzJeolr3gpc/s1600/guia-instalacion-al-p1-5_1.jpg"><img height="150" src="http://2.bp.blogspot.com/-8sm_edN1pY4/Tda3U9u5yNI/AAAAAAAAAsY/OzJeolr3gpc/s200/guia-instalacion-al-p1-5_1.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-Y_oOK-nayh0/Tda3a1oYaJI/AAAAAAAAAsg/sntvRoKZ-B8/s1600/guia-instalacion-al-p1-6.jpg"><img height="150" src="http://2.bp.blogspot.com/-Y_oOK-nayh0/Tda3a1oYaJI/AAAAAAAAAsg/sntvRoKZ-B8/s200/guia-instalacion-al-p1-6.jpg" width="200" /></a>
-</div>
-<br />
-<b>Iniciando la instalaci&oacute;n</b>
-<br />El programa de instalaci&oacute;n se inicia con el comando:
-<br />
-<br />
-<div>
- <pre># /arch/setup</pre>
-</div>
-<br />Este programa nos guiar&aacute; a trav&eacute;s del proceso de instalaci&oacute;n y de cada uno de sus pasos, que consistir&aacute;n en:
-<br />
-<ol>
- <li>Seleccionar la fuente de los paquetes de donde ser&aacute;n descargados. Ya que estamos utilizando una instalaci&oacute;n basada en la red los paquetes ser&aacute;n descargados de la misma, esta forma de instalaci&oacute;n tiene la ventaja de que una vez instalado Arch Linux tendremos el sistema completamente actualizado con las &uacute;ltimas versiones de los paquetes. Elegiremos la opci&oacute;n &laquo;net&raquo;.</li>
- <li>Establecer el reloj del sistema.</li>
- <li>Preparar los discos duros. Donde estableceremos las particiones y el formato de las mismas.</li>
- <li>Selecci&oacute;n de paquetes que se instalar&aacute;n en la instalaci&oacute;n base.</li>
- <li>Instalaci&oacute;n de paquetes. Donde se descargar&aacute;n los paquetes necesarios de la red y se instalar&aacute;n en el sistema.</li>
- <li>Configuraci&oacute;n del sistema</li>
- <li>Instalaci&oacute;n de programa de arranque que permitir&aacute; iniciar el sistema una vez reiniciemos.</li>
- <li>Salir de la instalaci&oacute;n donde procederemos a reiniciar el sistema.</li>
-</ol>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-27Fr_gLa44k/Tda3fVbHADI/AAAAAAAAAsk/d5C8NxDe8y4/s1600/guia-instalacion-al-p1-7.jpg"><img height="150" src="http://3.bp.blogspot.com/-27Fr_gLa44k/Tda3fVbHADI/AAAAAAAAAsk/d5C8NxDe8y4/s200/guia-instalacion-al-p1-7.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-n4zpsiQQ5YQ/Tda3peeWiuI/AAAAAAAAAss/Gbvpm-7omrA/s1600/guia-instalacion-al-p1-8.jpg"><img height="150" src="http://2.bp.blogspot.com/-n4zpsiQQ5YQ/Tda3peeWiuI/AAAAAAAAAss/Gbvpm-7omrA/s200/guia-instalacion-al-p1-8.jpg" width="200" /></a>
-</div>
-<br />
-<br />
-<b>1. Selecci&oacute;n de la fuente de los paquetes</b>
-<br />
-<br />Primero deberemos configurar la red donde seleccionaremos la interfaz de red (la tarjeta de red) que utilizaremos para descargar los paquetes y le indicaremos al programa de instaci&oacute;n que la configure mediante DHCP. Si todo ha ido correctamente veremos un mensaje indicando que la red est&aacute; configurada.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-s2u56QXVe2s/Tda3sRzbjaI/AAAAAAAAAs0/vPEF91-TRIM/s1600/guia-instalacion-al-p1-9.jpg"><img height="150" src="http://2.bp.blogspot.com/-s2u56QXVe2s/Tda3sRzbjaI/AAAAAAAAAs0/vPEF91-TRIM/s200/guia-instalacion-al-p1-9.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-0aqtAav1j1g/Tda3u-rLjrI/AAAAAAAAAs8/7CrYsNw5B20/s1600/guia-instalacion-al-p1-10.jpg"><img height="150" src="http://3.bp.blogspot.com/-0aqtAav1j1g/Tda3u-rLjrI/AAAAAAAAAs8/7CrYsNw5B20/s200/guia-instalacion-al-p1-10.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-v9Xw_N8CAOo/Tda3uCN6eeI/AAAAAAAAAs4/jJ1whOKcG5A/s1600/guia-instalacion-al-p1-11.jpg"><img height="150" src="http://2.bp.blogspot.com/-v9Xw_N8CAOo/Tda3uCN6eeI/AAAAAAAAAs4/jJ1whOKcG5A/s200/guia-instalacion-al-p1-11.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-p1l9Rb2SpQ0/Tda3yTohRmI/AAAAAAAAAtE/c8LTnOp-Ap4/s1600/guia-instalacion-al-p1-12.jpg"><img height="150" src="http://1.bp.blogspot.com/-p1l9Rb2SpQ0/Tda3yTohRmI/AAAAAAAAAtE/c8LTnOp-Ap4/s200/guia-instalacion-al-p1-12.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <br />
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-zJjpvP5Gdi4/Tda32RuBNeI/AAAAAAAAAtI/YQMqvNuCywI/s1600/guia-instalacion-al-p1-13.jpg"><img height="150" src="http://1.bp.blogspot.com/-zJjpvP5Gdi4/Tda32RuBNeI/AAAAAAAAAtI/YQMqvNuCywI/s200/guia-instalacion-al-p1-13.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-GiKRTdYFqDk/Tda364mx6iI/AAAAAAAAAtU/9IO0W3b0PCM/s1600/guia-instalacion-al-p1-14.jpg"><img height="150" src="http://3.bp.blogspot.com/-GiKRTdYFqDk/Tda364mx6iI/AAAAAAAAAtU/9IO0W3b0PCM/s200/guia-instalacion-al-p1-14.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: -webkit-auto;">
- Una vez configurada la red pasamos a seleccionar el mirror del cual nos descargaremos los paquetes. Aqu&iacute; hay que tener en cuenta que los servidores de Arch Linux est&aacute;n limitados a 50 KB/s para no saturarlos asi que seleccionaremos otro mirror para completar la instalaci&oacute;n m&aacute;s r&aacute;pidamiente. De entre todos los mirrors disponibles uno de los que tarda menos en actualizarse y del que se descarga con una buena velocidad es el primero de los que nos aparece en la lista, http://mirrors.kernel.org o ftp://mirrors.kernel.org (el primero me ha dado mejor funcionamiento).
-</div>
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-5TX4u0PDPj8/Tda38NeXciI/AAAAAAAAAtY/0lOsv5-PVSM/s1600/guia-instalacion-al-p1-15.jpg"><img height="150" src="http://3.bp.blogspot.com/-5TX4u0PDPj8/Tda38NeXciI/AAAAAAAAAtY/0lOsv5-PVSM/s200/guia-instalacion-al-p1-15.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-6ZGTppr-5lM/Tda4Dhc6aCI/AAAAAAAAAtg/O-YP6Tj3uGo/s1600/guia-instalacion-al-p1-16.jpg"><img height="150" src="http://3.bp.blogspot.com/-6ZGTppr-5lM/Tda4Dhc6aCI/AAAAAAAAAtg/O-YP6Tj3uGo/s200/guia-instalacion-al-p1-16.jpg" width="200" /></a>
-</div>
-<br />
-<b>2. Configuraci&oacute;n del reloj del sistema</b>
-<br />
-<br />Primero seleccionaremos nuestra regi&oacute;n y zona horaria. Para mi caso Europa/Madrid. Luego indicaremos si la hora en el sistema se guarda en UTC como esperan la mayor&iacute;a de los sistemas basados en Unix o localtime si en el sistema adem&aacute;s de Arch Linux habr&aacute; alguna versi&oacute;n de Windows instalada.
-<br />
-<br />Si la hora que se nos muestra es correcta volvemos al men&uacute; principal sino podemos sincronizar la hora del sistema a trav&eacute;s de la red con la opci&oacute;n ntp.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-Er8YIYJDd3E/Tda4FiVu59I/AAAAAAAAAtk/XXhpuQHkuVI/s1600/guia-instalacion-al-p1-18.jpg"><img height="150" src="http://4.bp.blogspot.com/-Er8YIYJDd3E/Tda4FiVu59I/AAAAAAAAAtk/XXhpuQHkuVI/s200/guia-instalacion-al-p1-18.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-p3YHvCDvIus/Tda4KLrJUvI/AAAAAAAAAts/ggebkpTuigg/s1600/guia-instalacion-al-p1-19.jpg"><img height="150" src="http://1.bp.blogspot.com/-p3YHvCDvIus/Tda4KLrJUvI/AAAAAAAAAts/ggebkpTuigg/s200/guia-instalacion-al-p1-19.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-SElh6UbD_xc/Tda4QAE1yfI/AAAAAAAAAt4/vhdJQnLt05k/s1600/guia-instalacion-al-p1-21.jpg"><img height="150" src="http://2.bp.blogspot.com/-SElh6UbD_xc/Tda4QAE1yfI/AAAAAAAAAt4/vhdJQnLt05k/s200/guia-instalacion-al-p1-21.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-1d2gsSblbcc/Tda4MDJHSFI/AAAAAAAAAtw/WszMZ4Vy14w/s1600/guia-instalacion-al-p1-20.jpg"><img height="150" src="http://3.bp.blogspot.com/-1d2gsSblbcc/Tda4MDJHSFI/AAAAAAAAAtw/WszMZ4Vy14w/s200/guia-instalacion-al-p1-20.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-CwabsO6-dug/Tda4U0gD63I/AAAAAAAAAt8/FN9TkCVEDB4/s1600/guia-instalacion-al-p1-23.jpg"><img height="150" src="http://1.bp.blogspot.com/-CwabsO6-dug/Tda4U0gD63I/AAAAAAAAAt8/FN9TkCVEDB4/s200/guia-instalacion-al-p1-23.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-jnNkVVrM7KA/Tda4Xq5FnRI/AAAAAAAAAuA/T5z0NbsOJ6Q/s1600/guia-instalacion-al-p1-22.jpg"><img height="150" src="http://3.bp.blogspot.com/-jnNkVVrM7KA/Tda4Xq5FnRI/AAAAAAAAAuA/T5z0NbsOJ6Q/s200/guia-instalacion-al-p1-22.jpg" width="200" /></a>
-</div>
-<br />
-<b>3. Preparar los discos duros</b>
-<br />
-<br />Aunque el instalador de Arch Linux tiene una opci&oacute;n para realizar la preparaci&oacute;n de los discos duros autom&aacute;ticamente vamos a ver como realizar una configuraci&oacute;n manual que nos permitir&aacute; elegir el tama&ntilde;o de las particiones y el tipo de las mismas seg&uacute;n sean nuestras preferencias. Para ello elegimos de particionar manualmente el disco duro, seleccionamos el disco duro donde instalaremos Arch y llegamos al editor de las particiones.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-OwwlCWZ4oi8/Tda4c4QuiUI/AAAAAAAAAuI/NErNZMlNHFw/s1600/guia-instalacion-al-p1-25.jpg"><img height="150" src="http://2.bp.blogspot.com/-OwwlCWZ4oi8/Tda4c4QuiUI/AAAAAAAAAuI/NErNZMlNHFw/s200/guia-instalacion-al-p1-25.jpg" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-gFe897zTFvY/Tda4Z5mrKQI/AAAAAAAAAuE/j0EZQW2glMg/s1600/guia-instalacion-al-p1-26.jpg"><img height="150" src="http://4.bp.blogspot.com/-gFe897zTFvY/Tda4Z5mrKQI/AAAAAAAAAuE/j0EZQW2glMg/s200/guia-instalacion-al-p1-26.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-h1_n4D831YY/Tda4jsh0Q6I/AAAAAAAAAuQ/tU_H51L1PUo/s1600/guia-instalacion-al-p1-27.jpg"><img height="150" src="http://3.bp.blogspot.com/-h1_n4D831YY/Tda4jsh0Q6I/AAAAAAAAAuQ/tU_H51L1PUo/s200/guia-instalacion-al-p1-27.jpg" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-WSt6hn3e808/Tda4geulg2I/AAAAAAAAAuM/0G8j3Pcj8oU/s1600/guia-instalacion-al-p1-28.jpg"><img height="150" src="http://4.bp.blogspot.com/-WSt6hn3e808/Tda4geulg2I/AAAAAAAAAuM/0G8j3Pcj8oU/s200/guia-instalacion-al-p1-28.jpg" width="200" /></a>
-</div>
-<br />Con el editor crearemos las dos particiones b&aacute;sicas que se necesitan: la partici&oacute;n del sistema donde estar&aacute;n nuestros datos, los datos del sistema Arch incluidos los de arranque (/boot) y la partici&oacute;n de intercambio o swap (si nuestras preferencias son otras podemos crear m&aacute;s particiones para separar los datos de nuestro usuario y los del sistema, por ejemplo). Para ello utilizaremos la opci&oacute;n [New] del editor e iremos creando las particiones una a una. La partici&oacute;n del sistema la marcaremos como &laquo;Bootable&raquo; y para la partici&oacute;n de intercambio le seleccionaremos el tipo de sistema de archivos Linux swap con la opci&oacute;n [Type]. Para desplazarnos entre las particiones creadas y el espacio libre del disco usaremos las flechas arriba y abajo, y para seleccionar una acci&oacute;n nos desplazaremos con las flechas izquierda y derecha. Finalmente, escribiremos los datos de las particiones al disco con [Write] y despu&eacute;s saldremos del editor con [Quit] volviendo de nuevo al instalador de Arch donde seleccionaremos la opci&oacute;n &laquo;DONE&raquo; para continuar configurando manualmente los puntos de montaje y sistemas de archivos.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-xKK4LhTlWsg/Tda3MUsuxnI/AAAAAAAAAr4/R__97nvvfvg/s1600/guia-instalacion-al-p1-1-v2.png"><img height="150" src="http://1.bp.blogspot.com/-xKK4LhTlWsg/Tda3MUsuxnI/AAAAAAAAAr4/R__97nvvfvg/s200/guia-instalacion-al-p1-1-v2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>Primero se nos preguntar&aacute; como se identificar&aacute;n las particiones en el archivo de configuraci&oacute;n de GRUB, si a trav&eacute;s del dispositivo, mediante la etiqueta de la partici&oacute;n o mediante un identificador (uuid). En esta gu&iacute;a seleccionaremos la opci&oacute;n uuid. En la siguiente pantalla seleccionaremos el sistema de archivos para cada partici&oacute;n, para las particiones que he creado en esta gu&iacute;a ser&aacute;n:
-<br />
-<br />/dev/sda1: swap
-<br />/dev/sda2: ext4
-<br />
-<br />El instalador nos pregutar&aacute; al establecer los tipos de sistemas de archivo y puntos de montaje que no tenemos una partici&oacute;n espec&iacute;fica para /boot, cuando nos pregunte seleccionamos &laquo;ignore&raquo;. En el dispositivo /dev/sda2 seleccionamos como punto de montaje &laquo;/&raquo;.
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-TWg9tW19wxY/Tda4rKnEmTI/AAAAAAAAAuU/JIH3Z9gOUUs/s1600/guia-instalacion-al-p1-35.jpg"><img height="150" src="http://2.bp.blogspot.com/-TWg9tW19wxY/Tda4rKnEmTI/AAAAAAAAAuU/JIH3Z9gOUUs/s200/guia-instalacion-al-p1-35.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-4OMOQLAavtE/Tda3PlmumOI/AAAAAAAAAsE/pj8f5OYcCjQ/s1600/guia-instalacion-al-p1-3-v2.png"><img height="150" src="http://1.bp.blogspot.com/-4OMOQLAavtE/Tda3PlmumOI/AAAAAAAAAsE/pj8f5OYcCjQ/s200/guia-instalacion-al-p1-3-v2.png" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-XYYDwb27LeM/Tda3RZnshdI/AAAAAAAAAsQ/ayotK3OHLLE/s1600/guia-instalacion-al-p1-4-v2.png"><img height="150" src="http://2.bp.blogspot.com/-XYYDwb27LeM/Tda3RZnshdI/AAAAAAAAAsQ/ayotK3OHLLE/s200/guia-instalacion-al-p1-4-v2.png" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-73iyo5c7IjQ/Tda4rdtECBI/AAAAAAAAAuY/Ct4UiUw8WD8/s1600/guia-instalacion-al-p1-37.jpg"><img height="150" src="http://4.bp.blogspot.com/-73iyo5c7IjQ/Tda4rdtECBI/AAAAAAAAAuY/Ct4UiUw8WD8/s200/guia-instalacion-al-p1-37.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-NFlSdikcJms/Tda4ulPjDnI/AAAAAAAAAuc/x26v3CJIuqQ/s1600/guia-instalacion-al-p1-40.jpg"><img height="150" src="http://3.bp.blogspot.com/-NFlSdikcJms/Tda4ulPjDnI/AAAAAAAAAuc/x26v3CJIuqQ/s200/guia-instalacion-al-p1-40.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-jq6wRR6Hsek/Tda4x7xT5wI/AAAAAAAAAuk/u9iSZmV5wmc/s1600/guia-instalacion-al-p1-41.jpg"><img height="150" src="http://1.bp.blogspot.com/-jq6wRR6Hsek/Tda4x7xT5wI/AAAAAAAAAuk/u9iSZmV5wmc/s200/guia-instalacion-al-p1-41.jpg" width="200" /></a>
-</div>
-<br />&iexcl;Bien! Ya tenemos el disco duro preparado para empezar a descargar los paquetes que se instalar&aacute;n en el sistema.
-<br />
-<br />
-<b>4. Selecci&oacute;n de paquetes</b>
-<br />
-<br />Para seleccionar los paquetes primero escogeremos de que grupos de paquetes y seleccionaremos los dos grupos que nos aparecen: base y base-devel ya que este &uacute;ltimo lo necesitaremos si instalamos ciertos programas o drivers. En la siguiente pantalla nos aparecer&aacute;n un mont&oacute;n de paquetes ya seleccionados por defecto, el &uacute;nico que seleccionaremos ser&aacute; links que es una navegador en modo texto y adem&aacute;s si estamos instalando Arch en un port&aacute;til seleccionaremos el paquete hdparm que nos permitir&aacute; reducir la frecuencia con la que se aparcan los cabezales del disco duro lo que puede evitar que el disco duro deje de funcionar correctamente por el desgaste de los mismos.
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-czYCb9H2Uro/Tda4xSn4cDI/AAAAAAAAAug/81x4l8wVVt4/s1600/guia-instalacion-al-p1-43.jpg"><img height="150" src="http://1.bp.blogspot.com/-czYCb9H2Uro/Tda4xSn4cDI/AAAAAAAAAug/81x4l8wVVt4/s200/guia-instalacion-al-p1-43.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-J67pZDQ_hZU/Tda4z5MWCpI/AAAAAAAAAuo/5KIOeCGDKnU/s1600/guia-instalacion-al-p1-44.jpg"><img height="150" src="http://1.bp.blogspot.com/-J67pZDQ_hZU/Tda4z5MWCpI/AAAAAAAAAuo/5KIOeCGDKnU/s200/guia-instalacion-al-p1-44.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-ul_OpooG9UY/Tda40Gutc3I/AAAAAAAAAus/YHshuSVa0-8/s1600/guia-instalacion-al-p1-45.jpg"><img height="150" src="http://2.bp.blogspot.com/-ul_OpooG9UY/Tda40Gutc3I/AAAAAAAAAus/YHshuSVa0-8/s200/guia-instalacion-al-p1-45.jpg" width="200" /></a>
- <a href="http://4.bp.blogspot.com/-42sLbpkXvBI/Tda44Y6R--I/AAAAAAAAAuw/SZc9Rk1v024/s1600/guia-instalacion-al-p1-46.jpg"><img height="150" src="http://4.bp.blogspot.com/-42sLbpkXvBI/Tda44Y6R--I/AAAAAAAAAuw/SZc9Rk1v024/s200/guia-instalacion-al-p1-46.jpg" width="200" /></a>
-</div>
-<br />
-<b>5. Instalaci&oacute;n de paquetes</b>
-<br />
-<br />Ya puede dar comienzo el proceso de descarga de paquetes y por el momento s&oacute;lo nos queda esperar a que se descarguen, tardar&aacute; m&aacute;s o menos minutos dependiendo de la velocidad de la conexi&oacute;n a Internet. Si nos ocurre que alg&uacute;n paquete no se descarga por que el tiempo de espera se super&oacute; (timeout), una vez se terminen descargar el resto de paquetes podemos volver a seleccionar la instalaci&oacute;n de paquetes y se reintentar&aacute; la descarga de los paquetes que fallaron, una vez se descarguen todos los paquetes correctamente continuaremos con la instalaci&oacute;n. As&iacute; que deberemos estar atentos a si se descargan todos correctamente. Una vez est&eacute;n todos los paquetes descargados se proceder&aacute; a su instalaci&oacute;n.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://2.bp.blogspot.com/-ZDgGkqmnzo8/Tda5CHtR-BI/AAAAAAAAAu4/wE64Y0r8K6s/s1600/guia-instalacion-al-p1-47.jpg"><img height="150" src="http://2.bp.blogspot.com/-ZDgGkqmnzo8/Tda5CHtR-BI/AAAAAAAAAu4/wE64Y0r8K6s/s200/guia-instalacion-al-p1-47.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-3ggpyT2c7_I/Tda47_S1hkI/AAAAAAAAAu0/kWatHS3kIFU/s1600/guia-instalacion-al-p1-48.jpg"><img height="150" src="http://1.bp.blogspot.com/-3ggpyT2c7_I/Tda47_S1hkI/AAAAAAAAAu0/kWatHS3kIFU/s200/guia-instalacion-al-p1-48.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-jNYXk1IYbkI/Tda3XguYe9I/AAAAAAAAAsc/gP41ds5SN3o/s1600/guia-instalacion-al-p1-5-v2.png"><img height="149" src="http://3.bp.blogspot.com/-jNYXk1IYbkI/Tda3XguYe9I/AAAAAAAAAsc/gP41ds5SN3o/s200/guia-instalacion-al-p1-5-v2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>
-<div style="clear: both; text-align: center;"></div>
-<b>6. Configuraci&oacute;n del sistema</b>
-<br />
-<br />Primero se nos preguntar&aacute; si deseamos usar la misma configuraci&oacute;n de conexi&oacute;n a Internet usada por el instalador. Si hemos llegado hasta aqu&iacute; es porque los paquetes se descargaron correctamente y por lo tanto la configuraci&oacute;n de conexi&oacute;n a Internet es v&aacute;lida por lo que podremos decirle que s&iacute; si no queremos hacer ninguna configuraci&oacute;n adicional en este momento. En el siguiente paso seleccionaremos nuestro editor preferido que en mi caso es nano, ya que es bastante sencillo de utilizar e intuitivo. Ahora deberemos ir revisando y editando algunas partes de los archivos que se usan para configurar el sistema.
-<br />
-<div style="clear: both; text-align: -webkit-auto;">
- <br />
-</div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-AuPzV0RTm4o/Tda5FwzxyiI/AAAAAAAAAvA/NKoSI6HrZB4/s1600/guia-instalacion-al-p1-53.jpg"><img height="150" src="http://4.bp.blogspot.com/-AuPzV0RTm4o/Tda5FwzxyiI/AAAAAAAAAvA/NKoSI6HrZB4/s200/guia-instalacion-al-p1-53.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-ZWANvVTHdMc/Tda5D4aDz2I/AAAAAAAAAu8/YCTwF_8vZ2I/s1600/guia-instalacion-al-p1-54.jpg"><img height="150" src="http://2.bp.blogspot.com/-ZWANvVTHdMc/Tda5D4aDz2I/AAAAAAAAAu8/YCTwF_8vZ2I/s200/guia-instalacion-al-p1-54.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-co9lZMlS_oI/Tda5SYj5dSI/AAAAAAAAAvI/aVH_-RpLktE/s1600/guia-instalacion-al-p1-55.jpg"><img height="150" src="http://4.bp.blogspot.com/-co9lZMlS_oI/Tda5SYj5dSI/AAAAAAAAAvI/aVH_-RpLktE/s200/guia-instalacion-al-p1-55.jpg" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-q7RaxOFqz9M/Tda5NoCWIhI/AAAAAAAAAvE/-64cA-t0Eng/s1600/guia-instalacion-al-p1-56.jpg"><img height="150" src="http://1.bp.blogspot.com/-q7RaxOFqz9M/Tda5NoCWIhI/AAAAAAAAAvE/-64cA-t0Eng/s200/guia-instalacion-al-p1-56.jpg" width="200" /></a>
-</div>
-<br />/etc/ rc.local: En este archivo modificaremos las lineas dejando los siguientes valores para las siguientes variables.
-<br />LOCALE=&quot;es_ES.UTF-8&quot;
-<br />KEYMAP=&quot;es&quot;
-<br />HOSTNAME=&quot;arch-virtualbox&quot;. Esta variable contiene el nombre de nuestra m&aacute;quina as&iacute; que elegiremos la que m&aacute;s adecuada nos parezca.
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-R_g5BO-toUU/Tda3reBMnUI/AAAAAAAAAsw/DQtKxr7iD54/s1600/guia-instalacion-al-p1-8-v2.png"><img height="150" src="http://4.bp.blogspot.com/-R_g5BO-toUU/Tda3reBMnUI/AAAAAAAAAsw/DQtKxr7iD54/s200/guia-instalacion-al-p1-8-v2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>
-<div style="clear: both; text-align: center;"></div>Finalmente, si hemos elegido nano como editor saldremos con &laquo;CTRL+X&raquo; y guardaremos el archivo cuando nos pregunte.
-<br />
-<br />/etc/locale.gen: En este archivo descomentaremos las siguientes l&iacute;neas y salimos del editor guardando los cambios.
-<br />es_ES.UTF-8 UTF-8
-<br />es_ES ISO-8859-1
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://1.bp.blogspot.com/-cBb4UQ3KwVk/Tda5cycoZRI/AAAAAAAAAvQ/XYSuCQWm8Y4/s1600/guia-instalacion-al-p1-59.jpg"><img height="150" src="http://1.bp.blogspot.com/-cBb4UQ3KwVk/Tda5cycoZRI/AAAAAAAAAvQ/XYSuCQWm8Y4/s200/guia-instalacion-al-p1-59.jpg" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>En el resto de archivos no es necesario realizar ning&uacute;n cambio salvo que queramos realizar alguna configuraci&oacute;n especial pero si lo haces es porque ya conoces Arch Linux y no necesitas esta gu&iacute;a as&iacute; que no explicar&eacute; nada del resto de archivos. Sin embargo, es recomendable ver su contenido para conocer que contienen, algunos tienen explicaciones que nos pueden ayudar a conocer para que sirven.
-<br />
-<br />Para acabar la configuraci&oacute;n del sistema estableceremos la contrase&ntilde;a del usuario root.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-sN_LgYB2hNE/Tda5YiHvqvI/AAAAAAAAAvM/ry7FqfP1lSA/s1600/guia-instalacion-al-p1-60.jpg"><img height="150" src="http://4.bp.blogspot.com/-sN_LgYB2hNE/Tda5YiHvqvI/AAAAAAAAAvM/ry7FqfP1lSA/s200/guia-instalacion-al-p1-60.jpg" width="200" /></a>
- <a href="http://3.bp.blogspot.com/-VfI9SEzq37Q/Tda5gPujj3I/AAAAAAAAAvU/BLLYIB4gOHo/s1600/guia-instalacion-al-p1-61.jpg"><img height="150" src="http://3.bp.blogspot.com/-VfI9SEzq37Q/Tda5gPujj3I/AAAAAAAAAvU/BLLYIB4gOHo/s200/guia-instalacion-al-p1-61.jpg" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: left;">
- <b>7. Instalaci&oacute;n del cargador de arranque</b>
-</div>
-<br />En la versi&oacute;n del medio de instalaci&oacute;n explicado en esta gu&iacute;a trata de instalar en este punto GRUB sin embargo esta versi&oacute;n ya no se desarrolla activamente y desde hace ya un tiempo lo esfuerzos se dirigen a GRUB 2 que ofrece muchas mejoras sobre la versi&oacute;n anterior como poder iniciar el sistema que est&eacute; en una partici&oacute;n en formato Ext4. Esto nos permitir&aacute; no tener que dedicar una partici&oacute;n en formato Ext2 o Ext3 exclusivamente para los archivo de /boot por este motivo ser&aacute; GRUB 2 el cargador de arranque que instalaremos. Para ello en este momento nos saltaremos este paso. Ya podemos salir del asistente de instalci&oacute;n de Arch Linux pero todav&iacute;a nos queda instalar GRUB 2 manualmente para poder iniciar el sistema correctamente.
-<br />
-<br />
-<b>GRUB 2 (<a href="http://wiki.archlinux.org/index.php/GRUB2">wiki</a>)</b>
-<br />Antes de seguir con este paso es recomendable (sino obligatorio) leerse la 
-<a href="http://wiki.archlinux.org/index.php/GRUB2">wiki sobre GRUB 2</a> ya que puede que contenga informaci&oacute;n m&aacute;s actualizada sobre como realizar la instalaci&oacute;n o configuraci&oacute;n. Una mala configuraci&oacute;n puede dejar nuestro sistema en un estado no arrancable. 
-<br />
-<br />
-<a href="http://wiki.archlinux.org/index.php/GRUB">GRUB</a> es el programa que b&aacute;sicamente nos permite iniciar el sistema operativo que queramos si tenemos varios instalados. 
-<a href="http://wiki.archlinux.org/index.php/GRUB2">GRUB 2</a> es la siguiente generaci&oacute;n de cargador del sistema reescrito teniendo en cuenta su modularidad y portabilidad. Para instalar GRUB 2 desde el medio de instalaci&oacute;n tenemos que ejecutar los siguientes comandos en orden:
-<br />
-<br />
-<div>
- <pre># aif -p partial-configure-network<br /># cp /etc/resolv.conf /mnt/etc/resolv.conf<br /># mount -o bind /dev /mnt/dev<br /># mount -t proc /proc /mnt/proc/<br /># mount -t sysfs /sys /mnt/sys/<br /># chroot /mnt bash<br /># loadkeys es</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-EeJk-8JzBGE/Tda34HFpieI/AAAAAAAAAtM/VzKDkRquZv0/s1600/guia-instalacion-al-p1-12-v2.png"><img height="150" src="http://4.bp.blogspot.com/-EeJk-8JzBGE/Tda34HFpieI/AAAAAAAAAtM/VzKDkRquZv0/s200/guia-instalacion-al-p1-12-v2.png" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-UZDSjIl_m1s/Tda3wnHeJ4I/AAAAAAAAAtA/i_USsK7IZmk/s1600/guia-instalacion-al-p1-11-v2.png"><img height="150" src="http://1.bp.blogspot.com/-UZDSjIl_m1s/Tda3wnHeJ4I/AAAAAAAAAtA/i_USsK7IZmk/s200/guia-instalacion-al-p1-11-v2.png" width="200" /></a>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-sJmgc2ktqmY/Tda35_rMlkI/AAAAAAAAAtQ/lUJj0aVosQI/s1600/guia-instalacion-al-p1-13-v2.png"><img height="150" src="http://3.bp.blogspot.com/-sJmgc2ktqmY/Tda35_rMlkI/AAAAAAAAAtQ/lUJj0aVosQI/s200/guia-instalacion-al-p1-13-v2.png" width="200" /></a>
-</div>
-<br />Ahora instalamos el paquete de GRUB 2 con:
-<br />
-<br />
-<div>
- <pre># pacman-db-upgrade<br /># pacman -Syy<br /># pacman -S grub2-bios</pre>
-</div>
-<br />
-<b>Importante</b>: Todav&iacute;a no lo tenemos configurado para iniciar el sistema y debemos hacerlo si queremos que el sistema se inicie correctamente en el siguiente arranque, lo hacemos con:
-<br />
-<br />
-<div>
- <pre># grub-install --recheck /dev/sda</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-1KIWviQcC7o/Tda39z6XLpI/AAAAAAAAAtc/JJcd6B980_s/s1600/guia-instalacion-al-p1-15-v2.png"><img height="150" src="http://3.bp.blogspot.com/-1KIWviQcC7o/Tda39z6XLpI/AAAAAAAAAtc/JJcd6B980_s/s200/guia-instalacion-al-p1-15-v2.png" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<br />Para iniciar GRUB en modo gr&aacute;fico editamos el archivo /etc/default/grub con el siguiente contenido modificando los valores de las siguientes variables y/o descoment&aacute;ndolas (pon la resoluci&oacute;n nativa de tu monitor) (aunque puede que GRUB 2 detecte la resoluci&oacute;n nativa de nuestro monitor y podamos saltarnos este punto):
-<br />
-<br />
-<div>
- <pre>GRUB_GFXMODE=1024x768x32<br />GRUB_GFXPAYLOAD_LINUX=keep</pre>
-</div>
-<br />Y generamos un nuevo archivo de configuraci&oacute;n con:
-<br />
-<br />
-<div>
- <pre># grub-mkconfig -o /boot/grub/grub.cfg</pre>
-</div>
-<br />Si todo va correctamente podemos reiniciar el sistema:
-<br />
-<br />
-<div>
- <pre># shutdown -r now</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-qI67GKLrw6c/Tda4FvUQsCI/AAAAAAAAAto/wASfeqy7YPQ/s1600/guia-instalacion-al-p1-18-v2.png"><img height="149" src="http://4.bp.blogspot.com/-qI67GKLrw6c/Tda4FvUQsCI/AAAAAAAAAto/wASfeqy7YPQ/s200/guia-instalacion-al-p1-18-v2.png" width="200" /></a>
- <a href="http://1.bp.blogspot.com/-abo-GAxpWfI/Tda4O1mgOeI/AAAAAAAAAt0/xAy0YhBgH6A/s1600/guia-instalacion-al-p1-19-v2.png"><img height="150" src="http://1.bp.blogspot.com/-abo-GAxpWfI/Tda4O1mgOeI/AAAAAAAAAt0/xAy0YhBgH6A/s200/guia-instalacion-al-p1-19-v2.png" width="200" /></a>
-</div>
-<br />
-<b>Primeros pasos</b>
-<br />
-<br />El primer paso despu&eacute;s de completar la instalaci&oacute;n base ser&aacute; resolver uno de los problemas de algunos discos duros de port&aacute;tiles. El problema reside en que algunos discos duros aparcan los cabezales muy frecuentemente, en unos pocos segundos, cuando no detectan actividad en &eacute;l para tratar de ahorrar energ&iacute;a y evitar el desgaste del dispositivo pero por el contrario si esto ocurre frecuentemente puede llegar a estropearlo. El aparcamiento de los cabezales ocurre cada vez que o&iacute;mos una especie de clic.
-<br />
-<br />Para disminuir la frecuencia de aparcamiento de los cabezales de unos pocos segundos a un minuto aproximadamente (en mi disco duro, en otros el tiempo puede variar) modificaremos el archivo /etc/rc.local a&ntilde;adiendo al mismo las siguientes dos l&iacute;neas:
-<br />
-<br />
-<div>
- <pre>hdparm -S 0 /dev/disk/by-uuid/e3673b89-e229-4bc3-b17c-585bf817fde1<br />hdparm -B 254 /dev/disk/by-uuid/e3673b89-e229-4bc3-b17c-585bf817fde1</pre>
-</div>
-<br />El uuid lo obtenemos mediante el comando:
-<br />
-<br />
-<div>
- <pre># blkid /dev/sda2</pre>
-</div>
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://3.bp.blogspot.com/-OLw1AskViQ0/Tda5gZNVsJI/AAAAAAAAAvY/Dqx4GLVtkYw/s1600/guia-instalacion-al-p1-72.jpg"><img height="150" src="http://3.bp.blogspot.com/-OLw1AskViQ0/Tda5gZNVsJI/AAAAAAAAAvY/Dqx4GLVtkYw/s200/guia-instalacion-al-p1-72.jpg" width="200" /></a>
- <a href="http://2.bp.blogspot.com/-xwyOusMr7S4/Tda5gyd7RcI/AAAAAAAAAvc/BoE-Fc6wfus/s1600/guia-instalacion-al-p1-73.jpg"><img height="150" src="http://2.bp.blogspot.com/-xwyOusMr7S4/Tda5gyd7RcI/AAAAAAAAAvc/BoE-Fc6wfus/s200/guia-instalacion-al-p1-73.jpg" width="200" /></a>
-</div>
-<div style="clear: both; text-align: center;"></div>
-<div style="clear: both; text-align: center;"></div>
-<br />
-<div style="clear: both; text-align: left;">
- Y con esto hemos llegado al final de la instalaci&oacute;n base. &iexcl;Enhorabuena si has llegado hasta aqu&iacute;!. Todav&iacute;a queda para tener un sistema con entorno gr&aacute;fico, sonido, programas, etc... pero eso es materia para la 
- <a href="http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html">siguiente parte de la gu&iacute;a de instalaci&oacute;n</a>.
-</div>
-<br />Adem&aacute;s de esta gu&iacute;a puede que tambi&eacute;n te interese leer otras gu&iacute;as y p&aacute;ginas:
-<br />
-<a href="http://wiki.archlinux.org/index.php/Official_Arch_Linux_Install_Guide">Gu&iacute;a oficial de instalaci&oacute;n de Arch Linux</a>
-<br />
-<a href="http://wiki.archlinux.org/index.php/Beginners'_Guide">Gu&iacute;a no oficial para principiantes</a>
-<br />
-<a href="http://wiki.archlinux.org/">ArchWiki</a>
-<br />
-<br />Tambi&eacute;n puedes continuar con la 
-<a href="http://elblogdepicodev.blogspot.com/2010/07/guia-instalacion-arch-linux-parte-ii.html">segunda parte de esta gu&iacute;a</a>.
-<br />
-<br />
-<div style="clear: both; text-align: center;"></div>
-<b>Actualizaci&oacute;n:</b> Esta gu&iacute;a fue editada por &uacute;ltima vez el 
-<b>15-02-2012</b>.</span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Guía instalación Arch Linux (Parte I, instalación base)";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2010/05/guia-instalacion-arch-linux-parte-i.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/arch-linux/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta arch-linux</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2010/05/guia-instalacion-arch-linux-parte-i.html">Guía instalación Arch Linux (Parte I, instalación base)</a></h1></header><p class="post-info"><span class="text-center" datetime="2012-07-01T02:16" itemprop="dateModified">domingo, 01 de julio de 2012 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/arch-linux"><span itemprop="articleSection">arch-linux</span></a> 
+</p><p class="text-justify" itemprop="description">
+Si has leído sobre Arch Linux, te gustan sus características y filosofía, crees que se puede adaptar a tus necesidades y estás dispuesto a probarlo ya sea en una máquina virtual o directamente sobre el metal, esta entrada puede que te ayude en alguno de los pasos que hay que dar para instalarlo. Esta guía no contempla todos los casos de posibles configuraciones (me sería imposible hacer una guía tan ambiciosa) sino más bien es una guía de los pasos que he dado para configurar mi sistema, aunque no se adapte a tu sistema o tus preferencias al 100% puede que te de ideas o información. Antes de empezar a realizar la instalación es recomendable leer la guía oficial de instalación de Arch y la guía no oficial para principiantes ya que al ser Arch Linux una distribución rolling release algunos apartados [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2010/05/guia-instalacion-arch-linux-parte-i.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base" st_title="Guía instalación Arch Linux (Parte I, instalación base) | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -454,35 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 186,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2010/05/guia-instalacion-arch-linux-parte-i-instalacion-base"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -494,6 +72,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

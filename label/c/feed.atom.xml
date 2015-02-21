@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-09T06:02:14Z</updated>
+  <updated>2015-02-21T01:25:00Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-09T06:02:14Z</dc:date>
+  <dc:date>2015-02-21T01:25:00Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>NHibernate Avanzado: Proyecciones anidadas</title>
@@ -19,9 +19,7 @@
     </author>
     <updated>2015-02-09T05:06:33Z</updated>
     <published>2015-02-09T05:06:33Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Una de los argumentos m&amp;aacute;s repetidos en contra de los ORMs es su falta de eficiencia, especialmente a la hora de hacer lecturas de grandes vol&amp;uacute;menes de datos. &lt;/p&gt; 
-&lt;p&gt;En realidad, esto suele estar provocado por un mal uso del ORM e intentar cargar muchas entidades en memoria para mostrar s&amp;oacute;lo un par de datos de cada entidad, pero hay una manera f&amp;aacute;cil de solucionar esto: usar proyecciones para cargar s&amp;oacute;lo los datos que necesitamos. &lt;/p&gt; 
-&lt;p&gt;Todos los ORMs que conozco tienen alg&amp;uacute;n sistema para construir este tipo de proyecciones, pero cuando los datos no son completamente “planos”, la cosa se complica un poco. Con NHibernate podemos generar proyecciones anidadas, es decir, en las que un objeto tiene asociada una colecci&amp;oacute;n de valores de una manera &lt;em&gt;relativamente&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Una de los argumentos más repetidos en contra de los ORMs es su falta de eficiencia, especialmente a la hora de hacer lecturas de grandes volúmenes de datos. En realidad, esto suele estar provocado por un mal uso del ORM e intentar cargar muchas entidades en memoria para mostrar sólo un par de datos de cada entidad, pero hay una manera fácil de solucionar esto: usar proyecciones para cargar sólo los datos que necesitamos. Todos los ORMs que conozco tienen algún sistema para construir este tipo de proyecciones, pero cuando los datos no son completamente “planos”, la cosa se complica un poco. Con NHibernate podemos generar proyecciones anidadas, es decir, en las que un objeto tiene asociada una colección de valores de una manera relativamente sencilla usando IResultTransformer. Como esto no es[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/02/nhibernate-avanzado-proyecciones-anidadas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2015-02-09T05:06:33Z</dc:date>
   </entry>
@@ -36,16 +34,7 @@
     </author>
     <updated>2014-11-25T12:52:00Z</updated>
     <published>2014-11-25T12:52:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh4.ggpht.com/-Z-02qMN2vPg/VGjovx2wALI/AAAAAAAADs0/X6Puu90rGsM/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" /&gt;Seguimos con esta serie sobre las novedades de C# 6, y esta vez le toca el turno a una solicitada caracter&amp;iacute;stica que recientemente ha entrado a formar parte de las elegidas para formar parte de esta nueva versi&amp;oacute;n de nuestro lenguaje favorito: la interpolaci&amp;oacute;n de cadenas. 
-&lt;br /&gt; 
-&lt;br /&gt;Dado que a&amp;uacute;n se encuentra en desarrollo no es posible probarlo de forma sencilla, por lo que de momento tendremos que conformarnos con sacar conclusiones bas&amp;aacute;ndonos en la 
-&lt;a href="https://roslyn.codeplex.com/discussions/570292"&gt;discusi&amp;oacute;n de dise&amp;ntilde;o en Codeplex&lt;/a&gt; y de la 
-&lt;a href="https://roslyn.codeplex.com/wikipage?title=Language%20Feature%20Status&amp;amp;referringTitle=Home"&gt;documentaci&amp;oacute;n existente&lt;/a&gt;. Avisan adem&amp;aacute;s que la especificaci&amp;oacute;n puede ser modificada, por lo que 
-&lt;strong&gt;todo lo que digamos aqu&amp;iacute; a&amp;uacute;n puede variar algo&lt;/strong&gt;, aunque mayormente ser&amp;aacute; (espero) v&amp;aacute;lido. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;En cualquier caso, el verbo 
-&lt;a href="http://lema.rae.es/drae/?val=interpolar"&gt;interpolar&lt;/a&gt; se define por la RAE como “poner algo entre cosas” o “intercalar palabras o frases en el texto de un manuscrito antiguo, o en obras y escritos ajenos”. Y esto es justamente lo que permitir&amp;aacute; esta nueva caracter&amp;iacute;stica: la posibilidad de introducir valores de variables o resultados de expresiones en el interior de cadenas de texto sin necesidad de usar los inc&amp;oacute;modos mecanismos habituales, como la concatenaci&amp;oacute;n o alguna variante de&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Seguimos con esta serie sobre las novedades de C# 6, y esta vez le toca el turno a una solicitada característica que recientemente ha entrado a formar parte de las elegidas para formar parte de esta nueva versión de nuestro lenguaje favorito: la interpolación de cadenas. Dado que aún se encuentra en desarrollo no es posible probarlo de forma sencilla, por lo que de momento tendremos que conformarnos con sacar conclusiones basándonos en la discusión de diseño en Codeplex y de la documentación existente. Avisan además que la especificación puede ser modificada, por lo que todo lo que digamos aquí aún puede variar algo, aunque mayormente será (espero) válido. En cualquier caso, el verbo interpolar se define por la RAE como “poner algo entre cosas” o “intercalar palabras o frases en el texto de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-11-25T12:52:00Z</dc:date>
   </entry>
@@ -58,13 +47,9 @@
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2014-11-18T12:52:00Z</updated>
+    <updated>2014-11-18T12:52:01Z</updated>
     <published>2014-11-18T12:52:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh5.ggpht.com/-CagaanyD_6M/VDlzVOCT2_I/AAAAAAAADqg/uWYTipYKDS0/image33.png?imgmax=800" style="background-image: none; border-width: 0px; display: inline; float: right; margin: 0px 0px 10px 15px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" /&gt;Seguimos hablando de las novedades de C# 6, y en esta ocasi&amp;oacute;n nos centraremos en una interesante caracter&amp;iacute;stica cuyo nombre, sinceramente, no estoy seguro de ser capaz de traducir de forma correcta del original “ 
-&lt;em&gt;Expression bodied function members&lt;/em&gt;”. Quiz&amp;aacute;s ser&amp;iacute;a algo as&amp;iacute; como “expresiones en cuerpo de miembros de funci&amp;oacute;n”, pero bueno, lo importante no es el nombre sino el concepto, as&amp;iacute; que vamos a centrarnos en &amp;eacute;l. 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt;Comencemos desde el principio. Los miembros de funci&amp;oacute;n son aquellos miembros de un tipo que contienen c&amp;oacute;digo ejecutable, como m&amp;eacute;todos, propiedades, indexadores, operadores y otros. En general, todos ellos permiten implementar su comportamiento mediante la introducci&amp;oacute;n de un bloque de c&amp;oacute;digo, tradicionalmente enmarcado entre llaves.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Seguimos hablando de las novedades de C# 6, y en esta ocasión nos centraremos en una interesante característica cuyo nombre, sinceramente, no estoy seguro de ser capaz de traducir de forma correcta del original “ Expression bodied function members”. Quizás sería algo así como “expresiones en cuerpo de miembros de función”, pero bueno, lo importante no es el nombre sino el concepto, así que vamos a centrarnos en él. Comencemos desde el principio. Los miembros de función son aquellos miembros de un tipo que contienen código ejecutable, como métodos, propiedades, indexadores, operadores y otros. En general, todos ellos permiten implementar su comportamiento mediante la introducción de un bloque de código, tradicionalmente enmarcado entre llaves. Pues bien, esta novedad del lenguaje permite sustituir[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/11/expresiones-lambda-en-miembros-de-funcion-de-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-11-18T12:52:00Z</dc:date>
   </entry>
@@ -77,22 +62,9 @@
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2014-11-16T18:38:37Z</updated>
+    <updated>2014-11-16T18:38:38Z</updated>
     <published>2014-09-30T11:52:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="C#" src="http://lh3.ggpht.com/-a9U16pQROIY/VCf2cZ26U0I/AAAAAAAADko/138a96ODvJU/image%25255B33%25255D.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" /&gt; 
-&lt;br /&gt; 
-&lt;div style="background-color: yellow; border: 1px solid black; padding: 5px;"&gt;
-  [Actualizado 16-Nov-2014] El equipo de dise&amp;ntilde;o del lenguaje C# ha decidido finalmente no incluir esta caracter&amp;iacute;stica en la versi&amp;oacute;n 6. En fin, fue bonito mientras dur&amp;oacute; :( 
-&lt;/div&gt; 
-&lt;br /&gt;Seguimos comentando novedades que encontraremos en la pr&amp;oacute;xima versi&amp;oacute;n de C#, y en esta ocasi&amp;oacute;n vamos a ver una nueva caracter&amp;iacute;stica que, sin resultar espectacular, s&amp;iacute; nos va a proporcionar una f&amp;oacute;rmula m&amp;aacute;s c&amp;oacute;moda y concisa para resolver algunos escenarios bastante habituales. 
-&lt;br /&gt; 
-&lt;br /&gt;Seguro que os resulta familiar el siguiente c&amp;oacute;digo, m&amp;aacute;s que nada porque lo habr&amp;eacute;is escrito decenas o cientos de veces: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh5.ggpht.com/-EI4avwcasxA/VChS1JU0B8I/AAAAAAAADm4/zDjbvD1QFkE/image%25255B2%25255D.png?imgmax=800" height="99" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="229" /&gt; 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt;Personalmente, la introducci&amp;oacute;n de par&amp;aacute;metros 
-&lt;code&gt;out&lt;/code&gt; en las llamadas siempre me resulta inc&amp;oacute;modo porque me hace volver atr&amp;aacute;s para declarar una variable expresamente para la ocasi&amp;oacute;n. Y hay otros casos en los que la sensaci&amp;oacute;n de vuelta atr&amp;aacute;s es igualmente molesta.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;[Actualizado 16-Nov-2014] El equipo de diseño del lenguaje C# ha decidido finalmente no incluir esta característica en la versión 6. En fin, fue bonito mientras duró :( Seguimos comentando novedades que encontraremos en la próxima versión de C#, y en esta ocasión vamos a ver una nueva característica que, sin resultar espectacular, sí nos va a proporcionar una fórmula más cómoda y concisa para resolver algunos escenarios bastante habituales. Seguro que os resulta familiar el siguiente código, más que nada porque lo habréis escrito decenas o cientos de veces: Personalmente, la introducción de parámetros out en las llamadas siempre me resulta incómodo porque me hace volver atrás para declarar una variable expresamente para la ocasión. Y hay otros casos en los que la sensación de vuelta atrás es[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/declaracion-de-variables-en-expresiones-de-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-09-30T11:52:00Z</dc:date>
   </entry>
@@ -105,22 +77,9 @@
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2014-10-28T12:52:00Z</updated>
+    <updated>2014-10-28T12:52:01Z</updated>
     <published>2014-10-28T12:52:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh4.ggpht.com/-_vBo18H0tXA/VDkU7PfCYGI/AAAAAAAADpI/UDJlg0nDqyg/image312.png?imgmax=800" height="179" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="142" /&gt;Seguimos con 
-&lt;a href="http://www.variablenotfound.com/search/label/c%236"&gt;la serie&lt;/a&gt; donde vamos desgranando las novedades de C# 6, y en esta ocasi&amp;oacute;n vamos a ver algunas mejoras en el uso de bloques try/catch, a las que seguro podremos sacar buen partido. 
-&lt;br /&gt; 
-&lt;br /&gt;En este post trataremos dos temas distintos. En primer lugar, comentaremos la introducci&amp;oacute;n del soporte de 
-&lt;code&gt;await&lt;/code&gt; en bloques 
-&lt;code&gt;catch&lt;/code&gt;/ 
-&lt;code&gt;finally&lt;/code&gt;, y seguiremos con la nueva capacidad de filtrado de excepciones. 
-&lt;br /&gt; 
-&lt;br /&gt;Vamos a ello :-) 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;h4&gt;Soporte de await en bloques catch/finally&lt;/h4&gt;Esta nueva caracter&amp;iacute;stica cubre una peque&amp;ntilde;a ausencia presente en las versiones anteriores del lenguaje de la que, sinceramente, no me hab&amp;iacute;a dado cuenta hasta la fecha. Resulta que en las versiones de C# anteriores a la 6, no estaba permitido utilizar 
-&lt;code&gt;await&lt;/code&gt; para esperar la finalizaci&amp;oacute;n de una llamada as&amp;iacute;ncrona en bloques&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Seguimos con la serie donde vamos desgranando las novedades de C# 6, y en esta ocasión vamos a ver algunas mejoras en el uso de bloques try/catch, a las que seguro podremos sacar buen partido. En este post trataremos dos temas distintos. En primer lugar, comentaremos la introducción del soporte de await en bloques catch/ finally, y seguiremos con la nueva capacidad de filtrado de excepciones. Vamos a ello :-) Soporte de await en bloques catch/finallyEsta nueva característica cubre una pequeña ausencia presente en las versiones anteriores del lenguaje de la que, sinceramente, no me había dado cuenta hasta la fecha. Resulta que en las versiones de C# anteriores a la 6, no estaba permitido utilizar await para esperar la finalización de una llamada asíncrona en bloques catch y finally. Por tanto,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/mejoras-en-bloques-try-catch-de-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-10-28T12:52:00Z</dc:date>
   </entry>
@@ -135,17 +94,7 @@
     </author>
     <updated>2014-10-21T11:48:00Z</updated>
     <published>2014-10-21T11:48:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image33" src="http://lh3.ggpht.com/-11Dw5KvHXNg/VDF65niXdpI/AAAAAAAADn4/vBK_7FzN0Jw/image33%25255B3%25255D.png?imgmax=800" height="185" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="image33" width="147" /&gt;En otras ocasiones hemos hablado de novedades que acompa&amp;ntilde;ar&amp;aacute;n a la pr&amp;oacute;xima revisi&amp;oacute;n de C# que nos ahorraban algo de tiempo y pulsaciones de tecla a la hora de codificar algunos escenarios bastante frecuentes, a la vez que mejoraban la legibilidad. 
-&lt;br /&gt; 
-&lt;br /&gt;Pues en esa misma l&amp;iacute;nea, vemos ahora una nueva forma de inicializar colecciones clave-valor, como son los diccionarios. Ciertamente es un cambio bastante peque&amp;ntilde;o, de los que f&amp;aacute;cilmente podr&amp;iacute;an pasar desapercibidos junto a otras novedades de mayor peso, pero creo que tambi&amp;eacute;n vale la pena conocerlo. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Para ponernos en situaci&amp;oacute;n, echemos un vistazo al siguiente c&amp;oacute;digo, totalmente v&amp;aacute;lido en las versiones actuales de C#: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh4.ggpht.com/-KICdgxIaDqg/VDF66TkNKnI/AAAAAAAADoA/se7SkZa90DQ/image%25255B9%25255D.png?imgmax=800" height="98" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="291" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;El c&amp;oacute;digo anterior es bastante limpio y pocas pegas se le podr&amp;iacute;a poner, salvo que a primera vista no queda claro en absoluto qu&amp;eacute; tipo de estructura es&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;En otras ocasiones hemos hablado de novedades que acompañarán a la próxima revisión de C# que nos ahorraban algo de tiempo y pulsaciones de tecla a la hora de codificar algunos escenarios bastante frecuentes, a la vez que mejoraban la legibilidad. Pues en esa misma línea, vemos ahora una nueva forma de inicializar colecciones clave-valor, como son los diccionarios. Ciertamente es un cambio bastante pequeño, de los que fácilmente podrían pasar desapercibidos junto a otras novedades de mayor peso, pero creo que también vale la pena conocerlo. Para ponernos en situación, echemos un vistazo al siguiente código, totalmente válido en las versiones actuales de C#: El código anterior es bastante limpio y pocas pegas se le podría poner, salvo que a primera vista no queda claro en absoluto qué tipo de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/inicializacion-de-diccionarios-en-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-10-21T11:48:00Z</dc:date>
   </entry>
@@ -158,329 +107,11 @@
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2014-10-16T11:45:00Z</updated>
+    <updated>2014-10-16T11:45:01Z</updated>
     <published>2014-10-16T11:45:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh4.ggpht.com/-mFvX6ip5G4c/VDlY6ZA9y6I/AAAAAAAADqA/_sp5y9FogpM/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" /&gt;Hace unos d&amp;iacute;as mostr&amp;aacute;bamos por aqu&amp;iacute; 
-&lt;a href="http://www.variablenotfound.com/2014/10/el-operador-nameof-de-c-6.html"&gt;el nuevo operador &lt;code&gt;nameof&lt;/code&gt;&lt;/a&gt; que acompa&amp;ntilde;ar&amp;aacute; a C# 6, y cuya funci&amp;oacute;n, resumidamente, es obtener el nombre a nivel de c&amp;oacute;digo de la variable o miembro a la que se aplica: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh4.ggpht.com/-0L0KOFsQ0r0/VChOe84Q4lI/AAAAAAAADmE/lTgXmg1tON0/image%25255B5%25255D.png?imgmax=800" height="41" title="" width="371" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;En los comentarios de este post, el amigo 
-&lt;a href="http://www.blogger.com/profile/10446364197640116526" title="Kiquenet"&gt;Kiquenet&lt;/a&gt; se preguntaba qu&amp;eacute; incidencia pod&amp;iacute;a tener el uso de este operador en el rendimiento de nuestras aplicaciones, y esa duda es la que vamos a responder muy r&amp;aacute;pidamente ahora. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Se pod&amp;iacute;a intuir que la incidencia ser&amp;iacute;a cero porque la resoluci&amp;oacute;n del nombre ten&amp;iacute;a toda la pinta de ser realizada en tiempo de compilaci&amp;oacute;n y, por tanto, los usos del operador 
-&lt;code&gt;nameof&lt;/code&gt; ser&amp;iacute;an transformados en una constantes de cadena, pero la verdad es que siempre quedaba la duda de si hab&amp;iacute;a alg&amp;uacute;n tipo de “magia” adicional por detr&amp;aacute;s.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hace unos días mostrábamos por aquí el nuevo operador nameof que acompañará a C# 6, y cuya función, resumidamente, es obtener el nombre a nivel de código de la variable o miembro a la que se aplica: En los comentarios de este post, el amigo Kiquenet se preguntaba qué incidencia podía tener el uso de este operador en el rendimiento de nuestras aplicaciones, y esa duda es la que vamos a responder muy rápidamente ahora. Se podía intuir que la incidencia sería cero porque la resolución del nombre tenía toda la pinta de ser realizada en tiempo de compilación y, por tanto, los usos del operador nameof serían transformados en una constantes de cadena, pero la verdad es que siempre quedaba la duda de si había algún tipo de “magia” adicional por detrás. Por esta razón, he realizado una prueba muy sencilla.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/rendimiento-de-nameof-en-c-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2014-10-16T11:45:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>El operador nameof de C# 6</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6" />
-    <category term="c-6" />
-    <category term="novedades" />
-    <category term="c" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-10-07T11:58:00Z</updated>
-    <published>2014-10-07T11:58:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="image" src="http://lh4.ggpht.com/-DOOn_-7Mu9A/VChOc0hcmQI/AAAAAAAADl0/EFXpyHRG0YY/image33.png?imgmax=800" height="185" style="background-image: none; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="C#" width="147" /&gt;Cuando los lenguajes evolucionan, no todas las novedades son espectaculares ni revolucionan la forma de escribir nuestro c&amp;oacute;digo. A veces la cosa va simplemente de a&amp;ntilde;adir peque&amp;ntilde;os detalles que nos hacen la vida m&amp;aacute;s f&amp;aacute;cil y ayudan a evitar errores. 
-&lt;br /&gt; 
-&lt;br /&gt;Y hoy hablaremos de uno de ellos: el nuevo operador 
-&lt;code&gt;nameof&lt;/code&gt;, que acompa&amp;ntilde;ar&amp;aacute; a C# a partir de su versi&amp;oacute;n 6. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Imaginad un escenario que podr&amp;iacute;a ser bastante frecuente, como el siguiente: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh4.ggpht.com/-jklcel_XyH8/VChOdnlpggI/AAAAAAAADl8/rim23mwhtDY/image%25255B2%25255D.png?imgmax=800" height="149" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="439" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Observad que mediante el uso de las constantes 
-&lt;code&gt;&amp;quot;firstString&amp;quot;&lt;/code&gt;&amp;nbsp; y 
-&lt;code&gt;&amp;quot;secondString&amp;quot;&lt;/code&gt; estamos introduciendo una dependencia en nuestro c&amp;oacute;digo entre dos elementos que viven en mundos diferentes, como son el nombre de una variable a nivel de c&amp;oacute;digo y la cadena que representa el nombre de dicho par&amp;aacute;metro en tiempo de ejecuci&amp;oacute;n.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/10/el-operador-nameof-de-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-10-07T11:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Uso de miembros estáticos en C# 6, ¿una buena idea?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea" />
-    <category term="c-6" />
-    <category term="novedades" />
-    <category term="c" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-10-05T11:54:29Z</updated>
-    <published>2014-09-23T11:58:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="" src="http://lh6.ggpht.com/-eZoHrAJbqK8/VB8ZOu-M5_I/AAAAAAAADkA/4L1W-UMUSmw/image%25255B15%25255D.png?imgmax=800" height="185" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="147" /&gt;En posts anteriores hemos hablado del 
-&lt;a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html"&gt;operador de navegaci&amp;oacute;n segura “.?”&lt;/a&gt; y de la 
-&lt;a href="http://www.variablenotfound.com/2014/09/inicializacion-de-propiedades-en-c-60.html"&gt;inicializaci&amp;oacute;n de propiedades autom&amp;aacute;ticas&lt;/a&gt;, y vamos a comentar ahora otra de las novedades de la versi&amp;oacute;n de C# que viene en camino, pero que en esta ocasi&amp;oacute;n no tengo claro que sea un avance en la direcci&amp;oacute;n correcta. Os lo cuento y ya decid&amp;iacute;s vosotros ;-) 
-&lt;br /&gt; 
-&lt;br /&gt;Hay escenarios en los que en el interior de una clase utilizamos de forma intensiva miembros est&amp;aacute;ticos de otras clases. Un ejemplo habitual podemos encontrarlo en componentes que hagan mucho uso de 
-&lt;code&gt;System.Math&lt;/code&gt; para la realizaci&amp;oacute;n de c&amp;aacute;lculos matem&amp;aacute;ticos, o incluso en el conocido 
-&lt;code&gt;System.Console&lt;/code&gt;: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh4.ggpht.com/-MKDU3JZEXnk/VB8ZPJ18DyI/AAAAAAAADkE/x60X6FqCohI/image%25255B5%25255D.png?imgmax=800" height="152" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="418" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt;Pues bien, en C# 6 podremos indicar mediante un 
-&lt;code&gt;using&lt;/code&gt; que vamos a realizar llamadas a miembros est&amp;aacute;ticos de la clase que indiquemos, por lo que no ser&amp;aacute; necesario especificarla en cada llamada:&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/uso-de-miembros-estaticos-en-c-6-una-buena-idea"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-09-23T11:58:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Inicialización de propiedades en C# 6.0</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6" />
-    <category term="desarrollo" />
-    <category term="c-6" />
-    <category term="novedades" />
-    <category term="c" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-10-05T11:54:29Z</updated>
-    <published>2014-09-16T07:19:00Z</published>
-    <content type="html">&lt;p&gt;&lt;img align="right" alt="Novedades de C# 6.0" src="http://lh6.ggpht.com/-tcWG2kQAscs/VBV5zgRCYsI/AAAAAAAADjI/OOFKDrvm-W0/image_thumb%25255B4%25255D.png?imgmax=800" height="248" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; float: right; margin: 0px 0px 10px 10px; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="Novedades de C# 6.0" width="197" /&gt;Hace alg&amp;uacute;n tiempo comentamos alguna de las novedades que se incluir&amp;aacute;n en la pr&amp;oacute;xima versi&amp;oacute;n de C#, concretamente 
-&lt;a href="http://www.variablenotfound.com/2014/03/el-operador-en-c-y-vbnet-mas-cerca.html"&gt;el nuevo operador de navegaci&amp;oacute;n segura “?.”&lt;/a&gt;, pero la cosa no acaba aqu&amp;iacute;: se avecinan un buen n&amp;uacute;mero de cambios que prometen seguir mejorando nuestro lenguaje favorito :-) 
-&lt;br /&gt; 
-&lt;br /&gt;Por ejemplo, una nueva caracter&amp;iacute;stica que tendremos disponible es la inicializaci&amp;oacute;n de propiedades autom&amp;aacute;ticas, algo que antes tambi&amp;eacute;n pod&amp;iacute;amos hacer, aunque de forma menos directa. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Es decir, hasta el momento para inicializar una propiedad autom&amp;aacute;tica ten&amp;iacute;amos que hacerlo en el constructor de la clase, como sigue: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh5.ggpht.com/-G2W1mWI-gr8/VBV50F6_HbI/AAAAAAAADjM/k9ayghG2XCc/image%25255B22%25255D.png?imgmax=800" height="169" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="333" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Pues bien, en la nueva versi&amp;oacute;n podremos usar una nueva construcci&amp;oacute;n mucho m&amp;aacute;s directa: 
-&lt;br /&gt; 
-&lt;br /&gt; 
-&lt;img alt="" src="http://lh3.ggpht.com/--k8YyyUHqsw/VBV50k_bZQI/AAAAAAAADjY/Y4zP_Ps1p6k/image%25255B23%25255D.png?imgmax=800" height="91" style="background-image: none; border-bottom: 0px; border-left: 0px; border-right: 0px; border-top: 0px; display: inline; padding-left: 0px; padding-right: 0px; padding-top: 0px;" title="" width="391" /&gt; 
-&lt;br /&gt; 
-&lt;br /&gt;Simplemente a&amp;ntilde;adimos la expresi&amp;oacute;n de igualdad tras la declaraci&amp;oacute;n, y listo. Adem&amp;aacute;s del obvio ahorro en pulsaciones de teclas, el resultado a nivel de c&amp;oacute;digo es m&amp;aacute;s expresivo y legible, puesto que mantiene unida la definici&amp;oacute;n de la propiedad con su valor inicial.&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/09/inicializacion-de-propiedades-en-c-6"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-09-16T07:19:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Colección de herramientas para desarrollo en .NET</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/destinodotnet/2014/07/coleccion-de-herramientas-para-desarrollo-en-net" />
-    <category term="herramientas" />
-    <category term="utilidades" />
-    <category term="desarrollo" />
-    <category term="recursos" />
-    <category term="net" />
-    <category term="net-framework" />
-    <category term="c" />
-    <author>
-      <name>Joel Martinez</name>
-    </author>
-    <updated>2014-07-17T14:50:57Z</updated>
-    <published>2014-07-17T14:50:57Z</published>
-    <content type="html">&lt;p&gt;&lt;div&gt;&lt;/div&gt; 
-&lt;script&gt;&lt;/script&gt; 
-&lt;div style=""&gt; 
- &lt;a href="http://destinodotnet.com/#"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Facebook0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://twitter.com/intent/tweet?text=Colecci&amp;oacute;n de herramientas para desarrollo en .NET http://destinodotnet.com/feed/ %40destinodotnet"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Twitter0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="https://plus.google.com/share?url=http://destinodotnet.com/feed/"&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Google+0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=http://destinodotnet.com/feed/&amp;amp;title=Colecci&amp;oacute;n de herramientas para desarrollo en .NET&amp;amp;summary=En nuestro trabajo diario como desarrollador DotNet requerimos diversas herramientas para cumplir nuestros objetivos. Algunas son imprescindibles, otras nos ayudan a ser m&amp;aacute;s productivos y otras simplemente las usamos porque nos gusta su funcionamiento, sin perder el foco de la productividad. Para las tecnolog&amp;iacute;as .NET existen muchas de &amp;eacute;stas y ..."&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;Linkedin0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
- &lt;a&gt; 
-  &lt;div&gt; 
-   &lt;i&gt;&lt;/i&gt;E-Mail0 
-   &lt;div&gt;&lt;/div&gt; 
-  &lt;/div&gt;&lt;/a&gt; 
-&lt;/div&gt; 
-&lt;p&gt;En nuestro trabajo diario como &lt;strong&gt;desarrollador DotNet&lt;/strong&gt; requerimos diversas herramientas para cumplir nuestros objetivos. Algunas son imprescindibles, otras nos ayudan a ser m&amp;aacute;s productivos y otras simplemente las usamos porque nos gusta su funcionamiento, sin perder el foco de la productividad. Para las &lt;strong&gt;tecnolog&amp;iacute;as .NET&lt;/strong&gt; existen muchas de &amp;eacute;stas y de muy buena calidad, algunas de Microsoft y otras de terceros. En este post haremos un repaso de las principales &lt;strong&gt;herramientas para desarrollo en .NET&lt;/strong&gt;: las imprescindibles y las que merecen que le demos una oportunidad.&lt;br /&gt; &lt;br /&gt; Una indicaci&amp;oacute;n importante: todas las herramientas de este listado (a excepci&amp;oacute;n del Visual Studio) son gratuitas. Adem&amp;aacute;s, se han clasificado en categor&amp;iacute;as para un mejor orden.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/destinodotnet/2014/07/coleccion-de-herramientas-para-desarrollo-en-net"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Joel Martinez</dc:creator>
-    <dc:date>2014-07-17T14:50:57Z</dc:date>
-  </entry>
-  <entry>
-    <title>Interfaces + Extension Methods = Protocolos de Clojure</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure" />
-    <category term="clojure" />
-    <category term="design-patterns" />
-    <category term="development" />
-    <category term="c" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-06-16T09:06:51Z</updated>
-    <published>2014-06-16T09:06:51Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En el post anterior vimos c&amp;oacute;mo los &lt;a href="http://blog.koalite.com/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure/" title="Polimorfismo fuera de OOP: Multim&amp;eacute;todos en clojure"&gt;multim&amp;eacute;todos de clojure&lt;/a&gt; permit&amp;iacute;an resolver problemas t&amp;iacute;picos de una forma diferente a c&amp;oacute;mo lo har&amp;iacute;amos en un lenguaje orientado a objetos como Java y C#. En este post vamos a otra herramienta de clojure para aplicar polimorfismo, los &lt;a href="http://clojure.org/protocols"&gt;protocolos&lt;/a&gt;.&lt;/p&gt; 
-&lt;h3&gt;El problema de ejemplo&lt;/h3&gt; 
-&lt;p&gt;Nuevamente vamos a empezar por definir un problema de ejemplo que nos permita tener un poco de contexto a la hora de analizar las distintas soluciones ofrecidas por un lenguaje y otro. El problema en cuesti&amp;oacute;n forma parte de lo que se conoce como el &lt;a href="http://en.wikipedia.org/wiki/Expression_problem"&gt;problema de expresi&amp;oacute;n&lt;/a&gt; y consiste en tener que a&amp;ntilde;adir operaciones a una jerarqu&amp;iacute;a de tipos ya existente.&lt;/p&gt; 
-&lt;p&gt;Supongamos que tenemos una estructura de clases para representar controles en pantalla, similar a la que encontramos en Windows Forms o WPF:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/06/interfaces-extension-methods-protocolos-de-clojure"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-06-16T09:06:51Z</dc:date>
-  </entry>
-  <entry>
-    <title>Polimorfismo fuera de OOP: Multimétodos en clojure</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure" />
-    <category term="clojure" />
-    <category term="design-patterns" />
-    <category term="development" />
-    <category term="c" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2014-06-09T09:06:17Z</updated>
-    <published>2014-06-09T09:06:17Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;La mayor&amp;iacute;a de nosotros estamos acostumbrados a usar unos pocos lenguajes de programaci&amp;oacute;n en nuestro d&amp;iacute;a a d&amp;iacute;a, y es frecuente que s&amp;oacute;lo nos sintamos realmente c&amp;oacute;modos en (a lo sumo) un par de ellos. &lt;/p&gt; 
-&lt;p&gt;Eso hace que a la hora de plantearnos soluciones a problemas t&amp;iacute;picos podamos “tirar de recetario” (o de patrones de dise&amp;ntilde;o) y escoger entre unas cuantas soluciones que sabemos que funcionan y de las que conocemos sus puntos fuertes y d&amp;eacute;biles.&lt;/p&gt; 
-&lt;p&gt;Cuando empiezas a jugar con otros lenguajes, especialmente si se basan en ideas completamente diferentes a los lenguajes con los que sueles trabajar, resulta curioso ver de qu&amp;eacute; otras formas se pueden afrontar esos problemas t&amp;iacute;picos aprovechando las caracter&amp;iacute;sticas propias de cada lenguaje.&lt;/p&gt; 
-&lt;p&gt;En este post vamos a ver un ejemplo de c&amp;oacute;mo cambia la forma de resolver un problema cuando cambiamos el lenguaje (y el paradigma de programaci&amp;oacute;n).&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2014/06/polimorfismo-fuera-de-oop-multimetodos-en-clojure"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2014-06-09T09:06:17Z</dc:date>
-  </entry>
-  <entry>
-    <title>Singletons en C++. Intentando que sean seguros en hilos (thread safety) II</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii" />
-    <category term="clases" />
-    <category term="instancia" />
-    <category term="concurrencia" />
-    <category term="c-11" />
-    <category term="objeto" />
-    <category term="procesador" />
-    <category term="creacion" />
-    <category term="hilos" />
-    <category term="exclusion" />
-    <category term="thread" />
-    <category term="simultaneo" />
-    <category term="mutex" />
-    <category term="arquitectura" />
-    <category term="hardware" />
-    <category term="unica" />
-    <category term="ejecucion" />
-    <category term="safe" />
-    <category term="cpu" />
-    <category term="algoritmos" />
-    <category term="volatile" />
-    <category term="c-c" />
-    <category term="cosas-que-damos-por-hechas" />
-    <category term="memoria" />
-    <category term="singleton" />
-    <category term="c" />
-    <category term="general" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2014-04-22T08:50:49Z</updated>
-    <published>2014-04-22T08:50:49Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC90aHJlYWQuanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/thread.jpg" alt="Singleton thread-safe" title="thread" width="500" height="375" /&gt;&lt;/a&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzA0L3NpbmdsZXRvbi1pbi1jcHAv"&gt;Ayer habl&amp;aacute;bamos&lt;/a&gt; de la creaci&amp;oacute;n de un sigleton y de que nuestro ejemplo no era &lt;em&gt;“thread safe”&lt;/em&gt;, vamos, que en un entorno con varios hilos de ejecuci&amp;oacute;n cabe la posibilidad de que el comportamiento esperado no siempre se cumpla.&lt;/p&gt; 
-&lt;p&gt;Ah&amp;iacute; encontr&amp;aacute;bamos diferencias entre C++ (&amp;lt;11) y C++11 ya que esta &amp;uacute;ltima revisi&amp;oacute;n incluye &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDEzLzEwL2p1Z2FuZG8tY29uLXRocmVhZHMteS1tdXRleC1lbi1jMTEv"&gt;tratamiento de threads&lt;/a&gt; y algunas cosas m&amp;aacute;s que trataremos aqu&amp;iacute;.&lt;/p&gt; 
-&lt;p&gt;Lo primero que podemos pensar, es que al traernos la instancia de nuestro singleton se crea una secci&amp;oacute;n cr&amp;iacute;tica, la cu&amp;aacute;l podemos regular con un &lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS8yMDE0LzAyL2NvbmN1cnJlbmNpYS1jdWFuZG8tdmFyaW9zLWhpbG9zLXRocmVhZHMtcGVsZWFuLXBvci1lbC1hY2Nlc28tYS11bi1yZWN1cnNvLWVqZW1wbG9zLWVuLWMv"&gt;mutex&lt;/a&gt;, provocando que &lt;strong&gt;siempre&lt;/strong&gt; que vayamos a obtener una instancia de nuestro objeto pasemos por el sem&amp;aacute;foro, y aunque dos threads quieran pelearse por ver qui&amp;eacute;n crea antes el recurso, s&amp;oacute;lo uno lo conseguir&amp;aacute; finalmente.&lt;/p&gt; 
-&lt;p&gt;A partir de ahora, ya que antes de C++11 no tenemos mutex nativos (ya lo he dicho varias veces, bueno una m&amp;aacute;s, a ver si mejora el SEO &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2014-04-22T08:50:49Z</dc:date>
-  </entry>
-  <entry>
-    <title>Singletons en C++ y alguna nota sobre thread safety (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i" />
-    <category term="patron" />
-    <category term="curioso" />
-    <category term="instancia" />
-    <category term="seguridad" />
-    <category term="pthread" />
-    <category term="objeto" />
-    <category term="algoritmos" />
-    <category term="objetos" />
-    <category term="c-c" />
-    <category term="hilos" />
-    <category term="thread" />
-    <category term="single" />
-    <category term="cosas-que-damos-por-hechas" />
-    <category term="generacion" />
-    <category term="singleton" />
-    <category term="safety" />
-    <category term="clase" />
-    <category term="c" />
-    <category term="intance" />
-    <category term="general" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2014-04-21T08:57:23Z</updated>
-    <published>2014-04-21T08:57:23Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://totaki.com/poesiabinaria/wp-content/plugins/wordpress-feed-statistics/feed-statistics.php?url=aHR0cDovL3RvdGFraS5jb20vcG9lc2lhYmluYXJpYS93cC1jb250ZW50L3VwbG9hZHMvMjAxNC8wNC9zaW5nbGV0b24uanBn"&gt;&lt;img src="http://totaki.com/poesiabinaria/wp-content/uploads/2014/04/singleton.jpg" alt="" title="singleton" width="500" height="357" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Antes de nada, comentar que he dividido este post en dos porque vi que se estaba alargando demasiado y se lanzar&amp;aacute;n uno al d&amp;iacute;a, pondr&amp;eacute; aqu&amp;iacute; enlaces a todos los posts.&lt;/p&gt; 
-&lt;p&gt;Muchas veces cuando estamos programando tenemos la necesidad de crear un objeto de una clase determinada, pero &amp;eacute;ste objeto deber&amp;aacute; ser creado una sola vez en nuestra aplicaci&amp;oacute;n y debemos evitar a toda costa que pueda ser creado m&amp;aacute;s veces. Podemos pensar en:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Una conexi&amp;oacute;n de base de datos para nuestra aplicaci&amp;oacute;n. Bueno, a veces necesitamos varias, pero muchas veces s&amp;oacute;lo necesitamos una, y queremos referirnos a ella en cualquier punto de nuestro programa (y no queremos una variable global ni nada de eso).&lt;/li&gt; 
- &lt;li&gt;Un objeto de configuraci&amp;oacute;n general del programa. Imaginemos que en el constructor leemos el archivo de configuraci&amp;oacute;n y generamos un &amp;aacute;rbol con las opciones de nuestra aplicaci&amp;oacute;n. Dicho &amp;aacute;rbol no debe ser generado m&amp;aacute;s veces, s&amp;oacute;lo cuando arrancamos el programa.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2014-04-21T08:57:23Z</dc:date>
-  </entry>
-  <entry>
-    <title>BlueFish, un potente editor para desarrollo web.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web" />
-    <category term="web" />
-    <category term="programacion" />
-    <category term="gnu-linux" />
-    <category term="css" />
-    <category term="c" />
-    <category term="bluefish" />
-    <category term="php" />
-    <category term="desarrollo" />
-    <category term="python" />
-    <category term="html" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-03-10T13:21:25Z</updated>
-    <published>2014-03-10T13:17:15Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/bluefish.png"&gt;&lt;img alt="bluefish" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/bluefish-150x150.png" width="150" height="150" /&gt;&lt;/a&gt;En castellano usamos frecuentemente la frase “Hay muchos peces en el mar”, seg&amp;uacute;n la circunstancia. Hoy hablaremos de un jugoso pez azul, que nos puede facilitar mucho las cosas, sobre todo para los desarrolladores web.&lt;/p&gt; 
-&lt;p&gt;En &lt;a title="GNU/Linux art&amp;iacute;culo" href="http://www.ochobitshacenunbyte.com/?p=31"&gt;GNU/Linux &lt;/a&gt;tenemos un sin fin de editores. Bluefish es un potente editor de texto enfocado al desarrollador.&amp;nbsp; C&amp;oacute;mo caracter&amp;iacute;sticas principales tenemos el resaltado de sintaxis, el apoyo a los proyectos, la sangr&amp;iacute;a, la auto-realizaci&amp;oacute;n, etc&amp;eacute;tera.&amp;nbsp; &amp;iquest;Qu&amp;eacute; diferencia Bluefish de otros editores con funciones similares?&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Partimos de la base que puede editar c&amp;oacute;digo para lenguajes como C, C++, Python entre otros. Pero d&amp;oacute;nde desmarca claramente es para el desarrollo web, ya que tiene soporte para HTML, CSS y PHP, adem&amp;aacute;s proporciona una lista todas las etiquetas HTML, y eso facilita mucha las cosas.&amp;nbsp; &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/bluefish-un-potente-editor-para-desarrollo-web"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-03-10T13:17:15Z</dc:date>
-  </entry>
-  <entry>
-    <title>El operador “?.” en C# y VB.NET, más cerca</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca" />
-    <category term="novedades" />
-    <category term="c" />
-    <category term="vb-net" />
-    <category term="desarrollo" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2014-03-04T13:05:00Z</updated>
-    <published>2014-03-04T13:05:00Z</published>
-    <content type="html">&lt;p&gt;&lt;a href="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s1600-h/programacion.jpg"&gt;&lt;img align="right" alt="" src="http://2.bp.blogspot.com/_O9D62hXq-ng/SmSTrJ6rBuI/AAAAAAAABFs/t8GxkLm2gSs/s400/programacion.jpg" style="height: 200px; margin: 0px 0px 0px 10px;" /&gt;&lt;/a&gt; 
-&lt;br /&gt;El operador “?.”, tambi&amp;eacute;n llamado 
-&lt;em&gt;safe navigation operator&lt;/em&gt;, era la caracter&amp;iacute;stica m&amp;aacute;s demandada para el lenguaje C# en 
-&lt;a href="http://visualstudio.uservoice.com/"&gt;Uservoice&lt;/a&gt;, uno de los principales canales utilizado por Microsoft para obtener feedback e ideas a aplicar en nuevas versiones de sus productos, y parece que definitivamente se est&amp;aacute; considerando la posibilidad de incluir este &amp;uacute;til azucarillo sint&amp;aacute;ctico tanto en C# como en VB. 
-&lt;br /&gt; 
-&lt;br /&gt;Para los que no lo conozc&amp;aacute;is, se trata de una construcci&amp;oacute;n que permite acceder a propiedades de objetos sin temor a las 
-&lt;em&gt;null reference exceptions &lt;/em&gt;lanzadas cuando estos objetos son nulos. 
-&lt;br /&gt; 
-&lt;a&gt;&lt;/a&gt; 
-&lt;br /&gt;Mejor ve&amp;aacute;moslo sobre un ejemplo. Imaginemos la siguiente clase, a la que damos uso un poco m&amp;aacute;s abajo: 
-&lt;br /&gt; 
-&lt;pre&gt;public class Person&lt;br /&gt;{&lt;br /&gt;    public Person Father { get; set; }&lt;br /&gt;    public string Name { get; set; }&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2014/03/el-operador-en-c-y-vb-net-mas-cerca"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2014-03-04T13:05:00Z</dc:date>
   </entry>
 </feed>
 

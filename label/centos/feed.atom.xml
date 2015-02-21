@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-05T16:02:54Z</updated>
+  <updated>2015-02-21T01:25:00Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-05T16:02:54Z</dc:date>
+  <dc:date>2015-02-21T01:25:00Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Cómo limitar el tiempo de sesión ssh</title>
@@ -23,16 +23,7 @@
     </author>
     <updated>2015-02-05T15:16:43Z</updated>
     <published>2015-02-05T15:16:43Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;En muchos de los entornos de virtualizaci&amp;oacute;n en la nube, vease los &lt;strong&gt;VPS&lt;/strong&gt;, c&amp;oacute;mo administraci&amp;oacute;n lo m&amp;aacute;s habitual es usar las conexiones &lt;strong&gt;&lt;em&gt;ssh&lt;/em&gt;&lt;/strong&gt;. Son muy seguras, pero a veces tienen una serie de par&amp;aacute;metros que no cuentan con nuestra atenci&amp;oacute;n. Uno de ellos es c&amp;oacute;mo limitar el tiempo de sesi&amp;oacute;n &lt;strong&gt;&lt;em&gt;ssh&lt;/em&gt;&lt;/strong&gt;. Muy &amp;uacute;til cuando tienes m&amp;uacute;ltiples conexiones, y un despiste puede hacer que te dejes una abierta.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/OpenSSH.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/OpenSSH-300x295.jpg" alt="OpenSSH" width="300" height="295" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;C&amp;oacute;mo limitar el tiempo de sesi&amp;oacute;n ssh&lt;/h2&gt; 
-&lt;p&gt;El archivo de configuraci&amp;oacute;n de &lt;a title="OpenSSH" href="http://es.wikipedia.org/wiki/OpenSSH"&gt;&lt;strong&gt;OpenSSH&lt;/strong&gt; &lt;/a&gt;en los &lt;strong&gt;GNU Linux&lt;/strong&gt; est&amp;aacute; ubicado en &lt;strong&gt;/etc/ssh&lt;/strong&gt; y su nombre es &lt;strong&gt;sshd_config&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Las variables que nos interesan son:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;ClientAliveInterval&lt;/strong&gt;: Qu&amp;eacute; le indicar&amp;aacute; al servidor cada cuanto ha de enviar un mensaje KeepAlive&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;ClientAliveCountMax&lt;/strong&gt;: Es el m&amp;aacute;ximo de mensajes enviados antes de cerrar la sesi&amp;oacute;n.&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;Por defecto “&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;En muchos de los entornos de virtualización en la nube, vease los VPS, cómo administración lo más habitual es usar las conexiones ssh. Son muy seguras, pero a veces tienen una serie de parámetros que no cuentan con nuestra atención. Uno de ellos es cómo limitar el tiempo de sesión ssh. Muy útil cuando tienes múltiples conexiones, y un despiste puede hacer que te dejes una abierta. Cómo limitar el tiempo de sesión ssh El archivo de configuración de OpenSSH en los GNU Linux está ubicado en /etc/ssh y su nombre es sshd_config Las variables que nos interesan son: ClientAliveInterval: Qué le indicará al servidor cada cuanto ha de enviar un mensaje KeepAlive ClientAliveCountMax: Es el máximo de mensajes enviados antes de cerrar la sesión. Por defecto “ClienteAliveInterval” viene con el parámetro[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/como-limitar-el-tiempo-de-sesion-ssh"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2015-02-05T15:16:43Z</dc:date>
   </entry>
@@ -58,23 +49,9 @@
     </author>
     <updated>2015-02-02T09:44:48Z</updated>
     <published>2015-02-02T09:44:48Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Pr&amp;aacute;cticamente cada d&amp;iacute;a tengo que lidiar con la l&amp;iacute;nea de comandos de la consola &lt;strong&gt;MySQL&lt;/strong&gt; en los diferentes sistemas que administro &lt;strong&gt;GNU Linux&lt;/strong&gt;. Siguiendo la l&amp;iacute;nea de otros art&amp;iacute;culos, &amp;eacute;ste va para mis apuntes y para todo el interesado en los pasos para crear y otorgar privilegios en una base de datos. Por lo tanto, ah&amp;iacute; vamos. Creamos una base de datos en &lt;strong&gt;MySQL&lt;/strong&gt; en &lt;strong&gt;GNU Linux&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/logo-mysql.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/02/logo-mysql.jpg" alt="logo-mysql" width="170" height="115" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;h2&gt;Instalaci&amp;oacute;n de MySQL en GNU Linux&lt;/h2&gt; 
-&lt;p&gt;Entiendo que ya ten&amp;eacute;is instalado el servidor MySQL en vuestro sistema, si no es as&amp;iacute;, s&amp;oacute;lo hay que utilizar un simple apt-get , yum o zypper, e indicar el paquete a instalar.&lt;/p&gt; 
-&lt;p&gt;En &lt;strong&gt;Debian&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt;, &lt;strong&gt;LinuxMint&lt;/strong&gt;, &lt;strong&gt;Elementary OS&lt;/strong&gt; y derivados&lt;/p&gt; 
-&lt;div&gt; 
- &lt;table&gt; 
-  &lt;tbody&gt; 
-   &lt;tr&gt; 
-    &lt;td&gt;&lt;pre&gt;1
-&lt;/pre&gt;&lt;/td&gt; 
-    &lt;td&gt;&lt;pre&gt;apt-get -y install mysql-server&lt;/pre&gt;&lt;/td&gt; 
-   &lt;/tr&gt; 
-  &lt;/tbody&gt; 
- &lt;/table&gt; 
-&lt;/div&gt; 
-&lt;p&gt;El un principio cuando instalas el programa el servicio se arranca de manera autom&amp;aacute;tica. Para arrancarlo:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Prácticamente cada día tengo que lidiar con la línea de comandos de la consola MySQL en los diferentes sistemas que administro GNU Linux. Siguiendo la línea de otros artículos, éste va para mis apuntes y para todo el interesado en los pasos para crear y otorgar privilegios en una base de datos. Por lo tanto, ahí vamos. Creamos una base de datos en MySQL en GNU Linux. Instalación de MySQL en GNU Linux Entiendo que ya tenéis instalado el servidor MySQL en vuestro sistema, si no es así, sólo hay que utilizar un simple apt-get , yum o zypper, e indicar el paquete a instalar. En Debian, Ubuntu, LinuxMint, Elementary OS y derivados 1
+ apt-get -y install mysql-server El un principio cuando instalas el programa el servicio se arranca de manera automática. Para arrancarlo: 1
+ service mysql start En[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/crear-una-base-de-datos-mysql-en-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2015-02-02T09:44:48Z</dc:date>
   </entry>
@@ -93,11 +70,7 @@
     </author>
     <updated>2015-01-14T14:21:38Z</updated>
     <published>2015-01-14T14:21:38Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;RockStor&lt;/strong&gt; es un magn&amp;iacute;fico software muy f&amp;aacute;cil de usar, pensado para el almacenamiento en l&amp;iacute;nea dentro de redes locales . &amp;iquest;Para qu&amp;eacute; comprar un servidor NAS si nos podemos montar uno propio?&lt;/p&gt; 
-&lt;p&gt;Todos tenemos viejos ordenadores que en su d&amp;iacute;a nos dieron un gran servicio, pero ahora se han quedado anticuados y no sabemos muy que hacer con ellos. Podemos alargar su vida utilizando sus discos duros para almacenamiento.&lt;/p&gt; 
-&lt;p&gt;Se trata de una aplicaci&amp;oacute;n &lt;strong&gt;NAS&lt;/strong&gt; (Network Attached Storage) con una curva de aprendizaje muy leve, que permite a usuarios sin demasiados conocimientos configurarlo facilmente.&lt;/p&gt; 
-&lt;p&gt;El programa trabaja sobre el sistema de ficheros &lt;strong&gt;BTRFS&lt;/strong&gt; y soporta los protocolos de compartici&amp;oacute;n de ficheros m&amp;aacute;s comunes, que son &lt;strong&gt;NFS&lt;/strong&gt;, &lt;strong&gt;SAMBA/CIFS&lt;/strong&gt; y &lt;strong&gt;SFTP&lt;/strong&gt;&lt;/p&gt; 
-&lt;h3&gt;&amp;iquest;Qu&amp;eacute; nos permite?&lt;/h3&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;RockStor es un magnífico software muy fácil de usar, pensado para el almacenamiento en línea dentro de redes locales . ¿Para qué comprar un servidor NAS si nos podemos montar uno propio? Todos tenemos viejos ordenadores que en su día nos dieron un gran servicio, pero ahora se han quedado anticuados y no sabemos muy que hacer con ellos. Podemos alargar su vida utilizando sus discos duros para almacenamiento. Se trata de una aplicación NAS (Network Attached Storage) con una curva de aprendizaje muy leve, que permite a usuarios sin demasiados conocimientos configurarlo facilmente. El programa trabaja sobre el sistema de ficheros BTRFS y soporta los protocolos de compartición de ficheros más comunes, que son NFS, SAMBA/CIFS y SFTP ¿Qué nos permite? Podemos realizar snapshots, provisionar espacio[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/01/rockstor-almacenamiento-libre-y-facil-de-usar"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2015-01-14T14:21:38Z</dc:date>
   </entry>
@@ -115,11 +88,7 @@
     </author>
     <updated>2014-12-02T22:28:55Z</updated>
     <published>2014-12-02T22:28:55Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;Emshare&lt;/strong&gt; es un potent&amp;iacute;simo software, que nos permitir&amp;aacute;, usando los metadatos, controlar y gestionar infinidad de objetos digitales. Podemos decir que se trata de un producto enfocado claramente a grandes empresas editoriales, de prensa y audiovisuales, todo ello usando uno de los caballos de batalla m&amp;aacute;s poderoso, la tecnolog&amp;iacute;a &lt;strong&gt;open source&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;Aunque los &lt;strong&gt;CMS&lt;/strong&gt; son muy potentes y son muy usados, quiz&amp;aacute;s para proyectos muy grandes, donde tenemos que controlar, crear y editar metadatos por doquier, ya sean de v&amp;iacute;deo, imagen o audio, no puedan estar a la altura.&lt;/p&gt; 
-&lt;p&gt;En su d&amp;iacute;a hablamos de &lt;a title="MediaGoblin, la plataforma audiovisual libre" href="http://www.ochobitshacenunbyte.com/2014/09/02/mediagoblin-la-plataforma-audiovisual-libre/"&gt;MediaGoblin&lt;/a&gt;, un proyecto totalmente libre, impulsado por la &lt;strong&gt;Free Software Foundation&lt;/strong&gt;, y que tiene c&amp;oacute;mo meta ser un gran gestor audiovisual.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-008.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/12/emshare-centos-6-6-008.jpg" alt="emshare-centos-6-6-008" width="200" height="55" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;En producto del que hablo hoy es &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Emshare es un potentísimo software, que nos permitirá, usando los metadatos, controlar y gestionar infinidad de objetos digitales. Podemos decir que se trata de un producto enfocado claramente a grandes empresas editoriales, de prensa y audiovisuales, todo ello usando uno de los caballos de batalla más poderoso, la tecnología open source. Aunque los CMS son muy potentes y son muy usados, quizás para proyectos muy grandes, donde tenemos que controlar, crear y editar metadatos por doquier, ya sean de vídeo, imagen o audio, no puedan estar a la altura. En su día hablamos de MediaGoblin, un proyecto totalmente libre, impulsado por la Free Software Foundation, y que tiene cómo meta ser un gran gestor audiovisual. En producto del que hablo hoy es emshare. Ha sido creado por EnterMedia, una empresa[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/12/controla-los-medios-con-emshare"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2014-12-02T22:28:55Z</dc:date>
   </entry>
@@ -136,8 +105,7 @@
     </author>
     <updated>2014-10-11T22:50:44Z</updated>
     <published>2014-10-11T22:50:44Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.jsitech.com/wp-content/uploads/2014/10/unnamed.png"&gt;&lt;img src="http://www.jsitech.com/wp-content/uploads/2014/10/unnamed.png" alt="unnamed" width="300" height="300" /&gt;&lt;/a&gt;Hoy en d&amp;iacute;a es de vital importancia que monitoreemos nuestra infraestructura para reducir al minimo cualquier tiempo de inactividad. Mientras mas grande es nuestra &lt;strong&gt;infraestructura&lt;/strong&gt;, es un poco m&amp;aacute;s dificil ver el estado de cada uno de los equipos si no contamos con una soluci&amp;oacute;n centralizada que nos ayude con este monitoreo. Hay muchas soluciones que nos pueden ayudar con esta tarea y para mencionarla algunas, tenemos a &lt;strong&gt;Nagios, Cacti, Zenoss, Zabbix&lt;/strong&gt; que es del que les voy a hablar en este art&amp;iacute;culo. Cada uno tiene sus diferencia, pero los tocar&amp;eacute; ya en otro art&amp;iacute;culo.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://zabbix.org"&gt;&lt;strong&gt;Zabbix&lt;/strong&gt; &lt;/a&gt;es un software de monitoreo de infraestructura de c&amp;oacute;digo Libre, capaz de monitorear toda una infraestructura en una organizaci&amp;oacute;n, ofrece monitoreo de servidores, equipos de comunicaciones, aplicaciones y m&amp;aacute;s. Todo esto lo hace por una agente o si deseamos lo podemos hacer usando el protocolo SNMP. Pueden ver mas informaciones de la soluci&amp;oacute;n &lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hoy en día es de vital importancia que monitoreemos nuestra infraestructura para reducir al minimo cualquier tiempo de inactividad. Mientras mas grande es nuestra infraestructura, es un poco más dificil ver el estado de cada uno de los equipos si no contamos con una solución centralizada que nos ayude con este monitoreo. Hay muchas soluciones que nos pueden ayudar con esta tarea y para mencionarla algunas, tenemos a Nagios, Cacti, Zenoss, Zabbix que es del que les voy a hablar en este artículo. Cada uno tiene sus diferencia, pero los tocaré ya en otro artículo. Zabbix es un software de monitoreo de infraestructura de código Libre, capaz de monitorear toda una infraestructura en una organización, ofrece monitoreo de servidores, equipos de comunicaciones, aplicaciones y más. Todo esto lo hace[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/10/monitoreando-infraestructura-con-zabbix-2-4"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2014-10-11T22:50:44Z</dc:date>
   </entry>
@@ -156,15 +124,7 @@
     </author>
     <updated>2014-10-09T07:46:48Z</updated>
     <published>2014-10-08T11:33:55Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/muro-berlin.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/muro-berlin.jpg" alt="muro-berlin" width="800" height="528" /&gt;&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Ya hace unos cuantos meses hablamos de c&amp;oacute;mo ten&amp;iacute;amos que configurar una m&amp;aacute;quina &lt;strong&gt;Debian&lt;/strong&gt; para salir por proxy, &lt;a title="Configurar sistemas basados en Debian para salir por proxy" href="http://www.ochobitshacenunbyte.com/2013/02/07/configurar-sistemas-basados-en-debian-para-salir-por-proxy/"&gt;aqu&amp;iacute;&lt;/a&gt;. En el caso de hoy hablaremos de la configuraci&amp;oacute;n de un sistema CentOS para que pueda funcionar correctamente a trav&amp;eacute;s de un proxy.&lt;/p&gt; 
-&lt;p&gt;El servidor debe de ser capaz de conectar a&lt;strong&gt; Internet&lt;/strong&gt;, ya sea por cualquiera de los protocolos habituales, es decir, &lt;strong&gt;http&lt;/strong&gt;, &lt;strong&gt;https&lt;/strong&gt; y&lt;strong&gt; ftp&lt;/strong&gt;. Tambi&amp;eacute;n debe de poder descargar archivos correctamente usando el comando &lt;strong&gt;&lt;em&gt;wget&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt; 
-&lt;p&gt;Modificaremos varios archivos, que son los siguientes:&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/etc/yum.conf&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Desde d&amp;oacute;nde se pueden a&amp;ntilde;adir par&amp;aacute;metros para el uso de dicho comando.&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/etc/profile.d/proxy.sh&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;El archivo dedicado a las variables generales de entorno. Su uso es igual al &lt;strong&gt;/etc/environement&lt;/strong&gt; de &lt;strong&gt;Debian&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;/home/usuario/.bashrc&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Ya hace unos cuantos meses hablamos de cómo teníamos que configurar una máquina Debian para salir por proxy, aquí. En el caso de hoy hablaremos de la configuración de un sistema CentOS para que pueda funcionar correctamente a través de un proxy. El servidor debe de ser capaz de conectar a Internet, ya sea por cualquiera de los protocolos habituales, es decir, http, https y ftp. También debe de poder descargar archivos correctamente usando el comando wget. Modificaremos varios archivos, que son los siguientes: /etc/yum.conf Desde dónde se pueden añadir parámetros para el uso de dicho comando. /etc/profile.d/proxy.sh El archivo dedicado a las variables generales de entorno. Su uso es igual al /etc/environement de Debian /home/usuario/.bashrc Dicho archivo contiene la configuración de la terminal.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-configurar-centos-a-traves-de-un-proxy"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-10-08T11:33:55Z</dc:date>
   </entry>
@@ -189,78 +149,11 @@
     </author>
     <updated>2014-08-11T08:08:28Z</updated>
     <published>2014-08-11T08:08:28Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/gnome-terminator-icon.png"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/08/gnome-terminator-icon.png" alt="gnome-terminator-icon" width="128" height="128" /&gt;&lt;/a&gt;Aunque se llame igual que un famoso personaje de ciencia ficci&amp;oacute;n, el software que trataremos hoy nos permitir&amp;aacute; tener m&amp;uacute;ltiples sesiones de shell abiertas a la vez, permitiendonos configurarlas a nuestro gusto. El objetivo del proyecto es producir una herramienta &amp;uacute;til para la organizaci&amp;oacute;n de las terminales.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Terminator se basa en &lt;strong&gt;Gnome Terminal&lt;/strong&gt;, pero con muchas m&amp;aacute;s caracter&amp;iacute;sticas, entre las principales encontramos:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;Organizar terminales en la cuadr&amp;iacute;cula&lt;/li&gt; 
- &lt;li&gt;Tabs&lt;/li&gt; 
- &lt;li&gt;Reorganizaci&amp;oacute;n de las terminales, con arrastrar y soltar&lt;/li&gt; 
- &lt;li&gt;Un gran n&amp;uacute;mero de atajos de teclado&lt;/li&gt; 
- &lt;li&gt;Gestionar varios perfiles cada uno con su propia configuraci&amp;oacute;n.&lt;/li&gt; 
- &lt;li&gt;Entre muchos m&amp;aacute;s.&lt;/li&gt; 
-&lt;/ul&gt; 
-&lt;p&gt;Su instalaci&amp;oacute;n es bien sencilla:&lt;/p&gt; 
-&lt;p&gt;En &lt;strong&gt;Debian&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;apt-get -y install terminator&lt;/pre&gt; 
-&lt;p&gt;En &lt;strong&gt;Ubuntu&lt;/strong&gt;&lt;/p&gt; 
-&lt;pre&gt;sudo add-apt-repository ppa:gnome-terminator
+    <content type="html">&lt;p&gt;Aunque se llame igual que un famoso personaje de ciencia ficción, el software que trataremos hoy nos permitirá tener múltiples sesiones de shell abiertas a la vez, permitiendonos configurarlas a nuestro gusto. El objetivo del proyecto es producir una herramienta útil para la organización de las terminales. Terminator se basa en Gnome Terminal, pero con muchas más características, entre las principales encontramos: Organizar terminales en la cuadrícula Tabs Reorganización de las terminales, con arrastrar y soltar Un gran número de atajos de teclado Gestionar varios perfiles cada uno con su propia configuración. Entre muchos más. Su instalación es bien sencilla: En Debian apt-get -y install terminator En Ubuntu sudo add-apt-repository ppa:gnome-terminator
 sudo apt-get update
-sudo apt-get install terminator&lt;/pre&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+sudo apt-get install[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/controla-la-shell-con-terminator"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-08-11T08:08:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Saber cuanto ocupa un fichero o directorio con du</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du" />
-    <category term="blog-stack" />
-    <category term="comandos" />
-    <category term="sistemas-operativos" />
-    <category term="du" />
-    <category term="gnu" />
-    <category term="linux" />
-    <category term="centos" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-07-31T07:28:12Z</updated>
-    <published>2014-07-31T07:28:12Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" alt="consola-linux-shell" width="150" height="150" /&gt;&lt;/a&gt;Hace poco, en una de las m&amp;aacute;quinas virtuales que tengo en el port&amp;aacute;til, no pod&amp;iacute;a actualizar el sistema operativo, al investigar un poco me di cuenta que en la partici&amp;oacute;n ra&amp;iacute;z me hab&amp;iacute;a quedado sin espacio. Teniendo en cuenta que ten&amp;iacute;a 50 GB, m&amp;aacute;s que de sobra para los ficheros del sistema, vi que algo no iba bien.&lt;/p&gt; 
-&lt;p&gt;Fue entonces cuando utilic&amp;eacute; el comando&lt;strong&gt;&lt;em&gt; du&lt;/em&gt;&lt;/strong&gt;, que nos permite averiguar el espacio que ocupa una carpeta o fichero. En cinco minutos ya hab&amp;iacute;a localizado el directorio culpable de tal derroche de espacio.&lt;/p&gt; 
-&lt;p&gt;&lt;br /&gt; Los par&amp;aacute;metros principales del comando son los siguientes:&lt;/p&gt; 
-&lt;ul&gt; 
- &lt;li&gt;&lt;strong&gt;&lt;em&gt;-a&lt;/em&gt;&lt;/strong&gt; , muestra el uso de espacio de cada directorio o fichero&lt;/li&gt; 
- &lt;li&gt;&lt;strong&gt;&lt;em&gt;-k&lt;/em&gt;&lt;/strong&gt;, devuelve la informaci&amp;oacute;n de ocupaci&amp;oacute;n en unidades des 1024 bytes, en vez de 512 bytes que es la configuraci&amp;oacute;n por defecto.&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/07/saber-cuanto-ocupa-un-fichero-o-directorio-con-du"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-07-31T07:28:12Z</dc:date>
-  </entry>
-  <entry>
-    <title>Activar servicios en OpenSuse y sistemas basados en paquetes rpm</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/activar-servicios-en-opensuse-y-sistemas-basados-en-paquetes-rpm" />
-    <category term="postfix" />
-    <category term="centos" />
-    <category term="gnu-linux" />
-    <category term="sistemas-operativos" />
-    <category term="rpm" />
-    <category term="chkconfig" />
-    <category term="fedora" />
-    <category term="opensuse" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-03-06T13:52:45Z</updated>
-    <published>2014-03-06T13:42:52Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="125" height="125" /&gt;&lt;/a&gt;Una de las cosas que m&amp;aacute;s me trajo de cabeza las primeras veces que trat&amp;eacute; con servidores con &lt;a title="OpenSUSE" href="https://es.opensuse.org/Bienvenidos_a_openSUSE.org"&gt;OpenSuse,&lt;/a&gt; en su diferentes versiones, es que al reiniciar, los servicios que hab&amp;iacute;a instalado no se activaban al inicio, cosa que si hac&amp;iacute;an los sistemas basados en &lt;a title="Debian" href="https://www.debian.org/"&gt;Debian&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;La clave la tiene el comando &lt;a title="chkconfig" href="http://www.linuxcommand.org/man_pages/chkconfig8.html"&gt;chkconfig&lt;/a&gt; y qu&amp;eacute; los sistemas basados en paquetes rpm, como OpenSuse o &lt;a title="CentOS" href="http://www.centos.org/"&gt;CentOS&lt;/a&gt; o &lt;a title="Fedora" href="http://fedoraproject.org/ca/"&gt;Fedora&lt;/a&gt; no configuren los servicios recientemente instalados en al arranque del sistema.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Si suponemos que hemos instalados, por ejemplo, el servicio de correo POSTFIX, para que se inicie en el arranque lo tenemos que hacer de la siguiente manera:&lt;/p&gt; 
-&lt;pre&gt;chkconfig postfix on&lt;/pre&gt; 
-&lt;p&gt;Si antes queremos comprobar si el servicio est&amp;aacute; configurado en el arranque, simplemente:&lt;/p&gt; 
-&lt;pre&gt;chkconfig postfix&lt;/pre&gt; 
-&lt;p&gt;Y nos devoler&amp;aacute; el mensaje:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/03/activar-servicios-en-opensuse-y-sistemas-basados-en-paquetes-rpm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-03-06T13:42:52Z</dc:date>
   </entry>
 </feed>
 

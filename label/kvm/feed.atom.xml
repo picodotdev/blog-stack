@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-01-12T00:13:22Z</updated>
+  <updated>2015-02-21T01:25:01Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-01-12T00:13:22Z</dc:date>
+  <dc:date>2015-02-21T01:25:01Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Configuración de red en KVM en modo public bridge</title>
@@ -22,11 +22,7 @@
     </author>
     <updated>2014-09-30T09:28:52Z</updated>
     <published>2014-09-30T09:26:13Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;strong&gt;KVM&lt;/strong&gt; es una fant&amp;aacute;stica alternativa libre si deseamos crear una infraestructura de virtualizaci&amp;oacute;n con software no privativo.&lt;/p&gt; 
-&lt;p&gt;Hace ya un tiempo hablamos de su &lt;a title="Virtualizando con KVM" href="http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/"&gt;funcionamiento &lt;/a&gt;y de c&amp;oacute;mo &lt;a title="Virtualizaci&amp;oacute;n con KVM y Trisquel" href="http://www.ochobitshacenunbyte.com/2014/08/18/virtualizacion-con-kvm-y-trisquel/"&gt;crear&lt;/a&gt; una m&amp;aacute;quina virtual.&lt;/p&gt; 
-&lt;p&gt;Hoy trataremos la configuraci&amp;oacute;n de la red en KVM. Por defecto al instalar KVM en nuestro sistema nos crear&amp;aacute; una tarjeta de red virtual que usar&amp;aacute;n nuestras m&amp;aacute;quinas virtuales, usando un NAT para comunicarse con el exterior, con una red propia, diferente de nuestra red local.&lt;/p&gt; 
-&lt;p&gt;En la mayor&amp;iacute;a de los casos he necesitado configurar un &lt;strong&gt;&lt;em&gt;public bridge&lt;/em&gt;&lt;/strong&gt; para que las m&amp;aacute;quinas virtuales usen los rangos de IP de mi red local, ya sea para uso interno o DMZ.&lt;/p&gt; 
-&lt;p&gt;No es excesivamente compliado, supongamos que tenemos dos tarjetas de red (interfaces) instaladas en nuestro servidor de infraestructura (host), en la primera (eth0) nos comunicamos con la red interneta, y con la segunda (eth1) con la red DMZ.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;KVM es una fantástica alternativa libre si deseamos crear una infraestructura de virtualización con software no privativo. Hace ya un tiempo hablamos de su funcionamiento y de cómo crear una máquina virtual. Hoy trataremos la configuración de la red en KVM. Por defecto al instalar KVM en nuestro sistema nos creará una tarjeta de red virtual que usarán nuestras máquinas virtuales, usando un NAT para comunicarse con el exterior, con una red propia, diferente de nuestra red local. En la mayoría de los casos he necesitado configurar un public bridge para que las máquinas virtuales usen los rangos de IP de mi red local, ya sea para uso interno o DMZ. No es excesivamente compliado, supongamos que tenemos dos tarjetas de red (interfaces) instaladas en nuestro servidor de infraestructura (host), en[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-30T09:26:13Z</dc:date>
   </entry>
@@ -48,12 +44,7 @@
     </author>
     <updated>2014-09-26T12:19:12Z</updated>
     <published>2014-05-15T14:41:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;Virtualizar servidores est&amp;aacute; al orden del d&amp;iacute;a, ya sea con &lt;a title="vmWare" href="http://www.vmware.com/es"&gt;vmWare&lt;/a&gt;, &lt;a title="Xen Project" href="http://www.xenproject.org/"&gt;Xen &lt;/a&gt;o &lt;a title="VirtualBox" href="https://www.virtualbox.org/"&gt;VirtualBox.&lt;/a&gt; Hoy hablaramos de la virtualizaci&amp;oacute;n completa para &lt;a title="Linux KVM" href="http://es.wikipedia.org/wiki/Kernel-based_Virtual_Machine"&gt;Linux KVM &lt;/a&gt;o “Kernel-based Virtual Machine”, que usa s&amp;oacute;lo software libre.&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img style="float: center;" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;KVM est&amp;aacute; basada en dos partes, una formadada por un m&amp;oacute;dulo de n&amp;uacute;cleo, llamado “&lt;strong&gt;kvm.ko&lt;/strong&gt;” y las herramientas del espacio del usuario. Est&amp;aacute; disponible a partir de la versi&amp;oacute;n del kernel 2.6.20. Contiene las extensiones de virtualizaci&amp;oacute;n&lt;a title="Intel VT" href="http://ark.intel.com/es-es/Products/VirtualizationTechnology"&gt; Intel VT&lt;/a&gt; o &lt;a title="AMD-V" href="http://www.amd.com/es-es/solutions/servers/virtualization"&gt;AMD-V&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;Instalaci&amp;oacute;n&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Hemos realizado las pruebas en un m&amp;aacute;quina con procesador I7 y un sistema operativo &lt;a title="Debian Wheezy " href="https://www.debian.org/releases/wheezy/"&gt;GNU/Linux Debian 7 Wheezy&lt;/a&gt;.&lt;/p&gt; 
-&lt;p&gt;Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo &lt;strong&gt;/proc/cpuinfo&lt;/strong&gt;, para que nos de la informaci&amp;oacute;n, aplicando el filtro m&amp;aacute;s conveniente. Si tenemos un procesador Intel, que es nuestro caso:&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Virtualizar servidores está al orden del día, ya sea con vmWare, Xen o VirtualBox. Hoy hablaramos de la virtualización completa para Linux KVM o “Kernel-based Virtual Machine”, que usa sólo software libre. KVM está basada en dos partes, una formadada por un módulo de núcleo, llamado “kvm.ko” y las herramientas del espacio del usuario. Está disponible a partir de la versión del kernel 2.6.20. Contiene las extensiones de virtualización Intel VT o AMD-V. Instalación Hemos realizado las pruebas en un máquina con procesador I7 y un sistema operativo GNU/Linux Debian 7 Wheezy. Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo /proc/cpuinfo, para que nos de la información, aplicando el filtro más conveniente. Si tenemos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-05-15T14:41:31Z</dc:date>
   </entry>
@@ -74,11 +65,7 @@
     </author>
     <updated>2014-09-26T07:10:59Z</updated>
     <published>2014-09-18T15:00:19Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/VMware-Workstation-7-logo-150.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/VMware-Workstation-7-logo-150.jpg" alt="VMware-Workstation-7-logo-150" width="150" height="150" /&gt;&lt;/a&gt;Lo primero que nos damos cuenta cuando instalamos un servidor &lt;strong&gt;GNU Linux&lt;/strong&gt; virtualizado, utilizando cualquiera de las plataformas &lt;strong&gt;VMware&lt;/strong&gt;, es que debemos de instalar las herramietas &lt;strong&gt;VMware-tools&lt;/strong&gt;. Hoy veremos como hacerlo.&lt;/p&gt; 
-&lt;p&gt;En otros art&amp;iacute;culo hemos tratado de sistemas libres como &lt;strong&gt;KVM&lt;/strong&gt;, creo que tambi&amp;eacute;n es interesante que se traten otros sistemas que de una u otra manera tiene relaci&amp;oacute;n con &lt;strong&gt;GNU/Linux&lt;/strong&gt;, aunque en parte o totalmente sean privativos.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Para el art&amp;iacute;culo he utilizado el sistema operativo virtual &lt;strong&gt;Ubuntu 14.04 LTS&lt;/strong&gt; sobre &lt;strong&gt;VMware Workstation&lt;/strong&gt;. C&amp;oacute;mo pod&amp;eacute;is ver en la imagen:&lt;/p&gt; 
-&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/install-vmware-tools-linux-1.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/09/install-vmware-tools-linux-1.jpg" alt="install-vmware-tools-linux-1" width="900" height="629" /&gt;&lt;/a&gt;Al seleccionar “&lt;strong&gt;Install VMware Tools&lt;/strong&gt;” nos dir&amp;aacute; que se instalar&amp;aacute; desde un CD en el sistema operativo virtualizado, le diremos que s&amp;iacute;. Si tenemos alg&amp;uacute;n medio utilizandose en la misma unidad de CD se desconectar&amp;aacute;.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Lo primero que nos damos cuenta cuando instalamos un servidor GNU Linux virtualizado, utilizando cualquiera de las plataformas VMware, es que debemos de instalar las herramietas VMware-tools. Hoy veremos como hacerlo. En otros artículo hemos tratado de sistemas libres como KVM, creo que también es interesante que se traten otros sistemas que de una u otra manera tiene relación con GNU/Linux, aunque en parte o totalmente sean privativos. Para el artículo he utilizado el sistema operativo virtual Ubuntu 14.04 LTS sobre VMware Workstation. Cómo podéis ver en la imagen: Al seleccionar “Install VMware Tools” nos dirá que se instalará desde un CD en el sistema operativo virtualizado, le diremos que sí. Si tenemos algún medio utilizandose en la misma unidad de CD se desconectará. Nos aparecerá el[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/instalar-vmware-tools-en-servidor-virtual-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-18T15:00:19Z</dc:date>
   </entry>
@@ -96,12 +83,7 @@
     </author>
     <updated>2014-08-18T13:16:00Z</updated>
     <published>2014-08-18T13:16:00Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg"&gt;&lt;img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/05/kvmbanner_logo2_200.jpg" alt="kvmbanner_logo2_200" width="200" height="62" /&gt;&lt;/a&gt;Hace ya alg&amp;uacute;n tiempo hablamos de como instalar el conjunto de herramientas en nuestro&lt;strong&gt; GNU/Linux&lt;/strong&gt;, para poder crear y gestionar m&amp;aacute;quinas virtuales con &lt;strong&gt;KVM&lt;/strong&gt;. Hoy avanzaremos m&amp;aacute;s en el proceso, y crearemos una m&amp;aacute;quina virtual. Usaremos el sistema libre &lt;strong&gt;Trisquel,&lt;/strong&gt; en su versi&amp;oacute;n 6.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Primero de todo tenemos que comprobar que nuestro procesador soporta la virtualizaci&amp;oacute;n adem&amp;aacute;s de instalar los paquetes necesarios, podemos seguir las instrucciones de &amp;eacute;ste enlace:&lt;/p&gt; 
-&lt;p&gt;&lt;a title="Virtualizando con KVM" href="http://www.ochobitshacenunbyte.com/2014/05/15/virtualizando-con-kvm/"&gt;Virtualizando con KVM&lt;/a&gt;&lt;/p&gt; 
-&lt;p&gt;Si todo ha ido bien, ya podemos empezar a virtualizar. Como he comentado al principio del art&amp;iacute;culo me he descargado la imagen ISO del sistema operativo totalmente libre GNU/Linux Trisquel, en su versi&amp;oacute;n 6.&lt;/p&gt; 
-&lt;p&gt;Se me olvidaba, el host o m&amp;aacute;quina donde correr&amp;aacute; la m&amp;aacute;quina virtual es un sistema ElementaryOS, en su versi&amp;oacute;n de 64 bits.&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Hace ya algún tiempo hablamos de como instalar el conjunto de herramientas en nuestro GNU/Linux, para poder crear y gestionar máquinas virtuales con KVM. Hoy avanzaremos más en el proceso, y crearemos una máquina virtual. Usaremos el sistema libre Trisquel, en su versión 6. Primero de todo tenemos que comprobar que nuestro procesador soporta la virtualización además de instalar los paquetes necesarios, podemos seguir las instrucciones de éste enlace: Virtualizando con KVM Si todo ha ido bien, ya podemos empezar a virtualizar. Como he comentado al principio del artículo me he descargado la imagen ISO del sistema operativo totalmente libre GNU/Linux Trisquel, en su versión 6. Se me olvidaba, el host o máquina donde correrá la máquina virtual es un sistema ElementaryOS, en su versión de 64 bits.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/08/virtualizacion-con-kvm-y-trisquel"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-08-18T13:16:00Z</dc:date>
   </entry>
@@ -121,17 +103,7 @@
     </author>
     <updated>2014-04-01T13:59:44Z</updated>
     <published>2014-04-01T13:58:31Z</published>
-    <content type="html">&lt;p&gt;&lt;p&gt;&lt;a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell.jpg"&gt;&lt;img alt="consola-linux-shell" src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/03/consola-linux-shell-150x150.jpg" width="150" height="150" /&gt;&lt;/a&gt;Estoy preparando un art&amp;iacute;culo de virtualizaci&amp;oacute;n con &lt;a title="QEMU/KVM" href="http://www.linux-kvm.org/page/Main_Page"&gt;QEMU/KVM&lt;/a&gt; y me he encontrado con la situaci&amp;oacute;n de tener que clonar m&amp;aacute;quinas, y una vez ya clonadas, cambiarles la configuraci&amp;oacute;n. Uno de estos cambios es referente al nombre de la m&amp;aacute;quina. Ya que si clono un host que se llama vDebian1 a otro vDebian2, tendr&amp;eacute; que modifcar varios archivos en la segunda m&amp;aacute;quina, para que no tenga el nombre de la primera.&lt;/p&gt; 
-&lt;p&gt;&lt;/p&gt; 
-&lt;p&gt;Al l&amp;iacute;o, hay que modificar dos archivos, ubicados ambos en la carpeta &lt;strong&gt;/etc&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;El primero es &lt;strong&gt;/etc/hosts&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Por defecto la configuraci&amp;oacute;n suele se as&amp;iacute;:&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;127.0.0.1 localhost&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt; 127.0.1.1 nombredemaquina&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Tendr&amp;eacute; que modificar la segunda l&amp;iacute;nea:&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;127.0.1.1 vDebian2&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;Pasemos al siguiente fichero a modificar, es decir, &lt;strong&gt;/etc/hostname&lt;/strong&gt;&lt;/p&gt; 
-&lt;p&gt;El nombre de la m&amp;aacute;quina era:&lt;/p&gt; 
-&lt;p&gt;&lt;strong&gt;vDebian1&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnu-linux"&gt;continuar leyendo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;Estoy preparando un artículo de virtualización con QEMU/KVM y me he encontrado con la situación de tener que clonar máquinas, y una vez ya clonadas, cambiarles la configuración. Uno de estos cambios es referente al nombre de la máquina. Ya que si clono un host que se llama vDebian1 a otro vDebian2, tendré que modifcar varios archivos en la segunda máquina, para que no tenga el nombre de la primera. Al lío, hay que modificar dos archivos, ubicados ambos en la carpeta /etc El primero es /etc/hosts Por defecto la configuración suele se así: 127.0.0.1 localhost 127.0.1.1 nombredemaquina Tendré que modificar la segunda línea: 127.0.1.1 vDebian2 Pasemos al siguiente fichero a modificar, es decir, /etc/hostname El nombre de la máquina era: vDebian1 Sólo tuve que cambiarlo por el que yo quería: vDebian2[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/04/cambiar-nombre-de-maquina-host-en-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-04-01T13:58:31Z</dc:date>
   </entry>

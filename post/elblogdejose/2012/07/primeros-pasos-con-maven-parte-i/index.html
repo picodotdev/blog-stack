@@ -1,116 +1,21 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Primeros pasos con maven Parte I | El blog de Jose</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i"><span itemprop="headline">Primeros pasos con maven Parte I</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">admin</span> en la bitácora <a href="http://josedeveloper.com/">El blog de Jose</a>, <a href="http://josedeveloper.com/2012/07/20/primeros-pasos-con-maven-parte-i/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-03-07T04:57" itemprop="dateModified">Actualizado el viernes, 07 de marzo de 2014 a las 04:57 UTC</span></div><div><span>
-Etiquetado como
-proyecto, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, java-ee, compilacion, construccion, java-se, maven, configuracion, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p>Desde su nacimiento <strong>Maven</strong> ha ido consolidando y a su vez aumentando su posici&oacute;n como herramienta de gesti&oacute;n y construcci&oacute;n de software en lenguaje Java, poco a poco quitandole terreno a otra famosa herramienta presente en el mercado desde hace mas tiempo que de seguro mucho de ustedes la habran oido mencionar <strong>Apache Ant</strong>.</p>
-<p>A continuaci&oacute;n les dejo unas graficas sacadas con el software de estadistica de google donde se puede observar como ha ido incrementandose el interes de Maven con respecto a Ant en distintas categorias</p>
-<p>&nbsp;</p>
-<table>
- <tbody>
-  <tr>
-   <td> <a href="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.47.12.png?fdae38"><img src="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.47.12-300x150.png?fdae38" alt="estad&iacute;sticas de Ant vs Maven en la categoria de Programaci&oacute;n " title="estad&iacute;sticas de Ant vs Maven en la categoria de Programaci&oacute;n " width="300" height="150" /></a></td>
-   <td> <a href="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.47.34.png?fdae38"><img src="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.47.34-300x153.png?fdae38" alt="estad&iacute;sticas de Ant vs Maven en la categoria Herramientas de desarrollo" title="estad&iacute;sticas de Ant vs Maven en la categoria Herramientas de desarrollo" width="300" height="153" /></a></td>
-  </tr>
-  <tr>
-   <td> <a href="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.48.03.png?fdae38"><img src="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.48.03-300x153.png?fdae38" alt="estad&iacute;sticas de Ant vs Maven en la categor&iacute;a Lenguaje de programaci&oacute;n Java" title="estad&iacute;sticas de Ant vs Maven en la categor&iacute;a Lenguaje de programaci&oacute;n Java" width="300" height="153" /></a></td>
-   <td> <a href="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.48.27.png?fdae38"><img src="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.48.27-300x153.png?fdae38" alt="estad&iacute;sticas del crecimiento de las b&uacute;squedas de Ant y Maven vs  la categoria Lenguaje de programaci&oacute;n Java" title="estad&iacute;sticas del crecimiento de las b&uacute;squedas de Ant y Maven vs  la categoria Lenguaje de programaci&oacute;n Java" width="300" height="153" /></a></td>
-  </tr>
-  <tr>
-   <td colspan="2"> <a href="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.49.02.png?fdae38"><img src="http://josedeveloper.com/wp-content/uploads/2012/07/Captura-de-pantalla-2012-07-20-a-las-00.49.02-300x160.png?fdae38" alt="estad&iacute;sticas de las b&uacute;squedas de Ant vs Maven en la categor&iacute;a Software" title="estad&iacute;sticas de las b&uacute;squedas de Ant vs Maven en  la categor&iacute;a Software" width="300" height="160" /></a></td>
-  </tr>
- </tbody>
-</table>
-<p>Adem&aacute;s es cuesti&oacute;n de revisar ofertas de trabajo para ver como cada vez piden mas el conocer Maven como requisito indispensable o como poco un requisito deseado a poseer por parte del candidato. Dada esta introducci&oacute;n quiero compartir con ustedes lo poco que se y he aprendido de maven con la finalidad de que pueda serles de utilidad o al menos como incentivo a aprender mas de esta poderosa herramienta.</p>
-<p><strong>Instalaci&oacute;n</strong></p>
-<p>Debemos ir al sitio web de <a title="maven" href="http://apache.maven.com">Maven</a> y descargar los binarios, como vamos a ir haciendo cosas sencillas les recomiendo que empecemos con la versi&oacute;n 3 para ir familiarizandonos con las novedades de esta nueva versi&oacute;n (seg&uacute;n he leido goza de mejoras de productividad, errores, adem&aacute;s de escribir el fichero POM en otros lenguajes no XML como groovy, ruby, scala entre otros).</p>
-<p><em><strong>NOTA:</strong></em> Antes de realizar los siguientes pasos de la instalaci&oacute;n, asumimos que ya de antemano existe la variable JAVA_HOME apuntando a la ruta donde tenemos instalado nuestra versi&oacute;n de Java y que a su vez los binarios de Java ya han sido a&ntilde;adidos al PATH del sistema.</p>
-<p>Usuarios Windows XP</p>
-<ol>
- <li>Una vez descargado el software, descomprimirlo en la carpeta de preferencia, por ejemplo para usuarios windows podria ser la ruta <em>C:\Archivos de programa\apache-maven</em>,</li>
- <li>Creamos las variables de entorno en panel de control-&gt;Sistema-&gt;Opciones avanzadas-&gt;variables de entorno. Alli crearemos 2 nuevas variables del sistema. La primera ser&aacute; M2_HOME su valor ser&aacute; la ruta (path) donde hallamos instalado maven p.e. <em>C:\Archivos de programa\apache-maven\apache-maven-3.0.4</em>. La segunda variable ser&aacute; M2 y su valor ser&aacute; <em>%M2_HOME%\bin</em>.</li>
- <li>Editamos la variable del sistema PATH, y agregamos al final del contenido del valor de la variable PATH, el valor de la variable M2, de la siguiente manera:<em>valor_variable_path;%M2%.</em></li>
- <li>Probamos que los pasos anteriores se han efectuado correctamente, Por linea de comandos (inicio-&gt;ejecutar: cmd.exe) tecleamos mvn -version y deber&aacute; aparecer la informaci&oacute;n de maven, como por ejemplo la versi&oacute;n java, la versi&oacute;n maven, la ruta de instalaci&oacute;n, etc.</li>
-</ol>
-<p>Usuarios Linux/Mac Os X</p>
-<ol>
- <li>Una vez descargado maven, lo extraemos en nuestro lugar de preferencia, pero podriamos utilizar la ruta <em>/usr/local/apache-maven</em>.</li>
- <li>En el terminal por linea de comando, exportamos la variable M2_HOME con el valor de la ruta donde hemos instalado maven por ejemplo,&nbsp; export M2_HOME = /usr/local/apache-maven/apache-maven-3.0.4. De igual manera hacemos con la variable M2, de la siguiente manera, export M2=$M2_HOME/bin.</li>
- <li>Agregamos al PATH la variable M2, de la siguiente manera, export PATH=$M2:$PATH.</li>
- <li>Probamos que los pasos anteriores se han efectuado correctamente, Por linea de comandos&nbsp; tecleamos mvn -version y deber&aacute; aparecer la informaci&oacute;n de maven, como por ejemplo la versi&oacute;n java, la versi&oacute;n maven, la ruta de instalaci&oacute;n, etc.</li>
-</ol>
-<p><strong>Configuraci&oacute;n opcional</strong></p>
-<p>Si entramos en la ruta donde hemos instalado maven encontraremos el fichero settings.xml dentro de la carpeta conf, este fichero nos permite configurar aspectos adicionales, como pueden ser modificar la ruta por defecto donde se alojara nuestro repositorio o indicar una conex&oacute;n proxy, entre otras cosas.</p>
-<p>Si estamos conectados por medio de un servidor proxy sencillamente descomentamos el contenido de la etiqueta <em>proxies</em> y alli indicamos los valores con lo cual accedemos a conectarnos. por ejemplo</p>
-<pre>&lt;proxies&gt;
-    &lt;proxy&gt;
-      &lt;id&gt;optional&lt;/id&gt;
-      &lt;active&gt;true&lt;/active&gt;
-      &lt;protocol&gt;http&lt;/protocol&gt;
-      &lt;username&gt;proxyuser&lt;/username&gt;
-      &lt;password&gt;proxypassword&lt;/password&gt;
-      &lt;host&gt;proxy_hostname&lt;/host&gt;
-      &lt;port&gt;puerto&lt;/port&gt;
-      &lt;nonProxyHosts&gt;local.net|some.host.com&lt;/nonProxyHosts&gt;
-    &lt;/proxy&gt;
-&lt;/proxies&gt;</pre>
-<p>Por otro lado si desearamos modificar la ruta por defecto del repositorio, solo descomentariamos el contenido de la etiqueta <em>local_repository</em> y colocamos la ruta donde deseemos que este ubicado nuestro repositorio, por ejemplo en windows podr&iacute;a ser algo como esto:</p>
-<p>&nbsp;</p>
-<pre>&lt;localRepository&gt;C:\repositorio3&lt;/localRepository&gt;</pre>
-<p>Ahora que ya tenemos maven instalado, configurado y tenemos constancia de ello (habiendo efectuado las pruebas), vamos a crear nuestro primer proyecto Maven, lo haremos por linea de comandos y tecleamos lo siguiente:</p>
-<p>mvn archetype:generate -DgroupId=<strong>com.josedeveloper.app</strong> -DartifactId=<strong>PruebaMaven</strong> -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</p>
-<p>Esta sentencia nos creara todo el esqueleto del Proyecto incluyendo un fichero de pruebas y un main (con un “Hola mundo!”), la primera vez puede que tarde un poco, ya que maven estara descargandose las ultimas versiones de los plug-ins a nuestro repositorio, incluso en el sitio web de Maven nos indican que puede que esta sentencia debamos ejecutarla en m&aacute;s de una oportunidad ya que pueden ocurrir time out antes de que se haya terminado la descarga (esperemos que no sea nuestro caso).</p>
-<p>Una vez creado el proyecto veremos una carpeta de nombre PruebaMaven (o cualquier otro que hayamos utilizado) si entramos en esa carpeta nos encontraremos con el fichero pom.xml y este no es mas que el fichero que maneja la configuraci&oacute;n de nuestro proyecto (haciendo una analogia vendria siendo algo asi como el build.xml de Ant).</p>
-<p>Maven funciona en torno a fases, y una fase no es m&aacute;s que un paso dentro del ciclo de vida de construcci&oacute;n de un proyecto, es importante tener en cuenta que para llegar a una fase es necesario haber pasado previamente por las fases que le preceden. Las fases por defecto m&aacute;s comunes de un proyecto ser&iacute;an las siguientes:</p>
-<ul>
- <li><strong>validate</strong>: Valida que el proyecto esta correcto y dispone de la informaci&oacute;n necesaria.</li>
- <li><strong>compile</strong>: Compila el c&oacute;digo fuente del proyecto.</li>
- <li><strong>test: </strong>Prueba el c&oacute;digo fuente compilado haciendo uso de frameworks para pruebas unitarias (JUnit).</li>
- <li><strong>package: </strong>Empaqueta el c&oacute;digo fuente compilado (por ejemplo creando un jar o war).</li>
- <li><strong>integration-test: </strong>Procesa y despliega el paquete dentro de un entorno de test de integraci&oacute;n.</li>
- <li><strong>verify:&nbsp;</strong>Ejecuta los controles necesarios para&nbsp; verificar si el paquete es v&aacute;lido y cumple con los criterios de calidad.</li>
- <li><strong>install: </strong>Instala el paquete dentro del repositorio local, para poder usarlo como dependencia en otro proyecto.</li>
- <li><strong>deploy: </strong>Copia el paquete final al repositorio remoto para compartir con otros desarrolladores y proyectos.</li>
-</ul>
-<p>Analizando lo anterior&nbsp; y volviendo a lo de las fases, nos damos cuenta que tiene mucha logica el enfoque de fases de Maven, ya que para poder probar un c&oacute;digo, es necesario haberlo compilado de antemano, lo cual implica haber pasado por la fase <strong>compile</strong>, as&iacute; como para poder instalar un proyecto como dependencia en el repositorio es necesario que el c&oacute;digo haya sido compilado, se haya probado, luego empaquetarlo, lo que se traduce que al invocar la fase <strong>install</strong> previamente tuvo que haber pasado por las fases, <strong>compile</strong>, <strong>test</strong>, <strong>package</strong>… y asi sucesivamente.</p>
-<p>Ahora procedamos a construir el proyecto, sencillamente ubicandonos dentro de la carpeta del proyecto, introducimos por linea de comandos, lo siguiente</p>
-<p>mvn package</p>
-<p>Si navegamos por la estructura de directorio veremos que en la carpeta target nos habra creado un fichero .jar, adem&aacute;s que durante la ejecuci&oacute;n de la ultima sentencia podemos ver como se van ejecutando las fases previas al empaquetado.</p>
-<p>Ya empaquetado el proyecto procedemos a ejecutarlo y lo haremos tambi&eacute;n por linea de comandos introduciendo la siguiente sentencia</p>
-<p>&gt;java -cp .\target\PruebaMaven-1.0-SNAPSHOT.jar com.josedeveloper.app.App</p>
-<p>Podremos ver nuestro Hola Mundo! con nuestro primer proyecto maven.</p>
-<p>Por ultimo quiz&aacute;s se hayan dado cuenta que algunos warning se arrojaron por linea de comando al momento del empaquetado, eso podemos resolverlo muy facilmente agregando a nuestro fichero pom.xml la siguiente linea</p>
-<p>&nbsp;</p>
-<pre>&lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-&lt;/properties&gt;</pre>
-<p>quedando este ultimo as&iacute;</p>
-<p></p>
-<pre>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;com.josedeveloper.app&lt;/groupId&gt;
-  &lt;artifactId&gt;PruebaMaven&lt;/artifactId&gt;
-  &lt;packaging&gt;jar&lt;/packaging&gt;
-  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-  &lt;name&gt;PruebaMaven&lt;/name&gt;
-  &lt;url&gt;http://maven.apache.org&lt;/url&gt;
-  &lt;properties&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-  &lt;/properties&gt;
-  &lt;dependencies&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;junit&lt;/groupId&gt;
-      &lt;artifactId&gt;junit&lt;/artifactId&gt;
-      &lt;version&gt;3.8.1&lt;/version&gt;
-      &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-&lt;/project&gt;</pre>
-<p></p>
-<p><strong>Conclusi&oacute;n</strong></p>
-<p>Toparse de repente con maven en un proyecto, al principio puede ser un dolor de cabeza, genera muchas interrogantes, adem&aacute;s que la curva de aprendizaje a mi modo de ver no es de la mas rapidas, lo cual puede que nos genere uno que otro enfado, impotencia, pero a medida que se va aprendiendo y poniendo a prueba las bondades de esta herramienta&nbsp; ocurre un cambio como decir el pasar del odio al amor jajajaja, esto no lo tomen como una generalizaci&oacute;n sino que es una opinion personal, pero es lo que he percibido a medida que voy avanzado con Maven, entre los beneficios (gracias a la gran cantidad de plugins) pues yo brevemente destaco el poder tener un repositorio centralizado, identificando las dependencias por sus respectivas versiones, es decir, olvidemonos de la cantidad infinita de jars repetidos en cada proyecto, adem&aacute;s de poder utilizarlo para temas de testing e integraci&oacute;n continua, adem&aacute;s de poder crear esqueletos de proyectos adaptados a nuestras necesidades, ya para mi lo anteriormente expuesto ya hace que valga la pena aprender a usar la herramienta, es m&aacute;s si les soy sincero yo aun estoy conociendo las ventajas de usar Maven y espero en medida de lo posible poderlo compartir con ustedes. De igual manera les invito a compartir sus experiencias con maven, que otras ventajas o desventajas observan ustedes de usarlo as&iacute; como compartir material de inter&eacute;s.</p>
-<p>The post <a href="http://josedeveloper.com/2012/07/20/primeros-pasos-con-maven-parte-i/">Primeros pasos con maven Parte I</a> appeared first on <a href="http://josedeveloper.com">El Blog de Jose</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Primeros pasos con maven Parte I | El blog de Jose</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://josedeveloper.com/2012/07/20/primeros-pasos-con-maven-parte-i/">Primeros pasos con maven Parte I</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-03-07T04:57" itemprop="dateModified">viernes, 07 de marzo de 2014 </span>,
+<span>fuente <a target="target" href="http://josedeveloper.com/">El blog de Jose</a></span>,
+etiquetas
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a> 
+<a href="/label/java"><span itemprop="articleSection">java</span></a> 
+</p><p class="text-justify" itemprop="description">
+Desde su nacimiento Maven ha ido consolidando y a su vez aumentando su posición como herramienta de gestión y construcción de software en lenguaje Java, poco a poco quitandole terreno a otra famosa herramienta presente en el mercado desde hace mas tiempo que de seguro mucho de ustedes la habran oido mencionar Apache Ant. A continuación les dejo unas graficas sacadas con el software de estadistica de google donde se puede observar como ha ido incrementandose el interes de Maven con respecto a Ant en distintas categorias   Además es cuestión de revisar ofertas de trabajo para ver como cada vez piden mas el conocer Maven como requisito indispensable o como poco un requisito deseado a poseer por parte del candidato. Dada esta introducción quiero compartir con ustedes lo poco que se y he aprendido [...]
+</p><p><a itemprop="sameAs" target="target" href="http://josedeveloper.com/2012/07/20/primeros-pasos-con-maven-parte-i/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i" st_title="Primeros pasos con maven Parte I | El blog de Jose"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -155,34 +60,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 496,
-      "url" : "http://www.blogstack.info/post/elblogdejose/2012/07/primeros-pasos-con-maven-parte-i"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdejose",
-      "name" : "El blog de Jose"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -194,6 +73,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-1282205667414046",
         "adSlot" : "2014526355"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

@@ -1,276 +1,21 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Introducción a Elasticsearch | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/blogbitix/2014/04/introduccion-a-elasticsearch"><span itemprop="headline">Introducción a Elasticsearch</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a>, <a href="http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-05-01T15:00" itemprop="dateModified">Actualizado el jueves, 01 de mayo de 2014 a las 15:00 UTC</span></div><div><span>
-Etiquetado como
-blog-stack, planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="float: right; text-align: right;"> 
- <img src="http://picodotdev.github.io/blog-bitix/images/custom/logotipos/elasticsearch.png" alt="Elasticsearch" title="Elasticsearch" />
- <br /> 
-</div> 
-<p>Continuando con la forma de <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">como dar soluci&oacute;n a la b&uacute;squedas en las entidades de dominio</a> en esta entrada profundizar&eacute; en la soluci&oacute;n que comentaba de usar <a href="http://www.elasticsearch.org">Elasticsearch</a> (ES). ES se basa en <a href="http://lucene.apache.org/core/">Lucene</a> pero expone su funcionalidad a trav&eacute;s de una interfaz REST recibiendo y enviando datos en formato JSON y oculta mediante esta interfaz los detalles internos de lucene. Esta interfaz permite que pueda ser utilizada por cualquier plataforma no solo Java, puede usarse desde Python, .NET, PHP o incluso desde un navegador con Javascript. Es persistente, es decir, que lo que indexemos en ella sobrevivir&aacute; a un reinicio del servidor.</p> 
-<p>Como comentaba en <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">el art&iacute;culo anterior de b&uacute;squedas sobre entidades de dominio</a> ES nos puede servir para hacer b&uacute;squedas a texto completo pero tambi&eacute;n podemos hacer otra serie de cosas adicionales que no podemos con una base de datos relacional aunque soporte en su lenguaje SQL b&uacute;squeda a texto completo, por ejemplo, resaltado (highlight) y facetas (facets), tambi&eacute;n permite hacer b&uacute;squedas vagas (fuzzy) y soporta diferentes analizadores seg&uacute;n el idioma de la propiedad en que se busque. El indexar y desindexar los datos en elasticsearch para que luego puedan ser buscados es responsabilidad nuestra y adem&aacute;s de insertarlos o eliminarlos en la base de datos debemos hacer lo mismo en ES ya sea haci&eacute;ndolo en ambos sitios a la vez o mediante un proceso de fondo que se encargue de ello.</p> 
-<p>La instalaci&oacute;n de ES es muy sencilla, basta con <a href="http://www.elasticsearch.org/overview/elkdownloads/">descargar el zip de su distribuci&oacute;n</a>, descomprimirlo e iniciarlo con el siguiente comando:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-1.sh"></script> 
- <noscript>
-  <pre><code>$ elasticsearch -f</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Despu&eacute;s de unos segundos deberemos ver algo como lo siguiente.</p> 
-<div style="text-align: center;"> 
- <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/elasticsearch.png" title="Mensajes de inicio del servidor Elasticsearch"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/elasticsearch-thumb.png" /></a> 
-</div> 
-<p>Elasticsearch usa sus propios conceptos y aunque no es una base de datos relacional algunos pueden ser similares. Lo que en en una base de datos relacional es un esquema en ES es un &iacute;ndice, lo que en la primera es una tabla en ES es un tipo, continuando una fila en ES es un documento y finalmente una columna es una propiedad en ES.</p> 
-<p>La documentaci&oacute;n de Elasticsearch es un documentaci&oacute;n de referencia probablemente pero para aprender a sacarle el m&aacute;ximo provecho probablemente debamos buscar alg&uacute;n manual o libro que nos lo explique de una forma m&aacute;s did&aacute;ctica. Algunas opciones son el libro <a href="http://exploringelasticsearch.com/">Exploring Elasticsearch</a> y el <a href="http://www.elasticsearchtutorial.com/">tutorial Elasticsearch</a>.</p> 
-<p>Veamos como crear y borrar un &iacute;ndice, para ello utilizaremos la herramienta curl:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-2.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XPUT 'http://localhost:9200/blogbitix'
-$ curl -XDELETE 'http://localhost:9200/blogbitix'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Aunque Elasticsearch es orientado a documentos y estos no tienen que adherirse a un esquema como en una base de datos relacional, podemos instruir a Elasticsearch como queremos que haga las b&uacute;squedas sobre los campos del documento. Para ello definimos la correspondencia (mapping). A continuaci&oacute;n pondr&eacute; el caso hipot&eacute;tico de un tipo libro que tiene las propiedades de nombre y descripci&oacute;n en varios idiomas, una serie de etiquetas para catalogarlo y una cantidad.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-3.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XPUT 'http://localhost:9200/blogbitix/libro/_mapping' -d '{
-    &quot;producto&quot; : {
-        &quot;properties&quot; : {
-            &quot;nombre&quot; : {
-                &quot;type&quot; : &quot;object&quot;,
-                &quot;properties&quot; : { 
-                    &quot;es&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot; },
-                    &quot;en&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot; }
-                }
-            },
-            &quot;descripcion&quot; : {
-                &quot;type&quot; : &quot;object&quot;,
-                &quot;properties&quot; : { 
-                    &quot;es&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot;, &quot;store&quot;: &quot;yes&quot; },
-                    &quot;en&quot;: { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot;, &quot;store&quot;: &quot;yes&quot; }
-                }
-            },
-            &quot;etiquetas&quot; : {
-                &quot;type&quot; : &quot;object&quot;,
-                &quot;properties&quot; : { 
-                    &quot;es&quot;: { 
-                        &quot;type&quot; : &quot;multi_field&quot;,
-                        &quot;fields&quot; : {
-                            &quot;term&quot; : { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;spanish&quot; },
-                            &quot;untouched&quot; : {&quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;not_analyzed&quot;}
-                        }
-                    },
-                    &quot;en&quot;: { 
-                        &quot;type&quot; : &quot;multi_field&quot;,
-                        &quot;fields&quot; : {
-                            &quot;term&quot; : { &quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;analyzed&quot;, &quot;analyzer&quot; : &quot;english&quot; },
-                            &quot;untouched&quot; : {&quot;type&quot; : &quot;string&quot;, &quot;index&quot; : &quot;not_analyzed&quot;}
-                        }
-                    }
-                }
-            },
-            &quot;cantidad&quot; : { &quot;type&quot; : &quot;long&quot; }
-        }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Con la siguiente petici&oacute;n podemos ver el mapeo de un tipo.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-4.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/blogbitix/libro/_mapping?pretty=true'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>El mapeo no es necesario definirlo previamente pero es aconsejable para ciertas propiedades sino queremos que ES tome valores por defecto o haga suposiciones, a continuaci&oacute;n insertamos los documentos. Cada documento tiene un identificativo que deberemos asignarle y para indexarlo b&aacute;sicamente proporcionamos un JSON con las propiedades del documento. Elasticsearch se encargar&aacute; de indexarlo para que una b&uacute;squeda posterior se ejecute r&aacute;pidamente.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-5.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XPUT 'http://localhost:9200/blogbitix/libro/1' -d '{
-    &quot;libro&quot; : {
-        &quot;nombre&quot; : {
-            &quot;es&quot;: &quot;PlugIn Tapestry&quot;,
-            &quot;en&quot;: &quot;PlugIn Tapestry&quot;
-        },
-        &quot;descripcion&quot; : {
-            &quot;es&quot;: &quot;Desarrollo de aplicaciones y p&aacute;ginas web con Apache Tapestry&quot;,
-            &quot;en&quot;: &quot;Development of applications and web pages with Apache Tapestry&quot;
-        },
-        &quot;etiquetas&quot; : {
-            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;espa&ntilde;ol&quot;],
-            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;spanish&quot;]
-        },
-        &quot;cantidad&quot; : 1000
-    }
-}'
-
-$ curl -XPUT 'http://localhost:9200/blogbitix/libro/2' -d '{
-    &quot;libro&quot; : {
-        &quot;nombre&quot; : {
-            &quot;es&quot;: &quot;Tapestry 5 - Desarrollo r&aacute;pido de aplicaciones web en Java&quot;,
-            &quot;en&quot;: &quot;Tapestry 5 - Rapid web application development in Java&quot;
-        },
-        &quot;descripcion&quot; : {
-            &quot;es&quot;: &quot;Una gu&iacute;a completa presentando Apache Tapestry y su aproximaci&oacute;n inovadora para la construcci&oacute;n de aplicaciones web modernas&quot;,
-            &quot;en&quot;: &quot;A comprehensive guide, introducing Apache Tapestry and its innovative approach to building modern web applications&quot;
-        },
-        &quot;etiquetas&quot; : {
-            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;ingl&eacute;s&quot;],
-            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;english&quot;]
-        },
-        &quot;cantidad&quot; : 1000
-    }
-}'
-
-$ curl -XPUT 'http://localhost:9200/blogbitix/libro/3' -d '{
-    &quot;libro&quot; : {
-        &quot;nombre&quot; : {
-            &quot;es&quot;: &quot;Tapestry in Action&quot;,
-            &quot;en&quot;: &quot;Tapestry in Action&quot;
-        },
-        &quot;descripcion&quot; : {
-            &quot;es&quot;: &quot;Tapestry in Action e la introducci&oacute;n definitiva a Tapestry 3 escrito por Howard Lewis Ship, el creador de Tapestry&quot;,
-            &quot;en&quot;: &quot;Tapestry in Action is the definitive introduction to Tapestry 3 written by Howard Lewis Ship, the creator of Tapestry&quot;
-        },
-        &quot;etiquetas&quot; : {
-            &quot;es&quot;: [&quot;libro&quot;, &quot;tecnologia&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;ingl&eacute;s&quot;],
-            &quot;en&quot;: [&quot;book&quot;, &quot;tecnology&quot;, &quot;tapestry&quot;, &quot;java&quot;, &quot;english&quot;]
-        },
-        &quot;cantidad&quot; : 1000
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Con las anteriores peticiones hemos indexado 3 documentos, podemos ver los datos de cada uno de ellos con:</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-6.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/blogbitix/libro/1'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Una vez tenemos unos cuantos documentos indexados en ES podemos empezar a hacer b&uacute;squedas. Elasticsearch para hacer las b&uacute;squedas usa su propio lenguaje de DSL, no es sencillo y la documentaci&oacute;n de ES no es muy &uacute;til para aprender a como usarla. Pondr&eacute; algunos ejemplos simples, probablemente no reales y no representativos de todo el potencial que puede ofrecer ES. El primero es una b&uacute;squeda por una determinada palabra.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-7.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/blogbitix/libro/_search?pretty=true' -d '{
-    &quot;query&quot; : {
-        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Una b&uacute;squeda similar a la anterior pero con m&aacute;s condiciones, exigiendo que no tenga unas palabras en concreto y algunas que deber&iacute;an tener haciendo que ES valore m&aacute;s los documentos que las tengan.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-8.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/blogbitix/libro/_search?pretty=true' -d '{
-    &quot;query&quot; : {
-        &quot;bool&quot; : {
-            &quot;must&quot; : {
-                &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
-            },
-            &quot;must_not&quot; : {
-                &quot;query_string&quot; : {
-                    &quot;fields&quot; : [&quot;descripcion.es&quot;],
-                    &quot;query&quot; : &quot;\&quot;tapestry 3\&quot;&quot;
-                }
-            },
-            &quot;should&quot; : [{ 
-                &quot;match&quot; : {
-                    &quot;descripcion.es&quot; : {
-                        &quot;query&quot; : &quot;gu&iacute;a&quot;,
-                        &quot;type&quot; : &quot;phrase&quot;
-                    }
-                }
-            }]
-        }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Adem&aacute;s de b&uacute;squedas ES puede ofrecernos m&aacute;s funcionalidades como las facetas con las que podemos obtener un sumatorio de los resultados. En la siguiente consulta buscamos los documentos con una determinada palabra y adem&aacute;s le pedimos a ES que nos devuelva cuantos documentos hay que cumplan ese criterio en cada etiqueta. Esto probablemente es lo que usen en la tienda de Amazon cuando muestran cuantos elementos hay en las diferentes categorizaciones. Aunque en Amazon solo muestran las categor&iacute;as de los elementos buscados probablemente podr&iacute;an mostrar cuantos elementos hay en cada una de esas categor&iacute;as.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-9.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/blogbitix/libro/_search?pretty=true' -d '{
-    &quot;query&quot; : {
-        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
-    },
-    &quot;facets&quot;: {
-        &quot;etiquetas&quot;: { &quot;terms&quot;: { &quot;field&quot;: &quot;etiquetas.es.untouched&quot; } }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<div style="text-align: center;"> 
- <a href="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/categorias-amazon.png" title="Categor&iacute;as de productos (facets) en Amazon"><img src="http://picodotdev.github.io/blog-bitix/images/custom/posts/21/categorias-amazon-thumb.png" /></a> 
-</div> 
-<p>Otra de las funcionalizades que nos puede interesar es que ES nos ofrezca sugerencias para determinados t&eacute;rminos, en el siguiente ejemplo solicitamos adem&aacute;s de la b&uacute;squeda sugerencias para algunas palablas que tienen fallos de escritura.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-10.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/elblogdepicodev/libro/_search?pretty=true' -d '{
-    &quot;query&quot; : {
-        &quot;fuzzy&quot; : { &quot;descripcion.es&quot;: &quot;tapestry&quot; }
-    },
-    &quot;suggest&quot;: {
-        &quot;suggest1&quot; : {
-            &quot;text&quot; : &quot;tapestyr desarrallo&quot;,
-            &quot;term&quot; : {
-                &quot;field&quot; : &quot;descripcion.es&quot;  
-            }
-        }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Finalmente, otra cosa que nos puede interesar es que ES nos resalte las palabras de determinados campos para destacar las coincidencias de los resultados de forma visual que se han encontrado. Esto necesita { store: “yes” } en la correspondencia de la propiedad.</p> 
-<p></p>
-<div>
- <script src="https://gist.github.com/picodotdev/11294261.js?file=script-11.sh"></script> 
- <noscript>
-  <pre><code>$ curl -XGET 'http://localhost:9200/elblogdepicodev/libro/_search?pretty=true' -d '{
-    &quot;query&quot; : {
-        &quot;query_string&quot;: {  
-            &quot;query&quot;: &quot;Tapestry&quot;
-        }
-    },
-    &quot;highlight&quot; : {
-        &quot;fields&quot; : {
-            &quot;descripcion.es&quot; : { }
-        }
-    }
-}'</code></pre>
- </noscript>
-</div> 
-<p></p> 
-<p>Estos son solo unos pocos ejemplos, ES seguro que puede ofrecer muchas cosas m&aacute;s que leyendo solo la documentaci&oacute;n de referencia es dif&iacute;cil descubrir. Lo ideal ser&iacute;a tener un libro espec&iacute;fico en el que aprender en mucha m&aacute;s profundidad a sacarle partido sin embargo hasta el momento. El libro Elasticsearch Server tiene buena pinto</p> 
-<p>Referencia:<br /> <a href="http://elblogdepicodev.blogspot.com.es/2013/08/busquedas-de-texto-completo-en-objetos-de-dominio.html">B&uacute;squedas de texto completo en objetos de dominio</a><br /> <a href="http://www.elasticsearch.org">Elasticsearch</a><br /> <a href="http://exploringelasticsearch.com/">Exploring Elasticsearch</a><br /> <a href="http://www.elasticsearchtutorial.com/">Tutorial Elasticsearch</a></p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "blog-bitix";
-var disqus_title = "Introducción a Elasticsearch";
-var disqus_url = "http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Introducción a Elasticsearch | Blog Bitix</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/">Introducción a Elasticsearch</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-05-01T15:00" itemprop="dateModified">jueves, 01 de mayo de 2014 </span>,
+<span>fuente <a target="target" href="http://picodotdev.github.io/blog-bitix/">Blog Bitix</a></span>,
+etiquetas
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a> 
+<a href="/label/software"><span itemprop="articleSection">software</span></a> 
+</p><p class="text-justify" itemprop="description">
+Continuando con la forma de como dar solución a la búsquedas en las entidades de dominio en esta entrada profundizaré en la solución que comentaba de usar Elasticsearch (ES). ES se basa en Lucene pero expone su funcionalidad a través de una interfaz REST recibiendo y enviando datos en formato JSON y oculta mediante esta interfaz los detalles internos de lucene. Esta interfaz permite que pueda ser utilizada por cualquier plataforma no solo Java, puede usarse desde Python, .NET, PHP o incluso desde un navegador con Javascript. Es persistente, es decir, que lo que indexemos en ella sobrevivirá a un reinicio del servidor. Como comentaba en el artículo anterior de búsquedas sobre entidades de dominio ES nos puede servir para hacer búsquedas a texto completo pero también podemos hacer otra serie [...]
+</p><p><a itemprop="sameAs" target="target" href="http://picodotdev.github.io/blog-bitix/2014/04/introduccion-a-elasticsearch/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch" st_title="Introducción a Elasticsearch | Blog Bitix"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -315,35 +60,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 1,
-      "url" : "http://www.blogstack.info/post/blogbitix/2014/04/introduccion-a-elasticsearch"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "blogbitix",
-      "name" : "Blog Bitix"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -355,6 +73,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

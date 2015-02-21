@@ -1,130 +1,22 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql"><span itemprop="headline">Cómo instalar Proftpd con soporte MySQL</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/sistemas-operativos"><img title="sistemas-operativos" alt="sistemas-operativos" src="/assets/images/labels/sistemas-operativos.png"/></a><a class="label" href="/label/mysql"><img title="mysql" alt="mysql" src="/assets/images/labels/mysql.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">ochobitshacenunbyte</span> en la bitácora <a href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a>, <a href="http://www.ochobitshacenunbyte.com/2014/10/13/como-instalar-proftpd-con-soporte-mysql/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-10-13T09:43" itemprop="dateModified">Actualizado el lunes, 13 de octubre de 2014 a las 09:43 UTC</span></div><div><span>
-Etiquetado como
-proftpd, pwgen, <a href="/label/mysql"><span itemprop="articleSection">mysql</span></a>, blog-stack, comandos, <a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a>, phpmyadmin</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/Warehouse-Loading-Dock.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/Warehouse-Loading-Dock.jpg" alt="Warehouse-Loading-Dock" width="640" height="480" /></a></p> 
-<p>Aunque no es el m&eacute;todo m&aacute;s seguro de transferencia de archivos, <strong>sftp</strong> s&iacute; lo es, la transferencia de archivos v&iacute;a <strong>ftp</strong> es muy popular. Ya en su d&iacute;a explique c&oacute;mo instalar el programa<a title="Montar un servidor FTP desde 0, con PROFTPD" href="http://www.ochobitshacenunbyte.com/2014/06/12/montar-un-servidor-ftp-desde-0-con-proftpd/"><strong> proftpd</strong> </a>de manera b&aacute;sica. Hoy veremos c&oacute;mo instalarlo y configurar con apoyo <strong>MySQ</strong>L.</p> 
-<p>De &eacute;sta manera podremos administrar m&uacute;ltiples usuarios y ubilicaciones de manera sencilla. Utilizando proftpd, mysql y phpmyadmin.</p> 
-<p>Antes de empezar, instalaremos el servicio web <strong>Apache2</strong> y <strong>MySQL</strong>.</p> 
-<pre>sudo apt-get install apache2
-sudo apt-get install mysql-server mysql-common</pre> 
-<p>Lo primero de todo vamos a instalar los programas necesarios:</p> 
-<pre>sudo apt-get install proftpd-basic proftpd-mod-mysql</pre> 
-<p>Y para administrar MySQL v&iacute;a interfaz web, usaremos <strong>phpmyadmin</strong></p> 
-<pre>sudo apt-get install phpmyadmin</pre> 
-<p>Nos preguntar&aacute; que servicio web queremos utilizar, nosotros escogeremos <strong>Apache2</strong></p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-1.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-1.jpg" alt="proftpd-mysql-1" width="645" height="389" /></a></p> 
-<p>A continuaci&oacute;n nos pedir&aacute; usar la base de datos <strong>dbconfig-common</strong>, le diremos que s&iacute;.</p> 
-<p>El siguiente paso es escoger una contrase&ntilde;a.</p> 
-<p><strong>Trabajando desde la web v&iacute;a phpmyadmin</strong></p> 
-<p>Ahora crearemos los usuarios y las ubicaciones de las carpetas <strong>FTP</strong> desde el entorno <strong>phpmyadmin</strong>, v&iacute;a web.</p> 
-<p>Escribimos en nuestro navegador: <strong>http://nuestra.ip/phpmyadmin</strong></p> 
-<p>Escribimos el usuario y la contrase&ntilde;a.</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-2.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-2.jpg" alt="proftpd-mysql-2" width="488" height="488" /></a></p> 
-<p>Una vez dentro nos dirigimos a la opci&oacute;n “<strong>Privilegios</strong>“</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-3.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-3.jpg" alt="proftpd-mysql-3" width="600" height="310" /></a></p> 
-<p>Y en la parte inferior seleccionamos “<strong>Agregar nuevo usuario</strong>“</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-4.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-4.jpg" alt="proftpd-mysql-4" width="600" height="477" /></a></p> 
-<p>Crearemos nuevo usuario, por ejemplo “<strong>ftpd</strong>“, y creamos una contrase&ntilde;a.</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-5.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-5.jpg" alt="proftpd-mysql-5" width="600" height="461" /></a></p> 
-<p>En la parte inferior, si descendemos, usando la barra lateral, nos preguntar&aacute; si queremos vincular el usuario a una base de datos con el mismo nombre, le decimos que s&iacute;.</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-6.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-6.jpg" alt="proftpd-mysql-6" width="600" height="120" /></a></p> 
-<p>El resto de configuraci&oacute;n la dejamos tal y como est&aacute;, y aceptamos.</p> 
-<p>Ya tenemos creada la base de datos, ahora nos falta crear las tablas, para facilitarnos las cosas usaremos las siguientes &oacute;rdenes SQL, que insertaremos en la parte superior.</p> 
-<pre>CREATE TABLE IF NOT EXISTS `ftpgroup` (
-  `groupname` varchar(16) COLLATE utf8_general_ci NOT NULL,
-  `gid` smallint(6) NOT NULL DEFAULT '5500',
-  `members` varchar(16) COLLATE utf8_general_ci NOT NULL,
-  KEY `groupname` (`groupname`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='ProFTP group table';
-
-CREATE TABLE IF NOT EXISTS `ftpuser` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `userid` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `passwd` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `uid` smallint(6) NOT NULL DEFAULT '5500',
-  `gid` smallint(6) NOT NULL DEFAULT '5500',
-  `homedir` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `shell` varchar(16) COLLATE utf8_general_ci NOT NULL DEFAULT '/sbin/nologin',
-  `count` int(11) NOT NULL DEFAULT '0',
-  `accessed` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci COMMENT='ProFTP user table';</pre> 
-<p>A continuaci&oacute;n seleccionamos la base de datos y la tabla “<strong>ftpuser</strong>“.</p> 
-<p>Seleccionamos “<strong>Insertar</strong>“</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-7.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-7.jpg" alt="proftpd-mysql-7" width="600" height="125" /></a></p> 
-<p>Aqu&iacute; debemos de crear los usuario e indicar la ubicaci&oacute;n de las carpetas a las que tendr&aacute;n acceso.</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-8.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-8.jpg" alt="proftpd-mysql-8" width="600" height="442" /></a></p> 
-<p>Si os dais cuenta no he rellenado la casilla de contrase&ntilde;a. Eso es debido a que las contrase&ntilde;as introducidas directamente no van cifradas, para ello vamos crearlas desde la l&iacute;nea de comandos, utilizando el comando y par&aacute;metros siguientes:</p> 
-<pre>/bin/echo &quot;{md5}&quot;`/bin/echo -n &quot;contrase&ntilde;a&quot; | openssl dgst -binary -md5 | openssl enc -base64`</pre> 
-<p>Si no tenemos mucha idea de crear contrase&ntilde;as o nos falta imaginaci&oacute;n, podemos usar el programa <a title="Crea contrase&ntilde;as con pwgen" href="http://www.ochobitshacenunbyte.com/2014/08/31/crea-contrasenas-con-pwgen/">pwgen</a>, que ya habl&eacute; de &eacute;l en su d&iacute;a.</p> 
-<p>Al ejecutar el comando nos devoler&aacute; un c&oacute;digo, que es el tenemos que pegar en la casilla de contrase&ntilde;a.</p> 
-<p>En la siguiente imagen pod&eacute;is ver una muestra de la utilizaci&oacute;n:</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-shell.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-shell.jpg" alt="proftpd-mysql-shell" width="637" height="408" /></a></p> 
-<p>Copias el c&oacute;digo que nos devuelto comando en la casilla.</p> 
-<p><a href="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-9.jpg"><img src="http://www.ochobitshacenunbyte.com/wp-content/uploads/2014/10/proftpd-mysql-9.jpg" alt="proftpd-mysql-9" width="600" height="432" /></a></p> 
-<p>Respecto a la ubicaci&oacute;n de la carpeta FTP recuerda que nunca debe de ser una carpeta dentro de HOME, yo he usado MNT</p> 
-<p>&nbsp;</p> 
-<p><strong>Modificar archivo configuraci&oacute;n proftpd</strong></p> 
-<p>Editamos el archivo de configuraci&oacute;n proftpd.conf</p> 
-<pre>sudo nano /etc/proftpd/proftpd.conf</pre> 
-<p>Modifimos el par&aacute;metro DefaulRoot, para que sea el del usuario conectado:</p> 
-<pre>DefaultRoot ~</pre> 
-<p>Al final del archivo a&ntilde;adimos las siguientes l&iacute;neas:</p> 
-<pre>Include /etc/proftpd/sql.conf
-
-RequireValidShell         off</pre> 
-<p>De &eacute;sta manera a&ntilde;adimos el archivo <strong>sql.conf</strong></p> 
-<p>Creamos y editamos sql.conf</p> 
-<pre>sudo nano /etc/proftpd/sql.conf</pre> 
-<p>En la siguiente plantilla debemos modificar los par&aacute;metros gen&eacute;ricos por los nuestros:</p> 
-<pre>SQLBackend        mysql
-
-#Passwords in MySQL are encrypted using CRYPT
-SQLAuthTypes            OpenSSL Crypt
-SQLAuthenticate         users groups
-
-
-# used to connect to the database
-# databasename@host database_user user_password
-SQLConnectInfo  mysql_database@localhost mysql_user mysql_password
-
-
-# Here we tell ProFTPd the names of the database columns in the &quot;usertable&quot;
-# we want it to interact with. Match the names with those in the db
-SQLUserInfo     ftpuser userid passwd uid gid homedir shell
-
-# Here we tell ProFTPd the names of the database columns in the &quot;grouptable&quot;
-# we want it to interact with. Again the names match with those in the db
-SQLGroupInfo    ftpgroup groupname gid members
-
-# set min UID and GID - otherwise these are 999 each
-SQLMinID        500
-
-# Update count every time user logs in
-SQLLog PASS updatecount
-SQLNamedQuery updatecount UPDATE &quot;count=count+1, accessed=now() WHERE userid='%u'&quot; ftpuser
-
-# Update modified everytime user uploads or deletes a file
-SQLLog  STOR,DELE modified
-SQLNamedQuery modified UPDATE &quot;modified=now() WHERE userid='%u'&quot; ftpuser
-
-SqlLogFile /var/log/proftpd/sql.log</pre> 
-<p>&nbsp;</p> 
-<p>Los par&aacute;metros a modificar son: mysql_database@localhost mysql_user mysql_passwpord</p> 
-<p>Ahora habilitamos el m&oacute;dulo MySQL en la configuraci&oacute;n proftpd.</p> 
-<pre>sudo nano /etc/proftpd/modules.conf</pre> 
-<p>Y a&ntilde;adimos:</p> 
-<pre>LoadModule mod_sql.c
-LoadModule mod_sql_mysql.c</pre> 
-<p>Con esto s&oacute;lo nos falta reiniciar el servicio:</p> 
-<pre>sudo service proftpd restart</pre> 
-<p>Espero que haya sido interesante.</p> 
-<p>Fuentes: <a title="DigitalOceano.com" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-proftpd-with-a-mysql-backend-on-ubuntu-12-10">DigitalOcean.com</a></p> 
-<p>Derechos de la imagen principal, <a title="Derechos Warehouse" href="http://commons.wikimedia.org/wiki/File:Warehouse_Loading_Dock.JPG?uselang=es">aqu&iacute;</a>.</p></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/mysql/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta mysql</a></li><li><a href="/label/sistemas-operativos/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta sistemas-operativos</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://www.ochobitshacenunbyte.com/2014/10/13/como-instalar-proftpd-con-soporte-mysql/">Cómo instalar Proftpd con soporte MySQL</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-10-13T09:43" itemprop="dateModified">lunes, 13 de octubre de 2014 </span>,
+<span>fuente <a target="target" href="http://www.ochobitshacenunbyte.com/">Ocho bits hacen un byte</a></span>,
+etiquetas
+<a href="/label/sistemas-operativos"><span itemprop="articleSection">sistemas-operativos</span></a> 
+<a href="/label/mysql"><span itemprop="articleSection">mysql</span></a> 
+</p><p class="text-justify" itemprop="description">
+Aunque no es el método más seguro de transferencia de archivos, sftp sí lo es, la transferencia de archivos vía ftp es muy popular. Ya en su día explique cómo instalar el programa proftpd de manera básica. Hoy veremos cómo instalarlo y configurar con apoyo MySQL. De ésta manera podremos administrar múltiples usuarios y ubilicaciones de manera sencilla. Utilizando proftpd, mysql y phpmyadmin. Antes de empezar, instalaremos el servicio web Apache2 y MySQL. sudo apt-get install apache2
+sudo apt-get install mysql-server mysql-common Lo primero de todo vamos a instalar los programas necesarios: sudo apt-get install proftpd-basic proftpd-mod-mysql Y para administrar MySQL vía interfaz web, usaremos phpmyadmin sudo apt-get install phpmyadmin Nos preguntará que servicio web queremos utilizar, nosotros [...]
+</p><p><a itemprop="sameAs" target="target" href="http://www.ochobitshacenunbyte.com/2014/10/13/como-instalar-proftpd-con-soporte-mysql/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql" st_title="Cómo instalar Proftpd con soporte MySQL | Ocho bits hacen un byte"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -169,34 +61,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 1012,
-      "url" : "http://www.blogstack.info/post/ochobitshacenunbyte/2014/10/como-instalar-proftpd-con-soporte-mysql"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "ochobitshacenunbyte",
-      "name" : "Ocho bits hacen un byte"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -208,6 +74,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-1362235464953379",
         "adSlot" : "5825737840"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

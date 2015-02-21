@@ -1,294 +1,20 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Posicionamiento de las capas en CSS | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css"><span itemprop="headline">Posicionamiento de las capas en CSS</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/css"><img title="css" alt="css" src="/assets/images/labels/css.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">Liher</span> en la bitácora <a href="http://elblogdeliher.com/">El blog de Liher</a>, <a href="http://elblogdeliher.com/posicionamiento-de-las-capas-en-css/"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2014-04-07T21:03" itemprop="dateModified">Actualizado el lunes, 07 de abril de 2014 a las 21:03 UTC</span></div><div><span>
-Etiquetado como
-<a href="/label/css"><span itemprop="articleSection">css</span></a>, posicionamiento, capas</span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div>
- <p>En este articulo os voy a mostrar como podemos<strong> posicionar las capas en CSS</strong> y lo voy a explicar todo con ejemplos y paso a paso de la mejor forma posible, ya que es un tema importante y que hay que tener muy claro para poder trabajar bien. Antes de empezar con las propiedades propiamente dichas de <strong>posicionamiento</strong> os voy a mostrar unas etiquetas CSS que nos servir&aacute;n para ello y que hay que conocer. Os pongo la lista con una peque&ntilde;a explicaci&oacute;n en cada una:</p>
- <ul>
-  <li>top : esta propiedad desplaza una capa tomando como referencia el borde superior de dicha capa. Se usa para desplazar la capa hacia arriba y abajo. Puede tener valores en “px” y en “%” y tambi&eacute;n pueden ser valores positivos y negativos. Si a una capa le ponemos como propiedad “top: 100px” la bajara 100 pixels respecto al lugar que deber&iacute;a ocupar. Si le ponemos como propiedad “top:-100px” entonces la subir&aacute; 100 pixels respecto al sitio que deber&iacute;a ocupar. Esta propiedad solo sirve para los posicionamientos de tipo “relative”, “absolute” o “fixed” que explicare mas abajo.</li>
-  <li>bottom : esta propiedad hace lo mismo que “top” pero en vez de tomar como referencia la parte superior lo hace con la parte inferior.</li>
-  <li>left: hace lo mismo que “top” y “bottom” pero el punto de referencia es la parte izquierda de la capa.</li>
-  <li>right : hace lo mismo que “left” pero con respecto a la parte derecha de una capa.</li>
- </ul>
- <p>Ahora vamos con la etiqueta “position”. Con ella vamos a definir el tipo de <strong>posicionamiento</strong> que tendr&aacute; una capa. Tiene varios valores posibles que os voy a explicar pero el valor por defecto es “static”. Con el valor “static” las capas se van poniendo una debajo de otra en orden seg&uacute;n las hayamos declarado en la parte HTML de la pagina. Para que lo ve&aacute;is os pongo un ejemplo:</p>
- <pre>&lt;html&gt;
-
-&lt;head&gt;
-   &lt;style type=&quot;text/css&quot;&gt;
-      #capa1
-         {
-         width: 50px;
-         height: 50px;
-         background-color: blue;
-         }
-
-      #capa2
-         {
-         width: 50px;
-         height: 50px;
-         background-color: red;
-         }
-
-      #capa3
-         {
-         width: 50px;
-         height: 50px;
-         background-color: green;
-         }
-   &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-   &lt;div id=&quot;capa1&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;capa2&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;capa3&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;</pre>
- <p>En este ejemplo que os he puesto he creado una pagina en la cual hay que tres <strong>capas</strong> llamadas “capa1″, “capa2″ y “capa3″. En la secci&oacute;n “head” de la pagina he declarado que las tres capas tienen el mismo tama&ntilde;o, 50&times;50 pixels y que cada una tiene un color diferente para poder identificarlas bien y ver su comportamiento cuando las movamos. Si ejecut&aacute;is esta pagina ver&eacute;is lo siguiente en el navegador:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/tres-capas-css.jpg"><img alt="tres-capas-css" src="http://elblogdeliher.com/wp-content/uploads/2014/04/tres-capas-css.jpg" width="204" height="262" /></a></p>
- <p>Como pod&eacute;is ver cada capa esta debajo de la anterior, esto es debido a que como no hemos definido posicionamiento se aplica “static” por defecto para todas las <strong>capas</strong>. Ahora vamos a a&ntilde;adir la propiedad “position” con el valor “absolute”, con posicionamiento absoluto la referencia es la parte superior izquierda del navegador, pero si definimos posicionamiento absoluto a una capa que esta dentro de otra capa entonces la referencia pasara a se la esquina superior izquierda de la capa en la que este metida. Puede parecer un poco dif&iacute;cil, pero no lo es, luego os pondr&eacute; un ejemplo. Ahora solo vamos a poner <strong>posicionamiento absoluto</strong> a las tres capas:</p>
- <pre>&lt;style type=&quot;text/css&quot;&gt;
-   #capa1
-      {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background-color: blue;
-      }
-
-   #capa2
-      {
-      position: absolute;
-      width: 50px; 
-      height: 50px; 
-      background-color: red; 
-      } 
-
-   #capa3 
-      {
-      position: absolute;
-      width: 50px; 
-      height: 50px; 
-      background-color: green; 
-      } 
-&lt;/style&gt;</pre>
- <p>Solo tenemos que a&ntilde;adir el atributo “position” con el valor “absolute” a cada capa, fijaros bien en el CSS que os acabo de poner y el primero que puse al principio del articulo y ver&eacute;is la diferencia. Al a&ntilde;adir “position:absolute” a cada capa en el CSS cuando ejecutemos la pagina en el navegador veremos lo siguiente:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css.jpg"><img alt="posicionamiento-absoluto-css" src="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css.jpg" width="138" height="117" /></a></p>
- <p>&nbsp;</p>
- <p>Ahora solo se ve una capa, concretamente la ultima que hemos puesto en el HTML de la pagina, pero &iquest;donde est&aacute;n las otras dos? Muy sencillo, est&aacute;n debajo de la capa verde. Hemos definido el <strong>posicionamiento absoluto</strong> de las capas y como no hemos dado coordenadas diferentes a cada capa, el navegador las ha puesto las tres en el mismo sitio sobreescribiendolas y mostrando solo la ultima. Esto lo podemos ver mas claro cambiando lo tama&ntilde;os de las capas y haciendo la “capa1″ la mas grande, la “capa2″ de tama&ntilde;o intermedio y la “capa3″ la mas peque&ntilde;a. Esto lo podemos hacer cambiado el <strong>CSS</strong> de la siguiente forma:</p>
- <pre>&lt;style type=&quot;text/css&quot;&gt;
-   #capa1
-      {
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background-color: blue;
-      }
-
-   #capa2
-      {
-      position: absolute;
-      width: 100px; 
-      height: 100px; 
-      background-color: red; 
-      } 
-
-   #capa3 
-      {
-      position: absolute;
-      width: 50px; 
-      height: 50px; 
-      background-color: green; 
-      } 
-&lt;/style&gt;</pre>
- <p>Si ejecutamos esto ahora en el navegador veremos lo siguiente:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css2.jpg"><img alt="posicionamiento-absoluto-css2" src="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css2.jpg" width="164" height="162" /></a></p>
- <p>&nbsp;</p>
- <p>&nbsp;</p>
- <p>Si os fij&aacute;is en el ultimo <strong>CSS</strong> que he puesto he cambiado el tama&ntilde;o de las tres capas para que pod&aacute;is ver el resultado. Primero el navegador pone la “capa1″ de color azul, luego pone la “capa2″ de color rojo y finalmente pone la “capa3″ de color verde. Ahora os voy a poner el <strong>CSS</strong> con el tama&ntilde;o original de las <strong>capas</strong>, 50&times;50 pixels, y vamos a mover las capas por la ventana del navegador con los atributos “top”, “bottom”, “left” y “right” que os indique al principio del articulo. Os pongo el CSS modificado:</p>
- <pre>&lt;style type=&quot;text/css&quot;&gt;
-   #capa1
-      {
-      position: absolute;
-      top: 100px;
-      left: 70px;
-      width: 50px;
-      height: 50px;
-      background-color: blue;
-      }
-
-   #capa2
-      {
-      top: 150px;
-      left: 20px;
-      position: absolute;
-      width: 50px; 
-      height: 50px; 
-      background-color: red; 
-      } 
-
-   #capa3 
-      {
-      position: absolute;
-      width: 50px; 
-      height: 50px; 
-      background-color: green; 
-      } 
-&lt;/style&gt;</pre>
- <p>Si ejecut&aacute;is esto ver&eacute;is lo siguiente en el navegador:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css3.jpg"><img alt="posicionamiento-absoluto-css3" src="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-css3.jpg" width="135" height="206" /></a></p>
- <p>&nbsp;</p>
- <p>Como pod&eacute;is ver en el CSS a la capa de color verde no le he puesto coordenadas, por lo cual se muestra en la parte superior izquierda. A la capa de color azul le he puesto que la sit&uacute;e a 100 pixels de la parte superior y a 70 pixels de la parte izquierda. A la capa de color rojo le he puesto que la muestre a 150 pixels de la parte superior del navegador y a 20 pixels de la parte izquierda. Creo que es bastante sencillo, &iquest;no?, a partir de aqu&iacute; pod&eacute;is jugar con los distintos valores para posicionar las capas.</p>
- <p>Supongamos que queremos meter estas tres capas dentro de una capa que las contenga y que al mover la capa contenedoras mantengan su posici&oacute;n dentro de ella, esto lo har&iacute;amos de la siguiente forma:</p>
- <pre>&lt;html&gt;
-
-&lt;head&gt;
-   &lt;style type=&quot;text/css&quot;&gt;
-      #capa1
-         {
-         position: absolute;
-         top: 100px;
-         left: 70px;
-         width: 50px;
-         height: 50px;
-         background-color: blue;
-         }
-
-      #capa2
-         {
-         position: absolute;
-         top: 150px;
-         left: 20px;
-         width: 50px;
-         height: 50px;
-         background-color: red;
-         }
-
-      #capa3
-         {
-         position: absolute;
-         width: 50px;
-         height: 50px;
-         background-color: green;
-         }
-
-      #contenedor
-         {
-         top: 100px;
-         position: absolute;
-         width: 300px;
-         height: 500px;
-         background-color: black;
-         }
-   &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-   &lt;div id=&quot;contenedor&quot;&gt;
-      &lt;div id=&quot;capa1&quot;&gt;&lt;/div&gt;
-      &lt;div id=&quot;capa2&quot;&gt;&lt;/div&gt;
-      &lt;div id=&quot;capa3&quot;&gt;&lt;/div&gt;
-   &lt;/div&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;</pre>
- <p>Si ejecutamos esta pagina veremos lo siguiente en el navegador:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-contenedor.jpg"><img alt="posicionamiento-absoluto-contenedor" src="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-absoluto-contenedor.jpg" width="417" height="738" /></a></p>
- <p>&nbsp;</p>
- <p>Como pod&eacute;is ver la capa “contenedor” lleva dentro las otras capas. Si os fij&aacute;is ver&eacute;is como las tres <strong>capas</strong> ahora toman como referencia para posicionarse la esquina superior izquierda de la capa “contenedor” y siempre que movamos la capa “contenedor” las tres peque&ntilde;as se mover&aacute;n con ella ya que est&aacute;n dentro, fijaros tambi&eacute;n en la parte HTML de la pagina que os he puesto. Ahora pod&eacute;is probar a mover la capa “contenedor” por la ventana del navegador cambiando los valores “top”, “left”, “right” o “bottom” y ver como dentro de dicha capa las tres peque&ntilde;as siempre conservan la misma posici&oacute;n.</p>
- <p>Ahora vamos al siguiente tipo de posicionamiento, el relativo. En el <strong>posicionamiento relativo</strong> las capas se colocaran seg&uacute;n las coordenadas que le demos tomando como referencia el sitio en el que deber&iacute;an estar si el posicionamiento fuese “static”. Resulta mas complejo que el posicionamiento absoluto ya que el origen de las coordenadas no es fijo. En el posicionamiento absoluto la coordenada “top: 0px; left:0px” seria el punto a tomar de referencia y este punto seria la esquina superior izquierda del objeto que contenga la capa, en el posicionamiento relativo la coordenada “top:0px;left:0px” seria el punto en el cual deber&iacute;a estar. Lo mejor es que lo explique con un ejemplo. Primero voy a poner una pagina en la cual hay tres capas, como en el ejercicio anterior, pero les voy a poner el posicionamiento relativo y los valores “top:0px” y “left:0px” a todas las capas:&nbsp;</p>
- <pre>&lt;html&gt;
-
-&lt;head&gt;
-   &lt;style type=&quot;text/css&quot;&gt;
-      #capa1
-         {
-         position: relative;
-         top: 0px;
-         left: 0px;
-         width: 50px;
-         height: 50px;
-         background-color: blue;
-         }
-
-      #capa2
-         {
-         position: relative;
-         top: 0px;
-         left: 0px;
-         width: 50px;
-         height: 50px;
-         background-color: red;
-         }
-
-      #capa3
-         {
-         position: relative;
-         top: 0px;
-         left: 0px;
-         width: 50px;
-         height: 50px;
-         background-color: green;
-         }
-   &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body &gt;
-   &lt;div id=&quot;capa1&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;capa2&quot;&gt;&lt;/div&gt;
-   &lt;div id=&quot;capa3&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-
-&lt;/html&gt;</pre>
- <p>Si ejecutamos esta pagina en el navegador veremos lo siguiente:</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/tres-capas-css.jpg"><img alt="tres-capas-css" src="http://elblogdeliher.com/wp-content/uploads/2014/04/tres-capas-css.jpg" width="204" height="262" /></a></p>
- <p>&nbsp;</p>
- <p>Es como si no hubi&eacute;semos puesto ni el <strong>posicionamiento</strong> relativo ni las coordenadas. Es como si tuviese posicionamiento est&aacute;tico, el tipo de posicionamiento que tienen todas las capas por defecto si no indicamos lo contrario, por lo tanto pone cada capa una debajo de la otra. Cuando el navegador web ejecuta esta pagina la coordenada “0:0″ es la esquina superior izquierda del cuadrado azul aunque esta capa todav&iacute;a no este, entonces va ejecutando el HTML y se encuentra la capa azul, va al <strong>CSS</strong> y toma los atributos de la capa azul y la muestra. A partir de ese momento si la siguiente capa tiene posicionamiento relativo la coordenada “0:0″ para a ser un pixel por debajo de la esquina inferior izquierda del cuadro azul, es decir si en el CSS a la “capa2″ le cambiamos el valor 0 a “top” y ponemos “top:100px” la capa roja se mover&aacute; 100 pixels hacia abajo y se pondr&aacute; justo debajo del cuadrado verde. Ahora la coordenada “0:0″ es la esquina superior izquierda del recuadro verde. Si tenemos dudas solo hay que ir, como he hecho en este ejemplo, y poner al elemento que tiene posici&oacute;n relativa las etiquetas “top” y “left” a 0 y veremos cual seria la posici&oacute;n en la que deber&iacute;a estar para saber los valores que tenemos que ponerla para cambiarlo de sitio.</p>
- <p>Es un poco lioso, o lo parece, pero con el ejemplo que os he puesto y cambiando los valores de las capas y moviendolas lo podr&eacute;is entender bien. De todas formas dejare un v&iacute;deo al final del articulo para mostrar todo con este ejemplo paso a paso y ver&eacute;is que es mas f&aacute;cil de lo que parece.</p>
- <p>Otro valor que le podemos indicar a “position” es “fixed”, si le indicamos este valor entonces la capa que lo tenga<strong> no se mover&aacute;</strong> de su posici&oacute;n en la pantalla aunque la pagina web sea larga y movamos el scroll, es decir, vayamos hacia abajo en la pagina. Esto es &uacute;til para poner la cabecera de una pagina web o blog y que queremos que se vea siempre en la parte superior, por poner un ejemplo. Tambi&eacute;n se usa para poner una imagen de fondo a la pagina web y que este fija.</p>
- <p>Otra forma que tenemos de posicionar elementos o capas en una web es mediante el posicionamiento “float” o flotante. En este caso no podemos mover las capas con “top”, “left”, “bottom” o “right”, hay otra forma de hacer que detallare en el siguiente articulo. El tema es que con este tipo de posicionamiento podemos poner las capas de tal forma que este una al lado de la anterior de izquierda a derecha o al rev&eacute;s. Os pongo el <strong>CSS con el posicionamiento</strong> “float” para que ve&aacute;is el resultado:</p>
- <pre>&lt;style type=&quot;text/css&quot;&gt;
-   #capa1
-      {
-      float: left;
-      width: 50px;
-      height: 50px;
-      background-color: blue;
-      }
-
-   #capa2
-      {
-      float: left;
-      width: 50px;
-      height: 50px;
-      background-color: red;
-      }
-
-   #capa3
-      {
-      float: left;
-      width: 50px;
-      height: 50px;
-      background-color: green;
-      }
-&lt;/style&gt;</pre>
- <p>&nbsp;</p>
- <p>Si pon&eacute;is el <strong>CSS</strong> del ejercicio que estamos usando de ejemplo en todo el articulo como este que os acabo de dejar y ejecut&aacute;is la pagina ver&eacute;is como sale lo siguiente:</p>
- <p>&nbsp;</p>
- <p><a href="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-float.jpg"><img alt="posicionamiento-float" src="http://elblogdeliher.com/wp-content/uploads/2014/04/posicionamiento-float.jpg" width="167" height="63" /></a></p>
- <p>Como pod&eacute;is ver, primero se ve la capa azul, luego pegada a su derecha la roja y finalmente pegada a la derecha de la roja la verde. En el caso de que pongamos mas capas y en alg&uacute;n momento alguna no se vea completa en la ventana del navegador entonces se pondr&iacute;a en la siguiente linea. Por esta raz&oacute;n hay que tener cuidado con el posicionamiento flotante, ya que se nos puede descuadrar toda la pagina.</p>
- <p>En el CSS he puesto “float: left;” pero tambien admite “float:right;” segun el sentido que queramos ponerle.</p>
- <p>Hasta aqu&iacute; la explicaci&oacute;n b&aacute;sica del tema de posicionamiento de capas en CSS, aunque podr&iacute;a ser mas completo con esto esta bastante bien para empezar, y seria muy importante asimilarlo bien. Aqu&iacute; os dejo un v&iacute;deo con los ejemplos paso a paso por si prefer&iacute;s verlo que leerlo:</p>
- <p>&nbsp;</p>
- <p><iframe src="//www.youtube.com/embed/13CbCpAnvYI" height="360" width="640" allowfullscreen="" frameborder="0"></iframe><br /> &iquest;Que os ha parecido el articulo? &iquest;Lo hab&eacute;is entendido? Si ten&eacute;is alguna duda al respecto estar&eacute; encantado de ayudaros :D, un saludo</p>
-</div></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/css/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta css</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Posicionamiento de las capas en CSS | El blog de Liher</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdeliher.com/posicionamiento-de-las-capas-en-css/">Posicionamiento de las capas en CSS</a></h1></header><p class="post-info"><span class="text-center" datetime="2014-04-07T21:03" itemprop="dateModified">lunes, 07 de abril de 2014 </span>,
+<span>fuente <a target="target" href="http://elblogdeliher.com/">El blog de Liher</a></span>,
+etiquetas
+<a href="/label/css"><span itemprop="articleSection">css</span></a> 
+</p><p class="text-justify" itemprop="description">
+En este articulo os voy a mostrar como podemos posicionar las capas en CSS y lo voy a explicar todo con ejemplos y paso a paso de la mejor forma posible, ya que es un tema importante y que hay que tener muy claro para poder trabajar bien. Antes de empezar con las propiedades propiamente dichas de posicionamiento os voy a mostrar unas etiquetas CSS que nos servirán para ello y que hay que conocer. Os pongo la lista con una pequeña explicación en cada una: top : esta propiedad desplaza una capa tomando como referencia el borde superior de dicha capa. Se usa para desplazar la capa hacia arriba y abajo. Puede tener valores en “px” y en “%” y también pueden ser valores positivos y negativos. Si a una capa le ponemos como propiedad “top: 100px” la bajara 100 pixels respecto al lugar que debería ocupar. [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdeliher.com/posicionamiento-de-las-capas-en-css/">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css" st_title="Posicionamiento de las capas en CSS | El blog de Liher"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -333,34 +59,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 592,
-      "url" : "http://www.blogstack.info/post/elblogdeliher/2014/04/posicionamiento-de-las-capas-en-css"
-    }
-  ],
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdeliher",
-      "name" : "El blog de Liher"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -372,6 +72,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-5967896416715365",
         "adSlot" : "6843955321"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>

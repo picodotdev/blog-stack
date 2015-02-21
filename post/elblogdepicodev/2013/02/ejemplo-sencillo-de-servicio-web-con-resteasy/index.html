@@ -1,87 +1,22 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head><meta content="Apache Tapestry Framework (version 5.4-beta-16)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta pagina="Post"/><title>Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><script type="text/javascript">document.write("<div class=\"pageloading-mask\"><div></div></div>");</script><header><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-4"><h1><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span> Blog <span class="stack">Stack</span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-6"><nav role="navigation"><ul class="list-unstyled list-inline"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-6 col-sm-6 col-md-2"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><span class="header icon entypo"></span></a><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><span class="header icon entypo-social"></span></a></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><h4>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</h4></div></div></div><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="imagen-cabecera"><div class="imagen"><div class="col-xs-12 col-sm-12 col-md-12" id="billboard"></div></div></div></div></div></div></header><div class="container-fluid content"><div class="row"><div class="col-xs-12 col-sm-12 col-md-8 content"><article itemtype="http://schema.org/BlogPosting" itemscope=""><a id="content"></a><header><h2><a href="/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy"><span itemprop="headline">Ejemplo sencillo de servicio web con RESTEasy</span></a></h2></header><div class="row labels"><div class="col-md-12"><a class="label" href="/label/programacion"><img title="programacion" alt="programacion" src="/assets/images/labels/programacion.png"/></a><a class="label" href="/label/java"><img title="java" alt="java" src="/assets/images/labels/java.png"/></a><a class="label" href="/label/software"><img title="software" alt="software" src="/assets/images/labels/software.png"/></a></div></div><section class="post-data"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div><span>Escrito por <span itemprop="author">pico.dev</span> en la bitácora <a href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a>, <a href="http://elblogdepicodev.blogspot.com/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html"><span itemprop="sameAs">artículo original</span></a></span></div><div><span datetime="2013-04-11T22:04" itemprop="dateModified">Actualizado el jueves, 11 de abril de 2013 a las 22:04 UTC</span></div><div><span>
-Etiquetado como
-planeta-codigo, <a href="/label/programacion"><span itemprop="articleSection">programacion</span></a>, <a href="/label/software"><span itemprop="articleSection">software</span></a>, <a href="/label/java"><span itemprop="articleSection">java</span></a></span></div></div></div></section><div class="text-justify post-content"><div class="share-this only-twitter"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><span itemprop="name"><div style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
- <img alt="RESTEasy" src="http://4.bp.blogspot.com/-KSg4_P3c29c/URWSVgCfoNI/AAAAAAAACUs/4-wR1eFK_JY/s1600/resteasy.png" title="RESTEasy" />
-</div>Las 
-<a href="http://en.wikipedia.org/wiki/Service-oriented_architecture">arquitecturas orientadas a servicios</a> (SOA) no son nuevas y existen desde hace ya bastante tiempo. Surgen por la necesidad de las aplicaciones de comunicarse entre ellas para intercambiar informaci&oacute;n y colaborar. Dada la heterogeneidad de las mismas aplicaciones en el lenguaje de programaci&oacute;n o de representaci&oacute;n de datos requieren un lenguaje com&uacute;n con el que intercambiar informaci&oacute;n, para ello se puede emplear un lenguaje de marcas como 
-<a href="http://es.wikipedia.org/wiki/Extensible_Markup_Language">XML</a> y para el intercambio de mensajes 
-<a href="http://es.wikipedia.org/wiki/Simple_Object_Access_Protocol">SOAP</a> (Simple Object Access Protocol) sobre el protocolo HTTP. Otras opciones como 
-<a href="http://en.wikipedia.org/wiki/Common_Object_Request_Broker_Architecture">CORBA</a>&nbsp;los mensajes se transmit&iacute;an de forma binaria. Pero los servicios web basados en XML y SOAP no est&aacute;n exentos de problemas, los mensajes SOAP son bastante complejos y para algunas necesidades no son f&aacute;ciles de construir o c&oacute;modas de usar, por ejemplo desde un navegador o un dispositivo m&oacute;vil empleando javascript.
-<br />
-<br />Dado el auge u omnipresencia que est&aacute;n tomando los servicios basados en internet, la web, los navegadores y javasctipt muchos de los sitios m&aacute;s importantes est&aacute;n evolucionando hacia servicios 
-<a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>&nbsp;por su simplicidad de ser consumidos y f&aacute;cil acceso, muchos sitios ofrecen una API basada en REST para que terceros puedan integrase con ellos, este es el principio para poder construir 
-<a href="http://es.wikipedia.org/wiki/Mashup_(aplicaci%C3%B3n_web_h%C3%ADbrida)">mashups</a>. Algunas de sus caracter&iacute;sticas son que emplean el protocolo HTTP y sus diferentes m&eacute;todos (GET, POST, DELETE y PUT, etc.) asignando a cada uno de ellos una operaci&oacute;n de las denominadas CRUD (create -&gt; PUT/POST, retrieve -&gt; GET, update -&gt; PUT/POST, delete -&gt; DELETE). Pueden devolver datos en cualquier formato pero normalmente se emplea JSON o XML. En el siguiente enlace, muy recomendable, sobre 
-<a href="http://asiermarques.com/2013/conceptos-sobre-apis-rest/">algunos conceptos sobre las APIs REST</a>&nbsp;est&aacute; muy bien explicado las ideas sobre las que se basan estos servicios.
-<br />
-<br />Para hacer sevicios web basados en REST con Java disponemos de varios frameworks entre ellos 
-<a href="http://www.restlet.org/">Restlet</a> o 
-<a href="http://jersey.java.net/">Jersey</a>, sin embargo, me ha convencido el ofrecido por la comunidad de JBoss, 
-<a href="http://www.jboss.org/resteasy">RESTEasy</a>, tiene una muy buena 
-<a href="http://docs.jboss.org/resteasy/docs/">documentaci&oacute;n</a> que est&aacute; bien explicada y con la que es muy f&aacute;cil iniciarse. Por lo tanto a continuaci&oacute;n voy a poner lo necesario para implementar el ejemplo Hola Mundo con RESTEasy en una aplicaci&oacute;n web java que puede ser 
-<a href="http://elblogdepicodev.blogspot.com.es/2012/02/5-opciones-de-hosting-para-aplicaciones.html">hospedada en cualquier servidor de aplicaciones como Tomcat o JBoss</a>.
-<br />
-<br />Con RESTEasy los servicios web son 
-<a href="http://en.wikipedia.org/wiki/Plain_Old_Java_Object">POJO</a> (Plain Old Java Object) a los que se les a&ntilde;ade la fucionalidad mendiante anotaciones. Veamos como de simple podr&iacute;a ser el t&iacute;pico ejemplo sencillo de web service Hola mundo como demostraci&oacute;n.
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/4742921.js?file=HelloWorldResource.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/4742921/raw/HelloWorldResource.java">HelloWorldResource.java</a>
- <br />
-</noscript> Aqu&iacute; vemos varias anotaciones @Path, @GET y @PathParam. Con la primera estamos indicando parte de la URL en la que el web service responder&aacute;, con la segunda indicamos que el m&eacute;todo HTTP que llame a esa URL deber&aacute; ser get y con la tercera recogemos un par&aacute;metro indicado en la URL. La implementaci&oacute;n ser&iacute;a:
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/4742921.js?file=HelloWorldResourceImpl.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/4742921/raw/HelloWorldResourceImpl.java">HelloWorldResourceImpl.java</a>
- <br />
-</noscript> Una vez que disponemos del web service deberemos a&ntilde;adir al archivo web.xml las cosas necesarias para que RESTEasy recoja las llamadas a las URLs de los servicios web y los invoque, entre ellas el servlet de nombre resteasy de la clase HttpServletDispatcher. El web.xml ser&iacute;a el siguiente:
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/4742921.js?file=web.xml"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/4742921/raw/web.xml">web.xml</a>
- <br />
-</noscript> Lo b&aacute;sico a a&ntilde;adir es el servlet de RESTEasy y el correspondiente servlet-mapping, tambi&eacute;n deberemos indicar el par&aacute;metro de contexto &laquo;resteasy.servlet.mapping.prefix&raquo; con el prefijo de la ruta del servlet-mapping del servlet de RESTEasy. Con esta configuraci&oacute;n todas las URLs que lleguen a la aplicaci&oacute;n web y con la ruta &laquo;/rest/&raquo; corresponder&aacute;n a un web service REST, una cosa a destacar es que los servicios web pueden convivir con con el resto de la aplicaci&oacute;n independientemente del framework que uticemos para desarrollarla, lo &uacute;nico que deberemos hacer es indicar un prefijo para el servlet de RESTEasy tal y como hemos hecho en el ejemplo.
-<br />
-<br />Pero... &iquest;Como sabe RESTEasy cuales son los servicios web de la aplicaci&oacute;n? La forma de indicarle a RESTEasy los servicios web es mediante una clase que extiende de 
-<a href="http://docs.oracle.com/javaee/6/api/javax/ws/rs/core/Application.html">javax.ws.rs.core.Application</a> y utilizando el par&aacute;metro de inicializaci&oacute;n javax.ws.rs.Application para el servlet de RESTEasy que se puede ver en el web.xml. La implementaci&oacute;n no tiene m&aacute;s que un Set con las implementaciones de los servicios web, en el caso del ejemplo:
-<br />
-<br />
-<script src="https://gist.github.com/picodotdev/4742921.js?file=Application.java"></script>
-<noscript>
- <a href="https://gist.github.com/picodotdev/4742921/raw/Application.java">Application.java</a>
- <br />
-</noscript> Para finalizar, comentar que RESTEasy se puede configurar tambi&eacute;n como un filtro, lo que tiene algunas ventajas como descubrir de forma din&aacute;mica los servicios web sin necesidad de la clase Application. El resultado del servicio web invocado desde un navegador web es:
-<br />
-<br />
-<div style="clear: both; text-align: center;">
- <a href="http://4.bp.blogspot.com/-CrtGpMzFS2c/URWRiKGVxaI/AAAAAAAACUg/NUtNOrz_l6M/s1600/resteasy-navegador.png"><img height="58" src="http://4.bp.blogspot.com/-CrtGpMzFS2c/URWRiKGVxaI/AAAAAAAACUg/NUtNOrz_l6M/s320/resteasy-navegador.png" width="320" /></a>
-</div>
-<div style="clear: both; text-align: center;">
- <br />
-</div>Este es el primer art&iacute;culo de unos que escribir&eacute; sobre RESTEasy, en el siguiente explicar&eacute;&nbsp;
-<a href="http://elblogdepicodev.blogspot.com/2013/02/cliente-javascript-y-java-de-servicio-web-resteasy.html">como crear un cliente javascript o java para consumir este servicio web</a> y en el &uacute;ltimo hablar&eacute; de 
-<a href="http://elblogdepicodev.blogspot.com/2013/02/devolver-xml-json-o-html-con-resteasy.html">como devolver datos en formato JSON o XML desde el web service</a>.
-<br />
-<br />Referencia:
-<br />
-<a href="https://github.com/picodotdev/elblogdepicodev/tree/master/HelloWorldRESTEasy">C&oacute;digo fuente Hola Mundo con RESTEasy</a>
-<br />
-<a href="http://asiermarques.com/2013/conceptos-sobre-apis-rest/">Conceptos sobre APIs REST</a>
-<br />
-<a href="http://www.jboss.org/resteasy">http://www.jboss.org/resteasy</a>
-<br />
-<a href="http://stackoverflow.com/questions/4131968/resteasy-path-requiring-a-full-path">http://stackoverflow.com/questions/4131968/resteasy-path-requiring-a-full-path</a>
-<br />
-<br /></span></div><section><a id="share"></a><h1>Compartir</h1><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="Google +" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="Meneame" class="st_meneame_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script><div id="widget"></div></section><section><a id="comments"></a><h1>Comentar</h1><div id="disqus_thread"></div><script type="text/javascript">
-var disqus_shortname = "elblogdepicodev";
-var disqus_title = "Ejemplo sencillo de servicio web con RESTEasy";
-var disqus_url = "http://elblogdepicodev.blogspot.com/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html";
-</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a class="dsq-brlink" href="http://disqus.com">comments powered by <span class="logo-disqus">Disqus</span></a></section><hr/></article></div><div class="col-xs-12 col-sm-12 col-md-4"><aside><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>¡Suscríbete!</h3><ul class="list-unstyled"><li><a href="/label/programacion/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta programacion</a></li><li><a href="/label/software/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta software</a></li><li><a href="/label/java/feed.atom.xml"><span class="fa fa-rss"></span> Fuente de la etiqueta java</a></li></ul></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigRectangle"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section><h3>Redes sociales</h3><p>¿Te gusta Blog Stack? ¡Compártelo!</p><div class="social-networks"><!-- Facebook --><div class="social-network"><div data-share="true" data-show-faces="false" data-action="like" data-width="310" data-layout="box_count" data-href="http://www.blogstack.info/" class="fb-like"></div></div><!-- Google+ --><div class="social-network"><div class="g-plusone" data-href="http://www.blogstack.info/" data-size="tall"></div></div></div></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts"></section></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div id="bigSkycraper"></div></div></div><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><section id="lastPosts_0"></section></div></div></aside></div></div></div><footer><div class="container-fluid"><div class="row"><div class="col-xs-12 col-sm-12 col-md-12"><div class="footer"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub <span class="entypo-social"></span></a>.<br/>
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-28)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">Ejemplo sencillo de servicio web con RESTEasy</a></h1></header><p class="post-info"><span class="text-center" datetime="2013-04-11T22:04" itemprop="dateModified">jueves, 11 de abril de 2013 </span>,
+<span>fuente <a target="target" href="http://elblogdepicodev.blogspot.com.es/">El blog de pico.dev</a></span>,
+etiquetas
+<a href="/label/programacion"><span itemprop="articleSection">programacion</span></a> 
+<a href="/label/java"><span itemprop="articleSection">java</span></a> 
+<a href="/label/software"><span itemprop="articleSection">software</span></a> 
+</p><p class="text-justify" itemprop="description">
+Las arquitecturas orientadas a servicios (SOA) no son nuevas y existen desde hace ya bastante tiempo. Surgen por la necesidad de las aplicaciones de comunicarse entre ellas para intercambiar información y colaborar. Dada la heterogeneidad de las mismas aplicaciones en el lenguaje de programación o de representación de datos requieren un lenguaje común con el que intercambiar información, para ello se puede emplear un lenguaje de marcas como XML y para el intercambio de mensajes SOAP (Simple Object Access Protocol) sobre el protocolo HTTP. Otras opciones como CORBA los mensajes se transmitían de forma binaria. Pero los servicios web basados en XML y SOAP no están exentos de problemas, los mensajes SOAP son bastante complejos y para algunas necesidades no son fáciles de construir o cómodas de [...]
+</p><p><a itemprop="sameAs" target="target" href="http://elblogdepicodev.blogspot.com/2013/02/ejemplo-sencillo-de-web-service-con-resteasy.html">Leer artículo completo</a></p></article></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><p class="text-center">Si te gusta el artículo compártelo!</p><div class="share-this"><span displayText="Tweet" class="st_twitter_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="Facebook" class="st_facebook_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="Google+" class="st_googleplus_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span><span displayText="LinkedIn" class="st_linkedin_vcount" st_url="http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy" st_title="Ejemplo sencillo de servicio web con RESTEasy | El blog de pico.dev"></span></div><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher: "ur-3b2014fd-82e-9968-7e00-5ee51fb88bb2", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script></div></div></div></section><div class="container-fluid"><div class="row row-ad"><div class="col-xs-12 col-sm-6 col-md-6 text-right" id="adBigRectangle1"></div><div class="col-xs-12 col-sm-6 col-md-6" id="adBigRectangle2"></div></div></div><footer><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><span class="blogstack">Blog <span class="stack">Stack</span></span>. Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...
+</div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><nav role="navigation"><ul class="list-unstyled"><li><a class="header" href="/">Inicio</a></li><li><a class="header" href="/archive">Archivo</a></li><li><a class="header" href="/faq">Preguntas frecuentes</a></li><li><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></li></ul></nav></div><div class="col-xs-12 col-sm-12 col-md-4 text-center"><a title="Fuente RSS, ¡suscríbete a BS!" alt="Fuente RSS" class="header" href="/feed.atom.xml"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M2.4,2.4v2.367c7.086,0,12.83,5.746,12.83,12.832h2.369C17.599,9.205,10.794,2.4,2.4,2.4z M2.4,7.137v2.369  c4.469,0,8.093,3.623,8.093,8.094h2.368C12.861,11.822,8.177,7.137,2.4,7.137z M4.669,13.059c-1.254,0-2.27,1.018-2.27,2.271  s1.016,2.27,2.27,2.27s2.269-1.016,2.269-2.27S5.923,13.059,4.669,13.059z"></path></svg>
+Fuente RSS
+</a><br/><a title="Twitter, ¡sigue a BS!" alt="Twitter" class="header" href="http://twitter.com/blogstackinfo"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10,0.4c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M13.905,8.264  c0.004,0.082,0.005,0.164,0.005,0.244c0,2.5-1.901,5.381-5.379,5.381c-1.068,0-2.062-0.312-2.898-0.85  c0.147,0.018,0.298,0.025,0.451,0.025c0.886,0,1.701-0.301,2.348-0.809c-0.827-0.016-1.525-0.562-1.766-1.312  c0.115,0.021,0.233,0.033,0.355,0.033c0.172,0,0.34-0.023,0.498-0.066c-0.865-0.174-1.517-0.938-1.517-1.854V9.033  C6.257,9.174,6.549,9.26,6.859,9.27C6.351,8.93,6.018,8.352,6.018,7.695c0-0.346,0.093-0.672,0.256-0.951  c0.933,1.144,2.325,1.896,3.897,1.977c-0.033-0.139-0.049-0.283-0.049-0.432c0-1.043,0.846-1.891,1.891-1.891  c0.543,0,1.035,0.23,1.38,0.598c0.431-0.086,0.835-0.242,1.2-0.459c-0.141,0.441-0.44,0.812-0.831,1.047  c0.383-0.047,0.747-0.148,1.086-0.299C14.595,7.664,14.274,7.998,13.905,8.264z"></path></svg>
+Twitter
+</a><br/><a title="Código fuente de BS" alt="GitHub" class="header" href="https://github.com/picodotdev/blog-stack/tree/master"><svg version="1.1" viewBox="0 0 20 20" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M10.015,9.949c0,0-0.01,0-0.015,0H9.985c-1.191,0-2.24-0.303-2.861,0.268c-0.371,0.342-0.527,0.754-0.527,1.197  c0,1.852,1.483,2.08,3.389,2.08h0.029c1.905,0,3.389-0.229,3.389-2.08c0-0.443-0.156-0.856-0.527-1.197  C12.255,9.646,11.206,9.949,10.015,9.949z M8.393,12.48c-0.363,0-0.656-0.408-0.656-0.91c0-0.502,0.293-0.908,0.656-0.908  c0.363,0,0.657,0.406,0.657,0.908C9.051,12.072,8.757,12.48,8.393,12.48z M11.606,12.48c-0.363,0-0.657-0.408-0.657-0.91  c0-0.502,0.294-0.908,0.657-0.908c0.362,0,0.656,0.406,0.656,0.908C12.263,12.072,11.969,12.48,11.606,12.48z M10,0.4  c-5.302,0-9.6,4.298-9.6,9.6s4.298,9.6,9.6,9.6s9.6-4.298,9.6-9.6S15.302,0.4,10,0.4z M10.876,13.939c-0.172,0-0.514,0-0.876,0.002  c-0.362-0.002-0.704-0.002-0.876-0.002c-0.76,0-3.772-0.059-3.772-3.689c0-0.834,0.286-1.445,0.755-1.955  c-0.074-0.184-0.078-1.232,0.32-2.236c0,0,0.916,0.1,2.301,1.051C9.017,7.029,9.509,6.988,10,6.988s0.982,0.041,1.273,0.121  c1.385-0.951,2.301-1.051,2.301-1.051c0.398,1.004,0.395,2.053,0.32,2.236c0.469,0.51,0.755,1.121,0.755,1.955  C14.648,13.881,11.636,13.939,10.876,13.939z"></path></svg>
+GitHub
+</a></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><a href="/">Blog Stack</a> por <a href="https://twitter.com/picodotdev/">pico.dev</a> está publicado bajo la licencia de software libre <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU Affero General Public</a> en <a href="https://github.com/picodotdev/blog-stack">GitHub</a>.<br/>
 El contenido agregado conserva la licencia de su bitácora.<br/>
 «Powered by» <a href="https://github.com/picodotdev/blogstack">Blog Stack</a>, <a href="http://tapestry.apache.org/">Apache Tapestry</a>, <a href="https://www.openshift.com/">OpenShift</a>, <a href="https://pages.github.com/">GitHub Pages</a>, <a href="http://www.oracle.com/es/technologies/java/overview/index.html">Java</a> y más software libre o de código abierto, inspirado en <a href="http://octopress.org/">Octopress</a>.<br/><span class="copyleft">©</span> pico.dev 2015
-</div></div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
+</div></div></div></footer><div id="fb-root"></div><script type="text/javascript">var require = {
   "waitSeconds" : 300,
   "shim" : {
     "t5/core/typeahead" : [
@@ -126,35 +61,8 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
   },
   "baseUrl" : "/modules"
 };
-</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.5.2.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/prototype.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/scriptaculous.js" type="text/javascript"></script><script src="/assets/tapestry5/scriptaculous_1_9_0/effects.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery-noconflict.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
+</script><script src="/assets/tapestry5/require.js" type="text/javascript"></script><script src="/assets/tapestry5/underscore-1.7.0.js" type="text/javascript"></script><script src="/assets/tapestry5/t53-compatibility.js" type="text/javascript"></script><script src="/assets/tapestry5/jquery.js" type="text/javascript"></script><script type="text/javascript">require(["t5/core/pageinit"], function(pi) { pi([], [
   "app/analytics",
-  [
-    "app/karmacracy:init",
-    {
-      "selector" : "#widget",
-      "id" : 66,
-      "url" : "http://www.blogstack.info/post/elblogdepicodev/2013/02/ejemplo-sencillo-de-servicio-web-con-resteasy"
-    }
-  ],
-  "app/disqus",
-  "app/facebook",
-  "app/googleplus",
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts",
-      "source" : "elblogdepicodev",
-      "name" : "El blog de pico.dev"
-    }
-  ],
-  [
-    "app/lastPosts:init",
-    {
-      "id" : "lastPosts_0",
-      "source" : "blogstack",
-      "name" : "Blog Stack"
-    }
-  ],
   [
     "app/adsensem:init",
     {
@@ -166,6 +74,24 @@ El contenido agregado conserva la licencia de su bitácora.<br/>
         "adClient" : "ca-pub-3533636310991304",
         "adSlot" : "1397019380"
       }
+    }
+  ],
+  [
+    "app/background:init",
+    {
+      "backgrounds" : [
+        "eight_horns.png",
+        "paisley.png",
+        "dimension.png",
+        "symphony.png",
+        "contemporary_china.png",
+        "tree_bark.png",
+        "upfeathers.png",
+        "confectionary.png",
+        "swirl_pattern.png",
+        "contemporary_china_2.png",
+        "skulls.png"
+      ]
     }
   ]
 ]); });</script></body></html>
