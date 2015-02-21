@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
+      "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
       "title" : "Tutorial básico de digiKam Software Collection"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
       "title" : "Fondos de escritorio 18"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/gr2dest-meetup-wphardening-asegurando-wordpress",
-      "title" : "Gr2Dest Meetup \u2013 WPHardening: Asegurando WordPress"
     }
   ]
 }

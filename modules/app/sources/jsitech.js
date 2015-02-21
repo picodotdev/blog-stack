@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
+      "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
+    },
+    {
       "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
       "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2014/12/se-va-el-2-14",
       "title" : "Se va el 2014!!"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/ya-esta-disponible-the-original-hacker-no-11-edicion-fin-de-ano",
-      "title" : "Ya está Disponible The Original Hacker No.11 Edición Fin de Año"
     }
   ]
 }
