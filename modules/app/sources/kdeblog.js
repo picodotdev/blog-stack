@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
+      "title" : "Tutorial básico de digiKam Software Collection"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/como-poner-temporizadores-o-alarmas-con-krunner",
       "title" : "Cómo poner temporizadores o alarmas con Krunner"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/digikam-recipes-4-3-1-listo-para-su-descarga",
       "title" : "DigiKam Recipes 4.3.1 listo para su descarga"
-    },
-    {
-      "url" : "/post/kdeblog/2015/01/kgoldrunner-el-clasico-de-kde",
-      "title" : "KGoldRunner, el clásico  de KDE"
     }
   ]
 }

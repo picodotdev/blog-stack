@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
+      "title" : "Tutorial básico de digiKam Software Collection"
+    },
+    {
       "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
       "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/lanzado-kde-frameworks-5-7-video",
       "title" : "Lanzado KDE Frameworks 5.7 + Vídeo"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/como-instalar-el-tema-faience-en-ubuntu-mediante-ppa",
-      "title" : "Como instalar el tema Faience en Ubuntu mediante PPA"
     }
   ]
 }
