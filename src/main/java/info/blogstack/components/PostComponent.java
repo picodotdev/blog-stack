@@ -1,13 +1,17 @@
 package info.blogstack.components;
 
+import info.blogstack.misc.Globals;
 import info.blogstack.misc.Utils;
 import info.blogstack.persistence.jooq.Keys;
 import info.blogstack.persistence.jooq.tables.records.LabelRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
+import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.persistence.records.AppPostRecord;
 import info.blogstack.services.MainService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.Block;
@@ -15,11 +19,16 @@ import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class PostComponent {
 
+	private DateTimeFormatter DATETIME_FORMATTER = DateTimeFormat.forPattern("EEEE, dd 'de' MMMM 'de' yyyy '").withLocale(Globals.LOCALE);
+	private DateTimeFormatter MICRODATA_DATETIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm");
+	
 	enum Mode {
-		HOME_FEATURED, HOME, ARCHIVE, DEFAULT
+		HOME, POST, ARCHIVE, DEFAULT
 	}
 	
 	private static int NUMBER_LABELS = 4;
@@ -40,14 +49,6 @@ public class PostComponent {
 	@Property
 	private Boolean sharethis;
 	
-	@Parameter(value = "false")
-	@Property
-	private Boolean karmacracy;
-	
-	@Parameter(value = "false")
-	@Property
-	private Boolean disqus;
-	
 	@Property
 	private LabelRecord label;
 	
@@ -57,50 +58,52 @@ public class PostComponent {
 	@Inject
 	private Block smallBlock;
 	
-	@Inject
-	private Block defaultBlock;
-	
 	public Object[] getContext() {
 		return Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID));
 	}
 	
 	public Block getBlock() {
 		switch (mode) {
-			case HOME_FEATURED:
-			case HOME:
+			case HOME:			
 			case ARCHIVE:
+			case POST:
+			case DEFAULT:
 				return smallBlock;
 			default:
-				return defaultBlock;
+				throw new IllegalArgumentException();
+			
 		}
 	}
 	
-	public String getHomeClasses() {
+	public String getTag(String key) {
+		Map<String, String> m = new HashMap<String, String>();
+		m.put("h1:open", "<h1>");
+		m.put("h1:close", "</h1>");
+		m.put("h2:open", "<h2>");
+		m.put("h2:close", "</h2>");
+
+		String tag = null;
 		switch (mode) {
-			case HOME:
-				return "not-featured";
+			case HOME:			
+			case ARCHIVE:
+			case DEFAULT:
+				tag = "h2";
+				break;
+			case POST:
+				tag = "h1";
+				break;
 			default:
-				return null;
+				throw new IllegalArgumentException();
+			
 		}
+		
+		String k = String.format("%s:%s", tag, key);
+		return m.get(k);
 	}
 	
 	@Cached(watch = "post")
 	public List<LabelRecord> getLabels() {
-		return service.getLabelDAO().findByPost(post, NUMBER_LABELS);
-	}
-	
-	public boolean isShare() {
-		return sharethis || karmacracy;
-	}
-	
-	public boolean isComment() {
-		return disqus && post.fetchParent(Keys.POST_SOURCE_ID).getDisqusshortname() != null;
-	}
-	
-	@Cached(watch = "post")
-	public boolean isContentExcerpted() {
-		AppPostRecord apost = post.into(AppPostRecord.class);
-		return (excerpt && apost.getContent().length() != apost.getContentExcerpt().length());
+		return service.getLabelDAO().findByPost(post, NUMBER_LABELS, true);
 	}
 	
 	@Cached(watch = "post")
@@ -110,16 +113,29 @@ public class PostComponent {
 	}
 	
 	@Cached(watch = "post")
-	public String getContent() {
+	public Map<String, Object> getData() {
 		AppPostRecord apost = post.into(AppPostRecord.class);
-		return apost.getContent();
+		Map<String, Object> datos = new HashMap<>();
+		if (apost.getPublishdate() != null) {
+			datos.put("date", DATETIME_FORMATTER.print(apost.getPublishdate()));
+			datos.put("microdataDate", MICRODATA_DATETIME_FORMATTER.print(apost.getPublishdate()));
+		}
+		if (apost.getUpdatedate() != null) {
+			datos.put("date", DATETIME_FORMATTER.print(apost.getUpdatedate()));
+			datos.put("microdataDate", MICRODATA_DATETIME_FORMATTER.print(apost.getUpdatedate()));
+		}
+		return datos;
 	}
 	
-	public Object[] getContextLabel(LabelRecord label) {
-		return Utils.getContext(label);
+	public String getTarget() {
+		return (mode == Mode.POST) ? null : "_blank";
 	}
-
-	public String getImage() {
-		return String.format("/assets/images/labels/%s.png", label.getName());
+	
+	public SourceRecord getSource() {
+		return post.fetchParent(Keys.POST_SOURCE_ID);
+	}
+	
+	public Object[] getLabelContext() {
+		return Utils.getContext(label);
 	}
 }

@@ -26,7 +26,7 @@ public class BlogStackStack implements JavaScriptStack {
 	@Override
 	public List<String> getModules() {
 		List<String> r = new ArrayList<>();		
-		r.add("app/analytics");		
+		r.add("app/analytics");
 		return r;
 	}
 	

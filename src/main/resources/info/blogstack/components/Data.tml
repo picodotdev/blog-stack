@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
-<t:delegate to="block"/>
-
-<t:block t:id="defaultBlock">
-	<section class="data">
+<section class="data">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-xs-6 col-sm-2 col-md-2 col-sm-offset-2 col-md-offset-2">
 				<span class="number">
 					${data.get('posts')}
 					<span>artículos</span>
 				</span>
 			</div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-xs-6 col-sm-2 col-md-2">
 				<span class="number">
 					${data.get('sources')}
 					<span><a t:type="pagelink" page="archive" context="[]" anchor="sources">bitácoras</a></span>
 				</span>
 			</div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-xs-6 col-sm-2 col-md-2">
 				<span class="number">
 					${data.get('labels')}
 					<span><a t:type="pagelink" page="archive" context="[]" anchor="labels">etiquetas</a></span>
 				</span>
 			</div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-xs-6 col-sm-2 col-md-2">
 				<span class="number">
 					${data.get('authors')}
 					<span>autores</span>
@@ -33,78 +31,10 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<span class="add"><a t:type="pagelink" page="faq" anchor="aggregate">¿Quieres agregar tu bitácora?</a></span><br/>
 				<span t:type="any" t:id="lastUpdated" class="date"></span>
 			</div>
 		</div>
-	</section>
-</t:block>
+	</div>
+</section>
 
-<t:block t:id="postBlock">
-	<section class="post-data">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div>
-					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${source.pageUrl}">${source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">artículo original</span></a></span>
-				</div>
-				<t:if test="publishDate">
-					<div>
-						<span itemprop="datePublished" datetime="${postData.get('microdataPublishDate')}">Publicado el ${postData.get('publishDate')}</span>
-					</div>
-				</t:if>
-				<t:if test="updateDate">
-					<div>
-						<span itemprop="dateModified" datetime="${postData.get('microdataUpdateDate')}">Actualizado el ${postData.get('updateDate')}</span>
-					</div>
-				</t:if>
-				<t:if test="labels">
-					<div>
-						<span>
-							Etiquetado como
-							<t:loop source="labels" value="label" index="i">
-								<t:if test="!firstLabel">, </t:if>
-								<t:if test="label.visible"><t:if test="label.enabled">
-									<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>
-									<p:else>${label.name}</p:else>
-								</t:if></t:if>
-							</t:loop>
-						</span>
-					</div>
-				</t:if>
-			</div>
-		</div>
-	</section>
-</t:block>
-
-<t:block t:id="archivePostBlock">
-	<section class="post-data">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12">
-				<div>
-					<span>Escrito por <span itemprop="author">${post.author}</span> en la bitácora <a href="${source.pageUrl}">${source.name}</a>, <a href="${post.url}"><span itemprop="sameAs">artículo original</span></a></span>
-				</div>
-				<t:if test="labels">
-					<div>
-						<span>
-							Etiquetado como
-							<t:loop source="labels" value="label" index="i">
-								<t:if test="!firstLabel">
-									, 
-								</t:if>				
-								<t:if test="label.visible">
-									<t:if test="label.enabled">
-										<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>
-										<p:else>
-											${label.name}
-										</p:else>
-									</t:if>
-								</t:if>
-							</t:loop>
-						</span>
-					</div>
-				</t:if>
-			</div>
-		</div>
-	</section>
-</t:block>
 </t:container>

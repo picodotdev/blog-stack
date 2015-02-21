@@ -1,58 +1,43 @@
-<html t:type="layout" t:featured="prop:featured" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<html t:type="layout" t:title="prop:title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
-<t:block id="featured">
-	<t:loop source="featuredPosts" value="post" index="i">
-		<t:if test="open"><t:outputraw value="tags.get('open')"/></t:if>
-		<div class="col-xs-12 col-md-6">
-			<t:postcomponent post="post" mode="home_featured"/>
-		</div>
-		<t:if test="close"><t:outputraw value="tags.get('close')"/></t:if>
-	</t:loop>
-</t:block>
-	
-<t:if test="firstPage">
-	<t:loop source="notFeaturedPosts" value="post">
-		<div class="row">
-			<div class="col-xs-12 col-md-12">
-				<t:postcomponent post="post" mode="home"/>
-			</div>
-		</div>
-	</t:loop>
-</t:if>
+<div class="container-fluid">
+	<div class="row row-ad">
+		<div id="adBillboard1" class="col-xs-12 col-sm-12 col-md-12 text-center"></div>
+	</div>
+</div>
 
-<t:if test="!firstPage">
-	<t:loop source="posts" value="post">
-		<div class="row">
-			<div class="col-xs-12 col-md-12">
-				<t:postcomponent post="post" mode="home"/>
+<section>
+	<div class="container-fluid content">
+		<t:loop source="featuredPosts" value="post">
+			<div class="row container">
+				<div class="col-xs-12 col-md-12">
+					<t:postcomponent post="post" mode="home"/>
+					<hr/>
+				</div>
 			</div>
-		</div>
-	</t:loop>
-</t:if>
-
-<section class="index-pagination">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-4 col-sm-4 col-md-4">
-				<t:if test="!lastPage">
-					<a t:type="pagelink" page="label" context="nextContext"><span class="glyphicon glyphicon-arrow-left"></span> Más antiguo</a>
-				</t:if>
-			</div>	
-			<div class="col-xs-4 col-sm-4 col-md-4 col-xs-offset-4 col-sm-offset-4 col-md-offset-4 text-right">
-				<t:if test="!firstPage">
-					<a t:type="pagelink" page="label" context="previusContext">Más nuevo <span class="glyphicon glyphicon-arrow-right"></span></a>
-				</t:if>
+		</t:loop>
+		
+		<t:loop source="notFeaturedPosts" value="post">
+			<div class="row container">
+				<div class="col-xs-12 col-md-12">
+					<t:postcomponent post="post" mode="home"/>
+					<hr/>
+				</div>
 			</div>
+		</t:loop>
+		
+		<div class="text-center">
+			<a t:type="pagelink" page="archive" context="[]" class="header">Más artículos</a>
+			<hr/>
 		</div>
 	</div>
 </section>
 
-<t:block id="aside1">
-	<t:feeds label="label"/>
-</t:block>
+<div class="container-fluid">
+	<div class="row row-ad">
+		<div id="adBigRectangle1" class="col-xs-12 col-sm-6 col-md-6 text-right"></div>
+		<div id="adBigRectangle2" class="col-xs-12 col-sm-6 col-md-6"></div>
+	</div>
+</div>
 
-<t:block id="aside2">
-	<t:lastposts/>
-	<t:lastsourceswithposts/>
-</t:block>
 </html>

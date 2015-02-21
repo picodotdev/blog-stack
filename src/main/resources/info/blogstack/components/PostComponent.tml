@@ -4,63 +4,27 @@
 <t:delegate to="block"/>
 
 <t:block id="smallBlock">
-	<article t:type="any" class="prop:homeClasses" itemscope="" itemtype="http://schema.org/BlogPosting">
-		<header><h3><a t:type="pagelink" page="post" context="context"><span itemprop="headline">${post.title}</span></a></h3></header>
-		<t:if test="labels">
-			<div class="row labels">
-				<div class="col-md-12">
-					<t:loop source="labels" value="label">
-						<a t:type="pagelink" page="label" context="getContextLabel(label)" class="label"><img t:type="any" src="prop:image" alt="prop:label.name" title="prop:label.name"/></a>
-					</t:loop>
-				</div>
-			</div>
-		</t:if>
-		<t:data object="post"/>
+	<article t:type="any" itemscope="" itemtype="http://schema.org/BlogPosting">
+		<header><t:outputraw value="getTag('open')"/><a t:type="any" href="${post.url}" target="target" itemprop="sameAs">${post.title}</a><t:outputraw value="getTag('close')"/></header>
+
+		<p class="post-info">
+			<span itemprop="dateModified" datetime="${data.get('microdataDate')}" class="text-center">${data.get('date')}</span>,
+			<span>fuente <a t:type="any" href="${source.pageUrl}" target="target">${source.name}</a></span><t:if test="labels">,</t:if>
+			<t:if test="labels">
+				etiquetas
+				<t:loop source="labels" value="label">
+					<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>&nbsp;
+				</t:loop>
+			</t:if>
+		</p>
+
+		<p itemprop="description" class="text-justify">
+			${contentExcerpt} [...]
+		</p>
+		<p>
+			<a t:type="any" href="${post.url}" target="target" itemprop="sameAs">Leer artículo completo</a>
+		</p>
 	</article>
 </t:block>
 
-<t:block id="defaultBlock">
-	<article itemscope="" itemtype="http://schema.org/BlogPosting">
-		<a id="content"></a>
-		<header><h2><a t:type="pagelink" page="post" context="context"><span itemprop="headline">${post.title}</span></a></h2></header>
-		<t:if test="labels">
-			<div class="row labels">
-				<div class="col-md-12">
-					<t:loop source="labels" value="label">
-						<a t:type="pagelink" page="label" context="getContextLabel(label)" class="label"><img t:type="any" src="prop:image" alt="prop:label.name" title="prop:label.name"/></a>
-					</t:loop>
-				</div>
-			</div>
-		</t:if>
-		<t:data object="post"/>
-		<div class="text-justify post-content">
-			<t:sharethis post="post" onlyTwitter="true"/>
-			<t:if test="excerpt">
-				<span itemprop="description"><t:outputRaw value="contentExcerpt"/></span>
-				<t:if test="contentExcerpted">
-					<p class="continue-reading"><a t:type="pagelink" page="post" context="context">continuar leyendo <span class="glyphicon glyphicon-chevron-right"></span></a></p>
-				</t:if>
-				<p:else>
-					<span itemprop="name"><t:outputRaw value="content"/></span>
-				</p:else>
-			</t:if>			
-		</div>
-		<t:if test="share">
-			<section>
-				<a id="share"></a>
-				<h1>Compartir</h1>
-				<t:if test="sharethis"><t:sharethis post="post"/></t:if>
-				<t:if test="karmacracy"><t:karmacracy post="post"/></t:if>
-			</section>
-		</t:if>
-		<t:if test="comment">
-			<section>
-				<a id="comments"></a>
-				<h1>Comentar</h1>
-				<t:if test="disqus"><t:disqus post="post"/></t:if>
-			</section>
-		</t:if>
-		<hr/>
-	</article>
-</t:block>
 </t:container>

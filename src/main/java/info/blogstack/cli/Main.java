@@ -54,6 +54,22 @@ import ro.isdc.wro.config.jmx.WroConfiguration;
 
 public class Main {
 
+	private enum Returns {
+		
+		DEFAULT(0),
+		DEPLOY(1);
+		
+		private int value;
+		
+		Returns(int value) {
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+	}
+	
 	private static Logger logger = LoggerFactory.getLogger(Main.class);
 
 	public static void main(String[] args) throws Exception {
@@ -62,7 +78,10 @@ public class Main {
 
 		Main main = new Main();
 		Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook(main)));
-		main.process(args);
+		Returns returns = main.process(args);
+		if (returns != Returns.DEFAULT) {
+			System.exit(returns.getValue());			
+		}
 	}
 
 	private Undertow server;
@@ -71,8 +90,8 @@ public class Main {
 	public Main() {
 	}
 
-	public void process(String[] args) throws Exception {
-		processCommandLine(buildCommandLine(args));
+	public Returns process(String[] args) throws Exception {
+		return processCommandLine(buildCommandLine(args));
 	}
 
 	public void shutdown() {
@@ -149,7 +168,7 @@ public class Main {
 		return cmd;
 	}
 
-	private void processCommandLine(CommandLine cmd) throws Exception {
+	private Returns processCommandLine(CommandLine cmd) throws Exception {
 		String environment = cmd.getOptionValue("e");
 		boolean hash = cmd.hasOption("h");
 		boolean index = cmd.hasOption("i");
@@ -279,7 +298,9 @@ public class Main {
 			}
 
 			logger.info("Generating last updated...");
-			files.add(service.getGenerateService().generateLastUpdated());
+			if (ggenerate || !posts.isEmpty()) {
+				files.add(service.getGenerateService().generateLastUpdated());				
+			}
 		}
 		
 		if (!files.isEmpty()) {
@@ -295,11 +316,16 @@ public class Main {
 			Collection<PostRecord> sp = service.getPostDAO().findAllByShared(false);
 			service.getShareService().share(sp);
 		}
+		
+		Returns ret = Returns.DEFAULT;
+		if (!posts.isEmpty() || !files.isEmpty()) {
+			ret = Returns.DEPLOY;
+		}
 
 		if (preview) {
 			if (isStarted()) {
 				logger.info("Server already started");
-				return;
+				return ret;
 			}
 
 			logger.info("Stating server...");
@@ -358,7 +384,7 @@ public class Main {
 		if (stop) {
 			if (!isStarted()) {
 				logger.info("Server already stopped");
-				return;
+				return ret;
 			}
 
 			logger.info("Stopping server...");
@@ -373,6 +399,8 @@ public class Main {
 			String response = IOUtils.toString(response1.getEntity().getContent());
 			logger.info(String.format("Response: %s", response));
 		}
+		
+		return ret;
 	}
 
 	public static class ShutdownHook implements Runnable {

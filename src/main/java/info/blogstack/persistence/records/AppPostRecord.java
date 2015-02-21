@@ -10,8 +10,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -19,9 +17,6 @@ import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
-import org.jsoup.select.NodeVisitor;
 
 public class AppPostRecord extends PostRecord {
 
@@ -71,28 +66,15 @@ public class AppPostRecord extends PostRecord {
 
 	public String getContentExcerpt() {
 		Document document = Jsoup.parse(getContent());
-		final StringBuffer excerpt = new StringBuffer();
-		final List<Node> nodes = new ArrayList<>();
-		document.traverse(new NodeVisitor() {
-			@Override
-			public void tail(Node node, int depth) {
-			}
-
-			@Override
-			public void head(Node node, int depth) {
-				if (excerpt.length() > Globals.POST_EXCERPT_LENGHT) {
-					nodes.add(node);
-				}
-				if (node instanceof TextNode) {
-					TextNode textNode = (TextNode) node;
-					excerpt.append(textNode.text());
-				}
-			}
-		});
-		for (Node node : nodes) {
-			node.remove();
+		String text = document.text();
+		
+		int i = Math.min(text.length(), Globals.POST_EXCERPT_LENGHT);
+		int n = text.indexOf(' ', i);
+		if (n == -1) {
+			n = i;
 		}
-		return document.body().html();
+		
+		return text.substring(0, n);
 	}
 
 	public Boolean isFresh() {

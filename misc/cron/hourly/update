@@ -2,4 +2,6 @@
 cd $OPENSHIFT_DATA_DIR/blogstack/
 
 ./update.sh
-./deploy.sh
+if [ $? -eq 1 ]; then
+	./deploy.sh
+fi

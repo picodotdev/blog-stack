@@ -1,16 +1,26 @@
-<html t:type="layout" t:title="prop:title" t:subtitle="prop:subtitle" t:aside1="aside1" t:aside2="aside2" t:aside4="aside4" t:adsense="adsense" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<html t:type="layout" t:title="prop:title" t:subtitle="prop:subtitle" t:adsense="adsense" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
-<t:postcomponent post="post" sharethis="true" karmacracy="true" disqus="true"/>
+<section>
+	<div class="container-fluid content">
+		<div class="row container">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<t:postcomponent post="post" mode="post"/>
+			</div>
+		</div>
+		<div class="row container">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<p class="text-center">Si te gusta el artículo compártelo!</p>
+				<t:sharethis post="post"/>
+			</div>
+		</div>
+	</div>
+</section>
 
-<t:block id="aside1">
-	<t:feeds post="post"/>
-</t:block>
+<div class="container-fluid">
+	<div class="row row-ad">
+		<div id="adBigRectangle1" class="col-xs-12 col-sm-6 col-md-6 text-right"></div>
+		<div id="adBigRectangle2" class="col-xs-12 col-sm-6 col-md-6"></div>
+	</div>
+</div>
 
-<t:block id="aside2">
-	<t:lastposts source="source"/>
-</t:block>
-
-<t:block id="aside4">
-	<t:lastposts/>
-</t:block>
 </html>

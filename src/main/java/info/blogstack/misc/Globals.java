@@ -25,15 +25,15 @@ public class Globals {
 	public static final String SCHEMA = "blogstack";
 	public static final String PERSISTENT_DATETIME = "org.jadira.usertype.dateandtime.joda.PersistentDateTime";
 	
-	public static final Integer NUMBER_PAGES_INDEX = 5;
-	public static final Integer NUMBER_PAGES_LABEL = 3;
-	public static final Integer NUMBER_POSTS_PAGE = 20;
+	public static final Integer NUMBER_PAGES_INDEX = 0;
+	public static final Integer NUMBER_PAGES_LABEL = 0;
+	public static final Integer NUMBER_POSTS_PAGE = 10;
 	public static final Integer NUMBER_POSTS_LASTS = 20;
-	public static final Integer NUMBER_POSTS_FEATURED = 6;
+	public static final Integer NUMBER_POSTS_FEATURED = 5;
 	public static final Integer NUMBER_POSTS_FEATURED_LABEL = 8;
-	public static final Integer NUMBER_POSTS_FEED = 30;
-	public static final Integer NUMBER_POSTS_SITEMAP = 200;
-	public static final Integer POST_EXCERPT_LENGHT = 750;
+	public static final Integer NUMBER_POSTS_FEED = 7;
+	public static final Integer NUMBER_POSTS_SITEMAP = 50;
+	public static final Integer POST_EXCERPT_LENGHT = 800;
 	public static final Locale LOCALE = new Locale("es", "ES");
 	
 	public static final String DISQUS_BLOGSTACK = "blogstack";

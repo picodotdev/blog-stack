@@ -139,8 +139,7 @@ public class GenerateServiceImpl implements GenerateService {
 			String l = Utils.urlize(label.getName());
 			generatePage("label", new Object[] { l }, Collections.<String,String>emptyMap());
 			Long n = service.getPostDAO().countBy(label);
-			Integer np = Math.min(((Double) Math.floor(n / Globals.NUMBER_POSTS_PAGE)).intValue(), Globals.NUMBER_PAGES_LABEL);
-			for (int i = 1; i <= np; ++i) {
+			for (int i = 1; i <= Globals.NUMBER_PAGES_LABEL; ++i) {
 				generatePage("label", new Object[] { l, "page", i }, Collections.<String,String>emptyMap());
 			}
 		}
@@ -215,7 +214,6 @@ public class GenerateServiceImpl implements GenerateService {
 		logger.info("Copying statics...");
 		File dassets = new File(to, "assets");
 		File dcss = new File(dassets, "css");
-		File dfonts = new File(dassets, "fonts");
 		File dimages = new File(dassets, "images");
 		File dmodules = new File(to, "modules");
 		for (File st : statics) {
@@ -226,9 +224,6 @@ public class GenerateServiceImpl implements GenerateService {
 			File modules = new File(st, "modules");
 			if (css.exists()) {
 				FileUtils.copyDirectory(css, dcss);
-			}
-			if (fonts.exists()) {
-				FileUtils.copyDirectory(fonts, dfonts);
 			}
 			if (images.exists()) {
 				FileUtils.copyDirectory(images, dimages);
@@ -263,7 +258,7 @@ public class GenerateServiceImpl implements GenerateService {
 			w.close();
 		}
 
-		return FileUtils.listFiles(to, null, true);
+		return FileUtils.listFiles(dassets, null, true);
 	}
 
 	@Override
@@ -404,7 +399,7 @@ public class GenerateServiceImpl implements GenerateService {
 			e.setCategories(cs);
 			SyndContent c = new SyndContentImpl();
 			c.setType("text/html");
-			c.setValue(String.format("<p>%s</p><p><a href=\"%s\">continuar leyendo &gt;&gt;</a></p>", post.into(AppPostRecord.class).getContentExcerpt(), link));
+			c.setValue(String.format("<p>%s</p><p><a href=\"%s\">Leer artículo completo &gt;&gt;</a></p>", post.into(AppPostRecord.class).getContentExcerpt() + "[...]", link));
 			e.setContents(Collections.singletonList(c));
 
 			es.add(e);

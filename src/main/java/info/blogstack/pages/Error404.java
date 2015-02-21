@@ -7,9 +7,6 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 import org.apache.tapestry5.services.Request;
 
-/**
- * @tapestrydoc
- */
 @SuppressWarnings("unused")
 public class Error404 {
 

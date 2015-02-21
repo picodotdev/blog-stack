@@ -43,7 +43,7 @@ public class AppConfiguration {
 	public DataSource dataSource() {
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName("org.h2.Driver");
-		ds.setUrl("jdbc:h2:misc/database/app");
+		ds.setUrl("jdbc:h2:./misc/database/app");
 		ds.setUsername("sa");
 		ds.setPassword("sa");
 		return ds;

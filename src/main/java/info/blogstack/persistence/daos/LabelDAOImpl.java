@@ -41,13 +41,19 @@ public class LabelDAOImpl implements LabelDAO {
 
 	@Override
 	public List<LabelRecord> findByPost(PostRecord post, int n) {
+		return findByPost(post, n, false);
+	}
+
+	@Override
+	public List<LabelRecord> findByPost(PostRecord post, int n, boolean visible) {
 		List<Map<String, Object>> labels = context.select(LABEL.ID).from(LABEL).join(POSTS_LABELS).on(LABEL.ID.eq(POSTS_LABELS.LABEL_ID))
-				.where(POSTS_LABELS.POST_ID.eq(post.getId()).and(LABEL.ENABLED.isTrue())).fetchMaps();
+				.where(POSTS_LABELS.POST_ID.eq(post.getId()).and(LABEL.ENABLED.isTrue())).and(LABEL.VISIBLE.eq(visible)).fetchMaps();
 		List<Long> ids = new ArrayList<>();
 		for (Map<String, Object> label : labels) {
 			ids.add((Long) label.get("ID"));
 		}
-		return context.select(LABEL.fields()).from(LABEL).join(POSTS_LABELS).on(LABEL.ID.eq(POSTS_LABELS.LABEL_ID)).where(LABEL.ID.in(ids)).groupBy(LABEL.ID).orderBy(POSTS_LABELS.POST_ID.count().desc()).limit(n).fetchInto(LabelRecord.class);
+		return context.select(LABEL.fields()).from(LABEL).join(POSTS_LABELS).on(LABEL.ID.eq(POSTS_LABELS.LABEL_ID)).where(LABEL.ID.in(ids)).groupBy(LABEL.ID)
+				.orderBy(POSTS_LABELS.POST_ID.count().desc()).limit(n).fetchInto(LabelRecord.class);
 	}
 
 	@Override

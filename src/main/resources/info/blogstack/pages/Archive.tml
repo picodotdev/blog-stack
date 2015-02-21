@@ -1,51 +1,67 @@
-<html t:type="layout" t:title="prop:title" t:aside1="aside1" t:aside2="aside2" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<html t:type="layout" t:title="prop:title" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
 
-<section class="archive">
+<div class="container-fluid">
+	<div class="row row-ad">
+		<div id="adBillboard1" class="col-xs-12 col-sm-12 col-md-12 text-center"></div>
+	</div>
+</div>
+
+<section class="content">
 	<t:if test="generic">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<h1>Archivo</h1>
-			<a id="sources"></a>
-			<h2>Bitácoras</h2>
-			<ul class="list-unstyled list-inline">
-				<t:loop source="sources" value="archive">
-					<li><a t:type="pagelink" page="post" context="getContextPost(sourcePost)" title="${archive.get('POSTS')} artículos, ${sourcePost.title}">${source.name}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
-				</t:loop>
-			</ul>
-			<a id="labels"></a>
-			<h2>Etiquetas</h2>
-			<ul class="list-unstyled list-inline">
-				<t:loop source="labels" value="archive">
-					<li><a href="${labelFeed.url}"><span class="fa fa-rss"></span></a>&nbsp;<a t:type="pagelink" page="label" context="getContextLabel(label)" title="${archive.get('POSTS')} artículos, ${labelPost.title}">${label.name}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
-				</t:loop>
-			</ul>
-			<a id="archive"></a>
-			<ul class="list-unstyled">
-				<t:loop source="dates.keySet()" value="i">
-					<li><h2>${i}</h2></li>
+		<div class="container-fluid container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<h1>Archivo</h1>
+					<a id="sources"></a>
+					<h2>Bitácoras</h2>
 					<ul class="list-unstyled list-inline">
-						<t:loop source="dates.get(i)" value="archive">
-							<li><a t:type="pagelink" page="archive" context="getContextDate(archive.get('YEAR'), archive.get('MONTH'))" title="${archive.get('POSTS')} artículos">${getMonthName(archive.get('MONTH'))}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
+						<t:loop source="sources" value="archive">
+							<li><a t:type="pagelink" page="post" context="getContextPost(sourcePost)" title="${archive.get('POSTS')} artículos, ${sourcePost.title}">${source.name}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
 						</t:loop>
 					</ul>
-				</t:loop>
-			</ul>
+					<a id="labels"></a>
+					<h2>Etiquetas</h2>
+					<ul class="list-unstyled list-inline">
+						<t:loop source="labels" value="archive">
+							<li><a href="${labelFeed.url}"><img src="${context:images/icons/rss.svg}" alt="RSS" title="Fuente RSS de ${label.name}" width="20"/></a>&nbsp;<a t:type="pagelink" page="label" context="getContextLabel(label)" title="${archive.get('POSTS')} artículos, ${labelPost.title}">${label.name}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
+						</t:loop>
+					</ul>
+					<a id="archive"></a>
+					<ul class="list-unstyled">
+						<t:loop source="dates.keySet()" value="i">
+							<li><h2>${i}</h2></li>
+							<ul class="list-unstyled list-inline">
+								<t:loop source="dates.get(i)" value="archive">
+									<li><a t:type="pagelink" page="archive" context="getContextDate(archive.get('YEAR'), archive.get('MONTH'))" title="${archive.get('POSTS')} artículos">${getMonthName(archive.get('MONTH'))}</a>&nbsp;<small>x ${archive.get('POSTS')}</small></li>
+								</t:loop>
+							</ul>
+						</t:loop>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</t:if>
 	<t:if test="!generic">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<h1>Archivo de ${getMonthName(month)} de ${year}</h1>
-			<t:loop source="posts" value="post">
-					<t:postcomponent post="post" mode="archive"/>
-			</t:loop>
+		<div class="container-fluid container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<h1>Archivo de ${getMonthName(month)} de ${year}</h1>
+					<t:loop source="posts" value="post">
+						<t:sharethis post="post" onlyTwitter="true"/>
+						<t:postcomponent post="post" mode="archive"/>
+						<hr/>
+					</t:loop>
+				</div>
+			</div>
 		</div>
 	</t:if>
 </section>
 
-<t:block id="aside1">
-</t:block>
+<div class="container-fluid">
+	<div class="row row-ad">
+		<div id="adBigRectangle1" class="col-xs-12 col-sm-6 col-md-6 text-right"></div>
+		<div id="adBigRectangle2" class="col-xs-12 col-sm-6 col-md-6"></div>
+	</div>
+</div>
 
-<t:block id="aside2">
-	<t:lastposts/>
-	<t:lastsourceswithposts/>
-</t:block>
 </html>
