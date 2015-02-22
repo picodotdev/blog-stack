@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
+      "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
       "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
       "title" : "Un reloj binario en la línea de comandos"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/el-binar1-diario-independiente-copyleft",
-      "title" : "El Binar10, diario independiente copyleft"
     }
   ]
 }

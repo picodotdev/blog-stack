@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
+      "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/taller-sobre-kde-en-las-iii-jornadas-libres",
       "title" : "Taller sobre KDE en las III Jornadas Libres"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/sabemos-donde-vives",
       "title" : "¡Sabemos donde vives!"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/que-es-dconf-y-para-que-sirve-en-ubuntu",
-      "title" : "Que es dconf y para que sirve en Ubuntu"
     }
   ]
 }
