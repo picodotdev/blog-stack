@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
+      "title" : "Taller Metasploit \u2013 Preparando el Entorno"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
       "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/netrunner-15-disponible-para-su-descarga-con-plasma-5",
       "title" : "Netrunner 15 disponible para su descarga con Plasma 5"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/sabemos-donde-vives",
-      "title" : "¡Sabemos donde vives!"
     }
   ]
 }

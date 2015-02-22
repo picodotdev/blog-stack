@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
+      "title" : "Taller Metasploit \u2013 Preparando el Entorno"
+    },
+    {
       "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
       "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
       "title" : "Detectando procesos ocultos en Linux con Unhide"
-    },
-    {
-      "url" : "/post/jsitech/2014/12/se-va-el-2-14",
-      "title" : "Se va el 2014!!"
     }
   ]
 }
