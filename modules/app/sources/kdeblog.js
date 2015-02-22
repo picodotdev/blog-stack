@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/taller-sobre-kde-en-las-iii-jornadas-libres",
+      "title" : "Taller sobre KDE en las III Jornadas Libres"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
       "title" : "Tutorial básico de digiKam Software Collection"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
       "title" : "Lanzado digiKam Software Collection 4.7"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/digikam-recipes-4-3-1-listo-para-su-descarga",
-      "title" : "DigiKam Recipes 4.3.1 listo para su descarga"
     }
   ]
 }

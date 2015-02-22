@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/taller-sobre-kde-en-las-iii-jornadas-libres",
+      "title" : "Taller sobre KDE en las III Jornadas Libres"
+    },
+    {
       "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
       "title" : "Ejemplo de listener de eventos de Hibernate"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/elblogdeliher/2015/02/que-es-dconf-y-para-que-sirve-en-ubuntu",
       "title" : "Que es dconf y para que sirve en Ubuntu"
-    },
-    {
-      "url" : "/post/elblogdeliher/2015/02/fondos-de-escritorio-18",
-      "title" : "Fondos de escritorio 18"
     }
   ]
 }
