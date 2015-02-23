@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/yast-de-opensuse-se-abre-mas-aun-a-la-comunidad",
+      "title" : "YaST de openSUSE se abre más aún a la comunidad"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/magento-saber-si-estamos-en-la-pagina-principal-home-page",
       "title" : "Magento: Saber si estamos en la página principal (home page)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/truco-viejo-pero-aun-efectivo-vulnerando-windows-con-utilman-bypass",
       "title" : "Truco Viejo pero Aún Efectivo \u2013 Vulnerando Windows con Utilman Bypass"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/plasma-sprint-2-15-de-barcelona",
-      "title" : "Plasma Sprint 2015 de Barcelona"
     }
   ]
 }

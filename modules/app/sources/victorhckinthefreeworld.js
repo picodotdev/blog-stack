@@ -3,6 +3,10 @@ define("app/sources/victorhckinthefreeworld", [], function() {
   "name" : "Victorhck in the free world",
   "posts" : [
     {
+      "url" : "/post/victorhckinthefreeworld/2015/02/yast-de-opensuse-se-abre-mas-aun-a-la-comunidad",
+      "title" : "YaST de openSUSE se abre más aún a la comunidad"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
       "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
     },
@@ -77,10 +81,6 @@ define("app/sources/victorhckinthefreeworld", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/01/elecciones-al-consejo-de-opensuse-2-15",
       "title" : "Elecciones al consejo de openSUSE 2015"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/01/un-reloj-binario-en-la-linea-de-comandos",
-      "title" : "Un reloj binario en la línea de comandos"
     }
   ]
 }
