@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-conociendo-el-framework",
+      "title" : "Taller Metasploit \u2013 Conociendo el Framework"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
       "title" : "Taller Metasploit \u2013 Preparando el Entorno"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
       "title" : "HangoutON, Seguridad esencial en Android"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/detectando-procesos-ocultos-en-linux-con-unhide",
-      "title" : "Detectando procesos ocultos en Linux con Unhide"
     }
   ]
 }

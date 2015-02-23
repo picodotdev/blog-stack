@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/taller-metasploit-conociendo-el-framework",
+      "title" : "Taller Metasploit \u2013 Conociendo el Framework"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
       "title" : "Taller Metasploit \u2013 Preparando el Entorno"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
       "title" : "Java Collections List vs Set (I)"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/netrunner-15-disponible-para-su-descarga-con-plasma-5",
-      "title" : "Netrunner 15 disponible para su descarga con Plasma 5"
     }
   ]
 }
