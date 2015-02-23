@@ -3,6 +3,10 @@ define("app/sources/koalite", [], function() {
   "name" : "Koalite",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/monitores-de-rendimiento-para-javascript",
+      "title" : "Monitores de rendimiento para Javascript"
+    },
+    {
       "url" : "/post/koalite/2015/02/cohesion-y-acoplamiento",
       "title" : "Cohesión y Acoplamiento"
     },
@@ -77,10 +81,6 @@ define("app/sources/koalite", [], function() {
     {
       "url" : "/post/koalite/2014/09/como-utilizar-reactjs-con-browserify",
       "title" : "Cómo utilizar ReactJS con Browserify"
-    },
-    {
-      "url" : "/post/koalite/2014/09/crear-un-componente-con-reactjs",
-      "title" : "Crear un componente con ReactJS"
     }
   ]
 }

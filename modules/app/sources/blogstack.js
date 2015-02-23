@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/koalite/2015/02/monitores-de-rendimiento-para-javascript",
+      "title" : "Monitores de rendimiento para Javascript"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-conociendo-el-framework",
       "title" : "Taller Metasploit \u2013 Conociendo el Framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin",
       "title" : "Limitar el acceso a phpmyadmin"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/02/java-collections-list-vs-set-i",
-      "title" : "Java Collections List vs Set (I)"
     }
   ]
 }
