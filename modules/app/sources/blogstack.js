@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-188",
+      "title" : "Enlaces interesantes 188"
+    },
+    {
       "url" : "/post/koalite/2015/02/monitores-de-rendimiento-para-javascript",
       "title" : "Monitores de rendimiento para Javascript"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin",
-      "title" : "Limitar el acceso a phpmyadmin"
     }
   ]
 }

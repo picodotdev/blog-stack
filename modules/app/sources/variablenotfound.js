@@ -3,6 +3,10 @@ define("app/sources/variablenotfound", [], function() {
   "name" : "Variable not found",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-188",
+      "title" : "Enlaces interesantes 188"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
       "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     },
@@ -77,10 +81,6 @@ define("app/sources/variablenotfound", [], function() {
     {
       "url" : "/post/variablenotfound/2014/12/enlaces-interesantes-178",
       "title" : "Enlaces interesantes 178"
-    },
-    {
-      "url" : "/post/variablenotfound/2014/11/interpolacion-de-cadenas-en-c-6",
-      "title" : "Interpolación de cadenas en C# 6"
     }
   ]
 }
