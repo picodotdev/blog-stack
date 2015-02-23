@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/magento-saber-si-estamos-en-la-pagina-principal-home-page",
+      "title" : "Magento: Saber si estamos en la página principal (home page)"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-188",
       "title" : "Enlaces interesantes 188"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/plasma-sprint-2-15-de-barcelona",
       "title" : "Plasma Sprint 2015 de Barcelona"
-    },
-    {
-      "url" : "/post/variablenotfound/2015/02/aspnet-5-y-donde-esta-mi-web-config",
-      "title" : "ASPNET 5, ¿y dónde está mi Web.config?"
     }
   ]
 }

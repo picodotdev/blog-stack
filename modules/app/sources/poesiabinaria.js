@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/magento-saber-si-estamos-en-la-pagina-principal-home-page",
+      "title" : "Magento: Saber si estamos en la página principal (home page)"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/intercambiar-datos-entre-hojas-de-calculo-calc-o-excel-usando-una-columna-de-referencia",
       "title" : "Intercambiar datos entre hojas de cálculo Calc o Excel usando una columna de referencia"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/03/flags-en-un-enum-en-c",
       "title" : "Flags en un enum en C"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/03/como-crear-un-volumen-cifrado-en-un-archivo",
-      "title" : "Cómo crear un volumen cifrado en un archivo"
     }
   ]
 }
