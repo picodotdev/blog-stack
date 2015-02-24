@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/google-maps-route-api-para-cantabriatic",
+      "title" : "Google Maps Route API para CantabriaTIC"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
       "title" : "Utilizando Spring Profiles"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
       "title" : "Tomcat Java DataSource y  @Resource"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/los-tipos-de-javascript-y-vagrant-dos-articulos-para-genbetadev",
-      "title" : "Los tipos de Javascript  y Vagrant  dos artículos para GenBetaDev"
     }
   ]
 }
