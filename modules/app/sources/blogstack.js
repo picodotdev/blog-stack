@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/variablenotfound/2015/02/inyeccion-de-dependencias-en-aspnet-5",
+      "title" : "Inyección de dependencias en ASPNET 5"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/google-maps-route-api-para-cantabriatic",
       "title" : "Google Maps Route API para CantabriaTIC"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
       "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/las-11-mejores-distribuciones-de-gnu-linux-del-2-15",
-      "title" : "Las 11 mejores distribuciones de GNU/Linux del 2015"
     }
   ]
 }
