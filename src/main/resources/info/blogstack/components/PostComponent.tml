@@ -12,9 +12,7 @@
 			<span>fuente <a t:type="any" href="${source.pageUrl}" target="target">${source.name}</a></span><t:if test="labels">,</t:if>
 			<t:if test="labels">
 				etiquetas
-				<t:loop source="labels" value="label">
-					<a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>&nbsp;
-				</t:loop>
+				<t:loop source="labels" value="label"><a t:type="pagelink" page="label" context="labelContext"><span itemprop="articleSection">${label.name}</span></a>&nbsp;</t:loop>
 			</t:if>
 		</p>
 
