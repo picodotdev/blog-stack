@@ -3,6 +3,14 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/kronometer-tu-cronometro-para-plasma",
+      "title" : "Kronometer, tu cronómetro para Plasma"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/charla-sobre-gnusocial-en-madrid-el-27-de-febrero",
+      "title" : "Charla sobre Gnusocial en Madrid el 27 de Febrero"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/taller-sobre-kde-en-las-iii-jornadas-libres",
       "title" : "Taller sobre KDE en las III Jornadas Libres"
     },
@@ -73,14 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
       "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/disponible-kde-aplicaciones-14-12-2",
-      "title" : "Disponible KDE Aplicaciones 14.12.2"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-7",
-      "title" : "Lanzado digiKam Software Collection 4.7"
     }
   ]
 }

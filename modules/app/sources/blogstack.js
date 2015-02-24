@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/kronometer-tu-cronometro-para-plasma",
+      "title" : "Kronometer, tu cronómetro para Plasma"
+    },
+    {
       "url" : "/post/variablenotfound/2015/02/inyeccion-de-dependencias-en-aspnet-5",
       "title" : "Inyección de dependencias en ASPNET 5"
     },
@@ -21,6 +25,10 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/variablenotfound/2015/02/enlaces-interesantes-188",
       "title" : "Enlaces interesantes 188"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/charla-sobre-gnusocial-en-madrid-el-27-de-febrero",
+      "title" : "Charla sobre Gnusocial en Madrid el 27 de Febrero"
     },
     {
       "url" : "/post/koalite/2015/02/monitores-de-rendimiento-para-javascript",
@@ -73,14 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/pledin/2015/02/ii-semana-informatica-universidad-de-almeria",
       "title" : "II Semana Informática. Universidad de Almería."
-    },
-    {
-      "url" : "/post/poesiabinaria/2015/02/intercambiar-datos-entre-hojas-de-calculo-calc-o-excel-usando-una-columna-de-referencia",
-      "title" : "Intercambiar datos entre hojas de cálculo Calc o Excel usando una columna de referencia"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/sensaciones-tras-la-charla-de-kde-en-las-iii-jornadas-libres",
-      "title" : "Sensaciones tras la charla de KDE en las III Jornadas Libres"
     }
   ]
 }
