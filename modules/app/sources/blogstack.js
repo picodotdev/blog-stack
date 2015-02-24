@@ -15,6 +15,10 @@ define("app/sources/blogstack", [], function() {
       "title" : "Google Maps Route API para CantabriaTIC"
     },
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/02/usando-node-con-xulrunner-y-gecko",
+      "title" : "Usando Node con XULRunner y Gecko"
+    },
+    {
       "url" : "/post/victorhckinthefreeworld/2015/02/yast-de-opensuse-se-abre-mas-aun-a-la-comunidad",
       "title" : "YaST de openSUSE se abre más aún a la comunidad"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/como-poner-temporizadores-o-alarmas-con-krunner",
       "title" : "Cómo poner temporizadores o alarmas con Krunner"
-    },
-    {
-      "url" : "/post/pledin/2015/02/ii-semana-informatica-universidad-de-almeria",
-      "title" : "II Semana Informática. Universidad de Almería."
     }
   ]
 }

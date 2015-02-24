@@ -3,6 +3,10 @@ define("app/sources/elblogdeadrianarroyo", [], function() {
   "name" : "El blog de Adrián Arroyo",
   "posts" : [
     {
+      "url" : "/post/elblogdeadrianarroyo/2015/02/usando-node-con-xulrunner-y-gecko",
+      "title" : "Usando Node con XULRunner y Gecko"
+    },
+    {
       "url" : "/post/elblogdeadrianarroyo/2015/01/convertir-a-haiku-en-rolling-release",
       "title" : "Convertir a Haiku en rolling release"
     },
