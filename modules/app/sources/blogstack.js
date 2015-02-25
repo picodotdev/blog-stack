@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/jsp-scopes-y-pagecontext",
+      "title" : "JSP Scopes y PageContext"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/lanzado-plasma-5-2-1-mejorando-poco-a-poco",
       "title" : "Lanzado Plasma 5.2.1 mejorando poco a poco"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
       "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
-    },
-    {
-      "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
-      "title" : "Utilizando Spring Profiles"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/jsp-scopes-y-pagecontext",
+      "title" : "JSP Scopes y PageContext"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/google-maps-route-api-para-cantabriatic",
       "title" : "Google Maps Route API para CantabriaTIC"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
       "title" : "Introducción al teorema de CAP y NoSQL"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/tomcat-java-datasource-y-resource",
-      "title" : "Tomcat Java DataSource y  @Resource"
     }
   ]
 }
