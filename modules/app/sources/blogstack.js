@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/31-atajos-de-teclado-que-podemos-usar-en-nuestra-terminal-o-consola",
+      "title" : "31 Atajos de teclado que podemos usar en nuestra terminal o consola"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/jsp-scopes-y-pagecontext",
       "title" : "JSP Scopes y PageContext"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
       "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/free-software-foundation-recopilacion-de-noticias-de-enero-de-2-15",
-      "title" : "Free Software Foundation. Recopilación de noticias de Enero de 2015"
     }
   ]
 }

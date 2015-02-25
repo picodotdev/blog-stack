@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/31-atajos-de-teclado-que-podemos-usar-en-nuestra-terminal-o-consola",
+      "title" : "31 Atajos de teclado que podemos usar en nuestra terminal o consola"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/magento-saber-si-estamos-en-la-pagina-principal-home-page",
       "title" : "Magento: Saber si estamos en la página principal (home page)"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i",
       "title" : "Singletons en C++ y alguna nota sobre thread safety (I)"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/03/flags-en-un-enum-en-c",
-      "title" : "Flags en un enum en C"
     }
   ]
 }
