@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-plasma-5-2-1-mejorando-poco-a-poco",
+      "title" : "Lanzado Plasma 5.2.1 mejorando poco a poco"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/kronometer-tu-cronometro-para-plasma",
       "title" : "Kronometer, tu cronómetro para Plasma"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
       "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/openlogos-la-fuente-con-los-logos-de-los-proyectos-libres-mas-famosos",
-      "title" : "Openlogos, la fuente con los logos de los proyectos libres más famosos"
     }
   ]
 }

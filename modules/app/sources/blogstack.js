@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-plasma-5-2-1-mejorando-poco-a-poco",
+      "title" : "Lanzado Plasma 5.2.1 mejorando poco a poco"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/kronometer-tu-cronometro-para-plasma",
       "title" : "Kronometer, tu cronómetro para Plasma"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/02/utilizando-spring-profiles",
       "title" : "Utilizando Spring Profiles"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/como-poner-temporizadores-o-alarmas-con-krunner",
-      "title" : "Cómo poner temporizadores o alarmas con Krunner"
     }
   ]
 }
