@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-8",
+      "title" : "Lanzado digiKam Software Collection 4.8"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/lanzado-plasma-5-2-1-mejorando-poco-a-poco",
       "title" : "Lanzado Plasma 5.2.1 mejorando poco a poco"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
       "title" : "KDiamond, la versión KDE de Bejeweled"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/noticias-krita-vol-4-universidades-artistas-y-nueva-web",
-      "title" : "Noticias Krita vol 04: universidades, artistas y nueva web"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-8",
+      "title" : "Lanzado digiKam Software Collection 4.8"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/31-atajos-de-teclado-que-podemos-usar-en-nuestra-terminal-o-consola",
       "title" : "31 Atajos de teclado que podemos usar en nuestra terminal o consola"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
       "title" : "Tutorial básico de digiKam Software Collection"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/alerta-descubierto-nuevo-malware-para-android",
-      "title" : "ALERTA!!! Descubierto Nuevo Malware para Android"
     }
   ]
 }
