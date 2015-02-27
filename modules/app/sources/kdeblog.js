@@ -3,6 +3,10 @@ define("app/sources/kdeblog", [], function() {
   "name" : "KDE Blog",
   "posts" : [
     {
+      "url" : "/post/kdeblog/2015/02/akademy-es-2-15-se-celebrara-en-a-coruna",
+      "title" : "Akademy-es 2015 se celebrará en A Coruña"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-8",
       "title" : "Lanzado digiKam Software Collection 4.8"
     },
@@ -77,10 +81,6 @@ define("app/sources/kdeblog", [], function() {
     {
       "url" : "/post/kdeblog/2015/02/finalizo-la-recaudacion-de-fondos-para-gcompris",
       "title" : "Finalizó la recaudación de fondos para GCompris"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/kdiamond-la-version-kde-de-bejeweled",
-      "title" : "KDiamond, la versión KDE de Bejeweled"
     }
   ]
 }

@@ -3,6 +3,18 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/colecciones-y-google-guava",
+      "title" : "Colecciones y Google Guava"
+    },
+    {
+      "url" : "/post/kdeblog/2015/02/akademy-es-2-15-se-celebrara-en-a-coruna",
+      "title" : "Akademy-es 2015 se celebrará en A Coruña"
+    },
+    {
+      "url" : "/post/poesiabinaria/2015/02/en-ocasiones-veo-lenguajes-de-programacion-por-la-calle-frikada-rapida",
+      "title" : "En ocasiones, veo lenguajes de programación por la calle [ Frikada rápida ]"
+    },
+    {
       "url" : "/post/jsitech/2015/02/script-jackthestripper-wordpress-install-wphardening",
       "title" : "SCRIPT \u2013 JackTheStripper + WordPress Install + WPHardening"
     },
@@ -69,18 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
       "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/taller-sobre-kde-en-las-iii-jornadas-libres",
-      "title" : "Taller sobre KDE en las III Jornadas Libres"
-    },
-    {
-      "url" : "/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate",
-      "title" : "Ejemplo de listener de eventos de Hibernate"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
-      "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
     }
   ]
 }

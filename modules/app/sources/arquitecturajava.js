@@ -3,6 +3,10 @@ define("app/sources/arquitecturajava", [], function() {
   "name" : "Arquitectura Java",
   "posts" : [
     {
+      "url" : "/post/arquitecturajava/2015/02/colecciones-y-google-guava",
+      "title" : "Colecciones y Google Guava"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/jsp-scopes-y-pagecontext",
       "title" : "JSP Scopes y PageContext"
     },
@@ -77,10 +81,6 @@ define("app/sources/arquitecturajava", [], function() {
     {
       "url" : "/post/arquitecturajava/2015/01/feliz-2-15",
       "title" : "Feliz 2015"
-    },
-    {
-      "url" : "/post/arquitecturajava/2014/12/introduccion-al-teorema-de-cap-y-nosql",
-      "title" : "Introducción al teorema de CAP y NoSQL"
     }
   ]
 }

@@ -3,6 +3,10 @@ define("app/sources/poesiabinaria", [], function() {
   "name" : "Poesía binaria",
   "posts" : [
     {
+      "url" : "/post/poesiabinaria/2015/02/en-ocasiones-veo-lenguajes-de-programacion-por-la-calle-frikada-rapida",
+      "title" : "En ocasiones, veo lenguajes de programación por la calle [ Frikada rápida ]"
+    },
+    {
       "url" : "/post/poesiabinaria/2015/02/31-atajos-de-teclado-que-podemos-usar-en-nuestra-terminal-o-consola",
       "title" : "31 Atajos de teclado que podemos usar en nuestra terminal o consola"
     },
@@ -77,10 +81,6 @@ define("app/sources/poesiabinaria", [], function() {
     {
       "url" : "/post/poesiabinaria/2014/04/singletons-en-c-intentando-que-sean-seguros-en-hilos-thread-safety-ii",
       "title" : "Singletons en C++. Intentando que sean seguros en hilos (thread safety) II"
-    },
-    {
-      "url" : "/post/poesiabinaria/2014/04/singletons-en-c-y-alguna-nota-sobre-thread-safety-i",
-      "title" : "Singletons en C++ y alguna nota sobre thread safety (I)"
     }
   ]
 }
