@@ -3,6 +3,10 @@ define("app/sources/jsitech", [], function() {
   "name" : "JsiTech",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/script-jackthestripper-wordpress-install-wphardening",
+      "title" : "SCRIPT \u2013 JackTheStripper + WordPress Install + WPHardening"
+    },
+    {
       "url" : "/post/jsitech/2015/02/taller-metasploit-conociendo-el-framework",
       "title" : "Taller Metasploit \u2013 Conociendo el Framework"
     },
@@ -77,10 +81,6 @@ define("app/sources/jsitech", [], function() {
     {
       "url" : "/post/jsitech/2015/01/fedora-19-queda-oficialmente-sin-soporte",
       "title" : "Fedora 19 queda oficialmente sin Soporte"
-    },
-    {
-      "url" : "/post/jsitech/2015/01/hangouton-seguridad-esencial-en-android",
-      "title" : "HangoutON, Seguridad esencial en Android"
     }
   ]
 }

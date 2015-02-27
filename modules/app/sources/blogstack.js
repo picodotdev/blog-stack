@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/jsitech/2015/02/script-jackthestripper-wordpress-install-wphardening",
+      "title" : "SCRIPT \u2013 JackTheStripper + WordPress Install + WPHardening"
+    },
+    {
       "url" : "/post/kdeblog/2015/02/lanzado-digikam-software-collection-4-8",
       "title" : "Lanzado digiKam Software Collection 4.8"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/filtrando-trafico-arp-protegiendonos-de-arp-spoofing",
       "title" : "Filtrando Tráfico ARP \u2013 Protegiéndonos de ARP Spoofing"
-    },
-    {
-      "url" : "/post/kdeblog/2015/02/tutorial-basico-de-digikam-software-collection",
-      "title" : "Tutorial básico de digiKam Software Collection"
     }
   ]
 }
