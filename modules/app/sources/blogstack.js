@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/lvm-para-torpes-i",
+      "title" : "LVM para torpes (I)"
+    },
+    {
       "url" : "/post/arquitecturajava/2015/02/colecciones-y-google-guava",
       "title" : "Colecciones y Google Guava"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
       "title" : "Taller Metasploit \u2013 Preparando el Entorno"
-    },
-    {
-      "url" : "/post/victorhckinthefreeworld/2015/02/puxa-stallman-cronica-de-la-visita-de-richard-stallman-a-oviedo",
-      "title" : "¡Puxa Stallman! Crónica de la visita de Richard Stallman a Oviedo"
     }
   ]
 }

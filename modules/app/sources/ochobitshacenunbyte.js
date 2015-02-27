@@ -3,6 +3,10 @@ define("app/sources/ochobitshacenunbyte", [], function() {
   "name" : "Ocho bits hacen un byte",
   "posts" : [
     {
+      "url" : "/post/ochobitshacenunbyte/2015/02/lvm-para-torpes-i",
+      "title" : "LVM para torpes (I)"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin",
       "title" : "Limitar el acceso a phpmyadmin"
     },
@@ -77,10 +81,6 @@ define("app/sources/ochobitshacenunbyte", [], function() {
     {
       "url" : "/post/ochobitshacenunbyte/2014/12/alpine-linux-acaba-de-lanzar-la-version-3-1",
       "title" : "Alpine Linux acaba de lanzar la versión 3.1.0"
-    },
-    {
-      "url" : "/post/ochobitshacenunbyte/2014/12/obtener-informacion-del-kernel-con-dmesg",
-      "title" : "Obtener información del kernel con dmesg"
     }
   ]
 }
