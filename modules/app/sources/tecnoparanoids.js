@@ -3,6 +3,10 @@ define("app/sources/tecnoparanoids", [], function() {
   "name" : "TecnoParanoids",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-28-introduccion-a-la-virtualizacion-noticias",
+      "title" : "TecnoParanoids nº28: Introducción a la virtualización + Noticias"
+    },
+    {
       "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-27-migrar-a-gnu-linux-y-llamadas-cifradas-desde-smartphones",
       "title" : "TecnoParanoids nº27: Migrar a GNU/Linux y llamadas cifradas desde Smartphones"
     },

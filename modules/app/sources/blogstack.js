@@ -3,6 +3,10 @@ define("app/sources/blogstack", [], function() {
   "name" : "Blog Stack",
   "posts" : [
     {
+      "url" : "/post/tecnoparanoids/2015/02/tecnoparanoids-n-28-introduccion-a-la-virtualizacion-noticias",
+      "title" : "TecnoParanoids nº28: Introducción a la virtualización + Noticias"
+    },
+    {
       "url" : "/post/ochobitshacenunbyte/2015/02/lvm-para-torpes-i",
       "title" : "LVM para torpes (I)"
     },
@@ -77,10 +81,6 @@ define("app/sources/blogstack", [], function() {
     {
       "url" : "/post/jsitech/2015/02/taller-metasploit-conociendo-el-framework",
       "title" : "Taller Metasploit \u2013 Conociendo el Framework"
-    },
-    {
-      "url" : "/post/jsitech/2015/02/taller-metasploit-preparando-el-entorno",
-      "title" : "Taller Metasploit \u2013 Preparando el Entorno"
     }
   ]
 }
