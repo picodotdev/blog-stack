@@ -24,7 +24,7 @@ import org.joda.time.format.DateTimeFormatter;
 
 public class PostComponent {
 
-	private DateTimeFormatter DATETIME_FORMATTER = DateTimeFormat.forPattern("EEEE, dd 'de' MMMM 'de' yyyy '").withLocale(Globals.LOCALE);
+	private DateTimeFormatter DATETIME_FORMATTER = DateTimeFormat.forPattern("EEEE, dd 'de' MMMM 'de' yyyy").withLocale(Globals.LOCALE);
 	private DateTimeFormatter MICRODATA_DATETIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm");
 	
 	enum Mode {

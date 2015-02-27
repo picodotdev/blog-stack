@@ -59,20 +59,14 @@ public class Label {
 		return String.format("Etiqueta %s", label.getName());
 	}
 
-	public List<PostRecord> getPosts() {
-		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE);
-	}
-
 	public List<PostRecord> getFeaturedPosts() {
-		List<PostRecord> posts = getPosts();
-		return posts.subList(0, Math.min(posts.size(), Globals.NUMBER_POSTS_FEATURED));
+		return getPosts(0, Globals.NUMBER_POSTS_FEATURED);
 	}
 	
 	public List<PostRecord> getNotFeaturedPosts() {
-		List<PostRecord> posts = getPosts();
-		return posts.subList(0, Math.min(posts.size(), Globals.NUMBER_POSTS_PAGE));
+		return getPosts(Globals.NUMBER_POSTS_FEATURED, Globals.NUMBER_POSTS_PAGE - Globals.NUMBER_POSTS_FEATURED);
 	}
-	
+
 	private List<PostRecord> getPosts(int from, int to) {
 		Pagination pagination = new Pagination(from, to, POST.DATE.desc(), POST.ID.desc());
 		return service.getPostDAO().findAllByLabel(label, pagination);

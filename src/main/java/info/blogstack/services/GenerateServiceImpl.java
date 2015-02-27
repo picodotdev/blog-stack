@@ -39,8 +39,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tapestry5.EventContext;
 import org.apache.tapestry5.internal.services.ArrayEventContext;
 import org.apache.tapestry5.ioc.services.TypeCoercer;
-import org.apache.tapestry5.json.JSONArray;
-import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.PageRenderRequestParameters;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -259,53 +257,6 @@ public class GenerateServiceImpl implements GenerateService {
 		}
 
 		return FileUtils.listFiles(dassets, null, true);
-	}
-
-	@Override
-	public List<File> generateLastPosts(List<SourceRecord> sources) throws IOException {
-		List<File> files = new ArrayList<>();
-		for (SourceRecord source : sources) {
-			String alias = ((source == null) ? "blogstack" : source.getAlias());
-			String name = ((source == null) ? "Blog Stack" : source.getName());
-
-			List<PostRecord> posts = null;
-			Pagination pagination = new Pagination(0, Globals.NUMBER_POSTS_LASTS, POST.DATE.desc(), POST.ID.desc());
-			if (source == null) {
-				posts = service.getPostDAO().findAll(pagination);
-			} else {
-				posts = service.getPostDAO().findAllBySource(source, pagination);
-			}
-
-			JSONArray ps = new JSONArray();
-			for (PostRecord post : posts) {
-				if (!post.getVisible()) {
-					continue;
-				}
-				JSONObject object = new JSONObject();
-				object.put("url", service.getPageRenderLinkSource().createPageRenderLinkWithContext("post", Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toString());
-				object.put("title", post.getTitle());
-				ps.put(object);
-			}
-
-			JSONObject object = new JSONObject();
-			object.put("name", name);
-			object.put("posts", ps);
-
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			pw.println("define(\"app/sources/" + alias + "\", [], function() {");
-			pw.println("	return " + object.toString());
-			pw.println("});");
-
-			pw.close();
-			sw.close();
-
-			File f = new File(to, "modules/app/sources/" + alias + ".js");
-			FileUtils.write(f, sw.toString());
-
-			files.add(f);
-		}
-		return files;
 	}
 
 	@Override

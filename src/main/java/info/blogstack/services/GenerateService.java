@@ -2,7 +2,6 @@ package info.blogstack.services;
 
 import info.blogstack.persistence.jooq.tables.records.LabelRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
-import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +24,6 @@ public interface GenerateService {
 	List<File> generatePosts(List<PostRecord> posts) throws IOException;	
 	List<File> generateArchive(Collection<PostRecord> posts) throws IOException;
 	File generatePost(PostRecord post) throws IOException;
-	List<File> generateLastPosts(List<SourceRecord> sources) throws IOException;
 	Collection<File> generateStatics(List<File> files) throws IOException;
 	File generateLastUpdated() throws IOException;
 	

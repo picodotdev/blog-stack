@@ -8,7 +8,6 @@ import info.blogstack.services.MainService;
 
 import java.util.List;
 
-import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
@@ -39,19 +38,12 @@ public class Index {
 		 page = (context.length >= 2) ? (Integer) context[1] : 0;
 	}
 	
-	@Cached(watch = "page")
-	public List<PostRecord> getPosts() {
-		return getPosts(Globals.NUMBER_POSTS_PAGE * page, Globals.NUMBER_POSTS_PAGE);
-	}
-
 	public List<PostRecord> getFeaturedPosts() {
-		List<PostRecord> posts = getPosts();
-		return posts.subList(0, Math.min(posts.size(), Globals.NUMBER_POSTS_FEATURED));
+		return getPosts(0, Globals.NUMBER_POSTS_FEATURED);
 	}
 	
 	public List<PostRecord> getNotFeaturedPosts() {
-		List<PostRecord> posts = getPosts();
-		return posts.subList(0, Math.min(posts.size(), Globals.NUMBER_POSTS_PAGE));
+		return getPosts(Globals.NUMBER_POSTS_FEATURED, Globals.NUMBER_POSTS_PAGE - Globals.NUMBER_POSTS_FEATURED);
 	}
 
 	private List<PostRecord> getPosts(int from, int number) {

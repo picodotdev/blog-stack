@@ -6,7 +6,6 @@ import info.blogstack.persistence.jooq.Keys;
 import info.blogstack.persistence.jooq.tables.records.LabelRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
-import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
 import io.undertow.Undertow;
@@ -23,10 +22,8 @@ import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.ServletContext;
 
@@ -251,14 +248,6 @@ public class Main {
 				if (!posts.isEmpty()) {
 					logger.info("Generating posts...");
 					files.addAll(service.getGenerateService().generatePosts(new ArrayList<PostRecord>(posts)));
-
-					Set<SourceRecord> sources = new HashSet<>();
-					for (PostRecord post : posts) {
-						sources.add(post.fetchParent(Keys.POST_SOURCE_ID));
-					}
-					List<SourceRecord> s = new ArrayList<SourceRecord>(sources);
-					s.add(null);
-					files.addAll(service.getGenerateService().generateLastPosts(s));
 				}
 			}
 
