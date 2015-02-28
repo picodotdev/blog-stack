@@ -3,10 +3,30 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-02-27T17:34:11Z</updated>
+  <updated>2015-02-28T11:02:28Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-02-27T17:34:11Z</dc:date>
+  <dc:date>2015-02-28T11:02:28Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Listener de eventos de Hibernate con servicios de Spring</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/02/listener-de-eventos-de-hibernate-con-servicios-de-spring" />
+    <category term="programacion" />
+    <category term="blog-stack" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-02-28T09:59:08Z</updated>
+    <published>2015-02-28T09:59:08Z</published>
+    <content type="html">&lt;p&gt;En el anterior artículo explicaba como crear un listener que reciba eventos de Hibernate pero quizá necesitemos en el listener hacer uso de un servicio de Spring si el proceso de la acción necesita aprovecharse de la funcionalidad proporcionada en los servicios. En este artículo mostraré como crear un listener de Hibernate que use un servicio de Spring, es decir, un listener de Hibernate con la posibilidad de inyectar servicios de Spring. Para hacer la integración de los listeners con Spring debemos sustituir el Interceptor por un servicio que haga lo mismo pero al inicio del contenedor de Spring con la anotación @PostConstruct. Para ello creamos una clase con el siguiente contenido: package es.com.blogspot.elblogdepicodev.plugintapestry.services.hibernate;
+
+import javax.annotation.PostConstruct;
+
+import[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/02/listener-de-eventos-de-hibernate-con-servicios-de-spring"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-02-28T09:59:08Z</dc:date>
+  </entry>
   <entry>
     <title>Colecciones y Google Guava</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/02/colecciones-y-google-guava" />
@@ -109,22 +129,6 @@ import[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquite
     <content type="html">&lt;p&gt;Aunque en muchas aplicaciones no será necesario si desarrollamos una aplicación que trabaje con diferentes paises y fechas probablemente deberemos tener en cuenta múltiples usos horarios o zonas horarias. Según estos usos horarios, por ejemplo, en el momento que son las 12:00 en Madrid hora local no son las 12:00 en Buenos Aires, si dos ciudades emplean diferente uso horario hay que tenerlo en cuenta para obtener la hora local en cada ciudad. Hasta la versión 7 de Java el trabajo con fechas era complicado con las clases proporcionadas GregorianCalendar y Date, una alternativa a la API de Java para el manejo de fechas hasta esta versión era emplear la librería JodaTime. JodaTime ofrece una API mejor y más completa para el manejo de fechas hasta la versión de Java 7. Con la nueva API para fechas[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/fechas-y-usos-horarios-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-01-31T10:32:35Z</dc:date>
-  </entry>
-  <entry>
-    <title>Generar URLs semánticas y amigables</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables" />
-    <category term="blog-stack" />
-    <category term="programacion" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-01-31T00:00:00Z</updated>
-    <published>2014-10-03T18:14:18Z</published>
-    <content type="html">&lt;p&gt;En algunas web las urls incluyen el identificativo del objeto de la base de datos a partir de cual se muestra el contenido principal de la página, en Blog Stack esto podría ser un artículo pero en otras páginas webs podría ser un producto. Esto genera direcciones de páginas webs «feas» de cara al usuario y al SEO de los buscadores además de exponer cierta información de la base de datos que probablemente no interese a nadie excepto al desarrollador de la página. En este artículo voy a explicar una forma de generar urls semánticas, «bonitas» o amigables de cara al usuario y al SEO para los buscadores y como lo he implementado en un ejemplo real como es Blog Stack. Lo primero que debemos conseguir es que las direcciones urls sean únicas para cualquier página de la web, por tanto, en la url deberemos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2014/10/generar-urls-semanticas-y-amigables"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2014-10-03T18:14:18Z</dc:date>
   </entry>
 </feed>
 
