@@ -3,10 +3,50 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-03T08:02:21Z</updated>
+  <updated>2015-03-03T13:02:24Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-03T08:02:21Z</dc:date>
+  <dc:date>2015-03-03T13:02:24Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java y  fluid interface</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/03/java-y-fluid-interface" />
+    <category term="java-basico" />
+    <category term="java-conceptos" />
+    <category term="java" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-03-03T12:39:00Z</updated>
+    <published>2015-03-03T12:39:00Z</published>
+    <content type="html">&lt;p&gt;Trabajamos todos los días con Java y uno de las cosas que uno echa de menos a veces es que existan más interfaces fluidas a nivel del lenguaje. ¿Qué es una fluid interface? . Son interfaces o clases que cuando invocamos a un método concreto nos devuelve el mismo objeto modificado . De tal forma que podemos volver a solicitar otro método del mismo objeto y  encadenar más operaciones.   Fluid interfaces y StringBuilder Una de las clases más habituales a la hora de usar programación fluida es StringBuffer vamos a ver un ejemplo sencillo. 
+package com.arquitecturajava;
+
+public class Principal {
+
+ public static void main(String[] args) {
+
+ StringBuilder cadena = new StringBuilder("?hola");
+ cadena.delete(0, 1).append(" que tal?").insert(4, " amigo ");
+ System.out.println("Mensaje: " + cadena);
+
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/03/java-y-fluid-interface"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-03-03T12:39:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>5 funciones espectaculares de Krunner</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2015/03/5-funciones-espectaculares-de-krunner" />
+    <category term="como" />
+    <category term="krunner" />
+    <author>
+      <name>baltolkien</name>
+    </author>
+    <updated>2015-03-03T12:18:12Z</updated>
+    <published>2015-03-03T12:18:12Z</published>
+    <content type="html">&lt;p&gt;      Alt + F2» es una de las combinaciones de teclado más utilizadas en mi día a día con el escritorio Plasma. Esta mágica combinación ejecuta Krunner, una aplicación del sistema que facilita la ejecución de las más diversas tareas. Aunque la que solemos utilizar diariamente es la simple ejecución de aplicaciones hoy os presento 5 funciones espectaculares de Krunner. 5 funciones espectaculares de Krunner Para activar las funciones espectaculares que vamos a explicar hoy siempre invocares a Krunner con «Alt + F2». Una vez ejectutado ya podremos escribir en el pequeño campo que se suele abrir en la parte superior de la pantalla. Para cancelar su uso basta pulsar la tecla «Esc». La presente lista de funcionalidades son las básicas que suelen venir por defecto en la mayoría de distribuciones aunque[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/03/5-funciones-espectaculares-de-krunner"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>baltolkien</dc:creator>
+    <dc:date>2015-03-03T12:18:12Z</dc:date>
+  </entry>
   <entry>
     <title>Iniciar Visual Studio siempre como administrador</title>
     <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/03/iniciar-visual-studio-siempre-como-administrador" />
@@ -84,38 +124,6 @@
     <content type="html">&lt;p&gt;Ahí van los enlaces recopilados durante la semana pasada, espero que os resulten interesantes :-) .Net The LINQ Join Method: Deciphering the Parameters Jeremy Bytes Handle Conflicting Namespaces with Aliases Peter Vogel Understanding .NET 2015 Beth Massi The LINQ OfType&lt;TResult&gt; Method: Cast or Filter? Jeremy Bytes Enumeration Types do not Enumerate! Working around .NET and Language Limitations Sergey Alexandrovich Kryukov LINQ Methods With or Without Predicates: What's the Difference? Jeremy Bytes  Optical Character Recognition in PDF Using Tesseract Open-Source Engine Usha Clementine Customizing string interpolation in C# 6 Thomas Levesque's Inherit a struct in C#? Why (can)not? Canny Brisk  ASP.NET Identity Updates for Web Developers in Visual Studio 2015 CTP6 Vittorio Bertocci Top 10 Changes[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/03/enlaces-interesantes-189"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-03-02T08:15:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo elegir aggregate roots</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2015/03/como-elegir-aggregate-roots" />
-    <category term="ddd" />
-    <category term="development" />
-    <category term="design-patterns" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2015-03-02T05:06:22Z</updated>
-    <published>2015-03-02T05:06:22Z</published>
-    <content type="html">&lt;p&gt;Utilizar un modelo de dominio rico, basado en las ideas propuestas por DDD, se ha convertido en algo habitual. Independientemente de que uses un proceso DDD real, con su experto de dominio, su lenguaje ubicuo y demás, este tipo de modelos tienen su utilidad y, aunque no son aplicables en todos los casos, hay situaciones en las que encajan muy bien. OJO: Hay muchas aplicaciones en las que no tiene sentido tener un modelo de dominio complejo, e incluso generalmente dentro de una misma aplicación hay muchas partes que no lo necesitan. En este post asumo que ya has decidido (para bien o para mal) usarlo y que sabes por qué lo quieres usar. Los elementos básicos para construir un modelo de dominio (entidades, value objects, repositorios, etc.) son bastante fáciles de entender, pero hay algo que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/03/como-elegir-aggregate-roots"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2015-03-02T05:06:22Z</dc:date>
-  </entry>
-  <entry>
-    <title>Taller Metasploit – Recogida de Información</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/03/taller-metasploit-recogida-de-informacion" />
-    <category term="metasploit" />
-    <category term="linux" />
-    <category term="ethical-hacking" />
-    <category term="taller" />
-    <category term="seguridad" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2015-03-02T00:40:59Z</updated>
-    <published>2015-03-02T00:40:59Z</published>
-    <content type="html">&lt;p&gt;Ahora si vamos a entrar en el uso del framework y vamos a iniciar con la recogida de información. En esta etapa lo que vamos a hacer es recabar la mayor cantidad de información sobre nuestro objetivo y como funciona su infraestructura, a fin de determinar los posibles vectores de ataque, además podemos determinar las direcciones a las que les pondremos atención, ya que si la organización esta hosteando algunos servicios con terceros, es posible que no tengamos que perder el tiempo con ellas. Es una etapa al que debemos prestarle mucho tiempo y atención para que nada se nos pase por alto. Manos a la obra… Vamos a acceder a la consola de Metasploit, pero pimero nos aseguramos que los servicios que necesitamos esten corriendo #service postgresql start #service metasploit start #msfconsole Dentro[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/03/taller-metasploit-recogida-de-informacion"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2015-03-02T00:40:59Z</dc:date>
   </entry>
 </feed>
 
