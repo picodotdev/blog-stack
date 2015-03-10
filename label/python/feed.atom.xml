@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-09T10:03:16Z</updated>
+  <updated>2015-03-10T13:02:33Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-09T10:03:16Z</dc:date>
+  <dc:date>2015-03-10T13:02:33Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Crear páginas web con Bottle. Trabajando con plantillas (2ª parte)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-trabajando-con-plantillas-2-parte" />
+    <category term="web" />
+    <category term="bottle" />
+    <category term="general" />
+    <category term="python" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2015-03-10T12:49:41Z</updated>
+    <published>2015-03-10T12:49:41Z</published>
+    <content type="html">&lt;p&gt;En la entrada anterior vimos una introducción al web framework Bottle para la realización de páginas web usando el lenguaje python. En esta entrada vamos a ver una de las herramientas más flexibles que nos ofrece este framework: las plantillas. Bottle nos ofrece un motor de plantillas que nos facilita la creación de páginas web. A las plantillas podemos enviar información y gestionarla con código python. Para estudiar el uso de plantillas vamos a ver un ejemplo donde veremos los distintos conceptos relacionados con las plantillas. from bottle import Bottle,route,run,request,template
+@route('/hello')
+@route('/hello/')
+@route('/hello/&lt;name&gt;')
+def hello(name='Mundo'):
+    return template('template_hello.tpl', nombre=name)
+@route('/suma/&lt;num1&gt;/&lt;num2&gt;')
+def suma(num1,num2):
+    return template('template_suma.tpl',numero1=num1,numero2=num2)
+@route('/lista')
+def[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-trabajando-con-plantillas-2-parte"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2015-03-10T12:49:41Z</dc:date>
+  </entry>
   <entry>
     <title>Crear páginas web con Bottle: Python Web Framework (1ª parte)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-python-web-framework-1-parte" />
@@ -152,24 +178,6 @@
   &lt;title lang="en"&gt;Everyday[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/pledin/2015/01/trabajar-con-ficheros-xml-desde-python-1-parte"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>admin</dc:creator>
     <dc:date>2015-01-13T13:12:11Z</dc:date>
-  </entry>
-  <entry>
-    <title>Reforzar la Seguridad de WordPress con WPHardening</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening" />
-    <category term="wphardening" />
-    <category term="seguridad" />
-    <category term="noticias" />
-    <category term="wordpress" />
-    <category term="python" />
-    <category term="linux" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2014-12-01T01:22:21Z</updated>
-    <published>2014-12-01T01:22:21Z</published>
-    <content type="html">&lt;p&gt;Continuando con las recomendaciones para reforzar la seguridad de WordPress, existe otro proyecto bastante interesante que automatiza el hardening de una Implementación de WordPress llamado WPHardening que ya va por su version 1.4, es un proyecto de Daniel Maldonado. WPHardening es una Herramienta desarrollada en Python que nace de la necesidad de Daniel para automatizar el hardening que realiza a sus instalaciones de WordPress y que comenta que considera que son indispensable. Esta basado en las mejores prácticas de seguridad. WPHardening incorpora la activación de flags para realizar diferentes tareas que incluyen (Tomado del Blog de Daniel): Cambio de permisos en directorios y archivos . Eliminar archivos innecesarios como readme y licencias. Creacion del archivo robots.txt Evadir el fingerprinting[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2014/12/reforzar-la-seguridad-de-wordpress-con-wphardening"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2014-12-01T01:22:21Z</dc:date>
   </entry>
 </feed>
 

@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-10T12:02:41Z</updated>
+  <updated>2015-03-10T13:02:33Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-10T12:02:41Z</dc:date>
+  <dc:date>2015-03-10T13:02:33Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Crear páginas web con Bottle. Trabajando con plantillas (2ª parte)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-trabajando-con-plantillas-2-parte" />
+    <category term="web" />
+    <category term="bottle" />
+    <category term="general" />
+    <category term="python" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2015-03-10T12:49:41Z</updated>
+    <published>2015-03-10T12:49:41Z</published>
+    <content type="html">&lt;p&gt;En la entrada anterior vimos una introducción al web framework Bottle para la realización de páginas web usando el lenguaje python. En esta entrada vamos a ver una de las herramientas más flexibles que nos ofrece este framework: las plantillas. Bottle nos ofrece un motor de plantillas que nos facilita la creación de páginas web. A las plantillas podemos enviar información y gestionarla con código python. Para estudiar el uso de plantillas vamos a ver un ejemplo donde veremos los distintos conceptos relacionados con las plantillas. from bottle import Bottle,route,run,request,template
+@route('/hello')
+@route('/hello/')
+@route('/hello/&lt;name&gt;')
+def hello(name='Mundo'):
+    return template('template_hello.tpl', nombre=name)
+@route('/suma/&lt;num1&gt;/&lt;num2&gt;')
+def suma(num1,num2):
+    return template('template_suma.tpl',numero1=num1,numero2=num2)
+@route('/lista')
+def[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-trabajando-con-plantillas-2-parte"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2015-03-10T12:49:41Z</dc:date>
+  </entry>
   <entry>
     <title>OTR.to servicio de mensajería cifrada P2P</title>
     <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2015/03/otr-to-servicio-de-mensajeria-cifrada-p2p" />
@@ -102,23 +128,6 @@
     <content type="html">&lt;p&gt;Para dar flexibilidad a nuestros desarrollos con Magento y con el fin de permitir a los usuarios administradores cambiar fácilmente el contenido de su tienda hecha con Magento. Una buena opción es facilitar bloques estáticos de CMS dentro de nuestras plantillas. Por ejemplo, podemos empotrar un texto dedicado a la manipulación y al envío dentro de cada producto; o, es más, podemos tener varios modelos de bloques de manipulación y envío y que sea un atributo del artículo el que decida qué bloque mostrar. Para introducir un bloque MS dentro de nuestra plantilla tendremos que hacer: 1 echo $this-&gt;getLayout()-&gt;createBlock('cms/block')-&gt;setBlockId('identificador-de-bloque')-&gt;toHtml() La entrada Magento: insertar bloques CMS dentro de nuestras plantillas aparece primero en Poesía Binaria.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/magento-insertar-bloques-cms-dentro-de-nuestras-plantillas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-03-09T09:28:36Z</dc:date>
-  </entry>
-  <entry>
-    <title>Crear páginas web con Bottle: Python Web Framework (1ª parte)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-python-web-framework-1-parte" />
-    <category term="web" />
-    <category term="bottle" />
-    <category term="general" />
-    <category term="python" />
-    <author>
-      <name>admin</name>
-    </author>
-    <updated>2015-03-09T09:18:12Z</updated>
-    <published>2015-03-09T09:18:12Z</published>
-    <content type="html">&lt;p&gt;En la entrada anterior vimos como crear aplicaciones web en python. Un framework para aplicaciones web es un framework diseñado para apoyar el desarrollo de sitios web dinámicos, aplicaciones web y servicios web. Y un framework es un conjunto de herramientas y programas que nos facilitan la realización y el desarrollo de un producto software. En este artículo vamos a usar un web framework escrito en Python para desarrollar páginas web. Vamos a usar el framework bottle que podemos definir cómo indica en su página oficial: Bottle is a fast, simple and lightweight WSGI micro web-framework for Python.  Instalación de Bottle Para obtener la última versión del framework vamos a usar la utilidad pip que nos permita la instalación de aplicaciones python: # apt-get install python-pip
-# pip install bottle[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/pledin/2015/03/crear-paginas-web-con-bottle-python-web-framework-1-parte"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>admin</dc:creator>
-    <dc:date>2015-03-09T09:18:12Z</dc:date>
   </entry>
 </feed>
 
