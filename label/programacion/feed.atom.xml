@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-07T14:02:20Z</updated>
+  <updated>2015-03-14T13:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-07T14:02:20Z</dc:date>
+  <dc:date>2015-03-14T13:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Aplicación web Java autocontenida con Tomcat Embedded</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded" />
+    <category term="programacion" />
+    <category term="blog-stack" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-03-14T09:32:20Z</updated>
+    <published>2015-03-14T09:32:20Z</published>
+    <content type="html">&lt;p&gt;La tendencia de las aplicaciones es que sean construidas como múltiples servicios pequeños que colaboran entre si en vez de consistir en una aplicación grande desplegada en un servidor de aplicaciones. La aparición de nuevas tecnologías como Docker facilitan la construcción y despliegue de los microservicios. Los microservicios con su máxima de bajo acoplamiento y alta cohesión tratan de incluir todo lo necesario para funcionar evitando las dependencias de cualquier tipo de elemento fuera de su ámbito no incluyendo el uso de otros servicios. Con Docker es posible desplegarlos en cualquier máquina que disponga del servicio, esto evita problemas de configuración al pasar la aplicación de un entorno de desarrollo a uno de producción ya que las características del entorno de desarrollo y el de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-03-14T09:32:20Z</dc:date>
+  </entry>
   <entry>
     <title>Datos de sesión externalizados con Spring Session</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/03/datos-de-sesion-externalizados-con-spring-session" />
@@ -17,7 +33,7 @@
     <author>
       <name>pico.dev</name>
     </author>
-    <updated>2015-03-07T22:30:00Z</updated>
+    <updated>2015-03-08T02:30:00Z</updated>
     <published>2015-03-07T08:05:06Z</published>
     <content type="html">&lt;p&gt;Por defecto los datos de la sesión de una aplicación web Java se guardan en el servidor de aplicaciones y en memoria, esto produce que al reiniciar el servidor por un despliegue los datos de la sesión se pierdan y provoque en los usuarios alguna molestia como tener que volver a iniciar sesión. En Tomcat existe la posibilidad de que los datos de las sesiones sean persistidas en disco con la opción saveOnRestart del elemento de configuración Manager que evita que los datos de las sesiones se pierdan en los reinicios, al menos para los servicios formados por una única instancia. Para evitar que los usuarios perciban los reinicios o caídas del servidor hay varias soluciones algunas tratando de diferentes formas externalizar las sesiones del servidor de aplicaciones. Con estas soluciones se pueden[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/datos-de-sesion-externalizados-con-spring-session"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
@@ -112,23 +128,6 @@ import[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbit
     <content type="html">&lt;p&gt;Aunque en muchas aplicaciones no será necesario si desarrollamos una aplicación que trabaje con diferentes paises y fechas probablemente deberemos tener en cuenta múltiples husos horarios o zonas horarias. Según estos husos horarios, por ejemplo, en el momento que son las 12:00 en Madrid hora local no son las 12:00 en Buenos Aires, si dos ciudades emplean diferente huso horario hay que tenerlo en cuenta para obtener la hora local en cada ciudad. Hasta la versión 7 de Java el trabajo con fechas era complicado con las clases proporcionadas GregorianCalendar y Date, una alternativa a la API de Java para el manejo de fechas hasta esta versión era emplear la librería JodaTime. JodaTime ofrece una API mejor y más completa para el manejo de fechas hasta la versión de Java 7. Con la nueva API para[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/convertir-fechas-y-husos-horarios-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-01-31T10:32:35Z</dc:date>
-  </entry>
-  <entry>
-    <title>Internacionalización (i18n) en Javascript</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript" />
-    <category term="blog-stack" />
-    <category term="programacion" />
-    <category term="planeta-codigo" />
-    <category term="javascript" />
-    <category term="software" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-01-31T00:00:00Z</updated>
-    <published>2015-01-23T09:00:00Z</published>
-    <content type="html">&lt;p&gt;Si desarrollamos una aplicación web, que es usada en múltiples idiomas y el lado del cliente tiene cierta complejidad quizá nos encontremos con la necesidad de proporcionar internacionalización (i18n) para los textos o mensajes mediante una librería javascript. Una de la que más me ha gustado de las que he encontrado ha sido i18next pero hay varias opciones más, incluidas dos que merecen ser nombradas que son polyglot y messageformat, estas tres opciones son parecidas pero no tiene exactamente las mismas funcionalidades deberemos evaluarlas para elegir una según lo que necesitemos. La documentación de i18next no es muy extensa pero es suficiente, las funcionalidades que ofrece son: Soporte para variables (interpolación) Soporte para variables anidadas Soporte para múltiples formas plurales[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-01-23T09:00:00Z</dc:date>
   </entry>
 </feed>
 

@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-07T14:02:20Z</updated>
+  <updated>2015-03-14T13:02:43Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-07T14:02:20Z</dc:date>
+  <dc:date>2015-03-14T13:02:43Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Aplicación web Java autocontenida con Tomcat Embedded</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded" />
+    <category term="programacion" />
+    <category term="blog-stack" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-03-14T09:32:20Z</updated>
+    <published>2015-03-14T09:32:20Z</published>
+    <content type="html">&lt;p&gt;La tendencia de las aplicaciones es que sean construidas como múltiples servicios pequeños que colaboran entre si en vez de consistir en una aplicación grande desplegada en un servidor de aplicaciones. La aparición de nuevas tecnologías como Docker facilitan la construcción y despliegue de los microservicios. Los microservicios con su máxima de bajo acoplamiento y alta cohesión tratan de incluir todo lo necesario para funcionar evitando las dependencias de cualquier tipo de elemento fuera de su ámbito no incluyendo el uso de otros servicios. Con Docker es posible desplegarlos en cualquier máquina que disponga del servicio, esto evita problemas de configuración al pasar la aplicación de un entorno de desarrollo a uno de producción ya que las características del entorno de desarrollo y el de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-03-14T09:32:20Z</dc:date>
+  </entry>
   <entry>
     <title>Datos de sesión externalizados con Spring Session</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/03/datos-de-sesion-externalizados-con-spring-session" />
@@ -17,7 +33,7 @@
     <author>
       <name>pico.dev</name>
     </author>
-    <updated>2015-03-07T22:30:00Z</updated>
+    <updated>2015-03-08T02:30:00Z</updated>
     <published>2015-03-07T08:05:06Z</published>
     <content type="html">&lt;p&gt;Por defecto los datos de la sesión de una aplicación web Java se guardan en el servidor de aplicaciones y en memoria, esto produce que al reiniciar el servidor por un despliegue los datos de la sesión se pierdan y provoque en los usuarios alguna molestia como tener que volver a iniciar sesión. En Tomcat existe la posibilidad de que los datos de las sesiones sean persistidas en disco con la opción saveOnRestart del elemento de configuración Manager que evita que los datos de las sesiones se pierdan en los reinicios, al menos para los servicios formados por una única instancia. Para evitar que los usuarios perciban los reinicios o caídas del servidor hay varias soluciones algunas tratando de diferentes formas externalizar las sesiones del servidor de aplicaciones. Con estas soluciones se pueden[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/datos-de-sesion-externalizados-con-spring-session"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
@@ -119,22 +135,6 @@ import[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquite
     <content type="html">&lt;p&gt;En alguna ocasión puede que tengamos la necesidad de realizar alguna acción cuando una entidad es guardada en base de datos, actualizada, eliminada, cargada, … . Algunos casos de uso pueden ser: Establecer la fecha de creación o de actualización del objeto cuando es persistido en base de datos. Cifrar un dato del objeto al ser persistido en base de datos. Proporcionar seguridad de modo que un usuario solo pueda modificar o acceder a los objetos a los que tenga acceso. Al persistir el objeto guardar en un campo el valor calculado resultado de una función. Cualquier otra restricción, cálculos o acciones. Para realizar estas operaciones podemos hacerlas de varias formas, una puede ser usando triggers de la base de datos disponibles en Oracle y PostgreSQL. Si usamos Hibernate como librería ORM[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/02/ejemplo-de-listener-de-eventos-de-hibernate"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-02-20T15:30:44Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java Collections List vs Set (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/02/java-collections-list-vs-set-i" />
-    <category term="java" />
-    <category term="sin-categoria" />
-    <category term="flexibilidad" />
-    <category term="java-basico" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2015-02-17T09:56:54Z</updated>
-    <published>2015-02-17T09:56:54Z</published>
-    <content type="html">&lt;p&gt;Todos usamos el framework de colecciones de Java  para manejar conjuntos de objetos .Vamos a dedicar algunos artículos a abordar las colecciones más importantes. En este artículo vamos a introducir las Listas (List) y los Conjuntos (Set). Para ello vamos a ver en un primer lugar donde encajan ambos en la jerarquía de clases del framework de Colecciones.     En el framework de colecciones el interface más general es Iterable el cual define que una colección se puede recorrer devolviendo para ello un Iterator. Una vez tenemos este interface aparece el interface Collection que define el concepto abstracto de “Colección” que hace referencia a un conjunto de elementos recorribles . Es en este interface en donde se añaden métodos como add() ,remove() y clear() para añadir o eliminar elementos de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/02/java-collections-list-vs-set-i"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2015-02-17T09:56:54Z</dc:date>
   </entry>
 </feed>
 
