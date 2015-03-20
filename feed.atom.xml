@@ -3,10 +3,52 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-20T11:02:13Z</updated>
+  <updated>2015-03-20T14:02:37Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-20T11:02:13Z</dc:date>
+  <dc:date>2015-03-20T14:02:37Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>El concepto de Angular watch</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/03/el-concepto-de-angular-watch" />
+    <category term="angular" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-03-20T13:11:34Z</updated>
+    <published>2015-03-20T13:11:34Z</published>
+    <content type="html">&lt;p&gt;Angular watch nos permite añadir flexibilidad a nuestras aplicaciones angular.js.  Una de las grandes ventajas de angular.js es su capacidad para realizar un binding bidireccional entre los objetos que se encuentran en el scope y las plantillas que utilizamos. De tal forma que cualquier cambio que se produzca en un objeto se actualice en las plantillas.   Vamos a verlo a través de un ejemplo sencillo con una caja de texto que rellenamos con una nota: 
+
+&lt;html ng-app="miapp"&gt;
+&lt;head&gt;
+&lt;script type="text/javascript" src="angular.min.js"&gt;
+&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+
+angular.module('miapp',[]).controller("controladorA",function($scope) {
+
+$scope.numero=5;
+
+});
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div ng-controller="controladorA"&gt;
+&lt;p&gt;{{numero}}&lt;/p&gt;
+&lt;form&gt;
+Nota del examen&lt;input type="text" ng-model="numero"/&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/03/el-concepto-de-angular-watch"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-03-20T13:11:34Z</dc:date>
+  </entry>
   <entry>
     <title>Borrar la caché de Magento desde la línea de comandos</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/borrar-la-cache-de-magento-desde-la-linea-de-comandos" />
@@ -108,22 +150,6 @@
     <content type="html">&lt;p&gt;Hace unas semanas habiamos iniciado aquí en el blog el Taller de Metasploit, donde en una serie de entradas prentendíamos introducirlos a todos al Framework y como llevar a cabo Test de Penetración utilizándolo. Aquí un listado de todo lo contiene el taller: Preparando nuestro entorno de Práctica Introducción a Metasploit Recogida de Información con Metasploit Módulos auxiliares Escaneo de Vulnerabilidad (Integración con Nexpose y Nessus) Ejecutando un Exploit Meterpreter y Post-Explotación Técnicas de Evasión Otras Herramientas que trabajan en conjunto con Metasploit Algo más que se nos ocurra Ya creamos dos entradas hablando un poco de Metasploit y otra llevando a cabo Tareas de Recogida de Información. Ahora el cambio del que les hablo es el siguente, Ya que mi amigo SniferL4bs creó lo que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/03/cambios-en-el-taller-de-metasploit-desde-ya-nos-unimos-a-capsulas-de-seguridad-informatica"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2015-03-19T02:03:36Z</dc:date>
-  </entry>
-  <entry>
-    <title>Aplicación web Java autocontenida con Tomcat Embedded</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded" />
-    <category term="programacion" />
-    <category term="blog-stack" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-03-18T21:00:00Z</updated>
-    <published>2015-03-14T09:32:20Z</published>
-    <content type="html">&lt;p&gt;La tendencia de las aplicaciones es que sean construidas como múltiples servicios pequeños que colaboran entre si en vez de consistir en una aplicación grande desplegada en un servidor de aplicaciones. La aparición de nuevas tecnologías como Docker facilitan la construcción y despliegue de los microservicios. Los microservicios con su máxima de bajo acoplamiento y alta cohesión tratan de incluir todo lo necesario para funcionar evitando las dependencias de cualquier tipo de elemento fuera de su ámbito no incluyendo el uso de otros servicios. Con Docker es posible desplegarlos en cualquier máquina que disponga del servicio, esto evita problemas de configuración al pasar la aplicación de un entorno de desarrollo a uno de producción ya que las características del entorno de desarrollo y el de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-03-14T09:32:20Z</dc:date>
   </entry>
 </feed>
 

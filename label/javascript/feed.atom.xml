@@ -3,10 +3,52 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-18T08:02:20Z</updated>
+  <updated>2015-03-20T14:02:38Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-18T08:02:20Z</dc:date>
+  <dc:date>2015-03-20T14:02:38Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>El concepto de Angular watch</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/03/el-concepto-de-angular-watch" />
+    <category term="angular" />
+    <category term="javascript" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-03-20T13:11:34Z</updated>
+    <published>2015-03-20T13:11:34Z</published>
+    <content type="html">&lt;p&gt;Angular watch nos permite añadir flexibilidad a nuestras aplicaciones angular.js.  Una de las grandes ventajas de angular.js es su capacidad para realizar un binding bidireccional entre los objetos que se encuentran en el scope y las plantillas que utilizamos. De tal forma que cualquier cambio que se produzca en un objeto se actualice en las plantillas.   Vamos a verlo a través de un ejemplo sencillo con una caja de texto que rellenamos con una nota: 
+
+&lt;html ng-app="miapp"&gt;
+&lt;head&gt;
+&lt;script type="text/javascript" src="angular.min.js"&gt;
+&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+
+angular.module('miapp',[]).controller("controladorA",function($scope) {
+
+$scope.numero=5;
+
+});
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div ng-controller="controladorA"&gt;
+&lt;p&gt;{{numero}}&lt;/p&gt;
+&lt;form&gt;
+Nota del examen&lt;input type="text" ng-model="numero"/&gt;
+
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/03/el-concepto-de-angular-watch"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-03-20T13:11:34Z</dc:date>
+  </entry>
   <entry>
     <title>HTML5 Web Workers</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/03/html5-web-workers" />
@@ -145,22 +187,6 @@ $("#salvar").click(function()[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blog
     <content type="html">&lt;p&gt;Si desarrollamos una aplicación web, que es usada en múltiples idiomas y el lado del cliente tiene cierta complejidad quizá nos encontremos con la necesidad de proporcionar internacionalización (i18n) para los textos o mensajes mediante una librería javascript. Una de la que más me ha gustado de las que he encontrado ha sido i18next pero hay varias opciones más, incluidas dos que merecen ser nombradas que son polyglot y messageformat, estas tres opciones son parecidas pero no tiene exactamente las mismas funcionalidades deberemos evaluarlas para elegir una según lo que necesitemos. La documentación de i18next no es muy extensa pero es suficiente, las funcionalidades que ofrece son: Soporte para variables (interpolación) Soporte para variables anidadas Soporte para múltiples formas plurales[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/01/internacionalizacion-i18n-en-javascript"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-01-23T09:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Que es CORS ?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/01/que-es-cors" />
-    <category term="design-patterns" />
-    <category term="jee" />
-    <category term="javascript" />
-    <category term="ajax" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2015-01-30T07:21:37Z</updated>
-    <published>2015-01-30T07:21:37Z</published>
-    <content type="html">&lt;p&gt;CORS  (Cross Origin Resource Sharing) es una tecnología que cada día necesitamos utilizar más a la hora de desarrollar aplicaciones móviles y web. ¿Cómo funciona exactamente? . En una aplicación web clásica nosotros podemos cargar una página y solicitar que esta cargue dinámicamente datos vía AJAX.   Eso sí esos datos que vienen vía AJAX tienen que pertenecer al mismo dominio. En el caso de que esto no sea así la aplicación no podrá cargar los datos por limitaciones de seguridad. Los problemas comienzan cuando nosotros tenemos aplicaciones que necesitan acceder a esos datos pero no se encuentran bajo el mismo dominio. Un ejemplo muy habitual es una aplicación Movil empaquetada con PhoneGAP.   En este caso la petición no nos funcionará ya que hemos cargado una página HTML sin descargarla del[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/01/que-es-cors"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2015-01-30T07:21:37Z</dc:date>
   </entry>
 </feed>
 
