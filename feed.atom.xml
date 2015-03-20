@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-20T08:02:27Z</updated>
+  <updated>2015-03-20T11:02:13Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-20T08:02:27Z</dc:date>
+  <dc:date>2015-03-20T11:02:13Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Borrar la caché de Magento desde la línea de comandos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/borrar-la-cache-de-magento-desde-la-linea-de-comandos" />
+    <category term="linea" />
+    <category term="borrar" />
+    <category term="comandos" />
+    <category term="consola" />
+    <category term="php" />
+    <category term="programar" />
+    <category term="productos" />
+    <category term="actualizar" />
+    <category term="cron" />
+    <category term="script" />
+    <category term="terminal" />
+    <category term="magento" />
+    <category term="cache" />
+    <category term="cli" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-03-20T09:19:18Z</updated>
+    <published>2015-03-20T09:19:18Z</published>
+    <content type="html">&lt;p&gt;Foto: Steve Jurvetson (Flickr CC) Cuando estás haciendo muchos cambios en una instalación de Magento, debes borrar la caché a menudo. Un caso especial es si utilizas scripts periódicos para actualizar listas de precios o stock, en ese caso debes programar también el borrado de cachés. Este pequeño script ha sido visto en muchas webs por lo que no me extenderé mucho y mencionaré dos fuentes donde podéis consultarlo (os invito a visitar estas páginas porque amplían la información que veis aquí). 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 &lt;?php echo "Start Cleaning all caches at ... " . date("Y-m-d H:i:s") . "\n\n"; ini_set("display_errors", 1); require '../app/Mage.php'; Mage::app('admin')-&gt;setUseSessionInUrl(false); Mage::getConfig()-&gt;init(); $types = Mage::app()-&gt;getCacheInstance()-&gt;getTypes();[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/borrar-la-cache-de-magento-desde-la-linea-de-comandos"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-03-20T09:19:18Z</dc:date>
+  </entry>
   <entry>
     <title>KDE lanza la tercera beta 15.04 de sus aplicaciones</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2015/03/kde-lanza-la-tercera-beta-15-4-de-sus-aplicaciones" />
@@ -98,22 +124,6 @@
     <content type="html">&lt;p&gt;La tendencia de las aplicaciones es que sean construidas como múltiples servicios pequeños que colaboran entre si en vez de consistir en una aplicación grande desplegada en un servidor de aplicaciones. La aparición de nuevas tecnologías como Docker facilitan la construcción y despliegue de los microservicios. Los microservicios con su máxima de bajo acoplamiento y alta cohesión tratan de incluir todo lo necesario para funcionar evitando las dependencias de cualquier tipo de elemento fuera de su ámbito no incluyendo el uso de otros servicios. Con Docker es posible desplegarlos en cualquier máquina que disponga del servicio, esto evita problemas de configuración al pasar la aplicación de un entorno de desarrollo a uno de producción ya que las características del entorno de desarrollo y el de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/03/aplicacion-web-java-autocontenida-con-tomcat-embedded"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-03-14T09:32:20Z</dc:date>
-  </entry>
-  <entry>
-    <title>Los diseños del hardware deberían ser libres.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/victorhckinthefreeworld/2015/03/los-disenos-del-hardware-deberian-ser-libres" />
-    <category term="traduccion" />
-    <category term="richard-stallman" />
-    <category term="hardware-libre" />
-    <category term="software-libre" />
-    <author>
-      <name>victorhck</name>
-    </author>
-    <updated>2015-03-18T18:46:43Z</updated>
-    <published>2015-03-18T18:46:43Z</published>
-    <content type="html">&lt;p&gt;Segunda parte del artículo de Richard Stallman sobre la necesidad de desarrollar diseños libres para el hardware. Imagen: Biser Todorov para Wikimedia   Hace unos días pudiste leer en mi blog la traducción realizada por el amigo Jcsl sobre el artículo de Richard Stallman para la web Wired, que se preguntaba sobre los motivos por los que necesitamos hardware libre. Puedes leerlo en este enlace: http://www.wired.com/2015/03/need-free-digital-hardware-designs/ Hoy yo mismo he traducido el segundo artículo de Stallman que define la manera de crear y licenciar esos diseños libres. El artículo original en inglés lo puedes leer en el siguiente enlace: http://www.wired.com/2015/03/richard-stallman-how-to-make-hardware-designs-free El artículo original está escrito por Richard Stallman con la siguiente[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/victorhckinthefreeworld/2015/03/los-disenos-del-hardware-deberian-ser-libres"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>victorhck</dc:creator>
-    <dc:date>2015-03-18T18:46:43Z</dc:date>
   </entry>
 </feed>
 

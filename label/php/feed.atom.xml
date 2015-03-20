@@ -3,10 +3,36 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-16T10:02:30Z</updated>
+  <updated>2015-03-20T11:02:14Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-16T10:02:30Z</dc:date>
+  <dc:date>2015-03-20T11:02:14Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Borrar la caché de Magento desde la línea de comandos</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/borrar-la-cache-de-magento-desde-la-linea-de-comandos" />
+    <category term="linea" />
+    <category term="borrar" />
+    <category term="comandos" />
+    <category term="consola" />
+    <category term="php" />
+    <category term="programar" />
+    <category term="productos" />
+    <category term="actualizar" />
+    <category term="cron" />
+    <category term="script" />
+    <category term="terminal" />
+    <category term="magento" />
+    <category term="cache" />
+    <category term="cli" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-03-20T09:19:18Z</updated>
+    <published>2015-03-20T09:19:18Z</published>
+    <content type="html">&lt;p&gt;Foto: Steve Jurvetson (Flickr CC) Cuando estás haciendo muchos cambios en una instalación de Magento, debes borrar la caché a menudo. Un caso especial es si utilizas scripts periódicos para actualizar listas de precios o stock, en ese caso debes programar también el borrado de cachés. Este pequeño script ha sido visto en muchas webs por lo que no me extenderé mucho y mencionaré dos fuentes donde podéis consultarlo (os invito a visitar estas páginas porque amplían la información que veis aquí). 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 &lt;?php echo "Start Cleaning all caches at ... " . date("Y-m-d H:i:s") . "\n\n"; ini_set("display_errors", 1); require '../app/Mage.php'; Mage::app('admin')-&gt;setUseSessionInUrl(false); Mage::getConfig()-&gt;init(); $types = Mage::app()-&gt;getCacheInstance()-&gt;getTypes();[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/borrar-la-cache-de-magento-desde-la-linea-de-comandos"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-03-20T09:19:18Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo encontrar la ruta de un elemento dentro de una jerarquía en PHP</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/como-encontrar-la-ruta-de-un-elemento-dentro-de-una-jerarquia-en-php" />
@@ -148,29 +174,6 @@
     <content type="html">&lt;p&gt;Es una práctica muy común categorizar nuestros. Hacer que existan categorías/sub-categorías/sub-sub-categorías sin límite al igual que directorios o carpetas hay en nuestro ordenador necesitamos tener todo clasificado. Es decir, queremos introducir jerarquía en nuestros datos, hacer que unos campos dependan de otros. Pero cuando guardamos la información en base de datos, normalmente se guardarán en una tabla con dos dimensiones, por lo que perdemos esa sensación de que hay unos datos dentro de otros. Lo normal en estos casos, es que en cada fila de nuestra tabla haya un campo extra que apunta al identificador de la entrada que establecemos como padre. Por ejemplo, si intentamos introducir categorías de pintura, tendremos por ejemplo: Género pictórico Histórica Prehistoria Edad antigua Edad[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/02/anadir-jerarquia-a-nuestras-colecciones-de-datos-en-php-creando-arboles-en-php"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-02-05T16:10:42Z</dc:date>
-  </entry>
-  <entry>
-    <title>Instalar LEMP (Nginx, MariaDB  y PHP) en Debian 7</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7" />
-    <category term="lemp" />
-    <category term="mysql" />
-    <category term="blog-stack" />
-    <category term="nginx" />
-    <category term="sistemas-operativos" />
-    <category term="mariadb" />
-    <category term="web" />
-    <category term="php" />
-    <category term="debian" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2014-11-23T16:42:44Z</updated>
-    <published>2014-11-14T12:21:00Z</published>
-    <content type="html">&lt;p&gt;LEMP es una combinación de un sistema operativo Linux con servicios enfocados a la web (Nginx,MariaDB y PHP). A diferencia de LAMP, utilizaremos Nginx cómo servidor web en vez de Apache. Nginx, es un servidor web ligero y de alto rendemiento, también se puede utilizar cómo proxy para protocolos de correo electrónico. Es software libre, utiliza la licencia BSD, y multiplataforma, ya que es compatible con GNU/Linux, BSD y devirados, Solaris, MAC OS X y Windows)   Instalación de LEMP en Debian 7 Wheezy Para la instalación cómo sistema operativo usaremos GNU/Linux Debian 7. Nginx ya viene en los repositorios main, así que instalarlo es muy fácil: 1
- apt-get -y update &amp;&amp; apt-get -y install nginx A diferencia de Apache, no arranca automaticamente una vez instalado, por lo tanto lo iniciamos: 1
- service[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/instalar-lemp-nginx-mariadb-y-php-en-debian-7"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2014-11-14T12:21:00Z</dc:date>
   </entry>
 </feed>
 
