@@ -41,7 +41,7 @@ public class LabelDAOImpl implements LabelDAO {
 
 	@Override
 	public List<LabelRecord> findByPost(PostRecord post, int n) {
-		return findByPost(post, n, false);
+		return findByPost(post, n, true);
 	}
 
 	@Override

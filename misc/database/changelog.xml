@@ -569,4 +569,16 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="33" author="picodotdev">
+        <comment>Agregación de fuente (21-03-2015)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="/etc/cron.d"/>
+            <column name="alias" value="etccrond"/>
+            <column name="pageUrl" value="http://www.etccrond.es/"/>
+            <column name="url" value="http://www.etccrond.es/feeds/posts/default"/>
+            <column name="author" value="Eugenio M. Vigo"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
