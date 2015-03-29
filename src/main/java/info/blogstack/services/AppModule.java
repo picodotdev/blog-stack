@@ -16,6 +16,7 @@ public class AppModule {
 	public static void bind(ServiceBinder binder) {
 		binder.bind(IndexService.class, IndexServiceImpl.class);
 		binder.bind(ShareService.class, ShareServiceImpl.class);
+		binder.bind(MailService.class, MailServiceImpl.class);
 		binder.bind(MainService.class, MainServiceImpl.class);
 	}
 
@@ -38,7 +39,7 @@ public class AppModule {
 	}
 
 	public static Configuration<String, Object> buildConfiguration() {
-		return new AppConfiguration();
+		return new AppConfiguration(Globals.environment);
 	}
 
 	public static GenerateService buildGenerateService(MainService service) {

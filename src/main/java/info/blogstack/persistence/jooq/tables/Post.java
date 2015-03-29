@@ -16,7 +16,7 @@ package info.blogstack.persistence.jooq.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Post extends org.jooq.impl.TableImpl<info.blogstack.persistence.jooq.tables.records.PostRecord> {
 
-	private static final long serialVersionUID = 902873577;
+	private static final long serialVersionUID = -1662732609;
 
 	/**
 	 * The reference instance of <code>BLOGSTACK.POST</code>
@@ -102,6 +102,11 @@ public class Post extends org.jooq.impl.TableImpl<info.blogstack.persistence.joo
 	public final org.jooq.TableField<info.blogstack.persistence.jooq.tables.records.PostRecord, java.lang.Boolean> SHARED = createField("SHARED", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
 	/**
+	 * The column <code>BLOGSTACK.POST.NEWSLETTER_ID</code>.
+	 */
+	public final org.jooq.TableField<info.blogstack.persistence.jooq.tables.records.PostRecord, java.lang.Long> NEWSLETTER_ID = createField("NEWSLETTER_ID", org.jooq.impl.SQLDataType.BIGINT, this, "");
+
+	/**
 	 * Create a <code>BLOGSTACK.POST</code> table reference
 	 */
 	public Post() {
@@ -152,7 +157,7 @@ public class Post extends org.jooq.impl.TableImpl<info.blogstack.persistence.joo
 	 */
 	@Override
 	public java.util.List<org.jooq.ForeignKey<info.blogstack.persistence.jooq.tables.records.PostRecord, ?>> getReferences() {
-		return java.util.Arrays.<org.jooq.ForeignKey<info.blogstack.persistence.jooq.tables.records.PostRecord, ?>>asList(info.blogstack.persistence.jooq.Keys.POST_INDEXATION_ID, info.blogstack.persistence.jooq.Keys.POST_SOURCE_ID);
+		return java.util.Arrays.<org.jooq.ForeignKey<info.blogstack.persistence.jooq.tables.records.PostRecord, ?>>asList(info.blogstack.persistence.jooq.Keys.POST_INDEXATION_ID, info.blogstack.persistence.jooq.Keys.POST_SOURCE_ID, info.blogstack.persistence.jooq.Keys.POST_NEWSLETTER_ID);
 	}
 
 	/**

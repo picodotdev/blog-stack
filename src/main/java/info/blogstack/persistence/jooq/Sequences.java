@@ -52,6 +52,11 @@ public class Sequences {
 	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
 
 	/**
+	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1</code>
+	 */
+	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
+
+	/**
 	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083</code>
 	 */
 	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);

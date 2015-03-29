@@ -3,7 +3,7 @@
 
 <t:delegate to="block"/>
 
-<t:block id="smallBlock">
+<t:block id="excerptBlock">
 	<article t:type="any" itemscope="" itemtype="http://schema.org/BlogPosting">
 		<header><t:outputraw value="getTag('open')"/><a t:type="any" href="${post.url}" target="target" itemprop="sameAs">${post.title}</a><t:outputraw value="getTag('close')"/></header>
 
@@ -21,6 +21,25 @@
 		</p>
 		<p>
 			<a t:type="any" href="${post.url}" target="target" itemprop="sameAs">Leer artículo completo</a>
+		</p>
+	</article>
+</t:block>
+
+<t:block id="fullBlock">
+	<article t:type="any" itemscope="" itemtype="http://schema.org/BlogPosting">
+		<header><t:outputraw value="getTag('open')"/><a t:type="any" href="${post.url}" target="target" itemprop="sameAs">${post.title}</a><t:outputraw value="getTag('close')"/></header>
+
+		<p class="post-info" style="font-weight: bold;">
+			<span itemprop="dateModified" datetime="${data.get('microdataDate')}">${data.get('date')}</span>,
+			<span>fuente <a t:type="any" href="${source.pageUrl}" target="target">${source.name}</a></span><t:if test="labels">,</t:if>
+			<t:if test="labels">
+				etiquetas
+				<t:loop source="labels" value="label"><a t:type="any" href="${labelAbsoluteUrl}"><span itemprop="articleSection">${label.name}</span></a>&nbsp;</t:loop>
+			</t:if>
+		</p>
+
+		<p itemprop="description" class="text-justify">
+			<t:outputraw value="content"/>
 		</p>
 	</article>
 </t:block>

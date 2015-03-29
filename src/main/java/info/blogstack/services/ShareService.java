@@ -9,5 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ShareService {
 
 	@Transactional(readOnly = true)
-	void share(Collection<PostRecord> posts);
+	void shareTwitter(Collection<PostRecord> posts);
+	
+	@Transactional(readOnly = true)
+	void shareNewsletter(Collection<PostRecord> posts);
 }

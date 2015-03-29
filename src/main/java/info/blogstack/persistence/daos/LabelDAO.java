@@ -18,6 +18,6 @@ public interface LabelDAO {
 	List<LabelRecord> findByPost(PostRecord post, int n);
 	
 	List<LabelRecord> findByPost(PostRecord post, int n, boolean visible);
-
+	
 	Long countAll();
 }

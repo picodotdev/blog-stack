@@ -6,12 +6,17 @@ import static info.blogstack.persistence.jooq.Tables.POSTS_LABELS;
 import static info.blogstack.persistence.jooq.Tables.SOURCE;
 import info.blogstack.persistence.jooq.tables.Post;
 import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.NewsletterRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.SourceRecord;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.joda.time.DateTime;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
 
@@ -42,7 +47,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<PostRecord> findAllByYearMonth(Integer year, Integer month) {
 		Post p = POST.as("p");
-		return context.selectFrom(p).where(p.VISIBLE.isTrue().and("year(\"p\".publishdate) = ?", year).and("month(\"p\".publishdate) = ?", month)).orderBy(p.DATE.desc())
+		return context.selectFrom(p).where(p.VISIBLE.isTrue().and("year(\"p\".creationdate) = ?", year).and("month(\"p\".creationdate) = ?", month)).orderBy(p.DATE.desc())
 				.fetch();
 	}
 
@@ -55,6 +60,25 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<PostRecord> findAllByShared(boolean shared) {
 		return context.select().from(POST).where(POST.SHARED.eq(shared)).orderBy(POST.CREATIONDATE.asc()).fetchInto(POST);
+	}
+	
+	@Override
+	public List<PostRecord> findNewsletter() {
+		DateTime friday = new DateTime().withDayOfWeek(6).withHourOfDay(10);
+		DateTime tuesday = new DateTime().withDayOfWeek(1).withHourOfDay(10);
+		DateTime date = null;
+
+		if (friday.isBeforeNow()) {
+		    date = friday;
+		} else if (tuesday.isBeforeNow()) {
+			date = tuesday;
+		}
+		
+		if (date == null) {
+			return Collections.EMPTY_LIST;
+		}
+		
+		return context.select().from(POST).where(POST.NEWSLETTER_ID.isNull()).and(POST.CREATIONDATE.lt(date)).orderBy(POST.CREATIONDATE.asc()).fetchInto(POST);
 	}
 
 	@Override
@@ -81,6 +105,11 @@ public class PostDAOImpl implements PostDAO {
 	public Long countBy(LabelRecord label) {
 		return context.selectCount().from(POST).join(POSTS_LABELS).on(POST.ID.eq(POSTS_LABELS.POST_ID))
 				.where(POST.VISIBLE.isTrue().and(POSTS_LABELS.LABEL_ID.in(label.getId()))).fetchOne(0, Long.class);
+	}
+	
+	@Override
+	public Long countBy(NewsletterRecord newsletter) {
+		return context.selectCount().from(POST).where(POST.NEWSLETTER_ID.eq(newsletter.getId())).fetchOne(0, Long.class);
 	}
 
 	@Override
@@ -117,5 +146,26 @@ public class PostDAOImpl implements PostDAO {
 			m.put("SOURCE", source);
 		}
 		return d;
+	}
+	
+	@Override
+	public List<Map<String, Object>> getArchiveByNewsletter(NewsletterRecord newsletter) {
+		List<Map<String, Object>> d = context
+				.fetch("select l.id as id, count(*) as posts from BLOGSTACK.LABEL as l inner join BLOGSTACK.POSTS_LABELS as pl on l.id = pl.label_id inner join BLOGSTACK.POST as p on pl.post_id = p.id where l.enabled = true and p.visible = true and p.newsletter_id = ? group by l.id order by l.name", newsletter.getId())
+				.intoMaps();
+		for (Map<String, Object> m : d) {
+			LabelRecord label = context.selectFrom(LABEL).where(LABEL.ID.eq((Long) m.get("ID"))).fetchOne();
+			m.put("LABEL", label);
+		}
+		return d;
+	}
+	
+	@Override
+	public int updateNewsletter(Collection<PostRecord> posts, NewsletterRecord newslettter) {
+		Collection<Long> ids = new ArrayList<>();
+		for (PostRecord post : posts) {
+			ids.add(post.getId());
+		} 
+		return context.update(POST).set(POST.NEWSLETTER_ID, newslettter.getId()).where(POST.ID.in(ids)).execute();
 	}
 }

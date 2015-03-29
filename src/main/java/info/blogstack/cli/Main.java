@@ -154,6 +154,7 @@ public class Main {
 		options.addOption("gp", "gpages", false, "Regenerate pages");
 		options.addOption("gsm", "gsitemap", false, "Regenerate sitemap");
 		options.addOption("sh", "share", false, "Share new indexed content");
+		options.addOption("nl", "newsletter", false, "Share newsletter content");
 		options.addOption("p", "preview", false, "Preview the content");
 		options.addOption("s", "start", false, "Start the server");
 		options.addOption("ss", "stop", false, "Stop the server");
@@ -182,6 +183,7 @@ public class Main {
 		boolean gpages = cmd.hasOption("gp");
 		boolean gsitemap = cmd.hasOption("gsm");
 		boolean share = cmd.hasOption("sh");
+		boolean newsletter = cmd.hasOption("nl");
 		boolean preview = cmd.hasOption("p");
 		boolean serverOption = cmd.hasOption("s");
 		boolean stop = cmd.hasOption("ss");
@@ -286,8 +288,8 @@ public class Main {
 				}
 			}
 
-			logger.info("Generating last updated...");
 			if (ggenerate || !posts.isEmpty()) {
+				logger.info("Generating last updated...");
 				files.add(service.getGenerateService().generateLastUpdated());				
 			}
 		}
@@ -299,11 +301,21 @@ public class Main {
 		if (share) {
 			initRegistry();
 			
-			logger.info("Sharing...");
+			logger.info("Sharing in twitter...");
 			MainService service = Globals.registry.getService(MainService.class);
 			
 			Collection<PostRecord> sp = service.getPostDAO().findAllByShared(false);
-			service.getShareService().share(sp);
+			service.getShareService().shareTwitter(sp);
+		}
+		
+		if (newsletter) {
+			initRegistry();
+			
+			logger.info("Sharing in newsletter...");
+			MainService service = Globals.registry.getService(MainService.class);
+
+			Collection<PostRecord> sp = service.getPostDAO().findNewsletter();
+			service.getShareService().shareNewsletter(sp);
 		}
 		
 		Returns ret = Returns.DEFAULT;

@@ -55,7 +55,7 @@ public class LabelDAOImpl implements LabelDAO {
 		return context.select(LABEL.fields()).from(LABEL).join(POSTS_LABELS).on(LABEL.ID.eq(POSTS_LABELS.LABEL_ID)).where(LABEL.ID.in(ids)).groupBy(LABEL.ID)
 				.orderBy(POSTS_LABELS.POST_ID.count().desc()).limit(n).fetchInto(LabelRecord.class);
 	}
-
+	
 	@Override
 	public Long countAll() {
 		return context.selectCount().from(LABEL).where(LABEL.ENABLED.isTrue()).fetchOne(0, Long.class);

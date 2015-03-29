@@ -32,6 +32,11 @@ public class Tables {
 	public static final info.blogstack.persistence.jooq.tables.ImportSource IMPORT_SOURCE = info.blogstack.persistence.jooq.tables.ImportSource.IMPORT_SOURCE;
 
 	/**
+	 * The table BLOGSTACK.NEWSLETTER
+	 */
+	public static final info.blogstack.persistence.jooq.tables.Newsletter NEWSLETTER = info.blogstack.persistence.jooq.tables.Newsletter.NEWSLETTER;
+
+	/**
 	 * The table BLOGSTACK.POST
 	 */
 	public static final info.blogstack.persistence.jooq.tables.Post POST = info.blogstack.persistence.jooq.tables.Post.POST;

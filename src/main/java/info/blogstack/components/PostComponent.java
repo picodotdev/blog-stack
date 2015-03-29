@@ -18,6 +18,7 @@ import org.apache.tapestry5.Block;
 import org.apache.tapestry5.annotations.Cached;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.internal.services.LinkSource;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -28,7 +29,7 @@ public class PostComponent {
 	private DateTimeFormatter MICRODATA_DATETIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm");
 	
 	enum Mode {
-		HOME, POST, ARCHIVE, DEFAULT
+		HOME, POST, ARCHIVE, NEWSLETTER, DEFAULT
 	}
 	
 	private static int NUMBER_LABELS = 4;
@@ -41,14 +42,6 @@ public class PostComponent {
 	@Property
 	private Mode mode;
 	
-	@Parameter(value = "false")
-	@Property
-	private boolean excerpt;
-	
-	@Parameter(value = "false")
-	@Property
-	private Boolean sharethis;
-	
 	@Property
 	private LabelRecord label;
 	
@@ -56,7 +49,13 @@ public class PostComponent {
 	private MainService service;
 	
 	@Inject
-	private Block smallBlock;
+	private LinkSource linkSource;
+	
+	@Inject
+	private Block excerptBlock;
+	
+	@Inject
+	private Block fullBlock;
 	
 	public Object[] getContext() {
 		return Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID));
@@ -68,7 +67,9 @@ public class PostComponent {
 			case ARCHIVE:
 			case POST:
 			case DEFAULT:
-				return smallBlock;
+				return excerptBlock;
+			case NEWSLETTER:
+				return fullBlock;
 			default:
 				throw new IllegalArgumentException();
 			
@@ -86,6 +87,7 @@ public class PostComponent {
 		switch (mode) {
 			case HOME:			
 			case ARCHIVE:
+			case NEWSLETTER:
 			case DEFAULT:
 				tag = "h2";
 				break;
@@ -113,6 +115,12 @@ public class PostComponent {
 	}
 	
 	@Cached(watch = "post")
+	public String getContent() {
+		AppPostRecord apost = post.into(AppPostRecord.class);
+		return apost.getContent();
+	}
+
+	@Cached(watch = "post")
 	public Map<String, Object> getData() {
 		AppPostRecord apost = post.into(AppPostRecord.class);
 		Map<String, Object> datos = new HashMap<>();
@@ -137,5 +145,9 @@ public class PostComponent {
 	
 	public Object[] getLabelContext() {
 		return Utils.getContext(label);
+	}
+	
+	public String getLabelAbsoluteUrl() {
+		return linkSource.createPageRenderLink("label", true, getLabelContext()).toAbsoluteURI();		
 	}
 }

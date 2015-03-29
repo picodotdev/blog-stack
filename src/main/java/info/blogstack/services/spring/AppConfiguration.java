@@ -8,6 +8,8 @@ import info.blogstack.persistence.daos.IndexationDAO;
 import info.blogstack.persistence.daos.IndexationDAOImpl;
 import info.blogstack.persistence.daos.LabelDAO;
 import info.blogstack.persistence.daos.LabelDAOImpl;
+import info.blogstack.persistence.daos.NewsletterDAO;
+import info.blogstack.persistence.daos.NewsletterDAOImpl;
 import info.blogstack.persistence.daos.PostDAO;
 import info.blogstack.persistence.daos.PostDAOImpl;
 import info.blogstack.persistence.daos.PostsIndexationsDAO;
@@ -115,5 +117,10 @@ public class AppConfiguration {
 	@Bean
 	public SourceDAO sourceDAO(DSLContext context) {
 		return new SourceDAOImpl(context);
+	}
+	
+	@Bean
+	public NewsletterDAO newsletterDAO(DSLContext context) {
+		return new NewsletterDAOImpl(context);
 	}
 }

@@ -5,6 +5,7 @@
     <property name="schema" value="blogstack"/>
     <property name="selectMaxIdAdsense" value="(select max(id) from ${schema}.adsense)"/>
     <property name="selectMaxIdImportSource" value="(select max(id) from ${schema}.import_source)"/>
+    <property name="selectMaxIdNewsletter" value="(select max(id) from ${schema}.newsletter)"/>
     
     <changeSet id="1" author="picodotdev">
         <comment>Creación de la base de datos inicial (01-05-2014)</comment>
@@ -580,5 +581,25 @@
             <column name="author" value="Eugenio M. Vigo"/>
             <column name="enabled" valueBoolean="true"/>
         </insert>
+    </changeSet>
+    <changeSet id="34" author="picodotdev">
+        <comment>Creación de boletín (27-03-2015)</comment>
+        <createTable tableName="newsletter" schemaName="${schema}">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" />
+            </column>
+            <column name="creationDate" type="DATETIME" />
+        </createTable>
+        <addColumn tableName="post" schemaName="${schema}">
+            <column name="newsletter_id" type="BIGINT">
+                <constraints references="${schema}.newsletter(id)" foreignKeyName="post_newsletter_id"/>
+            </column>
+        </addColumn>
+        <insert tableName="newsletter" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+        </insert>
+        <update tableName="post" schemaName="${schema}">
+            <column name="newsletter_id" valueComputed="${selectMaxIdNewsletter}"/>
+        </update>
     </changeSet>
 </databaseChangeLog>

@@ -16,7 +16,7 @@ package info.blogstack.persistence.jooq;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blogstack extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 928563707;
+	private static final long serialVersionUID = -1535650910;
 
 	/**
 	 * The reference instance of <code>BLOGSTACK</code>
@@ -46,6 +46,7 @@ public class Blogstack extends org.jooq.impl.SchemaImpl {
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_A8FC292C_948E_4DBF_B050_6B6905BDA5E8,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_AAC90520_24FC_45CF_B7F2_BBA672F82CC1,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2,
+			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083);
 	}
 
@@ -61,6 +62,7 @@ public class Blogstack extends org.jooq.impl.SchemaImpl {
 			info.blogstack.persistence.jooq.tables.Indexation.INDEXATION,
 			info.blogstack.persistence.jooq.tables.Adsense.ADSENSE,
 			info.blogstack.persistence.jooq.tables.ImportSource.IMPORT_SOURCE,
+			info.blogstack.persistence.jooq.tables.Newsletter.NEWSLETTER,
 			info.blogstack.persistence.jooq.tables.Post.POST,
 			info.blogstack.persistence.jooq.tables.Label.LABEL,
 			info.blogstack.persistence.jooq.tables.PostsIndexations.POSTS_INDEXATIONS,

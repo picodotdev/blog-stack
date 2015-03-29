@@ -156,6 +156,16 @@ public interface IPost extends java.io.Serializable {
 	 */
 	public java.lang.Boolean getShared();
 
+	/**
+	 * Setter for <code>BLOGSTACK.POST.NEWSLETTER_ID</code>.
+	 */
+	public void setNewsletterId(java.lang.Long value);
+
+	/**
+	 * Getter for <code>BLOGSTACK.POST.NEWSLETTER_ID</code>.
+	 */
+	public java.lang.Long getNewsletterId();
+
 	// -------------------------------------------------------------------------
 	// FROM and INTO
 	// -------------------------------------------------------------------------

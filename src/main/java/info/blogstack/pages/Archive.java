@@ -117,7 +117,7 @@ public class Archive {
 	}
 	
 	/**
-	 * Método que devuelve las articulos publicadas de una fecha.
+	 * Returns the posts publiched in a date.
 	 */
 	public List<PostRecord> getPosts() {
 		if (isGeneric()) {

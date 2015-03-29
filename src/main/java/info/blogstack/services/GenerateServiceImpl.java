@@ -7,6 +7,7 @@ import info.blogstack.persistence.daos.Pagination;
 import info.blogstack.persistence.jooq.Keys;
 import info.blogstack.persistence.jooq.tables.records.IndexationRecord;
 import info.blogstack.persistence.jooq.tables.records.LabelRecord;
+import info.blogstack.persistence.jooq.tables.records.NewsletterRecord;
 import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
 import info.blogstack.persistence.jooq.tables.records.SourceRecord;
@@ -274,13 +275,23 @@ public class GenerateServiceImpl implements GenerateService {
 		pw.println("		date: '" + LASTUPDATED_DATETIMEFORMAT.print(date) + "'");
 		pw.println("	}");
 		pw.println("});");
-
 		pw.close();
 		sw.close();
 
 		File f = new File(to, "modules/app/lastUpdated.js");
 		FileUtils.write(f, sw.toString());
 		return f;
+	}
+	
+	@Override
+	public String generateNewsletter(NewsletterRecord newsletter) throws IOException {
+		Object[] context = new Object[] { newsletter.getId() };
+		
+		Writer w = new StringWriter();
+		render("newsletter", context, Collections.<String,String>emptyMap(), Globals.LOCALE, w);
+		w.close();
+		
+		return w.toString();
 	}
 
 	@Override

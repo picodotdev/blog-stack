@@ -4,6 +4,7 @@ import info.blogstack.misc.Configuration;
 import info.blogstack.persistence.daos.ImportSourceDAO;
 import info.blogstack.persistence.daos.IndexationDAO;
 import info.blogstack.persistence.daos.LabelDAO;
+import info.blogstack.persistence.daos.NewsletterDAO;
 import info.blogstack.persistence.daos.PostDAO;
 import info.blogstack.persistence.daos.PostsLabelsDAO;
 import info.blogstack.persistence.daos.SourceDAO;
@@ -16,10 +17,11 @@ public interface MainService {
 	DSLContext getContext();
 	PageRenderLinkSource getPageRenderLinkSource();
 	
-	Configuration<String, Object> getConfiguracion();
+	Configuration<String, Object> getConfiguration();
 	IndexService getIndexService();
 	GenerateService getGenerateService();
 	ShareService getShareService();
+	MailService getMailService();
 	
 	PostDAO getPostDAO();
 	LabelDAO getLabelDAO();
@@ -27,4 +29,5 @@ public interface MainService {
 	ImportSourceDAO getImportSourceDAO();
 	IndexationDAO getIndexationDAO();
 	PostsLabelsDAO getPostsLabelsDAO();
+	NewsletterDAO getNewsletterDAO();
 }
