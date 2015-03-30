@@ -19,7 +19,7 @@ public class SourceDAOImpl implements SourceDAO {
 	
 	@Override
 	public List<SourceRecord> findAll() {
-		return context.selectFrom(SOURCE).fetch();
+		return context.selectFrom(SOURCE).where(SOURCE.ENABLED.isTrue()).fetch();
 	}
 	
 	@Override

@@ -47,7 +47,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<PostRecord> findAllByYearMonth(Integer year, Integer month) {
 		Post p = POST.as("p");
-		return context.selectFrom(p).where(p.VISIBLE.isTrue().and("year(\"p\".creationdate) = ?", year).and("month(\"p\".creationdate) = ?", month)).orderBy(p.DATE.desc())
+		return context.selectFrom(p).where(p.VISIBLE.isTrue().and("year(\"p\".publishDate) = ?", year).and("month(\"p\".publishDate) = ?", month)).orderBy(p.DATE.desc())
 				.fetch();
 	}
 
@@ -64,8 +64,8 @@ public class PostDAOImpl implements PostDAO {
 	
 	@Override
 	public List<PostRecord> findNewsletter() {
-		DateTime friday = new DateTime().withDayOfWeek(6).withHourOfDay(10);
-		DateTime tuesday = new DateTime().withDayOfWeek(1).withHourOfDay(10);
+		DateTime friday = new DateTime().withDayOfWeek(5).withHourOfDay(7);
+		DateTime tuesday = new DateTime().withDayOfWeek(2).withHourOfDay(7);
 		DateTime date = null;
 
 		if (friday.isBeforeNow()) {
@@ -73,7 +73,7 @@ public class PostDAOImpl implements PostDAO {
 		} else if (tuesday.isBeforeNow()) {
 			date = tuesday;
 		}
-		
+
 		if (date == null) {
 			return Collections.EMPTY_LIST;
 		}
