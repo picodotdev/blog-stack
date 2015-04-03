@@ -14,6 +14,9 @@ import java.util.Collection;
 import java.util.List;
 
 import org.joda.time.DateTime;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -115,6 +118,13 @@ public class ShareServiceImpl implements ShareService {
 		if (Globals.environment != Environment.PRODUCTION) {
 			return;
 		}
+
+		// Add style attribute to images, else tinyletter adds their
+		Document document = Jsoup.parse(content);
+		Elements imgs = document.select("img");
+		imgs.attr("style", "text-decoration: none;");
+
+		content = document.toString();
 
 		service.getMailService().sendNewsletter(String.format("Boletín #%d de Blog Stack", newsletter.getId()), content);
 	}
