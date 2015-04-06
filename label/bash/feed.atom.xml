@@ -3,10 +3,33 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-03-30T18:00:31Z</updated>
+  <updated>2015-04-06T02:02:08Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-03-30T18:00:31Z</dc:date>
+  <dc:date>2015-04-06T02:02:08Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Pintar una gráfica con gnuplot de datos extraidos de SQLite</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/04/pintar-una-grafica-con-gnuplot-de-datos-extraidos-de-sqlite" />
+    <category term="fecha" />
+    <category term="linux" />
+    <category term="formato" />
+    <category term="bash" />
+    <category term="tiempo" />
+    <category term="valor" />
+    <category term="sqlite" />
+    <category term="datos" />
+    <category term="complejidad" />
+    <category term="gnuplot" />
+    <category term="hora" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-04-06T00:25:23Z</updated>
+    <published>2015-04-06T00:25:23Z</published>
+    <content type="html">&lt;p&gt;Como parte de uno de mis últimos proyectos, recopilo datos periódicamente y los almaceno en una tabla SQLite. Pero, al final, los datos no valen para nada si no somos capaces de tener una visión global de lo que ha pasado a lo largo del periodo de tiempo. Y para eso, ¿qué mejor que pintar los datos en una gráfica? Ya que los datos los almaceno en SQLite, utilizaré el cliente sqlite3 y para pintar las gráficas, gnuplot. Lo primero es sacar la consulta SQL para extraer los datos de los ejes X e Y. En este caso, el eje X será el tiempo y el eje Y será el valor obtenido en el test: 1 SELECT VALUE, dtm FROM STATUS WHERE monitor=1; La consulta la podemos complicar todo lo que queramos, introducir más condiciones, rangos de tiempo, etc. SQLite se lleva bien con estos tipos de datos. Cabe decir que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/pintar-una-grafica-con-gnuplot-de-datos-extraidos-de-sqlite"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-04-06T00:25:23Z</dc:date>
+  </entry>
   <entry>
     <title>Algunas hojas de cálculo recortan los CSV en las comillas [Minipost]</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/algunas-hojas-de-calculo-recortan-los-csv-en-las-comillas-minipost" />
@@ -201,28 +224,6 @@
     <content type="html">&lt;p&gt;En varias ocasiones, he necesitado enviar un e-mail a un compañero de trabajo (o a mí mismo) con información recién extraída de un servidor (por ejemplo un CSV de base de datos o información subida desde la web) y lo que he hecho al final ha sido bajármelo por SSH y una vez en mi ordenador he enviado el archivo donde ha sido necesario. Si eres como yo, que siempre tengo una sesión SSH abierta en mi servidor, ganarás un par de minutos con este script. El siguiente script envía un correo electrónico utilizando sendmail. sendmail no es difícil, simplemente tenemos que escribir como entrada del correo las cabeceras necesarias y el mensaje, aunque podemos echar unos minutos hasta que se puede enviar correctamente el mensaje. El problema con las cabeceras viene cuando tenemos que enviar archivos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2014/12/enviar-e-mails-con-adjuntos-desde-la-terminal-con-sendmail-bash-script"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2014-12-15T09:10:46Z</dc:date>
-  </entry>
-  <entry>
-    <title>UNIX – Linux Bash:  fallo de seguridad crítico descubierto</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto" />
-    <category term="ssh" />
-    <category term="bash" />
-    <category term="blog-stack" />
-    <category term="seguridad" />
-    <category term="noticias" />
-    <category term="openssh" />
-    <category term="web" />
-    <category term="unix" />
-    <category term="apache" />
-    <category term="linux" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-09-26T10:24:46Z</updated>
-    <published>2014-09-25T08:48:47Z</published>
-    <content type="html">&lt;p&gt;La popular shell de UNIX y GNU/Linux, Bash, resulta que tiene un importante fallo de seguridad. El problema afecta sobre todo a los servidores web, ya que permite a cualquier usuario introducir comandos Bash, utilizando un fallo en las variables de entorno, vía HTTP o CGI. Bash en la shell más común en la mayoría de servidores UNIX y GNU/Linux, esto hace que el fallo de seguridad sea grave. Se produce debido un fallo en las variables de entorno. Si una aplicación llama a un comando de la shell Bash vía HTTP o CGI, permitiría a un usuario malintencionado insertar datos en una web, y así dicha web ser hackeada (crackeada). “Es super simple y casa versión de Bash es vulnerable” comentó Josh Bressers, gerente de seguredad de Red Hat. “Es extremadamente grave, pero se necesitan unas condiciones[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/unix-linux-bash-fallo-de-seguridad-critico-descubierto"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-09-25T08:48:47Z</dc:date>
   </entry>
 </feed>
 
