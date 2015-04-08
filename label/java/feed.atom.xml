@@ -3,10 +3,42 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-04-04T15:02:20Z</updated>
+  <updated>2015-04-08T17:02:20Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-04-04T15:02:20Z</dc:date>
+  <dc:date>2015-04-08T17:02:20Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Utilizando un Java reference method</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/04/utilizando-un-java-reference-method" />
+    <category term="java-basico" />
+    <category term="java-conceptos" />
+    <category term="java" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-04-08T16:27:52Z</updated>
+    <published>2015-04-08T16:27:52Z</published>
+    <content type="html">&lt;p&gt;¿Qué es un Java reference method?. Todos hemos trabajado estos años en la plataforma Java y conocemos que existen tipos básicos y objetos. Cuando hago uso de una variable como por ejemplo 
+
+Coche c;
+
+ Estoy haciendo una referencia a un objeto. De hecho en el mundo Java a un método solo se le pueden pasar dos cosas una referencia a un objeto  o un tipo básico es así de sencillo.     Sin embargo a partir de Java 8 las cosas cambian y podemos pasar también un método lo cual en muchas ocasiones es realmente práctico. Vamos a ver un ejemplo clásico de Java 7 a través del API de IO. 
+
+package com.arquitecturajava;
+
+import java.io.File;
+import java.io.FileFilter;
+
+public class Principal {
+
+public static void main(String[] args) {
+
+File[] ficheros=new File(".").listFiles(new FileFilter() {
+
+public[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/04/utilizando-un-java-reference-method"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-04-08T16:27:52Z</dc:date>
+  </entry>
   <entry>
     <title>Evitar iniciar varias veces la máquina virtual Java para procesos cortos</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/04/evitar-iniciar-varias-veces-la-maquina-virtual-java-para-procesos-cortos" />
@@ -101,32 +133,6 @@
     <content type="html">&lt;p&gt;Hemos usado durante muchos años java.io para trabajar con ficheros en el mundo Java . Se trata de un API muy potente y flexible que nos permite realizar casi cualquier tipo de operación. Sin embargo es un API complicada de entender. Java NIO (Not Blocking IO) es un nuevo API disponible desde Java7 que nos permite mejorar el rendimiento así como simplificar el manejo de muchas cosas. Vamos a ver un ejemplo apoyándonos en  FileSystem y Path de este nuevo API.   El concepto de FileSystem define un sistema de ficheros completo. Mientras que por otro lado el concepto de Path hace referencia a un directorio, fichero o link que tengamos dentro de nuestro sistema de ficheros. El siguiente código hace uso de FileSystem y Path para obtener el nombre de un fichero así como la carpeta padre en la que se[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/03/gestion-de-ficheros-con-java-nio-path"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2015-03-06T10:25:22Z</dc:date>
-  </entry>
-  <entry>
-    <title>Java y  fluid interface</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/03/java-y-fluid-interface" />
-    <category term="java-basico" />
-    <category term="java-conceptos" />
-    <category term="java" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2015-03-03T12:39:00Z</updated>
-    <published>2015-03-03T12:39:00Z</published>
-    <content type="html">&lt;p&gt;Trabajamos todos los días con Java y uno de las cosas que uno echa de menos a veces es que existan más interfaces fluidas a nivel del lenguaje. ¿Qué es una fluid interface? . Son interfaces o clases que cuando invocamos a un método concreto nos devuelve el mismo objeto modificado . De tal forma que podemos volver a solicitar otro método del mismo objeto y  encadenar más operaciones.   Fluid interfaces y StringBuilder Una de las clases más habituales a la hora de usar programación fluida es StringBuffer vamos a ver un ejemplo sencillo. 
-package com.arquitecturajava;
-
-public class Principal {
-
- public static void main(String[] args) {
-
- StringBuilder cadena = new StringBuilder("?hola");
- cadena.delete(0, 1).append(" que tal?").insert(4, " amigo ");
- System.out.println("Mensaje: " + cadena);
-
-[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/03/java-y-fluid-interface"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2015-03-03T12:39:00Z</dc:date>
   </entry>
 </feed>
 
