@@ -602,4 +602,24 @@
             <column name="newsletter_id" valueComputed="${selectMaxIdNewsletter}"/>
         </update>
     </changeSet>
+    <changeSet id="35" author="picodotdev">
+        <comment>Agregación de fuente (12-04-2015)</comment>
+        <insert tableName="adsense" schemaName="${schema}">
+            <column name="adsenseAdClient" value="ca-pub-7127443823639155" />
+            <column name="adsenseSlotBigRectangle" value="9038513565" />
+            <column name="adsenseSlotWideSkycraper" value="9038513565" />
+            <column name="adsenseSlotHorizontalSkycraper" value="9038513565" />
+        </insert>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="El blog de abr4xas"/>
+            <column name="alias" value="elblogdeabr4xas"/>
+            <column name="pageUrl" value="https://blog.abr4xas.org/"/>
+            <column name="url" value="http://feeds.feedburner.com/ElBlogDeAbr4xas"/>
+            <column name="author" value="Ángel Cruz"/>
+            <column name="email" value="me@abr4xas.org"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
