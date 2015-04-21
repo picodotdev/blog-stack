@@ -3,10 +3,42 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-04-13T10:02:23Z</updated>
+  <updated>2015-04-21T10:02:30Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-04-13T10:02:23Z</dc:date>
+  <dc:date>2015-04-21T10:02:30Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Creando un modelo sencillo en Magento (paso a paso y con ejemplos)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/04/creando-un-modelo-sencillo-en-magento-paso-a-paso-y-con-ejemplos" />
+    <category term="upgrade" />
+    <category term="install" />
+    <category term="php" />
+    <category term="utilizacion" />
+    <category term="recursos" />
+    <category term="mysql" />
+    <category term="datos" />
+    <category term="sql" />
+    <category term="sistema" />
+    <category term="conexion" />
+    <category term="creacion" />
+    <category term="mvc" />
+    <category term="base" />
+    <category term="colecciones" />
+    <category term="instalacion" />
+    <category term="orm" />
+    <category term="actualizacion" />
+    <category term="general" />
+    <category term="modelo" />
+    <category term="magento" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-04-21T08:51:50Z</updated>
+    <published>2015-04-21T08:51:50Z</published>
+    <content type="html">&lt;p&gt;Anteriormente vimos cómo crear un plugin para Magento y cómo crear un controlador para Magento. Ahora le toca el turno al modelo. Intentaré poner con todo detalle todo el proceso. Por eso, vamos a editar app/code/local/NuestraEmpresa/nuestroPlugin/etc/config.xml, en nuestro ejemplo app/code/local/Poesia/HolaMundo/etc/config.xml para indicar que vamos a crear modelos y las conexiones de base de datos que se deben utilizar para el acceso. He pegado el archivo entero, pero indico con un comentario las novedades: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 &lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;!-- Opcionalmente podemos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/creando-un-modelo-sencillo-en-magento-paso-a-paso-y-con-ejemplos"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-04-21T08:51:50Z</dc:date>
+  </entry>
   <entry>
     <title>Creando un controlador en Magento (paso a paso)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/04/creando-un-controlador-en-magento-paso-a-paso" />
@@ -168,26 +200,6 @@
     <content type="html">&lt;p&gt;Cuando estamos trabajando con Magento, en ocasiones necesitamos conocer si actualmente nos encontramos en la home de nuestro sitio o en cualquier otra página. Normalmente, la home, tendrá un diseño diferente y por eso debemos diferenciarla de las demás. Para ello, desde Magento 1.5+ tenemos una función que nos puede ayudar mucho en esta misión. Si nos encontramos en el header.phtml podemos comprobarlo llamando a: GeSHi Error: GeSHi could not find the language cc (using path /home/gaspy/www/totaki.com/www/poesiabinaria/wp-content/plugins/codecolorer/lib/geshi/) (code 2) Pero si nos encontramos en cualquier otra plantilla, tenemos que llamar a esa misma función que se encuentra en el header, para ello obtenemos el singleton del header y se lo preguntamos: GeSHi Error: GeSHi could not find the[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/02/magento-saber-si-estamos-en-la-pagina-principal-home-page"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-02-23T09:57:34Z</dc:date>
-  </entry>
-  <entry>
-    <title>Limitar el acceso a phpmyadmin</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="web" />
-    <category term="phpmyadmin" />
-    <category term="php" />
-    <category term="apache2" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2015-02-17T12:49:30Z</updated>
-    <published>2015-02-17T12:49:30Z</published>
-    <content type="html">&lt;p&gt;No es ninguna novedad ni sorprenderá a nadie que hable de phpmyadmin, una herramienta escrita en php, que nos ayudará a gestionar las bases de datos de nuestro servidor. Lo que muchas veces podemos obviar es que si un delincuente informático, mal llamados hackers, accediese a dicho panel, le facilitaríamos el camino, cosa que debemos evitar. Hoy veremos cómo limitar el acceso a phpmyadmin Realmente en un par de pasos lo tendremos resuelto. Debemos de modificar un par de archivos para que sólo se puede acceder a dicho panel desde unas IP específicas. Primero de todo crearemos un archivo .htaccess donde indicaremos las IP admitidias y denegaremos todo el resto. El archivo lo debemos de crear en la carpeta /usr/share/phpmyadmin 1
- cd /usr/share/phpmyadmin/ 1
- nano .htaccess Y añadimos las reglas[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/02/limitar-el-acceso-a-phpmyadmin"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2015-02-17T12:49:30Z</dc:date>
   </entry>
 </feed>
 
