@@ -3,10 +3,50 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-05-03T13:02:20Z</updated>
+  <updated>2015-05-04T04:02:27Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-05-03T13:02:20Z</dc:date>
+  <dc:date>2015-05-04T04:02:27Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Conexión segura a un servidor web (HTTPS) en C usando openSSL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/05/conexion-segura-a-un-servidor-web-https-en-c-usando-openssl" />
+    <category term="metodos" />
+    <category term="cliente" />
+    <category term="openssl" />
+    <category term="seguridad" />
+    <category term="handshake" />
+    <category term="conexion" />
+    <category term="autoridad" />
+    <category term="socket" />
+    <category term="ataque" />
+    <category term="servidores" />
+    <category term="encriptar" />
+    <category term="origen" />
+    <category term="destino" />
+    <category term="cifrado" />
+    <category term="negociacion" />
+    <category term="compilar" />
+    <category term="man-in-the-middle" />
+    <category term="middle" />
+    <category term="certificados" />
+    <category term="vecino" />
+    <category term="notario" />
+    <category term="servidor" />
+    <category term="web" />
+    <category term="c-c" />
+    <category term="ssl" />
+    <category term="protoclos" />
+    <category term="intermediario" />
+    <category term="comunicacion" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-05-04T02:12:57Z</updated>
+    <published>2015-05-04T02:12:57Z</published>
+    <content type="html">&lt;p&gt;Bueno, el código no tiene mucha más explicación. El objetivo es poder conectar a un servidor web a través de un protocolo seguro y recibir datos, pero también que podamos ver si hay algún problema con el certificado, verificar el algoritmo de cifrado y los datos del certificado, verificar los certificados intermedios, etc. Si ignoramos SSL, lo que tenemos que hacer es conectar con un servidor a través de un puerto determinado (como estamos en web, sería el puerto 80, por defecto), y mandarle una serie de datos: GET / HTTP/1.1[CRLF] Host: openssl.org[CRLF] User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:37.0) Gecko/20100101 Firefox/37.0[CRLF] [CRLF] Por ejemplo. Siendo CRLF un retorno de carro (CR, o \r) y un salto de línea (LF, o \n). Después de la primera línea donde indicamos método[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/05/conexion-segura-a-un-servidor-web-https-en-c-usando-openssl"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-05-04T02:12:57Z</dc:date>
+  </entry>
   <entry>
     <title>Cápsulas de Seguridad Informática – Nmap desde 0 Toma de Contacto</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/05/capsulas-de-seguridad-informatica-nmap-desde-toma-de-contacto" />
@@ -92,22 +132,6 @@
     <content type="html">&lt;p&gt;Los eventos OpenExpo regresaron a Barcerlona el pasado 21 de enero con un programa exclusivo organizado por primera vez en colaboración con los embajadores de la Ciudad Condal, ahora coge el puente aereo y se planta en la capital de España para organizar OpenExpo Day 2015, una densa jornada dedicada a proyectos Open SOurce y Software Libre. ¿Quieres saber más? Sigue leyendo. OpenExpo Day 2015: Eventos Open Source y Software Libre OpenExpo Day del 2015 es el evento anual de la comunidad española de Open Source y de Software Libre en la que se contará con Keynotes, conferencias, talleres, demos de las mejores soluciones así como con un espacio con stands de los principales proveedores en España. El evento se realizará el próximo 16 de junio del 2015 en el Teatro Galileo, Madrid (C/ Galileo, 39)[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/05/openexpo-day-2-15-eventos-open-source-y-software-libre"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2015-05-01T06:10:55Z</dc:date>
-  </entry>
-  <entry>
-    <title>Escribir en varios «Writer» a la vez</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/04/escribir-en-varios-writer-a-la-vez" />
-    <category term="programacion" />
-    <category term="blog-stack" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-04-30T18:00:47Z</updated>
-    <published>2015-04-30T18:00:47Z</published>
-    <content type="html">&lt;p&gt;Hace un tiempo tuve necesidad de generar cierto contenido sobre varios writers, la necesidad en concreto era generar un archivo xml en disco y al mismo tiempo el mismo contenido para un correo electrónico. Para no escribir lo mismo en dos Writer diferentes la solución fue crear un writer y este fuese el que escribiese el contenido que se le enviaba sobre varios writers. En la API de Java no hay una clase específica que haga esto pero es muy sencillo hacer una implementación que lo haga, esto va a ser lo que explicaré en el siguiente artículo. Para hacer que el contenido de un writer se escriba a varios deberemos extender la clase Writer de esta manera su uso será como la de cualquier otro Writer. Lo especial de la implementación del writer es que su misión será realizar la misma operación que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/04/escribir-en-varios-writer-a-la-vez"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-04-30T18:00:47Z</dc:date>
   </entry>
 </feed>
 
