@@ -622,4 +622,11 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="36" author="picodotdev">
+        <comment>Actualización de fuente (16-05-2015)</comment>
+        <update tableName="source" schemaName="${schema}">
+            <column name="url" value="http://picodotdev.github.io/blog-bitix/tags/blog-stack/index.xml"/>
+            <where>alias = 'blogbitix'</where>
+        </update>
+    </changeSet>
 </databaseChangeLog>
