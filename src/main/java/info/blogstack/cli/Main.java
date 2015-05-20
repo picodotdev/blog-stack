@@ -8,17 +8,15 @@ import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
 import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
-import io.undertow.Undertow;
-import io.undertow.server.HttpHandler;
-import io.undertow.server.HttpServerExchange;
-import io.undertow.server.handlers.resource.FileResourceManager;
-import io.undertow.server.handlers.resource.ResourceHandler;
-import io.undertow.util.Headers;
-import io.undertow.util.MimeMappings;
 
 import java.io.File;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.net.InetAddress;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,16 +25,12 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.catalina.startup.Tomcat;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.Parser;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.tapestry5.ioc.Registry;
 import org.apache.tapestry5.ioc.RegistryBuilder;
 import org.apache.tapestry5.modules.TapestryModule;
@@ -49,24 +43,25 @@ import org.slf4j.LoggerFactory;
 import ro.isdc.wro.config.Context;
 import ro.isdc.wro.config.jmx.WroConfiguration;
 
+import com.google.common.io.LineReader;
+
 public class Main {
 
 	private enum Returns {
-		
-		DEFAULT(0),
-		DEPLOY(1);
-		
+
+		DEFAULT(0), DEPLOY(1);
+
 		private int value;
-		
+
 		Returns(int value) {
 			this.value = value;
 		}
-		
+
 		public int getValue() {
 			return value;
 		}
 	}
-	
+
 	private static Logger logger = LoggerFactory.getLogger(Main.class);
 
 	public static void main(String[] args) throws Exception {
@@ -77,12 +72,11 @@ public class Main {
 		Runtime.getRuntime().addShutdownHook(new Thread(new ShutdownHook(main)));
 		Returns returns = main.process(args);
 		if (returns != Returns.DEFAULT) {
-			System.exit(returns.getValue());			
+			System.exit(returns.getValue());
 		}
 	}
 
-	private Undertow server;
-	private Undertow adminServer;
+	private Tomcat server;
 
 	public Main() {
 	}
@@ -100,12 +94,12 @@ public class Main {
 		}
 
 		if (server != null) {
-			server.stop();
-			server = null;
-		}
-		if (adminServer != null) {
-			adminServer.stop();
-			adminServer = null;
+			try {
+				server.stop();			
+				server = null;
+			} catch (Exception e) {
+				logger.error(e.getMessage(), e);
+			}
 		}
 	}
 
@@ -115,7 +109,7 @@ public class Main {
 		}
 		logger.info("Starting Tapestry registry...");
 		Globals.registry = buildRegistry();
-		
+
 		MainService service = Globals.registry.getService(MainService.class);
 		service.getGenerateService().init();
 	}
@@ -132,7 +126,7 @@ public class Main {
 
 		ServletApplicationInitializer sai = registry.getService("ServletApplicationInitializer", ServletApplicationInitializer.class);
 		sai.initializeApplication(sc);
-		
+
 		return registry;
 	}
 
@@ -188,7 +182,7 @@ public class Main {
 		boolean serverOption = cmd.hasOption("s");
 		boolean stop = cmd.hasOption("ss");
 		String repository = cmd.getOptionValue("r");
-		
+
 		Globals.environment = (environment != null) ? Environment.valueOf(environment.toUpperCase()) : Environment.DEVELOPMENT;
 		logger.info("Executing in {}...", Globals.environment);
 
@@ -220,7 +214,7 @@ public class Main {
 			}
 			for (PostRecord post : posts) {
 				for (PostsLabelsRecord pl : post.fetchChildren(Keys.POSTS_LABELS_POST_ID)) {
-					labels.add(pl.fetchParent(Keys.POSTS_LABELS_LABEL_ID));					
+					labels.add(pl.fetchParent(Keys.POSTS_LABELS_LABEL_ID));
 				}
 			}
 		}
@@ -243,7 +237,7 @@ public class Main {
 			}
 
 			if (ggenerate || gpages) {
-				files.add(service.getGenerateService().generatePage("faq", new Object[0], Collections.<String,String>emptyMap()));
+				files.add(service.getGenerateService().generatePage("faq", new Object[0], Collections.<String, String> emptyMap()));
 			}
 
 			if (generate || ggenerate) {
@@ -254,7 +248,7 @@ public class Main {
 			}
 
 			if (!posts.isEmpty()) {
-				if (generate|| ggenerate || garchive) {
+				if (generate || ggenerate || garchive) {
 					logger.info("Generating archive...");
 					files.addAll(service.getGenerateService().generateArchive(posts));
 				}
@@ -290,40 +284,40 @@ public class Main {
 
 			if (ggenerate || !posts.isEmpty()) {
 				logger.info("Generating last updated...");
-				files.add(service.getGenerateService().generateLastUpdated());				
+				files.add(service.getGenerateService().generateLastUpdated());
 			}
 		}
-		
+
 		if (!files.isEmpty()) {
 			logger.info(String.format("Generated %d files", files.size()));
 		}
-		
+
 		if (share) {
 			initRegistry();
-			
+
 			logger.info("Sharing in twitter...");
 			MainService service = Globals.registry.getService(MainService.class);
-			
+
 			Collection<PostRecord> sp = service.getPostDAO().findAllByShared(false);
 			service.getShareService().shareTwitter(sp);
 		}
-		
+
 		if (newsletter) {
 			initRegistry();
-			
+
 			logger.info("Sharing in newsletter...");
 			MainService service = Globals.registry.getService(MainService.class);
 
 			Collection<PostRecord> sp = service.getPostDAO().findNewsletter();
 			service.getShareService().shareNewsletter(sp);
 		}
-		
+
 		Returns ret = Returns.DEFAULT;
 		if (!posts.isEmpty() || !files.isEmpty()) {
 			ret = Returns.DEPLOY;
 		}
 
-		if (preview) {
+		if (preview || serverOption) {
 			if (isStarted()) {
 				logger.info("Server already started");
 				return ret;
@@ -333,53 +327,21 @@ public class Main {
 
 			String host = getHost();
 			int port = getPort();
-			int amdinPort = getAdminPort();
-
+			int adminPort = getAdminPort();
+			
+			Tomcat tomcat = new Tomcat();
+			tomcat.getConnector().setAttribute("address", host);
+			tomcat.getConnector().setPort(port);
+			tomcat.getServer().setAddress(host);
+			tomcat.getServer().setPort(adminPort);
+			
 			File r = (repository == null) ? Globals.PUBLIC : new File(repository);
-
-			ResourceHandler handler = new ResourceHandler(new FileResourceManager(r, 1024 * 10));
-			HttpHandler adminHandler = new HttpHandler() {
-				@Override
-				public void handleRequest(final HttpServerExchange exchange) throws Exception {
-					exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
-					exchange.getResponseSender().send("Stoping server...");
-					System.exit(0);
-				}
-			};
-
-			MimeMappings.Builder builder = MimeMappings.builder(true);
-			builder.addMapping("atom.xml", "application/atom+xml");
-			handler.setMimeMappings(builder.build());
-			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
-			adminServer = Undertow.builder().addHttpListener(amdinPort, host).setHandler(adminHandler).build();
-
-			server.start();
-			adminServer.start();
-
-			logger.info(String.format("Server listening in http://%s:%d/", host, port));
-		}
-
-		if (serverOption) {
-			logger.info("Stating server...");
-
-			String host = getHost();
-			int port = getPort();
-			//int amdinPort = getAdminPort();
-
-			HttpHandler handler = new HttpHandler() {
-				@Override
-				public void handleRequest(final HttpServerExchange exchange) throws Exception {
-					exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
-					exchange.getResponseSender().send("Server running");
-					System.exit(0);
-				}
-			};
-
-			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
-
-			server.start();
-
-			logger.info(String.format("Server listening in http://%s:%d/", host, port));
+			tomcat.addWebapp("", r.getAbsolutePath());			
+			
+			tomcat.start();			
+			logger.info(String.format("Server listening in http://%s:%d/", tomcat.getConnector().getAttribute("address"), tomcat.getConnector().getPort()));
+			tomcat.getServer().await();
+			System.exit(0);
 		}
 
 		if (stop) {
@@ -393,14 +355,14 @@ public class Main {
 			String host = getHost();
 			int adminPort = getAdminPort();
 
-			HttpClient cliente = HttpClients.createDefault();
-			HttpGet get = new HttpGet(String.format("http://%s:%d/", host, adminPort));
-			HttpResponse response1 = cliente.execute(get);
-
-			String response = IOUtils.toString(response1.getEntity().getContent());
-			logger.info(String.format("Response: %s", response));
+			Socket socket = new Socket(host, adminPort);
+			Reader r = new InputStreamReader(socket.getInputStream());
+			LineReader lr = new LineReader(r);
+			Writer w = new OutputStreamWriter(socket.getOutputStream());
+			w.write("SHUTDOWN");
+			w.close();
 		}
-		
+
 		return ret;
 	}
 

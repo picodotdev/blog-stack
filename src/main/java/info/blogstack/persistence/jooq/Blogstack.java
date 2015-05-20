@@ -16,7 +16,7 @@ package info.blogstack.persistence.jooq;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blogstack extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = -1535650910;
+	private static final long serialVersionUID = 1379554727;
 
 	/**
 	 * The reference instance of <code>BLOGSTACK</code>
@@ -43,10 +43,10 @@ public class Blogstack extends org.jooq.impl.SchemaImpl {
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_39562988_6D23_4305_B39C_27DBA18DB8DE,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_8CD3AFD5_2A41_4A0E_8369_E4F6CCA4D07D,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_9C8E7D15_5525_4D62_8CAD_84D8646A6A56,
+			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_A7C74032_E4F0_43CD_99DB_E135DA5DAFA1,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_A8FC292C_948E_4DBF_B050_6B6905BDA5E8,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_AAC90520_24FC_45CF_B7F2_BBA672F82CC1,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2,
-			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1,
 			info.blogstack.persistence.jooq.Sequences.SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083);
 	}
 

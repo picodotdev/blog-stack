@@ -37,6 +37,11 @@ public class Sequences {
 	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_9C8E7D15_5525_4D62_8CAD_84D8646A6A56 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_9C8E7D15_5525_4D62_8CAD_84D8646A6A56", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
 
 	/**
+	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_A7C74032_E4F0_43CD_99DB_E135DA5DAFA1</code>
+	 */
+	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_A7C74032_E4F0_43CD_99DB_E135DA5DAFA1 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_A7C74032_E4F0_43CD_99DB_E135DA5DAFA1", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
+
+	/**
 	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_A8FC292C_948E_4DBF_B050_6B6905BDA5E8</code>
 	 */
 	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_A8FC292C_948E_4DBF_B050_6B6905BDA5E8 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_A8FC292C_948E_4DBF_B050_6B6905BDA5E8", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
@@ -50,11 +55,6 @@ public class Sequences {
 	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2</code>
 	 */
 	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_C958AC1C_6F7A_4310_8564_E5406FB1FFD2", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
-
-	/**
-	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1</code>
-	 */
-	public static final org.jooq.Sequence<java.lang.Long> SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1 = new org.jooq.impl.SequenceImpl<java.lang.Long>("SYSTEM_SEQUENCE_D07EBADE_1C4D_4B44_89D1_21AB885B3CD1", info.blogstack.persistence.jooq.Blogstack.BLOGSTACK, org.jooq.impl.SQLDataType.BIGINT);
 
 	/**
 	 * The sequence <code>BLOGSTACK.SYSTEM_SEQUENCE_E696ABD2_9724_469F_9EF9_59427C97B083</code>
