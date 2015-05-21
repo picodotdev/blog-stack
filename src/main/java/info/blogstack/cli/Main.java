@@ -8,15 +8,17 @@ import info.blogstack.persistence.jooq.tables.records.PostRecord;
 import info.blogstack.persistence.jooq.tables.records.PostsLabelsRecord;
 import info.blogstack.services.GenerateModule;
 import info.blogstack.services.MainService;
+import io.undertow.Undertow;
+import io.undertow.server.HttpHandler;
+import io.undertow.server.HttpServerExchange;
+import io.undertow.server.handlers.resource.FileResourceManager;
+import io.undertow.server.handlers.resource.ResourceHandler;
+import io.undertow.util.Headers;
+import io.undertow.util.MimeMappings;
 
 import java.io.File;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
 import java.net.InetAddress;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,12 +27,16 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import org.apache.catalina.startup.Tomcat;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.Parser;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.tapestry5.ioc.Registry;
 import org.apache.tapestry5.ioc.RegistryBuilder;
 import org.apache.tapestry5.modules.TapestryModule;
@@ -42,8 +48,6 @@ import org.slf4j.LoggerFactory;
 
 import ro.isdc.wro.config.Context;
 import ro.isdc.wro.config.jmx.WroConfiguration;
-
-import com.google.common.io.LineReader;
 
 public class Main {
 
@@ -76,7 +80,9 @@ public class Main {
 		}
 	}
 
-	private Tomcat server;
+//	private Tomcat server;
+	private Undertow server;
+	private Undertow shutdownServer;
 
 	public Main() {
 	}
@@ -95,8 +101,10 @@ public class Main {
 
 		if (server != null) {
 			try {
-				server.stop();			
+				server.stop();
+				shutdownServer.stop();
 				server = null;
+				shutdownServer = null;
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}
@@ -328,20 +336,43 @@ public class Main {
 			String host = getHost();
 			int port = getPort();
 			int adminPort = getAdminPort();
+			File resources = (repository == null) ? Globals.PUBLIC : new File(repository);
+
+			// Tomcat
+//			Tomcat tomcat = new Tomcat();
+//			tomcat.getConnector().setAttribute("address", host);
+//			tomcat.getConnector().setPort(port);
+//			tomcat.getServer().setAddress(host);
+//			tomcat.getServer().setPort(adminPort);
+//			
+//			tomcat.addWebapp("", resources.getAbsolutePath());			
+//			
+//			tomcat.start();			
+//			logger.info(String.format("Server listening in http://%s:%d/", tomcat.getConnector().getAttribute("address"), tomcat.getConnector().getPort()));
+//			tomcat.getServer().await();
+//			System.exit(0);
 			
-			Tomcat tomcat = new Tomcat();
-			tomcat.getConnector().setAttribute("address", host);
-			tomcat.getConnector().setPort(port);
-			tomcat.getServer().setAddress(host);
-			tomcat.getServer().setPort(adminPort);
+			// Undertow
+			ResourceHandler handler = new ResourceHandler(new FileResourceManager(resources, 1024 * 10));
+			HttpHandler shutdownHandler = new HttpHandler() {
+				@Override
+				public void handleRequest(final HttpServerExchange exchange) throws Exception {
+					exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
+					exchange.getResponseSender().send("Stoping server...");
+					System.exit(0);
+				}
+			};
 			
-			File r = (repository == null) ? Globals.PUBLIC : new File(repository);
-			tomcat.addWebapp("", r.getAbsolutePath());			
-			
-			tomcat.start();			
-			logger.info(String.format("Server listening in http://%s:%d/", tomcat.getConnector().getAttribute("address"), tomcat.getConnector().getPort()));
-			tomcat.getServer().await();
-			System.exit(0);
+			MimeMappings.Builder builder = MimeMappings.builder(true);
+			builder.addMapping("atom.xml", "application/atom+xml");
+			handler.setMimeMappings(builder.build());
+			server = Undertow.builder().addHttpListener(port, host).setHandler(handler).build();
+			shutdownServer = Undertow.builder().addHttpListener(adminPort, host).setHandler(shutdownHandler).build();
+						
+			server.start();
+			logger.info(String.format("Server listening in http://%s:%d/", host, port));
+			shutdownServer.start();
+			logger.info(String.format("Shutdown server listening in http://%s:%d/", host, adminPort));
 		}
 
 		if (stop) {
@@ -354,13 +385,23 @@ public class Main {
 
 			String host = getHost();
 			int adminPort = getAdminPort();
+			
+			// Tomcat
+//			Socket socket = new Socket(host, adminPort);
+//			Reader r = new InputStreamReader(socket.getInputStream());
+//			LineReader lr = new LineReader(r);
+//			Writer w = new OutputStreamWriter(socket.getOutputStream());
+//			w.write("SHUTDOWN");
+//			w.close();
 
-			Socket socket = new Socket(host, adminPort);
-			Reader r = new InputStreamReader(socket.getInputStream());
-			LineReader lr = new LineReader(r);
-			Writer w = new OutputStreamWriter(socket.getOutputStream());
-			w.write("SHUTDOWN");
-			w.close();
+			// Undertow
+			HttpClient cliente = HttpClients.createDefault();
+			HttpGet get = new HttpGet(String.format("http://%s:%d/", host, adminPort));
+			HttpResponse response1 = cliente.execute(get);
+			
+			String response = IOUtils.toString(response1.getEntity().getContent());
+			logger.info(String.format("Response: %s", response));
+
 		}
 
 		return ret;
