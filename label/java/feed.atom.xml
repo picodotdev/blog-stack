@@ -3,10 +3,45 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-07-10T12:02:04Z</updated>
+  <updated>2015-07-15T15:02:12Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-07-10T12:02:04Z</dc:date>
+  <dc:date>2015-07-15T15:02:12Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Java 8 default methods y extensibilidad</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/07/java-8-default-methods-y-extensibilidad" />
+    <category term="java-core" />
+    <category term="java-basico" />
+    <category term="java-conceptos" />
+    <category term="java" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-07-15T14:26:47Z</updated>
+    <published>2015-07-15T14:26:47Z</published>
+    <content type="html">&lt;p&gt;Java 8 Default methods es una de las nuevas características de Java que nos permite definir métodos y que estos pertenezcan a las clases que queramos. El concepto se parece mucho al concepto de mixins de otros lenguajes de programación.   Java 8 default methods Vamos a construir un ejemplo que se encargue de diseñar un método que nos imprima las diferentes propiedades que una clase tiene. Este método se podrá  aplicar a cualquier clase. Para diseñar un default method necesitamos crear una interface. 
+
+package com.arquitecturajava;
+
+import java.lang.reflect.Field;
+
+public interface InformacionObjeto {
+
+default public void imprimirPropiedadesObjeto() {
+
+Field[] campos =this.getClass().getDeclaredFields();
+for(int i=0;i&lt;campos.length;i++) {
+
+System.out.println(campos[i].getName());
+}
+
+}
+}
+
+ Esta[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/07/java-8-default-methods-y-extensibilidad"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-07-15T14:26:47Z</dc:date>
+  </entry>
   <entry>
     <title>Java vs JavaScript</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/07/java-vs-javascript" />
@@ -113,22 +148,6 @@
     <content type="html">&lt;p&gt;Un proyecto grande contendrá muchos archivos de código fuente, poseer gran cantidad de archivos puede ser una molestia al trabajar con ellos al tener que buscarlos o abrilos. En el caso de las aplicaciones web puede darse el caso de que un mismo dato tenga un archivo diferente por cada forma de visualizarlo, para reducir el número de archivos en estos casos uso el siguiente patrón cuando trabajo con Apache Tapestry con el soporte que ofrece pero que puede ser igualmente aplicado de forma similar a otros frameworks. Al desarrollar una aplicación web puede que necesitemos mostrar un mismo dato de diferentes formas. Una posibilidad es crear una vista por cada forma diferente que se haya de mostrar el dato. Sin embargo, de esta forma tendremos que crear un archivo diferente por cada forma a visualizar,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/06/patron-multiples-vistas-de-un-mismo-dato-en-tapestry"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-06-06T08:30:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Alternativa a Hibernate u ORM y ejemplo de jOOQ</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/05/alternativa-a-hibernate-u-orm-y-ejemplo-de-jooq" />
-    <category term="blog-stack" />
-    <category term="programacion" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-05-29T18:00:00Z</updated>
-    <published>2015-05-29T18:00:00Z</published>
-    <content type="html">&lt;p&gt;Los ORMs nos han facilitado el acceso a los datos de una base de datos relacional. Han solucionado algunos problemas y facilitado el acceso a los datos pero traído consigo otros nuevos como el problema N+1 o la perdida de control del modelo relacional. jOOQ forma parte de una nueva generación de herramientas que puede sustituir a otras como Hibernate. Y después de haberlo usado puede ser cierto. Con el auge de los lenguajes de programación orientados a objetos han surgido varias herramientas que intentan hacer que el trabajo de unir el mundo orientado a objetos del lenguaje que empleemos y el modelo relacional de las bases de datos sea más transparente, estas herramientas son conocidas como Object Realtiomal Mapping (ORM). Una de las más conocidas y usada en la plataforma Java es Hibernate.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/05/alternativa-a-hibernate-u-orm-y-ejemplo-de-jooq"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-05-29T18:00:00Z</dc:date>
   </entry>
 </feed>
 
