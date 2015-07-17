@@ -3,10 +3,71 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-05-06T09:02:22Z</updated>
+  <updated>2015-07-17T14:02:12Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-05-06T09:02:22Z</dc:date>
+  <dc:date>2015-07-17T14:02:12Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Utilizando Spring MVC Bean Validation</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/07/utilizando-spring-mvc-bean-validation" />
+    <category term="spring-conceptos" />
+    <category term="spring-mvc" />
+    <category term="spring-buenas-practicas" />
+    <category term="spring" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-07-17T13:43:20Z</updated>
+    <published>2015-07-17T13:43:20Z</published>
+    <content type="html">&lt;p&gt;Spring MVC Bean Validation es una de las características más utilizadas de Spring MVC y nos permite apoyarnos en  la JSR 303 (Bean Validation ) para validar la información de los objetos que estemos introduciendo con un  formulario. Para ello deberemos incluir en el proyecto de Maven las dependencias de Spring MVC así como las de Hibernate Validator que implementa la especificación JSR 303. 
+
+&lt;dependencies&gt;
+
+&lt;dependency&gt;
+ &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+ &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+ &lt;version&gt;4.1.7.RELEASE&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+ &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+ &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+ &lt;version&gt;1.2&lt;/version&gt;
+ &lt;scope&gt;provided&lt;/scope&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+ &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+ &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+ &lt;version&gt;2.5&lt;/version&gt;
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/07/utilizando-spring-mvc-bean-validation"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-07-17T13:43:20Z</dc:date>
+  </entry>
+  <entry>
+    <title>Spring MVC @ModelAttribute</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/07/spring-mvc-modelattribute" />
+    <category term="spring-conceptos" />
+    <category term="spring-mvc" />
+    <category term="spring" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-07-09T07:31:10Z</updated>
+    <published>2015-07-09T07:31:10Z</published>
+    <content type="html">&lt;p&gt;Cada día se usa más Spring MVC  como framework de capa de presentación. Con los años se ha pasado de un modelo MVC con fuerte uso de ficheros XML a un modelo en el que priman las anotaciones. Una de las anotaciones más habituales es Spring MVC @ModelAttribute que nos permite realizar un binding de los datos que tenemos en un formulario de Spring con la capa de backend. @ModelAttribute Supongamos que tenemos un Controller en Spring MVC con dos métodos que mapean URLs (formularioPersona y verPersona) 
+package com.arquitecturajava.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.arquitecturajava.negocio.Persona;
+
+@Controller
+public[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/07/spring-mvc-modelattribute"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-07-09T07:31:10Z</dc:date>
+  </entry>
   <entry>
     <title>El futuro Java EE 7 vs Spring Framework</title>
     <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/05/el-futuro-java-ee-7-vs-spring-framework" />
@@ -126,36 +187,6 @@ public void lanzar() {
     <content type="html">&lt;p&gt;La competencia entre los standares de Java EE y el framework Spring es cada vez más dura ya que las similitudes entre ambos son muchas. Elegir uno u otro depende de muchas cosas. En estos momentos existen muchos proyectos de Spring y algunos de ellos están valorando pasarse a Java EE en futuras evoluciones. Por ejemplo proyectos con JSF ya que la integración en Java EE es más sencilla al pertenecer al propio estandar. Si nos encontramos en situaciones como estas o similares. Podemos programar la aplicación de Spring para que use anotaciones que están dentro de los standares de de Java EE y nos facilite las migraciones. Spring @Inject Los servicios serán anotados con las siguientes anotaciones  del standard y no con las de Spring: @Named: Identifica una clase para que sea registrada y accesible[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/09/spring-inject-cdi-y-standards"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Cecilio Álvarez Caules</dc:creator>
     <dc:date>2014-09-19T13:57:42Z</dc:date>
-  </entry>
-  <entry>
-    <title>JSF, Spring MVC y Java EE 8</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8" />
-    <category term="spring" />
-    <category term="spring-mvc" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-08-26T10:25:38Z</updated>
-    <published>2014-08-26T10:25:38Z</published>
-    <content type="html">&lt;p&gt;Comparar JSF con Spring MVC es algo que ocurre muy habitualmente ya que son las dos tecnologías de capa de presentación mas utilizadas en los proyectos Java EE. La última vez que leí las estadísticas Spring MVC tenía un 40% y JSF un 22% . Con lo que mas del 60% de las aplicaciones se realizan con estos dos frameworks.   JSF Servidor y Controles JSF destaca por ser un framework orientado a controles y disponer de varias librerías de controles como RitchFaces, IceFaces y PrimeFaces cada una de las cuales aporta su enfoque particular. Eso sí todas bajo el paraguas del standard y de como este funciona.     La última evolución del standard ha aportado cosas muy interesantes como data-atributos y Stateless Views que permiten una gran integración con HTML5. Spring MVC Por el contrario Spring MVC ha[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/jsf-spring-mvc-y-java-ee-8"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-08-26T10:25:38Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Que es Spring Framework? y un poco de Javascript para GenBetaDev</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev" />
-    <category term="sin-categoria" />
-    <category term="genbetadev" />
-    <category term="spring" />
-    <category term="javascript" />
-    <author>
-      <name>Cecilio Álvarez Caules</name>
-    </author>
-    <updated>2014-08-22T14:37:12Z</updated>
-    <published>2014-08-22T14:37:12Z</published>
-    <content type="html">&lt;p&gt;He escrito la semana pasada un par de artículos como siempre para GenBetaDev. Aquí os dejo los enlaces ya que pienso que os pueden ser de interés. El primero es una breve introducción a Spring Framework que espero ayude a la gente a entender mejor como este framework funciona. El segundo artículo es un repaso al mundo de los objetos de Javascript La entrada ¿Que es Spring Framework? y un poco de Javascript para GenBetaDev aparece primero en Arquitectura Java.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2014/08/que-es-spring-framework-y-un-poco-de-javascript-para-genbetadev"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Cecilio Álvarez Caules</dc:creator>
-    <dc:date>2014-08-22T14:37:12Z</dc:date>
   </entry>
 </feed>
 
