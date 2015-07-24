@@ -3,10 +3,63 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-07-24T06:02:16Z</updated>
+  <updated>2015-07-24T09:02:16Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-07-24T06:02:16Z</dc:date>
+  <dc:date>2015-07-24T09:02:16Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Spring REST Service con @RestController</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/07/spring-rest-service-con-restcontroller" />
+    <category term="servicios-web" />
+    <category term="spring-mvc" />
+    <category term="spring" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-07-24T08:45:30Z</updated>
+    <published>2015-07-24T08:45:30Z</published>
+    <content type="html">&lt;p&gt;Crear un Spring REST Service es ahora muy sencillo a través del uso de la anotación @RestController que Spring 4 soporta. En primer lugar se configura el fichero de pom.xml de Maven con las siguientes dependencias. 
+
+&lt;dependency&gt;
+&lt;groupId&gt;org.springframework&lt;/groupId&gt;
+&lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+&lt;version&gt;4.1.7.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+&lt;artifactId&gt;jstl&lt;/artifactId&gt;
+&lt;version&gt;1.2&lt;/version&gt;
+&lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+&lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+&lt;version&gt;2.5&lt;/version&gt;
+&lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+&lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+&lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+&lt;version&gt;5.1.3.Final&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+&lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+&lt;version&gt;2.4.2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+&lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+&lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+&lt;version&gt;2.4.2&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/07/spring-rest-service-con-restcontroller"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-07-24T08:45:30Z</dc:date>
+  </entry>
   <entry>
     <title>Ubuntu: ¿actualizar o reinstalar?</title>
     <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2015/07/ubuntu-actualizar-o-reinstalar" />
@@ -106,23 +159,6 @@ return a+b;
     <content type="html">&lt;p&gt;Hoy me he topado con un proyecto muy reciente que creo nos puede ser útil en una labor de Penetration Testing. Como sabemos una de las fases que ejecutamos es la de recogida de información y unas de las herramientas que usamos en los casos de estar auditando un Dominio es el mismo buscador de Google por ejemplo, haciendo uso de los Dorks. Pues el proyecto que les menciono es una herramienta en Python que automatiza un poco este proceso y se llama Snitch. Snitch es una herramienta que automatiza el proceso de recogida de información de un dominio. Usa categorías de Dork ya integrada en la herramienta y son utilizadas para recoger información de un dominio que usualmente lo encontraríamos usando los motores de búsqueda. Para obtener la herramienta solo tenemos que clonar el repo $ git clone https://github.com/Smaash/snitch[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/07/recogida-de-informacion-con-snitch-usando-dorks"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2015-07-22T15:57:01Z</dc:date>
-  </entry>
-  <entry>
-    <title>Evadiendo Antivirus con Shellter en Kali Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/07/evadiendo-antivirus-con-shellter-en-kali-linux" />
-    <category term="evasion" />
-    <category term="metasploit" />
-    <category term="shellter" />
-    <category term="ethical-hacking" />
-    <category term="seguridad" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2015-07-22T15:51:52Z</updated>
-    <published>2015-07-22T15:51:52Z</published>
-    <content type="html">&lt;p&gt;Casi en todos los casos cuando estamos en Labores de Pentesting, uno de nuestros dolores de cabeza son esos antivirus. Nos valemos de muchas herramientas para crear los payloads ejecutables, como veil, msfvenom y otros, cruzando los dedos para que el Antivirus no nos recoja en el proceso. Aunque es posible evadirlos, siempre lleva tiempo lograrlo. Pues el día de hoy he conocido una herramienta que nos asiste con esto, y debo decir que es bastante efectiva, estoy hablando de Shellter. Shellter es una herramienta de inyección de código dinámico. Puede ser utilizado para inyectar código en aplicaciones de Windows, actualmente solo para aplicaciones de 32 bits. Este usa un acercamiento dinámico único basada en el flujo de ejecución de la aplicación que vamos a inyectar. Características Compatible[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/07/evadiendo-antivirus-con-shellter-en-kali-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2015-07-22T15:51:52Z</dc:date>
   </entry>
 </feed>
 
