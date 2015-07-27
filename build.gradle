@@ -73,10 +73,10 @@ sourceSets {
 
 dependencies {
     // Tapestry
-    compile 'org.apache.tapestry:tapestry-core:5.4-beta-30'
+    compile 'org.apache.tapestry:tapestry-core:5.4-beta-32'
     compile files('misc/libs/tapestry-offline.jar')
-    compile 'org.apache.tapestry:tapestry-webresources:5.4-beta-30'
-    appJavadoc 'org.apache.tapestry:tapestry-javadoc:5.4-beta-30'
+    compile 'org.apache.tapestry:tapestry-webresources:5.4-beta-32'
+    appJavadoc 'org.apache.tapestry:tapestry-javadoc:5.4-beta-32'
     
     // Log
     compile 'org.slf4j:slf4j-api:1.7.5'
@@ -85,7 +85,7 @@ dependencies {
 	runtime 'org.slf4j:jcl-over-slf4j:1.7.7'
     
     // Spring
-    compile ('org.apache.tapestry:tapestry-spring:5.4-beta-30') { exclude(group: 'org.springframework') }
+    compile ('org.apache.tapestry:tapestry-spring:5.4-beta-32') { exclude(group: 'org.springframework') }
 	compile 'org.springframework:spring-jdbc:4.1.6.RELEASE'
     compile 'org.springframework:spring-web:4.1.6.RELEASE'
     compile 'org.springframework:spring-tx:4.1.6.RELEASE'
@@ -173,7 +173,7 @@ distributions {
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.3'
+	gradleVersion = '2.5'
 }
 
 clean.doLast {
@@ -234,6 +234,9 @@ task deploy(dependsOn:'distZip') << {
 		}
 	}
 	logger.lifecycle('Synchronizing...')
+	exec {
+		commandLine 'ssh', OPENSHIFT_SSH, "rm ~/app-root/data/blogstack/misc/libs/*"
+	}
 	exec {
 		commandLine 'rsync', '-arzP', '-e', 'ssh', "build/distributions/${project.archivesBaseName}-${project.version}/", 
 			"${OPENSHIFT_SSH}:~/app-root/data/blogstack/"
