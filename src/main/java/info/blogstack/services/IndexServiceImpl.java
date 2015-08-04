@@ -204,6 +204,11 @@ public class IndexServiceImpl implements IndexService {
 		DateTime updateDate = (entry.getUpdatedDate() == null) ? null : new DateTime(entry.getUpdatedDate());
 		DateTime publishDate = (entry.getPublishedDate() == null) ? updateDate : new DateTime(entry.getPublishedDate());
 
+		if (updateDate == null && publishDate == null) {
+		    logger.warn("Not indexing {} post without update or publish date", entry.getTitle());
+		    return null;
+		}
+
 		if (post == null) {
 			PostRecord p = service.getContext().newRecord(POST);
 			p.setUpdatedate(updateDate);
