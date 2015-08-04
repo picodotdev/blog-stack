@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-07-31T13:02:30Z</updated>
+  <updated>2015-08-04T18:35:41Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-07-31T13:02:30Z</dc:date>
+  <dc:date>2015-08-04T18:35:41Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Implementación de máquina de estados finita (FSM) con Java 8</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/08/implementacion-de-maquina-de-estados-finita-fsm-con-java-8" />
+    <category term="programacion" />
+    <category term="blog-stack" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-08-01T10:00:00Z</updated>
+    <published>2015-08-01T10:00:00Z</published>
+    <content type="html">&lt;p&gt;Es raro pero no he encontrado una librería adecuada en Java con una implementación de una máquina de estados. Stateless4j puede ser una candidata pero también tiene algunas deficiencias que pueden hacer que no nos sirva. Basándome en Stateless4j y usando Java 8 he creado una implementación de FSM con una funcionalidad similar y más ligera donde una única instancia de la máquina de estados es independiente del número de instancias de objetos en las que se use. Hace un par de años escribía un artículo sobre cómo implementar una máquina de estados usando el patrón de diseño State. El patrón de diseño State y el ejemplo era válido sin embargo podía tener algunas deficiencias. Una de ellas es que necesitaba una clase por cada estado diferente, si los estados son una docena el número de archivos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/08/implementacion-de-maquina-de-estados-finita-fsm-con-java-8"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-08-01T10:00:00Z</dc:date>
+  </entry>
   <entry>
     <title>Web scraping con Java</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2015/07/web-scraping-con-java" />
@@ -28,7 +44,7 @@
   </entry>
   <entry>
     <title>Servicio para obtener ratios de conversión entre divisas</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/07/servicio-para-obtener-ratios-de-conversion-entre-divisas" />
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/06/servicio-para-obtener-ratios-de-conversion-entre-divisas" />
     <category term="programacion" />
     <category term="blog-stack" />
     <category term="java" />
@@ -37,10 +53,10 @@
       <name>pico.dev</name>
     </author>
     <updated>2015-07-24T21:00:00Z</updated>
-    <published>2015-07-24T21:00:00Z</published>
-    <content type="html">&lt;p&gt;¿Trabajas con importes en diferentes divisas y necesitas hacer conversiones entre ellas? Si es el caso necesitas obtener los ratios de conversión entre divisas de alguna fuente de forma regular y de forma automatizada ya que se varían constantemente (en minutos) según diversos factores. Hay diferentes fuentes para obtenerlos y empresas que ofrecen las cotizaciones como producto, en este artículo comentaré una con suficiente detalle como para integrarla en cualquier aplicación. En una aplicación de comercio electrónico que venda sus productos o servicios a nivel internacional probablemente necesitará mostrar los precios en la moneda local del comprador. En estos casos será necesario hacer una conversión entre la divisa en la que está el importe del producto y la divisa del usuario con la que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/07/servicio-para-obtener-ratios-de-conversion-entre-divisas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <published>2015-06-20T08:00:00Z</published>
+    <content type="html">&lt;p&gt;¿Trabajas con importes en diferentes divisas y necesitas hacer conversiones entre ellas? Si es el caso necesitas obtener los ratios de conversión entre divisas de alguna fuente de forma regular y de forma automatizada ya que se varían constantemente (en minutos) según diversos factores. Hay diferentes fuentes para obtenerlos y empresas que ofrecen las cotizaciones como producto, en este artículo comentaré una con suficiente detalle como para integrarla en cualquier aplicación. En una aplicación de comercio electrónico que venda sus productos o servicios a nivel internacional probablemente necesitará mostrar los precios en la moneda local del comprador. En estos casos será necesario hacer una conversión entre la divisa en la que está el importe del producto y la divisa del usuario con la que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/06/servicio-para-obtener-ratios-de-conversion-entre-divisas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-07-24T21:00:00Z</dc:date>
+    <dc:date>2015-06-20T08:00:00Z</dc:date>
   </entry>
   <entry>
     <title>Cómo trabajar con importes, ratios y divisas en Java</title>
@@ -48,16 +64,15 @@
     <category term="programacion" />
     <category term="blog-stack" />
     <category term="java" />
-    <category term="blog" />
     <category term="planeta-codigo" />
     <author>
       <name>pico.dev</name>
     </author>
     <updated>2015-07-21T18:30:00Z</updated>
-    <published>2015-07-21T18:30:00Z</published>
+    <published>2015-07-21T18:00:00Z</published>
     <content type="html">&lt;p&gt;Aún en Java 8 no tenemos una API incluida en el JDK dedicada al manejo de importes, divisas y conversiones. Si la especificación JSR-354 se incluye en alguna versión podremos hacer uso de ella sin necesidad de ninguna dependencia adicional, pero si tenemos necesidad ahora podemos usar la librería que ha producido la especificación. Usando las clases y métodos de la API evitaremos hacer y mantener una implementación nosotros mismos que además seguro no llega al nivel de esta. Las aplicaciones de comercio electrónico o que realizan operaciones financieras con importes seguro que necesitan una forma de representar un importe junto con una divisa. También si necesitan convertir importes en diferentes divisas necesitarán obtener los ratios de conversión de alguna fuente, en el artículo Servicio[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/07/como-trabajar-con-importes-ratios-y-divisas-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-07-21T18:30:00Z</dc:date>
+    <dc:date>2015-07-21T18:00:00Z</dc:date>
   </entry>
   <entry>
     <title>Trabajar con importes, ratios y divisas en Java</title>
@@ -119,28 +134,6 @@
     <content type="html">&lt;p&gt;Antes de nada, vamos a poner antecedentes. Para los que no conozcáis a este humorista: Bueno, que este hombre tiene un estilo muy particular, es nervioso y dice las cosas como le vienen y personalmente me río mucho con él, por lo que ya podéis estar siguiéndole en Twitter. En programación, es una cosa que suelo hablar con amigos y colegas de trabajo y es un concepto que se puede aplicar a muchas áreas de conocimiento. Nota: Antes de nada tengo que decir que todos los programadores llevamos un Monaguillo en nuestro interior, y todos alguna vez hemos seguido esta técnica de programación, no es muy recomendable si estás desarrollando un sistema de seguridad de un avión o un aparato médico, pero vamos, que todos nos hemos dejado llevar alguna vez. Los niveles del programador Monaguillo Como en[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/07/programacion-a-lo-monaguillo-y-todos-lo-hemos-hecho"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-07-13T08:02:16Z</dc:date>
-  </entry>
-  <entry>
-    <title>Estadística simple con Spark</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2015/07/estadistica-simple-con-spark" />
-    <category term="programacion" />
-    <category term="spark" />
-    <category term="apache-spark" />
-    <category term="csv" />
-    <category term="open-data" />
-    <category term="big-data" />
-    <category term="scala" />
-    <category term="padron" />
-    <category term="estadistica" />
-    <category term="stats" />
-    <author>
-      <name>admin</name>
-    </author>
-    <updated>2015-07-11T17:33:01Z</updated>
-    <published>2015-07-11T17:14:33Z</published>
-    <content type="html">&lt;p&gt;Hace unos 20 días lei un articulo titulado “Simple Data Analysis Using Spark” (no publico el enlace ya que el mismo desapareció de dzone de la zona de Big Data y el mismo blog ya no existe, corroborarlo buscando por Internet), lo interesante de este articulo es que el autor hacía cálculos de estadística simple, es decir, calculaba, media, máximo y mínimo, y fue casualidad que justo en ese momento acaba de leer acerca de las operaciones numéricas de los RDD, es esta la razón que me movió a querer hacer un ejercicio similar, con estadística simple pero quería hacerlo con una información que yo considerara valiosa. Fue entonces que me decidí a buscar alguna fuente de open data española, ya que quería arrojar u obtener datos reales, o no se quizás quería sencillamente obtener algo significativo[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2015/07/estadistica-simple-con-spark"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>admin</dc:creator>
-    <dc:date>2015-07-11T17:14:33Z</dc:date>
   </entry>
 </feed>
 
