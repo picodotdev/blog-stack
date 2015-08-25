@@ -21,4 +21,4 @@ fi
 cd ..
 
 sleep 10s
-./main.sh -e production -share -newsletter >> misc/logs/server.log 2>&1
+./main.sh -e production -share >> misc/logs/server.log 2>&1
