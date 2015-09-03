@@ -3,10 +3,51 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-07-14T08:02:12Z</updated>
+  <updated>2015-09-03T23:02:18Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-07-14T08:02:12Z</dc:date>
+  <dc:date>2015-09-03T23:02:18Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Novedades de C# 6: Interpolated String</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2015/09/novedades-de-c-6-interpolated-string" />
+    <category term="c-6" />
+    <category term="c" />
+    <author>
+      <name>leonardo</name>
+    </author>
+    <updated>2015-09-03T23:11:00Z</updated>
+    <published>2015-09-03T23:11:00Z</published>
+    <content type="html">&lt;p&gt;Vamos con otra de las novedades de C# 6, en este caso aquellos que hayan usado Ruby lo conocen bien, básicamente es la posibilidad de declarar un string y que el compilador detecte (por contexto) las variables y sus propiedades para reemplazar dentro del string, por ejemplo. Cómo se hacía antes? Antes hacíamos esto: var leonardo = new Usuario { Apellido = "Micheloni", Nombre = "Leonardo", ID = 123 };
+
+Console.WriteLine("Hola mi nombre es {0}, {1}, y mi ID es {2}", leonardo.Nombre, leonardo.Apellido, leonardo.ID); Básicamente queremos mostrar el contenido de la variable “leonardo” y usarmos el clásico string.format, bien, eso tiene varios problemas: Es engorroso Es propenso a errroes No es claro Etc. Con String Interpolation podemos hacer esto: var leonardo = new Usuario { Apellido = "Micheloni",[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2015/09/novedades-de-c-6-interpolated-string"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>leonardo</dc:creator>
+    <dc:date>2015-09-03T23:11:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Novedades de C#6: inicializar propiedaes</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/unasinfoniadecsharp/2015/08/novedades-de-c-6-inicializar-propiedaes" />
+    <category term="c-6" />
+    <category term="c" />
+    <author>
+      <name>leonardo</name>
+    </author>
+    <updated>2015-08-29T03:22:00Z</updated>
+    <published>2015-08-29T03:22:00Z</published>
+    <content type="html">&lt;p&gt;Esta versión de C# tiene muchas nuevas características muy interesantes, acá va la primera. Ejemplo Ahora podemos asignar un valor a una propiedad sin necesidad de declarar el backing field, o sea, en lugar de hacer esto: private string name = "pedro";
+public string Name
+{
+    get
+    {
+        return name;
+    }
+    set
+    {
+        name = value;
+    }
+} Ahora podemos hacer esto public string Name { get; set; } = "pedro"; Nos leemos.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/unasinfoniadecsharp/2015/08/novedades-de-c-6-inicializar-propiedaes"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>leonardo</dc:creator>
+    <dc:date>2015-08-29T03:22:00Z</dc:date>
+  </entry>
   <entry>
     <title>¿Cómo se llama el operador “--&gt;”?</title>
     <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/07/como-se-llama-el-operador" />
@@ -112,37 +153,6 @@
     <content type="html">&lt;p&gt;Foto: Eirik Stavelin (Flickr CC-by) A menudo, nuestros programas necesitan almacenar información (temporal o no) de forma ordenada, rápida y que no nos complique la vida. Luego también necesitamos poder acceder a ella con la misma facilidad. Para eso vale SQLite. Tendremos un pequeño motor de base de datos que con sólo un par de archivos (.h y .c) más un archivo de datos lo tendremos todo listo. Una pequeña introducción SQLite nos proporciona una forma muy sencilla de introducir y eliminar información (si estamos familiarizados con el lenguaje SQL) sin las complicaciones de tener un motor de base de datos corriendo (MySQL, MariaDB, PostreSQL, MSSQL…). Por un lado, al no realizar conexiones, todo debería ir mucho más rápido, en bases de datos relativamente pequeñas se nota. Además, no podremos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/usando-sqlite-en-nuestros-programas-en-c-c-i"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-03-23T09:49:31Z</dc:date>
-  </entry>
-  <entry>
-    <title>Machine Learning con Princesas Disney</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2015/03/machine-learning-con-princesas-disney" />
-    <category term="numl" />
-    <category term="development" />
-    <category term="c" />
-    <category term="machine-learning" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2015-03-23T05:06:14Z</updated>
-    <published>2015-03-23T05:06:14Z</published>
-    <content type="html">&lt;p&gt;A menos que hayas estado viviendo en una cueva desconectado del mundo durante los últimos años, seguro que estás al tanto de uno de los fenómenos que ha resurgido con fuerza: las Princesas Disney. Aunque algunas llevan desde los años cuarenta del siglo pasado entre nosotros y el concepto de unir a todas las protagonistas femeninas de películas Disney data de los 90, desde finales de los 2000 han recuperado su tirón en determinados sectores de la población. Al igual que las Princesas Disney, en los últimos tiempos el machine learning (aprendizaje automático) ha vuelto a ser una disciplina en auge. No se trata de algo nuevo, las ideas en las que se basa y muchos de los algoritmos que utiliza son de hace varias décadas, pero la potencia de cálculo disponible actualmente (bendita nube) y el volumen[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/03/machine-learning-con-princesas-disney"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2015-03-23T05:06:14Z</dc:date>
-  </entry>
-  <entry>
-    <title>Interfaces marcadoras, atributos y convenciones</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2015/03/interfaces-marcadoras-atributos-y-convenciones" />
-    <category term="development" />
-    <category term="c" />
-    <category term="design-patterns" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2015-03-09T05:06:17Z</updated>
-    <published>2015-03-09T05:06:17Z</published>
-    <content type="html">&lt;p&gt;Hay ocasiones en que necesitamos añadir algún tipo de metainformación a nuestro código. Se trata de información sobre el código, no tanto sobre lo que hace sino sobre el propio artefacto (clase, método o propiedad), que es necesaria para poder realizar determinadas tareas. Podemos encontrar ejemplos típicos de esto en aplicaciones MVC, donde de alguna forma necesitamos poder identificar qué clases son controladores, en librerías de serialización para indicar qué propiedades queremos serializar (y cómo), en ORMs para detectar entidades, etc. Siempre se puede añadir esta metainformación de forma externa, por ejemplo podemos almacenarla en otra clase diferente como si fuese un registro en el que guardamos cada clase con su metainformación, pero lo muchas veces es interesante mantener esa información[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/03/interfaces-marcadoras-atributos-y-convenciones"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2015-03-09T05:06:17Z</dc:date>
   </entry>
 </feed>
 
