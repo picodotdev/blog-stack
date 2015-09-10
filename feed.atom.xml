@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-09-10T05:02:21Z</updated>
+  <updated>2015-09-10T09:02:17Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-09-10T05:02:21Z</dc:date>
+  <dc:date>2015-09-10T09:02:17Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Vídeo de FET, el generador de horarios libre</title>
@@ -21,6 +21,48 @@
     <content type="html">&lt;p&gt;Una de las tareas más odiosas y delicadas para cualquier colegio, instituto, universidad o institución académica es la generación de horarios. Se trata de una tarea ingrata y laboriosa, que consume ingentes cantidades de tiempo. Encontrar un programa libre que me facilitara su realización para mi colegio fue uno de los grandes regalos que me ofreció el Software Libre. Hoy os presento un vídeo de FET, el generador de horarios libre. Vídeo de FET, el generador de horarios libre Hoy os traigo un vídeo que nos enseña los conceptos básicos para generar horarios con FET, un programa libre que te permite organizar de una forma eficiente un centro educativo. Lo ha realizado Mario Alberto Muñoz Zepeda y espero que os sea de utilidad.     FET, el generador de horarios libre FET es una aplicación Software[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/09/video-de-fet-el-generador-de-horarios-libre"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2015-09-10T04:27:14Z</dc:date>
+  </entry>
+  <entry>
+    <title>Java 8 Stream y workflows</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/09/java-8-stream-y-workflows" />
+    <category term="java-8" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-09-09T15:04:29Z</updated>
+    <published>2015-09-09T15:04:29Z</published>
+    <content type="html">&lt;p&gt;En muchas ocasiones me realizan preguntas sobre Java 8 Stream ya que a veces es difícil entender como funcionan y que relación tienen con la gestión de listas habituales. Vamos a partir de un ejemplo para explicar cual es su funcionamiento. 
+
+package com.arquitecturajava;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+
+ public static void main(String[] args) {
+ 
+ 
+ Factura f= new Factura("ordenador",1000);
+ Factura f2= new Factura("movil",300);
+ Factura f3= new Factura("impresora",200);
+ Factura f4= new Factura("imac",1500);
+ 
+ List&lt;Factura&gt; lista= new ArrayList&lt;Factura&gt;();
+ 
+ lista.add(f);
+ lista.add(f2);
+ lista.add(f3);
+ lista.add(f4);
+ 
+ Factura facturaFiltro=
+ lista.stream()
+ .filter(elemento-&gt;elemento.getImporte()&gt;300).findFirst().get();
+
+ System.out.println(facturaFiltro.getImporte());
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/09/java-8-stream-y-workflows"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-09-09T15:04:29Z</dc:date>
   </entry>
   <entry>
     <title>Lanzado Plasma 5.4.1</title>
@@ -97,22 +139,6 @@
     <content type="html">&lt;p&gt;Si hay un software de la Comunidad KDE que podría pasar perfectamente por uno profesional es digiKam, un  gestor de fotografías como digiKam es el mejor ejemplo del extraordinario tipo de aplicaciones que se pueden llegar a crear utilizando la filosofía de Software Libre.  Así que no es de extrañar que la Comunidad KDE se complazca en anunciar con orgullo que ha sido Lanzado digiKam Software Collection 4.11, una versión cuyas mejoras se centran para los equipos Mac. digiKam Software Collection 4.13 El equipo de desarrolladores de digiKam Software Collection se complace en anunciar el lanzamiento de la versión 4.11 una versión que incluye  pocas novedades ya que el grueso de las mismas se produjo en la versión 4.0 de la misma, y porque los desarrolladores han puesto su punto de mira en la migración[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/09/digikam-software-collection-4-13-listo-para-su-descarga"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2015-09-08T15:55:36Z</dc:date>
-  </entry>
-  <entry>
-    <title>Gcat – un backdoor que usa Gmail como servidor C&amp;C</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/09/gcat-un-backdoor-que-usa-gmail-como-servidor-c-c" />
-    <category term="gcat" />
-    <category term="backdoor" />
-    <category term="ethical-hacking" />
-    <category term="seguridad" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2015-09-08T14:30:37Z</updated>
-    <published>2015-09-08T14:30:37Z</published>
-    <content type="html">&lt;p&gt;Hoy he visto un backdoor bastante interesante que usa Gmail como servidor de Control y Comandos, que aunque no lo pude probar inmediatamente ya que no contaba con una máquina con Windows a la mano, quiero hablar sobre el para que lo prueben. De todas maneras en la tarde de hoy voy a hacer mis respectivas pruebas y a actualizar el post. Según lo investigado el Backdoor es funcional aunque se encuentra en sus inicios y le hace falta muchas características pero ya puede ser usado para algunas tareas, este backdoor se llama Gcat. Para que funcione requiere de: Una Cuenta de Gmail, preferiblemente solo para esto y no personal Que enciendan la Opción “Allow less Secure Apps” en las opciones de seguridad de Gmail Para hacer uso de la Herramienta solo tienen que clonar el Repo $ git clone https://github.com/byt3bl33d3r/gcat[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/09/gcat-un-backdoor-que-usa-gmail-como-servidor-c-c"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2015-09-08T14:30:37Z</dc:date>
   </entry>
 </feed>
 
