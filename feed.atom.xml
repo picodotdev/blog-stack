@@ -3,10 +3,62 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-09-11T11:02:16Z</updated>
+  <updated>2015-09-11T15:02:00Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-09-11T11:02:16Z</dc:date>
+  <dc:date>2015-09-11T15:02:00Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>JavaScript Module Pattern</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/arquitecturajava/2015/09/javascript-module-pattern" />
+    <category term="javascript" />
+    <category term="js-tips" />
+    <author>
+      <name>Cecilio Álvarez Caules</name>
+    </author>
+    <updated>2015-09-11T14:53:38Z</updated>
+    <published>2015-09-11T14:53:38Z</published>
+    <content type="html">&lt;p&gt;JavaScript Module Pattern es uno de los patrones de diseño más típicos en JavaScript y nos ayuda a organizar y aislar las distintas funciones y clases con las que trabajamos. JavaScript por defecto no soporta el concepto de Package/NameSpace.Vamos a ver como implementar en JavaScript este patrón de diseño. 
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;script type="text/javascript"&gt;
+
+(function(window){
+
+var suma = function(x, y){
+return x + y;
+}
+
+var resta = function(x, y){
+return x - y;
+}
+
+var matematicas = {
+suma: function(a, b){
+return suma(a,b);
+},
+resta: function(a, b){
+return resta(a, b);
+}
+}
+
+window.matematicas = matematicas;
+})(window);
+
+console.log(matematicas.suma(5, 5));
+console.log(matematicas.resta(5, 5));
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+ JavaScript Module Pattern y IIFE El código define dos funciones[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/arquitecturajava/2015/09/javascript-module-pattern"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Cecilio Álvarez Caules</dc:creator>
+    <dc:date>2015-09-11T14:53:38Z</dc:date>
+  </entry>
   <entry>
     <title>Fondos de escritorio 23</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeliher/2015/09/fondos-de-escritorio-23" />
@@ -123,20 +175,6 @@ public class Principal {
     <content type="html">&lt;p&gt;Ayer fue lanzado Plasma 5.4.1, la primera revisión de la rama 5.4.x del escritorio más moderno que ofrece la Comunidad KDE. Es el momento de ir puliendo y mejorando un entorno que poco a poco se va ganando hueco en los ordenadores de los usuarios. Lanzado Plasma 5.4.1 A finales de agosto fue lanzado Plasma 5.4, y apenas 15 días después ya tenemos su primera revisión. Concretamente ha sido el 8 de septiembre cuando ha sido lanzado Plasma 5.4.1, Y como siempre que la Comunidad de desarrolladores de KDE anuncia una actualización de este tipo, recomienda encarecidamente a los usuarios de esta rama que se actualicen, ya que aunque no aporta novedades sustanciales si que nos proporciona mejoras en las traducciones así como resolución de pequeños errores como: Correcciones para la compilación con[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/09/lanzado-plasma-5-4-1"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2015-09-09T04:43:04Z</dc:date>
-  </entry>
-  <entry>
-    <title>PASSFORT – Tu Vida Digital, Segura</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/09/passfort-tu-vida-digital-segura" />
-    <category term="passfort" />
-    <category term="seguridad" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2015-09-08T23:01:58Z</updated>
-    <published>2015-09-08T23:01:58Z</published>
-    <content type="html">&lt;p&gt;Quiero aprovechar la oportunidad para hablarles de un proyecto que han iniciado en República Dominicana, y que realmente es bastante Innovador. Debo decir que no es siempre que vemos este tipo de iniciativas aquí. Este proyecto es Passfort y les voy a comentar de que se trata. Passfort es un dispositivo de Seguridad, diseñado como un llavero, que almacena todas nuestras contraseñas y que podemos llevarlo siempre con nosotros. La idea detrás de esto es que podamos colocar contraseñas seguras a nuestras cuentas online, almacenarlas en el dispositivo y recordar solo una contraseña maestra. De esta manera no reutilizamos la misma contraseñas en varios servicios que realmente no es una buena práctica. Pero OK, lo almacena, y que? Tengo servicios Online que hacen lo mismo. Aquí va lo interesante.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/09/passfort-tu-vida-digital-segura"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2015-09-08T23:01:58Z</dc:date>
   </entry>
 </feed>
 
