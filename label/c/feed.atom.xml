@@ -3,10 +3,41 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-09-23T15:02:21Z</updated>
+  <updated>2015-10-26T11:02:30Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-09-23T15:02:21Z</dc:date>
+  <dc:date>2015-10-26T11:02:30Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Callbacks en C++11 nuevas posibilidades para un software más potente (I)</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/10/callbacks-en-c-11-nuevas-posibilidades-para-un-software-mas-potente-i" />
+    <category term="metodo" />
+    <category term="asignacion" />
+    <category term="flexibilidad" />
+    <category term="abstraccion" />
+    <category term="ordenacion" />
+    <category term="retrollamadas" />
+    <category term="algorithm" />
+    <category term="funciones" />
+    <category term="cosas-que-damos-por-hechas" />
+    <category term="tipo" />
+    <category term="variable" />
+    <category term="functional" />
+    <category term="c-c" />
+    <category term="function" />
+    <category term="c-11" />
+    <category term="c" />
+    <category term="callbacks" />
+    <category term="anonimas" />
+    <category term="general" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-10-26T09:56:33Z</updated>
+    <published>2015-10-26T09:56:33Z</published>
+    <content type="html">&lt;p&gt;My beautiful picture Hace tiempo, hice una serie de posts sobre callbacks: Callbacks, retrollamadas o delegados o cómo crear código más flexible en C C++ Punteros a función miembro (pointer-to-member function) o callbacks con clase Callbacks en C++ con boost Hay algunos posts más, pero se salen del tema (y seguro que salen sugeridos más abajo). El caso es que dejé un poco el tema de lado y me gustaría retomarlo con los cambios de la especificación C++11 (vale, tenemos C++14 lista, pero la versión de 2011 es una de las que más cambios introdujeron (y que también valen para C++14). Aunque se ha escrito mucho sobre el tema, pero desde aquí quiero dar a conocer mi humilde visión. Serán una serie de posts ya que es un tema muy amplio y me gusta poner gran cantidad de ejemplos. Una variable que contiene[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/10/callbacks-en-c-11-nuevas-posibilidades-para-un-software-mas-potente-i"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-10-26T09:56:33Z</dc:date>
+  </entry>
   <entry>
     <title>Programación asíncrona 3: Trabajos (BackgroundWorker)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/destinodotnet/2015/09/programacion-asincrona-3-trabajos-backgroundworker" />
@@ -109,38 +140,6 @@ public string Name
     <content type="html">&lt;p&gt;Ya jugando con Visual Studio 2015 y C# 6, estoy comprobando que la interpolación de cadenas es una de las características más interesantes y prácticas de las novedades que presentará la nueva versión del lenguaje, porque no son pocas las ocasiones en las que creamos expresiones concatenando literales de cadena y variables, o que hacemos uso de String.Format() para construir strings más complejos. Hace unos meses ya adelantamos por aquí sus principales características, aunque aún era algo pronto para poder probar en profundidad esta nueva y esperada feature. Ahora, más avanzado ya su desarrollo, ha llegado el momento de echarle otro vistazo más en profundidad y ver cómo queda finalmente (o casi finalmente, todavía podría cambiar algo!). En este post vamos a ver rápidamente los puntos principales[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/05/interpolacion-de-cadenas-en-c-6-a-fondo"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-05-05T06:50:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Usando SQLite en nuestros programas en C/C++ (II): Nueva interfaz v2 y prepared statements</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/04/usando-sqlite-en-nuestros-programas-en-c-c-ii-nueva-interfaz-v2-y-prepared-statements" />
-    <category term="argumentos" />
-    <category term="control" />
-    <category term="interfaz" />
-    <category term="sqlite" />
-    <category term="personalizacion" />
-    <category term="errores" />
-    <category term="datos" />
-    <category term="sql" />
-    <category term="funciones" />
-    <category term="vincular" />
-    <category term="informacion" />
-    <category term="base" />
-    <category term="c-c" />
-    <category term="nueva" />
-    <category term="statements" />
-    <category term="avanzada" />
-    <category term="prepared" />
-    <category term="iterar" />
-    <category term="c" />
-    <category term="programas" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-04-27T08:37:00Z</updated>
-    <published>2015-04-27T08:37:00Z</published>
-    <content type="html">&lt;p&gt;Hace unos días empezamos a programar utilizando SQLite para gestionar nuestra información usando SQL de toda la vida. Bien, SQLite tiene la interfaz clásica, que vimos en el post anterior: sqlite3_open(), sqlite3_close(), sqlite3_exec()… con utilidades básicas para trabajar. Por un lado, podemos tener más control sobre la base de datos, por ejemplo, podemos definir cómo abirmos la base de datos, tenemos códigos de error extendidos, ventajas con respecto al tratamiento interno de la memoria y algunas cosas más. La utilización es muy parecida. Prepared statements con SQLite Por otro lado, el enfoque con callbacks está muy bien, pero en ocasiones necesitamos el resultado de un sqlite3_exec() inmediatamente, justo debajo de esa línea, sin que tengamos que pasar contextos a una función y cambiar[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/usando-sqlite-en-nuestros-programas-en-c-c-ii-nueva-interfaz-v2-y-prepared-statements"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-04-27T08:37:00Z</dc:date>
   </entry>
 </feed>
 
