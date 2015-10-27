@@ -3,9 +3,9 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-10-27T18:02:44Z</updated>
+  <updated>2015-10-27T19:02:34Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-10-27T18:02:44Z</dc:date>
+  <dc:date>2015-10-27T19:02:34Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
     <title>Video podcast de Plasma Mobile</title>
@@ -22,6 +22,22 @@
     <content type="html">&lt;p&gt;Tras el largo parón estival, continuado con el primer mes de otoñal, vuelven a nosotros los vídeo podcast de la asociación sin ánimo de lucro KDE España. En esta ocasión empezamos la segunda temporada donde el primer programa será un Video podcast de Plasma Mobile, la apuesta de KDE para dispositivos móviles. ¿Te lo vas a perder?   Video podcast de Plasma Mobile El primer podcast de vídeo de la segunda temporada de KDE España se grabó hoy 26 de octubreo y el protagonista fue Plasma Mobile, un proyecto que fue presentado en Akademy-es 2015 de A Coruña y que promete a dar mucho que hablar en el futuro. Los participantes del śeptimo vídeo podcast fueron: Aleix Pol (@AleixPol), presidente de KDE España y vicepresidente de KDE e.V. Albert Astals (@tsdgeos) ex-presidente de KDE España (pero todavía[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2015/10/video-podcast-de-plasma-mobile"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2015-10-27T17:55:45Z</dc:date>
+  </entry>
+  <entry>
+    <title>Múltiples esquemas o bases de datos con jOOQ y Spring en Java</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/10/multiples-esquemas-o-bases-de-datos-con-jooq-y-spring-en-java" />
+    <category term="blog-stack" />
+    <category term="programcion" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-10-27T17:00:00Z</updated>
+    <published>2015-10-27T17:00:00Z</published>
+    <content type="html">&lt;p&gt;Aún en las aplicaciones monolíticas que comparten una única base de datos tratamos de dividirla en varios servicios que manejen cierto nicho de información con la intención de que un cambio en una parte sea transparente para las otras partes. Cada servicio de la aplicación monolítica podría potencialmente convertirse en un microservicio y en este caso para que cada micoservicio tenga un ciclo de vida independiente compartir la base de datos es algo a evitar. Incluso en las aplicaciones monolíticas podemos querer guardar cada nicho de información en su propio esquema para evitar acoplamiento entre las diferentes partes o también como forma de tener varios servidores de bases de datos y escalar la aplicación en cierta forma. En estos casos necesitaremos que la aplicación acceda a varios esquemas[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/10/multiples-esquemas-o-bases-de-datos-con-jooq-y-spring-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-10-27T17:00:00Z</dc:date>
   </entry>
   <entry>
     <title>Mobile-Security-Framework (MobSF) Framework para Mobile Pentesting</title>
@@ -104,21 +120,6 @@
     <content type="html">&lt;p&gt;Otro de los patrones de diseño que en algún momento nos puede ser útil es el patrón Observer. Podemos usar este patrón si tenemos la necesidad de realizar acciones como consecuencia del cambio de estado o cierta circunstancia de un objeto. El patrón Observer nos permite mantener desacoplados el objeto que emite el evento y el objeto que recibe el evento e independizar al objeto observable del número de observadores que tenga. En Java este patrón podemos implementarlo usando una clase, la clase Observable, y una interfaz, la interfaz Observer proporcionadas en el propio JDK. La clase que queremos que reciba los eventos deberá implementar la interfaz Observer y el objeto que queremos que produzca los eventos debe extender o contener una propiedad de tipo Observable. La interfaz Observer contiene[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/10/el-patron-de-diseno-observer-y-una-forma-de-implementarlo-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-10-24T10:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Análisis de red con Wireshark sin ser usuario ROOT.</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/10/analisis-de-red-con-wireshark-sin-ser-usuario-root" />
-    <category term="ethical-hacking" />
-    <category term="seguridad" />
-    <category term="wireshark" />
-    <author>
-      <name>Michael Cruz Sanchez</name>
-    </author>
-    <updated>2015-10-26T18:57:01Z</updated>
-    <published>2015-10-26T18:57:01Z</published>
-    <content type="html">&lt;p&gt;Muchos ingenieros de redes se consternan la primera vez que ejecutan el analizador de trafico Wireshark en GNU/Linux al ver que no tienen acceso a las interfaces de red. Esto se debe a que, por defecto, el acceso a las interfaces de red (por ejemplo, wlan0) requiere privilegios de root (administrador). Lamentablemente, esto crea una mala practica en los administradores a correr Wireshark todo el tiempo como root. Esto conlleva a serios riesgos de seguridad. De hecho, debido a la complejidad de su protocolo, Wireshark es vulnerable al tráfico mal formado “malformed traffic“(accidental o de otro tipo), lo que puede provocar condiciones de denegación de servicio o la ejecución de código arbitrario posiblemente. Pero si no deberíamos ejecutar Wireshark con privilegios de root, ¿cómo vamos a capturar[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/10/analisis-de-red-con-wireshark-sin-ser-usuario-root"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Michael Cruz Sanchez</dc:creator>
-    <dc:date>2015-10-26T18:57:01Z</dc:date>
   </entry>
 </feed>
 
