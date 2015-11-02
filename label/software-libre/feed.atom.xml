@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-11-02T10:02:14Z</updated>
+  <updated>2015-11-02T12:02:08Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-11-02T10:02:14Z</dc:date>
+  <dc:date>2015-11-02T12:02:08Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Docker – Instalando en CentOS y Ubuntu</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/11/docker-instalando-en-centos-y-ubuntu" />
+    <category term="container" />
+    <category term="tutoriales" />
+    <category term="software-libre" />
+    <category term="docker" />
+    <author>
+      <name>Jason Soto</name>
+    </author>
+    <updated>2015-11-02T12:00:54Z</updated>
+    <published>2015-11-02T12:00:54Z</published>
+    <content type="html">&lt;p&gt;En un post anterior vimos de que se trata Docker, ahora vamos a ver como podemos instalarlo en Linux CentOS 6/7 y Ubuntu. CentOS 6 Instalamos el Repo EPEL $ rpm –Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm CentOS 7 $ rpm –Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm Procedemos con la instalación de Docker CentOS 6/7 $ yum install docker-io Ubuntu 14.04/15.04 $ apt-get update $ apt-get docker.io Una vez instalamos vamos asegurarnos que el servicio de Docker suba cada vez que booteemos nuestros servers. Centos 6 $ chkconfig docker on Centos 7 $ systemctl enable docker.service Ubuntu 14.04/15.04 $ chkconfig docker.io on Iniciamos los servicios para asegurarnos que todo anda bien. CentOS 6 $ service docker start Centos 7 $ systemctl[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/11/docker-instalando-en-centos-y-ubuntu"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Jason Soto</dc:creator>
+    <dc:date>2015-11-02T12:00:54Z</dc:date>
+  </entry>
   <entry>
     <title>Docker – Fundamentos</title>
     <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/11/docker-fundamentos" />
@@ -100,23 +116,6 @@
     <content type="html">&lt;p&gt;En la entrada anterior creamos las máquinas virtuales, uno que sera nuestro nodo controlador que manejará muchos de los servicios claves de OpenStack y el nodo para el servicio Compute que alojará las intancias que se creemos.   El próximo paso, es que configuremos las interfaces, los archivos Hosts de cada nodo, Habilitemos el repo del nuevo release de OpenStack (Liberty) e instalemos algunas dependencias. Todo lo vamos a hacer con el usuario root. Nota: El hostname del Nodo controller será controller y el de Compute, compute1. En el NODO CONTROLLER $ vi /etc/network/interfaces   $ vi /etc/hosts   En el NODO COMPUTE1 $vi /etc/network/interfaces $ vi /etc/hosts Ahora que tenemos las interfaces configuradas y el archivo hosts para resolución de nombres. vamos a reiniciar los nodos para que los[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/10/openstack-configurando-los-nodos-e-instalando-dependencias"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2015-10-19T11:00:03Z</dc:date>
-  </entry>
-  <entry>
-    <title>OpenStack – Preparando Nuestro Ambiente de Pruebas</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/10/openstack-preparando-nuestro-ambiente-de-pruebas" />
-    <category term="openstack" />
-    <category term="linux" />
-    <category term="tutoriales" />
-    <category term="generales" />
-    <category term="software-libre" />
-    <author>
-      <name>Jason Soto</name>
-    </author>
-    <updated>2015-10-16T15:02:34Z</updated>
-    <published>2015-10-16T15:02:34Z</published>
-    <content type="html">&lt;p&gt;En la entrada anterior estuvimos conociendo un poco la Plataforma de OpenStack y sus diversos componentes. Hablabamos además, que aunque existen herramientas que hacen un Deployment automatizado de OpenStack, lo ideal es que aprendamos a ir configurando cada uno de los componentes y de esta manera llegamos a conocer como funcionan cada uno y como se relacionan. Ya al final vemos todas las opciones automatizada de Deployment. En esta entrada lo que vamos a hacer es configurar unas máquinas virtuales para ir armando nuestro ambiente y podamos ir configurando componente por componente. Lo interesante es que todo lo vamos a hacer por la hermosa linea de comandos y ya mas adelante veremos el dashboard. Vamos a trabajar usando VirtualBox, y las máquinas que vamos a crear va así: Nodo Controller :[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/10/openstack-preparando-nuestro-ambiente-de-pruebas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Jason Soto</dc:creator>
-    <dc:date>2015-10-16T15:02:34Z</dc:date>
   </entry>
 </feed>
 
