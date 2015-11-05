@@ -3,10 +3,47 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-07-12T00:02:06Z</updated>
+  <updated>2015-11-05T11:02:22Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-07-12T00:02:06Z</dc:date>
+  <dc:date>2015-11-05T11:02:22Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo gestionar los parámetros de nuestros programas con getopt en C</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/11/como-gestionar-los-parametros-de-nuestros-programas-con-getopt-en-c" />
+    <category term="opciones" />
+    <category term="argumentos" />
+    <category term="consola" />
+    <category term="contrasena" />
+    <category term="comportamiento" />
+    <category term="mysql" />
+    <category term="modificar" />
+    <category term="codigo" />
+    <category term="ps" />
+    <category term="parametros" />
+    <category term="mover" />
+    <category term="eliminar" />
+    <category term="cp" />
+    <category term="renombrar" />
+    <category term="c-c" />
+    <category term="rm" />
+    <category term="linux" />
+    <category term="password" />
+    <category term="fuente" />
+    <category term="algoritmo" />
+    <category term="mv" />
+    <category term="copiar" />
+    <category term="ejemplos" />
+    <category term="getopt" />
+    <category term="programa" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-11-05T09:37:40Z</updated>
+    <published>2015-11-05T09:37:40Z</published>
+    <content type="html">&lt;p&gt;Cuando hablamos de argumentos o parámetros de un programa en C, debemos pensa en los parámetros tan raros que pasamos a la función main(). En este caso, podemos ver cómo con dos argumentos (argc, o el número de argumentos que tenemos y argv o el contenido de esos argumentos, somos capaces de gestionar la información que un usuario nos pasa justo cuando ejecuta nuestro programa. Lo más sencillo que podemos hacer con los argumentos Imaginemos este ejemplo, de un programa donde queremos copiar un archivo origen a un destino (como cp), primero comprobamos que el número de argumentos es suficiente y luego imprimimos en pantalla el valor de cada uno (es un ejemplo inofensivo, no vamos a copiar nada). Tenemos que tener en cuenta que argv[0] encerrará el propio nombre del ejecutable del programa. 1[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/11/como-gestionar-los-parametros-de-nuestros-programas-con-getopt-en-c"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-11-05T09:37:40Z</dc:date>
+  </entry>
   <entry>
     <title>Tamaños maximos de lamacenamiento de TEXT, TINYTEXT, MEDIUM/LONG TEXT</title>
     <link rel="alternate" href="http://www.blogstack.info/post/elblogdeabr4xas/2015/07/tamanos-maximos-de-lamacenamiento-de-text-tinytext-medium-long-text" />
@@ -149,36 +186,6 @@ MEDIUMTEXT |    16,777,215 (224−1) bytes = 16 MiB
     <content type="html">&lt;p&gt;Es algo que me ha pasado estos días al exportar un archivo CSV de una base de datos (por ejemplo con este método). Era un CSV de unas 3000 filas y algunas de ellas tenían textos entre comillas en una de sus columnas. El problema es que al abrirlo con LibreOffice Calc (tengo entendido que con WPS Office también pasaba), aquellas columnas que tenían textos entre comillas no salían bien y terminaban cortándose y dividiéndose. Esto es porque, mi CSV tenía las comillas escapadas (como este carácter es el delimitador, se introduce \” (barra comillas) para diferenciarlo), pero, para este tipo de programas, los CSV no tienen carácter de escapado (\). En estos programas tenemos que utilizar dobles comillas (“”) para que se interprete que es un texto entre comillas dentro de un campo. Como el CSV era[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/algunas-hojas-de-calculo-recortan-los-csv-en-las-comillas-minipost"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-03-25T09:20:58Z</dc:date>
-  </entry>
-  <entry>
-    <title>Usando SQLite en nuestros programas en C/C++ (I)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/usando-sqlite-en-nuestros-programas-en-c-c-i" />
-    <category term="biblioteca" />
-    <category term="sqlite" />
-    <category term="mysql" />
-    <category term="datos" />
-    <category term="libreria" />
-    <category term="motor" />
-    <category term="lectura" />
-    <category term="postgresql" />
-    <category term="informacion" />
-    <category term="base" />
-    <category term="gestion" />
-    <category term="usuario" />
-    <category term="diminuta" />
-    <category term="introduccion" />
-    <category term="multithread" />
-    <category term="c" />
-    <category term="general" />
-    <category term="programa" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-03-23T09:49:31Z</updated>
-    <published>2015-03-23T09:49:31Z</published>
-    <content type="html">&lt;p&gt;Foto: Eirik Stavelin (Flickr CC-by) A menudo, nuestros programas necesitan almacenar información (temporal o no) de forma ordenada, rápida y que no nos complique la vida. Luego también necesitamos poder acceder a ella con la misma facilidad. Para eso vale SQLite. Tendremos un pequeño motor de base de datos que con sólo un par de archivos (.h y .c) más un archivo de datos lo tendremos todo listo. Una pequeña introducción SQLite nos proporciona una forma muy sencilla de introducir y eliminar información (si estamos familiarizados con el lenguaje SQL) sin las complicaciones de tener un motor de base de datos corriendo (MySQL, MariaDB, PostreSQL, MSSQL…). Por un lado, al no realizar conexiones, todo debería ir mucho más rápido, en bases de datos relativamente pequeñas se nota. Además, no podremos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/usando-sqlite-en-nuestros-programas-en-c-c-i"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-03-23T09:49:31Z</dc:date>
   </entry>
 </feed>
 
