@@ -3,10 +3,26 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-11-14T14:02:41Z</updated>
+  <updated>2015-11-17T18:02:26Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-11-14T14:02:41Z</dc:date>
+  <dc:date>2015-11-17T18:02:26Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Validar objetos con Spring Validation, ejemplo registros de jOOQ</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/11/validar-objetos-con-spring-validation-ejemplo-registros-de-jooq" />
+    <category term="programacion" />
+    <category term="blog-stack" />
+    <category term="java" />
+    <category term="planeta-codigo" />
+    <author>
+      <name>pico.dev</name>
+    </author>
+    <updated>2015-11-17T17:00:00Z</updated>
+    <published>2015-11-17T17:00:00Z</published>
+    <content type="html">&lt;p&gt;jOOQ es una alternativa a Hibernate que devuelve la base de datos a primer plano en una aplicación. Por la importancia en cualquier aplicación de los datos propone que la base de datos sea la única fuente de la verdad. Para los modelos es patente al generarse a partir del esquema de la base de datos para las validaciones se puede hacer con restricciones de integridad pero si queremos conocer los errores detalladamente que se produzcan puede que deseemos usar Spring Validation. En la documentación de jOOQ no he encontrado nada referente a cómo realizar validaciones antes de guardar los datos en la base de datos. Pero con la herramienta de generación se puede indicar que las clases Java generadas se anoten con las anotaciones de validación de la especificación JSR-303 según las restricciones[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/11/validar-objetos-con-spring-validation-ejemplo-registros-de-jooq"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>pico.dev</dc:creator>
+    <dc:date>2015-11-17T17:00:00Z</dc:date>
+  </entry>
   <entry>
     <title>Obtener datos de múltiples tablas con jOOQ</title>
     <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/11/obtener-datos-de-multiples-tablas-con-jooq" />
@@ -17,11 +33,11 @@
     <author>
       <name>pico.dev</name>
     </author>
-    <updated>2015-11-14T10:00:00Z</updated>
-    <published>2015-11-14T10:00:00Z</published>
+    <updated>2015-11-14T17:00:00Z</updated>
+    <published>2015-11-14T17:00:00Z</published>
     <content type="html">&lt;p&gt;jOOQ no proporciona la misma transparencia de acceso a una base de datos relacional que un ORM. Para validar los datos podemos usar Spring Validation y para obtener datos de múltiples tablas lo que comento en este artículo. Usando jOOQ podemos exprimir todo el potencial del lenguaje SQL, comprobación de tipos por el compilador de argumentos y resultados, usar la base de datos como única fuente de la verdad, diferentes formas de acceso a la base de datos usando el patrón Active Record, directamente SQL, … Una de las facilidades que proporciona la librería de persistencia Hibernate usada ampliamente en aplicaciones Java como buen ORM es la navegación de las relaciones a través de los métodos del modelo de objetos de forma transparente a las consultas SQL que se necesiten lanzar a la base de datos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/11/obtener-datos-de-multiples-tablas-con-jooq"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-11-14T10:00:00Z</dc:date>
+    <dc:date>2015-11-14T17:00:00Z</dc:date>
   </entry>
   <entry>
     <title>Java para tareas de «scripting»</title>
@@ -103,22 +119,6 @@
     <content type="html">&lt;p&gt;Java tiene una fuerte presencia en el ámbito de desarrollo para aplicaciones web, más recientemente ha sido empleado por la plataforma Android. En la misma medida que han crecido las aplicaciones web y móviles nativas las aplicaciones de escritorio han perdido presencia, sin embargo, para ciertos casos son la opción adecuada. Con la aparición de JavaFX aportando varias mejoras sobre Swing o AWT en la plataforma Java se pueden desarrollar aplicaciones de escritorio multiplataforma «ricas». Podemos empezar por el ejemplo Hola Mundo de JavaFX de este artículo. El lenguaje de programación Java es ampliamente usado en el ámbito empresarial destacando la programación de aplicaciones web. Las aplicaciones web se han extendido tanto por su fácil despliegue a los clientes (un navegador basta), un desarrollo[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/10/introduccion-a-javafx-aplicaciones-de-escritorio-en-java"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>pico.dev</dc:creator>
     <dc:date>2015-10-02T17:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Ejemplo del patrón de diseño Builder</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/09/ejemplo-del-patron-de-diseno-builder" />
-    <category term="programacion" />
-    <category term="blog-stack" />
-    <category term="java" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-11-10T18:00:00Z</updated>
-    <published>2015-09-27T10:00:00Z</published>
-    <content type="html">&lt;p&gt;Construir objetos es una tarea básica en los lenguajes orientados a objetos. En Java, las instancias de una clase se crean con la palabra clave reservada new y un método especial llamado constructor. Al diseñar una clase debemos tener algunas cuestiones para evitar varios constructores telescópicos, evitar constructores que son combinación de varios argumentos opcionales y permitir obtener instancias de objetos con estado válido. Si se nos presentan estas situaciones podemos usar el patrón de diseño Builder que consiste en básicamente en una clase especializada en construir instancias de otra clase que podemos hacer usable con una API fluida y alguna cosa más deseable que explico en el artículo. Al escribir los métodos constructores de instancias de una clase puede ocurrirnos que algunos de[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/09/ejemplo-del-patron-de-diseno-builder"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-09-27T10:00:00Z</dc:date>
   </entry>
 </feed>
 
