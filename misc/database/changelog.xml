@@ -629,4 +629,18 @@
             <where>alias = 'blogbitix'</where>
         </update>
     </changeSet>
+    <changeSet id="37" author="picodotdev">
+        <comment>Agregación de fuente (21-11-2015)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="SYSADMIT"/>
+            <column name="alias" value="sysadmit"/>
+            <column name="pageUrl" value="http://www.sysadmit.com"/>
+            <column name="url" value="http://www.sysadmit.com/feeds/posts/default?alt=rss"/>
+            <column name="author" value="Xavier Genestós"/>
+            <column name="email" value="xavier.genestos@gmail.com"/>
+            <column name="adsense_id" valueComputed="${selectMaxIdAdsense}"/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
