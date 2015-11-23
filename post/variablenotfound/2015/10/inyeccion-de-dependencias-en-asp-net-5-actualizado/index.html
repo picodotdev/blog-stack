@@ -1,4 +1,4 @@
-<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-beta-32)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Inyección de dependencias en ASP.NET 5 (actualizado) | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/JyRPIbhk7Y0/inyeccion-de-dependencias-en-aspnet-5.html">Inyección de dependencias en ASP.NET 5 (actualizado)</a></h1></header><p class="post-info"><span datetime="2015-10-06T06:50" itemprop="dateModified">martes, 06 de octubre de 2015</span>,
+<!DOCTYPE html><html data-debug-enabled="true" data-locale="es_ES" xmlns="http://www.w3.org/1999/xhtml"><head lang="es"><meta content="Apache Tapestry Framework (version 5.4-rc-1)" name="generator"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta page="Post"/><title>Inyección de dependencias en ASP.NET 5 (actualizado) | Variable not found</title><!-- Resources --><link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700"/><link title="Portada" type="application/atom+xml" rel="alternate" href="/feed.atom.xml"/><link type="image/png" rel="icon" href="/assets/images/favicon.png"/><meta content="Post" name="tapestry-page-name"/><!--[if IE 9]><style type="text/css">.pageloading-mask{opacity:0.25;}</style><![endif]--><!--[if lt IE 9]><style type="text/css">.pageloading-mask{filter:alpha(opacity=25);}</style><![endif]--><link type="text/css" rel="stylesheet" href="/assets/tapestry5/bootstrap/css/bootstrap.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/exception-frame.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tapestry-console.css"/><link type="text/css" rel="stylesheet" href="/assets/tapestry5/tree.css"/><link type="text/css" rel="stylesheet" href="/assets/css/core.css"/></head><body data-page-initialized="false"><header><div class="container-fluid"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-4"><h1 class="text-nowrap"><a class="blogstack" href="/"><span class="glyphicon glyphicon-th"></span><span class="blogstack">Blog <span class="stack">Stack</span></span></a></h1></div><div class="col-xs-12 col-sm-12 col-md-8 text-center" id="adLeaderboard1"></div></div><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><nav role="navigation"><ul class="list-unstyled list-inline"><li><h3><a href="/">Inicio</a></h3></li><li><h3><a href="/archive">Archivo</a></h3></li><li><h3><a href="/faq">Preguntas frecuentes</a></h3></li><li><h3><a class="header" href="/faq#aggregate">¿Quieres agregar tu bitácora?</a></h3></li></ul></nav></div></div></div></header><section><div class="container-fluid content"><div class="row container"><div class="col-xs-12 col-sm-12 col-md-12"><article itemtype="http://schema.org/BlogPosting" itemscope=""><header><h1><a itemprop="sameAs" target="target" href="http://feedproxy.google.com/~r/vnf/~3/JyRPIbhk7Y0/inyeccion-de-dependencias-en-aspnet-5.html">Inyección de dependencias en ASP.NET 5 (actualizado)</a></h1></header><p class="post-info"><span datetime="2015-11-23T08:02" itemprop="dateModified">lunes, 23 de noviembre de 2015</span>,
 <span>fuente <a target="target" href="http://www.variablenotfound.com">Variable not found</a></span>,
 etiquetas
 <a href="/label/desarrollo"><span itemprop="articleSection">desarrollo</span></a> </p><p class="text-justify" itemprop="description">
@@ -26,42 +26,6 @@ window.cookieconsent_options = {
   "shim" : {
     "t5/core/typeahead" : [
       "jquery"
-    ],
-    "bootstrap/affix" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/alert" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/modal" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/tab" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/transition" : [
-      "jquery"
-    ],
-    "bootstrap/button" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/scrollspy" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/collapse" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/dropdown" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/tooltip" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/carousel" : [
-      "bootstrap/transition"
-    ],
-    "bootstrap/popover" : [
-      "bootstrap/tooltip"
     ]
   },
   "baseUrl" : "/modules"
