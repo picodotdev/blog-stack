@@ -3,10 +3,45 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-11-21T13:08:45Z</updated>
+  <updated>2015-11-23T10:02:35Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-11-21T13:08:45Z</dc:date>
+  <dc:date>2015-11-23T10:02:35Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Docker – Mejores Prácticas para los DockerFiles</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/jsitech/2015/11/docker-mejores-practicas-para-los-dockerfiles" />
+    <category term="linux" />
+    <category term="generales" />
+    <category term="software-libre" />
+    <category term="docker" />
+    <author>
+      <name>Jason Soto</name>
+    </author>
+    <updated>2015-11-23T10:00:40Z</updated>
+    <published>2015-11-23T10:00:40Z</published>
+    <content type="html">&lt;p&gt;En la entrada anterior hablamos sobre los DockerFiles y todas las opciones que tenemos a la mano para personalizar la creación de una imágen. Vamos a ver hoy algunas mejores prácticas y métodos recomendados por Docker Inc. y la comunidad para crear Dockerfiles fáciles de usar y efectivos. Usar un Archivo .dockerignore Como hablamos es recomendable colocar cada DockerFile en un directorio limpio, y según la imagen que vayamos a crear pues agregamos los archivos que son necesarios. Es posible que tengamos algún archivo en el directorio que cumpla una función pero no queremos que sea agregado a la imagen, es por esto que debemos hacer uso de un archivo .dockerignore para que docker build excluya esos archivos durante la creación de la imagen. Ejemplo de un .dockerignore */prueba* */*/prueba prueba?[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/11/docker-mejores-practicas-para-los-dockerfiles"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Jason Soto</dc:creator>
+    <dc:date>2015-11-23T10:00:40Z</dc:date>
+  </entry>
+  <entry>
+    <title>Particiones en GNU Linux</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/11/particiones-en-gnu-linux" />
+    <category term="sistemas" />
+    <category term="blog-stack" />
+    <category term="linux" />
+    <category term="swap" />
+    <category term="gnu" />
+    <category term="ext4" />
+    <category term="btrfs" />
+    <author>
+      <name>davidochobits</name>
+    </author>
+    <updated>2015-11-23T09:58:07Z</updated>
+    <published>2015-11-23T09:58:07Z</published>
+    <content type="html">&lt;p&gt;En la web hemos tratado la instalación de diferentes distribuciones GNU Linux y FreeBSD. Una de la partes principales de dichos tutoriales, es lo referido a la creación de particiones de disco y su... La entrada Particiones en GNU Linux aparece primero en ochobitshacenunbyte.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/11/particiones-en-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>davidochobits</dc:creator>
+    <dc:date>2015-11-23T09:58:07Z</dc:date>
+  </entry>
   <entry>
     <title>Instalar Slackware sin morir en el intento</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/11/instalar-slackware-sin-morir-en-el-intento" />
@@ -91,41 +126,6 @@
     <content type="html">&lt;p&gt;Como he mencionado en entradas anteriores y en el último ITTalks sobre docker, las imágenes son plantillas de solo lectura que podemos usar como base para lanzar contenedores. Esto quiere decir que lo que hagamos en el contenedor solo persiste en ese contenedor, esas modificaciones no lo hacemos en la imagen, es decir, que si queremos contar con una imagen personalizada debemos crearla para nuestros futuros contenedores. Hoy vamos a ver como podemos crear una imagen desde un contenedor que ya hemos personalizado. Creando imágenes desde un contenedor Esta puede ser la manera más sencilla de crear una imagen, ya que lanzamos un contenedor, descargamos paquetes por ejemplo y podemos crear una imágen a partir de ahí para utilizarla como base en futuros contenedores. Vamos a ver como lo podemos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/11/docker-creando-imagenes-basadas-en-un-contenedor"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2015-11-16T11:00:29Z</dc:date>
-  </entry>
-  <entry>
-    <title>Grabar y compartir vídeo de la terminal con Asciinema</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2015/09/grabar-y-compartir-video-de-la-terminal-con-asciinema" />
-    <category term="planeta-arch-linux" />
-    <category term="blog-stack" />
-    <category term="linux" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2015-11-11T17:00:00Z</updated>
-    <published>2015-09-20T11:00:00Z</published>
-    <content type="html">&lt;p&gt;Asciinema es una herramienta que nos permite grabar un vídeo de texto con la salida de la terminal. El vídeo de texto es mucho mejor que una foto estática de la salida en un determinado punto o un vídeo de imágenes del que no podemos seleccionar y copiar su texto. Si queremos compartir las acciones en una terminal y su salida tenemos varias opciones, la más simple es ejecutar el comando y copiar la salida en un archivo de texto, correo electrónico o artículo de una bitácora. Sin embargo, con esta opción solo tenemos el contenido final del comando y a veces en donde se usan varios comandos o que limpian la terminal (como por ejemplo con ssh) es difícil seguir en esa foto final la salida que se ha ido produciendo en la terminal. Otra opción es crear un vídeo tradicional de imágenes que podamos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2015/09/grabar-y-compartir-video-de-la-terminal-con-asciinema"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2015-09-20T11:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Configurar múltiples dominios en POSTFIX</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/11/configurar-multiples-dominios-en-postfix" />
-    <category term="sistemas" />
-    <category term="blog-stack" />
-    <category term="linux" />
-    <category term="gnu" />
-    <category term="mail" />
-    <category term="postfix" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2015-11-10T11:09:04Z</updated>
-    <published>2015-11-10T11:09:04Z</published>
-    <content type="html">&lt;p&gt;Se trata de un pequeño tip muy útil cuando necesitas configurar diferentes servidores de correo en un mismo relay con POSTFIX. Configurar múltiples dominios en POSTFIX En la web durante estos años he hablado... La entrada Configurar múltiples dominios en POSTFIX aparece primero en ochobitshacenunbyte.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2015/11/configurar-multiples-dominios-en-postfix"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2015-11-10T11:09:04Z</dc:date>
   </entry>
 </feed>
 
