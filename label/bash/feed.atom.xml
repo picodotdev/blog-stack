@@ -3,10 +3,41 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-10-22T10:02:41Z</updated>
+  <updated>2015-12-28T11:02:09Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-10-22T10:02:41Z</dc:date>
+  <dc:date>2015-12-28T11:02:09Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Bailando con bits III. Mostrando el valor binario de un número [bash, C, C++, PHP, Java, Python, Ruby]</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/12/bailando-con-bits-iii-mostrando-el-valor-binario-de-un-numero-bash-c-c-php-java-python-ruby" />
+    <category term="bits" />
+    <category term="valores" />
+    <category term="bash" />
+    <category term="double" />
+    <category term="tipo" />
+    <category term="float" />
+    <category term="variable" />
+    <category term="python" />
+    <category term="entero" />
+    <category term="base" />
+    <category term="c-c" />
+    <category term="tamano" />
+    <category term="conversion" />
+    <category term="linux" />
+    <category term="hexadecimal" />
+    <category term="vigilar" />
+    <category term="java" />
+    <category term="binario" />
+    <category term="numero" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2015-12-28T09:42:05Z</updated>
+    <published>2015-12-28T09:42:05Z</published>
+    <content type="html">&lt;p&gt;De todos es sabido que un ordenador, internamente trabaja con ceros y unos, simplemente eso, a partir de ese simple valor, verdadero o falso, abierto o cerrado, existe o no existe es capaz de formar sonidos, imágenes, textos y cualquier cosa que podamos imaginarnos. Aunque no vamos a hacer algo tan complicado, muchas veces puede que tengamos un valor entre manos y queramos saber qué bits hay a uno y qué bits hay a cero aunque sólo sea para verificar que una operación se está realizando como debe o porque estamos aprendiendo a utilizar este sistema de numeración y queremos verificar que todo nos sale bien. En este post, voy a poner algunos métodos que podemos utilizar en varios lenguajes de programación, o en consola, con este propósito. Decimal a binario en consola Empecemos en consola. Vamos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/12/bailando-con-bits-iii-mostrando-el-valor-binario-de-un-numero-bash-c-c-php-java-python-ruby"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2015-12-28T09:42:05Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo especificar puerto y clave privada para SSH desde rsync</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/10/como-especificar-puerto-y-clave-privada-para-ssh-desde-rsync" />
@@ -191,35 +222,6 @@
     <content type="html">&lt;p&gt;Como parte de uno de mis últimos proyectos, recopilo datos periódicamente y los almaceno en una tabla SQLite. Pero, al final, los datos no valen para nada si no somos capaces de tener una visión global de lo que ha pasado a lo largo del periodo de tiempo. Y para eso, ¿qué mejor que pintar los datos en una gráfica? Ya que los datos los almaceno en SQLite, utilizaré el cliente sqlite3 y para pintar las gráficas, gnuplot. Lo primero es sacar la consulta SQL para extraer los datos de los ejes X e Y. En este caso, el eje X será el tiempo y el eje Y será el valor obtenido en el test: 1 SELECT VALUE, dtm FROM STATUS WHERE monitor=1; La consulta la podemos complicar todo lo que queramos, introducir más condiciones, rangos de tiempo, etc. SQLite se lleva bien con estos tipos de datos. Cabe decir que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/pintar-una-grafica-con-gnuplot-de-datos-extraidos-de-sqlite"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-04-06T00:25:23Z</dc:date>
-  </entry>
-  <entry>
-    <title>Algunas hojas de cálculo recortan los CSV en las comillas [Minipost]</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/03/algunas-hojas-de-calculo-recortan-los-csv-en-las-comillas-minipost" />
-    <category term="hoja" />
-    <category term="tablas" />
-    <category term="bash" />
-    <category term="escapar" />
-    <category term="calculo" />
-    <category term="mysql" />
-    <category term="calc" />
-    <category term="excel" />
-    <category term="comillas" />
-    <category term="delimitador" />
-    <category term="wps" />
-    <category term="linux" />
-    <category term="csv" />
-    <category term="herramientas" />
-    <category term="importar" />
-    <category term="general" />
-    <category term="texto" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-03-25T09:20:58Z</updated>
-    <published>2015-03-25T09:20:58Z</published>
-    <content type="html">&lt;p&gt;Es algo que me ha pasado estos días al exportar un archivo CSV de una base de datos (por ejemplo con este método). Era un CSV de unas 3000 filas y algunas de ellas tenían textos entre comillas en una de sus columnas. El problema es que al abrirlo con LibreOffice Calc (tengo entendido que con WPS Office también pasaba), aquellas columnas que tenían textos entre comillas no salían bien y terminaban cortándose y dividiéndose. Esto es porque, mi CSV tenía las comillas escapadas (como este carácter es el delimitador, se introduce \” (barra comillas) para diferenciarlo), pero, para este tipo de programas, los CSV no tienen carácter de escapado (\). En estos programas tenemos que utilizar dobles comillas (“”) para que se interprete que es un texto entre comillas dentro de un campo. Como el CSV era[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/03/algunas-hojas-de-calculo-recortan-los-csv-en-las-comillas-minipost"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-03-25T09:20:58Z</dc:date>
   </entry>
 </feed>
 
