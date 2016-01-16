@@ -189,8 +189,13 @@ public class IndexServiceImpl implements IndexService {
 
 	private PostRecord indexPost(IndexationRecord indexation, SourceRecord source, SyndEntry entry) {
 		if (entry.getLink() == null) {
+		    logger.warn(String.format("Article without link (%s, %s)", source.getName(), entry.getLink()));
 			return null;
 		}
+        if (entry.getContents().isEmpty() && (entry.getDescription() == null || StringUtils.isBlank(entry.getDescription().getValue()))) {
+            logger.warn(String.format("Article without content or description (%s, %s)", source.getName(), entry.getLink()));
+            return null;
+        }		
 
 		// Search by url
 		AppPostRecord post = null;
@@ -254,15 +259,18 @@ public class IndexServiceImpl implements IndexService {
 		}
 
 		StringBuffer postContent = new StringBuffer();
-		if (entry.getContents().isEmpty()) {
-			logger.warn(String.format("Article without content, using description (%s, %s)", source.getName(), entry.getLink()));
-			postContent.append(entry.getDescription().getValue());
+		if (!entry.getContents().isEmpty()) {
+            Iterator cit = entry.getContents().iterator();
+            while (cit.hasNext()) {
+                SyndContent content = (SyndContent) cit.next();
+                postContent.append(content.getValue());
+            }
+		} else if (entry.getDescription() == null || !StringUtils.isBlank(entry.getDescription().getValue())) {
+            logger.warn(String.format("Article without content, using description (%s, %s)", source.getName(), entry.getLink()));
+            postContent.append(entry.getDescription().getValue());
 		} else {
-			Iterator cit = entry.getContents().iterator();
-			while (cit.hasNext()) {
-				SyndContent content = (SyndContent) cit.next();
-				postContent.append(content.getValue());
-			}
+		    logger.warn(String.format("Article without content nor description (%s, %s)"));
+		    return null;
 		}
 
 		AppWhitelist whitelist = (AppWhitelist) AppWhitelist.relaxed();
