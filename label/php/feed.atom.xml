@@ -3,10 +3,27 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-12-24T10:02:40Z</updated>
+  <updated>2016-01-17T21:02:21Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-12-24T10:02:40Z</dc:date>
+  <dc:date>2016-01-17T21:02:21Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Hashing Passwords con php</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeabr4xas/2016/01/hashing-passwords-con-php" />
+    <category term="php" />
+    <author>
+      <name>abr4xas</name>
+    </author>
+    <updated>2016-01-17T21:50:00Z</updated>
+    <published>2016-01-17T21:50:00Z</published>
+    <content type="html">&lt;p&gt;Una de las formas mas faciles de crear un hash para las contraseñas usando php es md5 podemos ver en este ejemplo como implementarlo: md5('password');
+ Esto nos dara como resultado algo asi: 5f4dcc3b5aa765d61d8327deb882cf99 Pero, realmente esto no es muy efectivo. Usando password_hash Usando la documentacion de php nos dice que para usar esta funcion debemos hacer lo siguiente: string password_hash ( string $password , integer $algo [, array $options ] )
+ Algoritmos soportados PASSWORD_DEFAULT PASSWORD_BCRYPT Opciones soportadas: Salt Cost Como usar password_hash Usando PASSWORD_DEFAULT password_hash('password', PASSWORD_DEFAULT);
+ Esto nos dara como resultado algo asi: $2y$10$hdbF9lyKu5sWphXMtDB46eAO0RNYYlSTufwqIvmC6AC7xhC27s2w. Usando PASSWORD_BCRYPT echo password_hash('password', PASSWORD_BCRYPT);
+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeabr4xas/2016/01/hashing-passwords-con-php"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>abr4xas</dc:creator>
+    <dc:date>2016-01-17T21:50:00Z</dc:date>
+  </entry>
   <entry>
     <title>Un buen 2015 para el blog. Los posts que han marcado el año y consultas SQL</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/12/un-buen-2-15-para-el-blog-los-posts-que-han-marcado-el-ano-y-consultas-sql" />
@@ -188,40 +205,6 @@
     <content type="html">&lt;p&gt;Puede parecer muy complejo así dicho. Pero de lo que se trata es de proporcionar una forma más natural para acceder a lo elementos de un array en PHP. Nos podemos imaginar un array de configuración de una aplicación, donde encontremos apartados como cookies, idiomas, usuarios, rutas, urls, apis externas, bases de datos e infinidad de cosas más. Hace un tiempo veíamos una función para acceder a una clave de un array, comprobando antes la existencia de esa clave y dándonos la opción de devolver un valor por defecto en caso de que dicha clave no exista. Nota: si ya eres usuario de un Framework PHP, seguramente tengas métodos para hacer esto mismo, y ya estará todo hecho, a lo mejor con más opciones, aunque si quieres ver cómo está hecho, continúa leyendo. Aquí recuerdo dicha función (porque el[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/10/lectura-escritura-y-eliminacion-de-elementos-de-un-array-multidimensional-en-php-usando-separadores"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-10-19T08:05:28Z</dc:date>
-  </entry>
-  <entry>
-    <title>Comparativa de acceso rápido y seguro a un elemento de un array unidimensional [PHP]</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/09/comparativa-de-acceso-rapido-y-seguro-a-un-elemento-de-un-array-unidimensional-php" />
-    <category term="teoria" />
-    <category term="programacion" />
-    <category term="php" />
-    <category term="codigo" />
-    <category term="errores" />
-    <category term="time" />
-    <category term="error-reporting" />
-    <category term="cosas-que-damos-por-hechas" />
-    <category term="variable" />
-    <category term="graficas" />
-    <category term="comparativa" />
-    <category term="velocidad" />
-    <category term="tiempos" />
-    <category term="valor" />
-    <category term="acceso" />
-    <category term="hash" />
-    <category term="tabla" />
-    <category term="general" />
-    <category term="array" />
-    <category term="practica" />
-    <category term="ignorar" />
-    <category term="indice" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-09-21T08:46:51Z</updated>
-    <published>2015-09-21T08:46:51Z</published>
-    <content type="html">&lt;p&gt;Nota: Si usas algún Framework PHP, lo más seguro que estas funciones no te sirvan, ya que muchos Frameworks suelen tener cosas parecidas, más o menos completas que hacen lo mismo. Si eres de los que trabajan “a pelo”, estás creándote tu propio framework, tal vez te interese todo esto. Acceso simple a un elemento de un array Esto es una tarea sencilla en PHP, sólo tenemos que poner entre corchetes la clave a la que queremos acceder y podremos acceder a su valor: 1 2 3 &lt;?php $miArray['precio']=12.34; echo $miArray['precio']; Aunque, el problema viene cuando dicha clave no existe, veremos una notificación de PHP indicando que el índice especificado no existe: PHP Notice: Undefined index: precio in /home/pruebas/test.php on line 3 PHP Stack trace: ….. No pasa nada, aquí podemos hacer varias cosas,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/09/comparativa-de-acceso-rapido-y-seguro-a-un-elemento-de-un-array-unidimensional-php"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-09-21T08:46:51Z</dc:date>
   </entry>
 </feed>
 
