@@ -3,10 +3,46 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-01-17T10:02:17Z</updated>
+  <updated>2016-01-18T11:02:56Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-01-17T10:02:17Z</dc:date>
+  <dc:date>2016-01-18T11:02:56Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Consejos para endurecer un servidor SSH y hacerlo más seguro</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/01/consejos-para-endurecer-un-servidor-ssh-y-hacerlo-mas-seguro" />
+    <category term="endurecer" />
+    <category term="rsync" />
+    <category term="knock" />
+    <category term="remoto" />
+    <category term="denegar" />
+    <category term="seguridad" />
+    <category term="servidor" />
+    <category term="root" />
+    <category term="asegurar" />
+    <category term="shell" />
+    <category term="ssh" />
+    <category term="latch" />
+    <category term="puerto" />
+    <category term="port" />
+    <category term="servidores" />
+    <category term="permitir" />
+    <category term="linux" />
+    <category term="consejos" />
+    <category term="acceso" />
+    <category term="autentificacion" />
+    <category term="usuario" />
+    <category term="restringir" />
+    <category term="scp" />
+    <category term="general" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-01-18T09:40:50Z</updated>
+    <published>2016-01-18T09:40:50Z</published>
+    <content type="html">&lt;p&gt;Hoy toca hablar de OpenSSH, y es que la semana pasada se descubrió una vulnerabilidad grave que podría comprometer las claves privadas de los usuarios que se conectan a un servidor. Y como son claves privadas, nadie debería conocerlas, sólo nosotros. Así que, hoy es un buen día para compartir algunas medidas que podemos tomar para endurecer nuestros servidores y hacer nuestro SSH más seguro. En el post, muchas veces hablaré de incluir cierta línea en los archivos de configuración, aunque normalmente, muchas distribuciones traen un archivo de configuración por defecto, en ese caso, debemos asegurarnos de que la línea está y que el valor es correcto (a veces tendremos que cambiar un yes por un no, o un número, etc). No utilices passwords clásicos Evita hacer la conexión a partir de contraseñas[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/01/consejos-para-endurecer-un-servidor-ssh-y-hacerlo-mas-seguro"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-01-18T09:40:50Z</dc:date>
+  </entry>
   <entry>
     <title>BITeS: bug en openSSH, C en 2016, Debian y PHP7, Apple, nmap, Kali Linux y reto poeta de 2016</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/01/bites-bug-en-openssh-c-en-2-16-debian-y-php7-apple-nmap-kali-linux-y-reto-poeta-de-2-16" />
@@ -128,37 +164,6 @@
     <content type="html">&lt;p&gt;Como saben he dedicado mucho tiempo trabajando con JShielder y tenemos un script bastante completo para asegurar nuestros servidores Web. Conocen ademas SecureWPDeployer que es otro Script en Bash que automatiza todo el proceso de Asegurar el Server con Jshielder, despliega WordPress y lo asegura usando la Herramienta de nuestro amigo @elcodigok, WPHardening. Hace tiempo que tenía en Proyecto lanzar un script similar para Joomla y hoy ya he subido al repo la herramienta JSDeployer (Joomla Secure Deployer). Si no conoce Jshielder, puedes ver de que se trata aquí. JSDeployer es un script que cree para hacer una implementación segura del CMS Joomla. Que hace el Script   Detecta la Distro donde lo ejecutas, Por el momento para Ubuntu 14.04/15.04 Corre JShielder y Asegura el Servidor Descarga la[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2015/12/jsdeployer-joomla-secure-deployment"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2015-12-31T01:23:44Z</dc:date>
-  </entry>
-  <entry>
-    <title>Bailando con bits III. Mostrando el valor binario de un número [bash, C, C++, PHP, Java, Python, Ruby]</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/12/bailando-con-bits-iii-mostrando-el-valor-binario-de-un-numero-bash-c-c-php-java-python-ruby" />
-    <category term="bits" />
-    <category term="valores" />
-    <category term="bash" />
-    <category term="double" />
-    <category term="tipo" />
-    <category term="float" />
-    <category term="variable" />
-    <category term="python" />
-    <category term="entero" />
-    <category term="base" />
-    <category term="c-c" />
-    <category term="tamano" />
-    <category term="conversion" />
-    <category term="linux" />
-    <category term="hexadecimal" />
-    <category term="vigilar" />
-    <category term="java" />
-    <category term="binario" />
-    <category term="numero" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-12-28T09:42:05Z</updated>
-    <published>2015-12-28T09:42:05Z</published>
-    <content type="html">&lt;p&gt;De todos es sabido que un ordenador, internamente trabaja con ceros y unos, simplemente eso, a partir de ese simple valor, verdadero o falso, abierto o cerrado, existe o no existe es capaz de formar sonidos, imágenes, textos y cualquier cosa que podamos imaginarnos. Aunque no vamos a hacer algo tan complicado, muchas veces puede que tengamos un valor entre manos y queramos saber qué bits hay a uno y qué bits hay a cero aunque sólo sea para verificar que una operación se está realizando como debe o porque estamos aprendiendo a utilizar este sistema de numeración y queremos verificar que todo nos sale bien. En este post, voy a poner algunos métodos que podemos utilizar en varios lenguajes de programación, o en consola, con este propósito. Decimal a binario en consola Empecemos en consola. Vamos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/12/bailando-con-bits-iii-mostrando-el-valor-binario-de-un-numero-bash-c-c-php-java-python-ruby"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-12-28T09:42:05Z</dc:date>
   </entry>
 </feed>
 
