@@ -3,10 +3,54 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-01-19T10:02:14Z</updated>
+  <updated>2016-01-19T12:02:25Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-01-19T10:02:14Z</dc:date>
+  <dc:date>2016-01-19T12:02:25Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Obtener la última excepción producida en ASP.NET 5</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/11/obtener-la-ultima-excepcion-producida-en-asp-net-5" />
+    <category term="trucos" />
+    <category term="aspnet5" />
+    <category term="aspnetmvc" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2016-01-19T11:18:02Z</updated>
+    <published>2015-11-24T14:05:00Z</published>
+    <content type="html">&lt;p&gt;Hace unos días comentábamos la desaparición de la sección &lt;customErrors&gt; en ASP.NET 5, y la forma de implementar páginas de error personalizadas en esta nueva versión del framework. Sin embargo, hay una cosa que dejé en el tintero y que el amigo Max resaltó en los comentarios del post: "[…] Cuando se hace la petición interna a la acción HomeController.Error ¿como puedo saber exactamente el error que se ha producido si quiero mostrar un mensaje de error concreto para cada caso? Por ejemplo imagínate que quiero mostrar vistas diferentes para cada tipo de excepción o que aparezca sólo el texto de la excepción pero sin mostrar más datos" En otras palabras, cuando el middleware ExceptionHandlerMiddleware pasa el control a la acción que procesará el error, ¿cómo podemos obtener información sobre[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/11/obtener-la-ultima-excepcion-producida-en-asp-net-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2015-11-24T14:05:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Slides sobre ASP.NET 5 y MVC 6 de Reconnect()</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/slides-sobre-asp-net-5-y-mvc-6-de-reconnect" />
+    <category term="aspnet5" />
+    <category term="eventos" />
+    <category term="aspnetmvc" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2016-01-19T11:17:43Z</updated>
+    <published>2015-12-16T08:10:00Z</published>
+    <content type="html">&lt;p&gt;El pasado jueves, el grupo de usuarios Cartuja.NET organizamos en Sevilla el evento Reconnect(), una mañana completa durante la cual vimos las últimas novedades de tecnologías y herramientas relacionadas con .NET. Lo primero, agradecer a los numerosos asistentes que aparcaron sus quehaceres diarios para pasar la jornada con nosotros; espero que os haya resultado interesante. Muchas gracias también a los amigos de Plain Concepts por patrocinar el evento, y a mi inigualable compañero de escenario, Javier Suárez, por gestionarlo todo tan bien y, por supuesto, por sus interesantes presentaciones. En mi sesión, cerca de hora y media que los asistentes aguantaron como jabatos, tratamos primero los motivos que han llevado a la construcción del nuevo stack de desarrollo para la web de Microsoft. Tras[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/12/slides-sobre-asp-net-5-y-mvc-6-de-reconnect"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2015-12-16T08:10:00Z</dc:date>
+  </entry>
+  <entry>
+    <title>Eliminar el encabezado "X-Powered-By" en ASP.NET 5</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-5" />
+    <category term="desarrollo" />
+    <category term="aspnet5" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2016-01-19T11:17:27Z</updated>
+    <published>2016-01-19T07:52:00Z</published>
+    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET 5. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2016-01-19T07:52:00Z</dc:date>
+  </entry>
   <entry>
     <title>Configurar envíos de correo en MediaWiki</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2016/01/configurar-envios-de-correo-en-mediawiki" />
@@ -27,20 +71,6 @@
     <content type="html">&lt;p&gt;No es ningún secreto el potencial que MediaWiki puede tener, de hecho es el motor de la gran Wikipedia. En la web hemos tratado el proyecto de diferentes maneras, tanto su instalación como la... La entrada Configurar envíos de correo en MediaWiki aparece primero en ochobitshacenunbyte.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2016/01/configurar-envios-de-correo-en-mediawiki"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2016-01-19T09:54:57Z</dc:date>
-  </entry>
-  <entry>
-    <title>Eliminar el encabezado "X-Powered-By" en ASPNET 5</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5" />
-    <category term="desarrollo" />
-    <category term="aspnet5" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2016-01-19T07:52:06Z</updated>
-    <published>2016-01-19T07:52:00Z</published>
-    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET 5. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2016-01-19T07:52:00Z</dc:date>
   </entry>
   <entry>
     <title>[Jornadas Antirrepresivas] El Antiterrorismo como forma de gobierno y control social</title>
@@ -106,35 +136,6 @@
     <content type="html">&lt;p&gt;En esta entrada on explico que aplicaciones utilizo en mi móvil, la mayoría libres,  y que uso de forma habitual. Estan relacionadas con la seguridad, privacidad y cultura geek. La mayoría las encontraréis en la tienda de aplicaciones gratuitas F-DROID, que se descarga desde su página web, otras descargándolas directamente de su correspondiente página web. No uso ningún servicio de google y que no tengo instalado google services ni google play. Mi teléfono es un SAMSUNG GALAXY S3 con cyanogenmod 13.0 con permisos de root. Ahí van con una breve descripción de cada una: – AndStatus: cliente para la red social gnu/social – AntennaPod: gestor de podcasts al que dediqué un podcast. – CameraV: cámara segura del proyecto guardianproject.info – Conversations + pluggin audio: cliente de jabber indispensable,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/devuanita/2016/01/aplicaciones-libres-en-mi-movil"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>el cangrejo linuxero</dc:creator>
     <dc:date>2016-01-18T09:00:03Z</dc:date>
-  </entry>
-  <entry>
-    <title>Enlaces interesantes 224</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/enlaces-interesantes-224" />
-    <category term="enlaces" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2016-01-18T08:05:08Z</updated>
-    <published>2016-01-18T08:05:00Z</published>
-    <content type="html">&lt;p&gt;Ahí van los enlaces recopilados durante la semana pasada, espero que os resulten interesantes :-) .Net The Loyc LL(k) Parser Generator: Part 2 Qwertie Supporting Multiple String Formats from Your Class Peter Vogel Singleton Indexer - A Workaround for not having Static Indexers in C# Nick Chamberlain The week in .NET - 1/12/2016 Bertrand Le Roy C# 6 under the hood: nameof operator Erik Schierboom Difference Between IEnumerable, ICollection and IList Interface in C# Sarmistha Panda To base() or not to base(), that is the question Jon Skeet Get Property Names Using Lambda Expressions in C# Anton Angelov Curiosidades de C#: tipado estructural… sólo para algunos Juan María Hernández ASP.NET Re-using external view components in ASP.NET 5 &amp; ASP.NET MVC 6 Filip Woj Running The KestrelHttpServer On[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/enlaces-interesantes-224"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2016-01-18T08:05:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>Mis tecnologías del 2015</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/koalite/2016/01/mis-tecnologias-del-2-15" />
-    <category term="opinion" />
-    <category term="software-development" />
-    <category term="development" />
-    <category term="tooling" />
-    <author>
-      <name>Juan María Hernández</name>
-    </author>
-    <updated>2016-01-18T05:06:52Z</updated>
-    <published>2016-01-18T05:06:52Z</published>
-    <content type="html">&lt;p&gt;En el post resumen del 2015, Alfredo comentaba que echaba en falta una mención a las tecnologías que había adoptado y abandonado, y tiene razón. Suelo focalizar el post de resumen en lo que ha pasado en el blog en lugar de hacer una retrospectiva más amplia. Aprovechando la idea de Alfredo, en este post quiero hacer un pequeño repaso de tecnologías a las que les he cogido más cariño y las que se están quedando más rezagadas dentro de mis preferencias. OJO: Esto no pretende ser el Technology Radar de ThoughWorks, ni mucho menos. La elección de la mayoría de estas tecnologías tiene detrás una historia y un contexto detrás que es tan importante o más que los méritos puramente técnicos. En este resumen me centraré en las tecnologías usadas a nivel profesional, porque son a las que más horas he[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2016/01/mis-tecnologias-del-2-15"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Juan María Hernández</dc:creator>
-    <dc:date>2016-01-18T05:06:52Z</dc:date>
   </entry>
 </feed>
 
