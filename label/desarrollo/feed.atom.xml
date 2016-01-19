@@ -3,10 +3,24 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-12-15T09:02:43Z</updated>
+  <updated>2016-01-19T08:02:48Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-12-15T09:02:43Z</dc:date>
+  <dc:date>2016-01-19T08:02:48Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Eliminar el encabezado "X-Powered-By" en ASPNET 5</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5" />
+    <category term="desarrollo" />
+    <category term="aspnet5" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2016-01-19T07:52:06Z</updated>
+    <published>2016-01-19T07:52:00Z</published>
+    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET 5. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2016-01-19T07:52:00Z</dc:date>
+  </entry>
   <entry>
     <title>Custom middlewares en ASP.NET 5</title>
     <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/custom-middlewares-en-asp-net-5" />
@@ -96,21 +110,6 @@
     <content type="html">&lt;p&gt;En versiones anteriores de ASP.NET, podíamos utilizar la expresión HttpContext.Current.IsDebuggingEnabled para determinar si una aplicación web está ejecutándose en modo depuración o no, lo cual podía ser útil a la hora de introducir porciones de código específicas para cada caso. El valor de esa propiedad estaba directamente relacionado con el de la propiedad debug del tag &lt;compilation&gt; presente en el archivo de configuración web.config. Como sabemos, en ASP.NET 5 esto no sería posible por tres motivos: Primero, por la archiconocida desaparición del web.config. Segundo, porque al eliminar la dependencia con System.Web, ya no existen ni HttpContext.Current ni la propia clase estática HttpContext. Y tercero, porque no existe un modo “debug” como tal, sino distintos entornos de ejecución (development,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/07/codigo-especifico-para-distintos-entornos-development-release-en-mvc-6-aspnet-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-07-21T07:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>¿Dónde se añaden los filtros globales en MVC 6 / ASP.NET 5?</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/06/donde-se-anaden-los-filtros-globales-en-mvc-6-asp-net-5" />
-    <category term="desarrollo" />
-    <category term="aspnet5" />
-    <category term="aspnetmvc" />
-    <author>
-      <name>José M. Aguilar</name>
-    </author>
-    <updated>2015-06-30T06:45:00Z</updated>
-    <published>2015-06-30T06:45:00Z</published>
-    <content type="html">&lt;p&gt;Desde la versión 3 de ASP.NET MVC, los filtros globales nos han solucionado con facilidad la anteriormente ardua labor de definir filtros en todos los controladores y acciones de nuestra aplicación sin tener que introducirlos uno a uno o crear controladores base. Por convención, los registrábamos en una clase llamada FilterConfig, habitualmente ubicada en la carpeta /App_Start del proyecto, y cuya pinta era más o menos la siguiente: Este código era llamado durante la inicialización de la aplicación desde el evento Application_Start() del archivo Global.asax: Como sabemos, en MVC 6/ASP.NET 5 el Global.asax ha desaparecido para no volver, y, si profundizamos un poco, veremos que tampoco existe el tipo GlobalFilterCollection, ni la clase estática FilterConfig que antes daban soporte a esta característica.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/06/donde-se-anaden-los-filtros-globales-en-mvc-6-asp-net-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2015-06-30T06:45:00Z</dc:date>
   </entry>
 </feed>
 

@@ -3,10 +3,24 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-01-18T17:02:25Z</updated>
+  <updated>2016-01-19T08:02:47Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-01-18T17:02:25Z</dc:date>
+  <dc:date>2016-01-19T08:02:47Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Eliminar el encabezado "X-Powered-By" en ASPNET 5</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5" />
+    <category term="desarrollo" />
+    <category term="aspnet5" />
+    <author>
+      <name>José M. Aguilar</name>
+    </author>
+    <updated>2016-01-19T07:52:06Z</updated>
+    <published>2016-01-19T07:52:00Z</published>
+    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET 5. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-aspnet-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>José M. Aguilar</dc:creator>
+    <dc:date>2016-01-19T07:52:00Z</dc:date>
+  </entry>
   <entry>
     <title>[Jornadas Antirrepresivas] El Antiterrorismo como forma de gobierno y control social</title>
     <link rel="alternate" href="http://www.blogstack.info/post/tecnoparanoids/2016/01/jornadas-antirrepresivas-el-antiterrorismo-como-forma-de-gobierno-y-control-social" />
@@ -115,23 +129,6 @@
     <content type="html">&lt;p&gt;Nuevo año y nueva versión de la distribución más se acerca a la idea que tienen los desarrolladores de cómo debería ser el escritorio Plasma de la Comunidad KDE. Con todos nosotros ya tenemos KaOs 2016.01, una versión que viene con bastantes novedades y es un excelente punto de partida para aquellos que quieran tener esta distribución que destaca por independencia, su amor por el binomio KDE-Qt, su simpleza y elegancia. KaOS 2016.01 listo para su descarga Como hemos comentado en otras entradas de KaOS, los desarrolladores de esta distribución, cada vez que una actualización de un distribución KaOs mediante “pacman Syu” tenga actualizaciones importantes significará que es hora de una nueva ISO. La razón de esta política radica es bastante simple y sencilla, que los nuevos usuarios no se enfrenten[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/kdeblog/2016/01/kaos-2-16-1-la-rolling-release-plasma-1"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>baltolkien</dc:creator>
     <dc:date>2016-01-18T05:00:33Z</dc:date>
-  </entry>
-  <entry>
-    <title>Hashing Passwords con php</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeabr4xas/2016/01/hashing-passwords-con-php" />
-    <category term="php" />
-    <author>
-      <name>abr4xas</name>
-    </author>
-    <updated>2016-01-17T21:50:00Z</updated>
-    <published>2016-01-17T21:50:00Z</published>
-    <content type="html">&lt;p&gt;Una de las formas mas faciles de crear un hash para las contraseñas usando php es md5 podemos ver en este ejemplo como implementarlo: md5('password');
- Esto nos dara como resultado algo asi: 5f4dcc3b5aa765d61d8327deb882cf99 Pero, realmente esto no es muy efectivo. Usando password_hash Usando la documentacion de php nos dice que para usar esta funcion debemos hacer lo siguiente: string password_hash ( string $password , integer $algo [, array $options ] )
- Algoritmos soportados PASSWORD_DEFAULT PASSWORD_BCRYPT Opciones soportadas: Salt Cost Como usar password_hash Usando PASSWORD_DEFAULT password_hash('password', PASSWORD_DEFAULT);
- Esto nos dara como resultado algo asi: $2y$10$hdbF9lyKu5sWphXMtDB46eAO0RNYYlSTufwqIvmC6AC7xhC27s2w. Usando PASSWORD_BCRYPT echo password_hash('password', PASSWORD_BCRYPT);
-[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeabr4xas/2016/01/hashing-passwords-con-php"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>abr4xas</dc:creator>
-    <dc:date>2016-01-17T21:50:00Z</dc:date>
   </entry>
 </feed>
 
