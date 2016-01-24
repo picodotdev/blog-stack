@@ -3,53 +3,53 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-01-19T12:02:25Z</updated>
+  <updated>2016-01-24T14:02:51Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-01-19T12:02:25Z</dc:date>
+  <dc:date>2016-01-24T14:02:51Z</dc:date>
   <dc:language>es</dc:language>
   <entry>
-    <title>Eliminar el encabezado "X-Powered-By" en ASP.NET 5</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-5" />
+    <title>Gestionar errores 404 (y otros) en ASP.NET Core y MVC</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/gestionar-errores-4-4-y-otros-en-asp-net-core-y-mvc" />
     <category term="desarrollo" />
-    <category term="aspnet5" />
+    <category term="aspnetcoremvc" />
+    <category term="aspnetcore" />
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2016-01-19T11:17:27Z</updated>
-    <published>2016-01-19T07:52:00Z</published>
-    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET 5. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html; charset=utf-8[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <updated>2016-01-24T13:27:55Z</updated>
+    <published>2015-12-01T08:15:00Z</published>
+    <content type="html">&lt;p&gt;Pues no parecía que esto de la gestión de errores fuera a dar para tanto, pero este es ya el tercer post dedicado a este tema, que por otro lado debemos controlar totalmente cuando comencemos a crear aplicaciones reales con ASP.NET Core y MVC. Hasta ahora hemos visto cómo gestionar las excepciones producidas desde nuestras aplicaciones utilizando el middleware ExceptionHandlerMiddleware, y cómo obtener información sobre dichas excepciones desde su código manejador. Esto nos permitía un buen grado de control sobre los errores HTTP 500, pero el amigo Juan, muy atento a lo que íbamos viendo, preguntaba: "Siguiendo con la captura de excepciones, esta vez en mvc6 como se podría capturar los códigos de estado como por ejemplo 404" Obviamente el resto de errores HTTP entre el 400 (errores en cliente)[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/12/gestionar-errores-4-4-y-otros-en-asp-net-core-y-mvc"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2016-01-19T07:52:00Z</dc:date>
+    <dc:date>2015-12-01T08:15:00Z</dc:date>
   </entry>
   <entry>
-    <title>Custom middlewares en ASP.NET 5</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/custom-middlewares-en-asp-net-5" />
+    <title>Custom middlewares en ASP.NET Core</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/custom-middlewares-en-asp-net-core" />
     <category term="desarrollo" />
-    <category term="aspnet5" />
-    <category term="aspnetmvc" />
+    <category term="aspnetcoremvc" />
+    <category term="aspnetcore" />
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2015-12-15T08:33:37Z</updated>
+    <updated>2016-01-24T13:22:12Z</updated>
     <published>2015-12-15T08:05:00Z</published>
-    <content type="html">&lt;p&gt;El concepto de proceso de peticiones basado en el pipeline no es algo nuevo, pero ciertamente es en ASP.NET 5 donde se hace más explícito y visible a los desarrolladores. Y aunque anteriormente también hemos trabajado con middlewares (en ASP.NET 4.x los módulos y handlers podían ejercer funciones similares, y más recientemente, en OWIN ya existía el mismo concepto), es ahora cuando debemos conocerlos bien si queremos llegar a comprender y dominar la nueva plataforma ASP.NET 5. Este este post vamos a profundizar un poco en el proceso de peticiones en ASP.NET 5, y veremos lo sencillo que resulta crear middlewares personalizados que participen en dicho proceso. Cómo se procesa una petición en ASP.NET 5Cuando una petición llega a una aplicación ASP.NET 5, es procesada por los middlewares que han[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/12/custom-middlewares-en-asp-net-5"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <content type="html">&lt;p&gt;El concepto de proceso de peticiones basado en el pipeline no es algo nuevo, pero ciertamente es en ASP.NET Core donde se hace más explícito y visible a los desarrolladores. Y aunque anteriormente también hemos trabajado con middlewares (en ASP.NET 4.x los módulos y handlers podían ejercer funciones similares, y más recientemente, en OWIN ya existía el mismo concepto), es ahora cuando debemos conocerlos bien si queremos llegar a comprender y dominar la nueva plataforma ASP.NET Core. Este este post vamos a profundizar un poco en el proceso de peticiones en ASP.NET Core, y veremos lo sencillo que resulta crear middlewares personalizados que participen en dicho proceso. Cómo se procesa una petición en ASP.NET CoreCuando una petición llega a una aplicación ASP.NET Core, es procesada por los middlewares[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/12/custom-middlewares-en-asp-net-core"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2015-12-15T08:05:00Z</dc:date>
   </entry>
   <entry>
-    <title>Gestionar errores 404 (y otros) en ASP.NET 5 y MVC 6</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2015/12/gestionar-errores-4-4-y-otros-en-asp-net-5-y-mvc-6" />
+    <title>Eliminar el encabezado "X-Powered-By" en ASP.NET Core</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-core" />
     <category term="desarrollo" />
-    <category term="aspnet5" />
-    <category term="aspnetmvc" />
+    <category term="aspnetcore" />
     <author>
       <name>José M. Aguilar</name>
     </author>
-    <updated>2015-12-01T08:15:00Z</updated>
-    <published>2015-12-01T08:15:00Z</published>
-    <content type="html">&lt;p&gt;Pues no parecía que esto de la gestión de errores fuera a dar para tanto, pero este es ya el tercer post dedicado a este tema, que por otro lado debemos controlar totalmente cuando comencemos a crear aplicaciones reales con ASP.NET 5 y MVC 6. Hasta ahora hemos visto cómo gestionar las excepciones producidas desde nuestras aplicaciones utilizando el middleware ExceptionHandlerMiddleware, y cómo obtener información sobre dichas excepciones desde su código manejador. Esto nos permitía un buen grado de control sobre los errores HTTP 500, pero el amigo Juan, muy atento a lo que íbamos viendo, preguntaba: "Siguiendo con la captura de excepciones, esta vez en mvc6 como se podría capturar los códigos de estado como por ejemplo 404" Obviamente el resto de errores HTTP entre el 400 (errores en cliente)[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2015/12/gestionar-errores-4-4-y-otros-en-asp-net-5-y-mvc-6"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <updated>2016-01-24T13:15:05Z</updated>
+    <published>2016-01-19T07:52:00Z</published>
+    <content type="html">&lt;p&gt;Hace poco veíamos cómo crear un middleware capaz de realizar transformaciones simples en los encabezados de respuesta de nuestras aplicaciones ASP.NET Core. Nuestro componente, al que habíamos llamado HeaderTransformMiddleware, podíamos añadirlo al pipeline indicándole qué encabezados queríamos modificar y con qué valores (o nulo, si lo que queríamos era eliminar el encabezado). Por ejemplo, con el siguiente código añadíamos el encabezado "X-Author" y suprimíamos "Server": var transforms = new Dictionary&lt;string, string&gt;() {     ["X-Author"] = "José M. Aguilar",     ["Server"] = null }; app.UseHeaderTransform(transforms); Tras añadirlo al pipeline, la ejecución de una petición a una aplicación podríamos tener el siguiente resultado en los encabezados: HTTP/1.1 200 OK Content-Type: text/html;[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/01/eliminar-el-encabezado-x-powered-by-en-asp-net-core"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
-    <dc:date>2015-12-01T08:15:00Z</dc:date>
+    <dc:date>2016-01-19T07:52:00Z</dc:date>
   </entry>
   <entry>
     <title>Inyección de dependencias en ASP.NET 5 (actualizado)</title>
