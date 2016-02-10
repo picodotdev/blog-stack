@@ -3,10 +3,52 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2015-12-28T11:02:09Z</updated>
+  <updated>2016-02-10T10:03:29Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2015-12-28T11:02:09Z</dc:date>
+  <dc:date>2016-02-10T10:03:29Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo extraer duración, fotogramas, bitrate y fps de un vídeo para nuestros scripts</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-extraer-duracion-fotogramas-bitrate-y-fps-de-un-video-para-nuestros-scripts" />
+    <category term="segundo" />
+    <category term="horas" />
+    <category term="tiempo" />
+    <category term="avconv" />
+    <category term="mpeg" />
+    <category term="segundos" />
+    <category term="avi" />
+    <category term="extraccion" />
+    <category term="informacion" />
+    <category term="imagen-digital" />
+    <category term="minutos" />
+    <category term="duracion" />
+    <category term="mp4" />
+    <category term="general" />
+    <category term="convertir" />
+    <category term="scripts" />
+    <category term="bits" />
+    <category term="bash" />
+    <category term="videos" />
+    <category term="datos" />
+    <category term="frames" />
+    <category term="ffmpeg" />
+    <category term="sed" />
+    <category term="linux" />
+    <category term="video" />
+    <category term="tasa" />
+    <category term="imagenes" />
+    <category term="awk" />
+    <category term="video-digital" />
+    <category term="bitrate" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-02-10T09:15:24Z</updated>
+    <published>2016-02-10T09:15:24Z</published>
+    <content type="html">&lt;p&gt;Seguramente en nuestros scripts, si tratamos con archivos de vídeo, nos interese conocer información sobre el mismo. Tal vez podamos extraer más información de un archivo de vídeo con un software especializado como VLC; pero para hacer unos cálculos rápidos o una conversión de formato nos va a venir muy bien. Programas como avconv o ffmpeg son capaces de extraer información básica del vídeo. Es más, programas como identify (de imagemagick) entre otros, en realidad llaman por detrás a uno de los dos primeros para realizar la identificación del archivo. Pero claro, imaginemos que queremos automatizar algunos procesos y hay archivos de vídeo involucrados. ¿Cómo extraemos la información de los mismos? Con herramientas como sed o awk. Al final del post tendréis el código fuente completo del script.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-extraer-duracion-fotogramas-bitrate-y-fps-de-un-video-para-nuestros-scripts"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-02-10T09:15:24Z</dc:date>
+  </entry>
   <entry>
     <title>Bailando con bits III. Mostrando el valor binario de un número [bash, C, C++, PHP, Java, Python, Ruby]</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/12/bailando-con-bits-iii-mostrando-el-valor-binario-de-un-numero-bash-c-c-php-java-python-ruby" />
@@ -199,29 +241,6 @@
     <content type="html">&lt;p&gt;Foto: nrkbeta Flickr (CC-by) Todo surgió cuando quería cambiar el disco duro de mi mediacenter. El disco duro lo tenía en mi ordenador de trabajo y el mediacenter (que hace también las veces de router/firewall y demás) no podía desenchufarlo. Es verdad que para un disco duro montado y activo no es la mejor forma, pero ya puestos, quería hacer el experimento, por lo que elegí algunas particiones que no tenían demasiada actividad (que luego fsck se encargue ) Para lo que sí puede servir es para crear imágenes de discos duros y transmitirlas a un servidor central para su almacenaje, ya sea por problemas de sitio, que no tengas espacio suficiente en algún dispositivo externo, o porque por seguridad se quiere transmitir a un servidor remoto o también, porque se tengan que instalar muchos ordenadores[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/transferir-una-imagen-de-disco-a-traves-de-la-red-bash-y-mas"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-04-08T08:29:25Z</dc:date>
-  </entry>
-  <entry>
-    <title>Pintar una gráfica con gnuplot de datos extraidos de SQLite</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/04/pintar-una-grafica-con-gnuplot-de-datos-extraidos-de-sqlite" />
-    <category term="fecha" />
-    <category term="linux" />
-    <category term="formato" />
-    <category term="bash" />
-    <category term="tiempo" />
-    <category term="valor" />
-    <category term="sqlite" />
-    <category term="datos" />
-    <category term="complejidad" />
-    <category term="gnuplot" />
-    <category term="hora" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-04-06T00:25:23Z</updated>
-    <published>2015-04-06T00:25:23Z</published>
-    <content type="html">&lt;p&gt;Como parte de uno de mis últimos proyectos, recopilo datos periódicamente y los almaceno en una tabla SQLite. Pero, al final, los datos no valen para nada si no somos capaces de tener una visión global de lo que ha pasado a lo largo del periodo de tiempo. Y para eso, ¿qué mejor que pintar los datos en una gráfica? Ya que los datos los almaceno en SQLite, utilizaré el cliente sqlite3 y para pintar las gráficas, gnuplot. Lo primero es sacar la consulta SQL para extraer los datos de los ejes X e Y. En este caso, el eje X será el tiempo y el eje Y será el valor obtenido en el test: 1 SELECT VALUE, dtm FROM STATUS WHERE monitor=1; La consulta la podemos complicar todo lo que queramos, introducir más condiciones, rangos de tiempo, etc. SQLite se lleva bien con estos tipos de datos. Cabe decir que[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/04/pintar-una-grafica-con-gnuplot-de-datos-extraidos-de-sqlite"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-04-06T00:25:23Z</dc:date>
   </entry>
 </feed>
 
