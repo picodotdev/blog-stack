@@ -3,10 +3,49 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-02-08T11:02:33Z</updated>
+  <updated>2016-02-12T11:02:30Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-02-08T11:02:33Z</dc:date>
+  <dc:date>2016-02-12T11:02:30Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Conocer el tipo MIME de un archivo gracias a GIO en lenguaje C</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/02/conocer-el-tipo-mime-de-un-archivo-gracias-a-gio-en-lenguaje-c" />
+    <category term="plataforma" />
+    <category term="pkg-config" />
+    <category term="gio" />
+    <category term="capa" />
+    <category term="analisis" />
+    <category term="sistema" />
+    <category term="gcc" />
+    <category term="informacion" />
+    <category term="fichero" />
+    <category term="extension" />
+    <category term="gtk" />
+    <category term="archivos" />
+    <category term="descripcion" />
+    <category term="general" />
+    <category term="compilar" />
+    <category term="mac" />
+    <category term="mime" />
+    <category term="windows" />
+    <category term="biblioteca" />
+    <category term="libreria" />
+    <category term="remotos" />
+    <category term="tipo" />
+    <category term="web" />
+    <category term="c-c" />
+    <category term="glib" />
+    <category term="linux" />
+    <category term="c" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-02-12T09:41:08Z</updated>
+    <published>2016-02-12T09:41:08Z</published>
+    <content type="html">&lt;p&gt;La biblioteca GIO nos proporciona una capa más sobre el manejo de archivos. Nos aíslan un poco de las llamadas al sistema operativo para hacer muchas operaciones sobre archivos facilitando el uso de la biblioteca en aplicaciones multiplataforma. Así como dándonos algunas funciones interesantes que ya vienen hechas. La gran ventaja de GIO frente al acceso normal a un archivo es que hace transparente al programador el acceso a sistemas de archivos compartidos (en Windows, Mac o Linux) sin tener que gastar mucho tiempo en todo eso. Saber el tipo MIME de un archivo Si tu aplicación trabaja con archivos, en muchas ocasiones es necesario conocer el tipo MIME, sobre todo cuando vamos a transferir datos a través de la red. Nos ayudan a conocer el tipo de contenido de un archivo (saber si es una imagen,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/02/conocer-el-tipo-mime-de-un-archivo-gracias-a-gio-en-lenguaje-c"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-02-12T09:41:08Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo listar archivos de forma recursiva en C, y un mundo de posibilidades en nuestros programas</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-listar-archivos-de-forma-recursiva-en-c-y-un-mundo-de-posibilidades-en-nuestros-programas" />
@@ -182,34 +221,6 @@
     <content type="html">&lt;p&gt;Hablaba hace unos días en twitter con Pablo Iglesias (el de verdad, no el otro, que ya tuve bastante de políticos al hablar de viejos de 30 años) sobre los mecanismos que existen en C# para controlar la visibilidad de atributos, propiedades y métodos. A mi siempre me ha resultado curioso que en lenguaje más rígido como C# fuese más complicado (o menos idiomático) crear cosas realmente privadas dentro de una clase, y a Pablo no le gustaba mucho que el encapsulado se hiciese a nivel de clase, en lugar de a nivel de objeto. Es un tema entretenido para dedicarle un rato y en este post vamos a ver qué nos ofrece C# (o casi cualquier lenguaje basado en clases, todos son muy similares) para ocultar información y cuál es el enfoque en otros lenguajes. Privacidad con clases Todos conocemos de sobre[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/koalite/2015/11/clases-objetos-funciones-e-information-hidding"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Juan María Hernández</dc:creator>
     <dc:date>2015-11-16T05:06:41Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo gestionar los parámetros de un programa en C (parte 2: parámetros largos)</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2015/11/como-gestionar-los-parametros-de-un-programa-en-c-parte-2-parametros-largos" />
-    <category term="argumentos" />
-    <category term="opciones" />
-    <category term="flexibilidad" />
-    <category term="opcionales" />
-    <category term="parametros" />
-    <category term="entrada" />
-    <category term="xml" />
-    <category term="cortos" />
-    <category term="largos" />
-    <category term="json" />
-    <category term="ejemplo" />
-    <category term="usuario" />
-    <category term="c" />
-    <category term="general" />
-    <category term="getopt" />
-    <category term="programas" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2015-11-12T09:47:32Z</updated>
-    <published>2015-11-12T09:47:32Z</published>
-    <content type="html">&lt;p&gt;Hace unos días publiqué Cómo gestionar los parámetros de nuestros programas con getopt en C como una introducción a la gestión de los argumentos desde nuestros programas en C. De esta forma podremos hacer nuestros programas más flexibles aceptando una entrada del usuario en forma de parámetros y así modificar el comportamiento. Antes de nada: WordPress cuando ve dos guiones seguidos (- y -) lo interpreta como un guión largo. En ocasiones viene bien y no molesta, pero en un post como este sí que perjudica más que beneficia, puedo desactivar el filtro, pero tengo mis dudas de que haya un post en el que lo quiera así. Tendré que estudiar la opción de desactivarlo sólo para un post determinado. Para ello vimos getopt(), que nos permitía introducir opciones cortas (-v, -a, -j…) incluso con un parámetro[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/11/como-gestionar-los-parametros-de-un-programa-en-c-parte-2-parametros-largos"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2015-11-12T09:47:32Z</dc:date>
   </entry>
 </feed>
 
