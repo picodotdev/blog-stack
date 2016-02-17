@@ -3,10 +3,49 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-02-16T12:02:12Z</updated>
+  <updated>2016-02-17T11:02:15Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-02-16T12:02:12Z</dc:date>
+  <dc:date>2016-02-17T11:02:15Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo crear ventanas semitransparentes en Gtk+-3.0 con GtkMM</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-crear-ventanas-semitransparentes-en-gtk-3-con-gtkmm" />
+    <category term="alfa" />
+    <category term="gui" />
+    <category term="mover" />
+    <category term="transparencia" />
+    <category term="ventanas" />
+    <category term="gtk" />
+    <category term="entorno" />
+    <category term="grafico" />
+    <category term="tinte" />
+    <category term="transparente" />
+    <category term="alpha" />
+    <category term="componentes" />
+    <category term="ventana" />
+    <category term="gtkmm" />
+    <category term="verde" />
+    <category term="color" />
+    <category term="c-c" />
+    <category term="imagen" />
+    <category term="azul" />
+    <category term="linux" />
+    <category term="ejemplo" />
+    <category term="redibujado" />
+    <category term="rojo" />
+    <category term="canal" />
+    <category term="c" />
+    <category term="raton" />
+    <category term="fondo" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-02-17T09:53:09Z</updated>
+    <published>2016-02-17T09:53:09Z</published>
+    <content type="html">&lt;p&gt;Es algo que está muy chulo, y puede hacer que la experiencia de usuario de nuestras aplicaciones sea mucho mejor, además de dar un punto friki si queremos intercalar información de fondo, o queremos hacer una animación, una ventana splash chula mientras arranca nuestro programa, etc. Lo que tenemos que hacer es que nuestra ventana se pinte en un contexto RGBA (rojo, verde, azul, alpha), donde alpha es nuestro valor de opacidad. Tenemos que tener en cuenta que GTK+ manejará los valores de las componentes de color de la ventana (las mencionadas rojo, verde, azul, alpha, con valores entre 0 y 1, por lo que serán valores double). Una vez establecido esto, tenemos que controlar cada redibujado de la ventana. Normalmente se gestiona el redibujado automáticamente para dibujar una ventana normal, pero[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-crear-ventanas-semitransparentes-en-gtk-3-con-gtkmm"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-02-17T09:53:09Z</dc:date>
+  </entry>
   <entry>
     <title>Linux Mint “tips” 1: actualizar el sistema</title>
     <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2016/02/linux-mint-tips-1-actualizar-el-sistema" />
@@ -138,48 +177,6 @@
     <content type="html">&lt;p&gt;Hoy voy tratar un tema que me hace especial ilusión, ya que se trata de un proyecto de monitorización de sistemas y redes, llamado Pandora FMS, creado por una empresa española, afincada en Madrid.... La entrada Monitorizar sistemas y redes con Pandora FMS aparece primero en ochobitshacenunbyte.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2016/02/monitorizar-sistemas-y-redes-con-pandora-fms"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2016-02-10T18:53:13Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo extraer duración, fotogramas, bitrate y fps de un vídeo para nuestros scripts</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-extraer-duracion-fotogramas-bitrate-y-fps-de-un-video-para-nuestros-scripts" />
-    <category term="segundo" />
-    <category term="horas" />
-    <category term="tiempo" />
-    <category term="avconv" />
-    <category term="mpeg" />
-    <category term="segundos" />
-    <category term="avi" />
-    <category term="extraccion" />
-    <category term="informacion" />
-    <category term="imagen-digital" />
-    <category term="minutos" />
-    <category term="duracion" />
-    <category term="mp4" />
-    <category term="general" />
-    <category term="convertir" />
-    <category term="scripts" />
-    <category term="bits" />
-    <category term="bash" />
-    <category term="videos" />
-    <category term="datos" />
-    <category term="frames" />
-    <category term="ffmpeg" />
-    <category term="sed" />
-    <category term="linux" />
-    <category term="video" />
-    <category term="tasa" />
-    <category term="imagenes" />
-    <category term="awk" />
-    <category term="video-digital" />
-    <category term="bitrate" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2016-02-10T09:15:24Z</updated>
-    <published>2016-02-10T09:15:24Z</published>
-    <content type="html">&lt;p&gt;Seguramente en nuestros scripts, si tratamos con archivos de vídeo, nos interese conocer información sobre el mismo. Tal vez podamos extraer más información de un archivo de vídeo con un software especializado como VLC; pero para hacer unos cálculos rápidos o una conversión de formato nos va a venir muy bien. Programas como avconv o ffmpeg son capaces de extraer información básica del vídeo. Es más, programas como identify (de imagemagick) entre otros, en realidad llaman por detrás a uno de los dos primeros para realizar la identificación del archivo. Pero claro, imaginemos que queremos automatizar algunos procesos y hay archivos de vídeo involucrados. ¿Cómo extraemos la información de los mismos? Con herramientas como sed o awk. Al final del post tendréis el código fuente completo del script.[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/02/como-extraer-duracion-fotogramas-bitrate-y-fps-de-un-video-para-nuestros-scripts"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2016-02-10T09:15:24Z</dc:date>
   </entry>
 </feed>
 
