@@ -3,10 +3,25 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-02-17T10:02:17Z</updated>
+  <updated>2016-02-22T18:02:12Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-02-17T10:02:17Z</dc:date>
+  <dc:date>2016-02-22T18:02:12Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Gestionando el registro Docker Hub</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/pledin/2016/02/gestionando-el-registro-docker-hub" />
+    <category term="virtualizacion" />
+    <category term="general" />
+    <category term="docker" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2016-02-22T17:29:52Z</updated>
+    <published>2016-02-22T17:29:52Z</published>
+    <content type="html">&lt;p&gt;En artículos anteriores hemos estudiado la generación de imágenes docker utilizando ficheros Dockerfile y construyendo la nueva imagen con el comando docker buid. Las imágenes generadas por este método se crean en nuestro servidor docker. si queremos desplegar la aplicación o el servicio “dockerizado” desde nuestro entorno de prueba/desarrollo a nuestro entorno de producción, es necesario llevarnos la imagen de un entono a otro. Para transferir la imagen de un equipo a otro tenemos dos posibilidades: Podríamos guardar la imagen en un fichero tar, que podemos copiar al otro equipo para restaurarlo en él. Podríamos guardar la imagen en un registro docker. Podemos instalar un registro en nuestra infraestructura o utilizar docker hub, que es una aplicación web que nos proporciona la posibilidad[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/pledin/2016/02/gestionando-el-registro-docker-hub"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2016-02-22T17:29:52Z</dc:date>
+  </entry>
   <entry>
     <title>Ejemplos de ficheros Dockerfile, creando imágenes docker</title>
     <link rel="alternate" href="http://www.blogstack.info/post/pledin/2016/02/ejemplos-de-ficheros-dockerfile-creando-imagenes-docker" />
@@ -106,28 +121,6 @@ ubuntu              14.04               3876b81b5a81�
     <content type="html">&lt;p&gt;KVM es una fantástica alternativa libre si deseamos crear una infraestructura de virtualización con software no privativo. Hace ya un tiempo hablamos de su funcionamiento y de cómo crear una máquina virtual. Hoy trataremos la configuración de la red en KVM. Por defecto al instalar KVM en nuestro sistema nos creará una tarjeta de red virtual que usarán nuestras máquinas virtuales, usando un NAT para comunicarse con el exterior, con una red propia, diferente de nuestra red local. En la mayoría de los casos he necesitado configurar un public bridge para que las máquinas virtuales usen los rangos de IP de mi red local, ya sea para uso interno o DMZ. No es excesivamente compliado, supongamos que tenemos dos tarjetas de red (interfaces) instaladas en nuestro servidor de infraestructura (host), en[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/09/configuracion-de-red-en-kvm-en-modo-public-bridge"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>ochobitshacenunbyte</dc:creator>
     <dc:date>2014-09-30T09:26:13Z</dc:date>
-  </entry>
-  <entry>
-    <title>Virtualizando con KVM</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm" />
-    <category term="xen" />
-    <category term="blog-stack" />
-    <category term="virtualizacion" />
-    <category term="kvm" />
-    <category term="comandos" />
-    <category term="virsh" />
-    <category term="vmware" />
-    <category term="virtualbox" />
-    <category term="gnu" />
-    <category term="debian" />
-    <author>
-      <name>ochobitshacenunbyte</name>
-    </author>
-    <updated>2014-09-26T12:19:12Z</updated>
-    <published>2014-05-15T14:41:31Z</published>
-    <content type="html">&lt;p&gt;Virtualizar servidores está al orden del día, ya sea con vmWare, Xen o VirtualBox. Hoy hablaramos de la virtualización completa para Linux KVM o “Kernel-based Virtual Machine”, que usa sólo software libre. KVM está basada en dos partes, una formadada por un módulo de núcleo, llamado “kvm.ko” y las herramientas del espacio del usuario. Está disponible a partir de la versión del kernel 2.6.20. Contiene las extensiones de virtualización Intel VT o AMD-V. Instalación Hemos realizado las pruebas en un máquina con procesador I7 y un sistema operativo GNU/Linux Debian 7 Wheezy. Como primer paso tenemos que comprobar que nuestro ordenador o computadora da soporte a KVM. Por ello visualizaremos el archivo /proc/cpuinfo, para que nos de la información, aplicando el filtro más conveniente. Si tenemos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/05/virtualizando-con-kvm"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>ochobitshacenunbyte</dc:creator>
-    <dc:date>2014-05-15T14:41:31Z</dc:date>
   </entry>
 </feed>
 
