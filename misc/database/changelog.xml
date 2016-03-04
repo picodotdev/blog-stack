@@ -656,4 +656,17 @@
             <column name="enabled" valueBoolean="true"/>
         </insert>
     </changeSet>
+    <changeSet id="39" author="picodotdev">
+        <comment>Agregación de fuente (04-03-2016)</comment>
+        <insert tableName="source" schemaName="${schema}">
+            <column name="creationDate" valueDate="SYSDATE()"/>
+            <column name="name" value="altmar"/>
+            <column name="alias" value="altmar"/>
+            <column name="pageUrl" value="http://www.altmar.es/blog/"/>
+            <column name="url" value="http://www.altmar.es/feed/"/>
+            <column name="author" value="altmar"/>
+            <column name="email" value=""/>
+            <column name="enabled" valueBoolean="true"/>
+        </insert>
+    </changeSet>    
 </databaseChangeLog>
