@@ -3,10 +3,37 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-06T20:02:16Z</updated>
+  <updated>2016-03-13T14:02:16Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-06T20:02:16Z</dc:date>
+  <dc:date>2016-03-13T14:02:16Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Chocolatey el apt de windows</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/altmar/2016/03/chocolatey-el-apt-de-windows" />
+    <category term="automatico" />
+    <category term="apt" />
+    <category term="instalacion" />
+    <category term="windows" />
+    <category term="facil" />
+    <category term="automaticamente" />
+    <category term="software" />
+    <category term="simbolo-de-sistema" />
+    <category term="apt-get" />
+    <author>
+      <name>atroncoso</name>
+    </author>
+    <updated>2016-03-13T13:41:13Z</updated>
+    <published>2016-03-13T13:41:13Z</published>
+    <content type="html">&lt;p&gt;Chocolatey quiere ser el Apt-Get de Windows, y es lo bueno de los proyectos libres, que si algo es bueno puedes cogerlo y portarlo a otras plataformas. La instalación es muy simple, al mas puro estilo GNU/Linux. Abrimos “Simbolo de sistema” con permisos de administrador y pegamos la siguiente linea: 
+
+@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+ Una vez instalado, cerramos la ventana y la volvemos a abrir. Ahora es tan simple como poner: 
+choco install vlc adobereader
+ Con esto se nos instalará Vlc y Adobe Reader. Aquí teneis una lista con el software disponible. Ir Tambien podeis actualizar el software instalado. El siguiente comando muestra[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/altmar/2016/03/chocolatey-el-apt-de-windows"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>atroncoso</dc:creator>
+    <dc:date>2016-03-13T13:41:13Z</dc:date>
+  </entry>
   <entry>
     <title>BITes: Ray Tomlinson, Skype se rompe, seguridad, SSD de 15Tb!! ordenadores en ciencia ficción, eliminar de forma segura</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/bites-ray-tomlinson-skype-se-rompe-seguridad-ssd-de-15tb-ordenadores-en-ciencia-ficcion-eliminar-de-forma-segura" />
@@ -219,41 +246,6 @@
     <content type="html">&lt;p&gt;La biblioteca GIO nos proporciona una capa más sobre el manejo de archivos. Nos aíslan un poco de las llamadas al sistema operativo para hacer muchas operaciones sobre archivos facilitando el uso de la biblioteca en aplicaciones multiplataforma. Así como dándonos algunas funciones interesantes que ya vienen hechas. La gran ventaja de GIO frente al acceso normal a un archivo es que hace transparente al programador el acceso a sistemas de archivos compartidos (en Windows, Mac o Linux) sin tener que gastar mucho tiempo en todo eso. Saber el tipo MIME de un archivo Si tu aplicación trabaja con archivos, en muchas ocasiones es necesario conocer el tipo MIME, sobre todo cuando vamos a transferir datos a través de la red. Nos ayudan a conocer el tipo de contenido de un archivo (saber si es una imagen,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/02/conocer-el-tipo-mime-de-un-archivo-gracias-a-gio-en-lenguaje-c"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2016-02-12T09:41:08Z</dc:date>
-  </entry>
-  <entry>
-    <title>Owncloud en 2016. Cómo usarlo desde el escritorio y desde el móvil</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/01/owncloud-en-2-16-como-usarlo-desde-el-escritorio-y-desde-el-movil" />
-    <category term="local" />
-    <category term="interneteando" />
-    <category term="windows" />
-    <category term="nube" />
-    <category term="eventos" />
-    <category term="sincronizacion" />
-    <category term="escritorio" />
-    <category term="servidor" />
-    <category term="contactos" />
-    <category term="webdav" />
-    <category term="disco" />
-    <category term="dropbox" />
-    <category term="tareas" />
-    <category term="movil" />
-    <category term="red" />
-    <category term="servidores" />
-    <category term="linux" />
-    <category term="filelink" />
-    <category term="owncloud" />
-    <category term="acceso" />
-    <category term="calendarios" />
-    <category term="duro" />
-    <category term="correo" />
-    <author>
-      <name>Gaspar Fernández</name>
-    </author>
-    <updated>2016-01-25T09:49:40Z</updated>
-    <published>2016-01-25T09:49:40Z</published>
-    <content type="html">&lt;p&gt;Owncloud, como hemos visto en posts anteriores [ 1ª Parte , 2ª parte ], owncloud es un software con el que podemos almacenar nuestra información en la nube, eso sí, nosotros lo instalamos y lo gestionamos, por lo que somos dueños y señores de la información y de los servidores. Aunque podemos encontrar empresas que basan sus servicios en este software que nos ahorran el tema de pelearnos con los servidores. En este último post de la serie, trataremos de ver qué formas tenemos de acceder a un servidor Owncloud. Versión web Por supuesto tenemos una versión web desde la que podemos acceder a todas sus posibilidades, tanto archivos, contactos, calendarios, tareas, y todo lo que tengamos en plugins para el sistema. Al estar pensado como un sistema web, aquí lo podremos ver absolutamente todo. Nos[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/01/owncloud-en-2-16-como-usarlo-desde-el-escritorio-y-desde-el-movil"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Gaspar Fernández</dc:creator>
-    <dc:date>2016-01-25T09:49:40Z</dc:date>
   </entry>
 </feed>
 
