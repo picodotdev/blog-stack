@@ -3,10 +3,39 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-10T12:02:42Z</updated>
+  <updated>2016-03-16T11:02:34Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-10T12:02:42Z</dc:date>
+  <dc:date>2016-03-16T11:02:34Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cifrar y descifrar un archivo fácilmente con openSSL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/cifrar-y-descifrar-un-archivo-facilmente-con-openssl" />
+    <category term="desencriptar" />
+    <category term="argumentos" />
+    <category term="codificar" />
+    <category term="bits" />
+    <category term="openssl" />
+    <category term="cifrar" />
+    <category term="seguridad" />
+    <category term="algoritmos" />
+    <category term="servidores" />
+    <category term="des" />
+    <category term="aes" />
+    <category term="encriptar" />
+    <category term="howto" />
+    <category term="ejemplos" />
+    <category term="base64" />
+    <category term="decodificar" />
+    <category term="descifrar" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-03-16T09:59:31Z</updated>
+    <published>2016-03-16T09:59:31Z</published>
+    <content type="html">&lt;p&gt;Queremos cifrar (o como queráis, codificar, encriptar…) un documento rápidamente desde la consola, con la posibilidad de que pueda ser descifrado. Por ejemplo, nos puede servir para transmitir por e-mail (o un chat) un archivo confidencial, para almacenar elementos privados en la nube, o para que alguien no se entere del contenido de un archivo. Guía rápida Para codificar un archivo: 1 $ openssl aes-256-cbc -in mi_archivo -pass pass:passw0rd -out mi_archivo.enc y para decodificar: 1 $ openssl aes-256-cbc -d -in mi_archivo.enc -pass pass:passw0rd -out mi_archivo Explicación El primer argumento es el algoritmo de cifrado/descifrado, podéis encontrar algoritmos como aes, des, base64 y muchos más. Ejecutando “openssl help” podemos ver los algoritmos de cifrado (cypher commands) disponibles. El[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/03/cifrar-y-descifrar-un-archivo-facilmente-con-openssl"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-03-16T09:59:31Z</dc:date>
+  </entry>
   <entry>
     <title>Pequeños pingüinos: Permisos y umask</title>
     <link rel="alternate" href="http://www.blogstack.info/post/etccrond/2016/02/pequenos-pinguinos-permisos-y-umask" />
@@ -131,24 +160,6 @@
     <content type="html">&lt;p&gt;Unos cuantos enlaces más para terminar la semana con energía, y viendo las cosas de otro modo. Son algunos posts y algunas páginas que considero interesantes y oportunas esta semana. Enlaces de la semana Ray Tomlinson: Sin él no tendríamos correo electrónico… bueno, como pasa siempre, si no lo hubiera hecho él, lo habría hecho otro, pero no sería tal y como lo conocemos. Y tristemente fallecido esta semana. Os dejo la dedicatoria que mi amigo Paco dejó en Facebook [Ayúdame]: Cuando en el mundillo de la informática muere cierta gente que se ha sabido vender, corren ríos de tinta. El caso más lamentable que conozco es la coincidencia en una semana de las defunciones de Dennis MacAlistair Ritchie y de Steven Paul Jobs; al primero no le conocía “nadie” a pesar de ser el padre de C e incluso del[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/03/bites-ray-tomlinson-skype-se-rompe-seguridad-ssd-de-15tb-ordenadores-en-ciencia-ficcion-eliminar-de-forma-segura"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2016-03-06T19:11:39Z</dc:date>
-  </entry>
-  <entry>
-    <title>Cómo eliminar de forma segura archivos con wipe y dd en GNU/Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/blogbitix/2016/03/como-eliminar-de-forma-segura-archivos-con-wipe-y-dd-en-gnu-linux" />
-    <category term="blog-stack" />
-    <category term="linux" />
-    <category term="seguridad" />
-    <category term="software-libre" />
-    <category term="planeta-linux" />
-    <category term="planeta-codigo" />
-    <author>
-      <name>pico.dev</name>
-    </author>
-    <updated>2016-03-05T11:00:00Z</updated>
-    <published>2016-03-05T11:00:00Z</published>
-    <content type="html">&lt;p&gt;Eliminar archivos del sistema de ficheros no basta para destruir la información que contuvieran. Con herramientas como Foremost su contenido puede ser recuperado, por ello cuando desechamos una unidad de almacenamiento (disco duro, memoria USB, targeta SD, SSD) conviene hacer un borrado seguro de la unidad, si trabajamos con información sensible quizá queramos hacer un borrado seguro de los archivos que eliminemos. Con el comando wipe podemos borrar archivos individuales y con el comando dd una unidad completa. Aunque los eliminemos su contenido permanece en el sistema de archivos que con herramientas como Foremost pueden recuperarse. Esto es debido a que cuando se elimina un archivo realmente lo que se hace es liberar el espacio ocupado, el contenido mientras no se sobreescriba por el de otro[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/blogbitix/2016/03/como-eliminar-de-forma-segura-archivos-con-wipe-y-dd-en-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>pico.dev</dc:creator>
-    <dc:date>2016-03-05T11:00:00Z</dc:date>
   </entry>
 </feed>
 

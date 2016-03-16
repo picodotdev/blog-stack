@@ -3,10 +3,39 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-16T10:02:19Z</updated>
+  <updated>2016-03-16T11:02:34Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-16T10:02:19Z</dc:date>
+  <dc:date>2016-03-16T11:02:34Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cifrar y descifrar un archivo fácilmente con openSSL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/cifrar-y-descifrar-un-archivo-facilmente-con-openssl" />
+    <category term="desencriptar" />
+    <category term="argumentos" />
+    <category term="codificar" />
+    <category term="bits" />
+    <category term="openssl" />
+    <category term="cifrar" />
+    <category term="seguridad" />
+    <category term="algoritmos" />
+    <category term="servidores" />
+    <category term="des" />
+    <category term="aes" />
+    <category term="encriptar" />
+    <category term="howto" />
+    <category term="ejemplos" />
+    <category term="base64" />
+    <category term="decodificar" />
+    <category term="descifrar" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-03-16T09:59:31Z</updated>
+    <published>2016-03-16T09:59:31Z</published>
+    <content type="html">&lt;p&gt;Queremos cifrar (o como queráis, codificar, encriptar…) un documento rápidamente desde la consola, con la posibilidad de que pueda ser descifrado. Por ejemplo, nos puede servir para transmitir por e-mail (o un chat) un archivo confidencial, para almacenar elementos privados en la nube, o para que alguien no se entere del contenido de un archivo. Guía rápida Para codificar un archivo: 1 $ openssl aes-256-cbc -in mi_archivo -pass pass:passw0rd -out mi_archivo.enc y para decodificar: 1 $ openssl aes-256-cbc -d -in mi_archivo.enc -pass pass:passw0rd -out mi_archivo Explicación El primer argumento es el algoritmo de cifrado/descifrado, podéis encontrar algoritmos como aes, des, base64 y muchos más. Ejecutando “openssl help” podemos ver los algoritmos de cifrado (cypher commands) disponibles. El[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/03/cifrar-y-descifrar-un-archivo-facilmente-con-openssl"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-03-16T09:59:31Z</dc:date>
+  </entry>
   <entry>
     <title>Programa Akademy-es 2016 de Madrid</title>
     <link rel="alternate" href="http://www.blogstack.info/post/kdeblog/2016/03/programa-akademy-es-2-16-de-madrid" />
@@ -98,25 +127,6 @@
     <content type="html">&lt;p&gt;Seguro que estamos todos de acuerdo en que el nuevo sistema de configuración proporcionado por ASP.NET Core mejora bastante lo que teníamos en las versiones más tradicionales de ASP.NET. Y la posibilidad de almacenar settings en formatos como .INI o .XML resulta interesante, el formato JSON me parece de lo más cómodo y apropiado para muchos escenarios en los que antes no lo teníamos tan sencillo, como definir configuraciones con un cierto nivel de jerarquía como la siguiente: {   "appName": "My App",   "version":  "1.0 beta",   "notifications": {     "enabled":  true,     "server": {       "smtp": "smtp.myserver.com",       "user": "myuser",       "pass": "1234"     },     "targets": {       "warnings": "dev@mycompany.com",       "errors": [         "dev@mycompany.com",         "support@mycompany.com"[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/variablenotfound/2016/03/acceder-a-arrays-en-settings-json-de-asp-net-core"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>José M. Aguilar</dc:creator>
     <dc:date>2016-03-15T08:00:00Z</dc:date>
-  </entry>
-  <entry>
-    <title>KaOS 16.03: brilla con luz propia</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2016/03/kaos-16-3-brilla-con-luz-propia" />
-    <category term="linux" />
-    <category term="gnu-linux" />
-    <category term="kde" />
-    <category term="revision" />
-    <category term="plasma" />
-    <category term="analisis" />
-    <category term="kaos" />
-    <author>
-      <name>Enrique Bravo</name>
-    </author>
-    <updated>2016-03-14T17:30:35Z</updated>
-    <published>2016-03-14T17:30:35Z</published>
-    <content type="html">&lt;p&gt;Ayer llegaban a mis distintas cuentas en redes sociales los ecos del lanzamiento de una nueva “ISO” de KaOS, la distribución creada desde cero que incluye algunas de las características preferidas de quien escribe estas líneas, como el gestor de paquetes Pacman, el ciclo de desarrollo continuo (“rolling release”) y el centrarse en un único escritorio y arquitecturas (KDE, 64 bits), evitando distracciones y focalizando los esfuerzos. Tal y como recibía la noticia, descargaba e instalaba el sistema en mi equipo de pruebas para escrutar el momento que vive una distribución que cuenta con bastante respaldo entre la comunidad hispanohablante. Al tratarse de un sistema que se va actualizando, todos aquellos que la tienen instalada no precisan descargar la nueva “ISO”, bastando un “sudo pacman -Syu”[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/lasombradelhelicoptero/2016/03/kaos-16-3-brilla-con-luz-propia"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Enrique Bravo</dc:creator>
-    <dc:date>2016-03-14T17:30:35Z</dc:date>
   </entry>
 </feed>
 
