@@ -3,10 +3,38 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-14T11:02:15Z</updated>
+  <updated>2016-03-18T10:02:22Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-14T11:02:15Z</dc:date>
+  <dc:date>2016-03-18T10:02:22Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Encontrar la diferencia entre la salida de dos comandos en nuestra terminal</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/encontrar-la-diferencia-entre-la-salida-de-dos-comandos-en-nuestra-terminal" />
+    <category term="comandos" />
+    <category term="mac" />
+    <category term="temporales" />
+    <category term="unix" />
+    <category term="bash" />
+    <category term="nombre" />
+    <category term="diff" />
+    <category term="salida" />
+    <category term="diferencia" />
+    <category term="linux" />
+    <category term="llamadas" />
+    <category term="archivos" />
+    <category term="pipes" />
+    <category term="ejecucion" />
+    <category term="general" />
+    <category term="terminal" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-03-18T09:49:03Z</updated>
+    <published>2016-03-18T09:49:03Z</published>
+    <content type="html">&lt;p&gt;Este es un pequeño truco que, en ocasiones me ha salvado un poco de tiempo. Un mini-post que tenía ganas de compartir por aquí y que hoy voy a empezar por el final. Es decir, poniendo el código: 1 $ diff &lt;(comando 1) &lt;(comando 2) Con esto, ejecutamos el comando 1, luego el comando 2 y se lo pasamos a diff en forma de pipe creada expresamente para la ocasión. Es decir, la salida del comando 1 se va almacenando en una pipe, y la salida del comando 2 se va almacenando en otra pipe. Dichas pipes, en Linux las podemos encontrar en /proc/[PID del proceso]/fd/ ¿Para qué me vale esto? Saber si dos directorios tienen los mismos archivos Por ejemplo, si tenemos dos directorios que tienen que tener un contenido parecido (los mismos archivos) y queremos saber si falta alguno, aunque podemos utilizar meld,[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/03/encontrar-la-diferencia-entre-la-salida-de-dos-comandos-en-nuestra-terminal"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-03-18T09:49:03Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo convertirte en un señor del tiempo en C/C++ desde cero (Parte 1)</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/como-convertirte-en-un-senor-del-tiempo-en-c-c-desde-cero-parte-1" />
@@ -163,27 +191,6 @@
     <content type="html">&lt;p&gt;No es la primera ni última vez que tendremos que realizar búsquedas sencillas o complejas en tablas de texto. AWK nos facilitará las cosas. AWK es una lenguaje de programación, con una sintaxis similar a C, diseñado para procesar datos basados en texto, ya sean ficheros o flujos de datos. Fue una de las primeras herramientas aparecidas en UNIX. En nuestro artículo usaremos gawk, que es la versión libre del mismo programa. ¿Cómo funciona? El script escrito usando AWK analiza un fichero de entrada de línea, buscando pautas. Y cuando encuentra una coincidencia, realiza la acción programada. La sintaxis es la siguiente: gawk [opciones] ‘programa AWK’ fichero Vamos a partir de la base que tenemos un fichero con la siguiente información: Se trata de la discografía de Metallica. Vamos a listar la[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/busquedas-simples-con-awk-en-gnu-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>davidochobits</dc:creator>
     <dc:date>2014-11-26T21:41:26Z</dc:date>
-  </entry>
-  <entry>
-    <title>Copias de seguridad con rsync</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync" />
-    <category term="backup" />
-    <category term="rsync" />
-    <category term="blog-stack" />
-    <category term="programas" />
-    <category term="sistemas-operativos" />
-    <category term="tras" />
-    <category term="unix" />
-    <category term="gnu" />
-    <category term="linux" />
-    <author>
-      <name>davidochobits</name>
-    </author>
-    <updated>2014-11-23T16:54:15Z</updated>
-    <published>2014-11-18T16:35:13Z</published>
-    <content type="html">&lt;p&gt;En el artículo de hoy hablaré de las funciones de rsync para realizar copias de archivos, que en muchos casos serán de seguridad, para garantizar nuestros backups. Rsync es una aplicación de software libre, que nos permite copiar archivos de manera cifrada y comprimida, si así lo deseamos, conservando los atributos de los ficheros de origen. Utilizando cron podemos sincronizar ficheros y carpetas, minimizando el volumen de datos transferidos. Por defecto utiliza el puerto 873 si funciona cómo daemon, también podemos hacer que utilice el protocolo ssh. Es software libre, utiliza la licencia GNU General Public License.   Instalación de rsync La instalación en sistemas GNU/Linux y tipo Unix es bastante sencilla, de hecho, en muchas distribuciones ya viene preinstalado. En sistemas basados en paquetes[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/ochobitshacenunbyte/2014/11/copias-de-seguridad-con-rsync"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>davidochobits</dc:creator>
-    <dc:date>2014-11-18T16:35:13Z</dc:date>
   </entry>
 </feed>
 
