@@ -3,10 +3,52 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-20T18:02:23Z</updated>
+  <updated>2016-03-21T12:02:40Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-20T18:02:23Z</dc:date>
+  <dc:date>2016-03-21T12:02:40Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo expulsar todas las sesiones MySQL de un usuario en particular desde un script</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/como-expulsar-todas-las-sesiones-mysql-de-un-usuario-en-particular-desde-un-script" />
+    <category term="procesos" />
+    <category term="schema" />
+    <category term="usuarios" />
+    <category term="bucle" />
+    <category term="aplicacion" />
+    <category term="listado" />
+    <category term="processlist" />
+    <category term="expulsar" />
+    <category term="conexiones" />
+    <category term="sql" />
+    <category term="esquema" />
+    <category term="base" />
+    <category term="servidores" />
+    <category term="problema" />
+    <category term="solucion" />
+    <category term="select" />
+    <category term="show" />
+    <category term="thread" />
+    <category term="where" />
+    <category term="bash" />
+    <category term="mysql" />
+    <category term="datos" />
+    <category term="eliminar" />
+    <category term="matar" />
+    <category term="kill" />
+    <category term="provisional" />
+    <category term="linux" />
+    <category term="depurar" />
+    <category term="condicion" />
+    <category term="script" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-03-21T11:07:36Z</updated>
+    <published>2016-03-21T11:07:36Z</published>
+    <content type="html">&lt;p&gt;Muchas veces, puede que tengamos una aplicación no muy bien depurada en nuestro servidor web. A dicha aplicación le hemos dado su propio usuario MySQL y observamos que las conexiones no se cierran adecuadamente. Temporalmente puede que la solución sea expulsar de vez en cuando todos los usuarios que siguen activos, con el fin de no saturar nuestro servidor MySQL. Puede que en otros servicios que tengamos activos hayamos visto el mensaje “Too many connections” impidiendo así el acceso a los demás servicios. La primera detección del problema la podemos hacer gracias al comando “SHOW PROCESSLIST” de MySQL: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 &gt; SHOW PROCESSLIST; +---------+-------------+--------------------------------+-------------+---------+------+-------+------------------+[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/03/como-expulsar-todas-las-sesiones-mysql-de-un-usuario-en-particular-desde-un-script"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-03-21T11:07:36Z</dc:date>
+  </entry>
   <entry>
     <title>BITes: tener energía cuesta energía, enlaces y software empresarial para Linux, dona tu 404, Docker en Debian, algoritmos de ordenación</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/bites-tener-energia-cuesta-energia-enlaces-y-software-empresarial-para-linux-dona-tu-4-4-docker-en-debian-algoritmos-de-ordenacion" />
@@ -141,25 +183,6 @@
     <content type="html">&lt;p&gt;Como todos saben Docker ha madurado bastante y se ha convertido en la plataforma de elección para crear, entregar y correr aplicaciones distribuidas no importa la infraestructura donde se ejecuten. Docker ha estado creciendo y poniendo a nuestra disposición una serie de herramientas que nos permiten hacer uso de los contenedores de manera eficiente y rápida, es por esto que en la actualidad esta siendo utilizada en ambientes de producción en compañías de todos los tamaños. Si deseas conocer de que se trata Docker, en el blog tenemos una serie de entradas dedicadas a introducir el tema, lo pueden ver aquí. Tengo publicado además un pequeño Ebook que igual pueden utilizarlo para introducirse en el tema, lo pueden descargar aquí. Docker cumple su tercer año y la comunidad se ha unido con una serie[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2016/03/dockerbday-cumpleanos-numero-3-docker"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2016-03-16T19:41:14Z</dc:date>
-  </entry>
-  <entry>
-    <title>3 maneras de instalar Arch Linux</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/lasombradelhelicoptero/2016/03/3-maneras-de-instalar-arch-linux" />
-    <category term="archetype" />
-    <category term="linux" />
-    <category term="instalar" />
-    <category term="gnu-linux" />
-    <category term="arch" />
-    <category term="arch-anywhere" />
-    <category term="antergos" />
-    <author>
-      <name>Enrique Bravo</name>
-    </author>
-    <updated>2016-03-15T17:04:58Z</updated>
-    <published>2016-03-15T17:04:58Z</published>
-    <content type="html">&lt;p&gt;A lo mejor hoy es el día en el que te has decidido a dar el paso. Llevas el tiempo suficiente en GNU/Linux, disfrutando de la usabilidad que brinda alguna de las distribuciones más famosas, más amigables con el usuario. Y tú piensas que no tienes suficiente, que quieres más. Mayor control sobre lo que instalas o dejas de instalar, conocimientos acerca de la estructura de los directorios en GNU/Linux, sentir que llevas el volante de tu propio equipo… profundizar, en resumidas cuentas, en el sistema que tanto te gusta. Amig@, yo estuve allí, créeme. Aunque ya esté de vuelta y prefiera economizar mis esfuerzos y el tiempo que dedico al ordenador, un día sentí esa llamada de la que te hablo. Descubrí Arch Linux y supe que era lo que llevaba un tiempecillo curioso buscando. Me presentaron a Pacman[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/lasombradelhelicoptero/2016/03/3-maneras-de-instalar-arch-linux"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Enrique Bravo</dc:creator>
-    <dc:date>2016-03-15T17:04:58Z</dc:date>
   </entry>
 </feed>
 
