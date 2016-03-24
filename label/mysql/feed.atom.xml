@@ -3,10 +3,32 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-03-23T11:02:26Z</updated>
+  <updated>2016-03-24T16:02:21Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-03-23T11:02:26Z</dc:date>
+  <dc:date>2016-03-24T16:02:21Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Tablas en memoria en MySQL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/elblogdejose/2016/03/tablas-en-memoria-en-mysql" />
+    <category term="table" />
+    <category term="uncategorized" />
+    <category term="optimizacion" />
+    <category term="mysql" />
+    <category term="memory" />
+    <category term="memoria" />
+    <category term="optimization" />
+    <category term="herramientas" />
+    <category term="sql" />
+    <category term="tabla" />
+    <author>
+      <name>admin</name>
+    </author>
+    <updated>2016-03-24T15:50:18Z</updated>
+    <published>2016-03-24T15:42:33Z</published>
+    <content type="html">&lt;p&gt;Algunas semanas atrás en el trabajo nos topamos con un problema, realizábamos una consulta que consistía en hacer un join entre una tabla muy grande contra un par de tablas pequeñas que contenían únicamente descripciones. Como ustedes ha de imaginarse teníamos nuestra base de datos normalizada y para exportar los datos con el conjunto de descripciones era necesario realizar este cruce. Para que la consulta fuese bien (que no arrojase un timeout en el mejor de los casos) habíamos agregado índices a las tablas secundarias (aquellas que contenían las descripciones) y la consulta de lograr ejecutarse llegó a tardar unos 25 segundos. Estas tablas eran de tipo InnoDB y los índices eran de tipo B-Tree (es el único tipo de índice para las tablas de tipo InnoDB). La consulta llegaba a tardar en el mejor[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdejose/2016/03/tablas-en-memoria-en-mysql"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>admin</dc:creator>
+    <dc:date>2016-03-24T15:42:33Z</dc:date>
+  </entry>
   <entry>
     <title>Cómo hacer pequeñas operaciones matemáticas al reemplazar texto en Emacs</title>
     <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/03/como-hacer-pequenas-operaciones-matematicas-al-reemplazar-texto-en-emacs" />
@@ -226,26 +248,6 @@
     <content type="html">&lt;p&gt;Cuando hablamos de argumentos o parámetros de un programa en C, debemos pensa en los parámetros tan raros que pasamos a la función main(). En este caso, podemos ver cómo con dos argumentos (argc, o el número de argumentos que tenemos y argv o el contenido de esos argumentos, somos capaces de gestionar la información que un usuario nos pasa justo cuando ejecuta nuestro programa. Lo más sencillo que podemos hacer con los argumentos Imaginemos este ejemplo, de un programa donde queremos copiar un archivo origen a un destino (como cp), primero comprobamos que el número de argumentos es suficiente y luego imprimimos en pantalla el valor de cada uno (es un ejemplo inofensivo, no vamos a copiar nada). Tenemos que tener en cuenta que argv[0] encerrará el propio nombre del ejecutable del programa. 1[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2015/11/como-gestionar-los-parametros-de-nuestros-programas-con-getopt-en-c"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Gaspar Fernández</dc:creator>
     <dc:date>2015-11-05T09:37:40Z</dc:date>
-  </entry>
-  <entry>
-    <title>Tamaños maximos de lamacenamiento de TEXT, TINYTEXT, MEDIUM/LONG TEXT</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/elblogdeabr4xas/2015/07/tamanos-maximos-de-lamacenamiento-de-text-tinytext-medium-long-text" />
-    <category term="database" />
-    <category term="mysql" />
-    <author>
-      <name>abr4xas</name>
-    </author>
-    <updated>2015-07-11T23:30:00Z</updated>
-    <published>2015-07-11T23:30:00Z</published>
-    <content type="html">&lt;p&gt;Cuando estamos diseñando una base de datos siempre nos preguntamos cual sera el tipo de dato que vamos a manejar, pero, que pasa con esos campos en los que necesitamos guardar cierta cantidad de informacion? Aqui es donde aparece: TINYTEXT, TEXT, MEDIUMTEXT y LONGTEXT Muy bien, ya sabemos que podemos usar algunos de esos tipos pero, relamente cual es el tamaño maximo de almacenamiento de cada uno de ellos? En StackOverflow.com el usuario Bridge realizo una respuesta a esta interrogante y es la siguiente:       Type | Maximum length
------------+-------------------------------------
-  TINYTEXT |           255 (2 8−1) bytes
-      TEXT |        65,535 (216−1) bytes = 64 KiB
-MEDIUMTEXT |    16,777,215 (224−1) bytes = 16 MiB
-  LONGTEXT | 4,294,967,295 (232−1) bytes =  4 GiB
- NOTA: El numero de caracteres[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/elblogdeabr4xas/2015/07/tamanos-maximos-de-lamacenamiento-de-text-tinytext-medium-long-text"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>abr4xas</dc:creator>
-    <dc:date>2015-07-11T23:30:00Z</dc:date>
   </entry>
 </feed>
 
