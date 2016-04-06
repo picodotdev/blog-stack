@@ -3,10 +3,37 @@
   <title>Blog Stack</title>
   <link rel="alternate" href="http://www.blogstack.info" />
   <subtitle>Un poco más que un agregador/planeta de bitácoras sobre programación, desarrollo, software libre, gnu/linux, tecnología, ...</subtitle>
-  <updated>2016-04-04T20:02:48Z</updated>
+  <updated>2016-04-06T10:02:23Z</updated>
   <dc:creator>Blog Stack</dc:creator>
-  <dc:date>2016-04-04T20:02:48Z</dc:date>
+  <dc:date>2016-04-06T10:02:23Z</dc:date>
   <dc:language>es</dc:language>
+  <entry>
+    <title>Cómo hacer un chat punto a punto seguro con openSSL</title>
+    <link rel="alternate" href="http://www.blogstack.info/post/poesiabinaria/2016/04/como-hacer-un-chat-punto-a-punto-seguro-con-openssl" />
+    <category term="clave" />
+    <category term="emisor" />
+    <category term="local" />
+    <category term="certificado" />
+    <category term="seguro" />
+    <category term="cliente" />
+    <category term="chat" />
+    <category term="seguridad" />
+    <category term="servidor" />
+    <category term="conexion" />
+    <category term="servidores" />
+    <category term="linux" />
+    <category term="receptor" />
+    <category term="remota" />
+    <category term="mensaje" />
+    <author>
+      <name>Gaspar Fernández</name>
+    </author>
+    <updated>2016-04-06T08:24:15Z</updated>
+    <published>2016-04-06T08:24:15Z</published>
+    <content type="html">&lt;p&gt;¡ Vamos al lío ! Lo que haremos hoy, será iniciar un chat cifrado vía openssl. Para hacer que el chat sea seguro, utilizaremos un certificado openSSL y los componentes s_client y s_server que vienen con la aplicación. Iniciando el servidor Dicho chat será entre un cliente y un servidor. Para ello, primero, tenemos que crear un certificado para el servidor. Por si no queréis leer el otro post, dejo aquí unas pequeñas instrucciones: 1 $ openssl req -x509 -newkey rsa:2048 -keyout clave.pem -out certificado.pem -days 3650 -nodes Nos preguntará una serie de cosas, país, estado, organización, e-mail, y cosas así que debemos rellenar. Tendremos la clave de nuestro certificado en clave.pem y el certificado en sí en certificado.pem. Este certificado será autofirmado, por lo que si lo utilizamos en cualquier[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/poesiabinaria/2016/04/como-hacer-un-chat-punto-a-punto-seguro-con-openssl"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
+    <dc:creator>Gaspar Fernández</dc:creator>
+    <dc:date>2016-04-06T08:24:15Z</dc:date>
+  </entry>
   <entry>
     <title>FreeBSD 10.3 ya está disponible</title>
     <link rel="alternate" href="http://www.blogstack.info/post/ochobitshacenunbyte/2016/04/freebsd-1-3-ya-esta-disponible" />
@@ -117,22 +144,6 @@
     <content type="html">&lt;p&gt;En un post anterior introducía Docker Compose y como podíamos desplegar una aplicación multicontenedor. Como recuerdan definiamos el ambiente en un archivo docker-compose.yml y en esta entrada vamos a detallar un poco las opciones que le podemos pasar. El archivo compose es un archivo YAML donde definimos los servicios, redes y volúmenes. Usualmente lo colocamos en la ruta del directorio donde tendremos todo lo necesario para armar el ambiente. Estas definiciones contienen toda la configuración que serán aplicadas a cada contenedor iniciado por ese servico. Sería lo mismo que pasarle estos parámetros con el comando docker-run, de la misma manera las definiciones de las redes y volúmenes serían semejanres a los comandos docker network create y docker volume create. Vamos a ver ahora las opciones[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/jsitech/2016/03/docker-archivo-docker-compose-en-detalle"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
     <dc:creator>Jason Soto</dc:creator>
     <dc:date>2016-03-28T14:54:30Z</dc:date>
-  </entry>
-  <entry>
-    <title>Podcast Cròniques – Cirurgia de bootloader</title>
-    <link rel="alternate" href="http://www.blogstack.info/post/etccrond/2016/03/podcast-croniques-cirurgia-de-bootloader" />
-    <category term="linux" />
-    <category term="arch" />
-    <category term="podcast" />
-    <category term="systemd" />
-    <author>
-      <name>Eugenio M. Vigo</name>
-    </author>
-    <updated>2016-03-28T09:41:12Z</updated>
-    <published>2016-03-28T09:41:12Z</published>
-    <content type="html">&lt;p&gt;En un intent de solucionar els problemes que tenia el meu portàtil en hibernar (“suspendre a disc”), he provat de substituir l’arrencador o bootloader GRUB per systemd-boot, el qual és un derivat de l’antic Gummiboot que manté l’equip de desenvolupadors de… Continuar leyendo →[...]&lt;/p&gt;&lt;p&gt;&lt;a href="http://www.blogstack.info/post/etccrond/2016/03/podcast-croniques-cirurgia-de-bootloader"&gt;Leer artículo completo &amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;</content>
-    <dc:creator>Eugenio M. Vigo</dc:creator>
-    <dc:date>2016-03-28T09:41:12Z</dc:date>
   </entry>
 </feed>
 
