@@ -348,7 +348,8 @@ public class GenerateServiceImpl implements GenerateService {
 			if (post.getPublishdate() != null) {
 				e.setPublishedDate(post.getPublishdate().toDate());
 			}
-			String link = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toAbsoluteURI();
+			//String link = service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, Utils.getContext(post, post.fetchParent(Keys.POST_SOURCE_ID))).toAbsoluteURI();
+			String link = post.getUrl();
 			e.setLink(link);
 			e.setTitle(post.getTitle());
 			e.setAuthor(post.getAuthor());

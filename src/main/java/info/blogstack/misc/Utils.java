@@ -81,6 +81,7 @@ public class Utils {
 	}
 	
 	public static String getUrl(MainService service, PostRecord post, SourceRecord source) {
-		return service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, getContext(post, source)).toAbsoluteURI();
+		//return service.getPageRenderLinkSource().createPageRenderLinkWithContext(info.blogstack.pages.Post.class, getContext(post, source)).toAbsoluteURI();
+		return post.getUrl();
 	}
 }
